@@ -2,7 +2,7 @@
 export const SPELLBOOK_ITEMS = {
   book_1star: {
     id: 'book_1star',
-    name: 'Tomo Sagrado: 1★ (Comum)',
+    name: '神聖魔法書：1★（普通）',
     slot: 'consumable',
     category: 'spellbook',
     grade: 'D',
@@ -10,13 +10,13 @@ export const SPELLBOOK_ITEMS = {
     level: 40,
     req: { level: 40 },
     icon: 'spellbooks/spellbook_1star.png',
-    desc: 'Livro sagrado de magia fundamental. Necessário para desbloquear e aprimorar habilidades iniciais da 2ª Classe (Nível 40+).',
+    desc: '基礎神聖魔法書，用於解鎖與強化二轉初期技能（等級 40+）。',
     price: 25000,
     stackable: true
   },
   book_2star: {
     id: 'book_2star',
-    name: 'Tomo Sagrado: 2★ (Raro)',
+    name: '神聖魔法書：2★（稀有）',
     slot: 'consumable',
     category: 'spellbook',
     grade: 'C',
@@ -24,13 +24,13 @@ export const SPELLBOOK_ITEMS = {
     level: 48,
     req: { level: 48 },
     icon: 'spellbooks/spellbook_2star.png',
-    desc: 'Tomo ancestral de magia refinada. Necessário para habilidades nobres e buffs avançados da 2ª Classe (Nível 48+).',
+    desc: '精煉古代魔法書，用於二轉高階技能與增益（等級 48+）。',
     price: 75000,
     stackable: true
   },
   book_3star: {
     id: 'book_3star',
-    name: 'Tomo Sagrado: 3★ (Épico)',
+    name: '神聖魔法書：3★（史詩）',
     slot: 'consumable',
     category: 'spellbook',
     grade: 'B',
@@ -38,13 +38,13 @@ export const SPELLBOOK_ITEMS = {
     level: 56,
     req: { level: 56 },
     icon: 'spellbooks/spellbook_3star.png',
-    desc: 'Grimório lendário das grandes lendas de Aden. Necessário para habilidades de assinatura de B-Grade (Nível 56+).',
+    desc: '記載亞丁傳說的史詩魔法書，用於 B 級代表技能（等級 56+）。',
     price: 250000,
     stackable: true
   },
   book_4star: {
     id: 'book_4star',
-    name: 'Tomo Sagrado: 4★ (Lendário Divino)',
+    name: '神聖魔法書：4★（神聖傳說）',
     slot: 'consumable',
     category: 'spellbook',
     grade: 'A',
@@ -52,13 +52,13 @@ export const SPELLBOOK_ITEMS = {
     level: 76,
     req: { level: 76 },
     icon: 'spellbooks/spellbook_4star.png',
-    desc: 'Tomo dos Deuses Antigos de Einhasad e Gran Kain. Necessário para habilidades supremas da 3ª e 4ª Classe.',
+    desc: '殷海薩與格蘭肯古神之書，用於第三、第四次轉職的終極技能。',
     price: 1000000,
     stackable: true
   },
   book_5star: {
     id: 'book_5star',
-    name: 'Tomo Sagrado: 5★ (Transcendente Primordial)',
+    name: '神聖魔法書：5★（原初超越）',
     slot: 'consumable',
     category: 'spellbook',
     grade: 'S',
@@ -66,7 +66,7 @@ export const SPELLBOOK_ITEMS = {
     level: 90,
     req: { level: 90 },
     icon: 'spellbooks/spellbook_4star.png',
-    desc: 'Tomo supremo de poder primordial e cósmico. Necessário para despertar a Master Ultimate (Lv90).',
+    desc: '蘊含原初宇宙力量的至尊魔法書，用於覺醒大師終極技能（Lv.90）。',
     price: 5000000,
     stackable: true
   }
@@ -75,56 +75,56 @@ export const SPELLBOOK_ITEMS = {
 export const CRYSTAL_ITEMS = {
   crystal_d: {
     id: 'crystal_d',
-    name: 'Cristal: D-Grade',
+    name: '水晶：D 級',
     slot: 'material',
     category: 'material',
     grade: 'D',
     icon: 'materials/crystal_blue_d.png',
-    desc: 'Fragmento cristalino puro obtido da quebra de itens D-Grade. Usado na confecção de Soulshots D e Tomos 1★.',
+    desc: '分解 D 級物品取得的純淨水晶，用於製作 D 級靈魂彈與 1★ 魔法書。',
     price: 600,
     stackable: true
   },
   crystal_c: {
     id: 'crystal_c',
-    name: 'Cristal: C-Grade',
+    name: '水晶：C 級',
     slot: 'material',
     category: 'material',
     grade: 'C',
     icon: 'materials/crystal_green_c.png',
-    desc: 'Fragmento cristalino puro obtido da quebra de itens C-Grade. Usado na confecção de Soulshots C e Tomos 2★.',
+    desc: '分解 C 級物品取得的純淨水晶，用於製作 C 級靈魂彈與 2★ 魔法書。',
     price: 2500,
     stackable: true
   },
   crystal_b: {
     id: 'crystal_b',
-    name: 'Cristal: B-Grade',
+    name: '水晶：B 級',
     slot: 'material',
     category: 'material',
     grade: 'B',
     icon: 'materials/crystal_red_b.png',
-    desc: 'Fragmento cristalino puro obtido da quebra de itens B-Grade. Usado na confecção de Soulshots B e Tomos 3★.',
+    desc: '分解 B 級物品取得的純淨水晶，用於製作 B 級靈魂彈與 3★ 魔法書。',
     price: 7500,
     stackable: true
   },
   crystal_a: {
     id: 'crystal_a',
-    name: 'Cristal: A-Grade',
+    name: '水晶：A 級',
     slot: 'material',
     category: 'material',
     grade: 'A',
     icon: 'materials/crystal_silver_a.png',
-    desc: 'Fragmento cristalino nobre obtido da quebra de itens A-Grade. Usado na confecção de Soulshots A e Tomos 4★.',
+    desc: '分解 A 級物品取得的高級水晶，用於製作 A 級靈魂彈與 4★ 魔法書。',
     price: 25000,
     stackable: true
   },
   crystal_s: {
     id: 'crystal_s',
-    name: 'Cristal: S-Grade',
+    name: '水晶：S 級',
     slot: 'material',
     category: 'material',
     grade: 'S',
     icon: 'materials/crystal_gold_s.png',
-    desc: 'Fragmento cristalino divino de itens S-Grade. Usado na forja de armas sagradas e relíquias supremas.',
+    desc: '分解 S 級物品取得的神聖水晶，用於鍛造神聖武器與至尊遺物。',
     price: 75000,
     stackable: true
   }
