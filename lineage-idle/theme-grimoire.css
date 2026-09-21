@@ -1,0 +1,720 @@
+/* ================================================================
+GRIMOIRE THEME — "O Grimório"
+Tema visual extraído do painel de auditoria: fonte display,
+paleta de cores, sparks/embers subindo, carimbo "CORRIGIDO",
+anel de runas, reveal on scroll, code tokens.
+================================================================ */
+
+
+:root {
+  --g-font-display: 'Cinzel', serif;
+  --g-font-body: 'IBM Plex Sans', sans-serif;
+  --g-font-mono: 'IBM Plex Mono', monospace;
+
+  --g-bg0: #0e0c09;
+  --g-bg1: #14110d;
+  --g-panel: #1a1611;
+  --g-panel2: #211b14;
+  --g-line: #2e2820;
+  --g-line2: #3d3427;
+  --g-ink: #ece2cd;
+  --g-mut: #a5977c;
+  --g-faint: #736753;
+  --g-gold: #d4a94e;
+  --g-goldhi: #f0cd7e;
+
+  /* raridades — use pra tint de bordas/textos de itens */
+  --g-common: #b0b0b0;
+  --g-uncommon: #48bb78;
+  --g-rare: #539bf5;
+  --g-epic: #b180f8;
+  --g-legendary: #f0883e;
+}
+
+/* ---------- fundo geral do jogo ---------- */
+.grimoire-bg {
+  background-color: var(--g-bg0);
+  color: var(--g-ink);
+  font-family: var(--g-font-body);
+  background-image:
+    radial-gradient(1100px 700px at 85% -10%, rgba(212, 169, 78, 0.09), transparent 60%),
+    radial-gradient(900px 600px at -10% 30%, rgba(83, 155, 245, 0.05), transparent 55%),
+    radial-gradient(1000px 800px at 60% 110%, rgba(240, 136, 62, 0.06), transparent 60%);
+  background-attachment: fixed;
+}
+
+.grimoire-bg ::selection { background: rgba(212, 169, 78, 0.35); color: #fff8e6; }
+
+/* ---------- scrollbar tema ---------- */
+.grimoire-bg, .grimoire-scope {
+  scrollbar-width: thin;
+  scrollbar-color: var(--g-line2) transparent;
+}
+.grimoire-bg::-webkit-scrollbar, .grimoire-scope::-webkit-scrollbar { width: 8px; height: 8px; }
+.grimoire-bg::-webkit-scrollbar-thumb, .grimoire-scope::-webkit-scrollbar-thumb {
+  background: var(--g-line2);
+  border-radius: 8px;
+}
+
+/* ---------- tipografia ---------- */
+.grimoire-title {
+  font-family: var(--g-font-display);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--g-ink);
+}
+.grimoire-subtitle {
+  font-family: var(--g-font-display);
+  font-weight: 700;
+  color: var(--g-mut);
+}
+.grimoire-overline {
+  font-family: var(--g-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--g-gold);
+}
+.text-gold { color: var(--g-gold); }
+.text-goldhi { color: var(--g-goldhi); }
+.text-mut { color: var(--g-mut); }
+.text-faint { color: var(--g-faint); }
+
+/* paineis / cards no estilo do grimorio */
+.grimoire-panel {
+  background: var(--g-panel);
+  border: 1px solid var(--g-line);
+}
+.grimoire-panel-head {
+  background: var(--g-panel2);
+  border-bottom: 1px solid var(--g-line);
+}
+.grimoire-btn {
+  font-family: var(--g-font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border: 1px solid rgba(212, 169, 78, 0.7);
+  background: rgba(212, 169, 78, 0.1);
+  color: var(--g-goldhi);
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.grimoire-btn:hover {
+  background: rgba(212, 169, 78, 0.2);
+  box-shadow: 0 0 34px -8px rgba(212, 169, 78, 0.6);
+}
+
+/* ---------- noise overlay (grao de pergaminho) ---------- */
+.grimoire-noise::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* ---------- embers / brasas de fogo subindo --- */
+@keyframes g-ember-rise {
+  0%   { transform: translate3d(0, 0, 0) scale(1); opacity: 0; }
+  8%   { opacity: var(--eo, 0.85); }
+  85%  { opacity: calc(var(--eo, 0.85) * 0.5); }
+  100% { transform: translate3d(var(--ex, 30px), -110vh, 0) scale(0.2); opacity: 0; }
+}
+
+/* Container de embers — absolute no #game que já cobre 100% da tela */
+/* Em Shadow DOM, position:fixed fica confinado ao shadow host; usar absolute é mais confiável */
+.g-ember-global {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;  /* acima do fundo, abaixo da UI (panels começam em z-index: 20+) */
+}
+
+/* Container local (dentro de um elemento específico) */
+.ember-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.ember {
+  position: absolute;
+  bottom: 0;
+  width: var(--es, 4px);
+  height: var(--es, 4px);
+  border-radius: 9999px;
+  background: var(--ec, #f0cd7e);
+  box-shadow: 0 0 calc(var(--es, 4px) * 4) var(--ec, #f0cd7e),
+              0 0 calc(var(--es, 4px) * 8) var(--ec, #f0cd7e);
+  animation: g-ember-rise var(--ed, 12s) linear infinite;
+  animation-delay: var(--edel, 0s);
+  will-change: transform, opacity;
+}
+
+/* ---------- anel de runas giratorio (decorativo) ---------- */
+@keyframes g-spin-slow { to { transform: rotate(360deg); } }
+.rune-ring { animation: g-spin-slow 140s linear infinite; }
+.rune-ring-rev { animation: g-spin-slow 90s linear infinite reverse; }
+
+/* ---------- ticker infinito (ex: feed de drops) ---------- */
+@keyframes g-ticker-x { to { transform: translateX(-50%); } }
+.ticker-track { display: flex; width: max-content; animation: g-ticker-x 46s linear infinite; }
+.ticker-track:hover { animation-play-state: paused; }
+
+/* ---------- reveal ao rolar a tela ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.65, 0.25, 1), transform 0.7s cubic-bezier(0.2, 0.65, 0.25, 1);
+}
+.reveal.is-in { opacity: 1; transform: none; }
+
+.mask-line { display: block; overflow: hidden; }
+.mask-line > span {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 0.9s cubic-bezier(0.16, 0.8, 0.24, 1);
+}
+.mask-line.is-in > span { transform: translateY(0); }
+
+/* ---------- carimbo "CORRIGIDO" / "LENDÁRIO" / "NOVO" ---------- */
+@keyframes g-stamp-in {
+  0% { opacity: 0; transform: rotate(-14deg) scale(1.9); }
+  60% { opacity: 1; transform: rotate(-8deg) scale(0.94); }
+  100% { opacity: 1; transform: rotate(-8deg) scale(1); }
+}
+.stamp {
+  display: inline-block;
+  pointer-events: none;
+  user-select: none;
+  border: 3px double var(--stamp-color, var(--g-uncommon));
+  padding: 8px 20px;
+  animation: g-stamp-in 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+.stamp-text {
+  font-family: var(--g-font-display);
+  font-weight: 900;
+  font-size: 24px;
+  letter-spacing: 0.18em;
+  text-align: center;
+  color: var(--stamp-color, var(--g-uncommon));
+  margin: 0;
+}
+.stamp-sub {
+  font-family: var(--g-font-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  text-align: center;
+  color: var(--stamp-color, var(--g-uncommon));
+  opacity: 0.7;
+  margin: 0;
+}
+/* variantes de cor prontas: <div class="stamp stamp-legendary"> */
+.stamp-legendary { --stamp-color: var(--g-legendary); }
+.stamp-epic { --stamp-color: var(--g-epic); }
+.stamp-rare { --stamp-color: var(--g-rare); }
+.stamp-uncommon { --stamp-color: var(--g-uncommon); }
+.stamp-common { --stamp-color: var(--g-common); }
+
+/* ---------- carimbo IDLE no título do jogo ---------- */
+#game-title .title-idle-stamp {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+#game-title .title-idle-stamp .stamp-idle {
+  display: inline-block;
+  border: 2.5px double var(--g-legendary, #f0883e);
+  padding: 2px 9px;
+  transform: rotate(-6deg);
+  animation: g-stamp-in 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+  animation-delay: 0.4s;
+  background: rgba(240, 136, 62, 0.06);
+}
+#game-title .stamp-idle-text {
+  font-family: 'Cinzel', 'IBM Plex Mono', monospace;
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--g-legendary, #f0883e);
+  display: block;
+  line-height: 1;
+}
+#game-title .stamp-idle-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  letter-spacing: 0.25em;
+  color: var(--g-legendary, #f0883e);
+  opacity: 0.7;
+  display: block;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* ---------- gemas / icones com pulso de brilho ---------- */
+@keyframes g-gem-pulse {
+  0%, 100% { filter: drop-shadow(0 0 3px currentColor); }
+  50% { filter: drop-shadow(0 0 10px currentColor); }
+}
+.gem-live { animation: g-gem-pulse 3.2s ease-in-out infinite; }
+
+/* ---------- hover lift em cards de item ---------- */
+.lift {
+  transition: transform 0.35s cubic-bezier(0.2, 0.65, 0.25, 1), border-color 0.35s, box-shadow 0.35s;
+}
+.lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 44px -18px rgba(0, 0, 0, 0.65);
+}
+
+/* ---------- syntax tokens (se voce mostrar codigo/log no jogo) ---------- */
+.tk-c { color: #7d7159; font-style: italic; }
+.tk-s { color: #b8cc8e; }
+.tk-n { color: #e0b06a; }
+.tk-k { color: #e0917f; }
+.tk-p { color: #c9b8e8; }
+
+/* ---------- respeita usuarios com reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .ember, .ticker-track, .rune-ring, .rune-ring-rev, .gem-live { animation: none !important; }
+  .ember { display: none !important; }
+  .reveal, .mask-line > span { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .stamp { animation: none !important; opacity: 1; transform: rotate(-8deg); }
+  .lift, .lift:hover { transform: none; transition: none; }
+}
+
+/* ================================================================
+   AAA DARK FANTASY LINEAGE II DESIGN SYSTEM
+   Royal Gold Frames, Obsidian Stone, Glossy Gauges, +16 Auras, Master Dock
+================================================================ */
+
+/* ---------- Molduras Reais em Obsidiana & Mithril ---------- */
+.l2-gold-frame {
+  position: relative;
+  background: linear-gradient(180deg, #16131e 0%, #08070a 100%) !important;
+  border: 1px solid #364b66 !important;
+  border-top-color: rgba(180, 210, 240, 0.25) !important;
+  box-shadow: 
+    0 0 0 1px rgba(0, 0, 0, 0.9),
+    0 0 16px rgba(91, 127, 168, 0.15),
+    inset 0 0 15px rgba(0, 0, 0, 0.8) !important;
+  border-radius: 6px;
+}
+
+.l2-gold-frame::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border: 1px solid rgba(91, 127, 168, 0.12);
+  pointer-events: none;
+  border-radius: 4px;
+}
+
+/* Cantoneiras decorativas de filigrana */
+.l2-corner-decor {
+  position: relative;
+}
+.l2-corner-decor::after {
+  content: "◆";
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  font-size: 10px;
+  color: #5b7fa8;
+  text-shadow: 0 0 6px rgba(91, 127, 168, 0.8);
+  pointer-events: none;
+}
+
+/* ================================================================
+   LUXURY MASTER NAVIGATION DOCK (4 PILARES DE ADEN)
+================================================================ */
+.pillar-dock-container {
+  display: flex !important;
+  flex-direction: column !important;
+  background: 
+    radial-gradient(ellipse at 50% 0%, rgba(91, 127, 168, 0.10), transparent 75%),
+    linear-gradient(180deg, #1e2a3a 0%, #08070a 100%) !important;
+  border-bottom: 2px solid #364b66 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.8) !important;
+  padding: 6px 8px 8px 8px !important;
+  gap: 8px !important;
+  z-index: 25 !important;
+  border-top-left-radius: 6px !important;
+  border-top-right-radius: 6px !important;
+  box-sizing: border-box !important;
+}
+
+.pillar-master-tabs {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 6px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.pillar-tab-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  padding: 8px 6px !important;
+  background: linear-gradient(180deg, #1e2a3a 0%, #0b0e14 100%) !important;
+  border-top: 1px solid rgba(180, 210, 240, 0.12) !important;
+  border-left: 1px solid rgba(180, 210, 240, 0.05) !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.5) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.7) !important;
+  border-radius: 5px !important;
+  color: #a0b0c4 !important;
+  cursor: pointer !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.25, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 6px rgba(0, 0, 0, 0.6) !important;
+  text-align: center !important;
+  user-select: none !important;
+}
+
+.pillar-tab-btn:hover {
+  background: linear-gradient(180deg, #364b66 0%, #1e2a3a 100%) !important;
+  border-top-color: rgba(180, 210, 240, 0.2) !important;
+  color: #d0e0f0 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 3px 8px rgba(0, 0, 0, 0.7) !important;
+  transform: translateY(-1px) !important;
+}
+
+.pillar-tab-btn.active {
+  background: linear-gradient(180deg, #5b7fa8 0%, #364b66 100%) !important;
+  border-top-color: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 16px rgba(91, 127, 168, 0.35) !important;
+  text-shadow: 0 0 8px rgba(91, 127, 168, 0.4) !important;
+}
+
+.pillar-tab-btn.active::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 15% !important;
+  width: 70% !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #5b7fa8, rgba(180, 210, 240, 0.8), #5b7fa8, transparent) !important;
+  box-shadow: 0 0 8px rgba(91, 127, 168, 0.35) !important;
+}
+
+.pillar-icon {
+  font-size: 13px !important;
+  line-height: 1 !important;
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.8)) !important;
+}
+
+.pillar-title {
+  font-family: 'Cinzel', serif !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  color: inherit !important;
+  line-height: 1 !important;
+}
+
+/* Temas individuais sutis */
+.pillar-tab-btn[data-pillar="combat"].active {
+  background: linear-gradient(180deg, #632b13 0%, #2e1205 100%) !important;
+  border-color: #f97316 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0 16px rgba(249, 115, 22, 0.5) !important;
+}
+
+.pillar-tab-btn[data-pillar="character"].active {
+  background: linear-gradient(180deg, #1e3a8a 0%, #0d172e 100%) !important;
+  border-color: #60a5fa !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0 16px rgba(96, 165, 250, 0.5) !important;
+}
+
+.pillar-tab-btn[data-pillar="economy"].active {
+  background: linear-gradient(180deg, #6b4d1b 0%, #2f1f0a 100%) !important;
+  border-color: #ffd700 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0 16px rgba(255, 215, 0, 0.5) !important;
+}
+
+.pillar-tab-btn[data-pillar="glory"].active {
+  background: linear-gradient(180deg, #531c9a 0%, #1f0b3b 100%) !important;
+  border-color: #c084fc !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0 16px rgba(192, 132, 252, 0.5) !important;
+}
+
+/* ---------- Subtab Ribbon & Chips (Expandable Drawer) ---------- */
+@keyframes slideDownSubtabs {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scaleY(0.95);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    max-height: 300px;
+  }
+}
+
+.pillar-subtabs-strip {
+  display: none;
+  gap: 4px 6px !important;
+  overflow: visible !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding: 6px 6px !important;
+  animation: slideDownSubtabs 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  background: rgba(10, 12, 16, 0.85) !important;
+  border-radius: 6px !important;
+  border: 1px solid rgba(91, 127, 168, 0.18) !important;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.7) !important;
+  box-sizing: border-box !important;
+}
+
+.pillar-subtabs-strip.active {
+  display: flex !important;
+  max-height: none !important;
+}
+
+.pillar-subtabs-strip.collapsed,
+.pillar-subtabs-strip[style*="display: none"],
+.pillar-subtabs-strip[style*="display:none"] {
+  display: none !important;
+}
+
+.pillar-subtabs-strip::-webkit-scrollbar { height: 4px !important; }
+.pillar-subtabs-strip::-webkit-scrollbar-thumb {
+  background: rgba(91, 127, 168, 0.4) !important;
+  border-radius: 4px !important;
+}
+
+.subtab-pill-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 5px 11px !important;
+  background: linear-gradient(180deg, #1c1712 0%, #0f0d0a 100%) !important;
+  border: 1px solid #3d3225 !important;
+  border-radius: 5px !important;
+  color: #908578 !important;
+  font-family: 'IBM Plex Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+  flex: 0 1 auto !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.25, 1) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
+  position: relative !important;
+  user-select: none !important;
+}
+
+.subtab-pill-btn:hover {
+  background: linear-gradient(180deg, #2a231a 0%, #1c1712 100%) !important;
+  border-color: #59493a !important;
+  color: #c5bfb0 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.6) !important;
+}
+
+.subtab-pill-btn.active {
+  background: linear-gradient(180deg, #1e2a3a 0%, #0e1218 100%) !important;
+  border-color: #5b7fa8 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 10px rgba(91, 127, 168, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+.subtab-pill-btn.active::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 20% !important;
+  width: 60% !important;
+  height: 2px !important;
+  background: #5b7fa8 !important;
+  box-shadow: 0 0 6px rgba(91, 127, 168, 0.5) !important;
+}
+
+/* Badges de notificação estilizados como gemas */
+.tab-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 14px !important;
+  height: 14px !important;
+  padding: 0 3px !important;
+  background: linear-gradient(180deg, #ef4444 0%, #991b1b 100%) !important;
+  color: #fff !important;
+  font-size: 9px !important;
+  font-weight: 900 !important;
+  border-radius: 10px !important;
+  border: 1px solid #fca5a5 !important;
+  box-shadow: 0 0 6px #ef4444 !important;
+  margin-left: 2px !important;
+  animation: pulse 1.5s infinite !important;
+}
+
+/* ---------- Gauges de Status Autênticos (Lineage II Gloss) ---------- */
+.l2-gauge-slot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.l2-gauge-bezel {
+  position: relative;
+  flex: 1;
+  height: 18px;
+  background: #080706;
+  border: 1px solid #4a3a25;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.9), 0 1px 0 rgba(255,255,255,0.05);
+  overflow: hidden;
+}
+
+.l2-gauge-fill {
+  height: 100%;
+  transition: width 0.35s cubic-bezier(0.1, 0.9, 0.2, 1);
+  position: relative;
+}
+
+/* Brilho superior de vidro nos gauges */
+.l2-gauge-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.05) 100%);
+  pointer-events: none;
+}
+
+.l2-gauge-hp-fill {
+  background: linear-gradient(180deg, #ef4444 0%, #b91c1c 50%, #7f1d1d 100%);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+.l2-gauge-mp-fill {
+  background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 50%, #172554 100%);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.l2-gauge-cp-fill {
+  background: linear-gradient(180deg, #f59e0b 0%, #b45309 50%, #78350f 100%);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+.l2-gauge-xp-fill {
+  background: linear-gradient(180deg, #c084fc 0%, #9333ea 50%, #581c87 100%);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+}
+
+/* Pulso de perigo em vida baixa (<25%) */
+@keyframes hp-critical-pulse {
+  0%, 100% { box-shadow: 0 0 8px #ef4444; filter: brightness(1); }
+  50% { box-shadow: 0 0 20px #ef4444, inset 0 0 10px #ff0000; filter: brightness(1.3); }
+}
+.hp-critical {
+  animation: hp-critical-pulse 0.9s infinite ease-in-out;
+}
+
+/* ---------- Auras Lendárias de Encantamento (+4 a +16) ---------- */
+@keyframes aura-violet-lightning {
+  0% { box-shadow: 0 0 6px #a855f7, 0 0 12px #9333ea, inset 0 0 6px #c084fc; border-color: #d8b4fe; }
+  50% { box-shadow: 0 0 18px #c084fc, 0 0 28px #7e22ce, inset 0 0 12px #e9d5ff; border-color: #f3e8ff; }
+  100% { box-shadow: 0 0 6px #a855f7, 0 0 12px #9333ea, inset 0 0 6px #c084fc; border-color: #d8b4fe; }
+}
+
+@keyframes aura-crimson-fire {
+  0% { box-shadow: 0 0 5px #ef4444, 0 0 10px #b91c1c; border-color: #fca5a5; }
+  50% { box-shadow: 0 0 14px #f87171, 0 0 22px #991b1b; border-color: #fecaca; }
+  100% { box-shadow: 0 0 5px #ef4444, 0 0 10px #b91c1c; border-color: #fca5a5; }
+}
+
+@keyframes aura-cyan-radiance {
+  0% { box-shadow: 0 0 4px #38bdf8; border-color: #7dd3fc; }
+  50% { box-shadow: 0 0 10px #0ea5e9; border-color: #bae6fd; }
+  100% { box-shadow: 0 0 4px #38bdf8; border-color: #7dd3fc; }
+}
+
+.enchant-halo-16 {
+  animation: aura-violet-lightning 1.4s infinite ease-in-out !important;
+  border-width: 2px !important;
+  position: relative;
+}
+.enchant-halo-16::before {
+  content: "⚡";
+  position: absolute;
+  top: -8px;
+  right: -6px;
+  font-size: 10px;
+  color: #f3e8ff;
+  text-shadow: 0 0 6px #c084fc;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.enchant-halo-10 {
+  animation: aura-crimson-fire 1.8s infinite ease-in-out !important;
+  border-width: 1.5px !important;
+}
+
+.enchant-halo-4 {
+  animation: aura-cyan-radiance 2.2s infinite ease-in-out !important;
+}
+
+/* ---------- Soulshot Visual Flair & Combate ---------- */
+@keyframes soulshot-flare {
+  0% { transform: scale(0.95); filter: drop-shadow(0 0 0px #ffd700); }
+  50% { transform: scale(1.08); filter: drop-shadow(0 0 18px #ffd700) drop-shadow(0 0 30px #f59e0b); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 4px #ffd700); }
+}
+
+.soulshot-charged {
+  animation: soulshot-flare 1.2s infinite ease-in-out;
+  border-color: #ffd700 !important;
+}
+
+/* Danos Críticos de Combate */
+.crit-hit-text {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 20px;
+  color: #ffeb3b;
+  text-shadow: 0 0 8px #f57f17, 0 0 16px #e65100, 2px 2px 2px #000;
+  animation: g-stamp-in 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+}
+
+/* ---------- Cartões de Item & Tooltip Lineage II ---------- */
+.l2-tooltip-frame {
+  background: radial-gradient(circle at top, #241d14 0%, #120e09 100%) !important;
+  border: 1.5px solid #d4a94e !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.9), 0 0 15px rgba(212,169,78,0.2) !important;
+}
+
+.l2-grade-s { color: #f59e0b; font-weight: 800; text-shadow: 0 0 6px rgba(245, 158, 11, 0.6); }
+.l2-grade-a { color: #ec4899; font-weight: 800; text-shadow: 0 0 6px rgba(236, 72, 153, 0.6); }
+.l2-grade-b { color: #3b82f6; font-weight: 800; text-shadow: 0 0 6px rgba(59, 130, 246, 0.6); }
+.l2-grade-c { color: #10b981; font-weight: 800; text-shadow: 0 0 6px rgba(16, 185, 129, 0.6); }
+.l2-grade-d { color: #9ca3af; font-weight: 800; }
+

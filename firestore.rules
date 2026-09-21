@@ -1,0 +1,205 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ─── Helpers ────────────────────────────────────────────────────────────
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isRegistered() {
+      return isAuthenticated()
+          && request.auth.token.firebase.sign_in_provider != 'anonymous';
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function ownsCharacter(characterId) {
+      return isAuthenticated()
+          && exists(/databases/$(database)/documents/characters/$(characterId))
+          && get(/databases/$(database)/documents/characters/$(characterId)).data.ownerUid == request.auth.uid;
+    }
+
+    function noPrivilegeEscalation() {
+      return resource == null 
+        ? (!('privilegeLevel' in request.resource.data) && !('role' in request.resource.data))
+        : ((!('privilegeLevel' in request.resource.data) || !('privilegeLevel' in resource.data) || request.resource.data.privilegeLevel == resource.data.privilegeLevel)
+           && (!('role' in request.resource.data) || !('role' in resource.data) || request.resource.data.role == resource.data.role));
+    }
+
+    // Validação estrita para Gate 4: cliente NUNCA cria bot!
+    function isRealPlayerCreation(data) {
+      return data.playerType == 'real' 
+          && data.entityType == 'player'
+          && data.ownerUid == request.auth.uid;
+    }
+
+    // Validação estrita para Gate 2: campos de identidade são imutáveis após CREATE
+    function immutableCharacterFieldsUnchanged() {
+      return request.resource.data.ownerUid == resource.data.ownerUid
+          && (!('accountId' in resource.data) || !('accountId' in request.resource.data) || request.resource.data.accountId == resource.data.accountId)
+          && request.resource.data.characterId == resource.data.characterId
+          && request.resource.data.entityType == resource.data.entityType
+          && request.resource.data.playerType == resource.data.playerType
+          && (!('createdAt' in resource.data) || !('createdAt' in request.resource.data) || request.resource.data.createdAt == resource.data.createdAt);
+    }
+
+    function isServerAdmin() {
+      return isAuthenticated() && (
+        (('email' in request.auth.token) && request.auth.token.email in ['duuh.alaminos@gmail.com', 'eduardol.alaminos@gmail.com']) ||
+        (('admin' in request.auth.token) && request.auth.token.admin == true)
+      );
+    }
+
+    // ─── Contas de Usuário (accounts) ────────────────────────────────────────
+    match /accounts/{accountId} {
+      allow read: if isAuthenticated() && (resource.data.ownerUid == request.auth.uid || isServerAdmin());
+      allow create: if isServerAdmin() || (isAuthenticated() && request.resource.data.ownerUid == request.auth.uid && noPrivilegeEscalation());
+      allow update: if isServerAdmin() || (isAuthenticated() && resource.data.ownerUid == request.auth.uid 
+                    && request.resource.data.ownerUid == resource.data.ownerUid 
+                    && (!('accountId' in resource.data) || request.resource.data.accountId == resource.data.accountId) 
+                    && noPrivilegeEscalation());
+      allow delete: if isServerAdmin(); // Permite exclusão exclusivamente em manutenção administrativa
+    }
+
+    // ─── Reserva Canônica de Nomes (character_names) ─────────────────────────
+    match /character_names/{nameLower} {
+      allow read: if isAuthenticated();
+      // Criação atômica: só permite criar se não existir previamente ou se admin
+      allow create: if isServerAdmin() || (isAuthenticated() && request.resource.data.ownerUid == request.auth.uid);
+      allow update: if isServerAdmin(); // Nome reservado só pode ser alterado por admin
+      allow delete: if isServerAdmin() || (isAuthenticated() && resource.data.ownerUid == request.auth.uid);
+    }
+
+    // ─── Identidade Canônica do Personagem (characters) ───────────────────────
+    match /characters/{characterId} {
+      allow read: if isAuthenticated();
+      // CREATE: valida request.resource.data (Gate 3 e Gate 4) ou admin
+      allow create: if isServerAdmin() || (isAuthenticated() && isRealPlayerCreation(request.resource.data) && noPrivilegeEscalation());
+      // UPDATE: valida resource.data vs request.resource.data (Gate 2) ou admin
+      allow update: if isServerAdmin() || (isAuthenticated() && resource.data.ownerUid == request.auth.uid 
+                    && immutableCharacterFieldsUnchanged() 
+                    && noPrivilegeEscalation());
+      allow delete: if isServerAdmin() || (isAuthenticated() && resource.data.ownerUid == request.auth.uid);
+    }
+
+    // ─── Presença em Tempo Real (presence) — Gate 1 ──────────────────────────
+    match /presence/{characterId} {
+      allow read: if isAuthenticated();
+      allow create: if isServerAdmin() || (isAuthenticated() && request.resource.data.ownerUid == request.auth.uid);
+      allow update: if isServerAdmin() || (isAuthenticated() 
+                    && (!('ownerUid' in resource.data) || resource.data.ownerUid == request.auth.uid)
+                    && request.resource.data.ownerUid == request.auth.uid);
+      allow delete: if isServerAdmin() || (isAuthenticated() && resource.data.ownerUid == request.auth.uid);
+    }
+
+    // ─── Relações de Amizade (friends) ───────────────────────────────────────
+    match /friends/{friendshipId} {
+      allow read: if isAuthenticated();
+      allow create: if isServerAdmin() || (isRegistered()
+                    && request.resource.data.characterAId != request.resource.data.characterBId
+                    && (ownsCharacter(request.resource.data.characterAId) || ownsCharacter(request.resource.data.characterBId)));
+      allow update: if isServerAdmin();
+      allow delete: if isServerAdmin() || (isRegistered()
+                    && (ownsCharacter(resource.data.characterAId) || ownsCharacter(resource.data.characterBId)));
+    }
+
+    match /friend_requests/{requestId} {
+      allow read: if isAuthenticated();
+      allow create, update, delete: if isServerAdmin();
+    }
+
+    // ─── Mentoria Oficial (mentorships) ─────────────────────────────────────
+    match /mentorships/{mentorshipId} {
+      allow read: if isAuthenticated();
+      allow create: if isServerAdmin() || (isRegistered() && ownsCharacter(request.resource.data.apprenticeCharacterId));
+      allow update, delete: if isServerAdmin() || (isRegistered() && ownsCharacter(resource.data.apprenticeCharacterId));
+    }
+
+    match /mentorship_requests/{requestId} {
+      allow read: if isAuthenticated();
+      allow create, update, delete: if isServerAdmin();
+    }
+
+    // ─── Sistema de Indicação / Referral (referrals) ─────────────────────────
+    match /referrals/{referralId} {
+      allow read: if isAuthenticated();
+      allow create: if isServerAdmin() || (isRegistered() && request.resource.data.invitedUid == request.auth.uid);
+      allow update, delete: if isServerAdmin();
+    }
+
+    // ─── Lista de Bloqueio (blocks) ──────────────────────────────────────────
+    match /blocks/{blockId} {
+      allow read: if isAuthenticated() && (resource == null || resource.data.ownerUid == request.auth.uid || isServerAdmin());
+      allow create: if isAuthenticated() && request.resource.data.ownerUid == request.auth.uid;
+      allow delete: if (isAuthenticated() && resource.data.ownerUid == request.auth.uid) || isServerAdmin();
+    }
+
+    // ─── Clãs Imperiais e Membros ────────────────────────────────────────────
+    match /clans/{clanId} {
+      allow read: if isAuthenticated();
+      allow write, delete: if isServerAdmin();
+    }
+
+    match /clan_members/{membershipId} {
+      allow read: if isAuthenticated();
+      allow write, delete: if isServerAdmin();
+    }
+
+    // ─── Snapshot Competitivo de Rankings (pvp_rankings) ────────────────────
+    match /pvp_rankings/{entryId} {
+      allow read: if isAuthenticated();
+      allow create: if isServerAdmin() || (isRegistered() && request.resource.data.ownerUid == request.auth.uid);
+      allow update: if isServerAdmin() || (isRegistered()
+                    && resource.data.ownerUid == request.auth.uid
+                    && request.resource.data.ownerUid == resource.data.ownerUid);
+      allow delete: if isServerAdmin();
+    }
+
+    // ─── Inscrições na Grand Olympiad ───────────────────────────────────────
+    match /olympiad_registrations/{regId} {
+      allow read: if isAuthenticated();
+      allow create, update, delete: if isServerAdmin();
+    }
+
+    // ─── Mercado Central de Giran — Anúncios P2P ────────────────────────────
+    match /market_listings/{listingId} {
+      allow read: if isAuthenticated();
+      allow create: if isServerAdmin() || (isRegistered() && request.resource.data.sellerId == request.auth.uid);
+      allow update: if isServerAdmin() || (isRegistered()
+                    && resource.data.sellerId == request.auth.uid
+                    && request.resource.data.sellerId == resource.data.sellerId);
+      allow delete: if isServerAdmin() || (isRegistered() && resource.data.sellerId == request.auth.uid);
+    }
+
+    // ─── Mercado Central de Giran — Registro de Vendas ──────────────────────
+    match /market_sales/{sellerKey} {
+      allow read: if isAuthenticated();
+      allow write, delete: if isServerAdmin();
+    }
+
+    // ─── Metadados Globais do Servidor ──────────────────────────────────────
+    match /server_meta/{docId} {
+      allow read: if isAuthenticated();
+      allow write, delete: if isServerAdmin();
+    }
+
+    // ─── Logs de Auditoria do Sistema ───────────────────────────────────────
+    match /audit_logs/{logId} {
+      allow read: if isServerAdmin();
+      allow create: if isAuthenticated();
+      allow delete: if isServerAdmin();
+    }
+
+    // ─── Coleção Legada de Usuários (Fase 1 de Migração) ─────────────────────
+    // Mantida para compatibilidade transitória não-destrutiva
+    match /users/{userId} {
+      allow read: if isAuthenticated();
+      allow write: if (isOwner(userId) && noPrivilegeEscalation()) || isServerAdmin();
+      allow delete: if (isAuthenticated() && isOwner(userId)) || isServerAdmin();
+    }
+  }
+}

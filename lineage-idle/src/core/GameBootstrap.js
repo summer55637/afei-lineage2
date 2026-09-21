@@ -1,0 +1,148 @@
+/**
+ * GameBootstrap.js — Orquestrador Central de Inicialização e Ciclo de Vida do Lineage Idle.
+ *
+ * Responsável por executar o boot em ordem determinística:
+ * 1. Definir Root do Shadow DOM
+ * 2. Carregar Dados de Jogo (Items, Classes, Zonas, Monstros)
+ * 3. Inicializar Estado (StateManager / LocalStorage / Default)
+ * 4. Inicializar Personagem e Stats
+ * 5. Conectar EventBus e UI Passiva
+ * 6. Iniciar Combate e Loops Globais
+ */
+
+import EventBus from './EventBus.js';
+import { setRoot as setDomRoot, _intervals, addTrackedListener, cleanupTracked, el } from './DomHelpers.js';
+import { setRoot as setMainRoot, bindEvents } from '../../main.js';
+import { getState, setState, loadState, saveState, DEFAULT_STATE, applyStarterKit } from './StateManager.js';
+import { getStats, getClass } from '../engine/StatsEngine.js';
+import { startCombat, stopCombat } from '../engine/CombatEngine.js';
+import { updateAllUI } from '../ui/index.js';
+import { CommunityCapService } from '../services/CommunityCapService.js';
+
+let isBootstrapped = false;
+
+/**
+ * Orquestra a inicialização completa do jogo no Shadow DOM.
+ * @param {Document|ShadowRoot} shadowRoot
+ */
+export async function bootstrap(shadowRoot) {
+  if (shadowRoot) {
+    setDomRoot(shadowRoot);
+    setMainRoot(shadowRoot);
+  }
+
+  try {
+    // Vincula todos os event listeners aos botões do Shadow DOM
+    bindEvents();
+    // 1. Carrega o estado salvo ou inicializa padrão
+    const hasSave = loadState();
+    let state = getState();
+
+    // 2. Se for novo jogador ou personagem recém-resetado
+    const isPendingCreation = typeof localStorage !== 'undefined' && localStorage.getItem('aden_pending_char_creation') === '1';
+    if (!hasSave || !state.race || !state.class || isPendingCreation) {
+      if (typeof localStorage !== 'undefined') localStorage.removeItem('aden_pending_char_creation');
+      state.race = state.race || 'human';
+      state.class = state.class || 'fighter';
+      
+      applyStarterKit(state, state.race, state.class, state.charName || 'Tristan', state.gender || 'M');
+      setState(state);
+      saveState(true);
+
+      // Dispara abertura imediata do seletor/criador de personagem
+      if (typeof window !== 'undefined' && typeof window.onOpenCharacterCreationModal === 'function') {
+        setTimeout(() => {
+          window.onOpenCharacterCreationModal({
+            charName: state.charName || 'Tristan',
+            race: state.race || 'human',
+            class: state.class || 'fighter',
+            gender: state.gender || 'M'
+          });
+        }, 150);
+      }
+    }
+
+    state.startTime = state.startTime || Date.now();
+
+    // Inicializa o Gerenciador de CAP Global e Metas Comunitárias
+    try {
+      CommunityCapService.init({ updateAllUI });
+    } catch (e) {
+      console.warn('[GameBootstrap] Erro ao iniciar CommunityCapService:', e);
+    }
+
+    // 3. Conecta o EventBus para reatividade da UI passiva
+    EventBus.off('state:updated');
+    EventBus.on('state:updated', (newState) => {
+      try {
+        if (typeof window !== 'undefined' && typeof window.updateAllUI === 'function') {
+          window.updateAllUI();
+        } else {
+          updateAllUI(newState);
+        }
+      } catch (err) {
+        console.warn('[GameBootstrap] Erro na atualização reativa da UI:', err);
+      }
+    });
+
+    // 4. Força renderização inicial de toda a UI
+    updateAllUI(state);
+
+    // 5. Inicia o combate se houver uma zona selecionada
+    if (state.zone) {
+      startCombat(state);
+    }
+
+    // 6. Registra os loops de tempo, save automático e relógio
+    _intervals.push(setInterval(() => {
+      const s = getState();
+      const now = Date.now();
+      const startTime = Number(s.startTime) || now;
+      const totalPlaytime = Number(s.totalPlaytime) || 0;
+      const elapsed = Math.max(0, Math.floor((now - startTime + totalPlaytime) / 1000));
+      const h = Math.floor(elapsed / 3600);
+      const m = Math.floor((elapsed % 3600) / 60);
+      const sec = elapsed % 60;
+      const clockEl = el('clock');
+      if (clockEl) {
+        clockEl.textContent = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+      }
+    }, 1000));
+
+    _intervals.push(setInterval(() => {
+      saveState(false);
+    }, 5000));
+
+    // 7. Configura listeners de unload para salvamento na nuvem/local (Flash-Save Imediato)
+    const syncOnUnload = () => {
+      saveState(true, true);
+      if (typeof window !== 'undefined' && typeof window.saveCloudOnUnload === 'function') {
+        window.saveCloudOnUnload();
+      }
+    };
+
+    const targetDoc = typeof document !== 'undefined' ? document : null;
+    if (targetDoc) {
+      addTrackedListener(window, 'beforeunload', syncOnUnload);
+      addTrackedListener(window, 'pagehide', syncOnUnload);
+      addTrackedListener(targetDoc, 'visibilitychange', () => {
+        if (targetDoc.visibilityState === 'hidden') syncOnUnload();
+      });
+    }
+
+    isBootstrapped = true;
+    console.log('[GameBootstrap] Jogo inicializado com sucesso em modo modular reativo!');
+  } catch (err) {
+    console.error('[GameBootstrap] Falha crítica na inicialização:', err);
+  }
+}
+
+/**
+ * Finaliza os loops e desfaz inscrições de evento ao desmontar o jogo.
+ */
+export function destroyBootstrap() {
+  stopCombat();
+  cleanupTracked();
+  isBootstrapped = false;
+  console.log('[GameBootstrap] Recursos limpos e destruídos.');
+}

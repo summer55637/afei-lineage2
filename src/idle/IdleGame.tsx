@@ -1,0 +1,350 @@
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+
+// Side-effect import FIRST so window.GameData exists before main.js evaluates.
+// @ts-ignore -- plain JS module, no type declarations
+import "../../lineage-idle/src/data/items/index.js";
+
+import "../../lineage-idle/src/data/classes/index.js";
+
+// @ts-ignore -- Adapta CLASSES_ECHO.skills[] para SKILL_DEFS_ECHO / CLASS_SKILLS_ECHO / SKILL_TREE_LAYOUT_ECHO
+//               que o engine (main.js) precisa. Deve vir DEPOIS de classes_echo.js e ANTES de main.js.
+import "../../lineage-idle/data/echo-adapter.js";
+// @ts-ignore -- Grimoire theme FX helpers
+import "../../lineage-idle/theme-grimoire.js";
+// @ts-ignore
+import { init, setRoot, destroy } from "../../lineage-idle/main.js";
+// @ts-ignore
+import { bootstrap, destroyBootstrap } from "../../lineage-idle/src/core/GameBootstrap.js";
+// @ts-ignore -- Vite ?raw import returns the CSS source as a string
+import idleCss from "../../lineage-idle/style.css?raw";
+// @ts-ignore -- Grimoire theme CSS
+import grimoireCss from "../../lineage-idle/theme-grimoire.css?raw";
+// @ts-ignore -- GameUI consolidated CSS
+import gameUiCss from "../../lineage-idle/src/ui/GameUI.css?raw";
+
+import { IDLE_MARKUP } from "./markup";
+import "./heroImages";
+import "../utils/idleAudio";
+import { deviceDetector } from "../services/DeviceDetector";
+import { CharacterCreation, CharacterCreationData } from "../components/CharacterCreation";
+import { 
+  syncPlayerPublicProfile, 
+  fetchLeaderboardRankings, 
+  fetchPvPMatchmakingOpponents, 
+  createMarketListingInCloud,
+  fetchMarketListingsFromCloud,
+  deleteMarketListingInCloud,
+  checkListingStatusInCloud,
+  executeMarketPurchaseInCloud,
+  recordMarketSaleInCloud,
+  fetchPlayerSalesFromCloud,
+  claimPlayerSalesInCloud,
+  subscribeToMarketListings,
+  subscribeToPlayerSales,
+  savePlayerStateToCloud,
+  loadPlayerStateFromCloud,
+  deletePlayerStateFromCloud,
+  recordReferralInCloud,
+  checkReferralRewardsInCloud,
+  wipeEntireFirestoreDatabase,
+  onAuthStateChanged,
+  auth 
+} from "../firebase";
+import { PlayerRegistry } from "../services/PlayerRegistry";
+import { SocialIntegrityService } from "../services/SocialIntegrityService";
+
+// Expondo FirebaseBridge para os serviços de Rankings, Matchmaking, Mercado Global P2P e Cloud Save
+if (typeof window !== "undefined") {
+  (window as any).FirebaseBridge = {
+    syncPublicProfile: async (profileData: any) => {
+      const user = auth.currentUser;
+      if (!user) return false;
+      return await syncPlayerPublicProfile(user.uid, profileData);
+    },
+    fetchRankings: fetchLeaderboardRankings,
+    fetchMatchmakingOpponents: fetchPvPMatchmakingOpponents,
+    getCurrentUserId: () => auth.currentUser?.uid || null,
+    getCurrentUserEmail: () => auth.currentUser?.email || (window as any).currentUserEmail || null,
+    isCurrentUserAdmin: () => {
+      const email = (auth.currentUser?.email || (window as any).currentUserEmail || '').toLowerCase().trim();
+      return ['duuh.alaminos@gmail.com', 'eduardol.alaminos@gmail.com'].includes(email) || (window as any).currentUserIsAdmin === true;
+    },
+
+    // Métodos do Mercado Global P2P em Nuvem (Transações Atômicas & Custódia)
+    createMarketListing: createMarketListingInCloud,
+    fetchMarketListings: fetchMarketListingsFromCloud,
+    deleteMarketListing: deleteMarketListingInCloud,
+    checkListingStatus: checkListingStatusInCloud,
+    executeMarketPurchase: executeMarketPurchaseInCloud,
+    recordMarketSale: recordMarketSaleInCloud,
+    fetchPlayerSales: fetchPlayerSalesFromCloud,
+    claimPlayerSales: claimPlayerSalesInCloud,
+    subscribeMarketListings: subscribeToMarketListings,
+    subscribePlayerSales: subscribeToPlayerSales,
+
+    // Sistema de Indicação de Amigos (Referral Viral)
+    recordReferral: recordReferralInCloud,
+    checkReferralRewards: checkReferralRewardsInCloud,
+
+    // Pipeline de Save em Nuvem
+    savePlayerState: savePlayerStateToCloud,
+    loadPlayerState: loadPlayerStateFromCloud,
+
+    // Registro Canônico de Jogadores (PlayerRegistry)
+    getPlayer: (id: string) => PlayerRegistry.getPlayer(id),
+    getPlayerByName: (name: string) => PlayerRegistry.getPlayerByName(name),
+    getPlayersBatch: (ids: string[]) => PlayerRegistry.getPlayersBatch(ids),
+    getDiscoverablePlayers: (limit?: number) => PlayerRegistry.getDiscoverablePlayers(limit),
+    isValidPlayer: (id: string) => PlayerRegistry.isValidPlayer(id),
+    isRealPlayer: (id: string) => PlayerRegistry.isRealPlayer(id),
+
+    // Integridade Social (SocialIntegrityService)
+    addFriend: (myCharId: string, targetName: string) => SocialIntegrityService.addFriend(myCharId, targetName),
+    removeFriend: (myCharId: string, targetCharId: string) => SocialIntegrityService.removeFriend(myCharId, targetCharId),
+    getFriends: (myCharId: string) => SocialIntegrityService.getFriends(myCharId),
+    bindMentorship: (apprenticeId: string, level: number, mentorName: string) => SocialIntegrityService.bindMentorship(apprenticeId, level, mentorName),
+    blockPlayer: (myCharId: string, ownerUid: string, targetName: string) => SocialIntegrityService.blockPlayer(myCharId, ownerUid, targetName),
+    unblockPlayer: (myCharId: string, blockedName: string) => SocialIntegrityService.unblockPlayer(myCharId, blockedName),
+    getBlocked: (myCharId: string) => SocialIntegrityService.getBlocked(myCharId),
+
+    // Manutenção e Reset Administrativo do Servidor
+    wipeEntireGameDatabase: wipeEntireFirestoreDatabase
+  };
+
+  (window as any).lineageIdleCloud = (window as any).FirebaseBridge;
+
+  // Pipeline global de salvamento instantâneo em nuvem
+  (window as any).saveCloudNow = async (stateData?: any, immediate: boolean = false) => {
+    const user = auth.currentUser;
+    if (!user) return false;
+    const data = stateData || ((typeof (window as any).getGameState === 'function') ? (window as any).getGameState() : null);
+    if (!data) return false;
+    return await savePlayerStateToCloud(user.uid, data, immediate);
+  };
+
+  (window as any).saveCloudOnUnload = () => {
+    const user = auth.currentUser;
+    if (!user) return;
+    const data = (typeof (window as any).getGameState === 'function') ? (window as any).getGameState() : null;
+    if (data) {
+      savePlayerStateToCloud(user.uid, data, true);
+    }
+  };
+
+  (window as any).resetCloudSave = async () => {
+    const user = auth.currentUser;
+    if (!user) return;
+    try {
+      await deleteMarketListingInCloud(user.uid); // safety if needed
+      await deletePlayerStateFromCloud(user.uid);
+    } catch (e) {
+      console.debug('Reset cloud save notice:', e);
+    }
+  };
+}
+
+/**
+ * Mounts the Lineage Idle game inside a Shadow DOM so its global-looking
+ * selectors (and the arena's Tailwind/Three styles) never bleed into each
+ * other. The vanilla game code queries the shadow root via setRoot().
+ */
+export default function IdleGame() {
+  const hostRef = useRef<HTMLDivElement>(null);
+  const [changeScrollData, setChangeScrollData] = useState<{
+    scrollUid: string;
+    charName: string;
+    race: string;
+    class: string;
+  } | null>(null);
+
+  const [isCreatingCharacter, setIsCreatingCharacter] = useState<boolean>(false);
+  const [creationInitialData, setCreationInitialData] = useState<{
+    charName: string;
+    race: string;
+    class: string;
+    gender: 'M' | 'F';
+  }>({
+    charName: 'Tristan',
+    race: 'human',
+    class: 'fighter',
+    gender: 'M'
+  });
+
+  useEffect(() => {
+    const syncAdminStatus = async (user: any) => {
+      try {
+        let isAdmin = false;
+        const email = (user?.email || '').toLowerCase().trim();
+        const adminEmails = ['duuh.alaminos@gmail.com', 'eduardol.alaminos@gmail.com'];
+        if (user && !user.isAnonymous) {
+          const tokenRes = await user.getIdTokenResult().catch(() => null);
+          isAdmin = Boolean(tokenRes?.claims?.admin === true || adminEmails.includes(email));
+        }
+
+        const priv = isAdmin ? 1 : 0;
+        (window as any).currentUserIsAdmin = isAdmin;
+        (window as any).currentUserEmail = email;
+        (window as any).currentUserPrivilege = priv;
+
+        const cloudState = await loadPlayerStateFromCloud(user?.uid);
+        if (cloudState) {
+          cloudState.privilegeLevel = priv;
+          if (cloudState.role === 'admin' && !isAdmin) {
+            cloudState.role = 'player';
+          }
+          if (typeof (window as any).getGameState === 'function') {
+            const st = (window as any).getGameState();
+            if (st) {
+              st.privilegeLevel = priv;
+            }
+          }
+          if (typeof (window as any).loadGameState === 'function') {
+            (window as any).loadGameState(cloudState);
+          }
+        }
+
+        // Atualiza a visibilidade do botão Admin no Shadow DOM
+        const host = hostRef.current;
+        const root = host?.shadowRoot || (window as any).__shadowRoot || (typeof document !== 'undefined' ? document : null);
+        if (root) {
+          const adminBtn = root.getElementById ? root.getElementById('admin-top-btn') : root.querySelector('#admin-top-btn');
+          if (adminBtn) {
+            adminBtn.style.display = isAdmin ? 'inline-flex' : 'none';
+          }
+        }
+
+        if (typeof (window as any).updateAllUI === 'function') {
+          (window as any).updateAllUI();
+        }
+      } catch (e) {
+        console.debug('IdleGame admin cloud sync notice:', e);
+      }
+    };
+
+    if (auth.currentUser) {
+      syncAdminStatus(auth.currentUser);
+    }
+
+    const unsub = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        syncAdminStatus(user);
+      }
+    });
+
+    // Cloud Auto-Save loop periódico a cada 15 segundos
+    const cloudSaveInterval = setInterval(() => {
+      if (auth.currentUser && typeof (window as any).saveCloudNow === 'function') {
+        (window as any).saveCloudNow(undefined, false);
+      }
+    }, 15000);
+
+    return () => {
+      unsub();
+      clearInterval(cloudSaveInterval);
+    };
+  }, []);
+
+  useLayoutEffect(() => {
+    const host = hostRef.current;
+    if (!host) return;
+
+    const shadow = host.shadowRoot ?? host.attachShadow({ mode: "open" });
+    (window as any).__SHADOW_ROOT__ = shadow;
+    shadow.innerHTML = `<style>${idleCss}\n${grimoireCss}\n${gameUiCss}</style>${IDLE_MARKUP}`;
+    
+    // Inicialização unificada via GameBootstrap
+    bootstrap(shadow as unknown as Document);
+    init();
+
+    // Device Type Detection & Mobile/Desktop Classes
+    const gameDiv = shadow.getElementById
+      ? shadow.getElementById('game')
+      : (shadow as any).querySelector?.('#game');
+
+    let unsubDevice: (() => void) | null = null;
+    if (gameDiv) {
+      deviceDetector.applyClasses(gameDiv as HTMLElement);
+      unsubDevice = deviceDetector.subscribe(() => {
+        deviceDetector.applyClasses(gameDiv as HTMLElement);
+      });
+    }
+
+    // ---- Embers / brasas de fogo — montagem correta no Shadow DOM ----
+    if ((window as any).GrimoireFX) {
+      if (gameDiv && !gameDiv.querySelector('.g-ember-global')) {
+        const emberDiv = document.createElement('div');
+        emberDiv.className = 'g-ember-global';
+        gameDiv.insertBefore(emberDiv, gameDiv.firstChild);
+        (window as any).GrimoireFX.mountEmbers(emberDiv, {
+          count: 60,
+          colors: ['#f0883e', '#f0cd7e', '#e87d2e', '#ffd166', '#ff9b42', '#ffb347']
+        });
+      }
+    }
+
+    (window as any).onOpenRaceClassChangeModal = (data: any) => {
+      setChangeScrollData(data);
+    };
+
+    (window as any).onOpenCharacterCreationModal = (data: any) => {
+      setCreationInitialData({
+        charName: data?.charName || 'Tristan',
+        race: data?.race || 'human',
+        class: data?.class || 'fighter',
+        gender: data?.gender || 'M'
+      });
+      setIsCreatingCharacter(true);
+    };
+
+    return () => {
+      if (unsubDevice) unsubDevice();
+      delete (window as any).onOpenRaceClassChangeModal;
+      delete (window as any).onOpenCharacterCreationModal;
+      destroyBootstrap();
+      destroy();
+      if (host.shadowRoot) {
+        host.shadowRoot.innerHTML = "";
+      }
+    };
+  }, []);
+
+  const handleConfirmChange = (data: CharacterCreationData) => {
+    if (changeScrollData && (window as any).executeRaceClassChange) {
+      (window as any).executeRaceClassChange(changeScrollData.scrollUid, data.race, data.className);
+    }
+    setChangeScrollData(null);
+  };
+
+  const handleCompleteCreation = (data: CharacterCreationData) => {
+    if (typeof (window as any).onCharacterCreated === 'function') {
+      (window as any).onCharacterCreated(data);
+    }
+    setIsCreatingCharacter(false);
+  };
+
+  return (
+    <>
+      <div ref={hostRef} id="idle-host" className="w-full h-full min-h-screen block overflow-hidden" />
+      {changeScrollData && (
+        <CharacterCreation
+          isChangeScroll={true}
+          initialCharName={changeScrollData.charName}
+          initialRace={changeScrollData.race}
+          initialClass={changeScrollData.class}
+          onComplete={handleConfirmChange}
+          onCancel={() => setChangeScrollData(null)}
+        />
+      )}
+      {isCreatingCharacter && (
+        <CharacterCreation
+          isChangeScroll={false}
+          initialCharName={creationInitialData.charName}
+          initialRace={creationInitialData.race}
+          initialClass={creationInitialData.class}
+          initialGender={creationInitialData.gender}
+          onComplete={handleCompleteCreation}
+        />
+      )}
+    </>
+  );
+}
