@@ -25,18 +25,18 @@ export const WEAPON_TYPE_ARCHETYPES = {
 
 // ─── Labels de UI por tipo ──────────────────────────────────────────────────
 export const ARMOR_TYPE_LABEL = {
-  heavy: { icon: '🛡', name: 'Armadura Pesada',  hint: 'Apenas Fighters' },
-  light: { icon: '🏹', name: 'Armadura Leve',    hint: 'Rogues / Arqueiros / Assassinos' },
-  robe:  { icon: '🧙', name: 'Manto Mágico',     hint: 'Magos / Healers' },
+  heavy: { icon: '🛡', name: '重甲',  hint: 'Apenas Fighters' },
+  light: { icon: '🏹', name: '輕甲',    hint: 'Rogues / Arqueiros / Assassinos' },
+  robe:  { icon: '🧙', name: '法袍',     hint: 'Magos / Healers' },
 };
 
 export const WEAPON_TYPE_LABEL = {
-  bow:    { icon: '🏹', name: 'Arco',           hint: 'Arqueiros / Rogues' },
-  staff:  { icon: '🪄', name: 'Cajado',          hint: 'Magos / Healers' },
-  dagger: { icon: '🗡', name: 'Adaga',           hint: 'Rogues / Assassinos' },
-  melee:  { icon: '⚔',  name: 'Corpo-a-corpo',  hint: 'Fighters / Rogues' },
-  blunt:  { icon: '🔨', name: 'Maça / Martelo', hint: 'Fighters / Healers' },
-  spear:  { icon: '🔱', name: 'Lança',           hint: 'Fighters' },
+  bow:    { icon: '🏹', name: '弓',           hint: 'Arqueiros / Rogues' },
+  staff:  { icon: '🪄', name: '法杖',          hint: 'Magos / Healers' },
+  dagger: { icon: '🗡', name: '匕首',           hint: 'Rogues / Assassinos' },
+  melee:  { icon: '⚔',  name: '近戰',  hint: 'Fighters / Rogues' },
+  blunt:  { icon: '🔨', name: '鈍器／戰鎚', hint: 'Fighters / Healers' },
+  spear:  { icon: '🔱', name: '長槍',           hint: 'Fighters' },
 };
 
 // ─── Inferência de Tipo por Nome ────────────────────────────────────────────
