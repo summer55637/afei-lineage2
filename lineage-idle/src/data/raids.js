@@ -34,15 +34,15 @@ export const RAID_BOSSES = {
     reqLvl: 30,
     icon: 'gradespecial/jewels/jewel_ring_queen_ant.png',
     bg: 'dungeon_wastelands',
-    desc: 'Rainha das Formigas Gigantes. Enxames de operárias a curam enquanto ela espalha veneno ácido corrosivo.',
+    desc: '巨大蟻群的女王。工蟻會持續治療她，同時她會散播腐蝕性酸毒。',
     fatalSkill: {
-      name: 'Erupção de Feromônio Ácido',
+      name: '酸性費洛蒙爆發',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: 'Nuvem de Veneno Corrosivo', triggerHp: 0.75, damagePercent: 0.15, text: '⚠️ Queen Ant liberou Nuvem de Veneno Ácido!' },
+      { name: 'Nuvem de Veneno Corrosivo', triggerHp: 0.75, damagePercent: 0.15, text: '⚠️ 蟻后釋放了酸性毒霧！' },
       { name: 'Chamado das Formigas Nutrizes', triggerHp: 0.35, healPercent: 0.20, text: '✨ Formigas Nutrizes curaram a Rainha em +20% HP!' }
     ],
     drops: [
@@ -56,7 +56,7 @@ export const RAID_BOSSES = {
   core: {
     id: 'core',
     name: 'Core da Torre Cruma 🔮',
-    title: 'Núcleo Arcano da Civilização Antiga',
+    title: '古代文明奧術核心',
     lvl: 50,
     hp: 65000,
     atk: 340,
@@ -72,15 +72,15 @@ export const RAID_BOSSES = {
     reqLvl: 45,
     icon: 'gradespecial/jewels/jewel_ring_core.png',
     bg: 'dungeon_cruma',
-    desc: 'O núcleo consciente deixado pelos Titãs no coração da Torre Cruma. Dispara rajadas de plasma e barreira refletiva.',
+    desc: '泰坦遺留在克魯瑪之塔核心的意識體，會發射電漿並展開反射屏障。',
     fatalSkill: {
-      name: 'Cataclismo Quântico de Plasma',
+      name: '量子電漿災變',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: 'Barreira Eletromagnética', triggerHp: 0.60, damagePercent: 0.20, text: '⚡ Core ativou Barreira Refletiva causando choque em área!' },
+      { name: '電磁屏障', triggerHp: 0.60, damagePercent: 0.20, text: '⚡ 核心啟動反射屏障，造成範圍電擊！' },
       { name: 'Sobrecarga de Plasma', triggerHp: 0.25, damagePercent: 0.30, text: '💥 Sobrecarga de Plasma de Alta Voltagem disparada!' }
     ],
     drops: [
@@ -110,7 +110,7 @@ export const RAID_BOSSES = {
     reqLvl: 50,
     icon: 'gradespecial/jewels/jewel_earring_orfen.png',
     bg: 'dungeon_sea_of_spores',
-    desc: 'Aracnídea gigante mutante que controla os fungos e esporos venenosos. Teletransporta-se para o ninho ao sofrer dano.',
+    desc: '操控真菌與毒孢子的巨大變異蜘蛛，受傷後會傳送回巢穴。',
     fatalSkill: {
       name: 'Esporo Mortal Devorador de Almas',
       triggerHps: [0.50, 0.25],
@@ -118,7 +118,7 @@ export const RAID_BOSSES = {
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: 'Névoa Alucinógena de Esporos', triggerHp: 0.70, damagePercent: 0.18, text: '🌫️ Orfen cobriu a arena com Névoa Venenosa de Esporos!' },
+      { name: '幻覺孢子霧', triggerHp: 0.70, damagePercent: 0.18, text: '🌫️ 歐瑞芬以劇毒孢子霧籠罩戰場！' },
       { name: 'Teletransporte para o Ninho', triggerHp: 0.30, healPercent: 0.15, text: '🕷️ Orfen recuou para as sombras e regenerou +15% de HP!' }
     ],
     drops: [
@@ -131,7 +131,7 @@ export const RAID_BOSSES = {
 
   zaken: {
     id: 'zaken',
-    name: 'Capitão Zaken 🏴‍☠️',
+    name: '海賊王札肯 🏴‍☠️',
     title: 'Senhor Imortal da Ilha do Diabo',
     lvl: 60,
     hp: 140000,
@@ -148,7 +148,7 @@ export const RAID_BOSSES = {
     reqLvl: 55,
     icon: 'gradespecial/jewels/jewel_earring_of_zaken.png',
     bg: 'dungeon_devils_isle',
-    desc: 'Capitão pirata amaldiçoado com vampirismo eterno no interior do Galeão Fantasma da Ilha do Diabo.',
+    desc: '被永恆吸血詛咒束縛於惡魔島幽靈船中的海賊船長。',
     fatalSkill: {
       name: 'Valsa Sangrenta das Trevas Eternas',
       triggerHps: [0.50, 0.25],
@@ -157,7 +157,7 @@ export const RAID_BOSSES = {
     },
     mechanics: [
       { name: 'Passo das Sombras', triggerHp: 0.65, damagePercent: 0.22, text: '🌑 Zaken se desmaterializou nas sombras e atacou pelas costas!' },
-      { name: 'Banquete de Sangue Vampírico', triggerHp: 0.30, healPercent: 0.20, damagePercent: 0.15, text: '🩸 Banquete de Sangue: Zaken drenou sua vida e recuperou +20% HP!' }
+      { name: '吸血盛宴', triggerHp: 0.30, healPercent: 0.20, damagePercent: 0.15, text: '🩸 吸血盛宴：札肯吸取你的生命並恢復 +20% HP！' }
     ],
     drops: [
       { itemId: 'jewel_earring_of_zaken', name: 'Earring of Zaken', chance: 0.25, isEpicJewel: true },
@@ -170,7 +170,7 @@ export const RAID_BOSSES = {
   baium: {
     id: 'baium',
     name: 'Imperador Baium ⚡',
-    title: 'Soberano da Torre da Insolência',
+    title: '傲慢之塔霸主',
     lvl: 75,
     hp: 260000,
     atk: 750,
@@ -186,16 +186,16 @@ export const RAID_BOSSES = {
     reqLvl: 70,
     icon: 'gradespecial/jewels/jewel_ring_of_baium.png',
     bg: 'dungeon_tower_of_insolence',
-    desc: 'O antigo Imperador de Elmore-Aden petrificado pelos deuses no 14º andar da Torre da Insolência.',
+    desc: '被諸神石化於傲慢之塔第 14 層的古代艾爾摩亞丁皇帝。',
     fatalSkill: {
-      name: 'Juízo do Titã Imperial',
+      name: '帝國泰坦審判',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: 'Punho Esmagador dos Trovões', triggerHp: 0.70, damagePercent: 0.25, text: '⚡ Baium desferiu o Punho Esmagador dos Trovões!' },
-      { name: 'Fúria da Divindade Aprisionada', triggerHp: 0.30, damagePercent: 0.35, text: '🌩️ Fúria Imperial: Baium aumentou seu poder de ataque massivamente!' }
+      { name: '雷霆粉碎拳', triggerHp: 0.70, damagePercent: 0.25, text: '⚡ Baium desferiu o 雷霆粉碎拳!' },
+      { name: '囚禁神祇之怒', triggerHp: 0.30, damagePercent: 0.35, text: '🌩️ 帝王之怒：巴溫大幅提升攻擊力！' }
     ],
     drops: [
       { itemId: 'jewel_ring_of_baium', name: 'Ring of Baium', chance: 0.25, isEpicJewel: true },
@@ -207,7 +207,7 @@ export const RAID_BOSSES = {
 
   frintezza: {
     id: 'frintezza',
-    name: 'Príncipe Frintezza & Halisha 🎻',
+    name: '王子弗林迪薩與哈里夏 🎻',
     title: 'Maestro do Sepulcro Imperial',
     lvl: 85,
     hp: 420000,
@@ -224,16 +224,16 @@ export const RAID_BOSSES = {
     reqLvl: 80,
     icon: 'gradespecial/jewels/jewel_necklace_of_frintezza.png',
     bg: 'dungeon_imperial_tomb',
-    desc: 'Príncipe amaldiçoado tocando seu órgão sombrio enquanto seu campeão demoníaco Scarlet van Halisha massacra invasores.',
+    desc: '受詛咒的王子演奏黑暗管風琴，惡魔勇士史卡雷特・范・哈里夏則屠戮入侵者。',
     fatalSkill: {
-      name: 'Sinfonia Apocalíptica de Halisha',
+      name: '哈里夏末日交響曲',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: 'Réquiem da Hipnose', triggerHp: 0.65, damagePercent: 0.25, text: '🎼 A melodia de Frintezza confunde seus sentidos e drena suas forças!' },
-      { name: 'Transformação Demoníaca de Halisha', triggerHp: 0.25, damagePercent: 0.40, text: '👹 Scarlet van Halisha assume sua Forma de Demônio Alado!' }
+      { name: '催眠安魂曲', triggerHp: 0.65, damagePercent: 0.25, text: '🎼 弗林迪薩的旋律擾亂感官並吸取你的力量！' },
+      { name: '哈里夏惡魔變身', triggerHp: 0.25, damagePercent: 0.40, text: '👹 史卡雷特・范・哈里夏化為有翼惡魔！' }
     ],
     drops: [
       { itemId: 'jewel_necklace_of_frintezza', name: 'Necklace of Frintezza', chance: 0.25, isEpicJewel: true },
@@ -245,8 +245,8 @@ export const RAID_BOSSES = {
 
   antharas: {
     id: 'antharas',
-    name: 'Dragão da Terra Antharas 🐉',
-    title: 'Senhor dos Abismos Subterrâneos',
+    name: '地龍安塔瑞斯 🐉',
+    title: '地底深淵之主',
     lvl: 95,
     hp: 750000,
     atk: 1450,
@@ -262,16 +262,16 @@ export const RAID_BOSSES = {
     reqLvl: 85,
     icon: 'gradespecial/jewels/jewel_earring_of_antharas.png',
     bg: 'dungeon_antharas_lair',
-    desc: 'O terrível Dragão da Terra guardião das profundezas de Giran. Seus tremores abalam montanhas e petrificam exércitos.',
+    desc: '守護奇岩地底深處的可怕地龍，震動足以撼動山岳並石化軍隊。',
     fatalSkill: {
-      name: 'Colapso Geológico Ancestral',
+      name: '古代地殼崩裂',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: 'Terremoto Fóssil', triggerHp: 0.70, damagePercent: 0.30, text: '🌋 Terremoto Fóssil: O chão estremece causando dano maciço!' },
-      { name: 'Rugido do Pavor Ancestral', triggerHp: 0.35, damagePercent: 0.40, text: '🐉 Rugido Aterrorizante de Antharas rompe as barreiras de defesa!' }
+      { name: '化石地震', triggerHp: 0.70, damagePercent: 0.30, text: '🌋 化石地震: O chão estremece causando dano maciço!' },
+      { name: 'Rugido do Pavor Ancestral', triggerHp: 0.35, damagePercent: 0.40, text: '🐉 安塔瑞斯的恐怖咆哮擊碎防禦屏障！' }
     ],
     drops: [
       { itemId: 'jewel_earring_of_antharas', name: 'Earring of Antharas', chance: 0.25, isEpicJewel: true },
@@ -283,8 +283,8 @@ export const RAID_BOSSES = {
 
   valakas: {
     id: 'valakas',
-    name: 'Dragão do Fogo Valakas 🔥',
-    title: 'Senhor Supremo do Vulcão Forja dos Deuses',
+    name: '火龍巴拉卡斯 🔥',
+    title: '諸神熔爐火山至尊',
     lvl: 100,
     hp: 1250000,
     atk: 1950,
@@ -302,21 +302,21 @@ export const RAID_BOSSES = {
     bg: 'dungeon_valakas_volcano',
     desc: 'A criatura mais poderosa de Aden. Habita a caldeira de lava da Forja dos Deuses, incinerando quem ousa desafi-lo.',
     fatalSkill: {
-      name: 'Extinção Solar do Dragão Flamejante',
+      name: '烈焰巨龍日蝕',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.60
     },
     mechanics: [
       { name: 'Chuva de Meteoros Incandescentes', triggerHp: 0.75, damagePercent: 0.30, text: '☄️ Chuva de Meteoros de Valakas incinera toda a arena!' },
-      { name: 'Sopro Infernal do Vulcão', triggerHp: 0.40, damagePercent: 0.45, text: '🔥 Sopro de Chamas Eternas atinge em cheio com poder colossal!' },
-      { name: 'Aura da Caldeira Ardente', triggerHp: 0.15, damagePercent: 0.50, text: '🌋 Valakas entra em Fúria Vulcânica Máxima!' }
+      { name: '火山地獄吐息', triggerHp: 0.40, damagePercent: 0.45, text: '🔥 Sopro de Chamas Eternas atinge em cheio com poder colossal!' },
+      { name: 'Aura da Caldeira Ardente', triggerHp: 0.15, damagePercent: 0.50, text: '🌋 巴拉卡斯進入極限火山狂怒！' }
     ],
     drops: [
       { itemId: 'jewel_necklace_of_valakas', name: 'Necklace of Valakas', chance: 0.25, isEpicJewel: true },
       { itemId: 'jewel_ring_of_valakas', name: 'Ring of Valakas', chance: 0.25, isEpicJewel: true },
       { itemId: 'armor_valakas_cloack', name: 'Valakas Dragon Cloak', chance: 0.35 },
-      { itemId: 'valakas_mask', name: 'Máscara Flamejante de Valakas', chance: 0.40 },
+      { itemId: 'valakas_mask', name: '巴拉卡斯烈焰面具', chance: 0.40 },
       { itemId: 'scroll_blessed_weapon', name: 'Blessed Scroll: Enchant Weapon', chance: 0.75 },
       { itemId: 'adena_coins', count: 150, name: '150x Aden Coins (AC)', chance: 0.60 }
     ]
@@ -325,7 +325,7 @@ export const RAID_BOSSES = {
   barakiel: {
     id: 'barakiel',
     name: 'Flame of Splendor Barakiel 🔥',
-    title: 'Guardião do Cajado da Deusa (Noblesse Quest)',
+    title: '女神權杖守護者（貴族任務）',
     lvl: 75,
     hp: 180000,
     atk: 520,
@@ -342,21 +342,21 @@ export const RAID_BOSSES = {
     reqLvl: 75,
     icon: 'gradespecial/scrolls/scroll_enchant_weapon_s.png',
     bg: 'dungeon_goddard',
-    desc: 'Lorde flamejante de Wall of Argos. Derrotá-lo é o teste definitivo da Parte 3 da Quest de Noblesse para obter o Cajado da Deusa.',
+    desc: '阿爾戈斯之壁的烈焰領主。擊敗他是貴族任務第三階段取得女神權杖的最終考驗。',
     fatalSkill: {
-      name: 'Chamas da Glória Nobre',
+      name: '貴族榮耀之焰',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: 'Explosão de Chamas Solares', triggerHp: 0.60, damagePercent: 0.20, text: '🔥 Barakiel conjurou Explosão de Chamas Solares!' },
+      { name: '太陽烈焰爆發', triggerHp: 0.60, damagePercent: 0.20, text: '🔥 Barakiel conjurou 太陽烈焰爆發!' },
       { name: 'Barreira de Fogo Puro', triggerHp: 0.25, healPercent: 0.15, text: '🛡️ Barakiel invocou a Barreira de Fogo Puro!' }
     ],
     drops: [
       { itemId: 'staff_goddess_rain_song', name: 'Staff of Goddess: Rain Song', chance: 1.0 },
-      { itemId: 'scroll_blessed_universal', name: 'Pergaminho Abençoado Universal', chance: 1.0 },
-      { itemId: 'scroll_blessed_weapon', name: 'Pergaminho Abençoado de Arma', chance: 0.50 },
+      { itemId: 'scroll_blessed_universal', name: '通用祝福強化卷軸', chance: 1.0 },
+      { itemId: 'scroll_blessed_weapon', name: '祝福武器強化卷軸', chance: 0.50 },
       { itemId: 'adena_coins', count: 30, name: '30x Aden Coins (AC)', chance: 0.50 }
     ]
   }
