@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="theme-color" content="#06080f" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Aden Arena" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="manifest" href="/manifest.webmanifest?v=2" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <title>Aden Arena: Idle Chronicles — RPG Clássico de Navegador</title>
+    <meta name="description" content="Aden Arena: Idle Chronicles é o épico RPG idle de navegador ambientado no universo clássico de Aden. Jogue grátis sem download com forja, 20+ classes, mercado P2P e caça offline." />
+    
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Aden Arena: Idle Chronicles" />
+    <meta property="og:title" content="Aden Arena: Idle Chronicles — RPG Clássico de Navegador" />
+    <meta property="og:description" content="O épico RPG idle de navegador ambientado no universo clássico de Aden. Jogue grátis sem download com 20+ classes e forja clássica!" />
+    <meta property="og:image" content="/images/castle-bg.jpg" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Aden Arena: Idle Chronicles" />
+    <meta name="twitter:description" content="O épico RPG idle de navegador ambientado no universo clássico de Aden. Jogue grátis sem download!" />
+    <meta name="twitter:image" content="/images/castle-bg.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Early capture-phase error listener for stale chunk 404s (e.g. after new deployments)
+      window.addEventListener('error', function (e) {
+        var target = e.target;
+        if (target && (target.tagName === 'SCRIPT' || target.tagName === 'LINK')) {
+          var src = target.src || target.href || '';
+          if (src.indexOf('/assets/') !== -1 || src.indexOf('.js') !== -1) {
+            console.warn('[PWA/CDN] Falha ao carregar chunk:', src);
+            var lock = sessionStorage.getItem('chunk_recovery_reloaded');
+            if (!lock) {
+              sessionStorage.setItem('chunk_recovery_reloaded', '1');
+              if ('caches' in window) {
+                caches.keys().then(function (names) {
+                  return Promise.all(names.map(function (n) { return caches.delete(n); }));
+                }).then(function () {
+                  if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.getRegistrations().then(function (regs) {
+                      regs.forEach(function (r) { r.unregister(); });
+                      window.location.reload(true);
+                    });
+                  } else {
+                    window.location.reload(true);
+                  }
+                }).catch(function () {
+                  window.location.reload(true);
+                });
+              } else {
+                window.location.reload(true);
+              }
+            }
+          }
+        }
+      }, true);
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' })
+            .then((reg) => {
+              console.log('[PWA] Service Worker registrado:', reg.scope);
+              if (reg && typeof reg.update === 'function') {
+                reg.update().catch(() => {});
+              }
+            })
+            .catch((err) => {
+              console.warn('[PWA] Falha ao registrar Service Worker:', err);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
