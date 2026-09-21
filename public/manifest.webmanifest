@@ -1,7 +1,7 @@
 {
   "name": "Aden Arena: Idle Chronicles",
   "short_name": "Aden Arena",
-  "description": "O épico RPG idle de navegador ambientado no clássico universo de Aden com mercado P2P, forja, batalhas 2D, clãs e ranking mundial.",
+  "description": "以經典亞丁世界為背景的瀏覽器放置 RPG，包含玩家市場、鍛造、2D 戰鬥、血盟與世界排行榜。",
   "start_url": "/",
   "display": "standalone",
   "orientation": "any",
