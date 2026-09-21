@@ -20,10 +20,10 @@ export const IDLE_MARKUP = `
         <span id="season-badge" class="tb-pill tb-pill--season" title="第 1 賽季：亞丁覺醒（等級上限 60）">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M12 2l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1z"/></svg> Temp 1: Cap Lv 60
         </span>
-        <span id="liveops-event-badge" class="tb-pill tb-pill--event" onclick="window.openLiveOpsModal && window.openLiveOpsModal()" title="Clique para ver o evento Live-Ops ativo">
+        <span id="liveops-event-badge" class="tb-pill tb-pill--event" onclick="window.openLiveOpsModal && window.openLiveOpsModal()" title="點擊查看目前進行中的即時活動">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Evento
         </span>
-        <span id="worldboss-top-badge" class="tb-pill tb-pill--boss" onclick="window.openWorldBossModal && window.openWorldBossModal()" title="Incursão Global de World Boss (Antharas, Valakas, Baium)">
+        <span id="worldboss-top-badge" class="tb-pill tb-pill--boss" onclick="window.openWorldBossModal && window.openWorldBossModal()" title="全球世界首領突襲（安塔瑞斯、巴拉卡斯、巴溫）">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 12L2.1 14.8"/><path d="M12 12l7.1 7.1"/></svg> World Boss: --:--:--
         </span>
       </div>
@@ -56,7 +56,7 @@ export const IDLE_MARKUP = `
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> <span id="top-ac-amount">0 AC</span> <span>商店</span>
         </button>
 
-        <button id="daily-reward-btn" class="tb-btn" onclick="window.openDailyRewardModal && window.openDailyRewardModal()" title="Check-in Diário">
+        <button id="daily-reward-btn" class="tb-btn" onclick="window.openDailyRewardModal && window.openDailyRewardModal()" title="每日簽到">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> <span>Check-in</span>
           <span id="daily-reward-dot" class="tb-dot tb-dot--red"></span>
         </button>
@@ -81,7 +81,7 @@ export const IDLE_MARKUP = `
       <aside class="panel stats-panel l2-gold-frame">
         <!-- Mobile Navigation Return Header -->
         <div class="mobile-top-nav-bar">
-          <button type="button" class="mobile-back-to-battle-btn" onclick="window.setMobileView && window.setMobileView('battle')" title="Voltar ao Combate">
+          <button type="button" class="mobile-back-to-battle-btn" onclick="window.setMobileView && window.setMobileView('battle')" title="返回戰鬥">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
             <span>⚔️ 返回戰鬥</span>
           </button>
@@ -204,11 +204,11 @@ export const IDLE_MARKUP = `
           <div class="stage-header-bar">
             <div class="stage-zone" id="stage-zone">—</div>
             <div class="combat-controls-bar">
-              <button id="combat-toggle-btn" class="combat-ctrl-btn active" title="Pausar ou Iniciar Caça Automática (Tecla P)"><span class="combat-stance-gem"></span> <span>⚔️ 狩獵中</span></button>
-              <button id="soulshot-toggle-btn" class="combat-ctrl-btn" title="Ativar Soulshot no combate (+100% dano)"><span>⚡ SS</span> <span style="font-size:9px; color:#ffd877;">(OFF)</span></button>
-              <button id="autopotion-toggle-btn" class="combat-ctrl-btn" title="Usar poções de HP automaticamente quando HP < 50%"><span>🧪 Auto-HP</span> <span style="font-size:9px; color:#ffd877;">(OFF)</span></button>
+              <button id="combat-toggle-btn" class="combat-ctrl-btn active" title="暫停或開始自動狩獵（P 鍵）"><span class="combat-stance-gem"></span> <span>⚔️ 狩獵中</span></button>
+              <button id="soulshot-toggle-btn" class="combat-ctrl-btn" title="戰鬥中啟用靈魂彈（+100% 傷害）"><span>⚡ SS</span> <span style="font-size:9px; color:#ffd877;">(OFF)</span></button>
+              <button id="autopotion-toggle-btn" class="combat-ctrl-btn" title="HP 低於 50% 時自動使用生命藥水"><span>🧪 Auto-HP</span> <span style="font-size:9px; color:#ffd877;">(OFF)</span></button>
               <button id="speed-toggle-btn" class="combat-ctrl-btn" title="Velocidade do combate (1x Normal ou 2x Turbo)"><span>⏩ 1x</span></button>
-              <button id="macro-settings-btn" class="combat-ctrl-btn" onclick="window.openMacroSettingsModal && window.openMacroSettingsModal()" title="Configurações de Macro Idle: Gatilhos de HP/MP, Rotação de Skills e Auto-Recycle"><span>⚙️ Macro</span></button>
+              <button id="macro-settings-btn" class="combat-ctrl-btn" onclick="window.openMacroSettingsModal && window.openMacroSettingsModal()" title="放置巨集設定：HP／MP 觸發條件、技能循環與自動回收"><span>⚙️ Macro</span></button>
               <label class="combat-ctrl-btn combat-ctrl-vfx" style="display:inline-flex; align-items:center; gap:4px; cursor:pointer;" title="Qualidade dos efeitos visuais">
                 <span>VFX</span>
                 <select id="vfx-quality-select" title="Qualidade dos efeitos visuais">
@@ -257,7 +257,7 @@ export const IDLE_MARKUP = `
             <button class="log-filter-btn" data-logfilter="combat">⚔️ Combate</button>
             <button class="log-filter-btn" data-logfilter="system">⚙️ Sistema</button>
           </div>
-          <button id="clear-log-btn" class="log-clear-btn" title="Limpar histórico de log">🧹 Limpar</button>
+          <button id="clear-log-btn" class="log-clear-btn" title="清除戰鬥日誌">🧹 Limpar</button>
         </div>
         <div style="position:relative; height:100%; min-height:0; display:flex; flex-direction:column; overflow:hidden;">
           <div id="log" class="log">
@@ -281,7 +281,7 @@ export const IDLE_MARKUP = `
       <aside class="panel tabs-panel l2-gold-frame">
         <!-- Mobile Navigation Return Header -->
         <div class="mobile-top-nav-bar">
-          <button type="button" class="mobile-back-to-battle-btn" onclick="window.setMobileView && window.setMobileView('battle')" title="Voltar ao Combate">
+          <button type="button" class="mobile-back-to-battle-btn" onclick="window.setMobileView && window.setMobileView('battle')" title="返回戰鬥">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
             <span>⚔️ 返回戰鬥</span>
           </button>
@@ -364,7 +364,7 @@ export const IDLE_MARKUP = `
           <!-- Imperial Economy Resource Ribbon (Contextual HUD for Economy Pillar) -->
           <div class="imperial-pillar-header" id="imperial-pillar-header" style="display:none;">
             <div class="imp-resource-ribbon">
-              <span class="imp-res-chip imp-res-chip--gold" title="Adena Real"><span class="chip-icon">🪙</span> <span id="imp-res-gold" class="res-val">0</span> Adena</span>
+              <span class="imp-res-chip imp-res-chip--gold" title="Adena Real"><span class="chip-icon">🪙</span> <span id="imp-res-gold" class="res-val">0</span> 金幣</span>
               <span class="imp-res-chip imp-res-chip--ac" title="Aden Coins"><span class="chip-icon">💎</span> <span id="imp-res-ac" class="res-val">0</span> AC</span>
               <span class="imp-res-chip imp-res-chip--aa" title="Ancient Adena (Sete Selos)"><span class="chip-icon">🏛️</span> <span id="imp-res-aa" class="res-val">0</span> AA</span>
               <span class="imp-res-chip imp-res-chip--sp" title="Skill Points"><span class="chip-icon">✦</span> <span id="imp-res-sp" class="res-val">0</span> SP</span>
@@ -769,7 +769,7 @@ export const IDLE_MARKUP = `
                     <span>Crit: <strong id="l2stat-crit">0%</strong></span>
                     <span>Speed: <strong id="l2stat-speed">0</strong></span>
                   </div>
-                  <button class="l2inv-unequip-all" id="unequip-all-btn" title="Desequipar todos os itens">Desequipar Tudo</button>
+                  <button class="l2inv-unequip-all" id="unequip-all-btn" title="卸下所有裝備">Desequipar Tudo</button>
                 </div>
 
                 <!-- Primary Attributes Section (STR/DEX/CON/INT/WIT/MEN) -->
@@ -866,7 +866,7 @@ export const IDLE_MARKUP = `
                 <div class="l2inv-slots-grid" id="inventory-grid"></div>
 
                 <div class="l2inv-trash-actions" style="display:flex; gap:6px; flex-wrap:wrap;">
-                  <button id="sell-selected-btn" class="l2inv-trash-btn sell" disabled title="Vender Itens Selecionados">💰 出售</button>
+                  <button id="sell-selected-btn" class="l2inv-trash-btn sell" disabled title="出售選取物品">💰 出售</button>
                   <button id="salvage-selected-btn" class="l2inv-trash-btn salvage" disabled title="Desmontar Selecionados">🔨 Desmontar</button>
                   <button id="crystallize-selected-btn" class="l2inv-trash-btn crystallize" style="background:linear-gradient(135deg, #1e3a8a, #2563eb); border:1px solid #60a5fa; color:#fff; border-radius:4px; padding:4px 10px; font-size:11px; cursor:pointer; font-weight:600;" title="Cristalizar Equipamentos Selecionados de Grau D a S">💎 Cristalizar Lote</button>
                 </div>
@@ -882,12 +882,12 @@ export const IDLE_MARKUP = `
             <div class="l2inv-bottom-bar">
               <div class="l2inv-bottom-left-actions">
                 <button class="l2inv-icon-btn" id="nav-craft-btn" title="Abrir Forja / Crafting">⚒️</button>
-                <button class="l2inv-icon-btn" id="auto-equip-btn" title="Equipar Melhores Itens">⚡</button>
+                <button class="l2inv-icon-btn" id="auto-equip-btn" title="裝備最佳物品">⚡</button>
                 <button class="l2inv-icon-btn" id="organize-inv-btn" title="Organizar Mochila (Fundir Pilhas e Ordenar)">🧹</button>
-                <button class="l2inv-icon-btn" id="open-compound-btn" onclick="window.openCompoundModal()" title="🔮 Síntese &amp; Fusão de Joias e Talismãs" style="color:#c084fc;">🔮</button>
+                <button class="l2inv-icon-btn" id="open-compound-btn" onclick="window.openCompoundModal()" title="🔮 飾品與護符合成" style="color:#c084fc;">🔮</button>
                 <button class="l2inv-icon-btn" id="open-symbol-maker-btn" onclick="window.openSymbolMakerModal()" title="🎭 符號與染料紋身" style="color:#fde047;">🎭</button>
-                <button class="l2inv-icon-btn" id="open-pet-btn" onclick="window.openPetModal()" title="🐾 Companheiros &amp; Mascotes de Batalha" style="color:#6ee7b7;">🐾</button>
-                <button class="l2inv-icon-btn" id="open-manor-btn" onclick="window.openManorModal()" title="🌾 Administrador de Manor &amp; Colheita Agrícola" style="color:#86efac;">🌾</button>
+                <button class="l2inv-icon-btn" id="open-pet-btn" onclick="window.openPetModal()" title="🐾 戰鬥夥伴與寵物" style="color:#6ee7b7;">🐾</button>
+                <button class="l2inv-icon-btn" id="open-manor-btn" onclick="window.openManorModal()" title="🌾 莊園管理與農作收成" style="color:#86efac;">🌾</button>
               </div>
 
               <div class="l2inv-bottom-right-info">
@@ -929,7 +929,7 @@ export const IDLE_MARKUP = `
                 <p style="margin:2px 0 0 0; font-size:11px; color:var(--text-muted);">亞丁帝國武器、防具、消耗品與遺物交易</p>
               </div>
               <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
-                <span class="shop-gold-pill">🪙 <span id="shop-gold">0</span> Adena</span>
+                <span class="shop-gold-pill">🪙 <span id="shop-gold">0</span> 金幣</span>
                 <span id="mystic-shop-timer" class="mystic-timer-pill" style="display:none;">⏳ 神秘補貨： <strong id="mystic-timer-countdown">03:00:00</strong></span>
               </div>
             </div>
@@ -1027,7 +1027,7 @@ export const IDLE_MARKUP = `
                 </div>
 
                 <!-- Center Transfer Indicator Arrow -->
-                <div class="l2store-transfer-arrow" title="Transferir item para a Lista de Compra">
+                <div class="l2store-transfer-arrow" title="將物品加入購買清單">
                   <span>▶</span>
                 </div>
 
@@ -1101,7 +1101,7 @@ export const IDLE_MARKUP = `
                   <span style="font-size:16px;">💬</span>
                   <span class="l2chat-title">Chat</span>
                 </div>
-                <button class="l2chat-close-btn" id="forge-dialogue-close-btn" title="關閉 Diálogo">✕</button>
+                <button class="l2chat-close-btn" id="forge-dialogue-close-btn" title="關閉對話">✕</button>
               </div>
 
               <!-- NPC Speech Box & Story Lore (Wilbert from Image 5) -->
@@ -1735,7 +1735,7 @@ export const IDLE_MARKUP = `
       <div class="modal-content" style="max-width: 680px; background: linear-gradient(180deg, #101c13 0%, #07100a 100%); border: 2px solid #22c55e; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.85); padding: 20px;">
         <div class="modal-header" style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(34,197,94,0.3); padding-bottom:12px; margin-bottom:16px;">
           <h2 style="margin:0; font-family:'Cinzel',serif; color:#86efac; font-size:18px; display:flex; align-items:center; gap:8px;">
-            <span>🌾 Administrador de Manor &amp; Colheita Agrícola</span>
+            <span>🌾 莊園管理與農作收成</span>
           </h2>
           <button id="close-manor-modal-btn" class="modal-close-x" style="background:none; border:none; color:#94a3b8; font-size:18px; cursor:pointer;">✕</button>
         </div>
@@ -1991,7 +1991,7 @@ export const IDLE_MARKUP = `
                     type="text" 
                     id="admin-item-search" 
                     class="admin-num-input" 
-                    placeholder="🔍 Pesquisar item por nome, tipo ou slot (ex: bow, katana, dagger, ring)..." 
+                    placeholder="🔍 依物品名稱、類型或欄位搜尋（例如：弓、武士刀、匕首、戒指）..." 
                     style="flex:1; padding:8px 12px; font-size:13px; border-radius:6px; background:rgba(0,0,0,0.5); border:1px solid #4a5568; color:#f8fafc;" 
                   />
                   <button type="button" id="admin-item-search-clear" class="admin-btn" style="padding:4px 10px; font-size:12px;" title="Limpar busca">Limpar</button>
@@ -2001,7 +2001,7 @@ export const IDLE_MARKUP = `
                 <div class="spawner-row">
                   <label for="admin-item-qty">Qtd: <input type="number" id="admin-item-qty" name="adminItemQty" value="1" min="1" max="999" class="admin-num-input" aria-label="Quantidade" style="width:65px;" /></label>
                   <label for="admin-item-rarity">稀有度: 
-                    <select id="admin-item-rarity" name="adminItemRarity" class="admin-select" aria-label="稀有度 do Item">
+                    <select id="admin-item-rarity" name="adminItemRarity" class="admin-select" aria-label="物品稀有度">
                       <option value="common">Comum</option>
                       <option value="uncommon">Incomum</option>
                       <option value="rare">Raro</option>
@@ -2012,7 +2012,7 @@ export const IDLE_MARKUP = `
                     </select>
                   </label>
                   <label for="admin-item-enchant">Encanto: 
-                    <select id="admin-item-enchant" name="adminItemEnchant" class="admin-select" aria-label="Nível de Encanto">
+                    <select id="admin-item-enchant" name="adminItemEnchant" class="admin-select" aria-label="強化等級">
                       <option value="0">+0</option>
                       <option value="3">+3</option>
                       <option value="7">+7</option>
@@ -2023,7 +2023,7 @@ export const IDLE_MARKUP = `
                     </select>
                   </label>
                   <label for="admin-item-affix">Afixo: 
-                    <select id="admin-item-affix" name="adminItemAffix" class="admin-select" aria-label="Afixo do Item">
+                    <select id="admin-item-affix" name="adminItemAffix" class="admin-select" aria-label="物品詞綴">
                       <option value="roll">🎲 隨機稀有度</option>
                       <option value="none">Nenhum Afixo</option>
                       <option value="crit_boost">✦ +% 暴擊</option>
@@ -2081,7 +2081,7 @@ export const IDLE_MARKUP = `
                   <button class="admin-btn" data-admin-cmd="ac2000" style="background:#7c2d12; border-color:#f59e0b; color:#fbbf24;">+2.000 AC</button>
                 </div>
                 <div class="admin-input-row" style="margin-top:8px; display:flex; gap:6px;">
-                  <input type="number" id="admin-gold-custom" class="admin-num-input" placeholder="Qtd. Adena (ex: 5000000)" style="flex:1;" />
+                  <input type="number" id="admin-gold-custom" class="admin-num-input" placeholder="金幣數量（例如：5000000）" style="flex:1;" />
                   <button id="admin-add-gold-btn" class="admin-btn primary">+ Ouro</button>
                 </div>
                 <div class="admin-input-row" style="margin-top:6px; display:flex; gap:6px;">
