@@ -7,7 +7,7 @@ export const FISHING_ZONES = {
     icon: "🌊",
     minLevel: 15,
     difficulty: 1,
-    description: "Águas calmas ideais para iniciantes. Cardumes abundantes de peixes comuns.",
+    description: "平靜水域，非常適合新手，常見魚群數量充足。",
     availableFish: ["fish_carp", "fish_goby", "fish_starfish", "fish_talking_squid"],
     requiredBait: null,
     baseCatchTime: 3000
@@ -29,7 +29,7 @@ export const FISHING_ZONES = {
     icon: "🏞️",
     minLevel: 22,
     difficulty: 3,
-    description: "Águas cristalinas abençoadas pela Deusa Eva. Lar de espécies mágicas.",
+    description: "受到伊娃女神祝福的清澈水域，棲息著魔法魚種。",
     availableFish: ["fish_elven_trout", "fish_crystal_salmon", "fish_silver_bass", "fish_elven_goldfish"],
     requiredBait: "bait_lure",
     baseCatchTime: 4000
@@ -40,7 +40,7 @@ export const FISHING_ZONES = {
     icon: "🦆",
     minLevel: 26,
     difficulty: 4,
-    description: "Correntes fortes que exigem técnica apurada. Peixes rápidos e robustos vivem aqui.",
+    description: "水流強勁，需要較高釣技；棲息著高速且強韌的魚種。",
     availableFish: ["fish_dion_eel", "fish_mud_catfish", "fish_dion_pike", "fish_river_crab", "fish_mandragora_fish"],
     requiredBait: "bait_golden",
     baseCatchTime: 4500
@@ -51,7 +51,7 @@ export const FISHING_ZONES = {
     icon: "🌅",
     minLevel: 32,
     difficulty: 5,
-    description: "Mar aberto com grande profundidade. Lar de peixes valiosos, carnívoros e ferozes.",
+    description: "深邃外海，棲息著高價值、肉食性且兇猛的魚種。",
     availableFish: ["fish_giran_dragonfish", "fish_swordfish", "fish_tuna", "fish_giran_manta", "fish_kraken_tentacle"],
     requiredBait: "bait_golden",
     baseCatchTime: 5000
@@ -62,7 +62,7 @@ export const FISHING_ZONES = {
     icon: "🏰",
     minLevel: 38,
     difficulty: 6,
-    description: "O majestoso lago de águas esmeraldas que cerca a cidade de Heine. Esconde lendas ancestrais.",
+    description: "環繞海音城的翠綠大湖，傳說其中隱藏著古老秘密。",
     availableFish: ["fish_innadril_sunfish", "fish_rainbow_trout", "fish_abyssal_angler", "fish_siren_scale", "fish_water_dragon_fry"],
     requiredBait: "bait_crystal",
     baseCatchTime: 6000
@@ -77,32 +77,32 @@ export const FIGHT_PROFILES = {
   calm: {
     id: 'calm', name: 'Calmo',
     staminaMult: 0.8, tensionRate: 1.0, recoverRate: 0.7, burstChance: 0.05,
-    desc: 'Peixe dócil. Cansa com facilidade e oferece resistência previsível.'
+    desc: '性情溫和，容易疲累，拉力變化較容易預測。'
   },
   erratic: {
-    id: 'erratic', name: 'Errático',
+    id: 'erratic', name: '不規則型',
     staminaMult: 1.1, tensionRate: 1.4, recoverRate: 1.1, burstChance: 0.25,
-    desc: 'Muda de direção subitamente, gerando picos rápidos de tensão na linha.'
+    desc: '會突然改變方向，使釣線張力瞬間升高。'
   },
   aggressive: {
     id: 'aggressive', name: 'Agressivo',
     staminaMult: 1.3, tensionRate: 1.6, recoverRate: 1.0, burstChance: 0.35,
-    desc: 'Puxa a linha com violência contínua exigindo controle apurado de freio.'
+    desc: '持續強力拉扯釣線，需要精準控制煞車。'
   },
   deepDiver: {
     id: 'deepDiver', name: 'Mergulhador Abissal',
     staminaMult: 1.5, tensionRate: 1.2, recoverRate: 1.4, burstChance: 0.15,
-    desc: 'Mergulha para o fundo, recuperando fôlego se o pescador aliviar demais.'
+    desc: '會潛向深處；若釣手放鬆太多，魚會恢復體力。'
   },
   surfaceRunner: {
-    id: 'surfaceRunner', name: 'Corredor de Superfície',
+    id: 'surfaceRunner', name: '水面衝刺型',
     staminaMult: 1.0, tensionRate: 1.5, recoverRate: 0.9, burstChance: 0.40,
-    desc: 'Dispara em alta velocidade pela superfície, ameaçando arrebentar a linha.'
+    desc: '會在水面高速衝刺，容易造成斷線。'
   },
   heavy: {
-    id: 'heavy', name: 'Titã Pesado',
+    id: 'heavy', name: '重型巨獸',
     staminaMult: 1.8, tensionRate: 1.8, recoverRate: 1.1, burstChance: 0.10,
-    desc: 'Peso maciço e enorme resistência. Cada metro puxado consome grande esforço.'
+    desc: '體型巨大且耐力驚人，每拉近一段距離都需要大量力氣。'
   },
   burstRunner: {
     id: 'burstRunner', name: 'Explosivo',
@@ -121,7 +121,7 @@ export const FISH_CATALOG = {
     zones: ["zone_talking_island", "zone_gludin"]
   },
   fish_goby: {
-    id: "fish_goby", name: "Góbio Comum", icon: "🐠", rarity: "common",
+    id: "fish_goby", name: "普通蝦虎魚", icon: "🐠", rarity: "common",
     fightProfile: "calm", baseStamina: 35,
     baseWeight: { min: 0.2, max: 0.8 }, xpReward: 15, sellPrice: 15,
     exchangeRate: 5, materialReward: "leather", materialName: "Couro Curtido",
@@ -131,7 +131,7 @@ export const FISH_CATALOG = {
     id: "fish_starfish", name: "Estrela-do-Mar", icon: "⭐", rarity: "common",
     fightProfile: "calm", baseStamina: 30,
     baseWeight: { min: 0.1, max: 0.5 }, xpReward: 18, sellPrice: 25,
-    exchangeRate: 5, materialReward: "cotton_thread", materialName: "Linha de Algodão",
+    exchangeRate: 5, materialReward: "cotton_thread", materialName: "棉線",
     zones: ["zone_talking_island"]
   },
   fish_mud_catfish: {
@@ -145,14 +145,14 @@ export const FISH_CATALOG = {
     id: "fish_tuna", name: "Atum Prateado", icon: "🐟", rarity: "common",
     fightProfile: "heavy", baseStamina: 70,
     baseWeight: { min: 5.0, max: 15.0 }, xpReward: 30, sellPrice: 60,
-    exchangeRate: 5, materialReward: "coal", materialName: "Carvão Mineral",
+    exchangeRate: 5, materialReward: "coal", materialName: "煤礦",
     zones: ["zone_giran"]
   },
   fish_silver_bass: {
     id: "fish_silver_bass", name: "Robalo Prateado", icon: "🐟", rarity: "common",
     fightProfile: "erratic", baseStamina: 50,
     baseWeight: { min: 1.0, max: 3.5 }, xpReward: 22, sellPrice: 35,
-    exchangeRate: 5, materialReward: "charcoal", materialName: "Carvão Vegetal",
+    exchangeRate: 5, materialReward: "charcoal", materialName: "木炭",
     zones: ["zone_elven_village"]
   },
 
@@ -161,21 +161,21 @@ export const FISH_CATALOG = {
     id: "fish_talking_squid", name: "Lula de Talking", icon: "🦑", rarity: "uncommon",
     fightProfile: "erratic", baseStamina: 55,
     baseWeight: { min: 0.5, max: 1.5 }, xpReward: 35, sellPrice: 50,
-    exchangeRate: 3, materialReward: "charcoal", materialName: "Carvão Vegetal",
+    exchangeRate: 3, materialReward: "charcoal", materialName: "木炭",
     zones: ["zone_talking_island"]
   },
   fish_gludin_puffer: {
     id: "fish_gludin_puffer", name: "Baiacu de Gludin", icon: "🐡", rarity: "uncommon",
     fightProfile: "erratic", baseStamina: 65,
     baseWeight: { min: 1.0, max: 2.5 }, xpReward: 45, sellPrice: 70,
-    exchangeRate: 3, materialReward: "suede", materialName: "Camurça Macia",
+    exchangeRate: 3, materialReward: "suede", materialName: "柔軟麂皮",
     zones: ["zone_gludin"]
   },
   fish_elven_trout: {
-    id: "fish_elven_trout", name: "Truta Élfica", icon: "🐠", rarity: "uncommon",
+    id: "fish_elven_trout", name: "精靈鱒魚", icon: "🐠", rarity: "uncommon",
     fightProfile: "calm", baseStamina: 50,
     baseWeight: { min: 1.5, max: 3.0 }, xpReward: 50, sellPrice: 90,
-    exchangeRate: 3, materialReward: "iron_ore", materialName: "Minério de Ferro",
+    exchangeRate: 3, materialReward: "iron_ore", materialName: "鐵礦石",
     zones: ["zone_elven_village"]
   },
   fish_river_crab: {
@@ -193,10 +193,10 @@ export const FISH_CATALOG = {
     zones: ["zone_giran"]
   },
   fish_rainbow_trout: {
-    id: "fish_rainbow_trout", name: "Truta Arco-íris", icon: "🐠", rarity: "uncommon",
+    id: "fish_rainbow_trout", name: "虹鱒", icon: "🐠", rarity: "uncommon",
     fightProfile: "surfaceRunner", baseStamina: 75,
     baseWeight: { min: 2.0, max: 6.0 }, xpReward: 80, sellPrice: 200,
-    exchangeRate: 3, materialReward: "steel", materialName: "Aço Forjado",
+    exchangeRate: 3, materialReward: "steel", materialName: "鍛造鋼",
     zones: ["zone_innadril"]
   },
 
@@ -205,21 +205,21 @@ export const FISH_CATALOG = {
     id: "fish_octopus", name: "Polvo das Sombras", icon: "🐙", rarity: "rare",
     fightProfile: "deepDiver", baseStamina: 95,
     baseWeight: { min: 3.0, max: 8.0 }, xpReward: 90, sellPrice: 120,
-    exchangeRate: 2, materialReward: "mithril_ore", materialName: "Minério de Mithril",
+    exchangeRate: 2, materialReward: "mithril_ore", materialName: "米索莉礦石",
     zones: ["zone_gludin"]
   },
   fish_crystal_salmon: {
-    id: "fish_crystal_salmon", name: "Salmão de Cristal", icon: "🐟", rarity: "rare",
+    id: "fish_crystal_salmon", name: "水晶鮭魚", icon: "🐟", rarity: "rare",
     fightProfile: "surfaceRunner", baseStamina: 100,
     baseWeight: { min: 5.0, max: 12.0 }, xpReward: 110, sellPrice: 180,
-    exchangeRate: 2, materialReward: "coal", materialName: "Carvão Mineral",
+    exchangeRate: 2, materialReward: "coal", materialName: "煤礦",
     zones: ["zone_elven_village"]
   },
   fish_dion_eel: {
     id: "fish_dion_eel", name: "Enguia de Dion", icon: "🐍", rarity: "rare",
     fightProfile: "erratic", baseStamina: 90,
     baseWeight: { min: 1.5, max: 4.5 }, xpReward: 120, sellPrice: 220,
-    exchangeRate: 2, materialReward: "braided_hemp", materialName: "Cânhamo Trançado",
+    exchangeRate: 2, materialReward: "braided_hemp", materialName: "編織麻纖",
     zones: ["zone_dion"]
   },
   fish_giran_manta: {
@@ -233,67 +233,67 @@ export const FISH_CATALOG = {
     id: "fish_abyssal_angler", name: "Pescador Abissal", icon: "🏮", rarity: "rare",
     fightProfile: "deepDiver", baseStamina: 120,
     baseWeight: { min: 8.0, max: 18.0 }, xpReward: 170, sellPrice: 450,
-    exchangeRate: 2, materialReward: "mithril_ore", materialName: "Minério de Mithril",
+    exchangeRate: 2, materialReward: "mithril_ore", materialName: "米索莉礦石",
     zones: ["zone_innadril"]
   },
 
   // Épico (8%)
   fish_ray: {
-    id: "fish_ray", name: "Arraia Elétrica", icon: "⚡", rarity: "epic",
+    id: "fish_ray", name: "電鰩", icon: "⚡", rarity: "epic",
     fightProfile: "aggressive", baseStamina: 140,
     baseWeight: { min: 15.0, max: 35.0 }, xpReward: 200, sellPrice: 300,
     exchangeRate: 1, materialReward: "silver_thread", materialName: "Fio de Prata",
     zones: ["zone_gludin", "zone_giran"]
   },
   fish_elven_goldfish: {
-    id: "fish_elven_goldfish", name: "Peixe-Dourado Élfico", icon: "🪙", rarity: "epic",
+    id: "fish_elven_goldfish", name: "精靈金魚", icon: "🪙", rarity: "epic",
     fightProfile: "calm", baseStamina: 100,
     baseWeight: { min: 0.5, max: 1.5 }, xpReward: 230, sellPrice: 400,
-    exchangeRate: 1, materialReward: "metallic_fiber", materialName: "Fibra Metálica",
+    exchangeRate: 1, materialReward: "metallic_fiber", materialName: "金屬纖維",
     zones: ["zone_elven_village"]
   },
   fish_mandragora_fish: {
-    id: "fish_mandragora_fish", name: "Peixe-Mandrágora", icon: "🌱", rarity: "epic",
+    id: "fish_mandragora_fish", name: "曼德拉草魚", icon: "🌱", rarity: "epic",
     fightProfile: "burstRunner", baseStamina: 135,
     baseWeight: { min: 2.0, max: 5.0 }, xpReward: 260, sellPrice: 550,
-    exchangeRate: 1, materialReward: "steel_ingot", materialName: "Lingote de Aço",
+    exchangeRate: 1, materialReward: "steel_ingot", materialName: "鋼錠",
     zones: ["zone_dion"]
   },
   fish_giran_dragonfish: {
-    id: "fish_giran_dragonfish", name: "Peixe-Dragão de Giran", icon: "🐉", rarity: "epic",
+    id: "fish_giran_dragonfish", name: "奇岩龍魚", icon: "🐉", rarity: "epic",
     fightProfile: "burstRunner", baseStamina: 160,
     baseWeight: { min: 30.0, max: 80.0 }, xpReward: 300, sellPrice: 800,
-    exchangeRate: 1, materialReward: "oriharukon_ore", materialName: "Minério de Oriharukon",
+    exchangeRate: 1, materialReward: "oriharukon_ore", materialName: "奧里哈魯根礦石",
     zones: ["zone_giran"]
   },
 
   // Lendário (2%)
   fish_gludin_shark: {
-    id: "fish_gludin_shark", name: "Tubarão Branco de Gludin", icon: "🦈", rarity: "legendary",
+    id: "fish_gludin_shark", name: "古魯丁白鯊", icon: "🦈", rarity: "legendary",
     fightProfile: "aggressive", baseStamina: 200,
     baseWeight: { min: 100.0, max: 300.0 }, xpReward: 400, sellPrice: 1500,
-    exchangeRate: 1, materialReward: "oriharukon_ore", materialName: "Minério de Oriharukon",
+    exchangeRate: 1, materialReward: "oriharukon_ore", materialName: "奧里哈魯根礦石",
     zones: ["zone_gludin"]
   },
   fish_dion_pike: {
-    id: "fish_dion_pike", name: "Pique Escamas-de-Aço", icon: "⚜️", rarity: "legendary",
+    id: "fish_dion_pike", name: "鋼鱗梭魚", icon: "⚜️", rarity: "legendary",
     fightProfile: "aggressive", baseStamina: 190,
     baseWeight: { min: 25.0, max: 60.0 }, xpReward: 500, sellPrice: 2000,
-    exchangeRate: 1, materialReward: "steel", materialName: "Aço Forjado",
+    exchangeRate: 1, materialReward: "steel", materialName: "鍛造鋼",
     zones: ["zone_dion"]
   },
   fish_kraken_tentacle: {
-    id: "fish_kraken_tentacle", name: "Tentáculo do Kraken", icon: "🦑", rarity: "legendary",
+    id: "fish_kraken_tentacle", name: "克拉肯觸手", icon: "🦑", rarity: "legendary",
     fightProfile: "heavy", baseStamina: 240,
     baseWeight: { min: 50.0, max: 150.0 }, xpReward: 650, sellPrice: 4000,
     exchangeRate: 1, materialReward: "silver_mold", materialName: "Molde de Prata",
     zones: ["zone_giran"]
   },
   fish_innadril_sunfish: {
-    id: "fish_innadril_sunfish", name: "Peixe-Lua de Innadril", icon: "☀️", rarity: "legendary",
+    id: "fish_innadril_sunfish", name: "因納得立月魚", icon: "☀️", rarity: "legendary",
     fightProfile: "deepDiver", baseStamina: 250,
     baseWeight: { min: 400.0, max: 1000.0 }, xpReward: 800, sellPrice: 6000,
-    exchangeRate: 1, materialReward: "mithril_ore", materialName: "Minério de Mithril",
+    exchangeRate: 1, materialReward: "mithril_ore", materialName: "米索莉礦石",
     zones: ["zone_innadril"]
   },
   fish_siren_scale: {
@@ -304,7 +304,7 @@ export const FISH_CATALOG = {
     zones: ["zone_innadril"]
   },
   fish_water_dragon_fry: {
-    id: "fish_water_dragon_fry", name: "Filhote do Dragão da Água", icon: "🐲", rarity: "legendary",
+    id: "fish_water_dragon_fry", name: "水龍幼魚", icon: "🐲", rarity: "legendary",
     fightProfile: "heavy", baseStamina: 280,
     baseWeight: { min: 10.0, max: 30.0 }, xpReward: 1200, sellPrice: 10000,
     exchangeRate: 1, materialReward: "adamantite", materialName: "Bloco de Adamantite",
@@ -318,15 +318,15 @@ export const RODS_CATALOG = {
     catchBonus: 1.0, durability: 50, repairCost: 50, buyPrice: 0
   },
   rod_d: {
-    id: "rod_d", name: "Vara de Aprendiz (D-Grade)", icon: "🎣", grade: "d", minFishingLevel: 3,
+    id: "rod_d", name: "學徒釣竿（D 級）", icon: "🎣", grade: "d", minFishingLevel: 3,
     catchBonus: 1.15, durability: 100, repairCost: 250, buyPrice: 5000
   },
   rod_c: {
-    id: "rod_c", name: "Vara Reforçada (C-Grade)", icon: "🎣", grade: "c", minFishingLevel: 8,
+    id: "rod_c", name: "強化釣竿（C 級）", icon: "🎣", grade: "c", minFishingLevel: 8,
     catchBonus: 1.30, durability: 200, repairCost: 750, buyPrice: 25000
   },
   rod_b: {
-    id: "rod_b", name: "Vara de Mestre (B-Grade)", icon: "🎣", grade: "b", minFishingLevel: 15,
+    id: "rod_b", name: "大師釣竿（B 級）", icon: "🎣", grade: "b", minFishingLevel: 15,
     catchBonus: 1.50, durability: 400, repairCost: 2500, buyPrice: 120000
   },
   rod_a: {
@@ -338,22 +338,22 @@ export const RODS_CATALOG = {
 export const BAIT_CATALOG = {
   bait_worm: {
     id: "bait_worm", name: "Minhoca Fresca", icon: "🪱", buyPrice: 10,
-    effectDescription: "Isca básica e acessível. Eficácia padrão.",
+    effectDescription: "價格親民的基礎魚餌，效果標準。",
     catchBonus: 1.0, rarityBoost: 0.0
   },
   bait_lure: {
     id: "bait_lure", name: "Larva Luminescente", icon: "🐛", buyPrice: 50,
-    effectDescription: "Brilha nas águas profundas. +20% chance de captura e +5% chance de raros.",
+    effectDescription: "在深水中發光，+20% 捕獲率、+5% 稀有魚機率。",
     catchBonus: 1.2, rarityBoost: 0.05
   },
   bait_golden: {
     id: "bait_golden", name: "Isca Dourada de Giran", icon: "✨", buyPrice: 200,
-    effectDescription: "Reflete luz com perfeição. +50% chance de captura e +15% chance de raros.",
+    effectDescription: "能完美反射光線，+50% 捕獲率、+15% 稀有魚機率。",
     catchBonus: 1.5, rarityBoost: 0.15
   },
   bait_crystal: {
     id: "bait_crystal", name: "Isca Cristalina Abissal", icon: "💎", buyPrice: 1000,
-    effectDescription: "Imbuída com cristais de mana. Dobra a chance de captura e +30% chance de épicos/lendários.",
+    effectDescription: "灌注魔力水晶，捕獲率加倍，並 +30% 史詩／傳說魚機率。",
     catchBonus: 2.0, rarityBoost: 0.30
   }
 };
@@ -363,9 +363,9 @@ export function getFishingXpForLevel(level) {
 }
 
 export const FISH_EXCHANGE_TIERS = {
-  common: { name: "Tier 1: Comum", description: "5 Peixes → 1 Material Básico", exchangeRate: 5 },
-  uncommon: { name: "Tier 2: Incomum", description: "3 Peixes → 1 Material Refinado", exchangeRate: 3 },
-  rare: { name: "Tier 3: Raro", description: "2 Peixes → 1 Material Especial", exchangeRate: 2 },
-  epic: { name: "Tier 4: Épico", description: "1 Peixe → 1 Material Raro", exchangeRate: 1 },
-  legendary: { name: "Tier 5: Lendário", description: "1 Peixe → 1 Material Nobre", exchangeRate: 1 }
+  common: { name: "階級 1：普通", description: "5 條魚 → 1 份基礎材料", exchangeRate: 5 },
+  uncommon: { name: "Tier 2: Incomum", description: "3 條魚 → 1 份精製材料", exchangeRate: 3 },
+  rare: { name: "階級 3：稀有", description: "2 條魚 → 1 份特殊材料", exchangeRate: 2 },
+  epic: { name: "階級 4：史詩", description: "1 條魚 → 1 份稀有材料", exchangeRate: 1 },
+  legendary: { name: "階級 5：傳說", description: "1 條魚 → 1 份高級材料", exchangeRate: 1 }
 };
