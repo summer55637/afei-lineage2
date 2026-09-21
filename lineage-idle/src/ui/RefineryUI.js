@@ -105,7 +105,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
                 </div>
               </div>
               <span style="font-size: 10px; color: #ffd877; background: rgba(212,167,68,0.15); border: 1px solid rgba(212,167,68,0.3); border-radius: 4px; padding: 2px 6px; font-weight: bold;">
-                🪙 ${rec.adenaCost.toLocaleString()} Adena
+                🪙 ${rec.adenaCost.toLocaleString()} 金幣
               </span>
             </div>
 
@@ -113,7 +113,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
               ${rec.desc}
             </p>
 
-            <!-- Materiais Requeridos ➔ Saída -->
+            <!-- 所需材料 ➔ Saída -->
             <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 12px;">
               ${inputsHtml}
               <span style="color: #6ee7b7; font-size: 14px; font-weight: bold;">➔</span>
@@ -184,7 +184,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
                 cursor: ${maxPossible > 0 ? 'pointer' : 'not-allowed'};
               "
             >
-              Refinar Máx (${maxPossible})
+              最大精煉 (${maxPossible})
             </button>
           </div>
         </div>
@@ -211,15 +211,15 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
             ⚗️ Bancada de Refino de Materiais (Life Activities 2.0)
           </h3>
           <p style="margin: 4px 0 0 0; font-size: 11px; color: #cbd5e1;">
-            Transforme madeira, peles, ossos, minérios e ervas colhidos nas atividades de vida em materiais nobres para a Forja Imperial.
+            將生活技能取得的木材、毛皮、骨頭、礦石與藥草加工成帝國鍛造所需的高級材料。
           </p>
         </div>
         <div style="font-size: 11px; color: #ffd877; background: rgba(0,0,0,0.5); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(212,167,68,0.3);">
-          🪙 Ouro: <strong style="color:#fde047;">${(state.gold || 0).toLocaleString()} Adena</strong>
+          🪙 Ouro: <strong style="color:#fde047;">${(state.gold || 0).toLocaleString()} 金幣</strong>
         </div>
       </div>
 
-      <!-- Filtros de Categoria -->
+      <!-- 類別篩選 -->
       <div style="display: flex; gap: 8px; flex-wrap: wrap;">
         ${filterButtonsHtml}
       </div>
