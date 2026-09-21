@@ -3,22 +3,22 @@
 export const MINING_ZONES = {
   zone_abandoned_coal: {
     id: 'zone_abandoned_coal',
-    name: 'Galerias de Carvão de Gludio',
+    name: '古魯丁煤礦坑道',
     icon: '⛏️',
     minLevel: 15,
     difficulty: 1,
-    description: 'Antigas galerias subterrâneas de extração de combustível fóssil e ferro superficial. Ideal para novos mineradores.',
+    description: '古老地下礦坑，可開採煤與淺層鐵礦，非常適合新手礦工。',
     availableNodes: ['node_coal_deposit', 'node_crude_iron_pocket', 'node_gravel_strata', 'node_pyrite_cluster'],
     requiredLamp: null,
     baseMineTime: 3300
   },
   zone_mithril_mines: {
     id: 'zone_mithril_mines',
-    name: 'Minas Ancestrais dos Anões',
+    name: '矮人古代礦山',
     icon: '💎',
     minLevel: 22,
     difficulty: 2,
-    description: 'Túneis labirínticos escavados pelos maiores clãs artífices de Aden. Veios abundantes de prata e traços de mithril.',
+    description: '由亞丁著名工匠血盟開鑿的迷宮礦道，銀礦豐富並帶有少量米索莉。',
     availableNodes: ['node_pure_iron_seam', 'node_silver_vein', 'node_dense_coal_pillar', 'node_cokes_rock'],
     requiredLamp: 'lamp_oil',
     baseMineTime: 3800
@@ -29,7 +29,7 @@ export const MINING_ZONES = {
     icon: '🪨',
     minLevel: 28,
     difficulty: 3,
-    description: 'Encostas rochosas abertas com rochas metamórficas duras. Ricas em nódulos de ferro pesado e pepitas reluzentes.',
+    description: '裸露的堅硬變質岩山坡，富含重鐵礦結核與閃亮礦塊。',
     availableNodes: ['node_heavy_iron_boulder', 'node_rich_silver_pocket', 'node_mithril_crust', 'node_quarry_granite'],
     requiredLamp: 'lamp_miner',
     baseMineTime: 4200
@@ -40,7 +40,7 @@ export const MINING_ZONES = {
     icon: '✨',
     minLevel: 34,
     difficulty: 4,
-    description: 'Fendas tectônicas onde a pressão da terra condensou minerais raros de Mithril Ancestral e ligas nobres.',
+    description: '地殼壓力形成的裂隙，凝聚著古代米索莉與高級合金礦物。',
     availableNodes: ['node_deep_mithril_lode', 'node_silver_nugget_mother', 'node_cokes_furnace_core', 'node_steel_shale'],
     requiredLamp: 'lamp_miner',
     baseMineTime: 4800
@@ -51,7 +51,7 @@ export const MINING_ZONES = {
     icon: '❄️',
     minLevel: 38,
     difficulty: 5,
-    description: 'Poços gelados de alta profundidade. O frio extremo cristalizou veios dourados de Oriharukon sob o permafrost.',
+    description: '極深冰封礦井，嚴寒使永久凍土下的奧里哈魯根礦脈結晶化。',
     availableNodes: ['node_oriharukon_frozen_vein', 'node_ancient_mithril_cluster', 'node_iron_bedrock', 'node_dense_mineral_mass'],
     requiredLamp: 'lamp_alchemical',
     baseMineTime: 5400
@@ -62,7 +62,7 @@ export const MINING_ZONES = {
     icon: '🌋',
     minLevel: 40,
     difficulty: 6,
-    description: 'Câmaras vulcânicas incandescentes próximas ao covil dos dragões de fogo. Único local onde o lendário Adamantite aflora.',
+    description: '鄰近火龍巢穴的灼熱火山洞室，是傳說精金自然露出的唯一地點。',
     availableNodes: ['node_adamantite_core_rock', 'node_oriharukon_radiant_geode', 'node_magma_tempered_slag', 'node_primordial_bedrock'],
     requiredLamp: 'lamp_crystal',
     baseMineTime: 6200
@@ -74,10 +74,10 @@ export function getMiningZonesList() {
 }
 
 export const MINE_HAZARDS = {
-  none: { id: 'none', name: 'Rocha Estável', desc: 'Sem perigos ocultos.' },
-  gas_pocket: { id: 'gas_pocket', name: 'Bolsão de Gás', desc: 'Gás inflamável. Golpes pesados causam explosão (10% HP dano, desgaste extra).' },
-  seismic_fault: { id: 'seismic_fault', name: 'Falha Sísmica', desc: 'Rocha fraturada. Perda de estabilidade acelerada (2x).' },
-  dense_crystal: { id: 'dense_crystal', name: 'Veio Cristalino', desc: 'Cristal puro. Mineração precisa dobra o rendimento.' }
+  none: { id: 'none', name: '穩定岩層', desc: 'Sem perigos ocultos.' },
+  gas_pocket: { id: 'gas_pocket', name: '瓦斯囊', desc: '可燃氣體。重擊可能引發爆炸（造成 10% HP 傷害並額外消耗耐久）。' },
+  seismic_fault: { id: 'seismic_fault', name: '地震裂隙', desc: 'Rocha fraturada. Perda de estabilidade acelerada (2x).' },
+  dense_crystal: { id: 'dense_crystal', name: 'Veio Cristalino', desc: '純淨水晶；精準採礦可使產量加倍。' }
 };
 
 export const MINING_TACTICS = {
@@ -85,7 +85,7 @@ export const MINING_TACTICS = {
     id: 'precision',
     name: 'Cinzelamento Preciso',
     icon: '🎯',
-    desc: 'Golpes cirúrgicos nas juntas naturais da rocha. +25% chance de Pepita Pura, perda de estabilidade -5%.',
+    desc: '沿天然岩縫精準敲擊，+25% 純礦塊機率，穩定度僅下降 5%。',
     timeMult: 1.2,
     qualityBonus: 0.25,
     durabilityCost: 1,
@@ -93,7 +93,7 @@ export const MINING_TACTICS = {
   },
   standard: {
     id: 'standard',
-    name: 'Mineração Padrão',
+    name: '標準採礦',
     icon: '⛏️',
     desc: 'Ritmo firme e cadenciado de picareta. Rendimento e perda de estabilidade moderados (-12%).',
     timeMult: 1.0,
@@ -105,7 +105,7 @@ export const MINING_TACTICS = {
     id: 'heavy',
     name: 'Golpe Demolidor',
     icon: '💥',
-    desc: 'Martelada potente para quebrar a camada externa. -35% no tempo, perda drástica de estabilidade (-28%!). Risco de explosão de gás.',
+    desc: '以強力敲擊快速破壞外層，時間 -35%，但穩定度大幅下降（-28%），也有瓦斯爆炸風險。',
     timeMult: 0.65,
     qualityBonus: -0.15,
     durabilityCost: 1,
@@ -113,9 +113,9 @@ export const MINING_TACTICS = {
   },
   probe: {
     id: 'probe',
-    name: 'Sondagem Acústica',
+    name: '聲波探勘',
     icon: '🔍',
-    desc: 'Revela perigo do veio sem causar vibração na galeria.',
+    desc: '不震動礦坑即可偵測礦脈危險。',
     timeMult: 0,
     qualityBonus: 0,
     durabilityCost: 0,
@@ -127,34 +127,34 @@ export const MINING_TACTICS = {
 export const MINERAL_NODES_CATALOG = {
   // Comum
   node_coal_deposit: {
-    id: 'node_coal_deposit', name: 'Veio Superficial de Carvão', icon: '⚫', rarity: 'common',
-    desc: 'Camadas de carvão mineral fáceis de esfarelar.',
+    id: 'node_coal_deposit', name: '淺層煤礦脈', icon: '⚫', rarity: 'common',
+    desc: '容易碎裂的煤礦層。',
     yields: { primary: 'coal', primaryQty: 3, secondary: 'iron_ore', secondaryQty: 1 },
     baseTime: 3200, xpReward: 6, zones: ['zone_abandoned_coal']
   },
   node_crude_iron_pocket: {
-    id: 'node_crude_iron_pocket', name: 'Nódulo de Ferro Rústico', icon: '🪨', rarity: 'common',
-    desc: 'Rocha avermelhada rica em óxido de ferro.',
+    id: 'node_crude_iron_pocket', name: '粗鐵礦結核', icon: '🪨', rarity: 'common',
+    desc: '富含氧化鐵的紅色岩石。',
     yields: { primary: 'iron_ore', primaryQty: 3, secondary: 'coal', secondaryQty: 1 },
     baseTime: 3300, xpReward: 8, zones: ['zone_abandoned_coal']
   },
   node_gravel_strata: {
     id: 'node_gravel_strata', name: 'Estrato Arenoso de Cascalho', icon: '⛏️', rarity: 'common',
-    desc: 'Depósito misto de sedimentos ricos em minérios.',
+    desc: '由多種富礦沉積物形成的混合礦床。',
     yields: { primary: 'coal', primaryQty: 2, secondary: 'iron_ore', secondaryQty: 2 },
     baseTime: 3100, xpReward: 7, zones: ['zone_abandoned_coal']
   },
   node_pyrite_cluster: {
     id: 'node_pyrite_cluster', name: 'Agregado de Pirita Bruta', icon: '🪙', rarity: 'common',
-    desc: 'Cristais dourados que acompanham bolsões de ferro de alta densidade.',
+    desc: '伴隨高密度鐵礦囊出現的金色水晶。',
     yields: { primary: 'iron_ore', primaryQty: 4, secondary: 'coal', secondaryQty: 1 },
     baseTime: 3500, xpReward: 10, zones: ['zone_abandoned_coal']
   },
 
   // Incomum
   node_pure_iron_seam: {
-    id: 'node_pure_iron_seam', name: 'Costura de Ferro dos Anões', icon: '⚙️', rarity: 'uncommon',
-    desc: 'Veio contínuo e denso escavado nas profundezas das montanhas.',
+    id: 'node_pure_iron_seam', name: '矮人鐵礦脈', icon: '⚙️', rarity: 'uncommon',
+    desc: '在山腹深處開採出的連續高密度礦脈。',
     yields: { primary: 'iron_ore', primaryQty: 5, secondary: 'cokes', secondaryQty: 1 },
     baseTime: 3800, xpReward: 18, zones: ['zone_mithril_mines']
   },
@@ -166,13 +166,13 @@ export const MINERAL_NODES_CATALOG = {
   },
   node_dense_coal_pillar: {
     id: 'node_dense_coal_pillar', name: 'Coluna de Antracito Puro', icon: '🪨', rarity: 'uncommon',
-    desc: 'Carvão fóssil de queima limpa e poder calorífico superior.',
+    desc: '燃燒乾淨且熱值較高的化石煤。',
     yields: { primary: 'coal', primaryQty: 6, secondary: 'cokes', secondaryQty: 1 },
     baseTime: 3900, xpReward: 20, zones: ['zone_mithril_mines']
   },
   node_cokes_rock: {
-    id: 'node_cokes_rock', name: 'Formação Natural de Coque', icon: '🔥', rarity: 'uncommon',
-    desc: 'Nódulo de carvão calcinado pela proximidade de fendas térmicas.',
+    id: 'node_cokes_rock', name: '天然焦炭層', icon: '🔥', rarity: 'uncommon',
+    desc: '因接近地熱裂隙而被高溫煅燒的煤結核。',
     yields: { primary: 'cokes', primaryQty: 2, secondary: 'iron_ore', secondaryQty: 3 },
     baseTime: 4100, xpReward: 24, zones: ['zone_mithril_mines']
   },
@@ -180,25 +180,25 @@ export const MINERAL_NODES_CATALOG = {
   // Raro
   node_heavy_iron_boulder: {
     id: 'node_heavy_iron_boulder', name: 'Megalito de Hematita de Dion', icon: '🛡️', rarity: 'rare',
-    desc: 'Bloco de alta densidade mineral difícil de quebrar.',
+    desc: '高礦物密度、難以擊碎的礦塊。',
     yields: { primary: 'iron_ore', primaryQty: 8, secondary: 'steel', secondaryQty: 1 },
     baseTime: 4400, xpReward: 44, zones: ['zone_plains_quarry']
   },
   node_rich_silver_pocket: {
-    id: 'node_rich_silver_pocket', name: 'Bolsão de Prata Nobre', icon: '✨', rarity: 'rare',
-    desc: 'Geodo de prata de excepcional pureza cristalina.',
+    id: 'node_rich_silver_pocket', name: '高純度銀礦囊', icon: '✨', rarity: 'rare',
+    desc: '晶體純度極高的銀礦晶洞。',
     yields: { primary: 'silver_nugget', primaryQty: 4, secondary: 'iron_ore', secondaryQty: 4 },
     baseTime: 4600, xpReward: 48, zones: ['zone_plains_quarry']
   },
   node_deep_mithril_lode: {
-    id: 'node_deep_mithril_lode', name: 'Filão Profundo de Mithril', icon: '💎', rarity: 'rare',
-    desc: 'Minério de mithril bruto com tons azulados prateados.',
+    id: 'node_deep_mithril_lode', name: '深層米索莉礦脈', icon: '💎', rarity: 'rare',
+    desc: '帶銀藍色澤的粗米索莉礦石。',
     yields: { primary: 'mithril_ore', primaryQty: 2, secondary: 'silver_nugget', secondaryQty: 2 },
     baseTime: 4900, xpReward: 55, zones: ['zone_giran_deep_vein']
   },
   node_cokes_furnace_core: {
     id: 'node_cokes_furnace_core', name: 'Cerne de Rocha Calcinada', icon: '🌋', rarity: 'rare',
-    desc: 'Mineralização que suporta as temperaturas de forja C-Grade.',
+    desc: '可承受 C 級鍛造溫度的礦物。',
     yields: { primary: 'cokes', primaryQty: 3, secondary: 'steel', secondaryQty: 1 },
     baseTime: 4700, xpReward: 52, zones: ['zone_giran_deep_vein']
   },
@@ -206,27 +206,27 @@ export const MINERAL_NODES_CATALOG = {
   // Épico
   node_oriharukon_frozen_vein: {
     id: 'node_oriharukon_frozen_vein', name: 'Veio Dourado de Oriharukon', icon: '🌟', rarity: 'epic',
-    desc: 'Filamentos áureos de metal místico incrustados no granito de Schuttgart.',
+    desc: '鑲嵌在修加特花崗岩中的金色神秘金屬絲。',
     yields: { primary: 'oriharukon_ore', primaryQty: 2, secondary: 'mithril_ore', secondaryQty: 2 },
     baseTime: 5400, xpReward: 95, zones: ['zone_iron_stronghold']
   },
   node_ancient_mithril_cluster: {
     id: 'node_ancient_mithril_cluster', name: 'Ninho de Mithril Ancestral', icon: '🔷', rarity: 'epic',
-    desc: 'Cristalizações colossais de mithril com altíssima condutividade mágica.',
+    desc: '具有極高魔力傳導性的巨大米索莉結晶。',
     yields: { primary: 'mithril_ore', primaryQty: 4, secondary: 'oriharukon_ore', secondaryQty: 1 },
     baseTime: 5500, xpReward: 105, zones: ['zone_iron_stronghold']
   },
 
   // Lendário
   node_adamantite_core_rock: {
-    id: 'node_adamantite_core_rock', name: 'Monólito de Adamantite Primordial', icon: '⚡', rarity: 'legendary',
-    desc: 'Fragmento de meteoro enterrado sob a Forja dos Deuses. Dureza insuperável.',
+    id: 'node_adamantite_core_rock', name: '原初精金巨岩', icon: '⚡', rarity: 'legendary',
+    desc: '埋藏於諸神熔爐下方的隕石碎片，硬度無可匹敵。',
     yields: { primary: 'adamantite', primaryQty: 2, secondary: 'oriharukon_ore', secondaryQty: 3 },
     baseTime: 6200, xpReward: 260, zones: ['zone_forge_of_gods']
   },
   node_oriharukon_radiant_geode: {
     id: 'node_oriharukon_radiant_geode', name: 'Geodo Radiante de Oriharukon', icon: '👑', rarity: 'legendary',
-    desc: 'Geodo vulcânico gigante preenchido de cristais de ouro primordial.',
+    desc: '充滿原初黃金水晶的巨大火山晶洞。',
     yields: { primary: 'oriharukon_ore', primaryQty: 4, secondary: 'adamantite', secondaryQty: 1 },
     baseTime: 6400, xpReward: 300, zones: ['zone_forge_of_gods']
   }
@@ -235,7 +235,7 @@ export const MINERAL_NODES_CATALOG = {
 export const PICKAXES_CATALOG = {
   pickaxe_none: {
     id: 'pickaxe_none',
-    name: 'Picareta Rústica de Cobre',
+    name: '粗製銅鎬',
     grade: 'none',
     icon: '⛏️',
     minMiningLevel: 1,
@@ -243,11 +243,11 @@ export const PICKAXES_CATALOG = {
     repairCost: 500,
     buyPrice: 0,
     qualityBonus: 0.0,
-    desc: 'Ferramenta básica com ponta forjada em bronze e cabo de madeira comum.'
+    desc: '以青銅鎬頭與普通木柄製成的基礎工具。'
   },
   pickaxe_d: {
     id: 'pickaxe_d',
-    name: 'Picareta de Ferro dos Anões',
+    name: '矮人鐵鎬',
     grade: 'd',
     icon: '⚒️',
     minMiningLevel: 3,
@@ -255,11 +255,11 @@ export const PICKAXES_CATALOG = {
     repairCost: 2500,
     buyPrice: 15000,
     qualityBonus: 0.15,
-    desc: 'Forjada com a têmpera dos mestres das minas. +15% de chance de minérios puros.'
+    desc: '由礦山大師淬鍊打造，+15% 純礦石機率。'
   },
   pickaxe_c: {
     id: 'pickaxe_c',
-    name: 'Picareta de Aço Reforçado',
+    name: '強化鋼鎬',
     grade: 'c',
     icon: '✨',
     minMiningLevel: 8,
@@ -267,11 +267,11 @@ export const PICKAXES_CATALOG = {
     repairCost: 7500,
     buyPrice: 60000,
     qualityBonus: 0.30,
-    desc: 'Lâmina chanfrada que parte o granito sem esfarelar veios raros (+30% pureza).'
+    desc: '斜刃設計可劈開花崗岩而不破壞稀有礦脈（+30% 純度）。'
   },
   pickaxe_b: {
     id: 'pickaxe_b',
-    name: 'Picareta de Mithril de Alta Pressão',
+    name: '高壓米索莉鎬',
     grade: 'b',
     icon: '💎',
     minMiningLevel: 15,
@@ -279,11 +279,11 @@ export const PICKAXES_CATALOG = {
     repairCost: 20000,
     buyPrice: 200000,
     qualityBonus: 0.50,
-    desc: 'Penetra filões profundos de mithril e oriharukon com grande facilidade (+50% pureza).'
+    desc: '能輕鬆開採深層米索莉與奧里哈魯根礦脈（+50% 純度）。'
   },
   pickaxe_a: {
     id: 'pickaxe_a',
-    name: 'Broca Imperial do Titã da Forja',
+    name: '帝國泰坦鍛造鑽',
     grade: 'a',
     icon: '👑',
     minMiningLevel: 25,
@@ -291,14 +291,14 @@ export const PICKAXES_CATALOG = {
     repairCost: 60000,
     buyPrice: 750000,
     qualityBonus: 0.80,
-    desc: 'Obra-prima abençoada por Maphr. Capaz de perfurar blocos de adamantite (+80% pureza).'
+    desc: '受馬普勒祝福的傑作，可鑽穿精金礦塊（+80% 純度）。'
   }
 };
 
 export const LAMPS_CATALOG = {
   lamp_oil: {
     id: 'lamp_oil',
-    name: 'Lampião de Óleo Mineral',
+    name: '礦油燈',
     icon: '🏮',
     buyPrice: 100,
     rarityBoost: 'uncommon',
@@ -307,7 +307,7 @@ export const LAMPS_CATALOG = {
   },
   lamp_miner: {
     id: 'lamp_miner',
-    name: 'Lanterna de Carbureto dos Anões',
+    name: '矮人電石燈',
     icon: '🔦',
     buyPrice: 350,
     rarityBoost: 'rare',
@@ -316,12 +316,12 @@ export const LAMPS_CATALOG = {
   },
   lamp_alchemical: {
     id: 'lamp_alchemical',
-    name: 'Lâmpada de Fogo Fátuo Alquímico',
+    name: '鍊金鬼火燈',
     icon: '🧪',
     buyPrice: 1000,
     rarityBoost: 'epic',
     speedBoost: 1.40,
-    desc: 'Luz espectral sensível ao magnetismo natural do Oriharukon.'
+    desc: '能感應奧里哈魯根天然磁性的幽光燈。'
   },
   lamp_crystal: {
     id: 'lamp_crystal',
