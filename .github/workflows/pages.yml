@@ -1,0 +1,123 @@
+name: GitHub Pages Build and Deploy
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-smoke-test:
+    name: Build and browser smoke test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Build for GitHub Pages
+        run: npm run build -- --base=/afei-lineage2/
+
+      - name: Prepare and validate project-path build
+        run: node scripts/prepare-github-pages.mjs
+
+      - name: Serve build at the real project path
+        run: |
+          mkdir -p /tmp/pages-root
+          ln -s "$GITHUB_WORKSPACE/dist" /tmp/pages-root/afei-lineage2
+          python3 -m http.server 4173 --directory /tmp/pages-root >/tmp/pages-http.log 2>&1 &
+          echo $! >/tmp/pages-http.pid
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/afei-lineage2/ >/tmp/pages-index.html; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/pages-http.log
+          exit 1
+
+      - name: Real Chrome white-screen test
+        run: |
+          CHROME="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          if [ -z "$CHROME" ]; then
+            echo "No Chrome/Chromium executable found on runner."
+            exit 1
+          fi
+
+          "$CHROME" \
+            --headless=new \
+            --no-sandbox \
+            --disable-gpu \
+            --disable-dev-shm-usage \
+            --virtual-time-budget=10000 \
+            --dump-dom \
+            http://127.0.0.1:4173/afei-lineage2/ \
+            >/tmp/pages-dom.html 2>/tmp/pages-chrome.log || {
+              cat /tmp/pages-chrome.log
+              exit 1
+            }
+
+          node -e "
+            const fs=require('fs');
+            const dom=fs.readFileSync('/tmp/pages-dom.html','utf8');
+            const marker='<div id=\"root\">';
+            const start=dom.indexOf(marker);
+            if(start<0) throw new Error('React root element not found');
+            const rest=dom.slice(start+marker.length);
+            const end=rest.indexOf('</div>');
+            const inner=end>=0 ? rest.slice(0,end).trim() : '';
+            if(!inner || !inner.includes('<')) throw new Error('React root stayed empty: white screen detected');
+            if(dom.includes('Ops! Ocorreu um erro inesperado.')) throw new Error('React ErrorBoundary rendered during smoke test');
+            console.log('PASS: React rendered non-empty UI at /afei-lineage2/');
+          "
+
+      - name: Stop preview server
+        if: always()
+        run: |
+          if [ -f /tmp/pages-http.pid ]; then
+            kill $(cat /tmp/pages-http.pid) 2>/dev/null || true
+          fi
+
+      - name: Upload GitHub Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    name: Deploy to GitHub Pages
+    if: github.event_name != 'pull_request'
+    needs: build-and-smoke-test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
