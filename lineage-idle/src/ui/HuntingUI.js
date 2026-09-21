@@ -117,7 +117,7 @@ export function renderHuntingUI(state) {
           ${(!canUnlock || !canAfford) ? 'disabled' : ''}
           style="padding:4px 10px; font-size:10px; font-weight:bold; background:${canUnlock && canAfford ? 'linear-gradient(180deg,#d4a744,#8a641c)' : 'rgba(50,50,50,0.4)'}; border:1px solid ${canUnlock && canAfford ? '#ffe699' : '#555'}; color:${canUnlock && canAfford ? '#000' : '#777'}; border-radius:4px; cursor:${canUnlock && canAfford ? 'pointer' : 'not-allowed'};"
         >
-          ${canUnlock ? `COMPRAR (${(kDef.buyPrice / 1000).toFixed(0)}k)` : `🔒 Nv. ${kDef.minHuntingLevel}`}
+          ${canUnlock ? `購買 (${(kDef.buyPrice / 1000).toFixed(0)}k)` : `🔒 等級  ${kDef.minHuntingLevel}`}
         </button>
       `;
     }
@@ -130,7 +130,7 @@ export function renderHuntingUI(state) {
             <span style="font-size:9px; background:rgba(0,0,0,0.5); padding:1px 5px; border-radius:3px; color:#aaa; font-weight:bold;">[${kDef.grade.toUpperCase()}]</span>
           </div>
           <div style="font-size:10px; color:#94a3b8; margin-top:2px;">
-            Durabilidade: ${kDef.durabilityMax} | Bônus Pele Perfeita: <strong style="color:#ffd877;">+${Math.round(kDef.perfectSkinBonus * 100)}%</strong>
+            耐久度： ${kDef.durabilityMax} | 完美毛皮加成： <strong style="color:#ffd877;">+${Math.round(kDef.perfectSkinBonus * 100)}%</strong>
           </div>
         </div>
         <div>
@@ -186,7 +186,7 @@ export function renderHuntingUI(state) {
       <div style="text-align:center; padding:20px; background:radial-gradient(circle, rgba(50,20,20,0.85) 0%, rgba(20,10,10,0.95) 100%); border:1px solid rgba(248,113,113,0.4); border-radius:12px; box-shadow:0 0 20px rgba(0,0,0,0.7);">
         <div style="font-size:52px; margin-bottom:8px;">${prey?.icon || '💀'}</div>
         <h3 style="margin:0 0 4px 0; font-family:'Cinzel',serif; color:#fca5a5; font-size:18px;">
-          ${prey?.name || 'Carcaça Abatida'}
+          ${prey?.name || '已獵殺的獵物'}
         </h3>
         <p style="margin:0 0 16px 0; font-size:12px; color:#aaa;">Presa abatida! Escolha o método de descarne no campo.</p>
         
@@ -208,7 +208,7 @@ export function renderHuntingUI(state) {
     const windDef = WIND_DIRECTIONS[hState.windDirection] || WIND_DIRECTIONS.crosswind;
     const alertLvl = Math.round(hState.alertLevel || 0);
     const alertColor = alertLvl < 40 ? '#34d399' : alertLvl <= 75 ? '#fbbf24' : '#ef4444';
-    const alertText = alertLvl > 75 ? 'ALERTA CRÍTICO!' : 'Alerta';
+    const alertText = alertLvl > 75 ? '危險警告！' : 'Alerta';
 
     stageHtml = `
       <div style="text-align:center; padding:20px; background:radial-gradient(circle, rgba(30,50,40,0.85) 0%, rgba(12,18,24,0.95) 100%); border:1px solid rgba(52,211,153,0.4); border-radius:12px; box-shadow:0 0 20px rgba(0,0,0,0.7);">
@@ -296,7 +296,7 @@ export function renderHuntingUI(state) {
           Acampamento em ${activeZone.name}
         </h3>
         <p style="margin:0 0 14px 0; font-size:11px; color:#aaa; max-width:400px; margin-left:auto; margin-right:auto; line-height:1.4;">
-          ${activeZone.description} Escolha sua abordagem e rastreie feras para coletar insumos.
+          ${activeZone.description} 選擇狩獵方式並追蹤野獸以取得材料。
         </p>
 
         <!-- Táticas de Abordagem -->
@@ -366,7 +366,7 @@ export function renderHuntingUI(state) {
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
           <div>
             <h3 style="margin:0; font-family:'Cinzel',serif; color:#6ee7b7; font-size:20px; display:flex; align-items:center; gap:8px;">
-              🐾 Profissão de Caça Silvestre & Curtume
+              🐾 野外狩獵與製皮
             </h3>
             <p style="margin:4px 0 0 0; font-size:12px; color:#aaa;">
               Rastreie feras ancestrais pelos ermos de Aden, esfolando couros e ossos nobres para a Forja Imperial!
@@ -374,11 +374,11 @@ export function renderHuntingUI(state) {
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(52,211,153,0.3); border-radius:8px; padding:6px 14px; text-align:center;">
-              <div style="font-size:10px; color:#aaa; text-transform:uppercase;">Nível de Caçador</div>
-              <div style="font-size:16px; font-weight:bold; color:#6ee7b7; font-family:'Cinzel',serif;">Nv. ${skillLvl} / 30</div>
+              <div style="font-size:10px; color:#aaa; text-transform:uppercase;">狩獵等級</div>
+              <div style="font-size:16px; font-weight:bold; color:#6ee7b7; font-family:'Cinzel',serif;">等級  ${skillLvl} / 30</div>
             </div>
             <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(212,167,68,0.3); border-radius:8px; padding:6px 14px; text-align:center;">
-              <div style="font-size:10px; color:#aaa; text-transform:uppercase;">Bestiário Catalogado</div>
+              <div style="font-size:10px; color:#aaa; text-transform:uppercase;">已登錄野獸圖鑑</div>
               <div style="font-size:16px; font-weight:bold; color:#f4d58a; font-family:'Cinzel',serif;">${speciesDiscovered} / ${totalSpecies}</div>
             </div>
           </div>
@@ -387,7 +387,7 @@ export function renderHuntingUI(state) {
         <!-- Barra de Maestria -->
         <div>
           <div style="display:flex; justify-content:space-between; font-size:10px; color:#94a3b8; margin-bottom:4px;">
-            <span>Progresso da Maestria: <strong style="color:#6ee7b7;">${skillXp.toLocaleString()} / ${nextLvlXp.toLocaleString()} XP</strong></span>
+            <span>精通進度： <strong style="color:#6ee7b7;">${skillXp.toLocaleString()} / ${nextLvlXp.toLocaleString()} XP</strong></span>
             <span>${xpPct}%</span>
           </div>
           <div style="width:100%; height:6px; background:rgba(0,0,0,0.6); border-radius:3px; overflow:hidden; border:1px solid rgba(52,211,153,0.2);">
@@ -399,7 +399,7 @@ export function renderHuntingUI(state) {
       <!-- Zonas de Caça -->
       <div style="margin-bottom:20px;">
         <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px; display:flex; align-items:center; gap:6px;">
-          🧭 Ermos & Acampamentos de Caça de Aden
+          🧭 亞丁荒野與狩獵營地
         </h4>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           ${zonesHtml}
@@ -411,7 +411,7 @@ export function renderHuntingUI(state) {
         <!-- Coluna Esquerda: Palco de Ação -->
         <div>
           <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#6ee7b7; font-size:15px;">
-            🎯 Pista de Rastreamento & Esfolação
+            🎯 追蹤與剝皮場
           </h4>
           ${stageHtml}
 
@@ -419,9 +419,9 @@ export function renderHuntingUI(state) {
           <div style="margin-top:12px; background:rgba(18,22,32,0.85); border:1px solid rgba(52,211,153,0.25); border-radius:8px; padding:12px; display:flex; justify-content:space-between; align-items:center;">
             <div>
               <div style="display:flex; align-items:center; gap:6px;">
-                <strong style="font-size:13px; color:#f4d58a;">🐾 Caça Automática (AFK)</strong>
+                <strong style="font-size:13px; color:#f4d58a;">🐾 自動狩獵</strong>
                 <span style="font-size:10px; background:${isAfkUnlocked ? 'rgba(52,211,153,0.2)' : 'rgba(239,68,68,0.2)'}; color:${isAfkUnlocked ? '#34d399' : '#fca5a5'}; padding:1px 6px; border-radius:4px; font-weight:bold;">
-                  ${isAfkUnlocked ? 'DESBLOQUEADO' : 'NV. 5 CAÇA REQUERIDO'}
+                  ${isAfkUnlocked ? '已解鎖' : '需要狩獵等級 5'}
                 </span>
               </div>
               <p style="margin:2px 0 0 0; font-size:10px; color:#aaa;">
