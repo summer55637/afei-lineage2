@@ -34,21 +34,21 @@ export function buyItem(state, itemId, qty = 1, rarity = 'common', callbacks = {
   const cost = basePrice * cleanQty;
 
   if ((state.gold || 0) < cost) {
-    if (callbacks.log) callbacks.log('Ouro insuficiente para realizar a compra!', 'system');
+    if (callbacks.log) callbacks.log('金幣不足，無法購買！', 'system');
     return false;
   }
   const reqLvl = def.req?.level || def.reqLvl || 1;
   if (reqLvl > (state.level || 1)) {
-    if (callbacks.log) callbacks.log(`Nível insuficiente. Requer Lv. ${reqLvl}.`, 'system');
+    if (callbacks.log) callbacks.log(`等級不足，需要 Lv. ${reqLvl}。`, 'system');
     return false;
   }
   if (def.classReq && callbacks.classSatisfies && !callbacks.classSatisfies(state.class, def.classReq)) {
-    if (callbacks.log) callbacks.log('Sua classe não pode utilizar este item.', 'system');
+    if (callbacks.log) callbacks.log('你的職業無法使用此物品。', 'system');
     return false;
   }
 
   if (!addToInventory(state, itemId, cleanQty, rarity, false, callbacks)) {
-    if (callbacks.log) callbacks.log('Mochila cheia! Libere espaço no inventário.', 'system');
+    if (callbacks.log) callbacks.log('背包已滿，請先清出空間。', 'system');
     return false;
   }
 
@@ -77,26 +77,26 @@ export function buyMysticItem(state, itemId, rarity, callbacks = {}) {
   const price = Math.floor((def.price || 500) * rarityMult * 2);
 
   if ((state.gold || 0) < price) {
-    if (callbacks.log) callbacks.log('Ouro insuficiente para o Mercador Místico!', 'system');
+    if (callbacks.log) callbacks.log('金幣不足，無法向神秘商人購買！', 'system');
     return false;
   }
   if (def.req && def.req.level > (state.level || 1)) {
-    if (callbacks.log) callbacks.log('Nível insuficiente para esta relíquia.', 'system');
+    if (callbacks.log) callbacks.log('等級不足，無法使用此遺物。', 'system');
     return false;
   }
   if (def.classReq && callbacks.classSatisfies && !callbacks.classSatisfies(state.class, def.classReq)) {
-    if (callbacks.log) callbacks.log('Sua classe não pode utilizar este item.', 'system');
+    if (callbacks.log) callbacks.log('你的職業無法使用此物品。', 'system');
     return false;
   }
 
   if (!addToInventory(state, itemId, 1, rarity, false, callbacks)) {
-    if (callbacks.log) callbacks.log('Mochila cheia! Libere espaço no inventário.', 'system');
+    if (callbacks.log) callbacks.log('背包已滿，請先清出空間。', 'system');
     return false;
   }
 
   state.gold -= price;
   const rarityName = gData?.RARITY?.[rarity]?.name || rarity;
-  if (callbacks.log) callbacks.log(`✨ Compra Mística: ${def.name} [${rarityName}] por 💰 ${price.toLocaleString()}g!`, 'rarity-' + rarity);
+  if (callbacks.log) callbacks.log(`✨ 神秘購買：以 💰 ${price.toLocaleString()}g 購買 ${def.name} [${rarityName}]！`, 'rarity-' + rarity);
 
   // Remove o item comprado do estoque místico atual
   if (Array.isArray(state.mysticShopInventory)) {
@@ -127,13 +127,13 @@ export function sellItem(state, uid, qty = 1, callbacks = {}) {
 
   const item = state.inventory[itemIndex];
   if (item.equipped) {
-    if (callbacks.log) callbacks.log('Desequipe o item antes de vendê-lo!', 'system');
+    if (callbacks.log) callbacks.log('出售前請先卸下物品！', 'system');
     return false;
   }
 
   const selectedSet = getSelectedSet(state);
   if (selectedSet.has(item.uid)) {
-    if (callbacks.log) callbacks.log('Item bloqueado 🔒! Desbloqueie-o para vender.', 'system');
+    if (callbacks.log) callbacks.log('物品已鎖定 🔒！請先解鎖才能出售。', 'system');
     return false;
   }
 
@@ -164,7 +164,7 @@ export function sellItem(state, uid, qty = 1, callbacks = {}) {
   state.gold = (state.gold || 0) + totalAdena;
 
   if (callbacks.log) {
-    callbacks.log(`💰 Vendeu ${sellCount}x ${def?.name || 'Item'} por +${totalAdena.toLocaleString()} Adena!`, 'loot');
+    callbacks.log(`💰 已出售 ${sellCount}x ${def?.name || '物品'}，獲得 +${totalAdena.toLocaleString()} 金幣！`, 'loot');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI(state);
@@ -239,11 +239,11 @@ export function sellAllJunk(state, callbacks = {}) {
 
   if (itemsSold > 0) {
     if (callbacks.log) {
-      callbacks.log(`🧹 Limpeza de Mochila: Vendeu ${itemsSold}x itens comuns por +${totalGold.toLocaleString()} Adena!`, 'loot');
+      callbacks.log(`🧹 背包清理：已出售 ${itemsSold} 件普通物品，獲得 +${totalGold.toLocaleString()} 金幣！`, 'loot');
     }
   } else {
     if (callbacks.log) {
-      callbacks.log('Nenhum item comum disponível para venda em massa.', 'system');
+      callbacks.log('目前沒有可批次出售的普通物品。', 'system');
     }
   }
 
@@ -267,7 +267,7 @@ export function buybackItem(state, buybackIndex, callbacks = {}) {
   if (!entry || !entry.itemCopy) return false;
 
   if ((state.gold || 0) < entry.sellPrice) {
-    if (callbacks.log) callbacks.log(`Ouro insuficiente para recompra! Requer ${entry.sellPrice.toLocaleString()} Adena.`, 'system');
+    if (callbacks.log) callbacks.log(`金幣不足，無法買回！需要 ${entry.sellPrice.toLocaleString()} 金幣。`, 'system');
     return false;
   }
 
@@ -279,7 +279,7 @@ export function buybackItem(state, buybackIndex, callbacks = {}) {
   state.buybackQueue.splice(buybackIndex, 1);
 
   if (callbacks.log) {
-    callbacks.log(`↩️ Recomprou item por ${entry.sellPrice.toLocaleString()} Adena!`, 'loot');
+    callbacks.log(`↩️ 已用 ${entry.sellPrice.toLocaleString()} 金幣買回物品！`, 'loot');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI(state);
@@ -296,7 +296,7 @@ export function buybackItem(state, buybackIndex, callbacks = {}) {
  */
 export function rerollMysticStock(state, rollStockFn, callbacks = {}) {
   if ((state.gold || 0) < MYSTIC_REROLL_COST) {
-    if (callbacks.log) callbacks.log(`Requer 💰 ${MYSTIC_REROLL_COST.toLocaleString()} Adena para invocar novos itens ancestrais!`, 'system');
+    if (callbacks.log) callbacks.log(`需要 💰 ${MYSTIC_REROLL_COST.toLocaleString()} 金幣才能刷新古代物品！`, 'system');
     return false;
   }
 
@@ -307,7 +307,7 @@ export function rerollMysticStock(state, rollStockFn, callbacks = {}) {
   }
 
   if (callbacks.log) {
-    callbacks.log(`🔮 O Mercador Místico revelou um novo lote de relíquias ancestrais! (-${MYSTIC_REROLL_COST.toLocaleString()}g)`, 'rarity-legendary');
+    callbacks.log(`🔮 神秘商人刷新了一批古代遺物！（-${MYSTIC_REROLL_COST.toLocaleString()}g）`, 'rarity-legendary');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI(state);
