@@ -196,9 +196,9 @@ export function renderFishingUI(state) {
             <div style="font-size:32px; filter:drop-shadow(0 0 8px rgba(96,165,250,0.5));">${fDef.icon || '🐟'}</div>
             <div>
               <div style="font-family:'Cinzel',serif; font-size:15px; font-weight:bold; color:#f8fafc;">
-                ${fDef.name || 'Peixe Misterioso'} <span style="font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(59,130,246,0.2); border:1px solid #60a5fa; color:#93c5fd;">${profile.name || 'Padrão'}</span>
+                ${fDef.name || 'Peixe Misterioso'} <span style="font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(59,130,246,0.2); border:1px solid #60a5fa; color:#93c5fd;">${profile.name || '標準'}</span>
               </div>
-              <div style="font-size:11px; color:#94a3b8;">${profile.desc || 'Comportamento aquático sob análise'}</div>
+              <div style="font-size:11px; color:#94a3b8;">${profile.desc || '正在分析水中動態'}</div>
             </div>
           </div>
           <div style="text-align:right;">
@@ -250,7 +250,7 @@ export function renderFishingUI(state) {
             style="padding:10px 8px; font-family:'Cinzel',serif; font-size:11px; font-weight:bold; background:linear-gradient(180deg,#2563eb,#1d4ed8); border:1px solid #93c5fd; color:#fff; border-radius:6px; cursor:pointer; text-align:center;"
           >
             🎣 Recolher (Reel)
-            <div style="font-size:9px; color:#cbd5e1; font-family:sans-serif; margin-top:2px; font-weight:normal;">+Controle, +Tensão</div>
+            <div style="font-size:9px; color:#cbd5e1; font-family:sans-serif; margin-top:2px; font-weight:normal;">+控制、+張力</div>
           </button>
 
           <button 
@@ -258,15 +258,15 @@ export function renderFishingUI(state) {
             style="padding:10px 8px; font-family:'Cinzel',serif; font-size:11px; font-weight:bold; background:linear-gradient(180deg,#0891b2,#0e7490); border:1px solid #67e8f9; color:#fff; border-radius:6px; cursor:pointer; text-align:center;"
           >
             🌊 Ceder Linha (Yield)
-            <div style="font-size:9px; color:#cffafe; font-family:sans-serif; margin-top:2px; font-weight:normal;">-Tensão drástica, -Controle</div>
+            <div style="font-size:9px; color:#cffafe; font-family:sans-serif; margin-top:2px; font-weight:normal;">大幅降低張力、降低控制</div>
           </button>
 
           <button 
             onclick="window.fishingAction('force')"
             style="padding:10px 8px; font-family:'Cinzel',serif; font-size:11px; font-weight:bold; background:linear-gradient(180deg,#dc2626,#991b1b); border:1px solid #fca5a5; color:#fff; border-radius:6px; cursor:pointer; text-align:center;"
           >
-            ⚡ Puxão Forte (Force)
-            <div style="font-size:9px; color:#fee2e2; font-family:sans-serif; margin-top:2px; font-weight:normal;">--Stamina, ++Tensão Alta!</div>
+            ⚡ 強力拉竿
+            <div style="font-size:9px; color:#fee2e2; font-family:sans-serif; margin-top:2px; font-weight:normal;">大量消耗耐力、大幅提高張力！</div>
           </button>
 
           <button 
@@ -309,7 +309,7 @@ export function renderFishingUI(state) {
             animation:pulse 0.8s infinite;
           "
         >
-          🎣 FISGAR COM FORÇA!
+          🎣 用力起竿！
         </button>
       </div>
     `;
@@ -341,7 +341,7 @@ export function renderFishingUI(state) {
             onmousedown="this.style.transform='scale(0.97)'"
             onmouseup="this.style.transform='none'"
           >
-            🎣 LANÇAR ANZOL (MANUAL)
+            🎣 手動拋竿
           </button>
           
           <button 
@@ -360,7 +360,7 @@ export function renderFishingUI(state) {
               box-shadow:${isAutoFishing ? '0 0 16px rgba(34,197,94,0.5)' : 'none'};
             "
           >
-            ${!canAutoFish ? '🔒 AFK (Nv. 5+)' : isAutoFishing ? '🤖 AFK ATIVO (PARAR)' : '🤖 ATIVAR AFK'}
+            ${!canAutoFish ? '🔒 AFK (Nv. 5+)' : isAutoFishing ? '🤖 自動釣魚中（停止）' : '🤖 ATIVAR AFK'}
           </button>
         </div>
       </div>
@@ -455,22 +455,22 @@ export function renderFishingUI(state) {
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
           <div>
             <h3 style="margin:0; font-family:'Cinzel',serif; color:#f4d58a; font-size:18px; display:flex; align-items:center; gap:8px;">
-              🎣 Associação de Pescadores de Aden
+              🎣 亞丁釣魚協會
             </h3>
             <p style="margin:2px 0 0 0; font-size:11px; color:#94a3b8;">
-              Domine as correntes aquáticas de Elmore-Aden, fisgue espécies lendárias e abasteça os artífices com matérias-primas nobres!
+              掌握艾爾摩亞丁的水流，釣取傳說魚種並為工匠提供珍貴材料。
             </p>
           </div>
           <div style="text-align:right;">
             <div style="font-size:11px; color:#aaa;">Pescados Totais: <strong style="color:#ffd877;">${stats.totalCaught}</strong></div>
-            <div style="font-size:11px; color:#aaa;">Espécies Descobertas: <strong style="color:#60a5fa;">${stats.speciesDiscovered} / ${stats.totalSpecies}</strong></div>
+            <div style="font-size:11px; color:#aaa;">已發現魚種： <strong style="color:#60a5fa;">${stats.speciesDiscovered} / ${stats.totalSpecies}</strong></div>
           </div>
         </div>
 
         <!-- Barra de Progresso de Habilidade -->
         <div style="background:rgba(0,0,0,0.5); border-radius:8px; padding:8px 12px; border:1px solid rgba(255,255,255,0.06);">
           <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:bold; margin-bottom:4px;">
-            <span style="color:#fde047;">★ Nível de Pesca: ${prog.level}</span>
+            <span style="color:#fde047;">★ 釣魚等級： ${prog.level}</span>
             <span style="color:#94a3b8; font-family:monospace;">${prog.xp} / ${prog.nextXp} XP (${prog.percent}%)</span>
           </div>
           <div style="background:#1e293b; border-radius:4px; height:8px; overflow:hidden;">
@@ -495,7 +495,7 @@ export function renderFishingUI(state) {
         <!-- Card da Vara -->
         <div style="background:rgba(18,22,34,0.85); border:1px solid rgba(212,167,68,0.25); border-radius:10px; padding:12px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <h4 style="margin:0; font-family:'Cinzel',serif; font-size:12px; color:#f4d58a;">🎣 Varas de Pesca</h4>
+            <h4 style="margin:0; font-family:'Cinzel',serif; font-size:12px; color:#f4d58a;">🎣 釣竿</h4>
             <div style="font-size:10px; color:${isRodBroken ? '#f87171' : '#34d399'}; font-weight:bold;">
               Durabilidade: ${rodDurability} / ${maxRodDurability}
             </div>
