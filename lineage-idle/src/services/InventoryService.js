@@ -65,7 +65,7 @@ export function isEligibleForAutoRecycle(item, def, state) {
   if (def.stack || def.isQuestItem || item.isProtected) return false;
 
   // 2. Proteção estrita de Itens de Herança & Starter Packs
-  if (def.isHeirloom || item.isHeirloom || id.includes('heirloom') || name.includes('herança')) return false;
+  if (def.isHeirloom || item.isHeirloom || id.includes('heirloom') || name.includes('傳承')) return false;
 
   // 3. Proteção de Equipamentos Modificados / Encantados / Especiais
   if (item.enchant && item.enchant > 0) return false;
@@ -125,7 +125,7 @@ export function processAutoRecycleItem(item, def, state, callbacks = {}) {
     const goldGain = getSellValue(item);
     state.gold = (state.gold || 0) + goldGain;
     if (callbacks.log) {
-      callbacks.log(`🪙 [Auto-Venda AFK] ${def.name} vendido automaticamente por +${goldGain.toLocaleString()} Adena`, 'loot');
+      callbacks.log(`🪙 [AFK 自動出售] ${def.name} 已自動出售，獲得 +${goldGain.toLocaleString()} 金幣`, 'loot');
     }
     return true;
   } else {
@@ -312,7 +312,7 @@ export function addToInventory(state, itemId, amount = 1, rarity = null, foundat
     stage: 1,
     tier: 3,
     rarity: 'rare',
-    desc: 'Item místico de Aden.'
+    desc: '亞丁神秘物品。'
   };
 
   const maxSlots = getMaxInventorySlots(state);
@@ -461,7 +461,7 @@ export function depositToWarehouse(state, uid, amount = 1, callbacks = {}) {
   if (invIdx < 0) return false;
   const item = state.inventory[invIdx];
   if (item.equipped) {
-    if (callbacks.log) callbacks.log('Desequipe o item antes de guardá-lo no baú.', 'system');
+    if (callbacks.log) callbacks.log('請先卸下物品，再放入倉庫。', 'system');
     return false;
   }
 
@@ -483,7 +483,7 @@ export function depositToWarehouse(state, uid, amount = 1, callbacks = {}) {
         remaining -= add;
       } else {
         if (state.warehouse.length >= maxSlots) {
-          if (callbacks.log) callbacks.log('Baú cheio!', 'system');
+          if (callbacks.log) callbacks.log('倉庫已滿！', 'system');
           return false;
         }
         const add = Math.min(def.stack, remaining);
@@ -495,14 +495,14 @@ export function depositToWarehouse(state, uid, amount = 1, callbacks = {}) {
     else state.inventory.splice(invIdx, 1);
   } else {
     if (state.warehouse.length >= maxSlots) {
-      if (callbacks.log) callbacks.log('Baú cheio!', 'system');
+      if (callbacks.log) callbacks.log('倉庫已滿！', 'system');
       return false;
     }
     state.inventory.splice(invIdx, 1);
     state.warehouse.push({ ...item, equipped: false });
   }
 
-  if (callbacks.log) callbacks.log(`📦 Guardou ${def.name} no Baú.`, 'loot');
+  if (callbacks.log) callbacks.log(`📦 已將 ${def.name} 存入倉庫。`, 'loot');
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save();
   return true;
@@ -557,7 +557,7 @@ export function withdrawFromWarehouse(state, uid, amount = 1, callbacks = {}) {
     state.inventory.push({ ...item, equipped: false });
   }
 
-  if (callbacks.log) callbacks.log(`🎒 Retirou ${def.name} do Baú.`, 'loot');
+  if (callbacks.log) callbacks.log(`🎒 已從倉庫取出 ${def.name}。`, 'loot');
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save();
   return true;
@@ -624,7 +624,7 @@ export function calculateInventoryPressure(state) {
     color = '#ff2a2a';
   } else if (pct >= 90) {
     status = 'critical';
-    label = 'Crítico';
+    label = '暴擊';
     color = '#ef4444';
   } else if (pct >= 75) {
     status = 'warning';
@@ -645,7 +645,7 @@ export function calculateInventoryPressure(state) {
 
 /**
  * Avalia se um item está protegido contra qualquer ação destrutiva (Venda, Desmanche, Cristalização).
- * Blindagem obrigatória: Itens equipados, favoritos, trancados, protegidos, itens de missão e herança.
+ * Blindagem obrigatória: Itens equipados, favoritos, trancados, protegidos, itens de missão e 傳承.
  * @param {Object} item
  * @param {Object} [def]
  * @returns {boolean}
@@ -674,7 +674,7 @@ export function isItemProtected(item, def) {
   }
 
   // 4. Itens de Herança (Heirloom / Starter)
-  if (def?.isHeirloom || item.isHeirloom || id.includes('heirloom') || name.includes('herança')) {
+  if (def?.isHeirloom || item.isHeirloom || id.includes('heirloom') || name.includes('傳承')) {
     return true;
   }
 
