@@ -1,7 +1,7 @@
 /**
  * MarketUI.js — Interface do Mercado de Giran (Auction House P2P)
  * 
- * Renderiza o mural de ofertas com compra/venda por Adena ou Aden Coins,
+ * Renderiza o mural de ofertas com compra/venda por 金幣 ou Aden Coins,
  * formulário de listagem com taxa de 5%, e painel de lucros de vendas.
  */
 
@@ -88,7 +88,7 @@ export function setActiveMarketTab(tab) {
 
 export const WT_CATEGORIES = [
   { id: 'all', name: 'All Goods', icon: '🌐' },
-  { id: 'adena', name: 'Adena', icon: '🪙' },
+  { id: 'adena', name: '金幣', icon: '🪙' },
   { id: 'equipment', name: 'Equipment', icon: '⚔️' },
   { id: 'artifact', name: 'Artifact', icon: '💍' },
   { id: 'scrolls', name: 'Scrolls', icon: '📜' },
@@ -135,9 +135,9 @@ export function renderMarketTab(container, state, callbacks = {}) {
   const playerGold = Number(state.gold || 0);
   const playerAc = Number(state.adenCoins || state.ac || 0);
   const salesData = MarketService.getPlayerSales(playerName);
-  const pendingAdena = Number(salesData.pendingAdena || 0);
+  const pending金幣 = Number(salesData.pending金幣 || 0);
   const pendingAc = Number(salesData.pendingAdenCoins || 0);
-  const hasProfits = pendingAdena > 0 || pendingAc > 0;
+  const hasProfits = pending金幣 > 0 || pendingAc > 0;
 
   let html = `
     <div class="l2wt-window-frame" style="max-width: 1040px; margin: 0 auto; min-height: 540px;">
@@ -150,7 +150,7 @@ export function renderMarketTab(container, state, callbacks = {}) {
           </div>
           <div>
             <div class="l2wt-banner-title">World Trade</div>
-            <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px; font-family: 'Inter', sans-serif;">Comércio Global P2P · Sistema Oficial entre Jogadores Reais de Aden</p>
+            <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px; font-family: 'Inter', sans-serif;">全球玩家交易 · 亞丁正式玩家市場</p>
           </div>
         </div>
 
@@ -192,7 +192,7 @@ export function renderMarketTab(container, state, callbacks = {}) {
         <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
           <span style="font-size: 11px; color: #94a3b8; font-family: 'Inter', sans-serif; margin-right: 4px;">Moeda:</span>
           <button class="l2wt-cur-filter ${_currencyFilter === 'all' ? 'active' : ''}" data-cur="all" style="background: ${_currencyFilter === 'all' ? 'rgba(212,167,68,0.25)' : 'rgba(0,0,0,0.4)'}; color: ${_currencyFilter === 'all' ? '#ffd877' : '#94a3b8'}; border: 1px solid ${_currencyFilter === 'all' ? '#ffd877' : 'rgba(255,255,255,0.1)'}; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer;">🌐 Todas</button>
-          <button class="l2wt-cur-filter ${_currencyFilter === 'adena' ? 'active' : ''}" data-cur="adena" style="background: ${_currencyFilter === 'adena' ? 'rgba(234,179,8,0.25)' : 'rgba(0,0,0,0.4)'}; color: ${_currencyFilter === 'adena' ? '#fde047' : '#94a3b8'}; border: 1px solid ${_currencyFilter === 'adena' ? '#fde047' : 'rgba(255,255,255,0.1)'}; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer;">🪙 Adena</button>
+          <button class="l2wt-cur-filter ${_currencyFilter === 'adena' ? 'active' : ''}" data-cur="adena" style="background: ${_currencyFilter === 'adena' ? 'rgba(234,179,8,0.25)' : 'rgba(0,0,0,0.4)'}; color: ${_currencyFilter === 'adena' ? '#fde047' : '#94a3b8'}; border: 1px solid ${_currencyFilter === 'adena' ? '#fde047' : 'rgba(255,255,255,0.1)'}; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer;">🪙 金幣</button>
           <button class="l2wt-cur-filter ${_currencyFilter === 'adencoin' ? 'active' : ''}" data-cur="adencoin" style="background: ${_currencyFilter === 'adencoin' ? 'rgba(59,130,246,0.25)' : 'rgba(0,0,0,0.4)'}; color: ${_currencyFilter === 'adencoin' ? '#93c5fd' : '#94a3b8'}; border: 1px solid ${_currencyFilter === 'adencoin' ? '#93c5fd' : 'rgba(255,255,255,0.1)'}; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer;">👑 Aden Coin</button>
         </div>
 
@@ -210,10 +210,10 @@ export function renderMarketTab(container, state, callbacks = {}) {
     html += `
       <div class="l2contacts-tabs-bar" style="background: #11141d; border-bottom: 1px solid rgba(212,167,68,0.2);">
         <button class="l2contacts-tab ${_activeMarketTab === 'my_sales' ? 'active' : ''} market-nav-btn" data-tab="my_sales">
-          📜 Meus Anúncios (${MarketService.getMyListings(state).length})
+          📜 我的刊登 (${MarketService.getMyListings(state).length})
         </button>
         <button class="l2contacts-tab ${_activeMarketTab === 'sell' ? 'active' : ''} market-nav-btn" data-tab="sell">
-          🏷️ Criar Anúncio (Vender)
+          🏷️ 建立刊登（出售）
         </button>
       </div>
     `;
@@ -272,9 +272,9 @@ function renderBuyTab(state) {
               </td>
             </tr>
           ` : filtered.map(l => {
-            const isAdena = l.currency === 'adena';
-            const currencyIcon = isAdena ? '🪙' : '👑';
-            const currencyColor = isAdena ? '#ffd877' : '#60a5fa';
+            const is金幣 = l.currency === 'adena';
+            const currencyIcon = is金幣 ? '🪙' : '👑';
+            const currencyColor = is金幣 ? '#ffd877' : '#60a5fa';
             const totalCost = Number(l.totalPrice) || (l.pricePerUnit * l.quantity);
             const isOwnListing = MarketService._isMyListing(l, state);
             const enchantStr = (l.item?.enchant && l.item.enchant > 0) ? `<span style="color: #38bdf8; font-weight: bold; margin-right: 4px;">+${l.item.enchant}</span>` : '';
@@ -373,7 +373,7 @@ function renderSellTab(state) {
         </h4>
 
         ${inventory.length === 0 ? `
-          <p style="color: #94a3b8; font-size: 12px;">Sua mochila está vazia ou todos os itens estão equipados.</p>
+          <p style="color: #94a3b8; font-size: 12px;">背包是空的，或所有物品目前都已裝備。</p>
         ` : `
           <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 6px; max-height: 280px; overflow-y: auto; padding-right: 4px;">
             ${inventory.map(item => {
@@ -396,7 +396,7 @@ function renderSellTab(state) {
         
         <div>
           <h4 style="margin: 0 0 10px 0; color: #f4d58a; font-family: 'Cinzel', serif; font-size: 14px;">
-            📝 2. Configurar Preço e Quantidade
+            📝 2. 設定價格與數量
           </h4>
 
           ${selectedItem ? `
@@ -408,7 +408,7 @@ function renderSellTab(state) {
                   ${selectedItem.enchant > 0 ? '+' + selectedItem.enchant + ' ' : ''}${selectedItem.name}
                 </div>
                 <div style="font-size: 11px; color: #94a3b8;">
-                  Disponível: ${maxQty} unidade(s)
+                  可用： ${maxQty} 個
                 </div>
               </div>
             </div>
@@ -418,7 +418,7 @@ function renderSellTab(state) {
               <label style="font-size: 12px; color: #cbd5e1; display: block; margin-bottom: 4px;">Moeda de Venda:</label>
               <div style="display: flex; gap: 10px;">
                 <button class="market-set-currency ${_sellCurrency === 'adena' ? 'active' : ''}" data-cur="adena" style="flex: 1; padding: 8px; border-radius: 6px; background: ${_sellCurrency === 'adena' ? 'rgba(234,179,8,0.25)' : 'rgba(0,0,0,0.4)'}; border: 1px solid ${_sellCurrency === 'adena' ? '#fde047' : 'rgba(255,255,255,0.1)'}; color: ${_sellCurrency === 'adena' ? '#fde047' : '#aaa'}; font-weight: bold; cursor: pointer; font-size: 12px;">
-                  🪙 Adena
+                  🪙 金幣
                 </button>
                 <button class="market-set-currency ${_sellCurrency === 'adencoin' ? 'active' : ''}" data-cur="adencoin" style="flex: 1; padding: 8px; border-radius: 6px; background: ${_sellCurrency === 'adencoin' ? 'rgba(59,130,246,0.25)' : 'rgba(0,0,0,0.4)'}; border: 1px solid ${_sellCurrency === 'adencoin' ? '#93c5fd' : 'rgba(255,255,255,0.1)'}; color: ${_sellCurrency === 'adencoin' ? '#93c5fd' : '#aaa'}; font-weight: bold; cursor: pointer; font-size: 12px;">
                   👑 Aden Coin (AC)
@@ -429,11 +429,11 @@ function renderSellTab(state) {
             <!-- Quantity & Price Inputs -->
             <div style="display: flex; gap: 10px; margin-bottom: 10px;">
               <div style="flex: 1;">
-                <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 2px;">Quantidade:</label>
+                <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 2px;">數量：</label>
                 <input type="number" id="input-sell-qty" value="${_sellQuantity}" min="1" max="${maxQty}" style="width: 100%; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 6px 8px; color: #fff; font-size: 12px; font-family: 'IBM Plex Mono', monospace; box-sizing: border-box;" />
               </div>
               <div style="flex: 2;">
-                <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 2px;">Preço Unitário (${_sellCurrency === 'adena' ? '🪙' : '👑'}):</label>
+                <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 2px;">單價 (${_sellCurrency === 'adena' ? '🪙' : '👑'}):</label>
                 <input type="number" id="input-sell-price" value="${_sellPriceUnit}" min="1" style="width: 100%; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 6px 8px; color: #fff; font-size: 12px; font-family: 'IBM Plex Mono', monospace; box-sizing: border-box;" />
               </div>
             </div>
@@ -447,15 +447,15 @@ function renderSellTab(state) {
                 </strong>
               </div>
               <div style="display: flex; justify-content: space-between; color: #94a3b8;">
-                <span>Taxa de Listagem (5% Adena):</span>
+                <span>刊登費（5% 金幣）：</span>
                 <span style="color: ${canPayFee ? '#4ade80' : '#ef4444'}; font-family: 'IBM Plex Mono', monospace;">
-                  🪙 ${listingFee.toLocaleString()} ${!canPayFee ? '(Saldo insuficiente)' : ''}
+                  🪙 ${listingFee.toLocaleString()} ${!canPayFee ? '(餘額不足)' : ''}
                 </span>
               </div>
               <div style="display: flex; justify-content: space-between; color: #94a3b8;">
-                <span>Lucro Líquido Estimado (-3% Coroa):</span>
+                <span>預估淨收益（扣除 3% 王冠費）：</span>
                 <span style="color: #34d399; font-weight: bold; font-family: 'IBM Plex Mono', monospace;">
-                  ${_sellCurrency === 'adena' ? `🪙 ${Math.floor(totalPrice * 0.97).toLocaleString()} Adena` : `👑 ${totalPrice.toLocaleString()} AC`}
+                  ${_sellCurrency === 'adena' ? `🪙 ${Math.floor(totalPrice * 0.97).toLocaleString()} 金幣` : `👑 ${totalPrice.toLocaleString()} AC`}
                 </span>
               </div>
             </div>
@@ -481,9 +481,9 @@ function renderMySalesTab(state, salesData) {
   const playerName = state.charName || state.heroName || state.playerName || state.name || 'Hero of Aden';
   const myListings = MarketService.getMyListings(state);
   const history = salesData.history || [];
-  const pendingAdena = Number(salesData.pendingAdena || 0);
+  const pending金幣 = Number(salesData.pending金幣 || 0);
   const pendingAc = Number(salesData.pendingAdenCoins || 0);
-  const hasProfits = pendingAdena > 0 || pendingAc > 0;
+  const hasProfits = pending金幣 > 0 || pendingAc > 0;
 
   return `
     <div style="display: flex; flex-direction: column; gap: 16px; font-family: 'Inter', sans-serif;">
@@ -495,7 +495,7 @@ function renderMySalesTab(state, salesData) {
             💰 Lucros de Vendas Pendentes
           </h4>
           <div style="margin-top: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; display: flex; gap: 14px;">
-            <span style="color:#ffd877;">🪙 ${pendingAdena.toLocaleString()} Adena</span>
+            <span style="color:#ffd877;">🪙 ${pending金幣.toLocaleString()} 金幣</span>
             <span style="color:#60a5fa;">👑 ${pendingAc.toLocaleString()} AC</span>
           </div>
         </div>
@@ -504,25 +504,25 @@ function renderMySalesTab(state, salesData) {
             🎁 Coletar Lucros Agora
           </button>
         ` : `
-          <span style="color: #64748b; font-size: 12px;">Nenhum lucro pendente de resgate</span>
+          <span style="color: #64748b; font-size: 12px;">目前沒有待領取收益</span>
         `}
       </div>
 
       <!-- Anúncios Ativos -->
       <div style="background: rgba(15,20,30,0.85); border: 1px solid rgba(212,167,68,0.3); border-radius: 10px; padding: 14px;">
         <h4 style="margin: 0 0 12px 0; color: #f4d58a; font-family: 'Cinzel', serif; font-size: 14px;">
-          📦 Meus Anúncios em Aberto (${myListings.length})
+          📦 我目前的刊登 (${myListings.length})
         </h4>
 
         ${myListings.length === 0 ? `
           <div style="padding: 20px; text-align: center; color: #94a3b8; font-size: 12px;">
-            Você não possui nenhum anúncio ativo no mercado no momento.<br />
-            <button id="btn-my-sales-create" class="action-btn action-btn--primary" style="margin-top: 10px; padding: 6px 14px; font-size: 11px; cursor: pointer; font-family: 'Cinzel', serif;">🏷️ Criar um Anúncio Agora</button>
+            目前市場中沒有你的有效刊登。<br />
+            <button id="btn-my-sales-create" class="action-btn action-btn--primary" style="margin-top: 10px; padding: 6px 14px; font-size: 11px; cursor: pointer; font-family: 'Cinzel', serif;">🏷️ 立即建立刊登</button>
           </div>
         ` : `
           <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px;">
             ${myListings.map(l => {
-              const isAdena = l.currency === 'adena';
+              const is金幣 = l.currency === 'adena';
               return `
                 <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(212,167,68,0.3); border-radius: 8px; padding: 10px; display: flex; justify-content: space-between; align-items: center; box-shadow: inset 0 0 10px rgba(0,0,0,0.5);">
                   <div style="display: flex; align-items: center; gap: 10px;">
@@ -531,8 +531,8 @@ function renderMySalesTab(state, salesData) {
                       <div style="font-weight: bold; color: #ffd877; font-size: 12px;">
                         ${l.item?.enchant > 0 ? `<span style="color:#60a5fa;">+${l.item.enchant}</span> ` : ''}${l.quantity}x ${l.item?.name}
                       </div>
-                      <div style="font-size: 11px; color: ${isAdena ? '#fde047' : '#93c5fd'}; font-family: 'IBM Plex Mono', monospace;">
-                        ${isAdena ? '🪙' : '👑'} ${Number(l.totalPrice).toLocaleString()} ${isAdena ? 'Adena' : 'AC'}
+                      <div style="font-size: 11px; color: ${is金幣 ? '#fde047' : '#93c5fd'}; font-family: 'IBM Plex Mono', monospace;">
+                        ${is金幣 ? '🪙' : '👑'} ${Number(l.totalPrice).toLocaleString()} ${is金幣 ? '金幣' : 'AC'}
                       </div>
                     </div>
                   </div>
@@ -600,7 +600,7 @@ function attachMarketEvents(container, state, callbacks = {}) {
     btn.onclick = () => {
       const cat = btn.dataset.cat;
       if (cat === 'collection') {
-        showMarketToast('O sistema de Coleções estará disponível no próximo Chronicle!', 'info');
+        showMarketToast('收藏系統將於下一個版本開放！', 'info');
         return;
       }
       _selectedCategory = cat;
