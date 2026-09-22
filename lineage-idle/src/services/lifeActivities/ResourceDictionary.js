@@ -22,337 +22,337 @@ export const CANONICAL_RESOURCES = {
   // ─── MATÉRIAS-PRIMAS BRUTAS: CAÇA (RAW HUNT) ───
   bone: {
     itemId: 'bone',
-    name: 'Osso Animal',
+    name: '動物骨',
     category: RESOURCE_CATEGORIES.RAW_HUNT,
     grade: 'none',
     icon: 'materials/bone.png',
     price: 15,
-    desc: 'Fragmento de osso de fera silvestre. Usado na confecção de pós e armas de haste.'
+    desc: '野生獸骨碎片。可用於製作粉末與長柄武器。'
   },
   pelt: {
     itemId: 'pelt',
-    name: 'Pele Animal Bruta',
+    name: '生獸皮',
     category: RESOURCE_CATEGORIES.RAW_HUNT,
     grade: 'none',
     icon: 'materials/suede.png',
     price: 25,
-    desc: 'Pele crua retirada de feras caçadas antes do processo de salga e curtume.'
+    desc: '從獵物身上取得、尚未鹽漬與鞣製的生皮。'
   },
   suede: {
     itemId: 'suede',
-    name: 'Camurça Macia',
+    name: '柔軟麂皮',
     category: RESOURCE_CATEGORIES.RAW_HUNT,
     grade: 'none',
     icon: 'materials/suede.png',
     price: 25,
-    desc: 'Pele macia e aveludada extraída de carcaças preservadas. Base para calçados e forros.'
+    desc: '從保存良好的獸體取得的柔軟絨面皮，是鞋類與內襯的基礎材料。'
   },
 
   // ─── MATÉRIAS-PRIMAS BRUTAS: COLETA (RAW FLORA) ───
   branch: {
     itemId: 'branch',
-    name: 'Galho Silvestre Resistente',
+    name: '堅韌野生樹枝',
     category: RESOURCE_CATEGORIES.RAW_FLORA,
     grade: 'none',
     icon: 'materials/branch.png',
     price: 12,
-    desc: 'Madeira flexível e resistente colhida das árvores anciãs de Gludio e Dion. Usada em cajados e arcos.'
+    desc: '採自古魯丁與狄恩古樹的柔韌木材，可製作法杖與弓。'
   },
   stem: {
     itemId: 'stem',
-    name: 'Caule Silvestre',
+    name: '野生莖幹',
     category: RESOURCE_CATEGORIES.RAW_FLORA,
     grade: 'none',
     icon: 'materials/branch.png',
     price: 15,
-    desc: 'Haste flexível e rica em seiva colhida de plantas silvestres de Aden.'
+    desc: '從亞丁野生植物採集的富含樹液柔韌莖幹。'
   },
   charcoal: {
     itemId: 'charcoal',
-    name: 'Carvão Vegetal',
+    name: '木炭',
     category: RESOURCE_CATEGORIES.RAW_FLORA,
     grade: 'none',
     icon: 'materials/charcoal.png',
     price: 20,
-    desc: 'Carvão vegetal produzido a partir de madeiras colhidas em florestas. Essencial para a combustão de fornos.'
+    desc: '由森林木材燒製而成的木炭，是熔爐燃燒的重要燃料。'
   },
   compressed_wood: {
     itemId: 'compressed_wood',
-    name: 'Madeira Prensada Nobre',
+    name: '高級壓縮木材',
     category: RESOURCE_CATEGORIES.RAW_FLORA,
     grade: 'd',
     icon: 'materials/compressed_wood.png',
     price: 80,
-    desc: 'Tábuas selecionadas e comprimidas por mestres botânicos. Matéria-prima para cabos de armas de alto impacto.'
+    desc: '由工匠精選並壓製的木板，是高衝擊武器握柄的重要材料。'
   },
 
   // ─── MATÉRIAS-PRIMAS BRUTAS: MINERAÇÃO (RAW MINERAL) ───
   iron_ore: {
     itemId: 'iron_ore',
-    name: 'Minério de Ferro Bruto',
+    name: '粗鐵礦',
     category: RESOURCE_CATEGORIES.RAW_MINERAL,
     grade: 'none',
     icon: 'materials/iron_ore.png',
     price: 30,
-    desc: 'Nódulo de ferro extraído diretamente das rochas de Dwarven Mine. O alicerce da metalurgia de Aden.'
+    desc: '直接從矮人礦坑岩層採出的鐵礦，是亞丁冶金的基礎材料。'
   },
   coal: {
     itemId: 'coal',
-    name: 'Carvão Mineral Puro',
+    name: '純煤',
     category: RESOURCE_CATEGORIES.RAW_MINERAL,
     grade: 'none',
     icon: 'materials/coal.png',
     price: 35,
-    desc: 'Combustível fóssil denso que gera calor extremo na fundição de ligas pesadas.'
+    desc: '高密度化石燃料，可在熔煉重型合金時產生極高熱量。'
   },
   silver_nugget: {
     itemId: 'silver_nugget',
-    name: 'Pepita de Prata Nobre',
+    name: '高級銀礦粒',
     category: RESOURCE_CATEGORIES.RAW_MINERAL,
     grade: 'none',
     icon: 'materials/silver_nugget.png',
     price: 55,
-    desc: 'Pepita reluzente de prata natural. Conduz éter e energias mágicas em armas de clérigos e magos.'
+    desc: '閃耀的天然銀礦，可傳導乙太與魔力，常用於祭司與法師武器。'
   },
   mithril_ore: {
     itemId: 'mithril_ore',
-    name: 'Minério de Mithril Ancestral',
+    name: '古代米索莉礦',
     category: RESOURCE_CATEGORIES.RAW_MINERAL,
     grade: 'd',
     icon: 'materials/mithril_ore.png',
     price: 120,
-    desc: 'Metal lendário, leve como pena e duro como diamante. Usado em cotas de malha e adagas leves.'
+    desc: '傳說金屬，輕如羽毛、堅如鑽石，常用於鎖甲與輕型匕首。'
   },
   oriharukon_ore: {
     itemId: 'oriharukon_ore',
-    name: 'Minério de Oriharukon',
+    name: '奧里哈魯根礦',
     category: RESOURCE_CATEGORIES.RAW_MINERAL,
     grade: 'c',
     icon: 'materials/oriharukon_ore.png',
     price: 250,
-    desc: 'Mineral dourado raríssimo imbuído de poder celestial. Essencial para armamentos C-Grade.'
+    desc: '極稀有的金色礦石，蘊含天界力量，是 C 級武器的重要材料。'
   },
   adamantite: {
     itemId: 'adamantite',
-    name: 'Bloco de Adamantite',
+    name: '精金礦塊',
     category: RESOURCE_CATEGORIES.RAW_MINERAL,
     grade: 'c',
     icon: 'materials/adamantite.png',
     price: 450,
-    desc: 'Minério pesado e indestrutível. Suporta o calor de magias de alto nível.'
+    desc: '沉重且極難破壞的礦石，可承受高階魔法產生的高熱。'
   },
 
   // ─── INSUMOS PROCESSADOS & REFINADOS (PROCESSED) ───
   leather: {
     itemId: 'leather',
-    name: 'Couro Curtido Firme',
+    name: '堅韌鞣皮',
     category: RESOURCE_CATEGORIES.PROCESSED_LEATHER,
     grade: 'none',
     icon: 'materials/leather.png',
     price: 75,
-    desc: 'Peles processadas na bancada de curtume com taninos naturais. Base de armaduras leves.'
+    desc: '以天然單寧鞣製的皮革，是輕甲的基礎材料。'
   },
   crafted_leather: {
     itemId: 'crafted_leather',
-    name: 'Couro Trabalhado Reforçado',
+    name: '強化加工皮革',
     category: RESOURCE_CATEGORIES.PROCESSED_LEATHER,
     grade: 'd',
     icon: 'materials/crafted_leather.png',
     price: 220,
-    desc: 'Couro endurecido e costurado com cordões de alta densidade. Usado em sets D-Grade de ponta.'
+    desc: '經硬化並以高密度繩線縫製的皮革，用於高階 D 級套裝。'
   },
   bone_powder: {
     itemId: 'bone_powder',
-    name: 'Pó de Osso Triturado',
+    name: '碎骨粉',
     category: RESOURCE_CATEGORIES.PROCESSED_BONE,
     grade: 'none',
     icon: 'materials/bone_powder.png',
     price: 40,
-    desc: 'Ossos moídos finamente em almofariz. Reagente essencial para têmpera e síntese alquímica.'
+    desc: '以研缽細磨的骨粉，是淬鍊與煉金合成的重要試劑。'
   },
   coarse_bone_powder: {
     itemId: 'coarse_bone_powder',
-    name: 'Pó de Osso Grosso Purificado',
+    name: '精製粗骨粉',
     category: RESOURCE_CATEGORIES.PROCESSED_BONE,
     grade: 'd',
     icon: 'materials/coarse_bone_powder.png',
     price: 140,
-    desc: 'Aglutinante ósseo de alta pureza empregado na união de chapas metálicas.'
+    desc: '高純度骨質黏合材料，用於結合金屬板。'
   },
   cord: {
     itemId: 'cord',
-    name: 'Cordão Trançado Reforçado',
+    name: '強化編織繩',
     category: RESOURCE_CATEGORIES.PROCESSED_TEXTILE,
     grade: 'none',
     icon: 'materials/cord.png',
     price: 45,
-    desc: 'Fibras vegetais entrelaçadas em trança quádrupla. Utilizado em empunhaduras e cordas de arco.'
+    desc: '以植物纖維四股編織而成，用於武器握把與弓弦。'
   },
   braided_hemp: {
     itemId: 'braided_hemp',
-    name: 'Cânhamo Trançado Alquímico',
+    name: '煉金編織麻纖維',
     category: RESOURCE_CATEGORIES.PROCESSED_TEXTILE,
     grade: 'none',
     icon: 'materials/braided_hemp.png',
     price: 60,
-    desc: 'Fibras secas de cânhamo de alta tração tratadas com óleo vegetal.'
+    desc: '以植物油處理的高強度乾燥麻纖維。'
   },
   cotton_thread: {
     itemId: 'cotton_thread',
-    name: 'Linha de Algodão Fina',
+    name: '細棉線',
     category: RESOURCE_CATEGORIES.PROCESSED_TEXTILE,
     grade: 'none',
     icon: 'materials/cotton_thread.png',
     price: 30,
-    desc: 'Fio fiado com precisão para costura de túnicas arcanas e forros de malha.'
+    desc: '精細紡製的棉線，用於縫製法袍與鎖甲內襯。'
   },
   silver_thread: {
     itemId: 'silver_thread',
-    name: 'Fio de Prata Iluminado',
+    name: '輝光銀線',
     category: RESOURCE_CATEGORIES.PROCESSED_TEXTILE,
     grade: 'd',
     icon: 'materials/silver_thread.png',
     price: 160,
-    desc: 'Fios metálicos de prata maleável tecidos com algodão. Repele magias sombrias em mantos mágicos.'
+    desc: '以柔韌銀絲與棉線編織而成，可提升魔法披風對黑暗魔法的抵抗。'
   },
   metallic_fiber: {
     itemId: 'metallic_fiber',
-    name: 'Fibra Metálica Entrelaçada',
+    name: '編織金屬纖維',
     category: RESOURCE_CATEGORIES.PROCESSED_TEXTILE,
     grade: 'd',
     icon: 'materials/metallic_fiber.png',
     price: 180,
-    desc: 'Filamentos de ferro temperado entrelaçados para reforçar cotas e guantes pesados.'
+    desc: '交織淬火鐵絲，用於強化鎖甲與重型護手。'
   },
   steel: {
     itemId: 'steel',
-    name: 'Aço Temperado Puro',
+    name: '純淬鍊鋼',
     category: RESOURCE_CATEGORIES.PROCESSED_METAL,
     grade: 'd',
     icon: 'materials/steel.png',
     price: 150,
-    desc: 'Placa de ferro fundida com carvão mineral em calor intenso. O padrão da forja D-Grade.'
+    desc: '以煤炭高溫熔煉的鋼板，是 D 級鍛造的標準材料。'
   },
   steel_ingot: {
     itemId: 'steel_ingot',
-    name: 'Lingote de Aço Nobre',
+    name: '高級鋼錠',
     category: RESOURCE_CATEGORIES.PROCESSED_METAL,
     grade: 'c',
     icon: 'materials/steel_ingot.png',
     price: 350,
-    desc: 'Bloco fundido de aço purificado com moldes anões. Material base para armas C-Grade.'
+    desc: '以矮人模具鑄造的精製鋼錠，是 C 級武器的基礎材料。'
   },
   silver_mold: {
     itemId: 'silver_mold',
-    name: 'Molde de Fundição de Prata',
+    name: '銀製鑄模',
     category: RESOURCE_CATEGORIES.SPECIAL_COMPONENT,
     grade: 'd',
     icon: 'materials/silver_mold.png',
     price: 280,
-    desc: 'Matriz anã de fundição gravada para anéis, brincos e amuletos de prata.'
+    desc: '矮人製作的雕刻鑄模，可鑄造銀戒指、耳環與護身符。'
   },
 
   // ─── CRISTAIS CANÔNICOS DE FORJA (CRYSTALS) ───
   crystal_d: {
     itemId: 'crystal_d',
-    name: 'Cristal: D-Grade',
+    name: '水晶：D 級',
     category: RESOURCE_CATEGORIES.CRYSTAL,
     grade: 'd',
     icon: 'materials/crystal_blue_d.png',
     price: 450,
-    desc: 'Essência mágica condensada obtida da cristalização de itens D-Grade.'
+    desc: '由 D 級物品結晶化後取得的濃縮魔法精華。'
   },
   crystal_c: {
     itemId: 'crystal_c',
-    name: 'Cristal: C-Grade',
+    name: '水晶：C 級',
     category: RESOURCE_CATEGORIES.CRYSTAL,
     grade: 'c',
     icon: 'materials/crystal_green_c.png',
     price: 1200,
-    desc: 'Essência mágica límpida obtida da cristalização de itens C-Grade.'
+    desc: '由 C 級物品結晶化後取得的純淨魔法精華。'
   },
 
   // ─── MATERIAIS REFINADOS DE BANCADA (REFINED) ───
   compressed_wood: {
     itemId: 'compressed_wood',
-    name: 'Madeira Comprimida',
+    name: '壓縮木材',
     category: RESOURCE_CATEGORIES.RAW_FLORA,
     grade: 'none',
     icon: 'materials/compressed_wood.png',
     price: 60,
-    desc: 'Madeira tratada com carvão e selante para armações de arco e cajados.'
+    desc: '經木炭與密封劑處理的木材，用於弓架與法杖。'
   },
   varnish: {
     itemId: 'varnish',
-    name: 'Verniz Natural',
+    name: '天然清漆',
     category: RESOURCE_CATEGORIES.SPECIAL_COMPONENT,
     grade: 'none',
     icon: 'materials/varnish.png',
     price: 45,
-    desc: 'Seiva destilada de hastes botânicas. Impermeabiliza armaduras e ligas metálicas.'
+    desc: '由植物莖液蒸餾而成，可為防具與金屬合金提供防水保護。'
   },
   varnish_of_purity: {
     itemId: 'varnish_of_purity',
-    name: 'Verniz da Pureza',
+    name: '純淨清漆',
     category: RESOURCE_CATEGORIES.SPECIAL_COMPONENT,
     grade: 'd',
     icon: 'materials/varnish_of_purity.png',
     price: 320,
-    desc: 'Verniz alquímico de alta pureza usado na tempera de armas nobres.'
+    desc: '高純度煉金清漆，用於高級武器淬鍊。'
   },
   mithril_alloy: {
     itemId: 'mithril_alloy',
-    name: 'Liga de Mithril',
+    name: '米索莉合金',
     category: RESOURCE_CATEGORIES.PROCESSED_METAL,
     grade: 'd',
     icon: 'materials/mithril_alloy.png',
     price: 400,
-    desc: 'Minério de mithril fundido com verniz. Leveza e condutividade mágica superior.'
+    desc: '以米索莉礦與清漆熔煉而成，兼具輕量與優異魔力傳導性。'
   },
   synthetic_cokes: {
     itemId: 'synthetic_cokes',
-    name: 'Coque Sintético',
+    name: '合成焦炭',
     category: RESOURCE_CATEGORIES.SPECIAL_COMPONENT,
     grade: 'd',
     icon: 'materials/synthetic_cokes.png',
     price: 260,
-    desc: 'Carvão refinado de altíssimo ponto de fusão para fundição de aço imperial.'
+    desc: '具極高熔點的精煉焦炭，用於熔鑄帝國鋼材。'
   },
   enria: {
     itemId: 'enria',
-    name: 'Enria Reagente',
+    name: '恩里亞試劑',
     category: RESOURCE_CATEGORIES.SPECIAL_COMPONENT,
     grade: 'c',
     icon: 'materials/enria.png',
     price: 650,
-    desc: 'Reagente arcano semissólido para armas e armaduras de Grau C.'
+    desc: '半固態奧術試劑，可製作 C 級武器與防具。'
   },
   durable_metal_plate: {
     itemId: 'durable_metal_plate',
-    name: 'Placa de Metal Durável',
+    name: '耐久金屬板',
     category: RESOURCE_CATEGORIES.PROCESSED_METAL,
     grade: 'c',
     icon: 'materials/durable_metal_plate.png',
     price: 800,
-    desc: 'Placa blindada de aço e mithril para peitorais e escudos pesados.'
+    desc: '以鋼與米索莉製成的裝甲板，用於重型胸甲與盾牌。'
   },
   fish_oil: {
     itemId: 'fish_oil',
-    name: 'Óleo de Peixe Refinado',
+    name: '精煉魚油',
     category: RESOURCE_CATEGORIES.SPECIAL_COMPONENT,
     grade: 'none',
     icon: 'materials/varnish.png',
     price: 80,
-    desc: 'Extrato oleoso refinado de peixes de Aden. Lubrificante para mecanismos e base culinária.'
+    desc: '由亞丁魚類精煉出的油脂，可作為機械潤滑劑與料理基底。'
   },
   pure_fish_oil: {
     itemId: 'pure_fish_oil',
-    name: 'Óleo de Peixe Puro',
+    name: '純淨魚油',
     category: RESOURCE_CATEGORIES.SPECIAL_COMPONENT,
     grade: 'd',
     icon: 'materials/varnish_of_purity.png',
     price: 280,
-    desc: 'Óleo purificado de peixes raros e verniz. Reagente essencial para forja e poções.'
+    desc: '由稀有魚類與清漆精製而成，是鍛造與藥水的重要試劑。'
   }
 };
 
@@ -411,7 +411,7 @@ export function getCanonicalResourceDef(itemId) {
     grade: 'none',
     icon: 'materials/iron_ore.png',
     price: 10,
-    desc: 'Recurso material de Aden.'
+    desc: '亞丁的材料資源。'
   };
 }
 
