@@ -12,7 +12,7 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: 'Aumenta o Poder de Ataque Físico ao custo de Vida Máxima (HP).'
+    desc: '提升物理攻擊力，但降低最大 HP。'
   },
   dye_str_dex_g: {
     id: 'dye_str_dex_g',
@@ -26,7 +26,7 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: 'Aumenta o Poder de Ataque Físico ao custo de Velocidade e Taxa de Crítico.'
+    desc: '提升物理攻擊力，但降低速度與暴擊率。'
   },
   dye_dex_con_g: {
     id: 'dye_dex_con_g',
@@ -40,7 +40,7 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: 'Aumenta Taxa de Crítico, Velocidade e Esquiva ao custo de Vida Máxima.'
+    desc: '提升暴擊率、速度與迴避，但降低最大 HP。'
   },
   dye_dex_str_g: {
     id: 'dye_dex_str_g',
@@ -54,7 +54,7 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: 'Aumenta Agilidade, Crítico e Esquiva ao custo de Dano Bruto.'
+    desc: '提升敏捷、暴擊與迴避，但降低基礎傷害。'
   },
   dye_con_str_g: {
     id: 'dye_con_str_g',
@@ -68,7 +68,7 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: 'Aumenta Vida Máxima (HP) e Resistências ao custo de Dano Físico.'
+    desc: '提升最大 HP 與抗性，但降低物理傷害。'
   },
   dye_con_dex_g: {
     id: 'dye_con_dex_g',
@@ -82,7 +82,7 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: 'Aumenta Resistência e Vida Máxima ao custo de Velocidade e Esquiva.'
+    desc: '提升抗性與最大 HP，但降低速度與迴避。'
   },
   dye_int_men_g: {
     id: 'dye_int_men_g',
@@ -96,7 +96,7 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: 'Aumenta o Poder de Ataque Mágico (M.Atk) ao custo de Defesa Mágica.'
+    desc: '提升魔法攻擊 M.Atk，但降低魔法防禦。'
   },
   dye_wit_men_g: {
     id: 'dye_wit_men_g',
@@ -110,7 +110,7 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: 'Aumenta Velocidade de Conjuração e Crítico Mágico ao custo de Defesa Mágica.'
+    desc: '提升施法速度與魔法暴擊，但降低魔法防禦。'
   },
   dye_wit_int_g: {
     id: 'dye_wit_int_g',
@@ -124,7 +124,7 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: 'Acelera a Conjuração de Feitiços ao custo de Dano Mágico Bruto.'
+    desc: '提升施法速度，但降低基礎魔法傷害。'
   },
   dye_men_int_g: {
     id: 'dye_men_int_g',
@@ -138,7 +138,7 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: 'Aumenta Defesa Mágica (M.Def) e Mana ao custo de Dano Mágico.'
+    desc: '提升 M.Def 與 MP，但降低魔法傷害。'
   },
   dye_men_wit_g: {
     id: 'dye_men_wit_g',
@@ -152,6 +152,6 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: 'Aumenta Resistência Mágica e Mana ao custo de Velocidade de Feitiços.'
+    desc: '提升魔法抗性與 MP，但降低施法速度。'
   }
 };
