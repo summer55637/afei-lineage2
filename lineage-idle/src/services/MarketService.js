@@ -76,12 +76,12 @@ try {
 }
 
 export const MARKET_CATEGORIES = [
-  { id: 'all', name: 'Todos os Itens', icon: '🌐' },
-  { id: 'weapon', name: 'Armas', icon: '⚔️' },
-  { id: 'armor', name: 'Armaduras', icon: '🛡️' },
+  { id: 'all', name: '所有物品', icon: '🌐' },
+  { id: 'weapon', name: '武器', icon: '⚔️' },
+  { id: 'armor', name: '防具', icon: '🛡️' },
   { id: 'jewel', name: '珠寶與飾品', icon: '💍' },
-  { id: 'spellbook', name: 'Spellbooks (1★ a 4★)', icon: '📖' },
-  { id: 'scroll', name: 'Pergaminhos & Enchants', icon: '📜' },
+  { id: 'spellbook', name: '魔法書（1★～4★）', icon: '📖' },
+  { id: 'scroll', name: '卷軸與強化', icon: '📜' },
   { id: 'material', name: '材料與礦石', icon: '💎' },
   { id: 'consumable', name: '藥水與靈藥', icon: '🧪' }
 ];
