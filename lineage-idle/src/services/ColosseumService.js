@@ -198,7 +198,7 @@ export class ColosseumService {
     if (!item) return { success: false, message: '競技場商店中找不到此物品。' };
 
     if (colState.badges < item.costBadges) {
-      return { success: false, message: `Badges insuficientes. Requer ${item.costBadges} Colosseum Badges.` };
+      return { success: false, message: `競技場徽章不足，需要 ${item.costBadges} 枚。` };
     }
 
     colState.badges -= item.costBadges;
