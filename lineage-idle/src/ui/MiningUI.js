@@ -119,7 +119,7 @@ export function renderMiningUI(state) {
           ${(!canUnlock || !canAfford) ? 'disabled' : ''}
           style="padding:4px 10px; font-size:10px; font-weight:bold; background:${canUnlock && canAfford ? 'linear-gradient(180deg,#d4a744,#8a641c)' : 'rgba(50,50,50,0.4)'}; border:1px solid ${canUnlock && canAfford ? '#ffe699' : '#555'}; color:${canUnlock && canAfford ? '#000' : '#777'}; border-radius:4px; cursor:${canUnlock && canAfford ? 'pointer' : 'not-allowed'};"
         >
-          ${canUnlock ? `COMPRAR (${(pDef.buyPrice / 1000).toFixed(0)}k)` : `🔒 Nv. ${pDef.minMiningLevel}`}
+          ${canUnlock ? `購買 (${(pDef.buyPrice / 1000).toFixed(0)}k)` : `🔒 Nv. ${pDef.minMiningLevel}`}
         </button>
       `;
     }
@@ -132,7 +132,7 @@ export function renderMiningUI(state) {
             <span style="font-size:9px; background:rgba(0,0,0,0.5); padding:1px 5px; border-radius:3px; color:#aaa; font-weight:bold;">[${pDef.grade.toUpperCase()}]</span>
           </div>
           <div style="font-size:10px; color:#94a3b8; margin-top:2px;">
-            Durabilidade: ${pDef.durabilityMax} | Bônus Pureza: <strong style="color:#ffd877;">+${Math.round(pDef.qualityBonus * 100)}%</strong>
+            耐久度： ${pDef.durabilityMax} | 純度加成： <strong style="color:#ffd877;">+${Math.round(pDef.qualityBonus * 100)}%</strong>
           </div>
         </div>
         <div>
@@ -284,7 +284,7 @@ export function renderMiningUI(state) {
             ${mState.veinProbed ? 'disabled' : ''}
             style="padding:10px; font-family:'Cinzel',serif; font-size:11px; font-weight:bold; background:rgba(30,40,50,0.8); border:1px solid #3b82f6; color:#93c5fd; border-radius:6px; cursor:${mState.veinProbed ? 'not-allowed' : 'pointer'}; opacity:${mState.veinProbed ? '0.5' : '1'};"
           >
-            🔍 Sondagem Acústica
+            🔍 聲波探勘
           </button>
           
           <button 
@@ -377,9 +377,9 @@ export function renderMiningUI(state) {
           <div style="margin-top:12px; background:rgba(24,20,18,0.85); border:1px solid rgba(245,158,11,0.25); border-radius:8px; padding:12px; display:flex; justify-content:space-between; align-items:center;">
             <div>
               <div style="display:flex; align-items:center; gap:6px;">
-                <strong style="font-size:13px; color:#f4d58a;">⛏️ Mineração Automática (AFK)</strong>
+                <strong style="font-size:13px; color:#f4d58a;">⛏️ 自動採礦 (AFK)</strong>
                 <span style="font-size:10px; background:${isAfkUnlocked ? 'rgba(245,158,11,0.2)' : 'rgba(239,68,68,0.2)'}; color:${isAfkUnlocked ? '#fbbf24' : '#fca5a5'}; padding:1px 6px; border-radius:4px; font-weight:bold;">
-                  ${isAfkUnlocked ? 'DESBLOQUEADO' : 'NV. 5 MINERAÇÃO REQUERIDO'}
+                  ${isAfkUnlocked ? 'DESBLOQUEADO' : '需要採礦等級 5'}
                 </span>
               </div>
               <p style="margin:2px 0 0 0; font-size:10px; color:#aaa;">
@@ -406,10 +406,10 @@ export function renderMiningUI(state) {
           </div>
         </div>
 
-        <!-- Coluna Direita: Picareta Atual & Manutenção -->
+        <!-- Coluna Direita: Picareta Atual & 維護 -->
         <div>
           <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px;">
-            ⛏️ Picareta de Mineração & Manutenção
+            ⛏️ 採礦鎬與維護
           </h4>
           <div style="background:rgba(24,20,18,0.85); border:1px solid rgba(212,167,68,0.3); border-radius:10px; padding:12px; margin-bottom:12px;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
@@ -440,7 +440,7 @@ export function renderMiningUI(state) {
 
           <!-- Arsenal de Picaretas -->
           <h5 style="margin:12px 0 6px 0; font-family:'Cinzel',serif; color:#ffd877; font-size:13px;">
-            Ferraria dos Anões (Coleção de Picaretas)
+            矮人鐵匠鋪（採礦鎬收藏）
           </h5>
           <div style="max-height:180px; overflow-y:auto; padding-right:4px;">
             ${pickaxesHtml}
@@ -451,7 +451,7 @@ export function renderMiningUI(state) {
       <!-- Seção Inferior: Lamparinas & Lanternas de Galeria -->
       <div style="background:rgba(24,20,18,0.85); border:1px solid rgba(212,167,68,0.25); border-radius:10px; padding:12px;">
         <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px;">
-          🏮 Lamparinas & Lanternas de Galeria Subterrânea
+          🏮 地下礦坑油燈與提燈
         </h4>
         <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:10px;">
           ${lampsHtml}
