@@ -2268,7 +2268,7 @@ export function openAutoEquipPreviewModal(state, callbacks = {}) {
 
     bodyHtml += `
       <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:4px; padding:6px 10px; display:flex; align-items:center; justify-content:space-between; font-size:11px;">
-        <span style="font-weight:bold; color:var(--gilt); text-transform:uppercase; font-size:10px; min-width:80px;">${({ weapon: '武器', weapon2: '副手武器', shield: '盾牌', helmet: '頭盔', head: '頭盔', armor: '胸甲', chest: '胸甲', legs: '腿甲', gloves: '手套', boots: '靴子', necklace: '項鍊', earring1: '耳環 1', earring2: '耳環 2', ring1: '戒指 1', ring2: '戒指 2', cloak: '披風', belt: '腰帶', hair: '頭飾', hair1: '頭飾 1', hair2: '頭飾 2', brooch: '胸針', agathion_bracelet: '阿加西翁手鐲', talisman_bracelet: '護符手鐲' })[chg.slot] || '未知欄位'}：</span>
+        <span style="font-weight:bold; color:var(--gilt); text-transform:uppercase; font-size:10px; min-width:80px;">${({ weapon: '武器', weapon2: '副武器', shield: '盾牌', helmet: '頭盔', head: '頭盔', armor: '胸甲', chest: '胸甲', legs: '腿甲', gloves: '手套', boots: '靴子', necklace: '項鍊', earring1: '耳環 1', earring2: '耳環 2', ring1: '戒指 1', ring2: '戒指 2', cloak: '披風', belt: '腰帶', hair: '頭飾', hair1: '頭飾 1', hair2: '頭飾 2', brooch: '胸針', agathion_bracelet: '阿加希翁手鐲', talisman_bracelet: '護符手鐲' })[chg.slot] || '未知欄位'}：</span>
         <span style="color:#94a3b8; flex:1; text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
           ${curDef ? curDef.name : '<span style="color:#64748b;">（空）</span>'}
         </span>
@@ -11817,7 +11817,7 @@ export function openEnchantFlowModal(initialTargetUid = null, initialScrollUid =
             <span style="font-size:14px;">📜</span>
             <div style="display:flex; flex-direction:column;">
               <span style="font-size:11px; font-weight:bold; color:${isSelected ? '#ffd700' : '#e2e8f0'};">${sDef.name}</span>
-              <span style="font-size:9.5px; color:#94a3b8;">品級：${sInfo.grade || 'NG'} · 數量：${s.count || 1} ${sInfo.isBlessed ? '· ✨ 祝福' : ''}</span>
+              <span style="font-size:9.5px; color:#94a3b8;">品級：${String(sInfo.grade || 'NG').toUpperCase() === 'NG' ? '無級' : String(sInfo.grade || 'NG').toUpperCase()} · 數量：${s.count || 1} ${sInfo.isBlessed ? '· ✨ 祝福' : ''}</span>
             </div>
           </div>
         `;
