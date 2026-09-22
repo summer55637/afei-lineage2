@@ -52,7 +52,7 @@ export class SkillEnchantService {
       return {
         can: false,
         reason: 'item_missing',
-        message: `背包需要 1x ${codexDef?.name || "巨人秘典"}（或支付 ${autoBuyCost.toLocaleString()} 金幣自動購買）。`
+        message: `背包需要 1× ${codexDef?.name || "巨人秘典"}（或支付 ${autoBuyCost.toLocaleString()} 金幣自動購買）。`
       };
     }
 
