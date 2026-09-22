@@ -672,7 +672,7 @@ export class WeaponResonanceService {
         extraEffects.push('vacuum_wave');
 
         if (callbacks.floatText) callbacks.floatText(`🌪️ 真空斬（+${stacks * 8}%）！`, 'float-jackpot');
-        if (callbacks.log) callbacks.log(`🌪️ 斬擊爆發（${stacks} 層）：造成 ${finalDamage.toLocaleString()} 傷害，並使護甲削弱（P.Def -10%）！`, 'rarity-rare');
+        if (callbacks.log) callbacks.log(`🌪️ 斬擊爆發（${stacks} 層）：造成 ${finalDamage.toLocaleString()} 傷害，並使護甲削弱（物理防禦 -10%）！`, 'rarity-rare');
       }
     }
 
@@ -734,8 +734,8 @@ export class WeaponResonanceService {
         state.mp = Math.min(state.maxMp || 100, (state.mp || 0) + mpRestored);
         extraEffects.push('mana_restored');
 
-        if (callbacks.floatText) callbacks.floatText(`🔮 奧術之刃（+${mpRestored} MP）`, 'float-gold');
-        if (callbacks.log) callbacks.log(`🔮 奧術之刃以混合傷害命中目標（恢復 +${mpRestored} MP）！`, 'heal');
+        if (callbacks.floatText) callbacks.floatText(`🔮 奧術之刃（+${mpRestored} 魔力）`, 'float-gold');
+        if (callbacks.log) callbacks.log(`🔮 奧術之刃以混合傷害命中目標（恢復 +${mpRestored} 魔力）！`, 'heal');
       }
     }
 
