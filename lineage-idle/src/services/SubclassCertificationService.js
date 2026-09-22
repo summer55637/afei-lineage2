@@ -28,7 +28,7 @@ export const EMERGENT_ABILITIES = {
     id: 'emergent_patk',
     name: 'Sub-Class: Physical Attack',
     icon: '⚔️',
-    desc: '+35 P.Atk & +2.5% Ataque Físico permanente',
+    desc: '+35 P.Atk 與永久物理攻擊 +2.5%',
     stats: { pAtk: 35, pAtkPercent: 0.025 },
     cp: 1500
   },
@@ -36,7 +36,7 @@ export const EMERGENT_ABILITIES = {
     id: 'emergent_pdef',
     name: 'Sub-Class: Physical Defence',
     icon: '🛡️',
-    desc: '+30 P.Def & +2.5% Defesa Física permanente',
+    desc: '+30 P.Def 與永久物理防禦 +2.5%',
     stats: { pDef: 30, pDefPercent: 0.025 },
     cp: 1500
   },
@@ -44,7 +44,7 @@ export const EMERGENT_ABILITIES = {
     id: 'emergent_matk',
     name: 'Sub-Class: Magical Attack',
     icon: '🔮',
-    desc: '+45 M.Atk & +3.0% Ataque Mágico permanente',
+    desc: '+45 M.Atk 與永久魔法攻擊 +3.0%',
     stats: { mAtk: 45, mAtkPercent: 0.03 },
     cp: 1500
   },
@@ -243,7 +243,7 @@ export const DIVINE_TRANSFORMATIONS = {
     id: 'divine_knight',
     name: 'Transform: Divine Knight',
     icon: '🛡️',
-    title: 'Bastião Sagrado de Aden',
+    title: '亞丁神聖堡壘',
     desc: 'Desbloqueia a Forma Divine Knight (Ultimate Defence +100% Def, Hate Aura) e concede Aura permanente de +8% P.Def, +8% M.Def e +5% Max HP.',
     passiveStats: { pDefPercent: 0.08, mDefPercent: 0.08, maxHpPercent: 0.05 },
     transformationBuffs: { pDefPercent: 0.50, mDefPercent: 0.50 },
@@ -263,7 +263,7 @@ export const DIVINE_TRANSFORMATIONS = {
     id: 'divine_wizard',
     name: 'Transform: Divine Wizard',
     icon: '🔮',
-    title: 'Arquimago Divino do Éter',
+    title: '乙太神聖大法師',
     desc: 'Desbloqueia a Forma Divine Wizard (Divine Flare, Divine Strike, Sleep AoE) e concede Aura permanente de +10% M.Atk e +30 Casting Speed.',
     passiveStats: { mAtkPercent: 0.10, castSpd: 30 },
     transformationBuffs: { mAtkPercent: 0.30, castSpd: 60 },
@@ -273,7 +273,7 @@ export const DIVINE_TRANSFORMATIONS = {
     id: 'divine_summoner',
     name: 'Transform: Divine Summoner',
     icon: '🦄',
-    title: 'Invocador Místico Celestial',
+    title: '天界神秘召喚師',
     desc: 'Desbloqueia a Forma Divine Summoner (Transfer Pain, Final Servitor) e concede Aura permanente de +8% Max HP e +5% Vampiric Lifesteal.',
     passiveStats: { maxHpPercent: 0.08, lifestealPercent: 0.05 },
     transformationBuffs: { maxHpPercent: 0.20, lifestealPercent: 0.10 },
@@ -284,7 +284,7 @@ export const DIVINE_TRANSFORMATIONS = {
     name: 'Transform: Divine Healer',
     icon: '🕊️',
     title: 'Sacerdote da Luz Divina',
-    desc: 'Desbloqueia a Forma Divine Healer (Major Heal, Cleanse, Ressurreição 70%) e concede Aura permanente de +10% M.Def e +12% Cura Recebida.',
+    desc: '解鎖神聖治療者形態（強效治療、淨化、70% 復活），並永久獲得 M.Def +10%、受到治療 +12%。',
     passiveStats: { mDefPercent: 0.10, healReceivePercent: 0.12 },
     transformationBuffs: { mDefPercent: 0.25, regenHpPercent: 0.50 },
     cp: 6500
@@ -293,7 +293,7 @@ export const DIVINE_TRANSFORMATIONS = {
     id: 'divine_enchanter',
     name: 'Transform: Divine Enchanter',
     icon: '📜',
-    title: 'Arauto dos Cânticos Antigos',
+    title: '古代聖歌使者',
     desc: 'Desbloqueia a Forma Divine Enchanter (Chant of Victory +10% All Stats) e concede Aura permanente de +5% All Stats e +8% Speed.',
     passiveStats: { pAtkPercent: 0.05, mAtkPercent: 0.05, pDefPercent: 0.05, mDefPercent: 0.05, speedPercent: 0.08 },
     transformationBuffs: { pAtkPercent: 0.15, mAtkPercent: 0.15, speedPercent: 0.15, castSpd: 40 },
@@ -427,7 +427,7 @@ export class SubclassCertificationService {
         tier: 3,
         milestoneKey: 'lv75',
         requiredLevel: 75,
-        title: `Habilidade Mestra de ${archetype.toUpperCase()} (Lv. 75)`,
+        title: `${archetype.toUpperCase()} 大師技能（Lv.75）`,
         badge: 'Master Ability',
         isUnlocked: subLevel >= 75,
         isLearned: Boolean(subCerts.lv75),
@@ -438,7 +438,7 @@ export class SubclassCertificationService {
         tier: 4,
         milestoneKey: 'lv80',
         requiredLevel: 80,
-        title: `Transformação Divina de ${archetype.toUpperCase()} (Lv. 80)`,
+        title: `${archetype.toUpperCase()} 神聖變身（Lv.80）`,
         badge: 'Divine Form',
         isUnlocked: subLevel >= 80,
         isLearned: Boolean(subCerts.lv80),
@@ -464,7 +464,7 @@ export class SubclassCertificationService {
 
     const sub = state.subclasses.find(s => s.id === subId);
     if (!sub) {
-      if (callbacks.log) callbacks.log('❌ Subclasse não encontrada.', 'system');
+      if (callbacks.log) callbacks.log('❌ 找不到副職業。', 'system');
       return false;
     }
 
@@ -473,7 +473,7 @@ export class SubclassCertificationService {
     const req = reqLevels[milestoneKey];
 
     if (!req || subLevel < req) {
-      if (callbacks.log) callbacks.log(`❌ Requer Nível ${req}+ na subclasse para certificar.`, 'system');
+      if (callbacks.log) callbacks.log(`❌ 副職業需要達到 ${req} 級以上才能取得認證。`, 'system');
       return false;
     }
 
@@ -495,8 +495,8 @@ export class SubclassCertificationService {
     const abilityName = abilityDef?.name || abilityId;
 
     if (callbacks.log) {
-      callbacks.log(`📜✨ **CERTIFICAÇÃO ADQUIRIDA!** [${sub.classId?.toUpperCase()}] aprendeu **${abilityName}**!`, 'rarity-legendary');
-      callbacks.log(`Todos os bônus foram vinculados permanentemente à sua Classe Principal! (+${abilityDef?.cp || 1500} CP)`, 'rarity-epic');
+      callbacks.log(`📜✨ **取得認證！** [${sub.classId?.toUpperCase()}] 已學會 **${abilityName}**！`, 'rarity-legendary');
+      callbacks.log(`所有加成都已永久綁定至主職業！（+${abilityDef?.cp || 1500} CP）`, 'rarity-epic');
     }
 
     if (callbacks.onUpdate) callbacks.onUpdate();
@@ -512,13 +512,13 @@ export class SubclassCertificationService {
    */
   static resetSubclassCertifications(state, subId, callbacks = {}) {
     if (!state || !state.subclassCertifications || !state.subclassCertifications[subId]) {
-      if (callbacks.log) callbacks.log('Nenhuma certificação para resetar nesta subclasse.', 'system');
+      if (callbacks.log) callbacks.log('此副職業沒有可重置的認證。', 'system');
       return false;
     }
 
     const costAdena = 1000000; // 1kk Adena
     if ((state.gold || 0) < costAdena) {
-      if (callbacks.log) callbacks.log(`❌ Adena insuficiente para redefinir certificações (Requer 1.000.000 Adena).`, 'system');
+      if (callbacks.log) callbacks.log(`❌ 金幣不足，無法重置認證（需要 1,000,000 金幣）。`, 'system');
       return false;
     }
 
@@ -526,7 +526,7 @@ export class SubclassCertificationService {
     delete state.subclassCertifications[subId];
 
     if (callbacks.log) {
-      callbacks.log(`🔄 **Certificações Redefinidas!** Os certificados foram devolvidos para redistribuição. (-1.000.000 Adena)`, 'system');
+      callbacks.log(`🔄 **認證已重置！** 認證點已返還，可重新分配。（-1,000,000 金幣）`, 'system');
     }
 
     if (callbacks.onUpdate) callbacks.onUpdate();
