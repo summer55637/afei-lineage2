@@ -3,7 +3,7 @@
 export const GATHERING_ZONES = {
   zone_gludio_fields: {
     id: 'zone_gludio_fields',
-    name: 'Campos e Prados de Gludio',
+    name: '古魯丁田野與草原',
     icon: '🌾',
     minLevel: 15,
     difficulty: 1,
@@ -14,7 +14,7 @@ export const GATHERING_ZONES = {
   },
   zone_dion_marsh: {
     id: 'zone_dion_marsh',
-    name: 'Pântanos Férteis de Dion',
+    name: '狄恩肥沃沼澤',
     icon: '🌿',
     minLevel: 20,
     difficulty: 2,
@@ -25,7 +25,7 @@ export const GATHERING_ZONES = {
   },
   zone_giran_hills: {
     id: 'zone_giran_hills',
-    name: 'Colinas e Pomares de Giran',
+    name: '奇岩丘陵與果園',
     icon: '🌳',
     minLevel: 26,
     difficulty: 3,
@@ -36,7 +36,7 @@ export const GATHERING_ZONES = {
   },
   zone_oren_woods: {
     id: 'zone_oren_woods',
-    name: 'Florestas Gélidas de Oren',
+    name: '歐瑞冰霜森林',
     icon: '❄️',
     minLevel: 32,
     difficulty: 4,
@@ -47,7 +47,7 @@ export const GATHERING_ZONES = {
   },
   zone_aden_plateau: {
     id: 'zone_aden_plateau',
-    name: 'Planalto Sagrado de Aden',
+    name: '亞丁神聖高原',
     icon: '🌸',
     minLevel: 36,
     difficulty: 5,
@@ -58,7 +58,7 @@ export const GATHERING_ZONES = {
   },
   zone_goddard_valley: {
     id: 'zone_goddard_valley',
-    name: 'Vale Vulcânico de Goddard',
+    name: '高達特火山谷',
     icon: '🌋',
     minLevel: 40,
     difficulty: 6,
@@ -76,36 +76,36 @@ export function getGatheringZonesList() {
 export const GATHERING_TACTICS = {
   delicate: {
     id: 'delicate',
-    name: 'Poda Cirúrgica',
+    name: '精準修剪',
     icon: '✂️',
-    desc: 'Colheita paciente sem danificar as raízes. +25% chance de Qualidade Nobre, ignora perigos de espinhos e toxinas.',
+    desc: '耐心採收且不傷根部，高品質機率 +25%，並可忽略尖刺與毒素危險。',
     timeMult: 1.2,
     qualityBonus: 0.25,
     durabilityCost: 1
   },
   standard: {
     id: 'standard',
-    name: 'Coleta Padrão',
+    name: '標準採集',
     icon: '🧺',
-    desc: 'Corte tradicional equilibrado entre velocidade e pureza da erva.',
+    desc: '傳統採集方式，在速度與植物純度間取得平衡。',
     timeMult: 1.0,
     qualityBonus: 0.0,
     durabilityCost: 1
   },
   cleave: {
     id: 'cleave',
-    name: 'Ceifa Rápida',
+    name: '快速收割',
     icon: '⚡',
-    desc: 'Golpe vigoroso para extrair brotos rapidamente. -35% no tempo de poda, -15% na pureza. Perigoso se houver espinhos.',
+    desc: '快速強力割取嫩芽，採集時間 -35%、純度 -15%；遇到尖刺時較危險。',
     timeMult: 0.65,
     qualityBonus: -0.15,
     durabilityCost: 1
   },
   inspect: {
     id: 'inspect',
-    name: 'Examinar Broto',
+    name: '檢查嫩芽',
     icon: '🔍',
-    desc: 'Revela pureza e perigos. Garante +20% na pureza se colhido depois. Instantâneo.',
+    desc: '顯示純度與危險，之後採集可額外獲得 +20% 純度。立即完成。',
     timeMult: 0,
     qualityBonus: 0.2,
     durabilityCost: 0
@@ -129,25 +129,25 @@ export const BOTANICAL_SIGNALS = {
 export const FLORA_NODES_CATALOG = {
   // Comum
   node_wild_branch: {
-    id: 'node_wild_branch', name: 'Arbusto de Galhos Caídos', icon: '🌿', rarity: 'common',
+    id: 'node_wild_branch', name: '落枝灌木', icon: '🌿', rarity: 'common',
     desc: 'Galhos flexíveis acumulados nas clareiras ensolaradas.',
     yields: { primary: 'branch', primaryQty: 2, secondary: 'charcoal', secondaryQty: 1 },
     baseTime: 3000, xpReward: 6, zones: ['zone_gludio_fields']
   },
   node_reed_stem: {
-    id: 'node_reed_stem', name: 'Juncos das Várzeas', icon: '🌾', rarity: 'common',
+    id: 'node_reed_stem', name: '濕地蘆葦', icon: '🌾', rarity: 'common',
     desc: 'Juncos resistentes à beira das nascentes.',
     yields: { primary: 'branch', primaryQty: 3, secondary: 'cord', secondaryQty: 1 },
     baseTime: 3200, xpReward: 8, zones: ['zone_gludio_fields']
   },
   node_cotton_bush: {
-    id: 'node_cotton_bush', name: 'Algodoeiro Silvestre', icon: '🌱', rarity: 'common',
+    id: 'node_cotton_bush', name: '野生棉花', icon: '🌱', rarity: 'common',
     desc: 'Tufos de algodão puro pronto para tecelagem.',
     yields: { primary: 'cotton_thread', primaryQty: 3, secondary: 'cord', secondaryQty: 1 },
     baseTime: 3000, xpReward: 8, zones: ['zone_gludio_fields']
   },
   node_medicinal_herb: {
-    id: 'node_medicinal_herb', name: 'Ervas de Cura de Gludio', icon: '☘️', rarity: 'common',
+    id: 'node_medicinal_herb', name: '古魯丁治療草藥', icon: '☘️', rarity: 'common',
     desc: 'Plantas curativas com alto teor de fibras aromáticas.',
     yields: { primary: 'cotton_thread', primaryQty: 2, secondary: 'charcoal', secondaryQty: 2 },
     baseTime: 3400, xpReward: 10, zones: ['zone_gludio_fields']
@@ -155,25 +155,25 @@ export const FLORA_NODES_CATALOG = {
 
   // Incomum
   node_hemp_fiber: {
-    id: 'node_hemp_fiber', name: 'Cânhamo dos Pântanos', icon: '🌿', rarity: 'uncommon',
+    id: 'node_hemp_fiber', name: '沼澤大麻', icon: '🌿', rarity: 'uncommon',
     desc: 'Fibras vegetais de extrema tenacidade encontradas na neblina de Dion.',
     yields: { primary: 'braided_hemp', primaryQty: 2, secondary: 'cord', secondaryQty: 2 },
     baseTime: 3600, xpReward: 18, zones: ['zone_dion_marsh']
   },
   node_marsh_varnish_moss: {
-    id: 'node_marsh_varnish_moss', name: 'Musgo Vernizado', icon: '🍃', rarity: 'uncommon',
+    id: 'node_marsh_varnish_moss', name: '樹脂苔蘚', icon: '🍃', rarity: 'uncommon',
     desc: 'Musgo gotejante rico em óleos resinosos naturais.',
     yields: { primary: 'varnish', primaryQty: 2, secondary: 'braided_hemp', secondaryQty: 1 },
     baseTime: 3800, xpReward: 20, zones: ['zone_dion_marsh']
   },
   node_swamp_root: {
-    id: 'node_swamp_root', name: 'Raiz Fibrosa de Dion', icon: '🪴', rarity: 'uncommon',
+    id: 'node_swamp_root', name: '狄恩纖維根', icon: '🪴', rarity: 'uncommon',
     desc: 'Raízes profundas que purificam as águas lamacentas.',
     yields: { primary: 'branch', primaryQty: 4, secondary: 'charcoal', secondaryQty: 2 },
     baseTime: 3600, xpReward: 22, zones: ['zone_dion_marsh']
   },
   node_charcoal_bark: {
-    id: 'node_charcoal_bark', name: 'Tronco Queimado Ancestral', icon: '🪵', rarity: 'uncommon',
+    id: 'node_charcoal_bark', name: '古代焦木', icon: '🪵', rarity: 'uncommon',
     desc: 'Cascas carbonizadas de grande poder térmico.',
     yields: { primary: 'charcoal', primaryQty: 4, secondary: 'branch', secondaryQty: 2 },
     baseTime: 4000, xpReward: 24, zones: ['zone_dion_marsh']
@@ -181,25 +181,25 @@ export const FLORA_NODES_CATALOG = {
 
   // Raro
   node_iron_wood_trunk: {
-    id: 'node_iron_wood_trunk', name: 'Pau-Ferro Imperial', icon: '🌳', rarity: 'rare',
+    id: 'node_iron_wood_trunk', name: '帝國鐵木', icon: '🌳', rarity: 'rare',
     desc: 'Madeira pesada como liga metálica nativa das florestas de Giran.',
     yields: { primary: 'compressed_wood', primaryQty: 2, secondary: 'varnish', secondaryQty: 3 },
     baseTime: 4200, xpReward: 42, zones: ['zone_giran_hills']
   },
   node_mold_resin_tree: {
-    id: 'node_mold_resin_tree', name: 'Gomeiro Alquímico de Giran', icon: '🌲', rarity: 'rare',
+    id: 'node_mold_resin_tree', name: '奇岩鍊金膠樹', icon: '🌲', rarity: 'rare',
     desc: 'Árvore exsudando cola vegetal puríssima para moldes de fundição.',
     yields: { primary: 'mold_glue', primaryQty: 2, secondary: 'varnish', secondaryQty: 2 },
     baseTime: 4500, xpReward: 46, zones: ['zone_giran_hills']
   },
   node_silver_leaf_herb: {
-    id: 'node_silver_leaf_herb', name: 'Erva de Folha Prateada', icon: '✨', rarity: 'rare',
+    id: 'node_silver_leaf_herb', name: '銀葉草', icon: '✨', rarity: 'rare',
     desc: 'Planta luminescente cujas nervuras filtram minerais preciosos do solo.',
     yields: { primary: 'silver_thread', primaryQty: 1, secondary: 'cotton_thread', secondaryQty: 4 },
     baseTime: 4400, xpReward: 50, zones: ['zone_giran_hills']
   },
   node_hardened_bark: {
-    id: 'node_hardened_bark', name: 'Casca Escamosa de Giran', icon: '🛡️', rarity: 'rare',
+    id: 'node_hardened_bark', name: '奇岩鱗皮樹皮', icon: '🛡️', rarity: 'rare',
     desc: 'Cascas espessas empregadas no forro interno de escudos.',
     yields: { primary: 'compressed_wood', primaryQty: 2, secondary: 'charcoal', secondaryQty: 4 },
     baseTime: 4300, xpReward: 52, zones: ['zone_giran_hills']
@@ -207,25 +207,25 @@ export const FLORA_NODES_CATALOG = {
 
   // Épico
   node_frost_pine_core: {
-    id: 'node_frost_pine_core', name: 'Cerne do Pinheiro Glacial', icon: '❄️', rarity: 'epic',
+    id: 'node_frost_pine_core', name: '冰松心材', icon: '❄️', rarity: 'epic',
     desc: 'Cerne congelado imune ao apodrecimento colhido na neve de Oren.',
     yields: { primary: 'compressed_wood', primaryQty: 3, secondary: 'mold_lubricant', secondaryQty: 2 },
     baseTime: 4800, xpReward: 85, zones: ['zone_oren_woods']
   },
   node_lubricant_sap: {
-    id: 'node_lubricant_sap', name: 'Seiva de Lubrificante de Molde', icon: '🧪', rarity: 'epic',
+    id: 'node_lubricant_sap', name: '模具潤滑樹液', icon: '🧪', rarity: 'epic',
     desc: 'Composto vegetal viscoso que previne o atrito nas matrizes de armas nobres.',
     yields: { primary: 'mold_lubricant', primaryQty: 2, secondary: 'mold_glue', secondaryQty: 2 },
     baseTime: 5000, xpReward: 95, zones: ['zone_oren_woods']
   },
   node_einhasad_bloom: {
-    id: 'node_einhasad_bloom', name: 'Flor de Einhasad de Aden', icon: '🌸', rarity: 'epic',
+    id: 'node_einhasad_bloom', name: '亞丁殷海薩之花', icon: '🌸', rarity: 'epic',
     desc: 'Pétalas santificadas que brilham como ouro líquido sob o sol de Aden.',
     yields: { primary: 'enria', primaryQty: 1, secondary: 'compressed_wood', secondaryQty: 2 },
     baseTime: 5200, xpReward: 110, zones: ['zone_aden_plateau']
   },
   node_enria_spore: {
-    id: 'node_enria_spore', name: 'Esporo de Enria Cristalina', icon: '💎', rarity: 'epic',
+    id: 'node_enria_spore', name: '水晶恩里亞孢子', icon: '💎', rarity: 'epic',
     desc: 'Fungos sagrados que condensam energia mística da terra em grânulos de Enria.',
     yields: { primary: 'enria', primaryQty: 2, secondary: 'silver_thread', secondaryQty: 2 },
     baseTime: 5400, xpReward: 120, zones: ['zone_aden_plateau']
@@ -233,13 +233,13 @@ export const FLORA_NODES_CATALOG = {
 
   // Lendário
   node_phoenix_petrified_log: {
-    id: 'node_phoenix_petrified_log', name: 'Tronco Petrificado da Fênix', icon: '🔥', rarity: 'legendary',
+    id: 'node_phoenix_petrified_log', name: '鳳凰石化木', icon: '🔥', rarity: 'legendary',
     desc: 'Madeira fóssil que ardeu em chamas primordiais nos picos de Goddard sem jamais virar cinzas.',
     yields: { primary: 'compressed_wood', primaryQty: 6, secondary: 'enria', secondaryQty: 3 },
     baseTime: 6000, xpReward: 250, zones: ['zone_goddard_valley']
   },
   node_adamantine_bark: {
-    id: 'node_adamantine_bark', name: 'Casca Mineralizada de Adamantite', icon: '⚡', rarity: 'legendary',
+    id: 'node_adamantine_bark', name: '精金礦化樹皮', icon: '⚡', rarity: 'legendary',
     desc: 'Casca vegetal enriquecida com veios de minério cósmico.',
     yields: { primary: 'enria', primaryQty: 3, secondary: 'compressed_wood', secondaryQty: 4 },
     baseTime: 6200, xpReward: 300, zones: ['zone_goddard_valley']
@@ -249,7 +249,7 @@ export const FLORA_NODES_CATALOG = {
 export const SICKLES_CATALOG = {
   sickle_none: {
     id: 'sickle_none',
-    name: 'Foice Rústica de Poda',
+    name: '粗製修枝鐮刀',
     grade: 'none',
     icon: '🌾',
     minGatheringLevel: 1,
@@ -261,7 +261,7 @@ export const SICKLES_CATALOG = {
   },
   sickle_d: {
     id: 'sickle_d',
-    name: 'Foice Reforçada de Gludio',
+    name: '古魯丁強化鐮刀',
     grade: 'd',
     icon: '🌱',
     minGatheringLevel: 3,
@@ -273,7 +273,7 @@ export const SICKLES_CATALOG = {
   },
   sickle_c: {
     id: 'sickle_c',
-    name: 'Foice Botânica de Dion',
+    name: '狄恩植物學鐮刀',
     grade: 'c',
     icon: '✨',
     minGatheringLevel: 8,
@@ -285,7 +285,7 @@ export const SICKLES_CATALOG = {
   },
   sickle_b: {
     id: 'sickle_b',
-    name: 'Foice do Mestre Herborista',
+    name: '草藥大師鐮刀',
     grade: 'b',
     icon: '🍃',
     minGatheringLevel: 15,
@@ -297,7 +297,7 @@ export const SICKLES_CATALOG = {
   },
   sickle_a: {
     id: 'sickle_a',
-    name: 'Lâmina Imperial da Colheita Sagrada',
+    name: '帝國神聖收割刃',
     grade: 'a',
     icon: '👑',
     minGatheringLevel: 25,
@@ -312,7 +312,7 @@ export const SICKLES_CATALOG = {
 export const POUCHES_CATALOG = {
   pouch_dew: {
     id: 'pouch_dew',
-    name: 'Bolsa de Orvalho Matinal',
+    name: '晨露袋',
     icon: '💧',
     buyPrice: 100,
     rarityBoost: 'uncommon',
@@ -321,7 +321,7 @@ export const POUCHES_CATALOG = {
   },
   pouch_herb: {
     id: 'pouch_herb',
-    name: 'Cesto de Linho Alquímico',
+    name: '鍊金亞麻籃',
     icon: '🧺',
     buyPrice: 350,
     rarityBoost: 'rare',
@@ -330,7 +330,7 @@ export const POUCHES_CATALOG = {
   },
   pouch_alchemical: {
     id: 'pouch_alchemical',
-    name: 'Frasco de Vácuo Preservante',
+    name: '真空保存瓶',
     icon: '🧪',
     buyPrice: 1000,
     rarityBoost: 'epic',
@@ -339,7 +339,7 @@ export const POUCHES_CATALOG = {
   },
   pouch_crystal: {
     id: 'pouch_crystal',
-    name: 'Urna de Éter Celestial',
+    name: '天界乙太甕',
     icon: '🔮',
     buyPrice: 3000,
     rarityBoost: 'legendary',
