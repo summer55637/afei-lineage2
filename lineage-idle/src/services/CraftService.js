@@ -284,7 +284,7 @@ export const SA_DEFINITIONS = {
   red: {
     focus: { name: '專注', desc: '物理暴擊率', stat: 'crit', baseVal: 65 },
     critical_damage: { name: '暴擊傷害', desc: '物理暴擊傷害', stat: 'critDmg', baseVal: 280 },
-    might: { name: '力量', desc: '物理攻擊 P.Atk', stat: 'atkPct', baseVal: 0.15 }
+    might: { name: '力量', desc: '物理攻擊力', stat: 'atkPct', baseVal: 0.15 }
   },
   green: {
     acumen: { name: '靈敏', desc: '魔法施法速度', stat: 'castSpd', baseVal: 0.15 },
@@ -292,9 +292,9 @@ export const SA_DEFINITIONS = {
     health: { name: '生命', desc: '最大生命值', stat: 'hpPct', baseVal: 0.25 }
   },
   blue: {
-    empower: { name: '魔力強化', desc: '魔法攻擊力（M.Atk）', stat: 'matkPct', baseVal: 0.20 },
+    empower: { name: '魔力強化', desc: '魔法攻擊力', stat: 'matkPct', baseVal: 0.20 },
     guidance: { name: '導引', desc: '精準／命中', stat: 'acc', baseVal: 8 },
-    anger: { name: '憤怒', desc: 'HP 低於 50% 時提升物理傷害', stat: 'anger', baseVal: 0.25 }
+    anger: { name: '憤怒', desc: '生命值低於 50% 時提升物理傷害', stat: 'anger', baseVal: 0.25 }
   }
 };
 
