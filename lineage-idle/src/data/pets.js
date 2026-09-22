@@ -26,7 +26,7 @@ export const PET_CATALOG = {
     icon: '🦉',
     unlockLvl: 25,
     cost: 100000,
-    desc: '法師的神秘鳥類夥伴，會持續恢復 MP 並提供奧術智慧（+魔法攻擊）。',
+    desc: '法師的神秘鳥類夥伴，會持續恢復 魔力 並提供奧術智慧（+魔法攻擊）。',
     baseAtk: 25,
     atkPerLvl: 2,
     buff: {
@@ -36,7 +36,7 @@ export const PET_CATALOG = {
       desc: '奧術智慧：提升魔法攻擊力'
     },
     skillName: '乙太恢復',
-    skillDesc: '戰鬥中定期恢復 20～100 MP。'
+    skillDesc: '戰鬥中定期恢復 20～100 魔力。'
   },
   pet_buffalo: {
     id: 'pet_buffalo',
@@ -45,17 +45,17 @@ export const PET_CATALOG = {
     icon: '🐂',
     unlockLvl: 25,
     cost: 100000,
-    desc: '專精生存支援的強壯水牛，會以療癒草藥恢復 HP 並提升最大生命力。',
+    desc: '專精生存支援的強壯水牛，會以療癒草藥恢復 生命值 並提升最大生命力。',
     baseAtk: 30,
     atkPerLvl: 3,
     buff: {
       stat: 'hpMult',
       baseVal: 0.08,
       valPerLvl: 0.003, // +8% a +26% HP
-      desc: '野性生命力：提升最大 HP 與防禦'
+      desc: '野性生命力：提升最大 生命值 與防禦'
     },
     skillName: '獸群祝福',
-    skillDesc: '定期恢復最大 HP 的 5%。'
+    skillDesc: '定期恢復最大 生命值 的 5%。'
   },
   pet_hatchling: {
     id: 'pet_hatchling',
