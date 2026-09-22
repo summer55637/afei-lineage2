@@ -724,7 +724,7 @@ export const FishingService = {
         callbacks.log(`🎉 **釣魚等級提升！** 你的亞丁釣魚等級已達 **${fState.skillLevel}**！`, 'rarity-legendary');
       }
       if (callbacks.floatText) {
-        callbacks.floatText(`釣魚 Nv. ${fState.skillLevel}!`, 'float-crit');
+        callbacks.floatText(`釣魚等級 ${fState.skillLevel}！`, 'float-crit');
       }
 
       nextXp = getFishingXpForLevel(fState.skillLevel + 1);
