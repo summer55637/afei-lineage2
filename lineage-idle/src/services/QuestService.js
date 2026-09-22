@@ -144,7 +144,7 @@ export function unlockPremiumPass(state, callbacks = {}) {
   state.battlePass.unlockedPremium = true;
 
   if (callbacks.log) callbacks.log('👑 高級戰鬥通行證已成功啟用！', 'rarity-legendary');
-  if (callbacks.floatText) callbacks.floatText('👑 PASSE PREMIUM ATIVO!', 'float-jackpot');
+  if (callbacks.floatText) callbacks.floatText('👑 高級通行證已啟用！', 'float-jackpot');
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save(true, true);
