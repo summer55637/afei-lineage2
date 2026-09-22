@@ -301,7 +301,7 @@ export const RefineryService = {
       if (currentHave < requiredTotal) {
         const matDef = RESOURCE_DICTIONARY[inp.matId] || { name: inp.matId };
         if (callbacks.log) {
-          callbacks.log(`⚠️ 材料不足！需要 ${requiredTotal}x ${matDef.name}（目前擁有 ${currentHave}）。`, 'warning');
+          callbacks.log(`⚠️ 材料不足！需要 ${requiredTotal}× ${matDef.name}（目前擁有 ${currentHave}）。`, 'warning');
         }
         return { success: false, reason: 'insufficient_materials', missing: inp.matId };
       }
@@ -352,7 +352,7 @@ export const RefineryService = {
 
     if (callbacks.log) {
       callbacks.log(
-        `⚗️ **精煉完成：**成功製作 +${outputQty}x **${outDef.name}**！（-${totalAdena.toLocaleString()} 金幣，+${earnedForgeExp} 鍛造 EXP）`,
+        `⚗️ **精煉完成：**成功製作 +${outputQty}× **${outDef.name}**！（-${totalAdena.toLocaleString()} 金幣，+${earnedForgeExp} 鍛造經驗值）`,
         'loot'
       );
       if (forgeLeveledUp) {
