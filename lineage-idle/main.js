@@ -753,7 +753,7 @@ function openClassTransferModal(classInfo) {
     // Lista de habilidades aprendidas na classe anterior
     const learnedSkills = Object.entries(state.skills || {})
       .filter(([, lvl]) => lvl > 0)
-      .map(([sId, lvl]) => ({ id: sId, lvl, def: skillDefs[sId] || { name: sId } }));
+      .map(([sId, lvl]) => ({ id: sId, lvl, def: skillDefs[sId] || { name: '未知技能' } }));
 
     if (learnedSkills.length === 0) {
       // Se não aprendeu nenhuma habilidade, avança diretamente
@@ -7395,7 +7395,7 @@ function updateCodexUI() {
     card.style.cssText = 'border: 1px solid var(--border-gilt); padding: 12px; border-radius: 8px; background: rgba(15,18,25,0.8); margin-bottom: 12px;';
 
     const itemsHtml = setDef.items.map(itemId => {
-      const itemDef = D().ALL_ITEMS[itemId] || { name: itemId };
+      const itemDef = D().ALL_ITEMS[itemId] || { name: '未知物品' };
       const isReg = regList.includes(itemId);
       const inInv = getInventoryCount(itemId) > 0 || getWarehouseCount(itemId) > 0;
       let btn = '';
