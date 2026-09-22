@@ -19,7 +19,7 @@ export const AURAS_CATALOG = {
   aura_hero_golden: {
     id: 'aura_hero_golden',
     name: '英雄金色光環',
-    desc: 'O resplendor canônico dourado dos campeões das Olimpíadas de Aden.',
+    desc: '亞丁奧林匹亞冠軍所散發的經典金色光輝。',
     cssClass: 'hero-aura-golden',
     icon: '👑',
     color: '#ffd700',
@@ -29,7 +29,7 @@ export const AURAS_CATALOG = {
   aura_crimson_warlord: {
     id: 'aura_crimson_warlord',
     name: '光環 Escarlate da Guerra',
-    desc: 'Chamas carmesim emanadas pelo fervor e sede de mil batalhas.',
+    desc: '歷經千場戰鬥的狂熱與戰意所化成的緋紅火焰。',
     cssClass: 'hero-aura-crimson',
     icon: '🔥',
     color: '#ef4444',
@@ -39,7 +39,7 @@ export const AURAS_CATALOG = {
   aura_abyssal_shadow: {
     id: 'aura_abyssal_shadow',
     name: '光環 Abissal das Sombras',
-    desc: 'Vórtices de éter escuro e violeta das profundezas das Catacumbas.',
+    desc: '來自地下墓穴深處的黑紫色乙太漩渦。',
     cssClass: 'hero-aura-abyssal',
     icon: '🌑',
     color: '#a855f7',
@@ -49,7 +49,7 @@ export const AURAS_CATALOG = {
   aura_divine_seraph: {
     id: 'aura_divine_seraph',
     name: '光環 Serafim Divina',
-    desc: 'Clarão radiante celestial dos anjos guardiões do Templo de Einhasad.',
+    desc: '殷海薩神殿守護天使所散發的天界光芒。',
     cssClass: 'hero-aura-divine',
     icon: '✨',
     color: '#38bdf8',
@@ -59,7 +59,7 @@ export const AURAS_CATALOG = {
   aura_frost_monarch: {
     id: 'aura_frost_monarch',
     name: '光環 Monarca Glacial',
-    desc: 'Cristais de geada perpétua que congelam o ar ao redor do campeão.',
+    desc: '永恆霜晶使英雄周圍的空氣凝結。',
     cssClass: 'hero-aura-frost',
     icon: '❄️',
     color: '#67e8f9',
@@ -69,7 +69,7 @@ export const AURAS_CATALOG = {
   aura_emerald_nature: {
     id: 'aura_emerald_nature',
     name: '光環 Esmeralda Silvestre',
-    desc: 'Radiação esmeralda ancestral abençoada pelos espíritos da Deusa Eva.',
+    desc: '受伊娃女神精靈祝福的古老翠綠光輝。',
     cssClass: 'hero-aura-emerald',
     icon: '🌿',
     color: '#22c55e',
@@ -90,7 +90,7 @@ export const ITEM_FRAMES_CATALOG = {
   frame_bronze: {
     id: 'frame_bronze',
     name: '邊框 Bronze Antigo',
-    desc: 'Borda clássica de bronze lapidado para os slots de equipamento.',
+    desc: '為裝備欄位打造的經典雕刻青銅邊框。',
     cssClass: 'cosmetic-frame-bronze',
     icon: '🥉',
     costAdena: 250000
@@ -98,7 +98,7 @@ export const ITEM_FRAMES_CATALOG = {
   frame_silver: {
     id: 'frame_silver',
     name: '史詩銀色邊框',
-    desc: 'Filetes prateados nobres com runas místicas gravadas.',
+    desc: '刻有神秘符文的高貴銀色飾邊。',
     cssClass: 'cosmetic-frame-silver',
     icon: '🥈',
     costAdena: 750000
@@ -106,7 +106,7 @@ export const ITEM_FRAMES_CATALOG = {
   frame_gold: {
     id: 'frame_gold',
     name: '邊框 Dourada Real',
-    desc: 'Bordas de ouro puro dignas da realeza e nobreza de Aden.',
+    desc: '配得上亞丁王族與貴族的純金邊框。',
     cssClass: 'cosmetic-frame-gold',
     icon: '🥇',
     costAdena: 2000000
@@ -114,7 +114,7 @@ export const ITEM_FRAMES_CATALOG = {
   frame_obsidian: {
     id: 'frame_obsidian',
     name: '神秘黑曜石邊框',
-    desc: 'Pedra vulcânica negra banhada em éter arcano violeta.',
+    desc: '浸染紫色奧術乙太的黑色火山岩。',
     cssClass: 'cosmetic-frame-obsidian',
     icon: '🔮',
     costAdena: 3500000
@@ -122,7 +122,7 @@ export const ITEM_FRAMES_CATALOG = {
   frame_celestial: {
     id: 'frame_celestial',
     name: '邊框 Celestial dos Deuses',
-    desc: 'Resplendor divino pulsante forjado com as lágrimas de Shilen e Einhasad.',
+    desc: '以席琳與殷海薩之淚鍛造出的脈動神聖光輝。',
     cssClass: 'cosmetic-frame-celestial',
     icon: '🌟',
     costAdena: 5000000
@@ -134,55 +134,55 @@ export const TITLES_CATALOG = {
     id: 'title_none',
     name: 'Sem 稱號',
     titleText: '',
-    desc: 'Nenhum título honorífico exibido.',
+    desc: '不顯示任何榮譽稱號。',
     color: '#94a3b8',
     costAdena: 0
   },
   title_lenda: {
     id: 'title_lenda',
-    name: 'Lenda de Aden',
-    titleText: 'Lenda de Aden',
-    desc: 'Cantado pelos bardos de todas as tavernas do continente.',
+    name: '亞丁傳奇',
+    titleText: '亞丁傳奇',
+    desc: '其事蹟被大陸各地酒館的吟遊詩人傳唱。',
     color: '#ffd700',
     costAdena: 500000
   },
   title_dragonslayer: {
     id: 'title_dragonslayer',
-    name: 'Matador de Dragões',
-    titleText: 'Matador de Dragões',
-    desc: 'Guerreiro que desafiou as garras e o fogo dos dragões ancestrais.',
+    name: '屠龍者',
+    titleText: '屠龍者',
+    desc: '敢於挑戰古代巨龍利爪與烈焰的戰士。',
     color: '#ef4444',
     costAdena: 1000000
   },
   title_shadowlord: {
     id: 'title_shadowlord',
-    name: 'Senhor das Sombras',
-    titleText: 'Senhor das Sombras',
-    desc: 'Mestre indiscutível dos mistérios sombrios e das catacumbas.',
+    name: '暗影領主',
+    titleText: '暗影領主',
+    desc: '掌握黑暗奧秘與地下墓穴力量的絕對大師。',
     color: '#a855f7',
     costAdena: 1200000
   },
   title_aurora: {
     id: 'title_aurora',
-    name: 'Arauto da Alvorada',
-    titleText: 'Arauto da Alvorada',
-    desc: 'Campeão guardião da luz do Selo da Alvorada.',
+    name: '黎明使者',
+    titleText: '黎明使者',
+    desc: '守護黎明封印之光的英雄。',
     color: '#38bdf8',
     costAdena: 1200000
   },
   title_gladiator: {
     id: 'title_gladiator',
-    name: 'Gladiador Eterno',
-    titleText: 'Gladiador Eterno',
-    desc: 'Veterano invicto cujos passos estremecem as arenas de Aden.',
+    name: '永恆鬥士',
+    titleText: '永恆鬥士',
+    desc: '未嘗敗績的老練鬥士，其腳步足以震撼亞丁競技場。',
     color: '#f97316',
     costAdena: 1500000
   },
   title_immortal: {
     id: 'title_immortal',
-    name: 'O Imortal',
-    titleText: 'O Imortal',
-    desc: 'Aquele que superou a fragilidade terrena e conquistou a eternidade.',
+    name: '不死者',
+    titleText: '不死者',
+    desc: '超越凡人脆弱之軀並獲得永恆之人。',
     color: '#f8fafc',
     costAdena: 3000000
   }
