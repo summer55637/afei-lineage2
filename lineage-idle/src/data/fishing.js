@@ -363,7 +363,7 @@ export function getFishingXpForLevel(level) {
 }
 
 export const FISH_EXCHANGE_TIERS = {
-  common: { name: "階級 1：普通", description: "5 Peixes → 1 Material Básico", exchangeRate: 5 },
+  common: { name: "階級 1：普通", description: "5 條魚 → 1 份基礎材料", exchangeRate: 5 },
   uncommon: { name: "階級 2：優良", description: "3 Peixes → 1 Material Refinado", exchangeRate: 3 },
   rare: { name: "階級 3：稀有", description: "2 Peixes → 1 Material Especial", exchangeRate: 2 },
   epic: { name: "階級 4：史詩", description: "1 Peixe → 1 Material Raro", exchangeRate: 1 },
