@@ -2073,12 +2073,12 @@ export const IDLE_MARKUP = `
               <div class="admin-section">
                 <h3>🪙 經濟（金幣、技能點 與亞丁幣）</h3>
                 <div class="admin-btn-group">
-                  <button class="admin-btn" data-admin-cmd="gold1m">+1M 金幣</button>
-                  <button class="admin-btn" data-admin-cmd="gold10m">+10M 金幣</button>
-                  <button class="admin-btn" data-admin-cmd="sp5k">+5K 技能點</button>
-                  <button class="admin-btn" data-admin-cmd="sp50k">+50K 技能點</button>
+                  <button class="admin-btn" data-admin-cmd="gold1m">+1,000,000 金幣</button>
+                  <button class="admin-btn" data-admin-cmd="gold10m">+10,000,000 金幣</button>
+                  <button class="admin-btn" data-admin-cmd="sp5k">+5,000 技能點</button>
+                  <button class="admin-btn" data-admin-cmd="sp50k">+50,000 技能點</button>
                   <button class="admin-btn" data-admin-cmd="ac500" style="background:#7c2d12; border-color:#f59e0b; color:#fbbf24;">+500 亞丁幣</button>
-                  <button class="admin-btn" data-admin-cmd="ac2000" style="background:#7c2d12; border-color:#f59e0b; color:#fbbf24;">+2.000 亞丁幣</button>
+                  <button class="admin-btn" data-admin-cmd="ac2000" style="background:#7c2d12; border-color:#f59e0b; color:#fbbf24;">+2,000 亞丁幣</button>
                 </div>
                 <div class="admin-input-row" style="margin-top:8px; display:flex; gap:6px;">
                   <input type="number" id="admin-gold-custom" class="admin-num-input" placeholder="金幣數量（例如：5000000）" style="flex:1;" />
