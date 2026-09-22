@@ -83,7 +83,7 @@ export function canEnterRaid(state, raidId) {
   if (boss.minimumCP && playerCP < boss.minimumCP) {
     return {
       canEnter: false,
-      reason: `戰力不足！最低需求：${boss.minimumCP.toLocaleString('zh-TW')} CP（你的 CP：${playerCP.toLocaleString('zh-TW')}）。`
+      reason: `戰鬥力不足！最低需求：${boss.minimumCP.toLocaleString('zh-TW')}（你的戰鬥力：${playerCP.toLocaleString('zh-TW')}）。`
     };
   }
 
@@ -323,7 +323,7 @@ export function handleRaidVictory(state, raidId, callbacks = {}) {
 
   if (callbacks.log) {
     callbacks.log(`🏆 **史詩勝利！** 你擊敗了 **${boss.name}**！`, 'rarity-legendary');
-    callbacks.log(`💰 完成獎勵：**+${earnedGold.toLocaleString()} 金幣**、**+${earnedXp.toLocaleString()} XP**、**+${earnedSp.toLocaleString()} SP**！`, 'rarity-rare');
+    callbacks.log(`💰 完成獎勵：**+${earnedGold.toLocaleString()} 金幣**、**+${earnedXp.toLocaleString()} 經驗值**、**+${earnedSp.toLocaleString()} 技能點**！`, 'rarity-rare');
   }
 
   // 3. Sorteio de Drops Épicos (Joias de Chefe, Scrolls, AC)
@@ -334,9 +334,9 @@ export function handleRaidVictory(state, raidId, callbacks = {}) {
         if (drop.itemId === 'adena_coins') {
           const acAmount = drop.count || 10;
           state.adenCoins = (state.adenCoins || 0) + acAmount;
-          droppedItems.push({ itemId: 'adena_coins', name: `${acAmount}x 亞丁幣（AC）`, isAC: true });
+          droppedItems.push({ itemId: 'adena_coins', name: `${acAmount} 枚亞丁幣`, isAC: true });
           if (callbacks.log) {
-            callbacks.log(`🪙 **稀有掉落：** 你獲得 **+${acAmount} 亞丁幣（AC）**！`, 'rarity-legendary');
+            callbacks.log(`🪙 **稀有掉落：** 你獲得 **+${acAmount} 亞丁幣**！`, 'rarity-legendary');
           }
         } else {
           state.inventory = state.inventory || [];
