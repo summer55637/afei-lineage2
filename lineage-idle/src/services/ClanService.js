@@ -99,7 +99,7 @@ export class ClanService {
     }
 
     if ((state.sp || 0) < next.costSp) {
-      log(`SP 不足。血盟升級需要 ${next.costSp.toLocaleString()} SP。`, 'error');
+      log(`技能點不足。血盟升級需要 ${next.costSp.toLocaleString()} 技能點。`, 'error');
       return { success: false, reason: 'sp_low' };
     }
 
@@ -178,7 +178,7 @@ export class ClanService {
       const dmgToGate = Math.max(100, Math.round(totalDmg * 2.2)); // Bônus de aríete/golem de cerco
       siege.gateHp = Math.max(0, siege.gateHp - dmgToGate);
 
-      const msg = `💥 血盟攻城槌與投石機對城門造成 ${dmgToGate.toLocaleString()} 傷害！（HP：${siege.gateHp.toLocaleString()}/${siege.maxGateHp.toLocaleString()}）`;
+      const msg = `💥 血盟攻城槌與投石機對城門造成 ${dmgToGate.toLocaleString()} 傷害！（生命值：${siege.gateHp.toLocaleString()}/${siege.maxGateHp.toLocaleString()}）`;
       siege.logs.unshift(msg);
       log(msg, 'info');
 
@@ -374,7 +374,7 @@ export class ClanService {
       return { success: false, reason: 'gold_low' };
     }
     if ((state.sp || 0) < spAmt) {
-      log('SP 不足，無法進行捐獻。', 'error');
+      log('技能點不足，無法進行捐獻。', 'error');
       return { success: false, reason: 'sp_low' };
     }
 
@@ -387,7 +387,7 @@ export class ClanService {
     state.clan.donationsAdena = (state.clan.donationsAdena || 0) + adenaAmt;
     state.clan.donationsSp = (state.clan.donationsSp || 0) + spAmt;
 
-    log(`🛡️ 血盟捐獻完成：+${adenaAmt.toLocaleString()} 金幣、+${spAmt.toLocaleString()} SP。血盟聲望：**+${repGained}**！`, 'rarity-epic');
+    log(`🛡️ 血盟捐獻完成：+${adenaAmt.toLocaleString()} 金幣、 +${spAmt.toLocaleString()} 技能點。血盟聲望：**+${repGained}**！`, 'rarity-epic');
     floatText(`+${repGained} 聲望`, 'float-epic');
     onUpdate();
     return { success: true, repGained };
