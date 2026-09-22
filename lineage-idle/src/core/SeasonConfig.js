@@ -69,7 +69,7 @@ export const SEASONS_DATA = {
       "sevensigns", "olympiad", "fortress", "colosseum", "codex", "subclasses"
     ],
     features: [
-      "🏛️ 七封印爭奪戰（黎明 vs 黃昏與馬門商人）",
+      "🏛️ 七封印爭奪戰（黎明對抗黃昏與馬門商人）",
       "🏆 每週大奧林匹亞與英雄加冕",
       "👤 副職業與認證系統",
       "✨ 使用生命石進行精煉",
