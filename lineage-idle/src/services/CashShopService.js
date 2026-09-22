@@ -57,7 +57,7 @@ export class CashShopService {
     const qty = Math.max(0, parseInt(amount, 10) || 0);
     state.adenCoins = (Number(state.adenCoins) || 0) + qty;
     if (callbacks.log) {
-      callbacks.log(`🪙 **+${qty.toLocaleString()} 亞丁幣（AC）** 已成功加入帳號！`, 'system');
+      callbacks.log(`🪙 **+${qty.toLocaleString()} 亞丁幣** 已成功加入帳號！`, 'system');
     }
     if (callbacks.onUpdate) callbacks.onUpdate();
     return state.adenCoins;
@@ -80,7 +80,7 @@ export class CashShopService {
     const currentBalance = this.getBalance(state);
     if (currentBalance < pack.priceAC) {
       if (callbacks.log) {
-        callbacks.log(`❌ 餘額不足！你有 **${currentBalance} AC**，此禮包需要 **${pack.priceAC} AC**。`, 'system');
+        callbacks.log(`❌ 餘額不足！你有 **${currentBalance} 亞丁幣**，此禮包需要 **${pack.priceAC} 亞丁幣**。`, 'system');
       }
       return false;
     }
