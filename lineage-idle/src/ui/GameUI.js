@@ -3842,7 +3842,7 @@ function renderSkillCard(skill, state, activeLoadoutSlot = null) {
          role="button"
          tabindex="0"
          draggable="${isDraggable ? 'true' : 'false'}"
-         title="${skill.name} (${skill.element})${equippedSlot ? ` — 已裝備於配置： ${SKILL_LOADOUT_SLOT_LABELS[equippedSlot] || equippedSlot}` : ''}">
+         title="${skill.name}（${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗', physical: '物理', none: '無屬性' })[String(skill.element || 'physical').toLowerCase()] || skill.element || '物理'}）${equippedSlot ? ` — 已裝備於配置： ${SKILL_LOADOUT_SLOT_LABELS[equippedSlot] || equippedSlot}` : ''}">
       <div class="skill-icon-frame-48">
         <img src="${iconUrl}" class="skill-icon-img" alt="${skill.name}" onerror="this.onerror=null; this.src='${NEUTRAL_SKILL_PLACEHOLDER}'; this.style.opacity='0.4';" />
         ${starPill}
@@ -3852,9 +3852,9 @@ function renderSkillCard(skill, state, activeLoadoutSlot = null) {
       <div class="skill-card-body">
         <div class="skill-card-title">${skill.name}</div>
         <div class="skill-card-tags">
-          <span class="skill-grade-tag grade-${String(skill.grade || 'common').toLowerCase()}">${skill.grade || 'COMMON'}</span>
-          <span class="skill-element-tag ${elemClass}">${skill.element}</span>
-          <span class="skill-role-tag">${skill.role}</span>
+          <span class="skill-grade-tag grade-${String(skill.grade || 'common').toLowerCase()}">${D()?.RARITY?.[String(skill.grade || 'common').toLowerCase()]?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說' })[String(skill.grade || 'common').toLowerCase()] || skill.grade || '一般'}</span>
+          <span class="skill-element-tag ${elemClass}">${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗', physical: '物理', none: '無屬性' })[String(skill.element || 'physical').toLowerCase()] || skill.element || '物理'}</span>
+          <span class="skill-role-tag">${({ physical: '物理', magic: '魔法', buff: '增益', debuff: '減益', heal: '治療', healing: '治療', control: '控制', passive: '被動', active: '主動', summon: '召喚', aoe: '範圍', utility: '輔助' })[String(skill.role || '').toLowerCase()] || skill.role || '技能'}</span>
         </div>
         <div class="skill-card-footer">
           ${costBadge}
@@ -10936,7 +10936,7 @@ export function renderSevenSignsTab(container, state) {
               🏛️ 七封印－封印之戰
             </h2>
             <div style="font-size:12px; color:#c084fc; margin-top:4px;">
-              目前陣營： <strong>${ss.faction ? FACTIONS[ss.faction].name : '無（請選擇陣營）'}</strong> | 古代金幣: <strong style="color:#fef08a;">${(ss.ancientAdena || 0).toLocaleString()} 古代金幣</strong>
+              目前陣營： <strong>${ss.faction ? FACTIONS[ss.faction].name : '無（請選擇陣營）'}</strong>｜持有古代金幣：<strong style="color:#fef08a;">${(ss.ancientAdena || 0).toLocaleString()}</strong>
             </div>
           </div>
           <div style="display:flex; gap:12px; align-items:center;">
