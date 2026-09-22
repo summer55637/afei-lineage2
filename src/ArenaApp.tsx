@@ -218,7 +218,7 @@ function MenuScreen({
             ADEN ARENA
           </h1>
           <p className="mx-auto mt-2 max-w-xl text-sm text-white/50">
-            Escolha seu campeão ou jogue com seu personagem ativo do Idle Game no ambiente 3D!
+            選擇你的鬥士，或使用放置模式中的現役角色進入 3D 戰場！
           </p>
         </header>
 
@@ -230,7 +230,7 @@ function MenuScreen({
                   <span>★</span> Personagem Idle Conectado
                 </div>
                 <h2 className="mt-2 font-display text-2xl font-black text-white">
-                  {idleState.charName || idleState.heroName || "Seu Herói"} · Nível {idleState.level || 1}
+                  {idleState.charName || idleState.heroName || "你的角色"} · 等級 {idleState.level || 1}
                 </h2>
                 <p className="mt-1 text-xs text-amber-200/80">
                   HP: {Math.ceil(idleState.hp || idleState.maxHp || 100)} / {idleState.maxHp || 100} · 
@@ -245,7 +245,7 @@ function MenuScreen({
                 }}
                 className="rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 px-6 py-3.5 font-display text-base font-black tracking-wide text-[#1a1100] shadow-lg shadow-amber-500/30 hover:brightness-110 active:scale-95 transition"
               >
-                ⚔️ JOGAR COM {String(idleState.charName || idleState.heroName || "SEU HERÓI").toUpperCase()} ▶
+                ⚔️ 使用 {String(idleState.charName || idleState.heroName || "你的角色").toUpperCase()} 遊玩 ▶
               </button>
             </div>
           </div>
