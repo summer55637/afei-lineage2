@@ -151,7 +151,7 @@ export class FortressService {
   static equipTalisman(state, talismanId, hooks = {}) {
     const fState = this.ensureState(state);
     const def = TALISMANS[talismanId];
-    if (!def) return { success: false, message: '護符 não encontrado.' };
+    if (!def) return { success: false, message: '找不到護符。' };
 
     const bracelet = BRACELETS[fState.equippedBracelet] || BRACELETS['bracelet_steel'];
     const maxSlots = bracelet.slots;
@@ -182,7 +182,7 @@ export class FortressService {
   static unequipTalisman(state, talismanId, hooks = {}) {
     const fState = this.ensureState(state);
     const idx = fState.equippedTalismans.indexOf(talismanId);
-    if (idx === -1) return { success: false, message: '護符 não está equipado.' };
+    if (idx === -1) return { success: false, message: '護符尚未裝備。' };
 
     fState.equippedTalismans.splice(idx, 1);
     hooks.log?.(`護符 removido do bracelete.`, 'system');
