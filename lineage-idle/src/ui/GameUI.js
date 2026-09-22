@@ -2247,10 +2247,10 @@ export function openAutoEquipPreviewModal(state, callbacks = {}) {
         </span>
       </div>
       <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; font-size:10px;">
-        <div>P.Atk: <strong style="color:${d.atkDelta >= 0 ? '#4ade80' : '#f87171'}">${d.atkDelta >= 0 ? '+' : ''}${d.atkDelta}</strong></div>
-        <div>M.Atk: <strong style="color:${d.matkDelta >= 0 ? '#4ade80' : '#f87171'}">${d.matkDelta >= 0 ? '+' : ''}${d.matkDelta}</strong></div>
-        <div>P.Def: <strong style="color:${d.defDelta >= 0 ? '#4ade80' : '#f87171'}">${d.defDelta >= 0 ? '+' : ''}${d.defDelta}</strong></div>
-        <div>M.Def: <strong style="color:${d.mdefDelta >= 0 ? '#4ade80' : '#f87171'}">${d.mdefDelta >= 0 ? '+' : ''}${d.mdefDelta}</strong></div>
+        <div>P.Atk（物理攻擊）： <strong style="color:${d.atkDelta >= 0 ? '#4ade80' : '#f87171'}">${d.atkDelta >= 0 ? '+' : ''}${d.atkDelta}</strong></div>
+        <div>M.Atk（魔法攻擊）： <strong style="color:${d.matkDelta >= 0 ? '#4ade80' : '#f87171'}">${d.matkDelta >= 0 ? '+' : ''}${d.matkDelta}</strong></div>
+        <div>P.Def（物理防禦）： <strong style="color:${d.defDelta >= 0 ? '#4ade80' : '#f87171'}">${d.defDelta >= 0 ? '+' : ''}${d.defDelta}</strong></div>
+        <div>M.Def（魔法防禦）： <strong style="color:${d.mdefDelta >= 0 ? '#4ade80' : '#f87171'}">${d.mdefDelta >= 0 ? '+' : ''}${d.mdefDelta}</strong></div>
         <div>最大 HP： <strong style="color:${d.hpDelta >= 0 ? '#4ade80' : '#f87171'}">${d.hpDelta >= 0 ? '+' : ''}${d.hpDelta}</strong></div>
         <div>暴擊: <strong style="color:${d.critDelta >= 0 ? '#4ade80' : '#f87171'}">${d.critDelta >= 0 ? '+' : ''}${d.critDelta}%</strong></div>
       </div>
@@ -4393,7 +4393,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
                 <option value="self_below_50" ${cond.hpTrigger === 'self_below_50' ? 'selected' : ''}>我的 HP < 50%</option>
                 <option value="self_below_30" ${cond.hpTrigger === 'self_below_30' ? 'selected' : ''}>我的 HP < 30%（危急）</option>
                 <option value="target_below_30" ${cond.hpTrigger === 'target_below_30' ? 'selected' : ''}>敵人 HP < 30%（處決）</option>
-                <option value="target_below_50" ${cond.hpTrigger === 'target_below_50' ? 'selected' : ''}>HP Inimigo < 50%</option>
+                <option value="target_below_50" ${cond.hpTrigger === 'target_below_50' ? 'selected' : ''}>敵人 HP < 50%</option>
               </select>
             </div>
             <div>
@@ -7997,8 +7997,8 @@ export function renderForgeElemental(container, state) {
           <span class="l2-stat-pill">✨ 神聖 ↔ 黑暗 🌑（對不死族 +30%）</span>
         </div>
         <div style="font-size:10px; color:#94a3b8; margin-top:8px; display:flex; gap:12px; flex-wrap:wrap;">
-          <span>• <strong>C/B 級：</strong> Lv.40+ (Teto +60)</span>
-          <span>• <strong>A 級：</strong> Lv.61+ (Teto +150)</span>
+          <span>• <strong>C/B 級：</strong> Lv.40+（上限 +60）</span>
+          <span>• <strong>A 級：</strong> Lv.61+（上限 +150）</span>
           <span>• <strong>S 級：</strong>Lv.76+（武器上限 +300／防具 +120）</span>
         </div>
       </div>
@@ -10279,7 +10279,7 @@ export function renderOlympiadTab(container, state) {
             </div>
             <div style="background:rgba(0,0,0,0.55); border:1px solid rgba(255,255,255,0.2); border-radius:8px; padding:6px 12px; text-align:center;">
               <div style="font-size:9.5px; color:#cbd5e1; text-transform:uppercase;">戰績</div>
-              <div style="font-size:12px; font-weight:bold; color:#a3e635;">${olyStatus.wins}V - ${olyStatus.losses}D</div>
+              <div style="font-size:12px; font-weight:bold; color:#a3e635;">${olyStatus.wins}勝 - ${olyStatus.losses}敗</div>
             </div>
           </div>
         </div>
