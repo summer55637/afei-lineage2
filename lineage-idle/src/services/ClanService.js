@@ -184,7 +184,7 @@ export class ClanService {
 
       if (siege.gateHp <= 0) {
         siege.phase = 2;
-        const advMsg = `⚡ Os Portões de ${castle.name} vieram abaixo! Fase 2: Invasão ao Pátio & Confronto com a Guarda Real!`;
+        const advMsg = `⚡ ${castle.name} 的城門已被攻破！第 2 階段：攻入中庭並迎戰皇家守衛！`;
         siege.logs.unshift(advMsg);
         log(advMsg, 'warning');
       }
@@ -194,7 +194,7 @@ export class ClanService {
       const dmgToGuards = Math.max(100, Math.round(totalDmg * 1.4));
       siege.guardsHp = Math.max(0, siege.guardsHp - dmgToGuards);
 
-      const msg = `⚔️ Seus guerreiros desferiram golpes ferozes na Guarda Real causando -${dmgToGuards.toLocaleString()} de dano!`;
+      const msg = `⚔️ 你的戰士猛烈攻擊皇家守衛，造成 ${dmgToGuards.toLocaleString()} 傷害！`;
       siege.logs.unshift(msg);
       log(msg, 'info');
 
@@ -208,7 +208,7 @@ export class ClanService {
     // FASE 3: Canalização do Seal of Ruler
     else if (siege.phase === 3) {
       siege.castRounds += 1;
-      const castMsg = `✨ Canalizando Seal of Ruler... (${siege.castRounds}/${siege.reqCastRounds} rodadas concluídas sem interrupção).`;
+      const castMsg = `✨ 正在引導統治者封印……（${siege.castRounds}/${siege.reqCastRounds} 回合未被中斷）`;
       siege.logs.unshift(castMsg);
       log(castMsg, 'info');
 
@@ -222,7 +222,7 @@ export class ClanService {
         const victoryReward = 5000000;
         state.gold = (state.gold || 0) + victoryReward;
 
-        const triumphMsg = `🏆 VITÓRIA SUPREMA! O Selo foi gravado no Altar Sagrado! ${state.name || 'Seu 血盟'} é agora o legítimo Senhor de ${castle.name}! (+${victoryReward.toLocaleString()} Adena do Tesouro)`;
+        const triumphMsg = `🏆 至高勝利！封印已刻印於神聖祭壇！${state.name || '你的血盟'} 現在正式成為 ${castle.name} 的領主！（寶庫 +${victoryReward.toLocaleString()} 金幣）`;
         siege.logs.unshift(triumphMsg);
         log(triumphMsg, 'success');
       }
@@ -240,20 +240,20 @@ export class ClanService {
     const castle = CASTLES[castleId];
 
     if (!castle || !(state.clan?.castles || []).includes(castleId)) {
-      log('Seu 血盟 não governa este castelo para recolher taxas.', 'error');
+      log('你的血盟並未統治此城堡，無法領取稅收。', 'error');
       return { success: false, reason: 'not_owner' };
     }
 
     const taxes = state.clan.accumulatedTaxes?.[castleId] || 0;
     if (taxes <= 0) {
-      log(`Não há taxas acumuladas no tesouro de ${castle.name} no momento.`, 'warning');
+      log(`${castle.name} 的寶庫目前沒有可領取的累積稅收。`, 'warning');
       return { success: false, amount: 0 };
     }
 
     state.gold = (state.gold || 0) + taxes;
     state.clan.accumulatedTaxes[castleId] = 0;
 
-    log(`💰 Você recolheu ${taxes.toLocaleString()} Adena em tributos reais do tesouro de ${castle.name}!`, 'success');
+    log(`💰 你從 ${castle.name} 寶庫領取了 ${taxes.toLocaleString()} 金幣的王室稅收！`, 'success');
     onUpdate();
     return { success: true, amount: taxes };
   }
@@ -289,17 +289,17 @@ export class ClanService {
     const item = CASTLE_SHOP_CATALOG.find(i => i.id === itemId);
 
     if (!item) {
-      log('Item não encontrado na Loja do 城堡.', 'error');
+      log('城堡商店中找不到此物品。', 'error');
       return { success: false, reason: 'item_not_found' };
     }
 
     if (!state.clan?.castles || state.clan.castles.length === 0) {
-      log('Apenas Lordes de 城堡 podem adquirir itens da Loja Real.', 'error');
+      log('只有城堡領主可以購買皇家商店物品。', 'error');
       return { success: false, reason: 'no_castle' };
     }
 
     if ((state.gold || 0) < item.priceAdena) {
-      log(`Adena insuficiente. Preço: ${item.priceAdena.toLocaleString()} Adena.`, 'error');
+      log(`金幣不足。價格：${item.priceAdena.toLocaleString()} 金幣。`, 'error');
       return { success: false, reason: 'gold_low' };
     }
 
@@ -324,7 +324,7 @@ export class ClanService {
       });
     }
 
-    log(`✨ Você adquiriu ${item.name} da Loja do 城堡!`, 'success');
+    log(`✨ 你已從城堡商店購買 ${item.name}！`, 'success');
     onUpdate();
     return { success: true };
   }
@@ -342,7 +342,7 @@ export class ClanService {
     const isNew = !state.clan || !state.clan.name || state.clan.name === '亞丁守護者';
     const cost = isNew ? 100000 : 250000;
     if ((state.gold || 0) < cost) {
-      log(`Adena insuficiente para fundar/renomear o 血盟 (${cost.toLocaleString()} Adena necessária).`, 'error');
+      log(`金幣不足，無法建立／重新命名血盟（需要 ${cost.toLocaleString()} 金幣）。`, 'error');
       return { success: false, reason: 'gold_low' };
     }
     state.gold -= cost;
@@ -351,13 +351,13 @@ export class ClanService {
     }
     state.clan.name = cleanName;
     state.clan.level = Math.max(state.clan.level || 0, 1);
-    state.clan.motto = motto || 'Pela Glória de Aden!';
+    state.clan.motto = motto || '為了亞丁的榮耀！';
     state.clan.reputation = state.clan.reputation || 100;
     state.clan.donationsAdena = state.clan.donationsAdena || 0;
     state.clan.donationsSp = state.clan.donationsSp || 0;
 
-    log(`🏰 血盟 **[${cleanName}]** ${isNew ? 'fundado com sucesso' : 'atualizado'}! Lema: "${state.clan.motto}"`, 'rarity-legendary');
-    floatText(`🏰 CLÃ FUNDADO!`, 'float-jackpot');
+    log(`🏰 血盟 **[${cleanName}]** ${isNew ? '建立成功' : '已更新'}！盟訓：「${state.clan.motto}」`, 'rarity-legendary');
+    floatText(`🏰 血盟建立成功！`, 'float-jackpot');
     onUpdate();
     return { success: true, clan: state.clan };
   }
@@ -370,11 +370,11 @@ export class ClanService {
     if (adenaAmt <= 0 && spAmt <= 0) return { success: false };
 
     if ((state.gold || 0) < adenaAmt) {
-      log('Adena insuficiente para realizar a doação.', 'error');
+      log('金幣不足，無法進行捐獻。', 'error');
       return { success: false, reason: 'gold_low' };
     }
     if ((state.sp || 0) < spAmt) {
-      log('SP insuficiente para realizar a doação.', 'error');
+      log('SP 不足，無法進行捐獻。', 'error');
       return { success: false, reason: 'sp_low' };
     }
 
@@ -387,7 +387,7 @@ export class ClanService {
     state.clan.donationsAdena = (state.clan.donationsAdena || 0) + adenaAmt;
     state.clan.donationsSp = (state.clan.donationsSp || 0) + spAmt;
 
-    log(`🛡️ Doação de 血盟 concluída: +${adenaAmt.toLocaleString()} Adena, +${spAmt.toLocaleString()} SP. 聲望 do 血盟: **+${repGained}**!`, 'rarity-epic');
+    log(`🛡️ 血盟捐獻完成：+${adenaAmt.toLocaleString()} 金幣、+${spAmt.toLocaleString()} SP。血盟聲望：**+${repGained}**！`, 'rarity-epic');
     floatText(`+${repGained} 聲望`, 'float-epic');
     onUpdate();
     return { success: true, repGained };
@@ -402,7 +402,7 @@ export class ClanService {
     if (!buff) return { success: false, reason: 'invalid_buff' };
 
     if ((state.gold || 0) < buff.costAdena) {
-      log(`Adena insuficiente para ativar ${buff.name} (${buff.costAdena.toLocaleString()} Adena).`, 'error');
+      log(`金幣不足，無法啟用 ${buff.name}（需要 ${buff.costAdena.toLocaleString()} 金幣）。`, 'error');
       return { success: false, reason: 'gold_low' };
     }
 
@@ -414,7 +414,7 @@ export class ClanService {
       name: buff.name
     };
 
-    log(`✨ **[Clan Hall]** ${buff.name} ativada por 1 hora! (${buff.desc})`, 'rarity-legendary');
+    log(`✨ **[血盟會館]** ${buff.name} 已啟用 1 小時！（${buff.desc}）`, 'rarity-legendary');
     floatText(`✨ ${buff.name.toUpperCase()}!`, 'float-jackpot');
     onUpdate();
     return { success: true };
@@ -430,11 +430,11 @@ export class ClanService {
     const pClass = state?.className || state?.class || 'Guerreiro';
 
     return [
-      { name: pName, rank: '👑 Líder do 血盟', level: pLvl, className: pClass, contribution: (clan.donationsAdena || 0) + (clan.donationsSp || 0) * 10, isPlayer: true },
+      { name: pName, rank: '👑 血盟盟主', level: pLvl, className: pClass, contribution: (clan.donationsAdena || 0) + (clan.donationsSp || 0) * 10, isPlayer: true },
       { name: 'SirGalahad', rank: '⚔️ General', level: Math.max(40, pLvl + 2), className: 'Paladin', contribution: 350000, isPlayer: false },
       { name: 'ElenaMoonsong', rank: '🔮 Feiticeira Real', level: Math.max(38, pLvl + 1), className: 'Spellsinger', contribution: 280000, isPlayer: false },
-      { name: 'KaelenShadow', rank: '🗡️ Assassino Sênior', level: Math.max(35, pLvl), className: 'Abyss Walker', contribution: 210000, isPlayer: false },
-      { name: 'ThorgarIron', rank: '🛡️ Mestre Artesão', level: Math.max(32, pLvl - 2), className: 'Bounty Hunter', contribution: 190000, isPlayer: false },
+      { name: 'KaelenShadow', rank: '🗡️ 資深刺客', level: Math.max(35, pLvl), className: 'Abyss Walker', contribution: 210000, isPlayer: false },
+      { name: 'ThorgarIron', rank: '🛡️ 工匠大師', level: Math.max(32, pLvl - 2), className: 'Bounty Hunter', contribution: 190000, isPlayer: false },
       { name: 'LyraSunwhisper', rank: '✨ Sacerdotisa', level: Math.max(30, pLvl - 3), className: 'Bishop', contribution: 150000, isPlayer: false }
     ];
   }
@@ -443,16 +443,16 @@ export class ClanService {
 export const CLAN_HALL_BUFFS = {
   eva_blessing: {
     id: 'eva_blessing',
-    name: 'Bênção de Eva',
+    name: '伊娃祝福',
     icon: '💧',
-    desc: '+20% MP Regen e -10% Consumo de Mana',
+    desc: 'MP 恢復 +20%、MP 消耗 -10%',
     costAdena: 50000,
     durationMs: 3600000,
     stats: { mpRegenPercent: 0.20 }
   },
   paagrio_protection: {
     id: 'paagrio_protection',
-    name: "Proteção de Pa'agrio",
+    name: "帕格立歐守護",
     icon: '🔥',
     desc: '+12% P.Def e +12% M.Def',
     costAdena: 75000,
@@ -463,7 +463,7 @@ export const CLAN_HALL_BUFFS = {
     id: 'shilen_harmony',
     name: 'Harmonia de Shilen',
     icon: '🌑',
-    desc: '+15% EXP em Caça e +10% Drop de Adena',
+    desc: '狩獵 EXP +15%、金幣掉落 +10%',
     costAdena: 100000,
     durationMs: 3600000,
     stats: { xpBoost: 0.15, goldBoost: 0.10 }
@@ -472,7 +472,7 @@ export const CLAN_HALL_BUFFS = {
     id: 'royal_teleport',
     name: 'Portal Arcano do 血盟',
     icon: '🌀',
-    desc: 'Viagem instantânea com custo reduzido e +10 Velocidade',
+    desc: '降低瞬間移動費用並增加 10 點速度',
     costAdena: 60000,
     durationMs: 3600000,
     stats: { speedBonus: 10 }
