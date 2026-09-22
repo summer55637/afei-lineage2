@@ -21,7 +21,7 @@ export const MONSTERS = {
   // ──────────────────────────────────────────────────────────────────────────
   goblin: { name: '哥布林', lvl: 1, hp: 140, atk: 6, def: 6, eva: 2, matk: 0, mdef: 3, xp: 14, sp: 0, gold: [5, 12] },
   goblinThief: { name: '哥布林盜賊', lvl: 2, hp: 180, atk: 9, def: 8, eva: 10, matk: 0, mdef: 4, xp: 20, sp: 0, gold: [8, 20], element: 'none', traits: ['ambush'], stealsGold: 0.15, skill: { name: '偷襲', type: 'physical', mult: 1.3, cd: 4, vfx: 'energy_slash' } },
-  armored哥布林: { name: '裝甲哥布林', lvl: 3, hp: 240, atk: 11, def: 14, eva: 2, matk: 0, mdef: 6, xp: 26, sp: 0, gold: [10, 24], traits: ['block'], skill: { name: '防禦姿態', type: 'buff', effect: 'def_boost', val: 0.3, cd: 6 } },
+  armoredGoblin: { name: '裝甲哥布林', lvl: 3, hp: 240, atk: 11, def: 14, eva: 2, matk: 0, mdef: 6, xp: 26, sp: 0, gold: [10, 24], traits: ['block'], skill: { name: '防禦姿態', type: 'buff', effect: 'def_boost', val: 0.3, cd: 6 } },
   goblinMage: { name: '哥布林法師', lvl: 4, hp: 210, atk: 8, def: 9, eva: 3, matk: 16, mdef: 12, xp: 30, sp: 0, gold: [12, 28], element: 'fire', magic: true, skill: { name: '火焰箭', type: 'magical', mult: 1.4, cd: 4, vfx: 'fireball' } },
   talkingIslandWerewolf: { name: '說話之島狼人首領', lvl: 5, hp: 550, atk: 17, def: 18, eva: 8, matk: 0, mdef: 10, xp: 75, sp: 6, gold: [30, 70], traits: ['bleed'], elite: true, skill: { name: '撕裂咆哮', type: 'physical', effect: 'bleed', mult: 1.4, cd: 5, vfx: 'slash' } },
   goblinKing: { name: '哥布林王', lvl: 5, hp: 1100, atk: 22, def: 25, eva: 4, matk: 0, mdef: 15, xp: 160, sp: 25, gold: [60, 140], boss: true, skill: { name: '哥布林王之怒', type: 'physical', effect: 'stun', mult: 1.6, cd: 6, vfx: 'spiral_spear' } },
@@ -30,7 +30,7 @@ export const MONSTERS = {
   // 2. ELVEN FOREST (Level 3-10)
   // ──────────────────────────────────────────────────────────────────────────
   wolf: { name: '野狼', lvl: 3, hp: 220, atk: 10, def: 8, eva: 6, matk: 0, mdef: 4, xp: 24, sp: 0, gold: [9, 22] },
-  gray野狼: { name: '灰狼', lvl: 4, hp: 280, atk: 12, def: 10, eva: 7, matk: 0, mdef: 5, xp: 30, sp: 0, gold: [11, 25], traits: ['bleed'], skill: { name: '兇猛撕咬', type: 'physical', effect: 'bleed', mult: 1.3, cd: 4 } },
+  grayWolf: { name: '灰狼', lvl: 4, hp: 280, atk: 12, def: 10, eva: 7, matk: 0, mdef: 5, xp: 30, sp: 0, gold: [11, 25], traits: ['bleed'], skill: { name: '兇猛撕咬', type: 'physical', effect: 'bleed', mult: 1.3, cd: 4 } },
   rootWitch: { name: '樹根女巫', lvl: 5, hp: 320, atk: 14, def: 11, eva: 5, matk: 20, mdef: 16, xp: 38, sp: 0, gold: [15, 32], magic: true, skill: { name: '禁錮之根', type: 'magical', effect: 'root', mult: 1.35, cd: 5, vfx: 'earth_spike' } },
   greenDryad: { name: '綠色樹精', lvl: 8, hp: 460, atk: 22, def: 16, eva: 9, matk: 28, mdef: 22, xp: 65, sp: 0, gold: [24, 52], magic: true, traits: ['entangle'], skill: { name: '森林荊棘', type: 'magical', mult: 1.4, cd: 4, vfx: 'nature_blast' } },
   sporeFungus: { name: '孢子真菌', lvl: 9, hp: 520, atk: 25, def: 18, eva: 5, matk: 35, mdef: 24, xp: 78, sp: 0, gold: [30, 65], element: 'earth', traits: ['poison'], skill: { name: '孢子雲', type: 'magical', effect: 'poison', mult: 1.3, cd: 5 } },
@@ -44,14 +44,14 @@ export const MONSTERS = {
   swampWalker: { name: '沼澤行者', lvl: 7, hp: 440, atk: 18, def: 14, eva: 6, matk: 10, mdef: 14, xp: 48, sp: 0, gold: [18, 40] },
   lesserDarkHorror: { name: '低階黑暗恐懼', lvl: 9, hp: 550, atk: 26, def: 18, eva: 8, matk: 32, mdef: 22, xp: 75, sp: 0, gold: [28, 60], element: 'dark', magic: true, skill: { name: '暗影箭', type: 'magical', mult: 1.45, cd: 4, vfx: 'dark_missile' } },
   marshStalker: { name: '沼澤潛行者', lvl: 11, hp: 680, atk: 33, def: 22, eva: 13, matk: 0, mdef: 14, xp: 95, sp: 0, gold: [36, 75], traits: ['ambush'], skill: { name: '伏擊', type: 'physical', mult: 1.5, cd: 4 } },
-  shadowFang野狼: { name: '暗影獠牙巨狼', lvl: 12, hp: 1250, atk: 45, def: 30, eva: 12, matk: 0, mdef: 18, xp: 210, sp: 10, gold: [75, 160], traits: ['bleed'], elite: true, skill: { name: '暗影撕裂', type: 'physical', effect: 'bleed', mult: 1.55, cd: 5 } },
+  shadowFangWolf: { name: '暗影獠牙巨狼', lvl: 12, hp: 1250, atk: 45, def: 30, eva: 12, matk: 0, mdef: 18, xp: 210, sp: 10, gold: [75, 160], traits: ['bleed'], elite: true, skill: { name: '暗影撕裂', type: 'physical', effect: 'bleed', mult: 1.55, cd: 5 } },
   darkForestMatriarch: { name: '黑暗森林女王', lvl: 12, hp: 2400, atk: 52, def: 40, eva: 10, matk: 30, mdef: 32, xp: 400, sp: 45, gold: [150, 320], boss: true, skill: { name: '女王致命蛛網', type: 'magical', effect: 'poison', mult: 1.8, cd: 6 } },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 4. ORC VILLAGE (Level 7-15)
   // ──────────────────────────────────────────────────────────────────────────
   orc: { name: '半獸人戰士', lvl: 7, hp: 480, atk: 22, def: 16, eva: 5, matk: 0, mdef: 8, xp: 58, sp: 0, gold: [22, 48], traits: ['enrage'] },
-  kasha野狼: { name: '卡沙野狼', lvl: 9, hp: 560, atk: 27, def: 18, eva: 10, matk: 0, mdef: 10, xp: 75, sp: 0, gold: [30, 62], traits: ['bleed'] },
+  kashaWolf: { name: '卡沙野狼', lvl: 9, hp: 560, atk: 27, def: 18, eva: 10, matk: 0, mdef: 10, xp: 75, sp: 0, gold: [30, 62], traits: ['bleed'] },
   kashaBear: { name: '卡沙熊', lvl: 11, hp: 750, atk: 34, def: 24, eva: 5, matk: 0, mdef: 12, xp: 105, sp: 0, gold: [38, 82], skill: { name: '粉碎熊掌', type: 'physical', effect: 'stun', mult: 1.4, cd: 5 } },
   kashaOrcArcher: { name: '卡沙半獸人弓箭手', lvl: 13, hp: 620, atk: 42, def: 20, eva: 10, matk: 0, mdef: 14, xp: 125, sp: 0, gold: [45, 95], skill: { name: '卡沙雙重射擊', type: 'physical', mult: 1.5, cd: 4, vfx: 'arrow' } },
   kashaOrcBerserker: { name: '卡沙半獸人狂戰士', lvl: 14, hp: 1550, atk: 55, def: 34, eva: 8, matk: 0, mdef: 18, xp: 280, sp: 12, gold: [100, 210], traits: ['enrage'], elite: true, skill: { name: '狂暴猛擊', type: 'physical', mult: 1.65, cd: 5 } },
@@ -80,7 +80,7 @@ export const MONSTERS = {
   // ──────────────────────────────────────────────────────────────────────────
   // 7. RUINED OUTPOST (Level 15-20)
   // ──────────────────────────────────────────────────────────────────────────
-  ruined哥布林Thief: { name: '前哨站盜賊', lvl: 15, hp: 320, atk: 42, def: 16, eva: 12, xp: 130, sp: 3, gold: [50, 110] },
+  ruinedGoblinThief: { name: '前哨站盜賊', lvl: 15, hp: 320, atk: 42, def: 16, eva: 12, xp: 130, sp: 3, gold: [50, 110] },
   ruinedOrc: { name: '前哨站半獸人', lvl: 16, hp: 420, atk: 50, def: 20, eva: 5, xp: 160, sp: 3, gold: [60, 130] },
   outpostMarksman: { name: '前哨站神射手', lvl: 17, hp: 380, atk: 58, def: 18, eva: 10, xp: 185, sp: 4, gold: [70, 150] },
   ruinedDeserter: { name: '廢墟逃兵騎士', lvl: 19, hp: 560, atk: 68, def: 26, eva: 6, xp: 250, sp: 5, gold: [95, 200] },
@@ -90,12 +90,12 @@ export const MONSTERS = {
   // ──────────────────────────────────────────────────────────────────────────
   // 8. HOWLING MOOR (Level 20-24)
   // ──────────────────────────────────────────────────────────────────────────
-  dire野狼: { name: '巨狼', lvl: 20, hp: 650, atk: 78, def: 30, eva: 14, xp: 380, sp: 4, gold: [130, 280], element: 'none', traits: ['bleed'], atkSpd: 1.2 },
+  direWolf: { name: '巨狼', lvl: 20, hp: 650, atk: 78, def: 30, eva: 14, xp: 380, sp: 4, gold: [130, 280], element: 'none', traits: ['bleed'], atkSpd: 1.2 },
   babyTiamat: { name: '幼年提亞瑪特', lvl: 21, hp: 750, atk: 85, def: 34, eva: 10, matk: 50, mdef: 20, xp: 440, sp: 4, gold: [150, 320] },
   crimsonBabyDragon: { name: '緋紅幼龍', lvl: 22, hp: 900, atk: 96, def: 38, eva: 10, xp: 520, sp: 5, gold: [180, 380], element: 'fire', resist: { fire: 0.75 } },
   ancientSatyr: { name: '古代薩堤爾', lvl: 23, hp: 1050, atk: 108, def: 42, eva: 12, xp: 600, sp: 5, gold: [200, 420] },
   satyrWarlord: { name: '薩堤爾軍閥', lvl: 24, hp: 1550, atk: 128, def: 50, eva: 14, xp: 850, sp: 7, gold: [300, 650], traits: ['bleed'], elite: true },
-  alpha野狼: { name: '阿爾法狼王', lvl: 24, hp: 2200, atk: 145, def: 58, eva: 16, xp: 1200, sp: 8, gold: [450, 950], element: 'none', traits: ['packLeader', 'bleed'], boss: true },
+  alphaWolf: { name: '阿爾法狼王', lvl: 24, hp: 2200, atk: 145, def: 58, eva: 16, xp: 1200, sp: 8, gold: [450, 950], element: 'none', traits: ['packLeader', 'bleed'], boss: true },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 9. GIRAN OUTSKIRTS (Level 25-29)
@@ -150,12 +150,12 @@ export const MONSTERS = {
   // ──────────────────────────────────────────────────────────────────────────
   // 14. WOLF MOUNTAIN (Level 48-50)
   // ──────────────────────────────────────────────────────────────────────────
-  mountain野狼: { name: 'Mountain 野狼', lvl: 48, hp: 6200, atk: 380, def: 150, eva: 15, xp: 4200, sp: 18, gold: [1400, 3000] },
-  mountainDire野狼: { name: '山脈巨狼', lvl: 49, hp: 7400, atk: 430, def: 170, eva: 18, xp: 5200, sp: 20, gold: [1700, 3600], traits: ['bleed'] },
-  frostStalker野狼: { name: 'Frost Stalker 野狼', lvl: 49, hp: 6800, atk: 450, def: 160, eva: 22, xp: 5400, sp: 20, gold: [1800, 3800], element: 'water' },
+  mountainWolf: { name: 'Mountain 野狼', lvl: 48, hp: 6200, atk: 380, def: 150, eva: 15, xp: 4200, sp: 18, gold: [1400, 3000] },
+  mountainDireWolf: { name: '山脈巨狼', lvl: 49, hp: 7400, atk: 430, def: 170, eva: 18, xp: 5200, sp: 20, gold: [1700, 3600], traits: ['bleed'] },
+  frostStalkerWolf: { name: 'Frost Stalker 野狼', lvl: 49, hp: 6800, atk: 450, def: 160, eva: 22, xp: 5400, sp: 20, gold: [1800, 3800], element: 'water' },
   mountainSnowBear: { name: '山地雪熊', lvl: 50, hp: 9200, atk: 490, def: 195, eva: 8, xp: 6500, sp: 22, gold: [2200, 4600] },
   frostFangBehemoth: { name: '霜牙巨獸', lvl: 50, hp: 14000, atk: 540, def: 225, eva: 12, xp: 9000, sp: 28, gold: [3400, 7200], elite: true },
-  mountainAlpha野狼: { name: '山脈阿爾法狼王', lvl: 50, hp: 20000, atk: 620, def: 250, eva: 20, xp: 14000, sp: 35, gold: [5500, 12000], boss: true },
+  mountainAlphaWolf: { name: '山脈阿爾法狼王', lvl: 50, hp: 20000, atk: 620, def: 250, eva: 20, xp: 14000, sp: 35, gold: [5500, 12000], boss: true },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 15. RIFT OF THE VOID (Level 50-59)
