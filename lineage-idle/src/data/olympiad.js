@@ -6,7 +6,7 @@
 export const INFINITY_WEAPONS = {
   weapon_infinity_blade: {
     id: 'weapon_infinity_blade',
-    name: 'Infinity Blade 👑',
+    name: '無限之刃 👑',
     slot: 'weapon',
     tier: 6,
     rarity: 'legendary',
@@ -19,11 +19,11 @@ export const INFINITY_WEAPONS = {
     req: { level: 76, isHero: true },
     price: 1000000,
     icon: 'gradespecial/weapons/zaken_sword.png',
-    desc: 'Espada de Herói da Grand Olympiad: +280 P.Atk, +190 M.Atk, +12% Crit, +60 P.Def, +500 HP e Chance de Cancelar Buffs do Oponente.'
+    desc: '大奧林匹亞英雄之劍：P.Atk +280、M.Atk +190、暴擊 +12%、P.Def +60、HP +500，並有機率解除對手增益。'
   },
   weapon_infinity_cleaver: {
     id: 'weapon_infinity_cleaver',
-    name: 'Infinity Cleaver 👑',
+    name: '無限巨劍 👑',
     slot: 'weapon',
     tier: 6,
     rarity: 'legendary',
@@ -35,11 +35,11 @@ export const INFINITY_WEAPONS = {
     req: { level: 76, isHero: true },
     price: 1000000,
     icon: 'gradespecial/weapons/orfen_twohanded_sword.png',
-    desc: 'Espada de Duas Mãos do Herói: +345 P.Atk, +30% Dano Crítico, +15% Crit e +750 HP.'
+    desc: '英雄雙手劍：P.Atk +345、暴擊傷害 +30%、暴擊 +15%、HP +750。'
   },
   weapon_infinity_axe: {
     id: 'weapon_infinity_axe',
-    name: 'Infinity Axe 👑',
+    name: '無限戰斧 👑',
     slot: 'weapon',
     tier: 6,
     rarity: 'legendary',
@@ -51,11 +51,11 @@ export const INFINITY_WEAPONS = {
     req: { level: 76, isHero: true },
     price: 1000000,
     icon: 'gradespecial/weapons/weapon_frost_lord_axe.png',
-    desc: 'Machado de Guerra do Herói: +280 P.Atk, +25% Chance de Atordoamento (Stun), +10% Crit e +600 HP.'
+    desc: '英雄戰斧：P.Atk +280、暈眩機率 +25%、暴擊 +10%、HP +600。'
   },
   weapon_infinity_rod: {
     id: 'weapon_infinity_rod',
-    name: 'Infinity Rod 👑',
+    name: '無限法杖 👑',
     slot: 'weapon',
     tier: 6,
     rarity: 'legendary',
@@ -68,11 +68,11 @@ export const INFINITY_WEAPONS = {
     req: { level: 76, isHero: true },
     price: 1000000,
     icon: 'gradespecial/weapons/imperial_staff.png',
-    desc: 'Cajado Mágico do Herói: +360 M.Atk, +20% Velocidade de Conjuração (Cast Spd), +15 MP Regen e +600 MP.'
+    desc: '英雄魔法杖：M.Atk +360、施法速度 +20%、MP 恢復 +15、MP +600。'
   },
   weapon_infinity_bow: {
     id: 'weapon_infinity_bow',
-    name: 'Infinity Bow 👑',
+    name: '無限之弓 👑',
     slot: 'weapon',
     tier: 6,
     rarity: 'legendary',
@@ -84,11 +84,11 @@ export const INFINITY_WEAPONS = {
     req: { level: 76, isHero: true },
     price: 1000000,
     icon: 'gradespecial/weapons/draconic_bow.png',
-    desc: 'Arco Imperial do Herói: +395 P.Atk, +18% Crit, +25% Dano Crítico, +15 Velocidade de Movimento e Disparo Perfurante.'
+    desc: '英雄帝國弓：P.Atk +395、暴擊 +18%、暴擊傷害 +25%、移動速度 +15，並可發動穿透射擊。'
   },
   weapon_infinity_dagger: {
     id: 'weapon_infinity_dagger',
-    name: 'Infinity Dagger 👑',
+    name: '無限匕首 👑',
     slot: 'weapon',
     tier: 6,
     rarity: 'legendary',
@@ -100,11 +100,11 @@ export const INFINITY_WEAPONS = {
     req: { level: 76, isHero: true },
     price: 1000000,
     icon: 'gradespecial/weapons/baium_dagger.png',
-    desc: 'Adaga Mortal do Herói: +255 P.Atk, +22% Crit, +18 Evasão, +15% Velocidade de Ataque e Golpe Letal.'
+    desc: '英雄致命匕首：P.Atk +255、暴擊 +22%、迴避 +18、攻擊速度 +15%，並具致命一擊。'
   },
   weapon_infinity_spear: {
     id: 'weapon_infinity_spear',
-    name: 'Infinity Spear 👑',
+    name: '無限長槍 👑',
     slot: 'weapon',
     tier: 6,
     rarity: 'legendary',
@@ -116,11 +116,11 @@ export const INFINITY_WEAPONS = {
     req: { level: 76, isHero: true },
     price: 1000000,
     icon: 'gradespecial/weapons/gorde_spear.png',
-    desc: 'Lança de Titã do Herói: +295 P.Atk, +30% Dano em Área (AoE), +12% Crit e +600 HP.'
+    desc: '英雄泰坦長槍：P.Atk +295、範圍傷害 +30%、暴擊 +12%、HP +600。'
   },
   weapon_infinity_duals: {
     id: 'weapon_infinity_duals',
-    name: 'Infinity Dual Swords 👑',
+    name: '無限雙劍 👑',
     slot: 'weapon',
     tier: 6,
     rarity: 'legendary',
@@ -132,87 +132,87 @@ export const INFINITY_WEAPONS = {
     req: { level: 76, isHero: true },
     price: 1000000,
     icon: 'gradespecial/weapons/juriel_dual_sword.png',
-    desc: 'Lâminas Duplas do Herói: +340 P.Atk, +20% Velocidade de Ataque (Atk Spd), +16% Crit e +550 HP.'
+    desc: '英雄雙劍：P.Atk +340、攻擊速度 +20%、暴擊 +16%、HP +550。'
   }
 };
 
 export const HEROIC_SKILLS = {
   heroic_valor: {
     id: 'heroic_valor',
-    name: 'Heroic Valor 👑',
+    name: '英雄勇氣 👑',
     type: 'buff',
     cd: 60000,
     duration: 120000,
-    desc: 'Eleva a coragem de Herói: Concede +250 P.Atk, +300 M.Atk e +500 P.Def por 2 minutos.',
+    desc: '提升英雄勇氣：2 分鐘內 P.Atk +250、M.Atk +300、P.Def +500。',
     stats: { atk: 250, matk: 300, def: 500 }
   },
   heroic_miracle: {
     id: 'heroic_miracle',
-    name: 'Heroic Miracle 🛡️',
+    name: '英雄奇蹟 🛡️',
     type: 'buff',
     cd: 90000,
     duration: 30000,
-    desc: 'Milagre Heroico da Deusa: Concede +5.400 P.Def e +4.050 M.Def com resistência extrema por 30s.',
+    desc: '女神的英雄奇蹟：30 秒內 P.Def +5,400、M.Def +4,050，並大幅提升抗性。',
     stats: { def: 5400, mdef: 4050 }
   },
   heroic_berserker: {
     id: 'heroic_berserker',
-    name: 'Heroic Berserker ⚡',
+    name: '英雄狂戰 ⚡',
     type: 'buff',
     cd: 60000,
     duration: 60000,
-    desc: 'Fúria Destrutiva do Herói: +50% Velocidade de Ataque e Conjuração, +100 Velocidade.',
+    desc: '英雄毀滅狂怒：攻擊與施法速度 +50%、速度 +100。',
     stats: { atkSpeed: 50, castSpeed: 50, speed: 100 }
   },
   heroic_grandeur: {
     id: 'heroic_grandeur',
-    name: 'Heroic Grandeur 💥',
+    name: '英雄威嚴 💥',
     type: 'debuff',
     cd: 45000,
-    desc: 'Presença Majestosa: Reduz P.Def e M.Def dos inimigos ao redor em 30% por 30 segundos.',
+    desc: '威嚴氣場：周圍敵人的 P.Def 與 M.Def 降低 30%，持續 30 秒。',
     debuff: { defReduce: 0.30, mdefReduce: 0.30 }
   }
 };
 
 export const OLYMPIAD_GLADIATORS = [
-  { id: 'glad_1', name: 'Gladiador Kaelen', title: 'Duelist de Giran', lvl: 76, hp: 22000, atk: 480, def: 380, mdef: 310, class: 'duelist', elo: 1000 },
-  { id: 'glad_2', name: 'Paladino Vorn', title: 'Phoenix Knight Sagrado', lvl: 77, hp: 28000, atk: 430, def: 520, mdef: 410, class: 'phoenix_knight', elo: 1100 },
-  { id: 'glad_3', name: 'Arqueira Lyra', title: 'Sagittarius das Sombras', lvl: 78, hp: 19500, atk: 560, def: 340, mdef: 290, class: 'sagittarius', elo: 1200 },
-  { id: 'glad_4', name: 'Maga Xyris', title: 'Archmage do Fogo Arcano', lvl: 79, hp: 18000, atk: 250, matk: 620, def: 320, mdef: 450, class: 'archmage', elo: 1300 },
-  { id: 'glad_5', name: 'Assassino Draven', title: 'Adventurer Letal', lvl: 80, hp: 21000, atk: 520, def: 360, mdef: 320, class: 'adventurer', elo: 1400 },
-  { id: 'glad_6', name: 'Lorde Valerius', title: 'Titan Enfurecido', lvl: 82, hp: 35000, atk: 610, def: 420, mdef: 330, class: 'titan', elo: 1500 },
-  { id: 'glad_7', name: 'Feiticeiro Morvath', title: 'Soultaker Necromancer', lvl: 83, hp: 20500, atk: 260, matk: 680, def: 350, mdef: 480, class: 'soultaker', elo: 1600 },
-  { id: 'glad_8', name: 'Duelista Zarek', title: 'Lorde Grand Khavatari', lvl: 85, hp: 32000, atk: 670, def: 460, mdef: 390, class: 'grand_khavatari', elo: 1750 }
+  { id: 'glad_1', name: '鬥士凱倫', title: '奇岩決鬥者', lvl: 76, hp: 22000, atk: 480, def: 380, mdef: 310, class: 'duelist', elo: 1000 },
+  { id: 'glad_2', name: '聖騎士沃恩', title: '神聖鳳凰騎士', lvl: 77, hp: 28000, atk: 430, def: 520, mdef: 410, class: 'phoenix_knight', elo: 1100 },
+  { id: 'glad_3', name: '弓手萊拉', title: '暗影射手', lvl: 78, hp: 19500, atk: 560, def: 340, mdef: 290, class: 'sagittarius', elo: 1200 },
+  { id: 'glad_4', name: '法師希莉絲', title: '秘法火焰大法師', lvl: 79, hp: 18000, atk: 250, matk: 620, def: 320, mdef: 450, class: 'archmage', elo: 1300 },
+  { id: 'glad_5', name: '刺客德雷文', title: '致命冒險者', lvl: 80, hp: 21000, atk: 520, def: 360, mdef: 320, class: 'adventurer', elo: 1400 },
+  { id: 'glad_6', name: '領主瓦勒里斯', title: '狂怒泰坦', lvl: 82, hp: 35000, atk: 610, def: 420, mdef: 330, class: 'titan', elo: 1500 },
+  { id: 'glad_7', name: '術士莫瓦斯', title: '死靈法師奪魂者', lvl: 83, hp: 20500, atk: 260, matk: 680, def: 350, mdef: 480, class: 'soultaker', elo: 1600 },
+  { id: 'glad_8', name: '決鬥者札瑞克', title: '大卡瓦塔里領主', lvl: 85, hp: 32000, atk: 670, def: 460, mdef: 390, class: 'grand_khavatari', elo: 1750 }
 ];
 
 export const OLYMPIAD_SHOP_CATALOG = [
   {
     id: 'scroll_blessed_universal',
-    name: "Pergaminho Abençoado Universal",
+    name: "祝福的通用強化卷軸",
     priceTokens: 500,
     icon: 'scrolls/scroll_of_enchant_weapon_.png',
-    desc: 'Pergaminho Abençoado Universal: encanta qualquer equipamento (+1) com proteção total contra quebra em caso de falha.',
+    desc: '祝福的通用強化卷軸: encanta qualquer equipamento (+1) com proteção total contra quebra em caso de falha.',
     reward: { itemId: 'scroll_blessed_universal', count: 1 }
   },
   {
     id: 'blessed_scroll_weapon_s',
-    name: 'Pergaminho Abençoado de Arma',
+    name: '祝福的武器強化卷軸',
     priceTokens: 1200,
     icon: 'scrolls/scroll_of_enchant_weapon_.png',
-    desc: 'Pergaminho Abençoado de Arma. Em caso de falha, o item preserva o nível e não se destrói.',
+    desc: '祝福的武器強化卷軸. Em caso de falha, o item preserva o nível e não se destrói.',
     reward: { itemId: 'scroll_blessed_weapon', count: 1 }
   },
   {
     id: 'blessed_scroll_armor_s',
-    name: 'Pergaminho Abençoado de Armadura',
+    name: '祝福的武器強化卷軸dura',
     priceTokens: 600,
     icon: 'scrolls/scroll_of_enchant_armor.png',
-    desc: 'Pergaminho Abençoado de Armadura. Preserva o equipamento com segurança.',
+    desc: '祝福的武器強化卷軸dura. Preserva o equipamento com segurança.',
     reward: { itemId: 'scroll_blessed_armor', count: 1 }
   },
   {
     id: 'hero_cp_potion_bundle',
-    name: "100x Poções de Combate do Herói (CP Potion)",
+    name: "100x 英雄戰鬥 CP 藥水",
     priceTokens: 150,
     icon: 'consumables/cp_potion.png',
     desc: 'Pacote com 100 Poções de Restauração Imediata de Pontos de Combate.',
@@ -220,10 +220,10 @@ export const OLYMPIAD_SHOP_CATALOG = [
   },
   {
     id: 'secret_elixir_vigor',
-    name: 'Elixir de Vigor do Herói (1h)',
+    name: '英雄活力靈藥（1 小時）',
     priceTokens: 300,
     icon: 'consumables/elixir_vigor.png',
-    desc: 'Concede +20% XP, +20% Adena e +10% Dano durante 1 hora de caça.',
+    desc: '狩獵 1 小時內 XP +20%、金幣 +20%、傷害 +10%。',
     reward: { itemId: 'elixir_vigor_1h', count: 5 }
   }
 ];
