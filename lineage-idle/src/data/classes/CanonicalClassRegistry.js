@@ -823,7 +823,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
     "parentClass": null,
     "lineageId": "archmage",
     "lineageName": "Archmage (Fire Magic)",
-    "role": "Magical Ranged / High Fire DPS",
+    "role": "遠程魔法／高火焰輸出",
     "archetypeGroup": "mage",
     "weapons": [
         "Any mage weapon"
@@ -857,7 +857,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
     "parentClass": "mage",
     "lineageId": "archmage",
     "lineageName": "Archmage (Fire Magic)",
-    "role": "Magical Ranged / High Fire DPS",
+    "role": "遠程魔法／高火焰輸出",
     "archetypeGroup": "mage",
     "weapons": [
         "Any mage weapon"
@@ -899,7 +899,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
     "parentClass": "wizard",
     "lineageId": "archmage",
     "lineageName": "Archmage (Fire Magic)",
-    "role": "Magical Ranged / High Fire DPS",
+    "role": "遠程魔法／高火焰輸出",
     "archetypeGroup": "mage",
     "weapons": [
         "Any mage weapon"
@@ -944,7 +944,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
     "parentClass": "sorcerer",
     "lineageId": "archmage",
     "lineageName": "Archmage (Fire Magic)",
-    "role": "Magical Ranged / High Fire DPS",
+    "role": "遠程魔法／高火焰輸出",
     "archetypeGroup": "mage",
     "weapons": [
         "Any mage weapon"
@@ -4523,7 +4523,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
     "parentClass": null,
     "lineageId": "titan",
     "lineageName": "Titan (Two-Handed Sword / Blunt)",
-    "role": "Physical Melee / Frenzy & Colossal HP",
+    "role": "近戰物理／狂暴與超高生命值",
     "archetypeGroup": "fighter",
     "weapons": [
         "Any warrior melee and distance weapon"
@@ -4553,7 +4553,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
     "parentClass": "orc_fighter",
     "lineageId": "titan",
     "lineageName": "Titan (Two-Handed Sword / Blunt)",
-    "role": "Physical Melee / Frenzy & Colossal HP",
+    "role": "近戰物理／狂暴與超高生命值",
     "archetypeGroup": "fighter",
     "weapons": [
         "Any warrior melee and distance weapon"
@@ -4597,7 +4597,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
     "parentClass": "orc_raider",
     "lineageId": "titan",
     "lineageName": "Titan (Two-Handed Sword / Blunt)",
-    "role": "Physical Melee / Frenzy & Colossal HP",
+    "role": "近戰物理／狂暴與超高生命值",
     "archetypeGroup": "fighter",
     "weapons": [
         "Two-handed sword or blunt",
@@ -4645,7 +4645,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
     "parentClass": "destroyer",
     "lineageId": "titan",
     "lineageName": "Titan (Two-Handed Sword / Blunt)",
-    "role": "Physical Melee / Frenzy & Colossal HP",
+    "role": "近戰物理／狂暴與超高生命值",
     "archetypeGroup": "fighter",
     "weapons": [
         "Two-handed sword",
