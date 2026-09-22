@@ -64,7 +64,7 @@ export const 寵物Service = {
     const active = pState.pets[pState.active寵物Id];
 
     if (callbacks.log) {
-      if (active) callbacks.log(`🐾 你召喚了 **${active.name}**（Lv.${active.level}）並肩作戰！`, 'gain');
+      if (active) callbacks.log(`🐾 你召喚了 **${active.name}**（等級 ${active.level}）並肩作戰！`, 'gain');
       else callbacks.log('🐾 Mascote recolhido para o descanso.', 'system');
     }
 
@@ -76,7 +76,7 @@ export const 寵物Service = {
   feed寵物(state, callbacks = {}) {
     const pState = this.get寵物State(state);
     if (!pState.active寵物Id || !pState.pets[pState.active寵物Id]) {
-      if (callbacks.log) callbacks.log('Nenhum mascote ativo para alimentar.', 'warning');
+      if (callbacks.log) callbacks.log('目前沒有可餵食的出戰寵物。', 'warning');
       return { success: false, reason: 'no_active_pet' };
     }
 
@@ -111,7 +111,7 @@ export const 寵物Service = {
       pet.xp -= reqXp;
       pet.level++;
       if (callbacks.log) callbacks.log(`🌟 你的夥伴 **${pet.name}** 升到 **${pet.level} 級**！`, 'rarity-epic');
-      if (callbacks.floatText) callbacks.floatText(`🐾 PET LEVEL UP! (Lv.${pet.level})`, 'float-epic');
+      if (callbacks.floatText) callbacks.floatText(`🐾 寵物升級！（等級 ${pet.level}）`, 'float-epic');
     }
   },
 
