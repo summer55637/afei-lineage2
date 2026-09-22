@@ -40,7 +40,7 @@ export class AugmentationService {
     });
 
     if (stoneIdx === -1) {
-      log(`⚠️ 你的背包需要 1x ${stone.name}，鐵匠才能進行附魔改造。`, 'error');
+      log(`⚠️ 你的背包需要 1× ${stone.name}，鐵匠才能進行附魔改造。`, 'error');
       return { success: false, reason: 'missing_life_stone' };
     }
 
