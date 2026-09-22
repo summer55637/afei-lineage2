@@ -9242,10 +9242,10 @@ export function uiOpenPixCheckoutModal(tierId, state) {
 
       <div style="display:flex; gap:10px;">
         <a href="https://discord.gg/R7rwB5uCc" target="_blank" rel="noopener noreferrer" style="flex:1; text-decoration:none; padding:10px; background:linear-gradient(180deg,#5865F2,#4752c4); border:1px solid #5865F2; border-radius:6px; color:#fff; font-weight:bold; font-size:12px; font-family:'Cinzel',serif; text-align:center; display:flex; align-items:center; justify-content:center; gap:6px;">
-          💬 Enviar no Discord
+          💬 傳送到 Discord
         </a>
         <button onclick="document.getElementById('pix-checkout-modal').classList.remove('active')" style="padding:10px 18px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:6px; color:#ddd; font-weight:bold; font-size:12px; cursor:pointer;">
-          Fechar
+          關閉
         </button>
       </div>
     </div>
@@ -11367,7 +11367,7 @@ export function renderColosseumTab(container, state) {
                   onclick="window.startColosseumDuelAction('${tier.id}')"
                   style="padding:6px 14px; font-size:11px; font-weight:bold; background:#b91c1c; border:1px solid #ef4444; color:#fff; border-radius:6px; cursor:pointer;"
                 >
-                  Desafiar
+                  挑戰
                 </button>
               </div>
             `).join('')}
@@ -11383,7 +11383,7 @@ export function renderColosseumTab(container, state) {
               onclick="window.startColosseumSurvivalAction()"
               style="width:100%; padding:10px; font-size:13px; font-weight:bold; background:#d97706; border:1px solid #f59e0b; color:#fff; border-radius:8px; cursor:pointer;"
             >
-              🔥 Iniciar Desafio das 10 Ondas
+              🔥 開始十波挑戰
             </button>
           </div>
 
