@@ -16,7 +16,7 @@ export const ENCHANT_ROUTES = {
   cost: {
     id: 'cost',
     name: '消耗路線 💧',
-    desc: '每級降低技能 MP 消耗 2.5%（+30 時共 -75%）。',
+    desc: '每級降低技能魔力消耗 2.5%（+30 時共 -75%）。',
     bonusPerLevel: 0.025,
     type: 'mp_cost'
   },
