@@ -9,7 +9,7 @@
 export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     "majesty": {
         "id": "majesty",
-        "name": "Majesty",
+        "name": "威嚴",
         "slug": "majesty",
         "type": "buff",
         "rawType": "Buff",
@@ -21,7 +21,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Def. +50Max HP +200P. Evasion -4",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "P. Def. +50Max HP +200P. Evasion -4",
+        "desc": "P.Def +50、最大 HP +200、物理迴避 -4",
         "balance": {
             "mpCost": 36,
             "pwr": 20,
@@ -45,7 +45,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "haste": {
         "id": "haste",
-        "name": "Haste",
+        "name": "加速術",
         "slug": "haste",
         "type": "buff",
         "rawType": "Buff",
@@ -57,7 +57,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Haste effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Haste",
+        "desc": "提升攻擊速度。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -155,7 +155,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "acumen": {
         "id": "acumen",
-        "name": "Acumen",
+        "name": "靈活思緒",
         "slug": "acumen",
         "type": "buff",
         "rawType": "Buff",
@@ -167,7 +167,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Acumen effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Acumen",
+        "desc": "提升施法能力。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -265,7 +265,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "hp_recovery": {
         "id": "hp_recovery",
-        "name": "HP Recovery",
+        "name": "HP 恢復",
         "slug": "hp_recovery",
         "type": "passive",
         "rawType": "Passive",
@@ -277,7 +277,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers HP every 9.9 sec.",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases natural HP recovery rate.",
+        "desc": "提高自然 HP 恢復速度。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -417,7 +417,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "berserker_spirit": {
         "id": "berserker_spirit",
-        "name": "Berserker Spirit",
+        "name": "狂戰士之魂",
         "slug": "berserker_spirit",
         "type": "buff",
         "rawType": "Buff",
@@ -429,7 +429,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Berserker Spirit effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Berserker Spirit",
+        "desc": "激發狂戰士之魂，提升戰鬥能力。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -527,7 +527,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "wild_magic": {
         "id": "wild_magic",
-        "name": "Wild Magic",
+        "name": "狂野魔法",
         "slug": "wild_magic",
         "type": "buff",
         "rawType": "Buff",
@@ -539,7 +539,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Wild Magic effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Wild Magic",
+        "desc": "強化魔法暴擊能力。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -637,7 +637,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "shield_stun": {
         "id": "shield_stun",
-        "name": "Shield Stun",
+        "name": "盾牌暈擊",
         "slug": "shield_stun",
         "type": "active",
         "rawType": "Ativo",
@@ -649,7 +649,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Shield Stun effect",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "Shield Stun",
+        "desc": "以盾牌攻擊並使目標暈眩。",
         "balance": {
             "mpCost": 48,
             "pwr": 20,
@@ -672,7 +672,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "magic_barrier": {
         "id": "magic_barrier",
-        "name": "Magic Barrier",
+        "name": "魔法屏障",
         "slug": "magic_barrier",
         "type": "buff",
         "rawType": "Buff",
@@ -684,7 +684,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Magic Barrier effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Magic Barrier",
+        "desc": "形成魔法屏障，提高魔法防禦。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -782,7 +782,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "shield_strike": {
         "id": "shield_strike",
-        "name": "Shield Strike",
+        "name": "盾牌打擊",
         "slug": "shield_strike",
         "type": "active",
         "rawType": "Ativo",
@@ -794,7 +794,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target with a shield provoking them. Power 619.Ignores Shield Defens",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "Attacks the target with a shield provoking them. Power 619.Ignores Shield Defense.Ignores 10% of the target's defense.",
+        "desc": "以盾牌攻擊並挑釁目標。威力 619。無視盾牌防禦，並無視目標 10% 防禦力。",
         "balance": {
             "mpCost": 33,
             "pwr": 500,
@@ -819,7 +819,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "holy_strike": {
         "id": "holy_strike",
-        "name": "Holy Strike",
+        "name": "神聖打擊",
         "slug": "holy_strike",
         "type": "active",
         "rawType": "Ativo",
@@ -831,7 +831,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target. Power 638.Deals heavy damage to demons and undead.No critica",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "Attacks the target. Power 638.Deals heavy damage to demons and undead.No critical.",
+        "desc": "攻擊目標，威力 638。對惡魔與不死族造成大量傷害，不會暴擊。",
         "balance": {
             "mpCost": 5,
             "pwr": 500,
@@ -850,7 +850,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "knight_s_protection": {
         "id": "knight_s_protection",
-        "name": "Knight's Protection",
+        "name": "騎士守護",
         "slug": "knight_s_protection",
         "type": "buff",
         "rawType": "Buff",
@@ -862,7 +862,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max HP +300Shield Defense +120",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Max HP +300Shield Defense +120",
+        "desc": "最大 HP +300，盾牌防禦 +120。",
         "balance": {
             "mpCost": 50,
             "pwr": 20,
@@ -883,7 +883,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "angelic_archon": {
         "id": "angelic_archon",
-        "name": "Angelic Archon",
+        "name": "天使統領",
         "slug": "angelic_archon",
         "type": "buff",
         "rawType": "Buff",
@@ -895,7 +895,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "You are blessed by the gods.Debuff Resistance +20%Anomaly Resistance +20%Buff Ca",
         "canonicalCooldown": "5 min.",
         "canonicalCooldownMs": 300000,
-        "desc": "You are blessed by the gods.Debuff Resistance +20%Anomaly Resistance +20%Buff Cancel Resistance +20%Received Healing -40%P. Def. +20%M. Def. +20%Speed +6When using swords/ blunt weapons:P. Accuracy +4Atk. Spd. +10%When using swords:Basic Critical Rate +20When using blunt weapons:Basic Critical Damage +10%",
+        "desc": "獲得諸神祝福：弱化抗性 +20%、異常抗性 +20%、增益解除抗性 +20%、受到治療 -40%、P.Def +20%、M.Def +20%、速度 +6。使用劍／鈍器時命中 +4、攻速 +10%；使用劍時基礎暴擊率 +20；使用鈍器時基礎暴擊傷害 +10%。",
         "balance": {
             "mpCost": 133,
             "pwr": 2,
@@ -913,7 +913,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "mp_recovery": {
         "id": "mp_recovery",
-        "name": "MP Recovery",
+        "name": "MP 恢復",
         "slug": "mp_recovery",
         "type": "passive",
         "rawType": "Passive",
@@ -925,7 +925,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers MP every 9.9 sec.",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases natural MP recovery rate.",
+        "desc": "提高自然 MP 恢復速度。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -1065,7 +1065,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "ultimate_defense": {
         "id": "ultimate_defense",
-        "name": "Ultimate Defense",
+        "name": "極限防禦",
         "slug": "ultimate_defense",
         "type": "buff",
         "rawType": "Buff",
@@ -1077,7 +1077,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Ultimate Defense effect",
         "canonicalCooldown": "15 min.",
         "canonicalCooldownMs": 900000,
-        "desc": "Ultimate Defense",
+        "desc": "大幅提高防禦能力。",
         "balance": {
             "mpCost": 21,
             "pwr": 20,
@@ -1105,7 +1105,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "shield_deflect_magic": {
         "id": "shield_deflect_magic",
-        "name": "Shield Deflect Magic",
+        "name": "盾牌魔法反射",
         "slug": "shield_deflect_magic",
         "type": "buff",
         "rawType": "Buff",
@@ -1117,7 +1117,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Reflects M. damage (trigger rate: 20%).",
         "canonicalCooldown": "45 sec.",
         "canonicalCooldownMs": 45000,
-        "desc": "Reflects M. damage (trigger rate: 20%).",
+        "desc": "有 20% 機率反射魔法傷害。",
         "balance": {
             "mpCost": 28,
             "pwr": 2,
@@ -1138,7 +1138,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "quick_heal": {
         "id": "quick_heal",
-        "name": "Quick Heal",
+        "name": "快速治療",
         "slug": "quick_heal",
         "type": "buff",
         "rawType": "Buff",
@@ -1150,7 +1150,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers HP. Power 271.",
         "canonicalCooldown": "2 sec.",
         "canonicalCooldownMs": 2000,
-        "desc": "Recovers HP. Power 271.",
+        "desc": "恢復 HP，威力 271。",
         "balance": {
             "mpCost": 100,
             "pwr": 271,
@@ -1170,7 +1170,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "sanctuary": {
         "id": "sanctuary",
-        "name": "Sanctuary",
+        "name": "聖域",
         "slug": "sanctuary",
         "type": "buff",
         "rawType": "Buff",
@@ -1182,7 +1182,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Covers an area with a sacred aura that decreases enemies' P. Def.P. Def. -23%PvP",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "Covers an area with a sacred aura that decreases enemies' P. Def.P. Def. -23%PvP: Attacks up to 10 targets.PvE: Attacks up to 10 targets.",
+        "desc": "以神聖光環覆蓋區域，使敵人 P.Def -23%。PvP 最多影響 10 個目標；PvE 最多影響 10 個目標。",
         "balance": {
             "mpCost": 50,
             "pwr": 2,
@@ -1201,7 +1201,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "shackle": {
         "id": "shackle",
-        "name": "Shackle",
+        "name": "束縛",
         "slug": "shackle",
         "type": "buff",
         "rawType": "Buff",
@@ -1213,7 +1213,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Inflicts Hold on the target.",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Inflicts Hold on the target.",
+        "desc": "使目標陷入束縛狀態。",
         "balance": {
             "mpCost": 17,
             "pwr": 20,
@@ -1238,7 +1238,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "remedy": {
         "id": "remedy",
-        "name": "Remedy",
+        "name": "治癒術",
         "slug": "remedy",
         "type": "active",
         "rawType": "Ativo",
@@ -1250,7 +1250,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Removes infection with a 50% chance.",
         "canonicalCooldown": "2 sec.",
         "canonicalCooldownMs": 2000,
-        "desc": "Removes infection with a 50% chance.",
+        "desc": "有 50% 機率移除感染狀態。",
         "balance": {
             "mpCost": 35,
             "pwr": 5,
@@ -1268,7 +1268,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "dark_assassin_transformation": {
         "id": "dark_assassin_transformation",
-        "name": "Dark Assassin Transformation",
+        "name": "黑暗刺客變身",
         "slug": "dark_assassin_transformation",
         "type": "active",
         "rawType": "Ativo",
@@ -1280,7 +1280,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Dark Assassin Transformation effect",
         "canonicalCooldown": "2",
         "canonicalCooldownMs": 1000,
-        "desc": "Dark Assassin Transformation",
+        "desc": "變身為黑暗刺客。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -1299,7 +1299,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "aggression_aura": {
         "id": "aggression_aura",
-        "name": "Aggression Aura",
+        "name": "挑釁光環",
         "slug": "aggression_aura",
         "type": "active",
         "rawType": "Ativo",
@@ -1311,7 +1311,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Targets around you start attacking you. Power 5920. Provokes the target.",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "Targets around you start attacking you. Power 5920. Provokes the target.",
+        "desc": "使周圍目標轉而攻擊你，威力 5920，並對目標造成挑釁。",
         "balance": {
             "mpCost": 50,
             "pwr": 500,
@@ -1336,7 +1336,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "sacrifice": {
         "id": "sacrifice",
-        "name": "Sacrifice",
+        "name": "犧牲",
         "slug": "sacrifice",
         "type": "buff",
         "rawType": "Buff",
@@ -1348,7 +1348,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Consumes your HP to recover HP of the target. Power 350.",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "Consumes your HP to recover HP of the target. Power 350.",
+        "desc": "消耗自身 HP 為目標恢復生命，威力 350。",
         "balance": {
             "mpCost": 15,
             "pwr": 350,
@@ -1367,7 +1367,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "aggression": {
         "id": "aggression",
-        "name": "Aggression",
+        "name": "挑釁",
         "slug": "aggression",
         "type": "active",
         "rawType": "Ativo",
@@ -1379,7 +1379,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Makes the enemy attack you. Power 5920. Provokes the target.",
         "canonicalCooldown": "6 sec.",
         "canonicalCooldownMs": 6000,
-        "desc": "Makes the enemy attack you. Power 5920. Provokes the target.",
+        "desc": "迫使敵人攻擊你，威力 5920，並造成挑釁。",
         "balance": {
             "mpCost": 15,
             "pwr": 500,
@@ -1407,7 +1407,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "blade_strike": {
         "id": "blade_strike",
-        "name": "Blade Strike",
+        "name": "劍刃打擊",
         "slug": "blade_strike",
         "type": "active",
         "rawType": "Ativo",
@@ -1419,7 +1419,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target. Power 694.For 20 sec., P. Def. -23%.Ignores Shield Defense.",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "Attacks the target. Power 694.For 20 sec., P. Def. -23%.Ignores Shield Defense.",
+        "desc": "攻擊目標，威力 694。20 秒內使 P.Def -23%，並無視盾牌防禦。",
         "balance": {
             "mpCost": 43,
             "pwr": 500,
@@ -1438,7 +1438,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "blade_storm_dance": {
         "id": "blade_storm_dance",
-        "name": "Blade Storm Dance",
+        "name": "劍刃風暴之舞",
         "slug": "blade_storm_dance",
         "type": "active",
         "rawType": "Ativo",
@@ -1450,7 +1450,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies. Power 155.PvP: Attacks up to 5 targets.Pv",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Attacks the target and nearby enemies. Power 155.PvP: Attacks up to 5 targets.PvE: Attacks up to 5 targets.",
+        "desc": "攻擊目標與附近敵人，威力 155。PvP／PvE 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 57,
             "pwr": 155,
@@ -1469,7 +1469,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "light_assassin_transformation": {
         "id": "light_assassin_transformation",
-        "name": "Light Assassin Transformation",
+        "name": "光明刺客變身",
         "slug": "light_assassin_transformation",
         "type": "active",
         "rawType": "Ativo",
@@ -1481,7 +1481,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Light Assassin Transformation effect",
         "canonicalCooldown": "1",
         "canonicalCooldownMs": 1000,
-        "desc": "Light Assassin Transformation",
+        "desc": "變身為光明刺客。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -1500,7 +1500,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "transformation_pirate": {
         "id": "transformation_pirate",
-        "name": "Transformation: Pirate",
+        "name": "變身：海賊",
         "slug": "transformation_pirate",
         "type": "active",
         "rawType": "Ativo",
@@ -1512,7 +1512,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Transformation: Pirate effect",
         "canonicalCooldown": "2",
         "canonicalCooldownMs": 1000,
-        "desc": "Transformation: Pirate",
+        "desc": "變身為海賊。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -1531,7 +1531,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "slashing_blade": {
         "id": "slashing_blade",
-        "name": "Slashing Blade",
+        "name": "斬擊之刃",
         "slug": "slashing_blade",
         "type": "active",
         "rawType": "Ativo",
@@ -1543,7 +1543,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target. Power 1481.Ignores Shield Defense.Ignores 10% of the target'",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "Attacks the target. Power 1481.Ignores Shield Defense.Ignores 10% of the target's defense.",
+        "desc": "攻擊目標，威力 1481。無視盾牌防禦，並無視目標 10% 防禦力。",
         "balance": {
             "mpCost": 36,
             "pwr": 500,
@@ -1562,7 +1562,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "rush": {
         "id": "rush",
-        "name": "Rush",
+        "name": "突進",
         "slug": "rush",
         "type": "active",
         "rawType": "Ativo",
@@ -1574,7 +1574,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Rush skill>Charges at the target.Can only be used if the distance to the target",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "<Rush skill>Charges at the target.Can only be used if the distance to the target is more than 150.",
+        "desc": "突進至目標身邊。只有與目標距離大於 150 時才能使用。",
         "balance": {
             "mpCost": 35,
             "pwr": 20,
@@ -1609,7 +1609,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "mass_shackling": {
         "id": "mass_shackling",
-        "name": "Mass Shackling",
+        "name": "群體束縛",
         "slug": "mass_shackling",
         "type": "buff",
         "rawType": "Buff",
@@ -1621,7 +1621,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Inflicts Hold on targets around the character.",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "Inflicts Hold on targets around the character.",
+        "desc": "使角色周圍的目標陷入束縛。",
         "balance": {
             "mpCost": 20,
             "pwr": 20,
@@ -1642,7 +1642,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "blade_movement": {
         "id": "blade_movement",
-        "name": "Blade Movement",
+        "name": "劍刃步伐",
         "slug": "blade_movement",
         "type": "buff",
         "rawType": "Buff",
@@ -1654,7 +1654,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Speed +5",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "Speed +5",
+        "desc": "速度 +5。",
         "balance": {
             "mpCost": 26,
             "pwr": 20,
@@ -1673,7 +1673,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "dual_weapon_defense": {
         "id": "dual_weapon_defense",
-        "name": "Dual Weapon Defense",
+        "name": "雙武器防禦",
         "slug": "dual_weapon_defense",
         "type": "buff",
         "rawType": "Buff",
@@ -1685,7 +1685,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Skill Evasion +15%M. Skill Evasion +15%",
         "canonicalCooldown": "4 min.",
         "canonicalCooldownMs": 240000,
-        "desc": "P. Skill Evasion +15%M. Skill Evasion +15%",
+        "desc": "物理技能迴避 +15%，魔法技能迴避 +15%。",
         "balance": {
             "mpCost": 15,
             "pwr": 2,
@@ -1704,7 +1704,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "lionheart": {
         "id": "lionheart",
-        "name": "Lionheart",
+        "name": "獅子心",
         "slug": "lionheart",
         "type": "buff",
         "rawType": "Buff",
@@ -1716,7 +1716,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "PvE damage bonus +3%Paralysis Resistance +25%Hold Resistance +25%Sleep Resistanc",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "PvE damage bonus +3%Paralysis Resistance +25%Hold Resistance +25%Sleep Resistance +25%Shock Resistance +25%Buff Cancel Resistance +40%",
+        "desc": "PvE 傷害 +3%、麻痺抗性 +25%、束縛抗性 +25%、睡眠抗性 +25%、衝擊抗性 +25%、增益解除抗性 +40%。",
         "balance": {
             "mpCost": 22,
             "pwr": 0,
@@ -1747,7 +1747,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "battle_roar": {
         "id": "battle_roar",
-        "name": "Battle Roar",
+        "name": "戰鬥咆哮",
         "slug": "battle_roar",
         "type": "buff",
         "rawType": "Buff",
@@ -1759,7 +1759,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max HP +15%Momentarily recovers bonus HP.",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "Max HP +15%Momentarily recovers bonus HP.",
+        "desc": "最大 HP +15%，並立即恢復額外 HP。",
         "balance": {
             "mpCost": 18,
             "pwr": 2,
@@ -1783,7 +1783,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "war_cry": {
         "id": "war_cry",
-        "name": "War Cry",
+        "name": "戰吼",
         "slug": "war_cry",
         "type": "buff",
         "rawType": "Buff",
@@ -1795,7 +1795,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "War Cry effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "War Cry",
+        "desc": "發出戰吼以強化戰鬥能力。",
         "balance": {
             "mpCost": 40,
             "pwr": 20,
@@ -1817,7 +1817,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "fatal_strike": {
         "id": "fatal_strike",
-        "name": "Fatal Strike",
+        "name": "致命打擊",
         "slug": "fatal_strike",
         "type": "active",
         "rawType": "Ativo",
@@ -1829,7 +1829,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "A powerful strike.Attacks the target. Power 694.Ignores Shield Defense.Ignores 5",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "A powerful strike.Attacks the target. Power 694.Ignores Shield Defense.Ignores 5% of the target's defense.",
+        "desc": "以強力一擊攻擊目標，威力 694。無視盾牌防禦，並無視目標 5% 防禦力。",
         "balance": {
             "mpCost": 30,
             "pwr": 500,
@@ -1862,7 +1862,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "thunder_storm": {
         "id": "thunder_storm",
-        "name": "Thunder Storm",
+        "name": "雷霆風暴",
         "slug": "thunder_storm",
         "type": "active",
         "rawType": "Ativo",
@@ -1874,7 +1874,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks nearby targets. Power 462.Stuns for 3 sec.Ignores Shield Defense.PvP: At",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "Attacks nearby targets. Power 462.Stuns for 3 sec.Ignores Shield Defense.PvP: Attacks up to 5 targets.PvE: Attacks up to 5 targets.",
+        "desc": "攻擊附近目標，威力 462，暈眩 3 秒，無視盾牌防禦。PvP／PvE 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 34,
             "pwr": 462,
@@ -1893,7 +1893,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "power_crash": {
         "id": "power_crash",
-        "name": "Power Crash",
+        "name": "強力衝擊",
         "slug": "power_crash",
         "type": "active",
         "rawType": "Ativo",
@@ -1905,7 +1905,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Character attacks the enemy with 586 power.Stuns for 3 sec.Ignores Shield Defens",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Character attacks the enemy with 586 power.Stuns for 3 sec.Ignores Shield Defense.",
+        "desc": "以威力 586 攻擊敵人，使其暈眩 3 秒，並無視盾牌防禦。",
         "balance": {
             "mpCost": 31,
             "pwr": 500,
@@ -1936,7 +1936,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "purify": {
         "id": "purify",
-        "name": "Purify",
+        "name": "淨化",
         "slug": "purify",
         "type": "active",
         "rawType": "Ativo",
@@ -1948,7 +1948,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Purify effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Purify",
+        "desc": "淨化負面狀態。",
         "balance": {
             "mpCost": 40,
             "pwr": 20,
@@ -1972,7 +1972,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "vortex": {
         "id": "vortex",
-        "name": "Vortex",
+        "name": "漩渦",
         "slug": "vortex",
         "type": "active",
         "rawType": "Ativo",
@@ -1984,7 +1984,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies. Power 485.Ignores Shield Defense.PvP: Att",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "Attacks the target and nearby enemies. Power 485.Ignores Shield Defense.PvP: Attacks up to 5 targets.PvE: Attacks up to 5 targets.",
+        "desc": "攻擊目標與附近敵人，威力 485，無視盾牌防禦。PvP／PvE 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 34,
             "pwr": 485,
@@ -2010,7 +2010,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "bandage": {
         "id": "bandage",
-        "name": "Bandage",
+        "name": "包紮",
         "slug": "bandage",
         "type": "active",
         "rawType": "Ativo",
@@ -2022,7 +2022,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Removes infection with a 70% chance.",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "Removes infection with a 70% chance.",
+        "desc": "有 70% 機率移除感染狀態。",
         "balance": {
             "mpCost": 41,
             "pwr": 7,
@@ -2065,7 +2065,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "quick_spear": {
         "id": "quick_spear",
-        "name": "Quick Spear",
+        "name": "迅捷長槍",
         "slug": "quick_spear",
         "type": "active",
         "rawType": "Ativo",
@@ -2077,7 +2077,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies. Power 801.Stuns for 3 sec.Ignores Shield ",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "Attacks the target and nearby enemies. Power 801.Stuns for 3 sec.Ignores Shield Defense.PvP: Attacks up to 5 targets.PvE: Attacks up to 5 targets.",
+        "desc": "攻擊目標與附近敵人，威力 801，暈眩 3 秒，無視盾牌防禦。PvP／PvE 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 51,
             "pwr": 500,
@@ -2096,7 +2096,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "focus_attack": {
         "id": "focus_attack",
-        "name": "Focus Attack",
+        "name": "集中攻擊",
         "slug": "focus_attack",
         "type": "buff",
         "rawType": "Buff",
@@ -2108,7 +2108,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "When triggered:Basic attacks hit one target.P. Accuracy +2Basic Critical Damage ",
         "canonicalCooldown": "1s",
         "canonicalCooldownMs": 1000,
-        "desc": "When triggered:Basic attacks hit one target.P. Accuracy +2Basic Critical Damage +3%",
+        "desc": "啟動時普通攻擊只攻擊單一目標，物理命中 +2，基礎暴擊傷害 +3%。",
         "balance": {
             "mpCost": 18,
             "pwr": 0,
@@ -2127,7 +2127,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "revival": {
         "id": "revival",
-        "name": "Revival",
+        "name": "再生",
         "slug": "revival",
         "type": "buff",
         "rawType": "Buff",
@@ -2139,7 +2139,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Revival effect",
         "canonicalCooldown": "15 min.",
         "canonicalCooldownMs": 900000,
-        "desc": "Revival",
+        "desc": "恢復並強化自身生命力。",
         "balance": {
             "mpCost": 25,
             "pwr": 20,
@@ -2158,7 +2158,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "provoke": {
         "id": "provoke",
-        "name": "Provoke",
+        "name": "挑釁怒吼",
         "slug": "provoke",
         "type": "buff",
         "rawType": "Buff",
@@ -2170,7 +2170,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Provokes nearby enemies decreasing their Spear Resistance.The effect lasts for 1",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "Provokes nearby enemies decreasing their Spear Resistance.The effect lasts for 10 sec.Spear Resistance -5%",
+        "desc": "挑釁附近敵人並降低其長槍抗性。持續 10 秒，長槍抗性 -5%。",
         "balance": {
             "mpCost": 54,
             "pwr": 1,
@@ -2195,7 +2195,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "howl": {
         "id": "howl",
-        "name": "Howl",
+        "name": "咆哮",
         "slug": "howl",
         "type": "buff",
         "rawType": "Buff",
@@ -2207,7 +2207,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. -23%",
         "canonicalCooldown": "2 sec.",
         "canonicalCooldownMs": 2000,
-        "desc": "P. Atk. -23%",
+        "desc": "使物理攻擊力降低 23%。",
         "balance": {
             "mpCost": 45,
             "pwr": 2,
@@ -2226,7 +2226,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "thrill_fight": {
         "id": "thrill_fight",
-        "name": "Thrill Fight",
+        "name": "激戰",
         "slug": "thrill_fight",
         "type": "buff",
         "rawType": "Buff",
@@ -2238,7 +2238,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Atk. Spd. +5%Speed -15%",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "Atk. Spd. +5%Speed -15%",
+        "desc": "攻擊速度 +5%，移動速度 -15%。",
         "balance": {
             "mpCost": 21,
             "pwr": 1,
@@ -2257,7 +2257,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "power_strike": {
         "id": "power_strike",
-        "name": "Power Strike",
+        "name": "強力打擊",
         "slug": "power_strike",
         "type": "active",
         "rawType": "Ativo",
@@ -2269,7 +2269,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Accumulates power to make a devastating blow.Power 286.No critical.",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "Accumulates power to make a devastating blow.Power 286.No critical.",
+        "desc": "蓄積力量發動毀滅打擊，威力 286，不會暴擊。",
         "balance": {
             "mpCost": 15,
             "pwr": 286,
@@ -2301,7 +2301,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "wind_walk": {
         "id": "wind_walk",
-        "name": "Wind Walk",
+        "name": "風之疾走",
         "slug": "wind_walk",
         "type": "buff",
         "rawType": "Buff",
@@ -2313,7 +2313,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Speed +20",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Speed +20",
+        "desc": "速度 +20。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -2380,7 +2380,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "wild_sweep": {
         "id": "wild_sweep",
-        "name": "Wild Sweep",
+        "name": "狂野橫掃",
         "slug": "wild_sweep",
         "type": "active",
         "rawType": "Ativo",
@@ -2392,7 +2392,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target at the front and nearby enemies. Power 108.No critical.PvP: A",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "Attacks the target at the front and nearby enemies. Power 108.No critical.PvP: Attacks up to 5 targets.PvE: Attacks up to 5 targets.",
+        "desc": "攻擊前方目標與附近敵人，威力 108，不會暴擊。PvP／PvE 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 24,
             "pwr": 108,
@@ -6790,7 +6790,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Inflicts Hold on the target.",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Inflicts Hold on the target.",
+        "desc": "使目標陷入束縛狀態。",
         "balance": {
             "mpCost": 86,
             "pwr": 20,
@@ -16832,7 +16832,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Speed +20",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Speed +20",
+        "desc": "速度 +20。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -22963,7 +22963,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Speed +20",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Speed +20",
+        "desc": "速度 +20。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -25359,7 +25359,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "HP Recovery Rate +15%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases natural HP recovery rate.",
+        "desc": "提高自然 HP 恢復速度。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25387,7 +25387,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "MP Recovery Rate +15%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases natural MP recovery rate.",
+        "desc": "提高自然 MP 恢復速度。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
