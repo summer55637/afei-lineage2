@@ -1534,7 +1534,7 @@ export class Game {
         }
         if (sk.buff === "shield") {
           this.shieldT = sk.duration ?? 3;
-          this.spawnText(this.px * S, 1.8, this.py * S, "SHIELD!", "#7fd0ff");
+          this.spawnText(this.px * S, 1.8, this.py * S, "護盾！", "#7fd0ff");
         }
         break;
       }
@@ -1542,18 +1542,18 @@ export class Game {
         if (sk.buff === "damage") {
           this.buffDmgT = sk.duration ?? 8;
           this.buffDmgM = sk.amount ?? 1.4;
-          this.spawnText(this.px * S, 1.8, this.py * S, "POWER!", w.color);
+          this.spawnText(this.px * S, 1.8, this.py * S, "力量強化！", w.color);
         } else if (sk.buff === "speed") {
           this.buffSpdT = sk.duration ?? 8;
           this.buffSpdM = sk.amount ?? 1.4;
-          this.spawnText(this.px * S, 1.8, this.py * S, "SPEED!", w.color);
+          this.spawnText(this.px * S, 1.8, this.py * S, "速度強化！", w.color);
         } else if (sk.buff === "atkspeed") {
           this.buffAtkT = sk.duration ?? 5;
           this.buffAtkM = sk.amount ?? 2;
-          this.spawnText(this.px * S, 1.8, this.py * S, "FLURRY!", w.color);
+          this.spawnText(this.px * S, 1.8, this.py * S, "連擊加速！", w.color);
         } else if (sk.buff === "shield") {
           this.shieldT = sk.duration ?? 3;
-          this.spawnText(this.px * S, 1.8, this.py * S, "SHIELD!", "#7fd0ff");
+          this.spawnText(this.px * S, 1.8, this.py * S, "護盾！", "#7fd0ff");
         }
         this.spawnParticles(this.px, this.py, w.color, 14, 4);
         break;
@@ -1685,7 +1685,7 @@ export class Game {
       if (this.spawnQueue === 0 && this.enemies.length === 0) {
         this.score += 60 + this.wave * 12;
         this.waveBanner = 2.4;
-        this.waveBannerText = `WAVE ${this.wave} CLEARED`;
+        this.waveBannerText = `第 ${this.wave} 波完成`;
         this.hp = Math.min(this.maxHp, this.hp + this.maxHp * 0.12);
         this.spawnParticles(this.px, this.py, "#ffd76a", 24, 5);
         this.waveState = "intermission";
@@ -1702,8 +1702,8 @@ export class Game {
     this.waveState = "fighting";
     this.waveBanner = 2.0;
     this.waveBannerText = this.bossPending
-      ? `WAVE ${this.wave} — BOSS`
-      : `WAVE ${this.wave}`;
+      ? `第 ${this.wave} 波 — 首領`
+      : `第 ${this.wave} 波`;
   }
 
   spawnFromWave() {
@@ -2141,7 +2141,7 @@ export class Game {
     const currentZoneId = (typeof window !== "undefined" && (window as any).getGameState?.()?.zone) || "talkingIsland";
     const zoneDef = typeof window !== "undefined" && (window as any).GameData?.ZONES?.[currentZoneId];
     const displayZoneName = zoneDef?.name || currentZoneId.replace(/([A-Z])/g, ' $1').replace(/^./, (s: string) => s.toUpperCase());
-    const isTownZone = zoneDef?.town ? "Town · " : "Zone · ";
+    const isTownZone = zoneDef?.town ? "城鎮 · " : "區域 · ";
     ctx.fillText(`📍 ${isTownZone}${displayZoneName}`, bannerX + bannerW / 2, bannerY + 22);
 
     // --- Top-Left Ornate Circular Compass Dial & HP/MP Bars ---
@@ -2236,10 +2236,10 @@ export class Game {
     // --- Bottom Centered Graveyard Keeper Action Hotbar ---
     const slots = [
       { key: "1", icon: "⚔️", label: "攻擊", cd: 0, maxCd: 1 },
-      { key: "2", icon: this.skills[0]?.emoji || "🔮", label: this.skills[0]?.name || "Skill 1", cd: this.skillCd[0] || 0, maxCd: this.skills[0]?.cooldown || 1 },
-      { key: "3", icon: this.skills[1]?.emoji || "⚡", label: this.skills[1]?.name || "Skill 2", cd: this.skillCd[1] || 0, maxCd: this.skills[1]?.cooldown || 1 },
+      { key: "2", icon: this.skills[0]?.emoji || "🔮", label: this.skills[0]?.name || "技能 1", cd: this.skillCd[0] || 0, maxCd: this.skills[0]?.cooldown || 1 },
+      { key: "3", icon: this.skills[1]?.emoji || "⚡", label: this.skills[1]?.name || "技能 2", cd: this.skillCd[1] || 0, maxCd: this.skills[1]?.cooldown || 1 },
       { key: "4", icon: "🧪", label: "HP 藥水", count: 12 },
-      { key: "5", icon: "🍖", label: "Comida", count: 5 },
+      { key: "5", icon: "🍖", label: "食物", count: 5 },
     ];
 
     const slotW = 54;
@@ -2309,7 +2309,7 @@ export class Game {
     ctx.textAlign = "center";
     ctx.fillStyle = "#f4d58a";
     ctx.font = "800 13px Cinzel, serif";
-    ctx.fillText(`FASE ${phase}  ·  ONDA ${this.wave}`, this.w / 2, 28);
+    ctx.fillText(`階段 ${phase}  ·  波次 ${this.wave}`, this.w / 2, 28);
 
     if (this.waveBanner > 0) {
       const a = clamp(this.waveBanner / 0.6, 0, 1);
