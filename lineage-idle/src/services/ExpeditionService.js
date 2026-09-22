@@ -318,7 +318,7 @@ export const ExpeditionService = {
     if (callbacks.log) {
       let msg = `🎁 **前往 ${dest.name} 的遠征成功完成！** 戰利品：+${goldEarned.toLocaleString()} 金幣、+${shards} 星界碎片`;
       if (materialsRewarded.length > 0) {
-        msg += ` e recursos vitais coletados`;
+        msg += `，並收集到重要資源`;
       }
       if (bonusChestAwarded) {
         msg += `！🗝️ **盜賊成功撬開秘密寶箱！**（+2 強化卷軸）`;
