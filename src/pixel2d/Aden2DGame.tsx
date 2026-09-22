@@ -122,9 +122,9 @@ const MONSTER_NAMES = [
   'Demon', 'Golem', 'Lich', 'Drake', 'Wyrm', 'Shade', 'Banshee',
   'Gargoyle', 'Chimera', 'Basilisk', 'Cerberus', 'Hydra', 'Phoenix',
   'Titan', 'Behemoth', 'Dragon', 'Nightmare', 'Abomination', 'Archon',
-  'Revenant', 'Specter', 'Dread Knight', 'Naga', 'Succubus', 'Wyvern',
-  'Shadow Fiend', 'Doom Guard', 'Elder Lich', 'Ancient Dragon',
-  'Corrupted Angel', 'Void Walker', 'Dark Overlord', 'World Boss'
+  'Revenant', 'Specter', '恐懼騎士', 'Naga', 'Succubus', 'Wyvern',
+  '暗影惡魔', '末日守衛', '遠古巫妖', '遠古巨龍',
+  '墮落天使', '虛空行者', '黑暗霸主', '世界首領'
 ];
 
 function generateMonster(playerLevel: number): MonsterData {
