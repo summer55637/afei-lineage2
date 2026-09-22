@@ -1363,7 +1363,7 @@ skills: [
       { name: "召喚獸治癒",          type: "Ativo",   rarity: "1★", effect: "治癒召喚物 30% HP", cooldown: "12s", duration: null, note: "轉職後技能仍會保留" },
       { name: "召喚獸回復",      type: "Ativo",   rarity: "1★", effect: "恢復 MP do 召喚物", cooldown: "15s", duration: null, note: "轉職後技能仍會保留" },
       { name: "痛苦轉移",          type: "Toggle",  rarity: "2★", effect: "50% 傷害 受到的 transferido對召喚物", cooldown: "5s", duration: "Toggle", note: "轉職後技能仍會保留" },
-      { name: "召喚束縛晶體",   type: "Ativo",   rarity: "2★", effect: "晶體 會 dá 定身 3 秒 每 10 秒", cooldown: "45s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "召喚束縛晶體",   type: "Ativo",   rarity: "2★", effect: "晶體每 10 秒施加 3 秒定身", cooldown: "45s", duration: "120s", note: "轉職後技能仍會保留" },
       { name: "召喚幻影晶體",   type: "Ativo",   rarity: "2★", effect: "晶體 黑暗 會 ataca 150%/8 秒", cooldown: "45s", duration: "120s", note: "轉職後技能仍會保留" },
       { name: "召喚獸物理攻擊", type: "Passivo", rarity: "2★", effect: "+20% ATK dos 召喚物", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "幽靈召喚師和諧", type: "Self-Buff", rarity: "3★", effect: "+35% 召喚物 威力, +20% M.ATK 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
@@ -1439,7 +1439,7 @@ skills: [
       { name: "吸血鬼領主",             type: "Party-Buff", rarity: "3★", effect: "吸取 12% 傷害為 HP給o 隊伍", cooldown: "60s", duration: "300s", note: "轉職後技能仍會保留" },
       { name: "奇蹟",                     type: "Ativo",    rarity: "4★", effect: "Invencibilidade 隊伍 7 秒 + 治癒 30%", cooldown: "300s", duration: "7s", note: "轉職後技能仍會保留" },
       { name: "黑暗面",                   type: "Toggle",   rarity: "3★", effect: "ON: -50% 治癒, +80% M.ATK 黑暗, skills mudam給ofensivo", cooldown: "10s toggle", duration: "Toggle", note: "轉職後技能仍會保留" },
-      { name: "黑暗擾亂",             type: "Ativo",    rarity: "3★", effect: "傷害 黑暗 360% (só於黑暗 側)", cooldown: "15s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "黑暗擾亂",             type: "Ativo",    rarity: "3★", effect: "黑暗傷害 360%（僅限黑暗側）", cooldown: "15s", duration: null, note: "轉職後技能仍會保留" },
       { name: "席琳援助",             type: "Passivo",  rarity: "3★", effect: "Ao 治癒r: 15% 機率 增益 +10% ATK對治癒do 10 秒", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "神聖新星",                 type: "Ativo",    rarity: "3★", effect: "傷害 黑暗 範圍 320% + 治癒 盟友 15%", cooldown: "25s", duration: null, note: "轉職後技能仍會保留" },
       { name: "席琳聖者之魂",       type: "Passivo",  rarity: "3★", effect: "+25% 治癒威力, +20% M.ATK, +15% M.DEF", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
