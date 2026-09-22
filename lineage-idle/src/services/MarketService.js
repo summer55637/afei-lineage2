@@ -1,5 +1,5 @@
 /**
- * MarketService.js — Mercado Central de Giran (Auction House P2P Real-Time)
+ * MarketService.js — 市場 Central de Giran (Auction House P2P Real-Time)
  * 
  * Gerencia anúncios 100% reais entre jogadores em tempo real:
  * - Venda livre em Adena (🪙) ou Aden Coin (👑)
@@ -79,11 +79,11 @@ export const MARKET_CATEGORIES = [
   { id: 'all', name: 'Todos os Itens', icon: '🌐' },
   { id: 'weapon', name: 'Armas', icon: '⚔️' },
   { id: 'armor', name: 'Armaduras', icon: '🛡️' },
-  { id: 'jewel', name: 'Joias & Acessórios', icon: '💍' },
+  { id: 'jewel', name: '珠寶與飾品', icon: '💍' },
   { id: 'spellbook', name: 'Spellbooks (1★ a 4★)', icon: '📖' },
   { id: 'scroll', name: 'Pergaminhos & Enchants', icon: '📜' },
-  { id: 'material', name: 'Materiais & Minérios', icon: '💎' },
-  { id: 'consumable', name: 'Poções & Elixires', icon: '🧪' }
+  { id: 'material', name: '材料與礦石', icon: '💎' },
+  { id: 'consumable', name: '藥水與靈藥', icon: '🧪' }
 ];
 
 let _inMemoryListings = null;
@@ -212,7 +212,7 @@ export const MarketService = {
 
             if (currentTotal > _lastPendingTotal && _lastPendingTotal !== 0) {
               if (callbacks.log) {
-                callbacks.log(`🎉 [Mercado de Giran] Um dos seus itens anunciados foi VENDIDO! Lucro disponível para resgate na aba 'Minhas Vendas'!`, 'gold');
+                callbacks.log(`🎉 [奇岩市場] 你刊登的一件物品已售出！可到「我的銷售」頁面領取收益！`, 'gold');
               }
             }
             _lastPendingTotal = currentTotal;
@@ -463,7 +463,7 @@ export const MarketService = {
   },
 
   /**
-   * Cria um novo anúncio de jogador no mercado
+   * 在市場建立新的玩家刊登
    */
   async createListing(state, { itemUid, quantity = 1, pricePerUnit, currency = 'adena' }) {
     if (!state || !state.inventory) {
@@ -572,7 +572,7 @@ export const MarketService = {
 
     return { 
       ok: true, 
-      msg: `Anúncio criado com sucesso! Taxa recolhida pelo Império: ${listingFee.toLocaleString()} Adena.`,
+      msg: `刊登建立成功！ Taxa recolhida pelo Império: ${listingFee.toLocaleString()} Adena.`,
       listing: newListing 
     };
   },
@@ -728,7 +728,7 @@ export const MarketService = {
     const listings = this.getListings(state);
     const index = listings.findIndex(l => l.id === listingId);
     if (index === -1 || _deletedListingIds.has(listingId)) {
-      return { ok: false, msg: 'Anúncio não encontrado ou já negociado.' };
+      return { ok: false, msg: '刊登 não encontrado ou já negociado.' };
     }
 
     const listing = listings[index];
@@ -805,7 +805,7 @@ export const MarketService = {
 
     return {
       ok: true,
-      msg: `Anúncio cancelado com sucesso! ${listing.quantity}x ${listing.item.name} devolvido à sua mochila.`
+      msg: `刊登 cancelado com sucesso! ${listing.quantity}x ${listing.item.name} devolvido à sua mochila.`
     };
   },
 
