@@ -1463,7 +1463,7 @@ function useItem(uid) {
   else if (item.itemId === 'potion_haste') {
     applyBuff('atkSpd', 0.15, 1800); applyBuff('spd', 0.15, 1800);
     log(`⚡ 使用 ${def.name}：+15% 攻擊速度／SPD，持續 30 分鐘`, 'heal');
-    if (typeof floatText === 'function') floatText('⚡ HASTE +15% (30m)', 'sf-heal');
+    if (typeof floatText === 'function') floatText('⚡ 急速 +15%（30 分鐘）', 'sf-heal');
   }
   else if (item.itemId === 'aegis_draught') {
     applyBuff('def', 0.25, 3600); applyBuff('magicRes', 0.20, 3600);
@@ -3019,7 +3019,7 @@ function renderZoneInfoCard() {
   const monsterIds = [...(z.monsters || [])];
   if (z.boss && !monsterIds.includes(z.boss)) monsterIds.push(z.boss);
 
-  const curDiff = MonsterAIEngine.getDifficulty(state) || { color: '#10b981', icon: '🟢', name: 'Normal', xpMult: 1, dropMult: 1 };
+  const curDiff = MonsterAIEngine.getDifficulty(state) || { color: '#10b981', icon: '🟢', name: '一般', xpMult: 1, dropMult: 1 };
   const monsterHtml = monsterIds.map(mId => {
     const mon = MONSTERS[mId];
     if (!mon) return '';
@@ -5327,9 +5327,9 @@ function processMonsterDefeat(monster, killingSkill = null) {
   if (state.magicLampExp >= 50000) {
     state.magicLampExp -= 50000;
     state.magicLamps = (state.magicLamps || 0) + 1;
-    log(`🪔 NOVA LÂMPADA MÁGICA ACUMULADA! (Total: ${state.magicLamps})`, 'rarity-legendary');
+    log(`🪔 新的魔法神燈已累積！（總數：${state.magicLamps}）`, 'rarity-legendary');
     if (typeof window !== 'undefined' && window.floatText) {
-      window.floatText('🪔 LÂMPADA MÁGICA +1!', 'float-jackpot');
+      window.floatText('🪔 魔法神燈 +1！', 'float-jackpot');
     }
   }
 
@@ -5410,7 +5410,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
     if (Math.random() < dropChance) {
       addToInventory(cardId, 1);
       log(`🃏 稀有掉落！獲得 **${cardDef.name}** [${(cardDef.rarity || 'rare').toUpperCase()}]！`, 'rarity-' + (cardDef.rarity || 'rare'), 'loot');
-      floatText(`🃏 CARTA DE MONSTRO!`, 'float-jackpot');
+      floatText(`🃏 怪物卡片！`, 'float-jackpot');
     }
   }
 
@@ -5447,7 +5447,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
       const count = monster.boss ? (Math.floor(Math.random() * 4) + 3) : (monster.elite ? 2 : 1);
       if (stoneDef) {
         addToInventory(pickedStone, count);
-        log(`🔷 [Seven Signs] Coletou **${count}x ${stoneDef.name}**!`, 'gain', 'loot');
+        log(`🔷 [七封印] 獲得 **${count}x ${stoneDef.name}**！`, 'gain', 'loot');
         floatText(`🔷 +${count} ${stoneDef.name}`, 'float-jackpot');
       }
     }
@@ -6071,7 +6071,7 @@ export function attackMonster() {
   if (stats.hasteProc && Math.random() < 0.06) {
     state.buffs = state.buffs || {};
     state.buffs['counter_haste'] = { amount: 32, until: realNowAttack + 10000 };
-    log(`⚡ **[Subclasse] Counter Haste ativado!** +32% Atk.Spd por 10s!`, 'rarity-legendary');
+    log(`⚡ **[副職業] 反擊急速觸發！** +32% 攻擊速度，持續 10 秒！`, 'rarity-legendary');
     if (typeof stageFloat === 'function') stageFloat('⚡ 急速！', 'sf-crit', 'left');
     else if (typeof floatText === 'function') floatText('⚡ 急速！', 'float-jackpot');
   }
@@ -6622,8 +6622,8 @@ function setServerRate(key, val, silent = false) {
       adena: '金幣倍率',
       drop: '物品掉落倍率',
       spoil: '搜刮與製作倍率',
-      enchant: 'Rate de Encantamento',
-      book: 'Rate de Grimórios'
+      enchant: '強化倍率',
+      book: '魔法書倍率'
     };
     const title = labels[key] || key.toUpperCase();
     log(`⚡ [管理員] ${title} 已更新為 **x${num}**！效果立即生效。`, 'rarity-legendary');
@@ -7993,7 +7993,7 @@ export const TAB_NAMES_MAP = {
   craft: '帝國鍛造',
   alchemy: 'Alquimia',
   warehouse: 'Baú Privado',
-  magiclamp: '神燈 Mágica',
+  magiclamp: '魔法神燈',
   clan: 'Clã & Castelos',
   olympiad: '奧林匹亞',
   rankings: '世界排行榜',
@@ -8614,7 +8614,7 @@ export function bindEvents() {
 
           if (!result.success || (result.errors && result.errors.length > 0)) {
             let errorMsg = `❌ O Firestore bloqueou a exclusão por falta de permissão!\n\n`;
-            errorMsg += `Erros retornados (${result.errors.length}):\n${result.errors.slice(0, 4).join('\n')}\n\n`;
+            errorMsg += `回傳錯誤（${result.errors.length}）：\n${result.errors.slice(0, 4).join('\n')}\n\n`;
             errorMsg += `⚠️ MOTIVO: As Regras do Firestore (firestore.rules) ainda NÃO foram publicadas no Firebase Console!\n\n`;
             errorMsg += `👉 解決方式：\n1. 開啟 Firebase Console。\n2. 前往「Rules／規則」分頁（位於「Data／資料」旁）。\n3. 貼上 firestore.rules 內容並點擊「Publish／發布」。`;
             alert(errorMsg);
@@ -8645,7 +8645,7 @@ export function bindEvents() {
           location.reload();
         } catch (err) {
           console.error('[Admin Wipe] Erro na execução:', err);
-          alert(`❌ Falha ao executar o Wipe Geral: ${err.message || err}\n\nCertifique-se de estar autenticado com a conta administrativa duuh.alaminos@gmail.com.`);
+          alert(`❌ 執行完整清除失敗：${err.message || err}\n\n請確認目前已使用管理員帳號登入。`);
           adminWipeBtn.disabled = false;
           adminWipeBtn.textContent = '🔥 完整清空資料庫（伺服器歸零）';
         }
@@ -8931,20 +8931,20 @@ function reincarnateHero() {
 // --------------------------- EXPEDITIONS & MANOR SYSTEM ---------------------------
 const MANOR_SEEDS = {
   dark_coda: { id: 'dark_coda', name: '黑暗柯達種子', level: 10, price: 100, reward1: 'stem', reward2: 'braided_hemp', ratio1: 5, ratio2: 2 },
-  red_coda: { id: 'red_coda', name: 'Red Coda Seed', level: 13, price: 200, reward1: 'varnish', reward2: 'cokes', ratio1: 5, ratio2: 2 },
-  chilly_coda: { id: 'chilly_coda', name: 'Chilly Coda Seed', level: 16, price: 350, reward1: 'suede', reward2: 'oriharukon_ore', ratio1: 5, ratio2: 2 },
-  blue_coda: { id: 'blue_coda', name: 'Blue Coda Seed', level: 19, price: 500, reward1: 'animal_skin', reward2: 'crafted_leather', ratio1: 5, ratio2: 2 },
-  red_cobol: { id: 'red_cobol', name: 'Red Cobol Seed', level: 31, price: 1000, reward1: 'charcoal', reward2: 'enria', ratio1: 10, ratio2: 2 },
-  chilly_cobol: { id: 'chilly_cobol', name: 'Chilly Cobol Seed', level: 34, price: 1500, reward1: 'animal_bone', reward2: 'steel', ratio1: 10, ratio2: 3 },
-  twin_codran: { id: 'twin_codran', name: 'Twin Codran Seed', level: 58, price: 3000, reward1: 'charcoal', reward2: 'mold_lubricant', ratio1: 15, ratio2: 3 },
-  king_coba: { id: 'king_coba', name: 'King Coba Seed', level: 85, price: 10000, reward1: 'metallic_thread', reward2: 'durable_metal_plate', ratio1: 20, ratio2: 5 }
+  red_coda: { id: 'red_coda', name: '紅色柯達種子', level: 13, price: 200, reward1: 'varnish', reward2: 'cokes', ratio1: 5, ratio2: 2 },
+  chilly_coda: { id: 'chilly_coda', name: '寒冷柯達種子', level: 16, price: 350, reward1: 'suede', reward2: 'oriharukon_ore', ratio1: 5, ratio2: 2 },
+  blue_coda: { id: 'blue_coda', name: '藍色柯達種子', level: 19, price: 500, reward1: 'animal_skin', reward2: 'crafted_leather', ratio1: 5, ratio2: 2 },
+  red_cobol: { id: 'red_cobol', name: '紅色柯博種子', level: 31, price: 1000, reward1: 'charcoal', reward2: 'enria', ratio1: 10, ratio2: 2 },
+  chilly_cobol: { id: 'chilly_cobol', name: '寒冷柯博種子', level: 34, price: 1500, reward1: 'animal_bone', reward2: 'steel', ratio1: 10, ratio2: 3 },
+  twin_codran: { id: 'twin_codran', name: '雙生柯德蘭種子', level: 58, price: 3000, reward1: 'charcoal', reward2: 'mold_lubricant', ratio1: 15, ratio2: 3 },
+  king_coba: { id: 'king_coba', name: '王者柯巴種子', level: 85, price: 10000, reward1: 'metallic_thread', reward2: 'durable_metal_plate', ratio1: 20, ratio2: 5 }
 };
 
 const CASTLES_DEFS = {
-  dion: { id: 'dion', name: 'Castelo de Dion', reqLevel: 30, taxPerHour: 5000, desc: '+5.000 Adena por hora', enemyName: 'Guarda de Dion (Lv. 30)' },
-  giran: { id: 'giran', name: 'Castelo de Giran', reqLevel: 50, taxPerHour: 15000, desc: '+15.000 Adena por hora & 5% Desconto na Loja', enemyName: 'Guarda de Giran (Lv. 50)' },
+  dion: { id: 'dion', name: '狄恩城堡', reqLevel: 30, taxPerHour: 5000, desc: '每小時 +5,000 金幣', enemyName: '狄恩守衛（Lv.30）' },
+  giran: { id: 'giran', name: '奇岩城堡', reqLevel: 50, taxPerHour: 15000, desc: '每小時 +15,000 金幣，商店折扣 5%', enemyName: '奇岩守衛（Lv.50）' },
   goddard: { id: 'goddard', name: '高達特城堡', reqLevel: 70, taxPerHour: 35000, desc: '每小時 +35,000 金幣，並獲得 +5% XP 加成', enemyName: '高達特守衛（Lv.70）' },
-  aden: { id: 'aden', name: 'Castelo Imperial de Aden', reqLevel: 85, taxPerHour: 75000, desc: '+75.000 Adena por hora & +10% Dano Geral', enemyName: 'Guarda Imperial de Aden (Lv. 85)' }
+  aden: { id: 'aden', name: '亞丁帝國城堡', reqLevel: 85, taxPerHour: 75000, desc: '每小時 +75,000 金幣，總傷害 +10%', enemyName: '亞丁帝國守衛（Lv.85）' }
 };
 
 const EXPEDITION_DESTINATIONS = {
@@ -9351,7 +9351,7 @@ function augmentWithLifeStone(itemUid) {
     { name: 'Might (+8% P.Atk)', stat: 'patkMult', val: 0.08 },
     { name: 'Empower (+15% M.Atk)', stat: 'matkMult', val: 0.15 },
     { name: 'Shield (+10% P.Def)', stat: 'defMult', val: 0.10 },
-    { name: 'Focus (+50 Crit Rate)', stat: 'crit', val: 50 },
+    { name: '專注（+50 暴擊率）', stat: 'crit', val: 50 },
     { name: 'Lesser Celestial Shield (7s Invencível)', stat: 'celestial', val: true }
   ];
   const chosen = options[Math.floor(Math.random() * options.length)];
