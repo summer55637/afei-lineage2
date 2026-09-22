@@ -58,8 +58,8 @@ export class NextActionAdvisor {
             priority: ADVISOR_PRIORITIES.UPGRADE,
             category: 'UPGRADE',
             title: '⬆️ 有可升級的裝備',
-            description: '背包中發現更好的裝備！替換較弱裝備以提升戰力。',
-            actionText: `⬆️ 裝備升級品 (+${proposal.deltas.cpDelta.toLocaleString()} CP)`,
+            description: '背包中發現更好的裝備！替換較弱裝備以提升戰鬥力。',
+            actionText: `⬆️ 裝備升級品 （+${proposal.deltas.cpDelta.toLocaleString()} 戰鬥力）`,
             actionTab: 'inventory',
             actionType: 'AUTO_EQUIP',
             actionPayload: proposal,
@@ -73,13 +73,13 @@ export class NextActionAdvisor {
             category: 'AUTO_EQUIP',
             title: '⚡ 偵測到可裝備物品',
             description: '背包中有可填補空裝備欄位的物品，可立即提升角色實力。',
-            actionText: `⚡ 立即自動裝備 (+${proposal.deltas.cpDelta.toLocaleString()} CP)`,
+            actionText: `⚡ 立即自動裝備 （+${proposal.deltas.cpDelta.toLocaleString()} 戰鬥力）`,
             actionTab: 'inventory',
             actionType: 'AUTO_EQUIP',
             actionPayload: proposal,
             currentCp,
             icon: '⚡',
-            badge: 'P0 自動裝備'
+            badge: '優先自動裝備'
           };
         }
       }
