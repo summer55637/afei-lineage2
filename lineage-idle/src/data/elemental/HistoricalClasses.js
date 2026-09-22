@@ -23,7 +23,7 @@ export const HISTORICAL_CLASSES = [
   // Human Warrior Branch
   {
     id: 'human_warrior',
-    name: 'Human Warrior',
+    name: '戰士',
     race: 'Human',
     lineage: 'Human Warrior',
     lineageType: 'FIRST_CLASS_TRANSFER',
@@ -35,7 +35,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_gladiator',
-    name: 'Gladiator',
+    name: '角鬥士',
     race: 'Human',
     lineage: 'Human Warrior',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -47,7 +47,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_duelist',
-    name: 'Duelist',
+    name: '決鬥者',
     race: 'Human',
     lineage: 'Human Warrior',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -59,7 +59,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_warlord',
-    name: 'Warlord',
+    name: '戰爭領主',
     race: 'Human',
     lineage: 'Human Warrior',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -71,7 +71,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_dreadnought',
-    name: 'Dreadnought',
+    name: '恐懼戰艦',
     race: 'Human',
     lineage: 'Human Warrior',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -85,7 +85,7 @@ export const HISTORICAL_CLASSES = [
   // Human Knight Branch
   {
     id: 'human_knight',
-    name: 'Human Knight',
+    name: '騎士',
     race: 'Human',
     lineage: 'Human Knight',
     lineageType: 'FIRST_CLASS_TRANSFER',
@@ -97,7 +97,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_paladin',
-    name: 'Paladin',
+    name: '聖騎士',
     race: 'Human',
     lineage: 'Human Knight',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -147,7 +147,7 @@ export const HISTORICAL_CLASSES = [
   // Human Rogue Branch
   {
     id: 'human_rogue',
-    name: 'Human Rogue',
+    name: '盜賊',
     race: 'Human',
     lineage: 'Human Rogue',
     lineageType: 'FIRST_CLASS_TRANSFER',
@@ -171,7 +171,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_adventurer',
-    name: 'Adventurer',
+    name: '冒險家',
     race: 'Human',
     lineage: 'Human Rogue',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -183,7 +183,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_hawkeye',
-    name: 'Hawkeye',
+    name: '鷹眼',
     race: 'Human',
     lineage: 'Human Rogue',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -195,7 +195,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_sagittarius',
-    name: 'Sagittarius',
+    name: '射手座',
     race: 'Human',
     lineage: 'Human Rogue',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -221,7 +221,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_wizard',
-    name: 'Human Wizard',
+    name: '巫師',
     race: 'Human',
     lineage: 'Human Mystic',
     lineageType: 'FIRST_CLASS_TRANSFER',
@@ -233,7 +233,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_archmage',
-    name: 'Archmage',
+    name: '大法師',
     race: 'Human',
     lineage: 'Human Mystic',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -245,7 +245,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_necromancer',
-    name: 'Necromancer',
+    name: '死靈法師',
     race: 'Human',
     lineage: 'Human Mystic',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -257,7 +257,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_soultaker',
-    name: 'Soultaker',
+    name: '奪魂者',
     race: 'Human',
     lineage: 'Human Mystic',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -269,7 +269,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_warlock',
-    name: 'Warlock',
+    name: '召喚術士',
     race: 'Human',
     lineage: 'Human Mystic',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -293,7 +293,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_cleric',
-    name: 'Human Cleric',
+    name: '牧師',
     race: 'Human',
     lineage: 'Human Mystic',
     lineageType: 'FIRST_CLASS_TRANSFER',
@@ -305,7 +305,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_bishop',
-    name: 'Bishop',
+    name: '主教',
     race: 'Human',
     lineage: 'Human Mystic',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -317,7 +317,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_cardinal',
-    name: 'Cardinal',
+    name: '樞機主教',
     race: 'Human',
     lineage: 'Human Mystic',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -329,7 +329,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_prophet',
-    name: 'Prophet',
+    name: '先知',
     race: 'Human',
     lineage: 'Human Mystic',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -341,7 +341,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_hierophant',
-    name: 'Hierophant',
+    name: '聖言者',
     race: 'Human',
     lineage: 'Human Mystic',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -395,7 +395,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'elf_swordsinger',
-    name: 'Swordsinger',
+    name: '劍歌者',
     race: 'Elf',
     lineage: 'Elven Knight',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -495,7 +495,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'elf_spellsinger',
-    name: 'Spellsinger',
+    name: '咒術詩人',
     race: 'Elf',
     lineage: 'Elven Mystic',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -711,7 +711,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'dark_elf_spellhowler',
-    name: 'Spellhowler',
+    name: '狂咒術士',
     race: 'Dark Elf',
     lineage: 'Dark Mystic',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -829,7 +829,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'orc_destroyer',
-    name: 'Destroyer',
+    name: '破壞者',
     race: 'Orc',
     lineage: 'Orc Raider',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -841,7 +841,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'orc_titan',
-    name: 'Titan',
+    name: '泰坦',
     race: 'Orc',
     lineage: 'Orc Raider',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -867,7 +867,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'orc_tyrant',
-    name: 'Tyrant',
+    name: '暴君',
     race: 'Orc',
     lineage: 'Orc Monk',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -893,7 +893,7 @@ export const HISTORICAL_CLASSES = [
   // Orc Shaman Branch (branches from active orc_shaman)
   {
     id: 'orc_overlord',
-    name: 'Overlord',
+    name: '霸主',
     race: 'Orc',
     lineage: 'Orc Shaman',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -905,7 +905,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'orc_dominator',
-    name: 'Dominator',
+    name: '支配者',
     race: 'Orc',
     lineage: 'Orc Shaman',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -917,7 +917,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'orc_warcryer',
-    name: 'Warcryer',
+    name: '戰狂',
     race: 'Orc',
     lineage: 'Orc Shaman',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -929,7 +929,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'orc_doomcryer',
-    name: 'Doomcryer',
+    name: '末日戰狂',
     race: 'Orc',
     lineage: 'Orc Shaman',
     lineageType: 'THIRD_CLASS_AWAKENING',
