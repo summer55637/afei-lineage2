@@ -21,7 +21,7 @@ export const CASH_SHOP_CATALOG = {
       icon: 'gradec/weapons/weapon_berserker_blade.png',
       desc: '適合從等級 1 開始的基礎禮包，不受裝備階級懲罰。內含傳承防具套裝（重甲、輕甲或法袍）＋職業傳承武器（可隨 Lv.1～40 成長）＋2,000 發彈藥與藥水。',
       contents: {
-        gearTier: 'Herança Dinâmica (Lv. 1 ao 40 - Auto-adaptado)',
+        gearTier: '動態傳承裝備（Lv.1～40，自動適配）',
         isHeirloomSet: true,
         items: [
           { id: 'armor_heirloom_chest', name: '傳承防具套裝（5 件）', count: 1, isHeirloom: true },
@@ -43,7 +43,7 @@ export const CASH_SHOP_CATALOG = {
       icon: 'gradec/weapons/weapon_samurai_longsword.png',
       desc: '高性價比禮包。內含傳承防具套裝（5 件）、職業傳承武器、5 件完整傳承飾品套組（Lv.1 即可裝備）、5,000 發彈藥與［先鋒］稱號。',
       contents: {
-        gearTier: 'Herança Dinâmica + Joias de Herança (Lv. 1 ao 40)',
+        gearTier: '動態傳承裝備＋傳承珠寶（Lv.1～40）',
         isHeirloomSet: true,
         title: { id: 'title_pioneiro', name: '先鋒', color: '#38bdf8', glow: true },
         items: [
@@ -68,7 +68,7 @@ export const CASH_SHOP_CATALOG = {
       icon: 'acessories/noble_gold_crown.png',
       desc: '最高階傳承禮包。內含依職業配置的完整傳承裝備（5 件防具＋武器＋5 件飾品＋皇家披風＋腰帶＋翼冠＋Aegis 盾），可啟動至尊加成 +60% XP／金幣，另含黃金龍 Agathion、15,000 發彈藥、30 天 VIP 通行證與金色［至尊領主］稱號。',
       contents: {
-        gearTier: 'Full Lorde Soberano (12+ Peças de Herança Lv. 1 ao 40)',
+        gearTier: '至尊領主全套（12 件以上 Lv.1～40 傳承裝備）',
         isHeirloomSet: true,
         title: { id: 'title_lorde_soberano', name: '至尊領主', color: '#ffd700', glow: true, animated: true },
         agathion: { id: 'agathion_golden_dragon', name: '黃金龍 Agathion', desc: '神秘夥伴，提供 +5% 金幣收益與華麗外觀。' },
