@@ -624,7 +624,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "deathMessenger",
-        "desc": "死亡騎士——運用 Death Points 發動絕對的黑暗毀滅。",
+        "desc": "死亡騎士——運用死亡點數發動絕對的黑暗毀滅。",
         "skillIds": [
             "ultimate_death_knight",
             "hellfire",
@@ -997,7 +997,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "mysticMuse": {
         "id": "mysticMuse",
-        "name": "精通水系魔法的神秘繆思。保留先前學會的技能。定位：WATER。",
+        "name": "神秘繆思",
         "lineageId": "mysticMuse",
         "lineageName": "Mystic Muse",
         "stage": 3,
@@ -1005,7 +1005,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "spellsinger",
-        "desc": "元素召喚師",
+        "desc": "精通水系魔法的神秘繆思。保留先前學會的技能。定位：水。",
         "skillIds": [
             "aqua_splash",
             "blizzard",
@@ -1016,7 +1016,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elementalSummoner": {
         "id": "elementalSummoner",
-        "name": "精靈族的元素召喚師。保留先前學會的技能。定位：SUMMON。",
+        "name": "元素召喚師",
         "lineageId": "elementalMaster",
         "lineageName": "Elemental Master",
         "stage": 2,
@@ -1024,7 +1024,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "elvenWizard",
-        "desc": "元素大師",
+        "desc": "精靈族的元素召喚師。保留先前學會的技能。定位：召喚。",
         "skillIds": [
             "elemental_discharge",
             "summon_elemental_unicorn",
@@ -1035,7 +1035,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elementalMaster": {
         "id": "elementalMaster",
-        "name": "精靈族的至高元素召喚大師。保留先前學會的技能。",
+        "name": "元素大師",
         "lineageId": "elementalMaster",
         "lineageName": "Elemental Master",
         "stage": 3,
@@ -1043,7 +1043,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "elementalSummoner",
-        "desc": "神使",
+        "desc": "精靈族的至高元素召喚大師。保留先前學會的技能。",
         "skillIds": [
             "elemental_strike",
             "elemental_vortex",
