@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "iaijutsu_strike",
-        "name": "Golpe Iaijutsu",
+        "name": "居合斬",
         "classId": "kamael_samurai",
         "race": "kamael",
         "tier": "core_1",
@@ -15,7 +15,7 @@
           "Physical",
           "Wind"
         ],
-        "description": "Golpe Iaijutsu — Habilidade Especialista de kamael_samurai."
+        "description": "居合斬——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -167,7 +167,7 @@
     {
       "identity": {
         "id": "gale_step",
-        "name": "Passo de Rajada",
+        "name": "烈風步",
         "classId": "kamael_samurai",
         "race": "kamael",
         "tier": "core_2",
@@ -178,7 +178,7 @@
           "Wind",
           "Physical"
         ],
-        "description": "Passo de Rajada — Habilidade Especialista de kamael_samurai."
+        "description": "烈風步——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -330,7 +330,7 @@
     {
       "identity": {
         "id": "silent_edge",
-        "name": "Fio Silencioso",
+        "name": "無聲之刃",
         "classId": "kamael_samurai",
         "race": "kamael",
         "tier": "specialization",
@@ -340,7 +340,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Fio Silencioso — Habilidade Especialista de kamael_samurai."
+        "description": "無聲之刃——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -492,7 +492,7 @@
     {
       "identity": {
         "id": "tempest_form",
-        "name": "Forma da Tempestade",
+        "name": "暴風形態",
         "classId": "kamael_samurai",
         "race": "kamael",
         "tier": "elemental_specialization",
@@ -503,7 +503,7 @@
           "Wind",
           "Physical"
         ],
-        "description": "Forma da Tempestade — Habilidade Especialista de kamael_samurai."
+        "description": "暴風形態——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -673,7 +673,7 @@
     {
       "identity": {
         "id": "heaven_cutting_tempest",
-        "name": "Heaven-Cutting Tempest",
+        "name": "斬天風暴",
         "classId": "kamael_samurai",
         "race": "kamael",
         "tier": "ultimate",
@@ -683,7 +683,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Heaven-Cutting Tempest — Habilidade Ultimate (★★★★) de kamael_samurai."
+        "description": "斬天風暴——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -868,7 +868,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "HEAVEN-CUTTING TEMPEST!",
+          "text": "斬天風暴！",
           "style": "gold_banner",
           "banner": true
         }
@@ -889,7 +889,7 @@
     {
       "identity": {
         "id": "master_heaven_cutting_tempest",
-        "name": "Master: Heaven-Cutting Tempest",
+        "name": "大師：斬天風暴",
         "classId": "kamael_samurai",
         "race": "kamael",
         "tier": "master_ultimate",
@@ -899,7 +899,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Master: Heaven-Cutting Tempest — Habilidade Master Ultimate (★★★★★) de kamael_samurai."
+        "description": "大師：斬天風暴——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1085,7 +1085,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: HEAVEN-CUTTING TEMPEST!",
+          "text": "大師：斬天風暴！",
           "style": "mythic_banner",
           "banner": true
         }
