@@ -1,4 +1,4 @@
-// ExpeditionService.js — Framework Universal de Expedições Estratégicas de Mercenários e Exploração 2.0
+// ExpeditionService.js — Framework Universal de Expedições Estratégicas de 傭兵s e Exploração 2.0
 import { addToInventory } from './InventoryService.js';
 import { MercenaryService } from './MercenaryService.js';
 import { MERCENARY_SPECIALIZATIONS, MERCENARY_TRAITS, calculateMercenaryPower } from '../data/mercenaries.js';
@@ -80,34 +80,34 @@ export const ExpeditionService = {
     if (specsPresent.has('tracker')) {
       synergies.speedReduction = Math.min(0.35, synergies.speedReduction + 0.20);
       synergies.extraMaterialChance += 0.25;
-      synergies.activePerks.push('Passo Ágil (-20% Tempo de Marcha, +25% Veios Extras)');
+      synergies.activePerks.push('迅捷步伐（行軍時間 -20%、額外礦脈 +25%）');
     }
 
     // 2. Ladino: Chance de baú bônus (+35%) e desarme de armadilhas (-40% penalidade)
     if (specsPresent.has('thief')) {
       synergies.bonusChestChance = Math.min(0.60, synergies.bonusChestChance + 0.35);
       synergies.hazardMitigation += 0.25;
-      synergies.activePerks.push('Mãos de Seda (+35% Baú Bônus, Desarme de Armadilhas)');
+      synergies.activePerks.push('巧手（額外寶箱 +35%、解除陷阱）');
     }
 
     // 3. Mago Arcano: Fragmentos astrais extras (+50%) e salas arcanas
     if (specsPresent.has('mage')) {
       synergies.extraShardsPct = Math.min(0.75, synergies.extraShardsPct + 0.50);
-      synergies.activePerks.push('Sifão Astral (+50% Cacos Astrais)');
+      synergies.activePerks.push('星界汲取（星界碎片 +50%）');
     }
 
     // 4. Curandeiro: Bônus de XP para o esquadrão (+30%) e mitigação de perigos
     if (specsPresent.has('healer')) {
       synergies.extraXpPct += 0.30;
       synergies.hazardMitigation += 0.20;
-      synergies.activePerks.push('Bênção de Eva (+30% XP Esquadrão, Mitigação Residual)');
+      synergies.activePerks.push('伊娃祝福（小隊 XP +30%、額外減傷）');
     }
 
     // 5. Guardião: Proteção e segurança da caravana (-35% dano de emboscada, +10% Adena segura)
     if (specsPresent.has('guardian')) {
       synergies.goldBonusPct += 0.10;
       synergies.hazardMitigation += 0.35;
-      synergies.activePerks.push('Escudo Inabalável (-35% Dano de Emboscadas, +10% Adena)');
+      synergies.activePerks.push('不動之盾（伏擊傷害 -35%、金幣 +10%）');
     }
 
     return synergies;
@@ -120,12 +120,12 @@ export const ExpeditionService = {
     const list = this.getExpeditions(state);
     const activeExp = list.find(e => e.destId === destId && !e.claimed);
     if (activeExp) {
-      if (callbacks.log) callbacks.log(`⚠️ Já existe um esquadrão em marcha para ${dest.name}!`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 已有一支小隊正在前往 ${dest.name}！`, 'warning');
       return false;
     }
 
     if ((state.gold || 0) < dest.cost) {
-      if (callbacks.log) callbacks.log(`⚠️ Ouro insuficiente para equipar o esquadrão! Requer ${dest.cost.toLocaleString()} Adena.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足，無法整備小隊！需要 ${dest.cost.toLocaleString()} 金幣。`, 'warning');
       return false;
     }
 
@@ -137,7 +137,7 @@ export const ExpeditionService = {
       for (const uid of squadUids.slice(0, 3)) {
         if (!uid) continue;
         if (MercenaryService.isMercenaryBusy(state, uid)) {
-          if (callbacks.log) callbacks.log(`⚠️ Um dos mercenários selecionados já está em outra expedição!`, 'warning');
+          if (callbacks.log) callbacks.log(`⚠️ 所選傭兵中有人正在其他遠征！`, 'warning');
           return false;
         }
         const merc = MercenaryService.getMercenaryByUid(state, uid);
@@ -169,7 +169,7 @@ export const ExpeditionService = {
       claimed: false,
       synergies,
       phases: dest.phases || [
-        { name: 'Infiltração', desc: 'Aproximação pelo perímetro hostil.' },
+        { name: '潛入', desc: '從敵方警戒區域外圍接近。' },
         { name: 'Perigo', desc: 'Enfrentando as ameaças locais.' },
         { name: 'Tesouro', desc: 'Câmara de saque e relíquias.' }
       ]
@@ -182,7 +182,7 @@ export const ExpeditionService = {
       const squadCount = validSquadUids.length;
       const squadInfo = squadCount > 0 ? `com ${squadCount} mercenário(s) escalado(s)` : `em expedição solo`;
       const dirName = RISK_DIRECTIVES[directive]?.name || 'Equilibrada';
-      callbacks.log(`🧭 Esquadrão despachado para **${dest.name}** ${squadInfo} [Diretriz: ${dirName}]! Duração estimada: ${hours}h.`, 'loot');
+      callbacks.log(`🧭 小隊 despachado para **${dest.name}** ${squadInfo} [Diretriz: ${dirName}]! Duração estimada: ${hours}h.`, 'loot');
       if (synergies.activePerks.length > 0) {
         callbacks.log(`⚡ Sinergias & Traços: ${synergies.activePerks.join(' | ')}`, 'system');
       }
@@ -316,7 +316,7 @@ export const ExpeditionService = {
     list.splice(expIdx, 1);
 
     if (callbacks.log) {
-      let msg = `🎁 **Expedição a ${dest.name} concluída com êxito!** Saque: +${goldEarned.toLocaleString()} Adena, +${shards} Cacos Astrais`;
+      let msg = `🎁 **遠征 a ${dest.name} concluída com êxito!** Saque: +${goldEarned.toLocaleString()} Adena, +${shards} Cacos Astrais`;
       if (materialsRewarded.length > 0) {
         msg += ` e recursos vitais coletados`;
       }
@@ -367,7 +367,7 @@ export const ExpeditionService = {
           MercenaryService.addMercenaryXp(state, mercUid, 300, callbacks);
         }
       }
-      if (callbacks.log) callbacks.log(`⚖️ Dilema Resolvido (${dilemma.name}): ${option.name}! Mercenários ganharam bônus de EXP.`, 'system');
+      if (callbacks.log) callbacks.log(`⚖️ Dilema Resolvido (${dilemma.name}): ${option.name}! 傭兵s ganharam bônus de EXP.`, 'system');
     } else if (option.result === 'force' || option.result === 'pick') {
       const bonusShards = option.result === 'pick' ? 5 : 2;
       state.astralShards = (state.astralShards || 0) + bonusShards;
