@@ -187,7 +187,7 @@ export function renderRankingTab(container, state) {
                     ${isVerified ? '<span style="background:rgba(34,197,94,0.15); border:1px solid #22c55e; color:#4ade80; font-size:10px; padding:1px 5px; border-radius:4px;">🛡️ 已驗證</span>' : ''}
                   </div>
                   <div style="font-size: 11px; color: #94a3b8;">
-                    Lv. ${p.level} · ${p.className} · ${p.topWeaponName || '傳說武器'}
+                    等級 ${p.level} · ${p.className} · ${p.topWeaponName || '傳說武器'}
                   </div>
                 </div>
               </div>
