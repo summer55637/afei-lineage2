@@ -1134,7 +1134,7 @@ function salvageItem(uid) {
   const amount = Math.max(1, Math.floor((reqLvl / 5 + 1) * rarityMult));
   state.inventory.splice(idx, 1);
   addToInventory(matId, amount);
-  log(`🔨 Desmontou ${def.name} em ${amount}x ${D().ALL_ITEMS[matId]?.name || matId}!`, 'loot');
+  log(`🔨 已將 ${def.name} 拆解為 ${amount}x ${D().ALL_ITEMS[matId]?.name || matId}！`, 'loot');
   hideItemTooltip();
   updateAllUI(); save();
 }
@@ -1620,7 +1620,7 @@ function useItem(uid) {
       log('請開啟重新專精選單以使用種族／職業變更卷軸。', 'system');
     }
     return;
-  } else if (def.type === 'resurrect') { log('Scrolls auto-use on death.', 'system'); return; } 
+  } else if (def.type === 'resurrect') { log('復活卷軸會在死亡時自動使用。', 'system'); return; } 
   else { log(`Used ${def.name}`, 'heal'); }
   
   // Robust stack deduction — handles both item.count and item.qty
@@ -2066,7 +2066,7 @@ function updateStatsUI() {
       const e = map[k] || (b.icon ? [b.icon, b.desc || b.name || k] : ['🧪', b.name || k]);
       return `<span class="ab-chip" title="${e[1]} · ${fmtCountdown(b.until-now)}">${e[0]}<em>${fmtCountdown(b.until-now)}</em></span>`;
     }).filter(Boolean);
-    abEl.innerHTML = items.length ? items.join('') : '<span class="ab-empty">No active buffs</span>';
+    abEl.innerHTML = items.length ? items.join('') : '<span class="ab-empty">目前沒有啟用中的增益效果</span>';
   }
 }
 
@@ -2165,7 +2165,7 @@ function updateDetailedEquipStatsUI() {
     list.innerHTML = '';
     const labels = { atk: 'ATK', def: 'DEF', matk: 'MATK', mdef: 'MDEF', hp: 'HP', mp: 'MP', eva: 'EVA', crit: 'CRIT', speed: 'SPD', lifesteal: 'LIFE STEAL' };
     for (const [k, label] of Object.entries(labels)) { if (eb[k]) { const div = mkEl('div'); div.innerHTML = `<span>${label}</span><span class="bonus-val">+${eb[k]}${k==='crit'?'%':''}</span>`; list.appendChild(div); } }
-    if (!list.children.length) list.innerHTML = '<div style="color:var(--text-muted)">No equipment</div>';
+    if (!list.children.length) list.innerHTML = '<div style="color:var(--text-muted)">目前沒有裝備</div>';
   }
   renderStageHero();
 }
@@ -2506,7 +2506,7 @@ function buildStatLine(def) {
 
 function renderShopGear(list) {
   const zone = ZONES[state.zone], shopId = zone?.shop, items = shopId ? D().SHOP_INVENTORY[shopId] : null;
-  if (!items) { list.innerHTML = '<p class="shop-empty">No gear merchant in this area.</p>'; return; }
+  if (!items) { list.innerHTML = '<p class="shop-empty">此區域沒有裝備商人。</p>'; return; }
   let count = 0;
   for (const shopItem of items) { 
     const def = D().ALL_ITEMS[shopItem.id]; 
@@ -2514,14 +2514,14 @@ function renderShopGear(list) {
     list.appendChild(shopRow(def, shopItem.id, def.price)); 
     count++; 
   }
-  if (!count) list.innerHTML = '<p class="shop-empty">The merchant has no gear for you yet.</p>';
+  if (!count) list.innerHTML = '<p class="shop-empty">商人目前沒有適合你的裝備。</p>';
 }
 function renderShopPotions(list) {
   const zone = ZONES[state.zone], shopId = zone?.shop, items = shopId ? D().SHOP_INVENTORY[shopId] : null;
   const base = ['soulshot_ng','spiritshot_ng','hp_potion_s','hp_potion_m','hp_potion_l','hp_potion_xl','mp_potion_s','mp_potion_m','mp_potion_l','mp_potion_xl','antidote','scroll_of_resurrection','scroll_of_rebirth','spellbook_1star','spellbook_2star','spellbook_3star','spellbook_4star'];
   const shown = new Set(), list2 = [...base, ...(items || []).map(i => i.id)]; let count = 0;
   for (const id of list2) { if (shown.has(id)) continue; const def = D().ALL_ITEMS[id]; if (!def || (def.slot !== 'consumable' && def.slot !== 'scroll') || (def.req && def.req.level > state.level)) continue; shown.add(id); list.appendChild(shopRow(def, id, def.price)); count++; }
-  if (!count) list.innerHTML = '<p class="shop-empty">No potions in stock.</p>';
+  if (!count) list.innerHTML = '<p class="shop-empty">目前沒有藥水庫存。</p>';
 }
 function renderShopPowerups(list) {
   const powerupIds = ['xp_boost_1h','xp_boost_4h','gold_boost_1h','gold_boost_4h','luck_boost_1h','auto_potion_1h','teleport_scroll','berserker_elixir','aegis_draught','sages_tea'];
@@ -2529,7 +2529,7 @@ function renderShopPowerups(list) {
   if (activeBuffs.length) {
     const hdr = mkEl('div'); hdr.className = 'shop-header'; hdr.innerHTML = '<h4>Active Powerups</h4>'; list.appendChild(hdr);
     for (const [k, b] of activeBuffs) { const remaining = Math.max(0, b.until - Date.now()); const names = { xpBoost: '📘 XP 加成', goldBoost: '🪙 金幣加成', luckBoost: '🍀 幸運加成', autoPotion: '🧪 自動藥水' }; const row = mkEl('div'); row.className = 'shop-item active-buff'; row.innerHTML = `<div class="item-info"><div class="item-name">${names[k] || k}</div><div class="item-desc">+${Math.round(b.amount*100)}% · ${fmtCountdown(remaining)}</div></div><div class="buff-pulse"></div>`; list.appendChild(row); }
-    const sep = mkEl('div'); sep.className = 'shop-header'; sep.innerHTML = '<h4>Buy More</h4>'; list.appendChild(sep);
+    const sep = mkEl('div'); sep.className = 'shop-header'; sep.innerHTML = '<h4>購買更多</h4>'; list.appendChild(sep);
   }
   for (const id of powerupIds) { const def = D().ALL_ITEMS[id]; if (def) list.appendChild(shopRow(def, id, def.price)); }
 }
@@ -4551,7 +4551,7 @@ export function switchSubclass(targetIndex) {
       }
 
       const clsObj = getClass(state.class);
-      log(`⚔️ 已切換至副職業 **${clsObj?.name || state.class}** (Lv.${state.level})!`, 'rarity-rare');
+      log(`⚔️ 已切換至副職業 **${clsObj?.name || state.class}**（Lv.${state.level}）！`, 'rarity-rare');
     }
   }
 
@@ -5723,7 +5723,7 @@ export function attackMonster() {
       } else if (isHeal) {
         const healAmt = window.SkillScaling ? window.SkillScaling.getSkillHealAtLevel(stats.maxHp, skill.lvl, stats.matk) : Math.floor(stats.maxHp * (0.25 + skill.lvl * 0.05));
         state.hp = Math.min(stats.maxHp, state.hp + healAmt);
-        log(`✨ ${skill.def.name}! Curou ${healAmt} HP`, 'heal');
+        log(`✨ ${skill.def.name}！恢復 ${healAmt} HP`, 'heal');
         floatText(`+${healAmt} HP`, 'sf-heal');
 
         // Dispara VFX Premium de Cura Sagrada (ancorado aos pés do herói)
@@ -5893,7 +5893,7 @@ export function attackMonster() {
           }
         }
 
-        log(`💥 ${skill.def.name}! ${sDmg} ${type} damage`, 'rarity-epic');
+        log(`💥 ${skill.def.name}！造成 ${sDmg} ${type} 傷害`, 'rarity-epic');
         if (skill.def.effect === 'stun' && !killedBySkill) {
            monster._stunnedUntil = realNow + 3500;
            log(`💫 ${monster.name} foi Atordoado!`, 'rarity-rare');
@@ -6018,9 +6018,9 @@ export function attackMonster() {
   if (Math.random() < (stats.crit + soulshotCritBonus) / 100) { 
     damage = Math.floor(damage * 1.5 * stats.critDmg); 
     wasCrit = true; 
-    log(`CRIT! ${damage} damage to ${monster.name}`, 'combat'); 
+    log(`暴擊！對 ${monster.name} 造成 ${damage} 傷害`, 'combat'); 
   } else { 
-    log(`${damage} basic damage to ${monster.name}`, 'damage'); 
+    log(`對 ${monster.name} 造成 ${damage} 基礎傷害`, 'damage'); 
   }
   
   if (stats.lifeDrain > 0) {
@@ -6420,7 +6420,7 @@ function spawnAdminItem(itemId, qty = 1, rarity = 'common', enchant = 0, affixCh
 
   const enchantStr = enchant > 0 ? `+${enchant} ` : '';
   const foundationStr = isFoundation ? '✨ [FOUNDATION] ' : '';
-  log(`🎁 [Admin] ${qty}x ${foundationStr}${enchantStr}${def.name} [${rarity}] gerado(s) na mochila!`, 'rarity-legendary');
+  log(`🎁 [管理員] 已在背包生成 ${qty}x ${foundationStr}${enchantStr}${def.name} [${rarity}]！`, 'rarity-legendary');
   floatText('🎁 物品已生成！', 'float-jackpot');
   updateAllUI();
   save(true, true);
@@ -7073,7 +7073,7 @@ function setServerLevelCap(cap) {
   }
 
   log(`📢 [皇家敕令] 亞丁至尊領主已將伺服器最高等級上限設定為 **${nCap} 級**！`, 'rarity-legendary');
-  if (typeof floatText === 'function') floatText(`👑 CAP DO SERVIDOR: LV. ${nCap}!`, 'float-jackpot');
+  if (typeof floatText === 'function') floatText(`👑 伺服器等級上限：Lv.${nCap}！`, 'float-jackpot');
   
   // Sincroniza o stage da temporada com o cap escolhido
   const CAP_TO_SEASON = { 40: 1, 60: 1, 75: 2, 85: 3, 100: 3, 120: 4 };
@@ -7600,7 +7600,7 @@ function renderMonsterCardsCodex(container, summaryEl) {
   container.appendChild(cardsContainer);
 
   if (summaryEl) {
-    summaryEl.innerHTML = `<span style="color:var(--gilt-bright); font-weight:bold;">Álbum de Cartas: ${absorbedCards}/${totalCards} Cartas Absorvidas</span> · Bônus Permanentes Ativos na Conta`;
+    summaryEl.innerHTML = `<span style="color:var(--gilt-bright); font-weight:bold;">卡片圖鑑：${absorbedCards}/${totalCards} 已吸收</span> · 帳號永久加成已生效`;
   }
 }
 
@@ -7856,7 +7856,7 @@ function useMagicLamp() {
     `;
   }
 
-  log(`🪔 神燈 Mágica utilizada! Sorteou **${result.cardName}** (+${result.expWon.toLocaleString()} XP, +${result.spWon.toLocaleString()} SP) [${result.bracket}]!`, 'rarity-legendary');
+  log(`🪔 已使用魔法神燈！抽中 **${result.cardName}**（+${result.expWon.toLocaleString()} XP、+${result.spWon.toLocaleString()} SP）[${result.bracket}]！`, 'rarity-legendary');
   floatText(`🪔 +${result.expWon.toLocaleString()} XP!`, 'float-jackpot');
 
   updateAllUI();
@@ -8214,7 +8214,7 @@ function depositMaterialsToWarehouse() {
     }
   }
   if (movedCount > 0) {
-    log(`📥 ${movedCount} material(is)/consumível(is) guardado(s) no Baú.`, 'loot');
+    log(`📥 已將 ${movedCount} 件材料／消耗品存入倉庫。`, 'loot');
     updateAllUI(); save();
   }
 }
@@ -8619,7 +8619,7 @@ export function bindEvents() {
             errorMsg += `👉 解決方式：\n1. 開啟 Firebase Console。\n2. 前往「Rules／規則」分頁（位於「Data／資料」旁）。\n3. 貼上 firestore.rules 內容並點擊「Publish／發布」。`;
             alert(errorMsg);
             adminWipeBtn.disabled = false;
-            adminWipeBtn.textContent = '🔥 WIPE GERAL DO BANCO DE DADOS (SERVIDOR ZERO)';
+            adminWipeBtn.textContent = '🔥 完整清空資料庫（伺服器歸零）';
             return;
           }
 
@@ -8647,7 +8647,7 @@ export function bindEvents() {
           console.error('[Admin Wipe] Erro na execução:', err);
           alert(`❌ Falha ao executar o Wipe Geral: ${err.message || err}\n\nCertifique-se de estar autenticado com a conta administrativa duuh.alaminos@gmail.com.`);
           adminWipeBtn.disabled = false;
-          adminWipeBtn.textContent = '🔥 WIPE GERAL DO BANCO DE DADOS (SERVIDOR ZERO)';
+          adminWipeBtn.textContent = '🔥 完整清空資料庫（伺服器歸零）';
         }
       };
     }
@@ -8869,7 +8869,7 @@ function upgradeAstralNode(nodeId) {
   if (!state.astralMastery) state.astralMastery = {};
   const currentLvl = state.astralMastery[nodeId] || 0;
   if (currentLvl >= node.max) {
-    log(`⚠️ ${node.name} já atingiu o nível máximo (${node.max})!`, 'warning');
+    log(`⚠️ ${node.name} 已達最高等級（${node.max}）！`, 'warning');
     return false;
   }
 
@@ -8998,7 +8998,7 @@ function exchangeManorCrop(seedId, rewardOption = 1) {
   state.manorCrops[seedId] -= cropsUsed;
 
   addToInventory(matKey, matAmount);
-  log(`🌾 Entregou ${cropsUsed}x Colheita no Manor Manager e recebeu +${matAmount}x ${matKey.toUpperCase()}!`, 'rarity-legendary');
+  log(`🌾 已向莊園管理員交付 ${cropsUsed}x 收成，獲得 +${matAmount}x ${matKey.toUpperCase()}！`, 'rarity-legendary');
 
   updateAllUI();
   save();
@@ -9058,7 +9058,7 @@ function claimCastleTaxes(castleId) {
   data.lastTaxClaim = now;
   state.gold = (state.gold || 0) + adenaEarned;
 
-  log(`💰 Coletou ${adenaEarned.toLocaleString()} Adena em impostos de ${castle.name} (${hoursToClaim}h)!`, 'rarity-legendary');
+  log(`💰 已從 ${castle.name} 領取 ${adenaEarned.toLocaleString()} 金幣稅收（${hoursToClaim} 小時）！`, 'rarity-legendary');
 
   updateAllUI();
   save();
@@ -9329,7 +9329,7 @@ function compoundBelts() {
     log('✨ 腰帶合成成功！已打造祝福頂級腰帶 [S]（+7.2% 防禦／+6% 傷害）！', 'rarity-legendary');
     floatText('CINTO SAGRADO FORJADO!', 'float-gold');
   } else {
-    log('⚠️ Falha na síntese do cinto! Tente novamente.', 'warning');
+    log('⚠️ 腰帶合成失敗！請再試一次。', 'warning');
   }
 
   updateAllUI(); save();
@@ -9728,7 +9728,7 @@ export function init() {
         squad.splice(idx, 1);
       } else {
         if (squad.length >= 3) {
-          log('⚠️ Esquadrão já atingiu a capacidade máxima de 3 mercenários!', 'warning');
+          log('⚠️ 小隊已達最多 3 名傭兵的上限！', 'warning');
           return;
         }
         squad.push(mercUid);
@@ -10307,7 +10307,7 @@ export function init() {
       const code = (rawCode || '').trim();
 
       if (!code) {
-        log('⚠️ Por favor, digite o nome do aventureiro que te indicou.', 'warning');
+        log('⚠️ 請輸入推薦你的冒險者名稱。', 'warning');
         return;
       }
       if ((state.level || 1) > 20) {
@@ -10330,7 +10330,7 @@ export function init() {
         try {
           const referrerPlayer = await window.FirebaseBridge.getPlayerByName(code);
           if (!referrerPlayer) {
-            log(`⚠️ O herói [${code}] não foi encontrado em Aden. Verifique a grafia do nome.`, 'error');
+            log(`⚠️ 在亞丁找不到英雄 [${code}]，請確認名稱拼字。`, 'error');
             return;
           }
           resolvedReferrerName = referrerPlayer.name;
@@ -10354,7 +10354,7 @@ export function init() {
           state.inventory.push({
             uid: `ref_shots_${Date.now()}`,
             itemId: 'soulshot_ng',
-            name: 'Soulshot: No-Grade',
+            name: '魂彈：無級別',
             count: 1000,
             rarity: 'common',
             type: 'consumable'
@@ -10389,7 +10389,7 @@ export function init() {
       const btn = document.getElementById('ref-check-rewards-btn');
       if (btn) {
         btn.disabled = true;
-        btn.innerHTML = '⏳ Verificando no servidor...';
+        btn.innerHTML = '⏳ 正在伺服器上檢查...';
       }
 
       try {
@@ -10423,8 +10423,8 @@ export function init() {
           }
 
           state.referralRewardsClaimed = (state.referralRewardsClaimed || 0) + result.claimableRewards;
-          log(`🎉 **Recompensa de Indicação Resgatada!** Seus amigos indicados atingiram o Nv. 40! Você recebeu **+${totalAC} AC** e **${totalScrolls}x Pergaminhos Abençoados de Arma**!`, 'rarity-legendary');
-          if (typeof floatText === 'function') floatText(`🎁 +${totalAC} AC DE INDICAÇÃO!`, 'float-jackpot');
+          log(`🎉 **推薦獎勵已領取！** 你推薦的朋友已達等級 40！獲得 **+${totalAC} AC** 與 **${totalScrolls}x 祝福武器強化卷軸**！`, 'rarity-legendary');
+          if (typeof floatText === 'function') floatText(`🎁 推薦獎勵 +${totalAC} AC！`, 'float-jackpot');
           updateAllUI();
           save();
         } else {
