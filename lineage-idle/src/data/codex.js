@@ -21,35 +21,35 @@ export const CODEX_SETS = {
     desc:  '登錄基礎訓練用防具。',
     items: ['bone_breastplate', 'leather_vest_light', 'devotion_armor_robe'],
     bonus: { def: 30, mdef: 30 },
-    label: '+30 P.防禦 與 +30 M.防禦'
+    label: '+30 物理防禦 與 +30 魔法防禦'
   },
   novice_heavy: {
     name:  '🛡️ 古魯丁基礎步兵',
     desc:  '早期戰士使用的重型防具。',
     items: ['bone_breastplate', 'bronze_breastplate_heavy'],
     bonus: { def: 20, hp: 50 },
-    label: '+20 P.防禦 與 +50 最大 HP'
+    label: '+20 物理防禦 與 +50 最大生命值'
   },
   novice_light: {
     name:  '🥋 森林獵人',
     desc:  '新手獵人的輕裝與簡易斧頭。',
     items: ['leather_vest_light', 'tomahawk_axe'],
     bonus: { def: 15, eva: 6 },
-    label: '+15 P.防禦 與 +6 迴避'
+    label: '+15 物理防禦 與 +6 迴避'
   },
   novice_robe: {
     name:  '🔮 艾因霍凡特門徒',
     desc:  '神殿新人的法袍與神聖鈍器。',
     items: ['devotion_armor_robe', 'crucifix_of_blessing_magicblunt'],
     bonus: { mdef: 25, mp: 60 },
-    label: '+25 M.防禦 與 +60 最大 MP'
+    label: '+25 魔法防禦 與 +60 最大魔力'
   },
   novice_jewels: {
     name:  '📿 亞丁華麗珠寶',
     desc:  '登錄具有神秘力量的訓練珠寶。',
     items: ['blue_coral_ring', 'magic_ring'],
     bonus: { hp: 100, mp: 50 },
-    label: '+100 最大 HP 與 +50 最大 MP'
+    label: '+100 最大生命值 與 +50 最大魔力'
   },
 
   // ─── COLEÇÕES D-GRADE (Season 1 Core) ───
@@ -58,21 +58,21 @@ export const CODEX_SETS = {
     desc:  '狄恩守軍使用的完整重甲套裝。',
     items: ['brigandine_armor_heavy', 'brigandine_pants_heavy', 'brigandine_helmet_heavy'],
     bonus: { def: 45, hp: 120 },
-    label: '+45 P.防禦 與 +120 最大 HP'
+    label: '+45 物理防禦 與 +120 最大生命值'
   },
   d_grade_scouts: {
     name:  '🏹 曼陀羅巡守隊',
     desc:  '適合敏捷斥候的強化皮甲。',
     items: ['manticore_armor_light', 'manticore_pants_light'],
     bonus: { def: 30, eva: 10, crit: 4 },
-    label: '+30 P.防禦、+10 迴避與 +4% 暴擊'
+    label: '+30 物理防禦、+10 迴避與 +4% 暴擊'
   },
   d_grade_scholars: {
     name:  '✨ 米索莉秘法環',
     desc:  '以米索莉與銀絲編織的魔法服裝。',
     items: ['mithril_tunic_robe', 'mithril_pants_robe'],
     bonus: { mdef: 40, matk: 25, mp: 100 },
-    label: '+40 M.防禦、+25 魔法攻擊 與 +100 最大 MP'
+    label: '+40 魔法防禦、+25 魔法攻擊 與 +100 最大魔力'
   },
   d_grade_swords: {
     name:  '⚔️ D 級劍術大師',
@@ -93,21 +93,21 @@ export const CODEX_SETS = {
     desc:  '狄恩法師與祭司使用的武器。',
     items: ['mystic_staff', 'staff_of_magic', 'bronze_mace'],
     bonus: { matk: 55, mp: 80 },
-    label: '+55 魔法攻擊 與 +80 最大 MP'
+    label: '+55 魔法攻擊 與 +80 最大魔力'
   },
   d_grade_blunt: {
     name:  '🔨 矮人戰鎚',
     desc:  '在米索莉洞窟鍛造的重型打擊武器。',
     items: ['warhammer', 'titan_hammer', 'wepoan_war_mace'],
     bonus: { atk: 45, hp: 140 },
-    label: '+45 物理攻擊 與 +140 最大 HP'
+    label: '+45 物理攻擊 與 +140 最大生命值'
   },
   d_grade_jewelry: {
     name:  '💎 精靈珠寶套裝',
     desc:  '能提升魔法抗性的華麗護身符。',
     items: ['jewel_elven_ring', 'jewel_elven_earring', 'jewel_elven_necklace'],
     bonus: { mdef: 50, hp: 100, mp: 60 },
-    label: '+50 M.防禦、+100 最大 HP 與 +60 最大 MP'
+    label: '+50 魔法防禦、+100 最大生命值 與 +60 最大魔力'
   },
   d_grade_champions: {
     name:  '🗡️ D 級菁英勇士',
@@ -123,21 +123,21 @@ export const CODEX_SETS = {
     desc:  '頂級 C 級重甲與祝福珠寶。',
     items: ['full_plate_heavy_armor', 'jewel_blessed_ring'],
     bonus: { def: 60, hp: 200 },
-    label: '+60 P.防禦 與 +200 最大 HP'
+    label: '+60 物理防禦 與 +200 最大生命值'
   },
   c_grade_assassins: {
     name:  '🩸 泰卡暗影利刃',
     desc:  '兼具高機動與致命斬擊能力的裝備。',
     items: ['theca_light_armor', 'darkelven_dagger'],
     bonus: { def: 40, crit: 8, eva: 12 },
-    label: '+40 P.防禦、+8% 暴擊與 +12 迴避'
+    label: '+40 物理防禦、+8% 暴擊與 +12 迴避'
   },
   c_grade_magisters: {
     name:  '🌟 狄恩緋紅魔導',
     desc:  '卡米安奧術法袍與何蒙庫魯斯魔法劍的組合。',
     items: ['karmian_robe_armor', 'homunkuluss_magic_sword'],
     bonus: { matk: 70, mdef: 45, mp: 150 },
-    label: '+70 魔法攻擊、+45 M.防禦 與 +150 最大 MP'
+    label: '+70 魔法攻擊、+45 魔法防禦 與 +150 最大魔力'
   },
   c_grade_arsenal: {
     name:  '⚡ 克魯瑪老兵武庫',
@@ -151,7 +151,7 @@ export const CODEX_SETS = {
     desc:  '登錄古魯丁老兵使用的武器與防具。',
     items: ['battle_axe', 'full_plate_heavy_armor', 'eminence_bow'],
     bonus: { atk: 75, def: 50, hp: 200 },
-    label: '+75 物理攻擊, +50 防禦, +200 HP'
+    label: '+75 物理攻擊, +50 防禦, +200 生命值'
   },
 
   // ─── COLEÇÕES ESPECIAIS & META ───
@@ -160,14 +160,14 @@ export const CODEX_SETS = {
     desc:  '登錄從神秘洞窟採集的元素寶石。',
     items: ['fire_stone', 'water_stone', 'earth_stone'],
     bonus: { atk: 60, matk: 60, hp: 150 },
-    label: '+60 物理攻擊, +60 魔法攻擊, +150 HP'
+    label: '+60 物理攻擊, +60 魔法攻擊, +150 生命值'
   },
   spellbook_codex: {
     name:  '📖 星辰神聖技能書',
     desc:  '登錄亞丁星辰系列神聖技能書。',
     items: ['spellbook_1star', 'spellbook_2star', 'spellbook_3star', 'spellbook_4star'],
     bonus: { atk: 100, matk: 100, hp: 300, def: 50 },
-    label: '+100 物理攻擊, +100 魔法攻擊, +300 HP, +50 防禦'
+    label: '+100 物理攻擊, +100 魔法攻擊, +300 生命值, +50 防禦'
   }
 };
 
@@ -178,13 +178,13 @@ export const BOSS_DOLLS = {
   doll_goblin: {
     name: '👺 哥布林娃娃', icon: '👺', rarity: 'common',
     source: '🌲 說話之島狩獵掉落（0.8%）· 🎲 合成祭壇',
-    desc: '哥布林雕刻的粗獷圖騰，提供初期 P.Atk 與生命值加成。',
+    desc: '哥布林雕刻的粗獷圖騰，提供初期 物理攻擊 與生命值加成。',
     statsByLvl: {
-      1: { atk: 5,  hp: 30,  label: '+5 物理攻擊, +30 最大 HP'   },
-      2: { atk: 12, hp: 70,  label: '+12 物理攻擊, +70 最大 HP'  },
-      3: { atk: 22, hp: 130, label: '+22 物理攻擊, +130 最大 HP' },
-      4: { atk: 35, hp: 220, label: '+35 物理攻擊, +220 最大 HP' },
-      5: { atk: 55, hp: 350, label: '+55 物理攻擊, +350 最大 HP' }
+      1: { atk: 5,  hp: 30,  label: '+5 物理攻擊, +30 最大生命值'   },
+      2: { atk: 12, hp: 70,  label: '+12 物理攻擊, +70 最大生命值'  },
+      3: { atk: 22, hp: 130, label: '+22 物理攻擊, +130 最大生命值' },
+      4: { atk: 35, hp: 220, label: '+35 物理攻擊, +220 最大生命值' },
+      5: { atk: 55, hp: 350, label: '+55 物理攻擊, +350 最大生命值' }
     }
   },
   doll_wolf: {
@@ -216,23 +216,23 @@ export const BOSS_DOLLS = {
     source: '🌲 半獸人村莊與古魯丁狩獵掉落（0.8%）· 🎲 合成祭壇',
     desc: '半獸人部族戰爭雕像，可提升防禦與生命力。',
     statsByLvl: {
-      1: { def: 8,  hp: 40,  label: '+8 防禦, +40 最大 HP'   },
-      2: { def: 18, hp: 90,  label: '+18 防禦, +90 最大 HP'  },
-      3: { def: 32, hp: 170, label: '+32 防禦, +170 最大 HP' },
-      4: { def: 50, hp: 280, label: '+50 防禦, +280 最大 HP' },
-      5: { def: 75, hp: 420, label: '+75 防禦, +420 最大 HP' }
+      1: { def: 8,  hp: 40,  label: '+8 防禦, +40 最大生命值'   },
+      2: { def: 18, hp: 90,  label: '+18 防禦, +90 最大生命值'  },
+      3: { def: 32, hp: 170, label: '+32 防禦, +170 最大生命值' },
+      4: { def: 50, hp: 280, label: '+50 防禦, +280 最大生命值' },
+      5: { def: 75, hp: 420, label: '+75 防禦, +420 最大生命值' }
     }
   },
   doll_dryad: {
     name: '🌿 森林樹精娃娃', icon: '🌿', rarity: 'common',
     source: '🌲 森林與沼澤狩獵掉落（0.8%）· 🎲 合成祭壇',
-    desc: '千年樹精的活枝，可提升魔法力量與 MP 上限。',
+    desc: '千年樹精的活枝，可提升魔法力量與 魔力 上限。',
     statsByLvl: {
-      1: { matk: 8,  mp: 30,  label: '+8 魔法攻擊, +30 MP'   },
-      2: { matk: 18, mp: 70,  label: '+18 魔法攻擊, +70 MP'  },
-      3: { matk: 32, mp: 130, label: '+32 魔法攻擊, +130 MP' },
-      4: { matk: 50, mp: 210, label: '+50 魔法攻擊, +210 MP' },
-      5: { matk: 75, mp: 320, label: '+75 魔法攻擊, +320 MP' }
+      1: { matk: 8,  mp: 30,  label: '+8 魔法攻擊, +30 魔力'   },
+      2: { matk: 18, mp: 70,  label: '+18 魔法攻擊, +70 魔力'  },
+      3: { matk: 32, mp: 130, label: '+32 魔法攻擊, +130 魔力' },
+      4: { matk: 50, mp: 210, label: '+50 魔法攻擊, +210 魔力' },
+      5: { matk: 75, mp: 320, label: '+75 魔法攻擊, +320 魔力' }
     }
   },
   doll_queen_ant: {
@@ -252,11 +252,11 @@ export const BOSS_DOLLS = {
     source: '👑 克魯瑪核心首領掉落（5%）· 🎲 煉金祭壇',
     desc: '克魯瑪凝聚核心，可提升魔法力量與施法速度。',
     statsByLvl: {
-      1: { matk: 20, mp: 50,  label: '+20 魔法攻擊, +50 MP'   },
-      2: { matk: 45, mp: 100, label: '+45 魔法攻擊, +100 MP'  },
-      3: { matk: 80, mp: 180, label: '+80 魔法攻擊, +180 MP'  },
-      4: { matk: 130, mp: 300, label: '+130 魔法攻擊, +300 MP' },
-      5: { matk: 200, mp: 500, label: '+200 魔法攻擊, +500 MP' }
+      1: { matk: 20, mp: 50,  label: '+20 魔法攻擊, +50 魔力'   },
+      2: { matk: 45, mp: 100, label: '+45 魔法攻擊, +100 魔力'  },
+      3: { matk: 80, mp: 180, label: '+80 魔法攻擊, +180 魔力'  },
+      4: { matk: 130, mp: 300, label: '+130 魔法攻擊, +300 魔力' },
+      5: { matk: 200, mp: 500, label: '+200 魔法攻擊, +500 魔力' }
     }
   },
   doll_orfen: {
@@ -300,11 +300,11 @@ export const BOSS_DOLLS = {
     source: '👑 地龍安塔瑞斯掉落（2%）· 🏆 篇章獎勵',
     desc: '安塔瑞斯神聖龍鱗，可大幅提升生命與防禦。',
     statsByLvl: {
-      1: { hp: 200, def: 40,  label: '+200 最大 HP, +40 防禦' },
-      2: { hp: 450, def: 80,  label: '+450 最大 HP, +80 防禦' },
-      3: { hp: 800, def: 140, label: '+800 最大 HP, +140 防禦' },
-      4: { hp: 1300, def: 220, label: '+1300 最大 HP, +220 防禦' },
-      5: { hp: 2000, def: 350, label: '+2000 最大 HP, +350 防禦' }
+      1: { hp: 200, def: 40,  label: '+200 最大生命值, +40 防禦' },
+      2: { hp: 450, def: 80,  label: '+450 最大生命值, +80 防禦' },
+      3: { hp: 800, def: 140, label: '+800 最大生命值, +140 防禦' },
+      4: { hp: 1300, def: 220, label: '+1300 最大生命值, +220 防禦' },
+      5: { hp: 2000, def: 350, label: '+2000 最大生命值, +350 防禦' }
     }
   },
   doll_valakas: {
