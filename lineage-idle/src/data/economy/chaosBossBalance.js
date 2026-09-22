@@ -28,7 +28,7 @@ export const CHAOS_BOSS_STAT_MULTIPLIERS = {
 
 export const CHAOS_BOSS_DROPLIST_BY_SEASON = {
   1: {
-    name: 'Season 1 (Lv 1–40)',
+    name: '第 1 季（等級 1–40）',
     goldMin: 50000,
     goldMax: 100000,
     guaranteed: [
@@ -40,7 +40,7 @@ export const CHAOS_BOSS_DROPLIST_BY_SEASON = {
     ]
   },
   2: {
-    name: 'Season 2 (Lv 41–80)',
+    name: '第 2 季（等級 41–80）',
     goldMin: 150000,
     goldMax: 300000,
     guaranteed: [
@@ -53,7 +53,7 @@ export const CHAOS_BOSS_DROPLIST_BY_SEASON = {
     ]
   },
   3: {
-    name: 'Season 3 (Lv 81+)',
+    name: '第 3 季（等級 81+）',
     goldMin: 500000,
     goldMax: 1000000,
     guaranteed: [
