@@ -676,7 +676,7 @@ export const IDLE_MARKUP = `
                       <span class="l2inv-pd-icon">📿</span>
                       <span class="l2inv-pd-item" id="pd-item-necklace"></span>
                     </div>
-                    <div class="l2inv-pd-slot equip-slot" data-slot="weapon" title="Arma Principal">
+                    <div class="l2inv-pd-slot equip-slot" data-slot="weapon" title="主武器">
                       <span class="l2inv-pd-icon">⚔️</span>
                       <span class="l2inv-pd-item" id="pd-item-weapon"></span>
                     </div>
@@ -700,7 +700,7 @@ export const IDLE_MARKUP = `
                       <span class="l2inv-pd-icon">⛑️</span>
                       <span class="l2inv-pd-item" id="pd-item-helmet"></span>
                     </div>
-                    <div class="l2inv-pd-slot equip-slot" data-slot="chest" data-slot-alias="armor" title="Armadura / Peito">
+                    <div class="l2inv-pd-slot equip-slot" data-slot="chest" data-slot-alias="armor" title="防具／胸甲">
                       <span class="l2inv-pd-icon">🛡️</span>
                       <span class="l2inv-pd-item" id="pd-item-chest"></span>
                     </div>
