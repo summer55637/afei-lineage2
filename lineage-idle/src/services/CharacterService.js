@@ -533,7 +533,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
     }
   }
   if (callbacks.floatText) {
-    callbacks.floatText(`🎉 ${newClassDef.name.toUpperCase()}! (+${totalRefunded + transferSpBonus} SP)`, 'float-jackpot');
+    callbacks.floatText(`🎉 ${newClassDef.name.toUpperCase()}！(+${totalRefunded + transferSpBonus} 技能點)`, 'float-jackpot');
   }
 
   if (callbacks.el) {
