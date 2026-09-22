@@ -21,7 +21,7 @@ export const RESONANCE_DEFINITIONS = {
   // 1. Arco + Adaga
   shadow_stalker: {
     id: 'shadow_stalker',
-    name: 'Caçador das Sombras',
+    name: '暗影獵手',
     pairName: 'Arco + Adaga',
     icon: '🏹🗡️',
     color: '#a855f7',
@@ -31,14 +31,14 @@ export const RESONANCE_DEFINITIONS = {
     passives: { critChance: 6, eva: 6 }
   },
 
-  // 2. Arco + Lança
+  // 2. 弓 + 長槍
   dragon_lancer: {
     id: 'dragon_lancer',
-    name: 'Sentinela Dracônico',
-    pairName: 'Arco + Lança',
+    name: '龍族哨兵',
+    pairName: '弓 + 長槍',
     icon: '🏹🔱',
     color: '#0284c7',
-    desc: 'Disparos de Arco aplicam Lentidão (-15% Atk.Spd no alvo por 5s). Golpes de Lança contra alvos lentos desferem Estocada Perfurante (+20% de Dano e +25% de Dano de Postura/Stagger).',
+    desc: '弓箭命中會施加緩速（目標 Atk.Spd -15%，持續 5 秒）。對緩速目標使用長槍時觸發穿刺突擊（傷害 +20%、破勢傷害 +25%）。',
     weap1: 'bow',
     weap2: 'spear',
     passives: { staggerDmgPct: 15, atkSpd: 5 }
@@ -51,20 +51,20 @@ export const RESONANCE_DEFINITIONS = {
     pairName: 'Arco + Cajado',
     icon: '🏹🔮',
     color: '#38bdf8',
-    desc: 'Flechas Infundidas: Tiros de arco causam dano híbrido (+15% de dano mágico elemental focado). +12% Cast.Spd e +6% M.Crit.',
+    desc: '灌注箭矢：弓箭造成混合傷害（元素魔法傷害 +15%），並獲得 Cast.Spd +12%、M.Crit +6%。',
     weap1: 'bow',
     weap2: 'staff',
     passives: { castSpd: 12, mCrit: 6, mAtkPct: 8 }
   },
 
-  // 4. Arco + Maça/Blunt
+  // 4. 弓 + 鈍器
   siege_sentinel: {
     id: 'siege_sentinel',
-    name: 'Caçador de Cerco',
-    pairName: 'Arco + Maça/Blunt',
+    name: '攻城獵手',
+    pairName: '弓 + 鈍器',
     icon: '🏹🔨',
     color: '#d97706',
-    desc: 'Destruidor de Armaduras: +15% de dano contra Chefes e Elites. Golpes de Maça causam +25% de Dano de Postura (Stagger) extra no monstro.',
+    desc: '破甲者：對首領與菁英傷害 +15%。鈍器攻擊額外造成 +25% 破勢傷害。',
     weap1: 'bow',
     weap2: 'blunt',
     passives: { bossDmgPct: 15, staggerDmgPct: 20 }
@@ -73,11 +73,11 @@ export const RESONANCE_DEFINITIONS = {
   // 5. Arco + Garras/Punhos
   wild_hunter: {
     id: 'wild_hunter',
-    name: 'Caçador Feral',
+    name: '野性獵手',
     pairName: 'Arco + Garras/Punhos',
     icon: '🏹🥊',
     color: '#10b981',
-    desc: 'Instinto Predador: Tiros de arco aplicam Sangramento focado. Golpes de garra drenam vitalidade curando o herói em 1% do HP máximo por ataque contra alvos sangrando.',
+    desc: '掠食本能：弓箭會施加流血。對流血目標使用爪攻擊時，每次攻擊恢復角色最大 HP 的 1%。',
     weap1: 'bow',
     weap2: 'fist',
     passives: { atkSpd: 10, lifeDrain: 5 }
@@ -86,11 +86,11 @@ export const RESONANCE_DEFINITIONS = {
   // 6. Arco + Espada 1H
   agile_skirmisher: {
     id: 'agile_skirmisher',
-    name: 'Batedor Ágil',
+    name: '敏捷斥候',
     pairName: 'Arco + Espada 1H',
     icon: '🏹⚔️',
     color: '#34d399',
-    desc: 'Mobilidade Tática: +12% de Velocidade de Ataque (Atk.Spd) e +10 de Evasão permanente durante o combate individual.',
+    desc: '戰術機動：單體戰鬥期間永久獲得 Atk.Spd +12%、迴避 +10。',
     weap1: 'bow',
     weap2: 'sword',
     passives: { atkSpd: 12, eva: 10 }
@@ -103,7 +103,7 @@ export const RESONANCE_DEFINITIONS = {
     pairName: 'Arco + Espada 2H',
     icon: '🏹🗡️',
     color: '#b91c1c',
-    desc: 'Mira Focada: Tiros de arco preparam o monstro (+15% Dano Crítico). Golpes de Espada 2H desferem impacto pesado ignorando 20% da P.Def do alvo.',
+    desc: '集中瞄準：弓箭使目標受到的暴擊傷害 +15%；雙手劍重擊可無視目標 20% P.Def。',
     weap1: 'bow',
     weap2: ['twohand', 'ancientsword'],
     passives: { critDmgPct: 15, pAtkPct: 8 }
@@ -116,34 +116,34 @@ export const RESONANCE_DEFINITIONS = {
     pairName: 'Arco + Dual Swords',
     icon: '🏹⚔️',
     color: '#06b6d4',
-    desc: 'Rajada Rápida: Cadência acelerada entre disparos e lâminas duplas concede +15% de Velocidade de Ataque (Atk.Spd) e +6% de Chance Crítica.',
+    desc: '快速連擊：弓箭與雙刀連續攻擊時獲得 Atk.Spd +15%、暴擊率 +6%。',
     weap1: 'bow',
     weap2: 'dual',
     passives: { atkSpd: 15, critChance: 6 }
   },
 
-  // 9. Lança + Adaga
+  // 9. 長槍 + 匕首
   viper_skirmisher: {
     id: 'viper_skirmisher',
     name: 'Espreitador Venenoso',
-    pairName: 'Lança + Adaga',
+    pairName: '長槍 + 匕首',
     icon: '🔱🗡️',
     color: '#84cc16',
-    desc: 'Toxina Paralisante: Adaga empilha Toxina no alvo (-5% Atk.Spd até 3x). O golpe de Lança detona as toxinas causando Estocada Hemorrágica (+10% de dano por carga, até +30%).',
+    desc: '麻痺毒素：匕首可疊加毒素（每層 Atk.Spd -5%，最多 3 層）。長槍攻擊會引爆毒素並觸發出血突刺（每層傷害 +10%，最多 +30%）。',
     weap1: 'spear',
     weap2: 'dagger',
     passives: { atkSpd: 8, critChance: 6 }
   },
 
-  // 10. Lança + Espada 1H
+  // 10. 長槍 + 單手劍
   phalanx_warlord: {
     id: 'phalanx_warlord',
     name: 'Comandante de Falange',
-    pairName: 'Lança + Espada 1H',
+    pairName: '長槍 + 單手劍',
     icon: '🔱⚔️',
     color: '#eab308',
-    desc: 'Postura de Falange: +20% P.Def. Espada aplica Fratura Tática, garantindo que o próximo ataque focado de Lança desfira uma Estocada Perfurante com +45% de dano.',
-    description: 'Postura de Falange: +20% P.Def. Espada aplica Fratura Tática, garantindo que o próximo ataque focado de Lança desfira uma Estocada Perfurante com +45% de dano.',
+    desc: '方陣姿態：P.Def +20%。單手劍施加戰術破綻，使下一次長槍集中攻擊觸發穿刺突擊，傷害 +45%。',
+    description: '方陣姿態：P.Def +20%。單手劍施加戰術破綻，使下一次長槍集中攻擊觸發穿刺突擊，傷害 +45%。',
     weap1: 'spear',
     weap2: 'sword',
     requirements: ['spear', 'sword'],
@@ -542,16 +542,16 @@ export class WeaponResonanceService {
     const reqWeapon = skillDef.weaponType || skillDef.requiredWeapon || '';
     const realNow = Date.now();
 
-    // 1. Caçador das Sombras: Tiro de Arco aplica Marca das Sombras
+    // 1. 暗影獵手: Tiro de Arco aplica Marca das Sombras
     if (resonance.id === 'shadow_stalker') {
       if (reqWeapon === 'bow' || skillNameLower.includes('shot') || skillNameLower.includes('arrow') || skillNameLower.includes('snipe')) {
         monster._shadowMarkUntil = realNow + 8000;
         if (callbacks.floatText) callbacks.floatText('🎯 MARCA DAS SOMBRAS!', 'float-epic');
-        if (callbacks.log) callbacks.log('🎯 Caçador das Sombras: Alvo marcado! Próximo golpe de Adaga causará +25% de Dano Crítico Fatal e Sangramento!', 'combat');
+        if (callbacks.log) callbacks.log('🎯 暗影獵手: Alvo marcado! Próximo golpe de Adaga causará +25% de Dano Crítico Fatal e Sangramento!', 'combat');
       }
     }
 
-    // 2. Sentinela Dracônico: Tiros de Arco aplicam Lentidão
+    // 2. 龍族哨兵: Tiros de Arco aplicam Lentidão
     if (resonance.id === 'dragon_lancer') {
       if (reqWeapon === 'bow' || skillNameLower.includes('shot') || skillNameLower.includes('arrow')) {
         monster._slowUntil = realNow + 6000;
@@ -638,7 +638,7 @@ export class WeaponResonanceService {
     const realNow = Date.now();
     state.resonanceState = state.resonanceState || {};
 
-    // 1. Caçador das Sombras: Consome Marca com Golpe de Adaga
+    // 1. 暗影獵手: Consome Marca com Golpe de Adaga
     if (resonance.id === 'shadow_stalker' && weaponTypeUsed === 'dagger') {
       if (monster._shadowMarkUntil && monster._shadowMarkUntil > realNow) {
         monster._shadowMarkUntil = 0;
@@ -652,7 +652,7 @@ export class WeaponResonanceService {
       }
     }
 
-    // 2. Sentinela Dracônico: Lança atinge alvo lento com perfuração amplificada
+    // 2. 龍族哨兵: Lança atinge alvo lento com perfuração amplificada
     if (resonance.id === 'dragon_lancer' && weaponTypeUsed === 'spear') {
       if (monster._slowUntil && monster._slowUntil > realNow) {
         finalDamage = Math.floor(finalDamage * 1.20); // +20% de dano perfurante
