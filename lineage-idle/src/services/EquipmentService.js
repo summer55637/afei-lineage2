@@ -206,7 +206,14 @@ export function unequipItem(state, slotOrUid, callbacks = {}) {
   state.maxMp = stats.maxMp;
   state.hp = Math.min(state.hp, state.maxHp);
   state.mp = Math.min(state.mp, state.maxMp);
-  if (callbacks.log) callbacks.log(`已卸下 ${targetSlot}`, 'system');
+  const slotLabels = {
+    weapon: '武器', shield: '盾牌', armor: '胸甲', chest: '胸甲', helmet: '頭盔',
+    gloves: '手套', boots: '靴子', legs: '腿甲', necklace: '項鍊',
+    earring1: '耳環 1', earring2: '耳環 2', ring1: '戒指 1', ring2: '戒指 2',
+    cloak: '披風', belt: '腰帶', hair: '頭飾', sigil: '符印'
+  };
+  const targetSlotLabel = slotLabels[targetSlot] || targetSlot;
+  if (callbacks.log) callbacks.log(`已卸下 ${targetSlotLabel}`, 'system');
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save(true, true);
 }
