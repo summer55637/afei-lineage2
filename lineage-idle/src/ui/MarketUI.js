@@ -88,7 +88,7 @@ export function setActiveMarketTab(tab) {
 
 export const WT_CATEGORIES = [
   { id: 'all', name: '全部商品', icon: '🌐' },
-  { id: 'adena', name: 'Adena', icon: '🪙' },
+  { id: 'adena', name: '金幣', icon: '🪙' },
   { id: 'equipment', name: '裝備', icon: '⚔️' },
   { id: 'artifact', name: '神器', icon: '💍' },
   { id: 'scrolls', name: '卷軸', icon: '📜' },
