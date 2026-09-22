@@ -14,6 +14,7 @@ import {
   getHuntingZonesList,
   getHuntingXpForLevel
 } from '../data/hunting.js';
+import { RESOURCE_DICTIONARY } from '../services/lifeActivities/ResourceDictionary.js';
 import { HuntingService } from '../services/HuntingService.js';
 
 export function renderHuntingUI(state) {
@@ -127,7 +128,7 @@ export function renderHuntingUI(state) {
         <div>
           <div style="display:flex; align-items:center; gap:6px;">
             <strong style="font-size:12px; color:${isEquipped ? '#6ee7b7' : '#f4d58a'};">${kDef.icon} ${kDef.name}</strong>
-            <span style="font-size:9px; background:rgba(0,0,0,0.5); padding:1px 5px; border-radius:3px; color:#aaa; font-weight:bold;">[${kDef.grade.toUpperCase()}]</span>
+            <span style="font-size:9px; background:rgba(0,0,0,0.5); padding:1px 5px; border-radius:3px; color:#aaa; font-weight:bold;">[${kDef.grade === 'none' ? '無級' : kDef.grade.toUpperCase()}]</span>
           </div>
           <div style="font-size:10px; color:#94a3b8; margin-top:2px;">
             耐久度： ${kDef.durabilityMax} | 完美皮革加成： <strong style="color:#ffd877;">+${Math.round(kDef.perfectSkinBonus * 100)}%</strong>
@@ -222,7 +223,7 @@ export function renderHuntingUI(state) {
           </span>
         </h3>
         <p style="margin:0 0 12px 0; font-size:11px; color:#aaa;">
-          預估重量：<strong style="color:#f4d58a;">${prey?.weightRange}</strong> | 主要產出：<strong style="color:#cbd5e1;">${prey?.skinYield?.primary?.toUpperCase()}</strong>
+          預估重量：<strong style="color:#f4d58a;">${prey?.weightRange}</strong> | 主要產出：<strong style="color:#cbd5e1;">${RESOURCE_DICTIONARY[prey?.skinYield?.primary]?.name || prey?.skinYield?.primary || '未知材料'}</strong>
         </p>
 
         <div style="margin-bottom:12px; display:flex; justify-content:center; gap:16px;">
