@@ -3,7 +3,7 @@
     {
       "identity": {
         "id": "wind_strike",
-        "name": "Golpe de Vento",
+        "name": "風之斬擊",
         "classId": "shared",
         "race": "all",
         "tier": "shared",
@@ -15,7 +15,7 @@
           "wind",
           "projectile"
         ],
-        "description": "Dispara uma rajada concentrada de vento cortante em direção ao inimigo."
+        "description": "向敵人釋放集中的切裂風刃。"
       },
       "gameplay": {
         "castTime": 400,
@@ -185,7 +185,7 @@
     {
       "identity": {
         "id": "flame_strike",
-        "name": "Golpe de Chamas",
+        "name": "烈焰打擊",
         "classId": "shared",
         "race": "all",
         "tier": "shared",
@@ -197,7 +197,7 @@
           "fire",
           "aoe"
         ],
-        "description": "Conjura uma pequena erupção de chamas no ponto do alvo."
+        "description": "在目標位置引發小型火焰爆發。"
       },
       "gameplay": {
         "castTime": 450,
@@ -352,7 +352,7 @@
     {
       "identity": {
         "id": "hydro_strike",
-        "name": "Impacto Aquático",
+        "name": "水流衝擊",
         "classId": "shared",
         "race": "all",
         "tier": "shared",
@@ -364,7 +364,7 @@
           "water",
           "single"
         ],
-        "description": "Lança um jato de água pressurizada que atinge o adversário."
+        "description": "發射高壓水流衝擊敵人。"
       },
       "gameplay": {
         "castTime": 400,
@@ -511,7 +511,7 @@
     {
       "identity": {
         "id": "heal_light",
-        "name": "Luz Curativa",
+        "name": "治癒之光",
         "classId": "shared",
         "race": "all",
         "tier": "shared",
@@ -523,7 +523,7 @@
           "holy",
           "heal"
         ],
-        "description": "Invoca raios solares regenerativos para restaurar a integridade física."
+        "description": "召喚具有恢復力量的日光治療傷勢。"
       },
       "gameplay": {
         "castTime": 500,
@@ -679,7 +679,7 @@
     {
       "identity": {
         "id": "ice_bolt",
-        "name": "Dardo de Gelo",
+        "name": "冰霜飛矢",
         "classId": "shared",
         "race": "all",
         "tier": "shared",
@@ -692,7 +692,7 @@
           "projectile",
           "slow"
         ],
-        "description": "Dispara uma flecha de gelo congelante que causa dano mágico e reduz a velocidade do alvo."
+        "description": "射出冰霜箭矢造成魔法傷害並降低目標速度。"
       },
       "gameplay": {
         "castTime": 400,
@@ -870,7 +870,7 @@
     {
       "identity": {
         "id": "power_strike",
-        "name": "Ataque Poderoso",
+        "name": "強力攻擊",
         "classId": "shared",
         "race": "all",
         "tier": "shared",
@@ -883,7 +883,7 @@
           "sword",
           "blunt"
         ],
-        "description": "Golpe físico vigoroso com a arma branca concentrando toda a força muscular."
+        "description": "集中全身力量，以近戰武器發動強力物理打擊。"
       },
       "gameplay": {
         "castTime": 250,
@@ -1028,7 +1028,7 @@
     {
       "identity": {
         "id": "mortal_blow",
-        "name": "Golpe Mortal",
+        "name": "致命打擊",
         "classId": "shared",
         "race": "all",
         "tier": "shared",
@@ -1040,7 +1040,7 @@
           "dagger",
           "crit"
         ],
-        "description": "Ataque perfurante preciso direcionado aos pontos vitais do alvo."
+        "description": "精準刺擊目標要害。"
       },
       "gameplay": {
         "castTime": 180,
@@ -1183,7 +1183,7 @@
     {
       "identity": {
         "id": "iron_punch",
-        "name": "Soco de Ferro",
+        "name": "鐵拳",
         "classId": "shared",
         "race": "all",
         "tier": "shared",
@@ -1195,7 +1195,7 @@
           "blunt",
           "stagger"
         ],
-        "description": "Golpe contundente que abala o equilíbrio e a postura do adversário."
+        "description": "以重拳破壞敵人的平衡與姿態。"
       },
       "gameplay": {
         "castTime": 200,
@@ -1337,7 +1337,7 @@
     {
       "identity": {
         "id": "energy_burst",
-        "name": "Explosão de Energia",
+        "name": "能量爆發",
         "classId": "shared",
         "race": "all",
         "tier": "shared",
@@ -1350,7 +1350,7 @@
           "burst",
           "aoe"
         ],
-        "description": "Libera uma onda esférica de impacto e choque físico condensado ao redor do guerreiro."
+        "description": "在戰士周圍釋放凝聚的球形衝擊波。"
       },
       "gameplay": {
         "castTime": 350,
@@ -1501,7 +1501,7 @@
     {
       "identity": {
         "id": "power_shot",
-        "name": "Disparo Poderoso",
+        "name": "強力射擊",
         "classId": "shared",
         "race": "all",
         "tier": "shared",
@@ -1514,7 +1514,7 @@
           "bow",
           "crit"
         ],
-        "description": "Dispara um tiro concentrado e potente à distância contra o inimigo."
+        "description": "從遠距離向敵人射出集中而強力的一擊。"
       },
       "gameplay": {
         "castTime": 350,
