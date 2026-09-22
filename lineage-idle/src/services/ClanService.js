@@ -463,7 +463,7 @@ export const CLAN_HALL_BUFFS = {
     id: 'shilen_harmony',
     name: '席琳的和諧',
     icon: '🌑',
-    desc: '狩獵 EXP +15%、金幣掉落 +10%',
+    desc: '狩獵經驗值 +15%、金幣掉落 +10%',
     costAdena: 100000,
     durationMs: 3600000,
     stats: { xpBoost: 0.15, goldBoost: 0.10 }
