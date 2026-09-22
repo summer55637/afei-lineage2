@@ -103,7 +103,7 @@ export const ACHIEVEMENTS = [
       const col = state.colosseum?.duelWins || 0;
       return oly + col;
     },
-    rewardText: 'Título: « 永恆鬥士 » + 100 Aden Coins',
+    rewardText: '稱號：「永恆鬥士」+ 100 亞丁幣',
     reward: { adenCoins: 100, titleId: 'title_gladiator', titleName: '永恆鬥士', titleColor: '#f97316' }
   },
   {
