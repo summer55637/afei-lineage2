@@ -111,7 +111,7 @@ export const MERCENARY_SPECIALIZATIONS = {
     id: 'guardian',
     name: '守護者',
     icon: '🛡️',
-    role: 'Tanque & Defesa',
+    role: '坦克與防禦',
     desc: '建立防線保護隊伍，減輕危險與伏擊造成的損失。',
     synergyName: '不動之盾',
     synergyDesc: '伏擊與危險傷害 -35%（額外保護 +10% 金幣）',
@@ -122,7 +122,7 @@ export const MERCENARY_SPECIALIZATIONS = {
     id: 'tracker',
     name: '追蹤者',
     icon: '🏹',
-    role: 'Batedor & Navegador',
+    role: '斥候與導航',
     desc: '熟悉亞丁荒野的秘密路線，可縮短行軍時間並發現捷徑。',
     synergyName: '敏捷步伐',
     synergyDesc: '遠征時間 -20%（額外資源節點 +20%）',
@@ -133,7 +133,7 @@ export const MERCENARY_SPECIALIZATIONS = {
     id: 'thief',
     name: '盜賊',
     icon: '🗡️',
-    role: 'Infiltrador & Gatuno',
+    role: '潛入與盜竊',
     desc: '擅長解除古代陷阱與撬開寶箱。',
     synergyName: '絲綢之手',
     synergyDesc: '額外寶箱機率 +35%（陷阱傷害 -40%）',
@@ -144,7 +144,7 @@ export const MERCENARY_SPECIALIZATIONS = {
     id: 'mage',
     name: '秘法法師',
     icon: '🔮',
-    role: 'Dano Arcano & Elemental',
+    role: '秘法與元素傷害',
     desc: '操控秘法力量，驅散魔法屏障與惡魔。',
     synergyName: '星界虹吸',
     synergyDesc: '星界碎片 +50%（秘密房間機率 +25%）',
@@ -155,7 +155,7 @@ export const MERCENARY_SPECIALIZATIONS = {
     id: 'healer',
     name: '治療者',
     icon: '✨',
-    role: 'Luz Sagrada & Suporte',
+    role: '神聖治療與支援',
     desc: '治療戰傷、維持士氣並驅散詛咒。',
     synergyName: '伊娃祝福',
     synergyDesc: '小隊 XP +30%（車隊殘餘傷害 -25%）',
@@ -174,7 +174,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'guardian',
     rarity: 'common',
     basePower: 50,
-    quote: 'Nenhum monstro passará por este escudo enquanto eu respirar!'
+    quote: '只要我還有一口氣，就沒有怪物能越過這面盾！'
   },
   {
     id: 'merc_darius',
@@ -184,7 +184,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'guardian',
     rarity: 'uncommon',
     basePower: 80,
-    quote: 'Mantenham a formação! A glória de Aden nos protege.'
+    quote: '保持陣形！亞丁的榮耀會守護我們。'
   },
   {
     id: 'merc_brann',
@@ -194,7 +194,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'guardian',
     rarity: 'rare',
     basePower: 130,
-    quote: 'Pela luz sagrada, quebrarei a vanguarda inimiga.'
+    quote: '以神聖之光為名，我將粉碎敵軍先鋒。'
   },
   {
     id: 'merc_valerius',
@@ -204,7 +204,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'guardian',
     rarity: 'epic',
     basePower: 210,
-    quote: 'Marchamos como uma fortaleza intransponível!'
+    quote: '我們前進時，就像一座無法攻破的堡壘！'
   },
 
   // 追蹤者es
@@ -216,7 +216,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'tracker',
     rarity: 'common',
     basePower: 55,
-    quote: 'O vento revela cada pegada na folhagem.'
+    quote: '風會把藏在葉間的每一道足跡告訴我。'
   },
   {
     id: 'merc_kestrel',
@@ -226,7 +226,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'tracker',
     rarity: 'uncommon',
     basePower: 85,
-    quote: 'Minha flecha alcança o coração antes do som do disparo.'
+    quote: '箭矢抵達心臟時，弦聲才剛傳到耳邊。'
   },
   {
     id: 'merc_sylas',
@@ -236,7 +236,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'tracker',
     rarity: 'rare',
     basePower: 135,
-    quote: 'Conheço atalhos esquecidos até mesmo pelos antigos reis.'
+    quote: '我知道連古代國王都已遺忘的捷徑。'
   },
   {
     id: 'merc_artemis',
@@ -246,7 +246,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'tracker',
     rarity: 'epic',
     basePower: 220,
-    quote: 'A noite é meu manto e as estrelas meu mapa estelar.'
+    quote: '黑夜是我的披風，群星就是我的地圖。'
   },
 
   // Ladrões / Infiltradores
@@ -258,7 +258,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'thief',
     rarity: 'common',
     basePower: 52,
-    quote: 'O que é seu pode ser meu com apenas um piscar de olhos.'
+    quote: '只要眨一下眼，你的東西就可能變成我的。'
   },
   {
     id: 'merc_jarek',
@@ -268,7 +268,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'thief',
     rarity: 'uncommon',
     basePower: 82,
-    quote: 'Não existe câmara lacrada que resista ao meu toque.'
+    quote: '沒有任何密室能抵擋我的開鎖技巧。'
   },
   {
     id: 'merc_shani',
@@ -278,7 +278,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'thief',
     rarity: 'rare',
     basePower: 140,
-    quote: 'Silenciosa como a névoa, letal como veneno de escorpião.'
+    quote: '如霧般無聲，如蠍毒般致命。'
   },
   {
     id: 'merc_raven',
@@ -288,7 +288,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'thief',
     rarity: 'legendary',
     basePower: 320,
-    quote: 'O maior tesouro de Shilen nos pertence por direito de conquista!'
+    quote: '席琳最大的寶藏，理應屬於征服它的人！'
   },
 
   // Magos Arcanos
@@ -300,7 +300,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'mage',
     rarity: 'common',
     basePower: 60,
-    quote: 'O fogo consome todas as incertezas.'
+    quote: '火焰會燒盡所有猶豫與疑惑。'
   },
   {
     id: 'merc_morgrim',
@@ -310,7 +310,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'mage',
     rarity: 'uncommon',
     basePower: 90,
-    quote: 'As correntes da terra tremem ao meu comando.'
+    quote: '大地的脈流會因我的命令而震動。'
   },
   {
     id: 'merc_selene',
@@ -320,7 +320,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'mage',
     rarity: 'rare',
     basePower: 145,
-    quote: 'A magia primordial despedaça qualquer ilusão mundana.'
+    quote: '原初魔法足以粉碎一切世俗幻象。'
   },
   {
     id: 'merc_azrael',
@@ -330,7 +330,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'mage',
     rarity: 'legendary',
     basePower: 330,
-    quote: 'O cosmos se curva diante da sabedoria ancestral da Torre de Marfim!'
+    quote: '宇宙也會在象牙塔的古老智慧面前低頭！'
   },
 
   // 治療者s / Suporte
@@ -342,7 +342,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'healer',
     rarity: 'common',
     basePower: 48,
-    quote: 'A água sagrada de Eva cura qualquer ferida.'
+    quote: '伊娃的聖水能治癒任何傷口。'
   },
   {
     id: 'merc_celestine',
@@ -352,7 +352,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'healer',
     rarity: 'uncommon',
     basePower: 78,
-    quote: 'Nenhum companheiro tombará sob minha vigília.'
+    quote: '只要有我守護，就不會有同伴倒下。'
   },
   {
     id: 'merc_thalor',
@@ -362,7 +362,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'healer',
     rarity: 'rare',
     basePower: 130,
-    quote: 'Trevas e mortos-vivos serão purificados pelo fogo divino!'
+    quote: '黑暗與不死生物都將被神聖之火淨化！'
   },
   {
     id: 'merc_isolde',
@@ -372,7 +372,7 @@ export const MERCENARY_TEMPLATES = [
     spec: 'healer',
     rarity: 'epic',
     basePower: 215,
-    quote: 'A esperança de Aden jamais se extinguirá!'
+    quote: '亞丁的希望永遠不會熄滅！'
   }
 ];
 
