@@ -15,7 +15,7 @@ import { D } from '../core/GameConfig.js';
 export const ELEMENT_DEFINITIONS = {
   fire: {
     key: 'fire',
-    name: 'Fogo',
+    name: '火',
     icon: '🔥',
     color: '#ef4444',
     opposed: 'water',
@@ -35,7 +35,7 @@ export const ELEMENT_DEFINITIONS = {
   },
   wind: {
     key: 'wind',
-    name: 'Vento',
+    name: '風',
     icon: '🌪️',
     color: '#22c55e',
     opposed: 'earth',
@@ -45,7 +45,7 @@ export const ELEMENT_DEFINITIONS = {
   },
   earth: {
     key: 'earth',
-    name: 'Terra',
+    name: '地',
     icon: '🌍',
     color: '#d97706',
     opposed: 'wind',
@@ -55,53 +55,53 @@ export const ELEMENT_DEFINITIONS = {
   },
   holy: {
     key: 'holy',
-    name: 'Sagrado',
+    name: '神聖',
     icon: '✨',
     color: '#eab308',
     opposed: 'dark',
     stoneId: 'holy_stone',
-    desc: 'Amplifica dano contra Mortos-Vivos, Necrópoles e Demônios (+30%).',
+    desc: '對不死族、墓穴與惡魔的傷害提高 30%。',
     dropZone: 'Monastery of Silence (Lv.75+)'
   },
   dark: {
     key: 'dark',
-    name: 'Trevas',
+    name: '黑暗',
     icon: '🌑',
     color: '#a855f7',
     opposed: 'holy',
     stoneId: 'dark_stone',
-    desc: 'Amplifica dano contra seres Sagrados e Celestes (+20%).',
+    desc: '對神聖與天界生物的傷害提高 20%。',
     dropZone: 'Imperial Tomb / Crypts (Lv.70+)'
   }
 };
 
 export const ELEMENTAL_GRADE_GATING = {
-  s: { minLevel: 76, maxCapWeapon: 300, maxCapArmor: 120, stoneCost: 250000, label: 'Grau S' },
-  a: { minLevel: 61, maxCapWeapon: 150, maxCapArmor: 60, stoneCost: 100000, label: 'Grau A' },
-  b: { minLevel: 52, maxCapWeapon: 60, maxCapArmor: 30, stoneCost: 50000, label: 'Grau B' },
-  c: { minLevel: 40, maxCapWeapon: 60, maxCapArmor: 30, stoneCost: 30000, label: 'Grau C' }
+  s: { minLevel: 76, maxCapWeapon: 300, maxCapArmor: 120, stoneCost: 250000, label: 'S 級' },
+  a: { minLevel: 61, maxCapWeapon: 150, maxCapArmor: 60, stoneCost: 100000, label: 'A 級' },
+  b: { minLevel: 52, maxCapWeapon: 60, maxCapArmor: 30, stoneCost: 50000, label: 'B 級' },
+  c: { minLevel: 40, maxCapWeapon: 60, maxCapArmor: 30, stoneCost: 30000, label: 'C 級' }
 };
 
 export const SOUL_CRYSTAL_GRADE_GATING = {
-  s: { minLevel: 76, adenaCost: 500000, label: 'Grau S' },
-  a: { minLevel: 61, adenaCost: 250000, label: 'Grau A' },
-  b: { minLevel: 52, adenaCost: 100000, label: 'Grau B' },
-  c: { minLevel: 40, adenaCost: 50000, label: 'Grau C' },
-  d: { minLevel: 20, adenaCost: 20000, label: 'Grau D' }
+  s: { minLevel: 76, adenaCost: 500000, label: 'S 級' },
+  a: { minLevel: 61, adenaCost: 250000, label: 'A 級' },
+  b: { minLevel: 52, adenaCost: 100000, label: 'B 級' },
+  c: { minLevel: 40, adenaCost: 50000, label: 'C 級' },
+  d: { minLevel: 20, adenaCost: 20000, label: 'D 級' }
 };
 
 export const SA_RUNES = {
   red: {
-    focus: { key: 'focus', name: 'Focus', stat: 'crit', baseVal: 35, desc: 'Aumenta a Taxa de Crítico Físico' },
-    might: { key: 'might', name: 'Might', stat: 'patk', baseVal: 0.12, desc: 'Aumenta o Poder de Ataque Físico' }
+    focus: { key: 'focus', name: '專注', stat: 'crit', baseVal: 35, desc: '提高物理暴擊率' },
+    might: { key: 'might', name: '力量', stat: 'patk', baseVal: 0.12, desc: '提高物理攻擊力' }
   },
   green: {
-    acumen: { key: 'acumen', name: 'Acumen', stat: 'castSpd', baseVal: 0.15, desc: 'Aumenta a Velocidade de Conjuração Mágica' },
-    health: { key: 'health', name: 'Health', stat: 'hp', baseVal: 0.20, desc: 'Aumenta a Vida Máxima (HP)' }
+    acumen: { key: 'acumen', name: '靈敏', stat: 'castSpd', baseVal: 0.15, desc: '提高魔法施法速度' },
+    health: { key: 'health', name: '生命', stat: 'hp', baseVal: 0.20, desc: '提高最大 HP' }
   },
   blue: {
-    empower: { key: 'empower', name: 'Empower', stat: 'matk', baseVal: 0.15, desc: 'Aumenta o Poder de Ataque Mágico' },
-    guidance: { key: 'guidance', name: 'Guidance', stat: 'accuracy', baseVal: 4, desc: 'Aumenta a Precisão e Reduz Falhas' }
+    empower: { key: 'empower', name: '魔力增幅', stat: 'matk', baseVal: 0.15, desc: '提高魔法攻擊力' },
+    guidance: { key: 'guidance', name: '引導', stat: 'accuracy', baseVal: 4, desc: '提高命中並降低失誤' }
   }
 };
 
