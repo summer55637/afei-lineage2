@@ -6597,7 +6597,7 @@ function handleChatSubmit(inputStr) {
 
   // Normal Player Chat Message
   const heroName = (RACES[state.race]?.name || '英雄') + ' ' + (getClass(state.class)?.name || '冒險者');
-  log(`💬 [世界] ${heroName}: ${raw}`, 'system');
+  log(`💬 [世界] ${heroName}：${raw}`, 'system');
 }
 
 const RATE_PRESETS = {
