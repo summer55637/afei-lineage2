@@ -13,6 +13,17 @@
 import { addToInventory, removeFromInventory, getInventoryCount } from '../InventoryService.js';
 import { RewardEngine } from './RewardEngine.js';
 
+const LIFE_ACTIVITY_LABELS = {
+  fishing: '釣魚',
+  hunting: '狩獵',
+  gathering: '採集',
+  mining: '採礦'
+};
+
+function getLifeActivityLabel(activityType) {
+  return LIFE_ACTIVITY_LABELS[activityType] || activityType;
+}
+
 export const LIFE_ACTIVITY_LEVEL_TABLE = {
   1: 0,
   2: 120,
@@ -142,7 +153,8 @@ export const LifeActivityCore = {
     if (actState.toolDurability <= 0) {
       actState.isWorking = false;
       actState.autoMode = false;
-      log(`💥 **工具損壞！** 你的 ${activityType} 工具耐久度已降至 0，活動已中斷。請回城市修理。`, 'error');
+      const activityLabel = getLifeActivityLabel(activityType);
+      log(`💥 **工具損壞！** 你的${activityLabel}工具耐久度已降至 0，活動已中斷。請回城市修理。`, 'error');
       if (callbacks.floatText) callbacks.floatText('💥 工具損壞！', 'float-damage');
       if (callbacks.updateUI) callbacks.updateUI();
       if (callbacks.save) callbacks.save();
@@ -173,8 +185,9 @@ export const LifeActivityCore = {
       if (actState.xp >= nextLvlXp) {
         actState.level++;
         didLevelUp = true;
-        log(`⭐ **熟練度提升！**你的 ${activityType.toUpperCase()} 技能提升至 **等級 ${actState.level}**！`, 'gain');
-        if (callbacks.floatText) callbacks.floatText(`⭐ ${activityType.toUpperCase()} LV ${actState.level}!`, 'float-gain');
+        const activityLabel = getLifeActivityLabel(activityType);
+        log(`⭐ **熟練度提升！**你的${activityLabel}技能提升至 **等級 ${actState.level}**！`, 'gain');
+        if (callbacks.floatText) callbacks.floatText(`⭐ ${activityLabel} 等級 ${actState.level}！`, 'float-gain');
       } else {
         break;
       }
@@ -206,7 +219,8 @@ export const LifeActivityCore = {
 
     state.gold -= totalCost;
     actState.toolDurability = maxDur;
-    log(`🛠️ ${activityType} 工具已成功修理（耐久度 +${missing}），花費 ${totalCost.toLocaleString()} 金幣。`, 'gain');
+    const activityLabel = getLifeActivityLabel(activityType);
+    log(`🛠️ ${activityLabel}工具已成功修理（耐久度 +${missing}），花費 ${totalCost.toLocaleString()} 金幣。`, 'gain');
 
     if (callbacks.updateUI) callbacks.updateUI();
     if (callbacks.save) callbacks.save();
