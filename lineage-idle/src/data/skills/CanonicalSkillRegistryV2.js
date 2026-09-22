@@ -6649,7 +6649,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "fatal_crush": {
         "id": "fatal_crush",
-        "name": "Fatal Crush",
+        "name": "致命粉碎",
         "slug": "fatal_crush",
         "type": "active",
         "rawType": "Ativo",
@@ -6661,7 +6661,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "A powerful strike.Attacks the target. Power 6246.If the enemy's HP is lower than",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "A powerful strike.Attacks the target. Power 6246.If the enemy's HP is lower than 30%, increases the number of attacks by 1.Ignores Shield Defense.Ignores 20% of the target's defense.",
+        "desc": "發動強力打擊，威力 6246。若敵人 HP 低於 30%，攻擊次數增加 1。無視盾牌防禦，並無視目標 20% 防禦力。",
         "balance": {
             "mpCost": 60,
             "pwr": 500,
@@ -6679,7 +6679,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "might_of_heaven": {
         "id": "might_of_heaven",
-        "name": "Might of Heaven",
+        "name": "天堂之力",
         "slug": "might_of_heaven",
         "type": "active",
         "rawType": "Ativo",
@@ -6691,7 +6691,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Strikes with holy light.Deals M. damage to the target. Power 113.Deals heavy dam",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "Strikes with holy light.Deals M. damage to the target. Power 113.Deals heavy damage to demons and undead.",
+        "desc": "以神聖光芒攻擊，對目標造成魔法傷害，威力 113。對惡魔與不死族造成大量傷害。",
         "balance": {
             "mpCost": 56,
             "pwr": 113,
@@ -6716,7 +6716,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "divine_beam": {
         "id": "divine_beam",
-        "name": "Divine Beam",
+        "name": "神聖光束",
         "slug": "divine_beam",
         "type": "active",
         "rawType": "Ativo",
@@ -6728,7 +6728,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Purifies with holy light.Deals M. damage to the target. Power 145.Deals heavy da",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "Purifies with holy light.Deals M. damage to the target. Power 145.Deals heavy damage to demons and undead.",
+        "desc": "以神聖光芒淨化並對目標造成魔法傷害，威力 145。對惡魔與不死族造成大量傷害。",
         "balance": {
             "mpCost": 56,
             "pwr": 145,
@@ -6748,7 +6748,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "mana_burn": {
         "id": "mana_burn",
-        "name": "Mana Burn",
+        "name": "魔力燃燒",
         "slug": "mana_burn",
         "type": "active",
         "rawType": "Ativo",
@@ -6760,7 +6760,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Deals M. damage. Power 78.Burns 200 of the target's MP.",
         "canonicalCooldown": "15 sec.",
         "canonicalCooldownMs": 15000,
-        "desc": "Deals M. damage. Power 78.Burns 200 of the target's MP.",
+        "desc": "造成魔法傷害，威力 78，並燃燒目標 200 MP。",
         "balance": {
             "mpCost": 77,
             "pwr": 78,
@@ -6778,7 +6778,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "dryad_root": {
         "id": "dryad_root",
-        "name": "Dryad Root",
+        "name": "樹精之根",
         "slug": "dryad_root",
         "type": "buff",
         "rawType": "Buff",
@@ -6818,7 +6818,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "word_of_fear": {
         "id": "word_of_fear",
-        "name": "Word of Fear",
+        "name": "恐懼之言",
         "slug": "word_of_fear",
         "type": "buff",
         "rawType": "Buff",
@@ -6830,7 +6830,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Inflicts Fear on targets around the character.",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "Inflicts Fear on targets around the character.",
+        "desc": "使角色周圍的目標陷入恐懼。",
         "balance": {
             "mpCost": 224,
             "pwr": 20,
@@ -6849,7 +6849,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "tower_shield": {
         "id": "tower_shield",
-        "name": "Tower Shield",
+        "name": "高塔之盾",
         "slug": "tower_shield",
         "type": "buff",
         "rawType": "Buff",
@@ -6861,7 +6861,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Def. +50Triggers Protective Shield when hit.Protective ShieldBuff: Creates a ",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "P. Def. +50Triggers Protective Shield when hit.Protective ShieldBuff: Creates a barrier with 500 HP.Trigger rate: 10%Duration: 5 sec.Trigger cooldown: 20 sec.",
+        "desc": "P.Def +50。受到攻擊時有 10% 機率觸發保護護盾，形成 500 HP 屏障，持續 5 秒；觸發冷卻 20 秒。",
         "balance": {
             "mpCost": 67,
             "pwr": 1,
@@ -6879,7 +6879,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "enlightenment": {
         "id": "enlightenment",
-        "name": "Enlightenment",
+        "name": "啟蒙",
         "slug": "enlightenment",
         "type": "buff",
         "rawType": "Buff",
@@ -6891,7 +6891,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "M. Atk. +10%Received Healing +20%Casting Spd. +30%M. Skill Critical Rate +50%M. ",
         "canonicalCooldown": "10 min.",
         "canonicalCooldownMs": 600000,
-        "desc": "M. Atk. +10%Received Healing +20%Casting Spd. +30%M. Skill Critical Rate +50%M. Skill MP Consumption -70%Speed +15",
+        "desc": "M.Atk +10%、受到治療 +20%、施法速度 +30%、魔法技能暴擊率 +50%、魔法技能 MP 消耗 -70%、速度 +15。",
         "balance": {
             "mpCost": 80,
             "pwr": 1,
@@ -6912,7 +6912,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "prophecy_of_fire": {
         "id": "prophecy_of_fire",
-        "name": "Prophecy of Fire",
+        "name": "火之預言",
         "slug": "prophecy_of_fire",
         "type": "buff",
         "rawType": "Buff",
@@ -6924,7 +6924,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max HP +10%HP Recovery Rate +10%P. Def. +10%M. Def. +10%Atk. Spd. +10%Casting Sp",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Max HP +10%HP Recovery Rate +10%P. Def. +10%M. Def. +10%Atk. Spd. +10%Casting Spd. +10%P. Skill Critical Damage +15%M. Skill Critical Rate +15%PvE damage bonus +15%Debuff Resistance +10%Anomaly Resistance +10%",
+        "desc": "最大 HP +10%、HP 恢復率 +10%、P.Def +10%、M.Def +10%、攻速 +10%、施法速度 +10%、物理技能暴擊傷害 +15%、魔法技能暴擊率 +15%、PvE 傷害 +15%、弱化抗性 +10%、異常抗性 +10%。",
         "balance": {
             "mpCost": 72,
             "pwr": 1,
@@ -6942,7 +6942,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "perfect_abilities": {
         "id": "perfect_abilities",
-        "name": "Perfect Abilities",
+        "name": "完美能力",
         "slug": "perfect_abilities",
         "type": "buff",
         "rawType": "Buff",
@@ -6954,7 +6954,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Def. +100Triggers Ultimate Critical Attack when hit.Ultimate Critical AttackB",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "P. Def. +100Triggers Ultimate Critical Attack when hit.Ultimate Critical AttackBuff: P. Skill Critical Damage +50, P. Skill Critical Rate +1%Trigger rate: 70%Duration: 8 sec.Trigger cooldown: 15 sec.",
+        "desc": "P.Def +100。受到攻擊時有 70% 機率觸發 Ultimate Critical Attack：物理技能暴擊傷害 +50、暴擊率 +1%，持續 8 秒；觸發冷卻 15 秒。",
         "balance": {
             "mpCost": 73,
             "pwr": 0,
@@ -6972,7 +6972,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "great_attack": {
         "id": "great_attack",
-        "name": "Great Attack",
+        "name": "強襲",
         "slug": "great_attack",
         "type": "buff",
         "rawType": "Buff",
@@ -6984,7 +6984,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Great Attack effect",
         "canonicalCooldown": "15 sec.",
         "canonicalCooldownMs": 15000,
-        "desc": "Great Attack",
+        "desc": "大幅提升攻擊能力。",
         "balance": {
             "mpCost": 91,
             "pwr": 20,
@@ -7003,7 +7003,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "turn_to_stone": {
         "id": "turn_to_stone",
-        "name": "Turn to Stone",
+        "name": "石化",
         "slug": "turn_to_stone",
         "type": "buff",
         "rawType": "Buff",
@@ -7015,7 +7015,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Turn to Stone effect",
         "canonicalCooldown": "8 min.",
         "canonicalCooldownMs": 480000,
-        "desc": "Turn to Stone",
+        "desc": "使自身進入石化狀態。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -7033,7 +7033,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "improved_sleep": {
         "id": "improved_sleep",
-        "name": "Improved Sleep",
+        "name": "強化睡眠",
         "slug": "improved_sleep",
         "type": "buff",
         "rawType": "Buff",
@@ -7045,7 +7045,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "With a high chance, inflicts Sleep on the target.",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "With a high chance, inflicts Sleep on the target.",
+        "desc": "有高機率使目標陷入睡眠。",
         "balance": {
             "mpCost": 75,
             "pwr": 20,
@@ -7063,7 +7063,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "unique_seal_of_damage": {
         "id": "unique_seal_of_damage",
-        "name": "Unique Seal of Damage",
+        "name": "獨特傷害封印",
         "slug": "unique_seal_of_damage",
         "type": "buff",
         "rawType": "Buff",
@@ -7075,7 +7075,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "With a certain chance, blocks additional attack damage from enemies in front of ",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "With a certain chance, blocks additional attack damage from enemies in front of you.With a certain chance, triggers Physical Attack Weakening/ Vampiric Weakening.<Physical Attack Weakening>P. Atk. -100Vampiric WeakeningHP Recovery -95% on attack",
+        "desc": "有一定機率阻擋前方敵人的追加攻擊傷害，並可能觸發物理攻擊弱化或吸血弱化。物理攻擊弱化：P.Atk -100；吸血弱化：攻擊時 HP 恢復 -95%。",
         "balance": {
             "mpCost": 91,
             "pwr": 10,
@@ -7093,7 +7093,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "crusader": {
         "id": "crusader",
-        "name": "Crusader",
+        "name": "十字軍",
         "slug": "crusader",
         "type": "active",
         "rawType": "Ativo",
@@ -7105,7 +7105,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Crusader effect",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "Crusader",
+        "desc": "進入十字軍戰鬥狀態。",
         "balance": {
             "mpCost": 200,
             "pwr": 20,
@@ -7123,7 +7123,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "summon_mew_the_cat": {
         "id": "summon_mew_the_cat",
-        "name": "Summon Mew the Cat",
+        "name": "召喚咪嗚貓",
         "slug": "summon_mew_the_cat",
         "type": "active",
         "rawType": "Ativo",
@@ -7135,7 +7135,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summons Mew the Cat.",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Summons Mew the Cat.",
+        "desc": "召喚咪嗚貓。",
         "balance": {
             "mpCost": 39,
             "pwr": 20,
@@ -7153,7 +7153,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "servitor_heal": {
         "id": "servitor_heal",
-        "name": "Servitor Heal",
+        "name": "召喚獸治療",
         "slug": "servitor_heal",
         "type": "active",
         "rawType": "Ativo",
@@ -7165,7 +7165,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers servitor's HP with 169 power.",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "Recovers servitor's HP with 169 power.",
+        "desc": "以威力 169 恢復召喚獸 HP。",
         "balance": {
             "mpCost": 24,
             "pwr": 169,
@@ -7187,7 +7187,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "servitor_recharge": {
         "id": "servitor_recharge",
-        "name": "Servitor Recharge",
+        "name": "召喚獸充能",
         "slug": "servitor_recharge",
         "type": "active",
         "rawType": "Ativo",
@@ -7199,7 +7199,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers servitor's MP. Power 41.The MP recovery effect depends on servitor's MP",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "Recovers servitor's MP. Power 41.The MP recovery effect depends on servitor's MP.",
+        "desc": "恢復召喚獸 MP，威力 41。實際 MP 恢復效果取決於召喚獸的 MP。",
         "balance": {
             "mpCost": 42,
             "pwr": 41,
@@ -7221,7 +7221,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "summon_kat_the_cat": {
         "id": "summon_kat_the_cat",
-        "name": "Summon Kat the Cat",
+        "name": "召喚凱特貓",
         "slug": "summon_kat_the_cat",
         "type": "active",
         "rawType": "Ativo",
@@ -7233,7 +7233,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summons Kat the Cat.",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Summons Kat the Cat.",
+        "desc": "召喚凱特貓。",
         "balance": {
             "mpCost": 39,
             "pwr": 20,
@@ -7251,7 +7251,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "transfer_pain": {
         "id": "transfer_pain",
-        "name": "Transfer Pain",
+        "name": "轉移痛苦",
         "slug": "transfer_pain",
         "type": "active",
         "rawType": "Ativo",
@@ -7263,7 +7263,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Transfers 10% of received damage to a servitor.MP Consumption is based on your l",
         "canonicalCooldown": "1s",
         "canonicalCooldownMs": 1000,
-        "desc": "Transfers 10% of received damage to a servitor.MP Consumption is based on your level.",
+        "desc": "將受到傷害的 10% 轉移給召喚獸。MP 消耗依角色等級決定。",
         "balance": {
             "mpCost": 7,
             "pwr": 1,
@@ -7283,7 +7283,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "summon_kai_the_cat": {
         "id": "summon_kai_the_cat",
-        "name": "Summon Kai the Cat",
+        "name": "召喚凱伊貓",
         "slug": "summon_kai_the_cat",
         "type": "active",
         "rawType": "Ativo",
@@ -7295,7 +7295,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summons Kai the Cat.",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "Summons Kai the Cat.",
+        "desc": "召喚凱伊貓。",
         "balance": {
             "mpCost": 70,
             "pwr": 20,
@@ -7313,7 +7313,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "power_supremacy": {
         "id": "power_supremacy",
-        "name": "Power Supremacy",
+        "name": "力量支配",
         "slug": "power_supremacy",
         "type": "buff",
         "rawType": "Buff",
@@ -7325,7 +7325,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "When activatedP. Atk. +10%Max HP -10%",
         "canonicalCooldown": "1s",
         "canonicalCooldownMs": 1000,
-        "desc": "When activatedP. Atk. +10%Max HP -10%",
+        "desc": "啟動時 P.Atk +10%、最大 HP -10%。",
         "balance": {
             "mpCost": 15,
             "pwr": 1,
@@ -7346,7 +7346,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "servitor_cure": {
         "id": "servitor_cure",
-        "name": "Servitor Cure",
+        "name": "召喚獸淨化",
         "slug": "servitor_cure",
         "type": "active",
         "rawType": "Ativo",
@@ -7358,7 +7358,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Removes Infection debuffs from a servitor.",
         "canonicalCooldown": "4 sec.",
         "canonicalCooldownMs": 4000,
-        "desc": "Removes Infection debuffs from a servitor.",
+        "desc": "移除召喚獸身上的感染類弱化效果。",
         "balance": {
             "mpCost": 35,
             "pwr": 20,
@@ -7377,7 +7377,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "servitor_ultimate_defense": {
         "id": "servitor_ultimate_defense",
-        "name": "Servitor Ultimate Defense",
+        "name": "召喚獸極限防禦",
         "slug": "servitor_ultimate_defense",
         "type": "active",
         "rawType": "Ativo",
@@ -7389,7 +7389,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Absolute skillThe effect is applied on servitors.P. Def. +1800M. Def. +1350Buff ",
         "canonicalCooldown": "15 min.",
         "canonicalCooldownMs": 900000,
-        "desc": "Absolute skillThe effect is applied on servitors.P. Def. +1800M. Def. +1350Buff Cancel Resistance +80%",
+        "desc": "絕對技能，效果作用於召喚獸：P.Def +1800、M.Def +1350、增益解除抗性 +80%。",
         "balance": {
             "mpCost": 48,
             "pwr": 8,
@@ -7410,7 +7410,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "swift_servitor_heal": {
         "id": "swift_servitor_heal",
-        "name": "Swift Servitor Heal",
+        "name": "快速召喚獸治療",
         "slug": "swift_servitor_heal",
         "type": "active",
         "rawType": "Ativo",
@@ -7422,7 +7422,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers servitor's HP with 160 power.Available when HP < 80%.",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "Recovers servitor's HP with 160 power.Available when HP < 80%.",
+        "desc": "以威力 160 恢復召喚獸 HP。僅在 HP 低於 80% 時可用。",
         "balance": {
             "mpCost": 24,
             "pwr": 160,
@@ -7444,7 +7444,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "servitor_wind_walk": {
         "id": "servitor_wind_walk",
-        "name": "Servitor Wind Walk",
+        "name": "召喚獸風之疾走",
         "slug": "servitor_wind_walk",
         "type": "active",
         "rawType": "Ativo",
@@ -7456,7 +7456,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "The effect is applied on servitors.P. Def. +8%M. Def. +10%Atk. Spd. +10%Speed +2",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "The effect is applied on servitors.P. Def. +8%M. Def. +10%Atk. Spd. +10%Speed +20",
+        "desc": "效果作用於召喚獸：P.Def +8%、M.Def +10%、攻速 +10%、速度 +20。",
         "balance": {
             "mpCost": 30,
             "pwr": 1,
@@ -7474,7 +7474,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "blessed_shield": {
         "id": "blessed_shield",
-        "name": "Blessed Shield",
+        "name": "祝福之盾",
         "slug": "blessed_shield",
         "type": "buff",
         "rawType": "Buff",
@@ -7486,7 +7486,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Shield Defense Rate +5%",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Shield Defense Rate +5%",
+        "desc": "盾牌防禦率 +5%。",
         "balance": {
             "mpCost": 35,
             "pwr": 1,
@@ -7505,7 +7505,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "servitor_blessing": {
         "id": "servitor_blessing",
-        "name": "Servitor Blessing",
+        "name": "召喚獸祝福",
         "slug": "servitor_blessing",
         "type": "active",
         "rawType": "Ativo",
@@ -7517,7 +7517,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Servitor Blessing effect",
         "canonicalCooldown": "4 sec.",
         "canonicalCooldownMs": 4000,
-        "desc": "Servitor Blessing",
+        "desc": "為召喚獸施加祝福強化。",
         "balance": {
             "mpCost": 58,
             "pwr": 20,
@@ -7536,7 +7536,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "summon_friend": {
         "id": "summon_friend",
-        "name": "Summon Friend",
+        "name": "召喚好友",
         "slug": "summon_friend",
         "type": "active",
         "rawType": "Ativo",
@@ -7548,7 +7548,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summon Friend effect",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "Summon Friend",
+        "desc": "將好友召喚至身邊。",
         "balance": {
             "mpCost": 180,
             "pwr": 20,
@@ -7568,7 +7568,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "return": {
         "id": "return",
-        "name": "Return",
+        "name": "返回",
         "slug": "return",
         "type": "active",
         "rawType": "Ativo",
@@ -7580,7 +7580,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Teleports to the nearest village.Cannot be used in special places such as the GM",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "Teleports to the nearest village.Cannot be used in special places such as the GM Consultation Service.",
+        "desc": "傳送至最近的村莊。在 GM 諮詢服務等特殊地點無法使用。",
         "balance": {
             "mpCost": 105,
             "pwr": 20,
@@ -7599,7 +7599,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "change_armor": {
         "id": "change_armor",
-        "name": "Change Armor",
+        "name": "更換鎧甲",
         "slug": "change_armor",
         "type": "active",
         "rawType": "Ativo",
@@ -7614,7 +7614,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Alterna a aparência visual da armadura do Death Knight. Efeito puramente cosmético.",
         "canonicalCooldown": "1s",
         "canonicalCooldownMs": 1000,
-        "desc": "Skill cosmética de visual de armadura do Death Knight. Não causa dano.",
+        "desc": "Death Knight 的鎧甲外觀技能，只改變外觀，不造成傷害。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -7633,7 +7633,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "mystic_resilience": {
         "id": "mystic_resilience",
-        "name": "Mystic Resilience",
+        "name": "神秘韌性",
         "slug": "mystic_resilience",
         "type": "buff",
         "rawType": "Buff",
@@ -7645,7 +7645,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "With a certain chance, when hit while the effect is active:Removes a debuff.Debu",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "With a certain chance, when hit while the effect is active:Removes a debuff.Debuff Resistance +3%Anomaly Resistance +3%",
+        "desc": "效果啟動期間受到攻擊時，有一定機率移除 1 個弱化效果。弱化抗性 +3%、異常抗性 +3%。",
         "balance": {
             "mpCost": 15,
             "pwr": 0,
@@ -7663,7 +7663,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "ethereal_strike": {
         "id": "ethereal_strike",
-        "name": "Ethereal Strike",
+        "name": "乙太打擊",
         "slug": "ethereal_strike",
         "type": "active",
         "rawType": "Ativo",
@@ -7675,7 +7675,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Creates a mysterious energy vortex that attacks the target.Deals M. damage to th",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "Creates a mysterious energy vortex that attacks the target.Deals M. damage to the target. Power 147.",
+        "desc": "創造神秘能量漩渦攻擊目標，造成魔法傷害，威力 147。",
         "balance": {
             "mpCost": 56,
             "pwr": 147,
@@ -7694,7 +7694,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "advanced_block": {
         "id": "advanced_block",
-        "name": "Advanced Block",
+        "name": "高階格擋",
         "slug": "advanced_block",
         "type": "buff",
         "rawType": "Buff",
@@ -7706,7 +7706,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Shield Defense +10%",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Shield Defense +10%",
+        "desc": "盾牌防禦 +10%。",
         "balance": {
             "mpCost": 44,
             "pwr": 1,
@@ -7726,7 +7726,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "warrior_bane": {
         "id": "warrior_bane",
-        "name": "Warrior Bane",
+        "name": "戰士剋星",
         "slug": "warrior_bane",
         "type": "buff",
         "rawType": "Buff",
@@ -7738,7 +7738,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Weakens the target.P. Atk. -23%Speed -20",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "Weakens the target.P. Atk. -23%Speed -20",
+        "desc": "削弱目標：P.Atk -23%、速度 -20。",
         "balance": {
             "mpCost": 70,
             "pwr": 2,
@@ -7757,7 +7757,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "ray_of_light": {
         "id": "ray_of_light",
-        "name": "Ray of Light",
+        "name": "光之射線",
         "slug": "ray_of_light",
         "type": "active",
         "rawType": "Ativo",
@@ -7769,7 +7769,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Emits a light beam with the spirits' help.Deals M. damage to the target. Power 2",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Emits a light beam with the spirits' help.Deals M. damage to the target. Power 202.",
+        "desc": "借助精靈力量發射光束，對目標造成魔法傷害，威力 202。",
         "balance": {
             "mpCost": 82,
             "pwr": 202,
@@ -7788,7 +7788,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "mage_bane": {
         "id": "mage_bane",
-        "name": "Mage Bane",
+        "name": "法師剋星",
         "slug": "mage_bane",
         "type": "buff",
         "rawType": "Buff",
@@ -7800,7 +7800,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Weakens the target.M. Atk. -23%Casting Spd. -20%",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "Weakens the target.M. Atk. -23%Casting Spd. -20%",
+        "desc": "削弱目標：M.Atk -23%、施法速度 -20%。",
         "balance": {
             "mpCost": 70,
             "pwr": 2,
@@ -7819,7 +7819,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "summon_feline_queen": {
         "id": "summon_feline_queen",
-        "name": "Summon Feline Queen",
+        "name": "召喚貓后",
         "slug": "summon_feline_queen",
         "type": "active",
         "rawType": "Ativo",
@@ -7831,7 +7831,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summons Feline Queen.",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "Summons Feline Queen.",
+        "desc": "召喚貓后。",
         "balance": {
             "mpCost": 144,
             "pwr": 20,
@@ -7849,7 +7849,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "chains_of_pain": {
         "id": "chains_of_pain",
-        "name": "Chains of Pain",
+        "name": "痛苦鎖鏈",
         "slug": "chains_of_pain",
         "type": "active",
         "rawType": "Ativo",
@@ -7861,7 +7861,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max HP +1000Transfers 55% of received damage to a servitor.MP Consumption is bas",
         "canonicalCooldown": "1s",
         "canonicalCooldownMs": 1000,
-        "desc": "Max HP +1000Transfers 55% of received damage to a servitor.MP Consumption is based on your level.",
+        "desc": "最大 HP +1000。將受到傷害的 55% 轉移給召喚獸，MP 消耗依角色等級決定。",
         "balance": {
             "mpCost": 13,
             "pwr": 6,
@@ -7880,7 +7880,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "servitor_share": {
         "id": "servitor_share",
-        "name": "Servitor Share",
+        "name": "召喚獸共享",
         "slug": "servitor_share",
         "type": "active",
         "rawType": "Ativo",
@@ -7892,7 +7892,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Transfers a certain percentage of the summoner's stats to the servitor.P./ M. At",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "Transfers a certain percentage of the summoner's stats to the servitor.P./ M. Atk.: 50%P./ M. Def.: 50%Atk. Spd./ Casting Spd.: 35%Max HP/ MP: 30%",
+        "desc": "將召喚師部分屬性轉移給召喚獸：P./M.Atk 50%、P./M.Def 50%、攻速／施法速度 35%、最大 HP／MP 30%。",
         "balance": {
             "mpCost": 105,
             "pwr": 5,
@@ -7913,7 +7913,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "summon_feline_king": {
         "id": "summon_feline_king",
-        "name": "Summon Feline King",
+        "name": "召喚貓王",
         "slug": "summon_feline_king",
         "type": "active",
         "rawType": "Ativo",
@@ -7925,7 +7925,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summons Feline King.",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "Summons Feline King.",
+        "desc": "召喚貓王。",
         "balance": {
             "mpCost": 144,
             "pwr": 20,
@@ -7943,7 +7943,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "summon_cubic_of_secrets": {
         "id": "summon_cubic_of_secrets",
-        "name": "Summon Cubic of Secrets",
+        "name": "召喚祕密魔方",
         "slug": "summon_cubic_of_secrets",
         "type": "active",
         "rawType": "Ativo",
@@ -7955,7 +7955,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summons Cubic of Secrets.M. Atk. +150When using magic skills (attack/ anomaly/ d",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "Summons Cubic of Secrets.M. Atk. +150When using magic skills (attack/ anomaly/ debuff):Delivers an additional attack.The summoner's illusions attack the target.(Trigger cooldown: 15 sec.)",
+        "desc": "召喚祕密魔方，M.Atk +150。使用攻擊／異常／弱化魔法時會追加攻擊，由召喚師的幻影攻擊目標；觸發冷卻 15 秒。",
         "balance": {
             "mpCost": 78,
             "pwr": 20,
@@ -7973,7 +7973,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "powerful_servitor_share": {
         "id": "powerful_servitor_share",
-        "name": "Powerful Servitor Share",
+        "name": "強力召喚獸共享",
         "slug": "powerful_servitor_share",
         "type": "active",
         "rawType": "Ativo",
@@ -7985,7 +7985,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Powerful Servitor Share effect",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "Powerful Servitor Share",
+        "desc": "強化召喚師與召喚獸之間的屬性共享。",
         "balance": {
             "mpCost": 117,
             "pwr": 20,
@@ -8004,7 +8004,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "summon_cat_emperor": {
         "id": "summon_cat_emperor",
-        "name": "Summon Cat Emperor",
+        "name": "召喚貓皇",
         "slug": "summon_cat_emperor",
         "type": "active",
         "rawType": "Ativo",
@@ -8016,7 +8016,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summon Cat Emperor effect",
         "canonicalCooldown": ".-",
         "canonicalCooldownMs": 1000,
-        "desc": "Summon Cat Emperor",
+        "desc": "召喚貓皇。",
         "balance": {
             "mpCost": 186,
             "pwr": 20,
@@ -8034,7 +8034,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "warrior_servitor": {
         "id": "warrior_servitor",
-        "name": "Warrior Servitor",
+        "name": "戰士召喚獸",
         "slug": "warrior_servitor",
         "type": "active",
         "rawType": "Ativo",
@@ -8046,7 +8046,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Makes the servitor possessed with an ancient warrior's spirit.Max HP +50%Max MP ",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Makes the servitor possessed with an ancient warrior's spirit.Max HP +50%Max MP +20%P. Atk. +45%M. Atk. +20%P. Def. +45%M. Def. +20%Atk. Spd. +35%Casting Spd. +15%Basic Critical Rate +50Basic Critical Rate +15%M. Skill Critical Rate +50M. Skill Critical Rate +15%Basic Critical Damage +15%M. Skill Critical Damage +15%Debuff/ Anomaly Resistance +40%",
+        "desc": "讓召喚獸獲得古代戰士之魂：最大 HP +50%、最大 MP +20%、P.Atk +45%、M.Atk +20%、P.Def +45%、M.Def +20%、攻速 +35%、施法速度 +15%、基礎暴擊率 +50 與 +15%、魔法技能暴擊率 +50 與 +15%、基礎／魔法技能暴擊傷害 +15%、弱化／異常抗性 +40%。",
         "balance": {
             "mpCost": 70,
             "pwr": 5,
@@ -8064,7 +8064,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "dark_burst": {
         "id": "dark_burst",
-        "name": "Dark Burst",
+        "name": "黑暗爆發",
         "slug": "dark_burst",
         "type": "active",
         "rawType": "Ativo",
@@ -8076,7 +8076,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies with a dark energy blast.Deals M. damage. ",
         "canonicalCooldown": "7 sec.",
         "canonicalCooldownMs": 7000,
-        "desc": "Attacks the target and nearby enemies with a dark energy blast.Deals M. damage. Power 61.",
+        "desc": "以黑暗能量爆炸攻擊目標與附近敵人，造成魔法傷害，威力 61。",
         "balance": {
             "mpCost": 28,
             "pwr": 61,
@@ -8095,7 +8095,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "curse_fear": {
         "id": "curse_fear",
-        "name": "Curse Fear",
+        "name": "恐懼詛咒",
         "slug": "curse_fear",
         "type": "buff",
         "rawType": "Buff",
@@ -8107,7 +8107,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Frightens the enemy.",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "Frightens the enemy.",
+        "desc": "使敵人陷入恐懼。",
         "balance": {
             "mpCost": 35,
             "pwr": 20,
@@ -8126,7 +8126,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "anchor": {
         "id": "anchor",
-        "name": "Anchor",
+        "name": "定身",
         "slug": "anchor",
         "type": "buff",
         "rawType": "Buff",
@@ -8138,7 +8138,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "For 5 sec., slowly stiffens the target's body paralyzing them for 3 sec.",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "For 5 sec., slowly stiffens the target's body paralyzing them for 3 sec.",
+        "desc": "在 5 秒內逐漸僵硬目標身體，之後使其麻痺 3 秒。",
         "balance": {
             "mpCost": 39,
             "pwr": 20,
@@ -8157,7 +8157,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "death_spike": {
         "id": "death_spike",
-        "name": "Death Spike",
+        "name": "死亡尖刺",
         "slug": "death_spike",
         "type": "active",
         "rawType": "Ativo",
@@ -8169,7 +8169,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks with the dark energy.Deals M. damage to the target. Power 84.",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "Attacks with the dark energy.Deals M. damage to the target. Power 84.",
+        "desc": "以黑暗能量攻擊目標，造成魔法傷害，威力 84。",
         "balance": {
             "mpCost": 33,
             "pwr": 84,
@@ -8188,7 +8188,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "summon_reanimated_man": {
         "id": "summon_reanimated_man",
-        "name": "Summon Reanimated Man",
+        "name": "召喚復生者",
         "slug": "summon_reanimated_man",
         "type": "active",
         "rawType": "Ativo",
@@ -8200,7 +8200,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summons Reanimated Man.",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "Summons Reanimated Man.",
+        "desc": "召喚復生者。",
         "balance": {
             "mpCost": 78,
             "pwr": 20,
