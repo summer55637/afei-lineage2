@@ -383,7 +383,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'elf_evas_templar',
-    name: "Eva's Templar",
+    name: '伊娃聖殿騎士',
     race: 'Elf',
     lineage: 'Elven Knight',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -569,7 +569,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'elf_evas_saint',
-    name: "Eva's Saint",
+    name: '伊娃聖者',
     race: 'Elf',
     lineage: 'Elven Cleric',
     lineageType: 'THIRD_CLASS_AWAKENING',
