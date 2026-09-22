@@ -666,7 +666,7 @@ function openClassTransferModal(classInfo) {
     if (!candidates.length) {
       container.innerHTML = `
         <div style="padding:24px; text-align:center; color:var(--text-muted); font-size:13px; background:rgba(0,0,0,0.4); border:1px solid rgba(212,175,55,0.2); border-radius:8px;">
-          ⚠️ <strong>${currentClassDef?.name || state.class}</strong> 在階段 ${targetStage} 沒有可用的進階選項。
+          ⚠️ <strong>${currentClassDef?.name || '未知職業'}</strong> 在階段 ${targetStage} 沒有可用的進階選項。
         </div>
       `;
       return;
@@ -1113,7 +1113,7 @@ function salvageItem(uid) {
   }
 
   if (isHighValueItem(item)) {
-    const rarityName = D().RARITY?.[item.rarity]?.name || item.rarity;
+    const rarityName = D().RARITY?.[item.rarity]?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(item.rarity || 'common').toLowerCase()] || '一般';
     if (!confirm(`⚠️ 確定要拆解珍貴物品「${def.name}」[${rarityName}] 嗎？`)) {
       return;
     }
@@ -1134,7 +1134,7 @@ function salvageItem(uid) {
   const amount = Math.max(1, Math.floor((reqLvl / 5 + 1) * rarityMult));
   state.inventory.splice(idx, 1);
   addToInventory(matId, amount);
-  log(`🔨 已將 ${def.name} 拆解為 ${amount}× ${D().ALL_ITEMS[matId]?.name || matId}！`, 'loot');
+  log(`🔨 已將 ${def.name} 拆解為 ${amount}× ${D().ALL_ITEMS[matId]?.name || '未知材料'}！`, 'loot');
   hideItemTooltip();
   updateAllUI(); save();
 }
@@ -1282,7 +1282,7 @@ function salvageSelectedItems() {
 
   set.clear();
   const summaryStr = Object.entries(yieldSummary)
-    .map(([mId, amt]) => `${amt}× ${D().ALL_ITEMS[mId]?.name || mId}`)
+    .map(([mId, amt]) => `${amt}× ${D().ALL_ITEMS[mId]?.name || '未知材料'}`)
     .join(', ');
 
   if (count > 0) {
@@ -1364,7 +1364,7 @@ function crystallizeSelectedItems() {
 
   set.clear();
   const summaryStr = Object.entries(yieldSummary)
-    .map(([mId, amt]) => `${amt}× ${D().ALL_ITEMS[mId]?.name || mId}`)
+    .map(([mId, amt]) => `${amt}× ${D().ALL_ITEMS[mId]?.name || '未知材料'}`)
     .join(', ');
 
   if (count > 0) {
@@ -1754,7 +1754,7 @@ export function sellItem(uid) {
   if (!def) return;
 
   if (isHighValueItem(item)) {
-    const rarityName = D().RARITY?.[item.rarity]?.name || item.rarity;
+    const rarityName = D().RARITY?.[item.rarity]?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(item.rarity || 'common').toLowerCase()] || '一般';
     if (!confirm(`⚠️ 確定要出售這件高價值物品「${def.name}」[${rarityName}]？`)) return;
   }
 
@@ -2537,13 +2537,13 @@ function renderShopPowerups(list) {
   const activeBuffs = Object.entries(state.buffs || {}).filter(([k,b]) => ['xpBoost','goldBoost','luckBoost','autoPotion'].includes(k) && b.until > Date.now());
   if (activeBuffs.length) {
     const hdr = mkEl('div'); hdr.className = 'shop-header'; hdr.innerHTML = '<h4>啟用中的增益效果</h4>'; list.appendChild(hdr);
-    for (const [k, b] of activeBuffs) { const remaining = Math.max(0, b.until - Date.now()); const names = { xpBoost: '📘 經驗值加成', goldBoost: '🪙 金幣加成', luckBoost: '🍀 幸運加成', autoPotion: '🧪 自動藥水' }; const row = mkEl('div'); row.className = 'shop-item active-buff'; row.innerHTML = `<div class="item-info"><div class="item-name">${names[k] || k}</div><div class="item-desc">+${Math.round(b.amount*100)}% · ${fmtCountdown(remaining)}</div></div><div class="buff-pulse"></div>`; list.appendChild(row); }
+    for (const [k, b] of activeBuffs) { const remaining = Math.max(0, b.until - Date.now()); const names = { xpBoost: '📘 經驗值加成', goldBoost: '🪙 金幣加成', luckBoost: '🍀 幸運加成', autoPotion: '🧪 自動藥水' }; const row = mkEl('div'); row.className = 'shop-item active-buff'; row.innerHTML = `<div class="item-info"><div class="item-name">${names[k] || '增益效果'}</div><div class="item-desc">+${Math.round(b.amount*100)}% · ${fmtCountdown(remaining)}</div></div><div class="buff-pulse"></div>`; list.appendChild(row); }
     const sep = mkEl('div'); sep.className = 'shop-header'; sep.innerHTML = '<h4>購買更多</h4>'; list.appendChild(sep);
   }
   for (const id of powerupIds) { const def = D().ALL_ITEMS[id]; if (def) list.appendChild(shopRow(def, id, def.price)); }
 }
 function renderShopClass(list) {
-  const clsName = state.class ? (getClass(state.class)?.name || state.class) : '冒險者';
+  const clsName = state.class ? (getClass(state.class)?.name || '冒險者') : '冒險者';
   const hdr = mkEl('div'); hdr.className = 'shop-header';
   hdr.innerHTML = `<h4>🎖️ ${clsName} 專屬裝備與階級晉升</h4><p>大師級裝備與職業徽章。</p>`;
   list.appendChild(hdr);
@@ -2583,7 +2583,7 @@ function renderShopMystic(list) {
     const row = mkEl('div');
     row.className = `shop-item rarity-${pick.rarity}` + (lockLvl || lockCls ? ' locked' : '');
     const statsLine = buildStatLine(cloned);
-    const rLabel = D().RARITY?.[pick.rarity]?.name || pick.rarity;
+    const rLabel = D().RARITY?.[pick.rarity]?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(pick.rarity || 'common').toLowerCase()] || '一般';
     row.innerHTML = `<div class="item-info"><div class="item-name rarity-${pick.rarity}">${def.name} <span class="rarity-tag">${rLabel}</span></div><div class="item-desc">${def.desc || ''}</div>${statsLine ? `<div class="item-stats">${statsLine}</div>` : ''}</div><button class="item-action mystic-buy" data-buy-rarity="${pick.id}" data-rarity="${pick.rarity}" ${(!canAfford || lockLvl || lockCls) ? 'disabled' : ''}>${price.toLocaleString()} 金幣</button>`;
     list.appendChild(row);
   }
@@ -2965,7 +2965,7 @@ function updateEnchantUI() {
       const safeMsg = enchant < safeLimit ? `100% 安全（安全至 +${safeLimit}）` : `成功率：${Math.round(baseProb * 100)}%（品級 ${grade}）`;
       
       const card = mkEl('div'); card.className = 'enchant-card';
-      const title = (enchant > 0 ? `+${enchant} ` : '') + def.name + (item.rarity ? ` [${D().RARITY?.[item.rarity]?.name || item.rarity}]` : '');
+      const title = (enchant > 0 ? `+${enchant} ` : '') + def.name + (item.rarity ? ` [${D().RARITY?.[item.rarity]?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(item.rarity || 'common').toLowerCase()] || '一般'}]` : '');
       
       card.innerHTML = `
         <div class="enchant-card-info">
@@ -4263,7 +4263,7 @@ function openResetCertificationsModal(subId) {
   body.innerHTML = `
     <div style="margin-bottom:14px;">
       <h3 style="margin:0; color:#ef4444; font-family:'Cinzel',serif; font-size:16px;">🔄 重置認證</h3>
-      <p style="margin:4px 0 0 0; font-size:12px; color:var(--bone);">確定要重置並重新分配所有認證： <strong>${subClassDef?.name || sub.classId}</strong>?</p>
+      <p style="margin:4px 0 0 0; font-size:12px; color:var(--bone);">確定要重置並重新分配所有認證： <strong>${subClassDef?.name || '未知職業'}</strong>？</p>
     </div>
     <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:12px; font-size:11px; color:#d1d5db; line-height:1.4;">
       <p style="margin:0 0 6px 0;">確認後，此副職業已學習的所有認證將退還，讓你可以重新選擇等級 65、70、75、80 的技能。</p>
@@ -4366,7 +4366,7 @@ function toggleDivineTransformation(transId) {
     log('👼 神聖變身已停用。', 'system');
   } else {
     state.activeTransformation = transId;
-    log(`👼 **神聖變身已啟用！** （${Object.values(DIVINE_TRANSFORMATIONS).find(d => d.id === transId)?.name || transId}）`, 'rarity-legendary');
+    log(`👼 **神聖變身已啟用！** （${Object.values(DIVINE_TRANSFORMATIONS).find(d => d.id === transId)?.name || '未知變身'}）`, 'rarity-legendary');
     floatText('神聖變身！', 'float-jackpot');
   }
 
@@ -4396,7 +4396,7 @@ function openAddSubclassModal() {
     classOptionsHtml += `
       <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px; display:flex; justify-content:space-between; align-items:center; gap:8px;">
         <div>
-          <div style="font-weight:bold; color:#fde047; font-size:12px;">${cDef?.name || cId}</div>
+          <div style="font-weight:bold; color:#fde047; font-size:12px;">${cDef?.name || '未知職業'}</div>
           <div style="font-size:10px; color:#a855f7; text-transform:uppercase;">定位：${({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[arch] || arch}</div>
         </div>
         <button class="action-btn action-btn--primary" style="padding:6px 12px; font-size:11px;" onclick="window.confirmAddSubclass('${cId}')">
@@ -5381,7 +5381,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
       const isEquip = drop.isEquipment || !['material', 'potion', 'consumable', 'scroll', 'gem'].includes(def.slot);
       if (isEquip) {
         addToInventory(dropId, 1, drop.rarity || 'common');
-        const rName = D()?.RARITY?.[drop.rarity || 'common']?.name || (drop.rarity || 'common');
+        const rName = D()?.RARITY?.[drop.rarity || 'common']?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(drop.rarity || 'common').toLowerCase()] || '一般';
         log(`✦ 獲得 **${def.name}** [${rName}]！`, 'rarity-' + (drop.rarity || 'common'), 'loot');
         floatText(`✦ ${rName}！`, 'float-' + (drop.rarity || 'common'));
       } else {
@@ -5418,7 +5418,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
     const dropChance = (cardDef.dropChance || (monster.isRaid ? 0.015 : (monster.boss ? 0.008 : 0.0005))) * levelGapPenalty;
     if (Math.random() < dropChance) {
       addToInventory(cardId, 1);
-      log(`🃏 稀有掉落！獲得 **${cardDef.name}** [${D()?.RARITY?.[cardDef.rarity || 'rare']?.name || cardDef.rarity || '稀有'}]！`, 'rarity-' + (cardDef.rarity || 'rare'), 'loot');
+      log(`🃏 稀有掉落！獲得 **${cardDef.name}** [${D()?.RARITY?.[cardDef.rarity || 'rare']?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(cardDef.rarity || 'rare').toLowerCase()] || '稀有'}]！`, 'rarity-' + (cardDef.rarity || 'rare'), 'loot');
       floatText(`🃏 怪物卡片！`, 'float-jackpot');
     }
   }
@@ -6428,8 +6428,8 @@ function spawnAdminItem(itemId, qty = 1, rarity = 'common', enchant = 0, affixCh
   }
 
   const enchantStr = enchant > 0 ? `+${enchant} ` : '';
-  const foundationStr = isFoundation ? '✨ [FOUNDATION] ' : '';
-  log(`🎁 [管理員] 已在背包生成 ${qty}× ${foundationStr}${enchantStr}${def.name} [${rarity}]！`, 'rarity-legendary');
+  const foundationStr = isFoundation ? '✨ [基底] ' : '';
+  log(`🎁 [管理員] 已在背包生成 ${qty}× ${foundationStr}${enchantStr}${def.name} [${({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(rarity).toLowerCase()] || '一般'}]！`, 'rarity-legendary');
   floatText('🎁 物品已生成！', 'float-jackpot');
   updateAllUI();
   save(true, true);
@@ -7636,7 +7636,7 @@ function registerCodexItem(setId, itemId) {
   if (!state.codex[setId].includes(itemId)) state.codex[setId].push(itemId);
 
   const itemDef = D().ALL_ITEMS[itemId];
-  log(`📜 物品 **${itemDef?.name || itemId}** 已成功登錄圖鑑！${foundInWarehouse ? '（已從倉庫取出）' : ''}`, 'rarity-rare');
+  log(`📜 物品 **${itemDef?.name || '未知物品'}** 已成功登錄圖鑑！${foundInWarehouse ? '（已從倉庫取出）' : ''}`, 'rarity-rare');
   floatText('📜 圖鑑登錄完成！', 'float-jackpot');
   triggerQuestEvent('codex', 1);
 
@@ -7904,7 +7904,7 @@ function renderSpecialCraftRecipes() {
     card.style.cssText = 'border:1px solid var(--border-gilt); padding:10px; border-radius:8px; background:rgba(15,20,30,0.8);';
     card.innerHTML = `
       <div style="font-weight:bold; color:var(--gilt-bright); font-size:12px;">${r.name}</div>
-      <div style="font-size:11px; color:var(--text-muted); margin:4px 0;">費用：${r.costCharges} 次充能 + ${r.crystalQty}× ${D().ALL_ITEMS[r.crystalId]?.name || r.crystalId}</div>
+      <div style="font-size:11px; color:var(--text-muted); margin:4px 0;">費用：${r.costCharges} 次充能 + ${r.crystalQty}× ${D().ALL_ITEMS[r.crystalId]?.name || '未知水晶'}</div>
       <button class="action-btn action-btn--primary special-craft-btn" style="padding:2px 8px; font-size:11px; width:100%; margin-top:6px;" data-recipe="${r.id}" onclick="craftSpecialRecipe('${r.id}')">鍛造 ✨</button>
     `;
     card.querySelectorAll('.special-craft-btn').forEach(b => {
@@ -10540,7 +10540,7 @@ export function init() {
         if (absorbedCount > 0) {
           const cardDef = MONSTER_CARDS[cardId];
           const cur = state.cardCodex?.[cardId] || {};
-          log(`🃏 已將 **${absorbedCount} 張 ${cardDef?.name || cardId} 卡片**吸收到圖鑑！（階級 ${cur.rank}/5 · 總計：${cur.count}）`, 'gain');
+          log(`🃏 已將 **${absorbedCount} 張 ${cardDef?.name || '未知卡片'} 卡片**吸收到圖鑑！（階級 ${cur.rank}/5 · 總計：${cur.count}）`, 'gain');
         }
       }
 
