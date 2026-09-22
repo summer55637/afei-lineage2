@@ -87,12 +87,12 @@ export const RACES: RaceDef[] = [
     id: "human",
     name: "人類",
     color: "#e0b753",
-    blurb: "Adaptable children of Aden. Balanced in all disciplines.",
+    blurb: "亞丁適應力最強的種族，各方面能力都十分均衡。",
     classes: [
       {
         id: "warrior",
         name: "戰士",
-        role: "Blademaster",
+        role: "劍術大師",
         hp: 110,
         speed: 235,
         color: "#e0b753",
@@ -114,7 +114,7 @@ export const RACES: RaceDef[] = [
       {
         id: "knight",
         name: "騎士",
-        role: "Guardian",
+        role: "守護者",
         hp: 142,
         speed: 205,
         color: "#c9a23a",
@@ -136,7 +136,7 @@ export const RACES: RaceDef[] = [
       {
         id: "rogue",
         name: "盜賊",
-        role: "Assassin",
+        role: "刺客",
         hp: 92,
         speed: 256,
         color: "#d8c27a",
@@ -161,12 +161,12 @@ export const RACES: RaceDef[] = [
     id: "elf",
     name: "精靈",
     color: "#74d68a",
-    blurb: "Children of the forest. Graceful, swift, and precise.",
+    blurb: "森林之子，優雅、迅捷且精準。",
     classes: [
       {
         id: "archer",
         name: "弓箭手",
-        role: "Hawk Eye",
+        role: "鷹眼",
         hp: 96,
         speed: 240,
         color: "#74d68a",
@@ -190,7 +190,7 @@ export const RACES: RaceDef[] = [
       {
         id: "mystic",
         name: "秘法師",
-        role: "Spellweaver",
+        role: "咒術編織者",
         hp: 88,
         speed: 225,
         color: "#7fd1c0",
@@ -214,7 +214,7 @@ export const RACES: RaceDef[] = [
       {
         id: "sentinel",
         name: "守衛者",
-        role: "Lancer",
+        role: "槍兵",
         hp: 118,
         speed: 220,
         color: "#6fc77f",
@@ -239,12 +239,12 @@ export const RACES: RaceDef[] = [
     id: "darkelf",
     name: "黑暗精靈",
     color: "#a878ff",
-    blurb: "Shadow-bound and ruthless. Masters of the night.",
+    blurb: "與暗影為伍、毫不留情的夜之支配者。",
     classes: [
       {
         id: "assassin",
         name: "刺客",
-        role: "Nightblade",
+        role: "夜刃",
         hp: 90,
         speed: 250,
         color: "#a878ff",
@@ -266,7 +266,7 @@ export const RACES: RaceDef[] = [
       {
         id: "shillien",
         name: "席琳使徒",
-        role: "Reaper",
+        role: "收割者",
         hp: 112,
         speed: 215,
         color: "#8f5cf0",
@@ -288,7 +288,7 @@ export const RACES: RaceDef[] = [
       {
         id: "sorcerer",
         name: "術士",
-        role: "Hexer",
+        role: "咒術師",
         hp: 84,
         speed: 222,
         color: "#b06cff",
@@ -315,12 +315,12 @@ export const RACES: RaceDef[] = [
     id: "orc",
     name: "半獸人",
     color: "#d07a3c",
-    blurb: "Brutal and unbreakable. Strength above all.",
+    blurb: "兇猛而堅不可摧，以力量為最高信條。",
     classes: [
       {
         id: "destroyer",
         name: "破壞者",
-        role: "Berserker",
+        role: "狂戰士",
         hp: 152,
         speed: 200,
         color: "#d07a3c",
@@ -342,7 +342,7 @@ export const RACES: RaceDef[] = [
       {
         id: "monk",
         name: "武僧",
-        role: "Fist of Fury",
+        role: "怒拳",
         hp: 120,
         speed: 248,
         color: "#e08a4a",
@@ -364,7 +364,7 @@ export const RACES: RaceDef[] = [
       {
         id: "overlord",
         name: "霸主",
-        role: "Warlord",
+        role: "戰爭領主",
         hp: 130,
         speed: 210,
         color: "#c96a30",
@@ -391,12 +391,12 @@ export const RACES: RaceDef[] = [
     id: "dwarf",
     name: "矮人",
     color: "#c9a05a",
-    blurb: "Stout masters of craft and unyielding defense.",
+    blurb: "精通工藝、體格強健且防守堅韌的種族。",
     classes: [
       {
         id: "artisan",
         name: "工匠",
-        role: "Forgemaster",
+        role: "鍛造大師",
         hp: 146,
         speed: 200,
         color: "#c9a05a",
@@ -418,7 +418,7 @@ export const RACES: RaceDef[] = [
       {
         id: "warsmith",
         name: "戰爭鐵匠",
-        role: "Engineer",
+        role: "工程師",
         hp: 120,
         speed: 215,
         color: "#b98a44",
@@ -445,12 +445,12 @@ export const RACES: RaceDef[] = [
     id: "kamael",
     name: "卡麥爾",
     color: "#46c7b8",
-    blurb: "Winged warriors of the East. Fierce and disciplined.",
+    blurb: "來自東方的翼人戰士，勇猛而紀律嚴明。",
     classes: [
       {
         id: "berserker",
         name: "狂戰士",
-        role: "Dualist",
+        role: "雙劍士",
         hp: 108,
         speed: 240,
         color: "#46c7b8",
@@ -472,7 +472,7 @@ export const RACES: RaceDef[] = [
       {
         id: "soulbreaker",
         name: "破魂者",
-        role: "Soulbinder",
+        role: "靈魂束縛者",
         hp: 96,
         speed: 230,
         color: "#3fb0a4",
