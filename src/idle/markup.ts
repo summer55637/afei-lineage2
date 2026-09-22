@@ -13,30 +13,30 @@ export const IDLE_MARKUP = `
       <div class="tb-left">
         <span class="tb-brand">ADEN ARENA<span class="tb-brand-sub">IDLE CHRONICLES</span></span>
         <div id="cloud-save-slot" class="tb-cloud-slot" style="width: 78px; height: 26px; flex-shrink: 0;" aria-hidden="true"></div>
-        <span id="save-status-badge" style="display:none;">Salvo</span>
+        <span id="save-status-badge" style="display:none;">已儲存</span>
       </div>
 
       <div class="tb-center">
         <span id="season-badge" class="tb-pill tb-pill--season" title="第 1 賽季：亞丁覺醒（等級上限 60）">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M12 2l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1z"/></svg> Temp 1: Cap Lv 60
         </span>
-        <span id="liveops-event-badge" class="tb-pill tb-pill--event" onclick="window.openLiveOpsModal && window.openLiveOpsModal()" title="Clique para ver o evento Live-Ops ativo">
+        <span id="liveops-event-badge" class="tb-pill tb-pill--event" onclick="window.openLiveOpsModal && window.openLiveOpsModal()" title="點擊查看目前進行中的 Live-Ops 活動">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Evento
         </span>
         <span id="worldboss-top-badge" class="tb-pill tb-pill--boss" onclick="window.openWorldBossModal && window.openWorldBossModal()" title="全球世界首領突襲（安塔瑞斯、巴拉卡斯、巴溫）">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 12L2.1 14.8"/><path d="M12 12l7.1 7.1"/></svg> World Boss: --:--:--
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 12L2.1 14.8"/><path d="M12 12l7.1 7.1"/></svg> 世界首領：--:--:--
         </span>
       </div>
 
       <div class="tb-right">
         <div id="top-bar-guide-container" style="display:inline-flex;">
-          <button id="top-bar-guide-btn" class="tb-btn" onclick="window.openCurrentTabGuide && window.openCurrentTabGuide()" title="Guia">
+          <button id="top-bar-guide-btn" class="tb-btn" onclick="window.openCurrentTabGuide && window.openCurrentTabGuide()" title="指南">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> <span>Guia</span>
           </button>
         </div>
         
-        <button id="admin-top-btn" class="tb-btn tb-btn--admin" style="display:none;" onclick="window.openAdminModal && window.openAdminModal()" title="Admin">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/><path d="M3 20h18v2H3z"/></svg> <span>Admin</span>
+        <button id="admin-top-btn" class="tb-btn tb-btn--admin" style="display:none;" onclick="window.openAdminModal && window.openAdminModal()" title="管理員">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/><path d="M3 20h18v2H3z"/></svg> <span>管理員</span>
         </button>
 
         <button id="top-referral-btn" class="tb-btn tb-btn--referral" onclick="window.openContactsModal ? window.openContactsModal() : (window.openReferralModal && window.openReferralModal())" title="聯絡人、好友清單與導師系統">
@@ -112,8 +112,8 @@ export const IDLE_MARKUP = `
             <span id="level-text" class="stat-value" style="color:#ffd700; font-weight:bold; font-size:13px;">1</span>
           </div>
           <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px;">
-            <span id="race-text" class="stat-value" style="color:#e2e8f0; font-weight:600;">Human</span>
-            <span id="class-text" class="stat-value" style="color:#c5a059; font-weight:600;">Fighter</span>
+            <span id="race-text" class="stat-value" style="color:#e2e8f0; font-weight:600;">人類</span>
+            <span id="class-text" class="stat-value" style="color:#c5a059; font-weight:600;">戰士</span>
           </div>
           <button id="stats-class-adv-btn" class="class-adv-action-btn" style="display:none; width:100%; margin-top:5px; font-size:10px; padding:5px 8px; animation: banner-pulse 1.5s infinite alternate; cursor:pointer;" onclick="window.openClassTransferModal && window.openClassTransferModal()">
             ⚡ 變更職業
@@ -166,8 +166,8 @@ export const IDLE_MARKUP = `
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px;">
             <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">M.ATK</label><span id="matk-text" class="stat-value" style="color:#c084fc; font-weight:bold;">0</span></div>
             <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">M.DEF</label><span id="mdef-text" class="stat-value" style="color:#818cf8; font-weight:bold;">0</span></div>
-            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">Drop</label><span id="loot-text" class="stat-value" style="color:#34d399; font-weight:bold;">100%</span></div>
-            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">鍛造</label><span id="craft-level-stat" class="stat-value" style="color:#fbbf24; font-weight:bold;">Nv 1</span></div>
+            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">掉落</label><span id="loot-text" class="stat-value" style="color:#34d399; font-weight:bold;">100%</span></div>
+            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">鍛造</label><span id="craft-level-stat" class="stat-value" style="color:#fbbf24; font-weight:bold;">Lv. 1</span></div>
           </div>
         </div>
 
@@ -206,9 +206,9 @@ export const IDLE_MARKUP = `
             <div class="combat-controls-bar">
               <button id="combat-toggle-btn" class="combat-ctrl-btn active" title="暫停或開始自動狩獵（P 鍵）"><span class="combat-stance-gem"></span> <span>⚔️ 狩獵中</span></button>
               <button id="soulshot-toggle-btn" class="combat-ctrl-btn" title="戰鬥中啟用魂彈（傷害 +100%）"><span>⚡ SS</span> <span style="font-size:9px; color:#ffd877;">(OFF)</span></button>
-              <button id="autopotion-toggle-btn" class="combat-ctrl-btn" title="HP 低於 50% 時自動使用 HP 藥水"><span>🧪 Auto-HP</span> <span style="font-size:9px; color:#ffd877;">(OFF)</span></button>
+              <button id="autopotion-toggle-btn" class="combat-ctrl-btn" title="HP 低於 50% 時自動使用 HP 藥水"><span>🧪 自動補血</span> <span style="font-size:9px; color:#ffd877;">(OFF)</span></button>
               <button id="speed-toggle-btn" class="combat-ctrl-btn" title="戰鬥速度（1x 一般／2x 加速）"><span>⏩ 1x</span></button>
-              <button id="macro-settings-btn" class="combat-ctrl-btn" onclick="window.openMacroSettingsModal && window.openMacroSettingsModal()" title="放置巨集設定：HP／MP 觸發、技能循環與自動回收"><span>⚙️ Macro</span></button>
+              <button id="macro-settings-btn" class="combat-ctrl-btn" onclick="window.openMacroSettingsModal && window.openMacroSettingsModal()" title="放置巨集設定：HP／MP 觸發、技能循環與自動回收"><span>⚙️ 巨集</span></button>
               <label class="combat-ctrl-btn combat-ctrl-vfx" style="display:inline-flex; align-items:center; gap:4px; cursor:pointer;" title="視覺效果品質">
                 <span>VFX</span>
                 <select id="vfx-quality-select" title="視覺效果品質">
@@ -222,7 +222,7 @@ export const IDLE_MARKUP = `
           <div class="stage-vs" aria-hidden="true">&#9876;</div>
           <div class="stage-hero" id="stage-hero">
             <div class="stage-entity-name stage-hero-name" id="hero-name">Tristan</div>
-            <div class="stage-entity-level stage-hero-level" id="hero-level">Level 1</div>
+            <div class="stage-entity-level stage-hero-level" id="hero-level">等級 1</div>
             <div class="stage-hp-bar stage-hp-bar-hero" id="hero-hp-bar">
               <div class="stage-hp-fill stage-hp-fill-hero" id="hero-hp-fill"></div>
               <span class="stage-hp-text stage-hp-text-hero" id="hero-hp-text">HP: 100 / 100</span>
@@ -234,15 +234,15 @@ export const IDLE_MARKUP = `
             <div class="hero-sprite-host" id="hero-sprite-container"></div>
           </div>
           <div class="stage-monster" id="stage-monster">
-            <div class="stage-entity-name" id="monster-name">Procurando Inimigo...</div>
-            <div class="stage-entity-level stage-monster-level" id="monster-level">Level 1</div>
+            <div class="stage-entity-name" id="monster-name">搜尋敵人中...</div>
+            <div class="stage-entity-level stage-monster-level" id="monster-level">等級 1</div>
             <div class="stage-hp-bar" id="monster-hp-bar">
               <div class="stage-hp-fill" id="monster-hp-fill"></div>
               <span class="stage-hp-text" id="monster-hp-text">HP: 0 / 0</span>
             </div>
             <div class="stage-stagger-bar" id="monster-stagger-bar" style="display:none;">
               <div class="stage-stagger-fill" id="monster-stagger-fill"></div>
-              <span class="stage-stagger-text" id="monster-stagger-text">POSTURA: 100%</span>
+              <span class="stage-stagger-text" id="monster-stagger-text">姿態：100%</span>
             </div>
             <div class="monster-sprite-host" id="monster-sprite-container"></div>
           </div>
@@ -255,7 +255,7 @@ export const IDLE_MARKUP = `
             <button class="log-filter-btn" data-logfilter="loot">📦 掉落與物品</button>
             <button class="log-filter-btn" data-logfilter="gold_xp">💰 XP 與金幣</button>
             <button class="log-filter-btn" data-logfilter="combat">⚔️ 戰鬥</button>
-            <button class="log-filter-btn" data-logfilter="system">⚙️ Sistema</button>
+            <button class="log-filter-btn" data-logfilter="system">⚙️ 系統</button>
           </div>
           <button id="clear-log-btn" class="log-clear-btn" title="清除日誌紀錄">🧹 清除</button>
         </div>
@@ -269,9 +269,9 @@ export const IDLE_MARKUP = `
           </button>
         </div>
         <form id="chat-form" class="chat-input-bar">
-          <label for="chat-input" class="sr-only" style="display:none;">Mensagem do Chat</label>
-          <input type="text" id="chat-input" name="chatInput" class="chat-input" placeholder="Digite uma mensagem..." autocomplete="off" aria-label="Digite uma mensagem no chat" />
-          <button type="submit" class="chat-send-btn">Enviar</button>
+          <label for="chat-input" class="sr-only" style="display:none;">聊天訊息</label>
+          <input type="text" id="chat-input" name="chatInput" class="chat-input" placeholder="輸入訊息..." autocomplete="off" aria-label="輸入聊天訊息" />
+          <button type="submit" class="chat-send-btn">送出</button>
         </form>
       </section>
 
@@ -291,7 +291,7 @@ export const IDLE_MARKUP = `
               <div class="mini-target-bar-fill" style="width: 100%;"></div>
             </div>
           </div>
-          <span class="mobile-current-tab-badge" id="mobile-tabs-current-badge">Menu</span>
+          <span class="mobile-current-tab-badge" id="mobile-tabs-current-badge">選單</span>
         </div>
 
         <!-- Master Navigation Dock: 4 Pillars of Aden -->
@@ -317,10 +317,10 @@ export const IDLE_MARKUP = `
 
           <!-- Pillar 1 Subtabs: 戰鬥 -->
           <div class="pillar-subtabs-strip active" id="pillar-strip-combat">
-            <button class="tab-btn active subtab-pill-btn" data-tab="zones">⚔ 戰鬥 &amp; Zonas</button>
-            <button class="tab-btn subtab-pill-btn" data-tab="raids">🐉 Raids &amp; Bosses</button>
+            <button class="tab-btn active subtab-pill-btn" data-tab="zones">⚔ 戰鬥與區域</button>
+            <button class="tab-btn subtab-pill-btn" data-tab="raids">🐉 Raid 與首領</button>
             <button class="tab-btn subtab-pill-btn" data-tab="tower">🏰 傲慢之塔</button>
-            <button class="tab-btn subtab-pill-btn" data-tab="colosseum">⚔ Coliseu PvP</button>
+            <button class="tab-btn subtab-pill-btn" data-tab="colosseum">⚔ PvP 競技場</button>
             <button class="tab-btn subtab-pill-btn" data-tab="expeditions">🏰 遠征</button>
             <button class="tab-btn subtab-pill-btn" data-tab="fishing">🎣 釣魚</button>
             <button class="tab-btn subtab-pill-btn" data-tab="hunting">🐾 野外狩獵</button>
@@ -333,7 +333,7 @@ export const IDLE_MARKUP = `
             <button class="tab-btn subtab-pill-btn" data-tab="character">🛡 角色</button>
             <button class="tab-btn subtab-pill-btn" data-tab="inventory">🎒 背包 <span id="tab-badge-inventory" class="tab-badge" style="display:none">!</span></button>
             <button class="tab-btn subtab-pill-btn" data-tab="skills">✦ 技能 <span id="tab-badge-skills" class="tab-badge" style="display:none">!</span></button>
-            <button class="tab-btn subtab-pill-btn" data-tab="astral">★ Maestria</button>
+            <button class="tab-btn subtab-pill-btn" data-tab="astral">★ 精通</button>
             <button class="tab-btn subtab-pill-btn" data-tab="dolls">🧸 娃娃與寵物</button>
             <button class="tab-btn subtab-pill-btn" data-tab="cosmetics">✨ 外觀</button>
             <button class="tab-btn subtab-pill-btn" data-tab="quests">🎯 任務 <span id="tab-badge-quests" class="tab-badge" style="display:none">!</span></button>
@@ -341,8 +341,8 @@ export const IDLE_MARKUP = `
 
           <!-- Pillar 3 Subtabs: 帝國 & Economia -->
           <div class="pillar-subtabs-strip collapsed" id="pillar-strip-economy" style="display:none;">
-            <button class="tab-btn subtab-pill-btn" data-tab="market" data-min-level="1" style="border-color:#ffd700; color:#fde047; font-weight:bold;">🏛 市場 Giran (P2P)</button>
-            <button class="tab-btn subtab-pill-btn" data-tab="shop" data-min-level="1">⚜ 市場r</button>
+            <button class="tab-btn subtab-pill-btn" data-tab="market" data-min-level="1" style="border-color:#ffd700; color:#fde047; font-weight:bold;">🏛 奇岩市場（P2P）</button>
+            <button class="tab-btn subtab-pill-btn" data-tab="shop" data-min-level="1">⚜ 商店</button>
             <button class="tab-btn subtab-pill-btn" data-tab="craft" data-min-level="10">⚒ 亞丁鍛造 <span id="tab-badge-craft" class="tab-badge" style="display:none">!</span></button>
             <button class="tab-btn subtab-pill-btn" data-tab="warehouse" data-min-level="15">📦 私人倉庫</button>
             <button class="tab-btn subtab-pill-btn" data-tab="magiclamp" data-min-level="20">🪔 魔法神燈</button>
@@ -355,9 +355,9 @@ export const IDLE_MARKUP = `
             <button class="tab-btn subtab-pill-btn" data-tab="olympiad">🏆 奧林匹亞</button>
             <button class="tab-btn subtab-pill-btn" data-tab="rankings">🏆 世界排名</button>
             <button class="tab-btn subtab-pill-btn" data-tab="sevensigns">🏛 七封印</button>
-            <button class="tab-btn subtab-pill-btn" data-tab="fortress">⚔ Fortalezas</button>
+            <button class="tab-btn subtab-pill-btn" data-tab="fortress">⚔ 要塞</button>
             <button class="tab-btn subtab-pill-btn" data-tab="enchant">✦ 強化</button>
-            <button class="tab-btn subtab-pill-btn" data-tab="codex">📜 Codex</button>
+            <button class="tab-btn subtab-pill-btn" data-tab="codex">📜 圖鑑</button>
             <button class="tab-btn subtab-pill-btn" id="pillar-contacts-btn" onclick="window.openContactsModal ? window.openContactsModal() : (window.openReferralModal && window.openReferralModal())" style="border-color:rgba(52,211,153,0.4); color:#6ee7b7; font-weight:bold;">👥 聯絡人與導師</button>
           </div>
 
@@ -367,9 +367,9 @@ export const IDLE_MARKUP = `
               <span class="imp-res-chip imp-res-chip--gold" title="目前金幣"><span class="chip-icon">🪙</span> <span id="imp-res-gold" class="res-val">0</span> 金幣</span>
               <span class="imp-res-chip imp-res-chip--ac" title="Aden Coins"><span class="chip-icon">💎</span> <span id="imp-res-ac" class="res-val">0</span> AC</span>
               <span class="imp-res-chip imp-res-chip--aa" title="古代金幣（七封印）"><span class="chip-icon">🏛️</span> <span id="imp-res-aa" class="res-val">0</span> AA</span>
-              <span class="imp-res-chip imp-res-chip--sp" title="Skill Points"><span class="chip-icon">✦</span> <span id="imp-res-sp" class="res-val">0</span> SP</span>
+              <span class="imp-res-chip imp-res-chip--sp" title="技能點數"><span class="chip-icon">✦</span> <span id="imp-res-sp" class="res-val">0</span> SP</span>
               <span class="imp-res-chip imp-res-chip--forge" title="帝國鍛造等級"><span class="chip-icon">🔨</span> 鍛造： <span id="imp-res-forge" class="res-val">Lv. 1</span></span>
-              <span class="imp-res-chip imp-res-chip--charges" title="Cargas da Roleta Imperial"><span class="chip-icon">🎲</span> Roleta: <span id="imp-res-charges" class="res-val">0 Cargas</span></span>
+              <span class="imp-res-chip imp-res-chip--charges" title="帝國輪盤充能"><span class="chip-icon">🎲</span> 輪盤： <span id="imp-res-charges" class="res-val">0 次充能</span></span>
             </div>
           </div>
         </div>
@@ -397,7 +397,7 @@ export const IDLE_MARKUP = `
                       <span class="l2-hero-level-tag">Nv. <span id="hero-sheet-level">1</span></span>
                     </div>
                     <div class="l2-hero-lineage" style="margin-top: 4px;">
-                      <span id="hero-race-class-display">Humano · Human Fighter</span>
+                      <span id="hero-race-class-display">人類 · 戰士</span>
                       <span class="l2-hero-tier-badge" id="hero-tier-badge">階級 1 · 已開始</span>
                     </div>
                   </div>
@@ -427,7 +427,7 @@ export const IDLE_MARKUP = `
                     <div id="hero-cp-bar-equip" class="l2-cp-seg seg-equip" style="width: 40%;" title="裝備"></div>
                     <div id="hero-cp-bar-attrs" class="l2-cp-seg seg-attrs" style="width: 30%;" title="屬性"></div>
                     <div id="hero-cp-bar-skills" class="l2-cp-seg seg-skills" style="width: 20%;" title="技能"></div>
-                    <div id="hero-cp-bar-specials" class="l2-cp-seg seg-specials" style="width: 10%;" title="Especiais"></div>
+                    <div id="hero-cp-bar-specials" class="l2-cp-seg seg-specials" style="width: 10%;" title="特殊"></div>
                   </div>
                   <div class="l2-cp-breakdown-legend" id="hero-cp-breakdown-legend"></div>
                 </div>
@@ -478,12 +478,12 @@ export const IDLE_MARKUP = `
               </div>
               <div id="char-performance-grid" class="l2-performance-grid">
                 <div class="l2-perf-card">
-                  <div class="l2-perf-label">⚔️ DPS Sustentado</div>
+                  <div class="l2-perf-label">⚔️ 持續 DPS</div>
                   <div class="l2-perf-val val-dps" id="perf-dps-sustained">0</div>
                   <div class="l2-perf-sub">平均傷害／秒</div>
                 </div>
                 <div class="l2-perf-card">
-                  <div class="l2-perf-label">💥 Burst DPS</div>
+                  <div class="l2-perf-label">💥 爆發 DPS</div>
                   <div class="l2-perf-val val-burst" id="perf-dps-burst">0</div>
                   <div class="l2-perf-sub">暴擊峰值</div>
                 </div>
@@ -495,10 +495,10 @@ export const IDLE_MARKUP = `
                 <div class="l2-perf-card">
                   <div class="l2-perf-label">🩸 持續恢復（HPS）</div>
                   <div class="l2-perf-val val-hps" id="perf-hps">+0/s</div>
-                  <div class="l2-perf-sub">Regen + Life Drain</div>
+                  <div class="l2-perf-sub">恢復 + 吸血</div>
                 </div>
                 <div class="l2-perf-card">
-                  <div class="l2-perf-label">💧 MP Sustain</div>
+                  <div class="l2-perf-label">💧 MP 續航</div>
                   <div class="l2-perf-val val-mps" id="perf-mp-sustain">+0/s</div>
                   <div class="l2-perf-sub">恢復／秒</div>
                 </div>
