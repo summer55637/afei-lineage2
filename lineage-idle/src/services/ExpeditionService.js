@@ -100,7 +100,7 @@ export const ExpeditionService = {
     if (specsPresent.has('healer')) {
       synergies.extraXpPct += 0.30;
       synergies.hazardMitigation += 0.20;
-      synergies.activePerks.push('伊娃祝福（小隊 XP +30%、額外減傷）');
+      synergies.activePerks.push('伊娃祝福（小隊經驗值 +30%、額外減傷）');
     }
 
     // 5. Guardião: Proteção e segurança da caravana (-35% dano de emboscada, +10% Adena segura)
