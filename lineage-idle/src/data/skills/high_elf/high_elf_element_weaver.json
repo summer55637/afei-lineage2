@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "triad_combo",
-        "name": "Combo da Tríade",
+        "name": "三元素連擊",
         "classId": "high_elf_element_weaver",
         "race": "high_elf",
         "tier": "core_1",
@@ -16,7 +16,7 @@
           "Water",
           "Wind"
         ],
-        "description": "Combo da Tríade — Habilidade Especialista de high_elf_element_weaver."
+        "description": "三元素連擊——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -169,7 +169,7 @@
     {
       "identity": {
         "id": "elemental_fusion",
-        "name": "Fusão Elemental",
+        "name": "元素融合",
         "classId": "high_elf_element_weaver",
         "race": "high_elf",
         "tier": "core_2",
@@ -181,7 +181,7 @@
           "Water",
           "Wind"
         ],
-        "description": "Fusão Elemental — Habilidade Especialista de high_elf_element_weaver."
+        "description": "元素融合——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -334,7 +334,7 @@
     {
       "identity": {
         "id": "cascading_storm",
-        "name": "Tempestade em Cascata",
+        "name": "連鎖風暴",
         "classId": "high_elf_element_weaver",
         "race": "high_elf",
         "tier": "specialization",
@@ -345,7 +345,7 @@
           "Water",
           "Wind"
         ],
-        "description": "Tempestade em Cascata — Habilidade Especialista de high_elf_element_weaver."
+        "description": "連鎖風暴——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -498,7 +498,7 @@
     {
       "identity": {
         "id": "phoenix_tide",
-        "name": "Maré da Fênix",
+        "name": "鳳凰潮汐",
         "classId": "high_elf_element_weaver",
         "race": "high_elf",
         "tier": "elemental_specialization",
@@ -509,7 +509,7 @@
           "Fire",
           "Water"
         ],
-        "description": "Maré da Fênix — Habilidade Especialista de high_elf_element_weaver."
+        "description": "鳳凰潮汐——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -680,7 +680,7 @@
     {
       "identity": {
         "id": "prismatic_genesis",
-        "name": "Prismatic Genesis",
+        "name": "稜光創生",
         "classId": "high_elf_element_weaver",
         "race": "high_elf",
         "tier": "ultimate",
@@ -690,7 +690,7 @@
         "tags": [
           "Fire"
         ],
-        "description": "Prismatic Genesis — Habilidade Ultimate (★★★★) de high_elf_element_weaver."
+        "description": "稜光創生——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -876,7 +876,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "PRISMATIC GENESIS!",
+          "text": "稜光創生！",
           "style": "gold_banner",
           "banner": true
         }
@@ -897,7 +897,7 @@
     {
       "identity": {
         "id": "master_prismatic_genesis",
-        "name": "Master: Prismatic Genesis",
+        "name": "大師：稜光創生",
         "classId": "high_elf_element_weaver",
         "race": "high_elf",
         "tier": "master_ultimate",
@@ -907,7 +907,7 @@
         "tags": [
           "Fire"
         ],
-        "description": "Master: Prismatic Genesis — Habilidade Master Ultimate (★★★★★) de high_elf_element_weaver."
+        "description": "大師：稜光創生——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1094,7 +1094,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: PRISMATIC GENESIS!",
+          "text": "大師：稜光創生！",
           "style": "mythic_banner",
           "banner": true
         }
