@@ -362,7 +362,7 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="seu@email.com"
+                  placeholder="name@example.com"
                   className="w-full bg-slate-900/80 border border-white/15 rounded-xl px-3 py-2 text-xs text-white placeholder-white/20 focus:outline-none focus:border-amber-400"
                 />
               </div>
@@ -398,7 +398,7 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
                 disabled={loading}
                 className="w-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-bold rounded-xl py-2.5 text-xs shadow-lg shadow-amber-500/20 transition mt-2"
               >
-                {loading ? '請稍候...' : (tab === 'login' ? '登入 no Jogo' : '建立帳號 e Salvar')}
+                {loading ? '請稍候...' : (tab === 'login' ? '登入 no Jogo' : '建立帳號並儲存')}
               </button>
             </form>
           </div>
