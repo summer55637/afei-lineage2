@@ -105,7 +105,7 @@ export class CommunityCapService {
 
     if (!prevUnlocked && currentGoal.unlocked) {
       if (callbacks.log) {
-        callbacks.log('🌟 **COMUNIDADE DE ADEN VENCEU!** O Raidboss da Black Citadel foi derrotado 100 vezes! O Level CAP 45 foi liberado para todo o servidor!', 'rarity-legendary');
+        callbacks.log('🌟 **亞丁社群勝利！** Black Citadel 團隊首領已被擊敗 100 次！全伺服器等級上限 45 已解鎖！', 'rarity-legendary');
       }
       if (callbacks.updateAllUI) callbacks.updateAllUI();
     }
