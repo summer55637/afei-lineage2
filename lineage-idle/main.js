@@ -1400,7 +1400,7 @@ function useItem(uid) {
     } else if (typeof window !== 'undefined' && typeof window.openEnchantModalWithScroll === 'function') {
       window.openEnchantModalWithScroll(uid);
     } else {
-      log('Abra o menu de Encantamento para utilizar este pergaminho.', 'system');
+      log('請開啟強化選單來使用這張卷軸。', 'system');
     }
     return;
   }
@@ -1600,7 +1600,7 @@ function useItem(uid) {
     return;
   } else if (def.type === 'avatar_frame' || item.itemId.startsWith('frame_')) {
     state.activeAvatarFrame = (state.activeAvatarFrame === item.itemId) ? null : item.itemId;
-    log(`🖼️ Moldura de Avatar atualizada!`, 'system');
+    log(`🖼️ 頭像框已更新！`, 'system');
     updateAllUI(); save();
     return;
   } else if (def.type === 'combat_aura' || item.itemId.startsWith('aura_')) {
@@ -2693,7 +2693,7 @@ function updateCombatControlsUI() {
     const mpCount = getInventoryCount('mp_potion_s') + getInventoryCount('mp_potion_m') + getInventoryCount('mp_potion_l') + getInventoryCount('mp_potion_xl');
     const hpPct = Math.round((state.autoPotionSettings?.hpThreshold || 0.6) * 100);
     apBtn.innerHTML = `<span>🧪 Auto-Pot</span> <span style="font-size:9px; color:${isApActive ? '#ffd877' : '#94a3b8'};">(${hpCount} HP / ${mpCount} MP)</span>`;
-    apBtn.title = `自動藥水: ${isApActive ? '開啟' : 'DES開啟'} (HP < ${hpPct}%) - Clique para alternar ou configure no botão Macro ⚙️`;
+    apBtn.title = `自動藥水：${isApActive ? '開啟' : '關閉'}（HP < ${hpPct}%）－點擊切換，或在巨集按鈕中設定 ⚙️`;
   }
   const spdBtn = el('speed-toggle-btn');
   if (spdBtn) {
@@ -3054,7 +3054,7 @@ function renderZoneInfoCard() {
         <h3>🗺️ ${z.name}</h3>
         <span class="z-card-req">Requisito: Lv. ${z.level}</span>
         <div style="margin-top:4px; font-size:11px; color:${curDiff.color || '#10b981'}; font-weight:bold;">
-          ${curDiff.icon || '🟢'} Dificuldade: <strong>${curDiff.name || 'Normal'}</strong> (${curDiff.xpMult || 1}x XP/Gold · ${curDiff.dropMult || 1}x Drops)
+          ${curDiff.icon || '🟢'} 難度：<strong>${curDiff.name || '一般'}</strong>（${curDiff.xpMult || 1}x XP／金幣 · ${curDiff.dropMult || 1}x 掉落）
         </div>
       </div>
       <div class="z-card-kills">⚔️ 狩獵：${currentKills}/50（首領）</div>
@@ -3135,7 +3135,7 @@ function setGameMode(mode) {
   state.gameMode = nextMode;
   updateGameModeUI();
   const label = nextMode === 'arena' ? '⚔ 3D 競技場' : nextMode === 'pixel2d' ? '👾 亞丁像素 2D' : '📜 放置編年史';
-  log(`Modo de jogo alterado para ${label}.`, 'system');
+  log(`遊戲模式已切換為 ${label}。`, 'system');
   save();
   if (typeof window !== 'undefined' && typeof window.onReactSetMode === 'function') {
     window.onReactSetMode(nextMode);
@@ -3289,7 +3289,7 @@ function updateQuestsUI() {
       const rewardsText = [];
       if (q.reward.gold) rewardsText.push(`💰 +${q.reward.gold.toLocaleString()}g`);
       if (q.reward.sp) rewardsText.push(`✦ +${q.reward.sp} SP`);
-      if (q.reward.craftPoints) rewardsText.push(`⚒️ +${q.reward.craftPoints} Craft`);
+      if (q.reward.craftPoints) rewardsText.push(`⚒️ +${q.reward.craftPoints} 鍛造點數`);
       if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} 神燈`);
       if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} XP Passe`);
 
@@ -3460,7 +3460,7 @@ function renderBattlePassUI() {
   if (lvlText) lvlText.textContent = `等級 ${currentLvl}`;
 
   const statusText = el('pass-status-text');
-  if (statusText) statusText.textContent = state.battlePass.unlockedPremium ? '👑 Passe Premium Ativo' : '戰鬥通行證免費獎勵';
+  if (statusText) statusText.textContent = state.battlePass.unlockedPremium ? '👑 高級通行證已啟用' : '戰鬥通行證免費獎勵';
 
   const xpText = el('pass-xp-text');
   if (xpText) xpText.textContent = `${currentXp.toLocaleString()} / ${nextReqXp.toLocaleString()} XP do Passe`;
@@ -3471,7 +3471,7 @@ function renderBattlePassUI() {
   const unlockBtn = el('unlock-premium-pass-btn');
   if (unlockBtn) {
     if (state.battlePass.unlockedPremium) {
-      unlockBtn.textContent = '👑 Passe Premium Ativo';
+      unlockBtn.textContent = '👑 高級通行證已啟用';
       unlockBtn.disabled = true;
       unlockBtn.style.opacity = '0.7';
     } else {
@@ -3820,7 +3820,7 @@ function updateWorldBossBadgeUI() {
         badge.style.borderColor = '#ef4444';
         badge.style.color = '#fee2e2';
       } else {
-        badge.innerHTML = `⏳ World Boss: ${status.timeFormatted}`;
+        badge.innerHTML = `⏳ 世界首領：${status.timeFormatted}`;
         badge.style.background = 'rgba(30,41,59,0.5)';
         badge.style.borderColor = 'rgba(255,255,255,0.2)';
         badge.style.color = '#94a3b8';
@@ -3939,7 +3939,7 @@ function selectMasterAbilityModal() {
     { key: 'haste', name: '⚡ Haste Proc (+32% Atk.Spd)' },
     { key: 'barrier', name: '🌟 屏障（無敵天界護盾）' },
     { key: 'boostCp', name: '🛡️ CP 強化（+20% CP）' },
-    { key: 'resistAttribute', name: '🔥 Resist Attribute (+20 Res. Elementais)' }
+    { key: 'resistAttribute', name: '🔥 屬性抗性（+20 元素抗性）' }
   ];
 
   const choice = prompt(`選擇你的大師技能（Lv.75）：\n\n${abilities.map((a, i) => `${i + 1}. ${a.name}`).join('\n')}\n\n請輸入選項編號：`);
@@ -5336,7 +5336,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
   if (state.craftPoints >= 1000) {
     state.craftPoints -= 1000;
     state.craftCharges = Math.min(100, (state.craftCharges || 0) + 1);
-    log(`🛠️ CARGA DE CRAFT ACUMULADA! (Total: ${state.craftCharges})`, 'rarity-rare');
+    log(`🛠️ 已累積製作充能！（總計：${state.craftCharges}）`, 'rarity-rare');
   }
 
   const baseGold = monster.gold[0] + Math.random() * (monster.gold[1] - monster.gold[0]), jackpot = Math.random() < (monster.boss ? 0.08 : 0.015);
@@ -5685,7 +5685,7 @@ export function attackMonster() {
         const buffObj = { amount: buffAmt, until: realNow + buffDuration, effect: 'warcry' };
         state.buffs[skill.id] = buffObj;
         state.buffs['warcry'] = buffObj;
-        log(`🗣 ${skill.def.name}! ${skill.def.info || 'Buff Ativo por 60s'}`, 'rarity-rare');
+        log(`🗣 ${skill.def.name}! ${skill.def.info || '增益效果持續 60 秒'}`, 'rarity-rare');
         floatText(skill.def.name, 'float-epic');
 
         // Dispara VFX Premium de Aura de Buff (ancorado aos pés do herói)
@@ -6235,7 +6235,7 @@ function monsterAttack(monster) {
   const dodgeChance = (cpRatio < 0.6) ? 0.02 : Math.max(0.02, Math.min(0.65, 0.15 + (evaDiff * 0.01)));
 
   if (Math.random() < dodgeChance) {
-    log(`${monster.name} errou o ataque!`, 'combat');
+    log(`${monster.name} 的攻擊未命中！`, 'combat');
     stageFloat('DODGE', 'sf-miss', 'left');
     return;
   }
@@ -6595,9 +6595,9 @@ const RATE_PRESETS = {
   classic: { name: '🛡️ Retail Classic (1x)', rates: { xp: 1, sp: 1, adena: 1, drop: 1, spoil: 1, enchant: 1, book: 1 } },
   aden: { name: '⚔️ Aden Dynamic (3x)', rates: { xp: 3, sp: 3, adena: 2, drop: 2, spoil: 2, enchant: 1.2, book: 2 } },
   mid: { name: '🔥 Mid-Rate Oficial (10x)', rates: { xp: 10, sp: 10, adena: 8, drop: 5, spoil: 5, enchant: 1.5, book: 5 } },
-  high: { name: '👑 High-Rate / Evento (50x)', rates: { xp: 50, sp: 50, adena: 25, drop: 15, spoil: 10, enchant: 2.0, book: 10 } },
+  high: { name: '👑 高倍率／活動（50x）', rates: { xp: 50, sp: 50, adena: 25, drop: 15, spoil: 10, enchant: 2.0, book: 10 } },
   turbo: { name: '⚡ Turbo PvP (100x)', rates: { xp: 100, sp: 100, adena: 50, drop: 30, spoil: 20, enchant: 2.5, book: 20 } },
-  reset: { name: '🔄 Padrão (1x)', rates: { xp: 1, sp: 1, adena: 1, drop: 1, spoil: 1, enchant: 1, book: 1 } }
+  reset: { name: '🔄 標準（1x）', rates: { xp: 1, sp: 1, adena: 1, drop: 1, spoil: 1, enchant: 1, book: 1 } }
 };
 
 function ensureServerRates() {
@@ -6621,12 +6621,12 @@ function setServerRate(key, val, silent = false) {
       sp: 'Rate de SP',
       adena: 'Rate de Adena',
       drop: '物品掉落倍率',
-      spoil: 'Rate de Spoil & Craft',
+      spoil: '搜刮與製作倍率',
       enchant: 'Rate de Encantamento',
       book: 'Rate de Grimórios'
     };
     const title = labels[key] || key.toUpperCase();
-    log(`⚡ [Admin] ${title} atualizada para **x${num}**! Efeito imediato aplicado.`, 'rarity-legendary');
+    log(`⚡ [管理員] ${title} 已更新為 **x${num}**！效果立即生效。`, 'rarity-legendary');
     if (typeof floatText === 'function') floatText(`⚡ ${title.toUpperCase()}: x${num}!`, 'float-jackpot');
   }
   try {
@@ -6788,7 +6788,7 @@ function populateAdminItemSelect(query = '') {
     const opt = mkEl('option');
     opt.value = id;
     const grade = getItemGrade(def.req?.level || 1);
-    opt.textContent = `${def.name} [${grade}] (${def.slot || 'Item'} · Lv.${def.req?.level || 1})`;
+    opt.textContent = `${def.name} [${grade}]（${def.slot || '物品'} · Lv.${def.req?.level || 1}）`;
     sel.appendChild(opt);
   }
 }
@@ -6937,8 +6937,8 @@ function syncAdminSeasonAndCapUI() {
     } else {
       const titles = {
         1: 'Crônica I: O Despertar (Lv.40)',
-        2: 'Crônica II: Clãs & Castelos (Lv.75)',
-        3: 'Crônica III: Sete Selos (Lv.85)',
+        2: '編年史 II：血盟與城堡（Lv.75）',
+        3: '編年史 III：七封印（Lv.85）',
         4: 'Crônica IV: High Five (Lv.120)'
       };
       seasonBadge.textContent = `目前編年史：${titles[curSeason] || '階段 ' + curSeason}`;
@@ -7017,8 +7017,8 @@ function setServerSeason(seasonId) {
 
   const seasonNames = {
     1: 'Crônica I: O Despertar de Aden',
-    2: 'Crônica II: A Era dos Clãs & Castelos',
-    3: 'Crônica III: Os Sete Selos & Olimpíadas',
+    2: '編年史 II：血盟與城堡時代',
+    3: '編年史 III：七封印與奧林匹亞',
     4: 'Crônica IV: A Fúria dos Dragões & Multiverso'
   };
 
@@ -7053,7 +7053,7 @@ function unlockAllSeasons() {
   updateTabVisibilityByLevel(state);
 
   log('🌟 [管理員] 所有季節、編年史與分頁已 100% 解鎖！現在可自由存取全部遊戲內容。', 'rarity-legendary');
-  if (typeof floatText === 'function') floatText('🌟 TODAS AS ABAS LIBERADAS!', 'float-jackpot');
+  if (typeof floatText === 'function') floatText('🌟 所有分頁已解鎖！', 'float-jackpot');
 
   syncAdminSeasonAndCapUI();
   updateAllUI();
@@ -7628,7 +7628,7 @@ function registerCodexItem(setId, itemId) {
 
   const itemDef = D().ALL_ITEMS[itemId];
   log(`📜 物品 **${itemDef?.name || itemId}** 已成功登錄圖鑑！${foundInWarehouse ? '（已從倉庫取出）' : ''}`, 'rarity-rare');
-  floatText('📜 CODEX REGISTRADO!', 'float-jackpot');
+  floatText('📜 圖鑑登錄完成！', 'float-jackpot');
   triggerQuestEvent('codex', 1);
 
   const setDef = CODEX_SETS[setId];
@@ -7704,7 +7704,7 @@ function updateDollsUI() {
 
   if (summaryEl) {
     const b = getDollsBonuses();
-    summaryEl.innerHTML = `Dolls na Coleção: <strong>${state.dolls.length}</strong> · 總加成： +${b.atk} ATK, +${b.def} DEF, +${b.matk} MATK`;
+    summaryEl.innerHTML = `收藏娃娃：<strong>${state.dolls.length}</strong> · 總加成： +${b.atk} ATK, +${b.def} DEF, +${b.matk} MATK`;
   }
 
   // Render Enciclopédia de Boss Dolls & Fontes de Obtenção
@@ -7776,7 +7776,7 @@ function selectDollForSynth(uid) {
 function synthesizeDolls() {
   state.synthSelected = state.synthSelected || [null, null];
   const u1 = state.synthSelected[0], u2 = state.synthSelected[1];
-  if (!u1 || !u2 || u1 === u2) { log('Selecione 2 Dolls idênticas no altar de síntese.', 'system'); return; }
+  if (!u1 || !u2 || u1 === u2) { log('請在合成祭壇選擇 2 隻相同娃娃。', 'system'); return; }
 
   const idx1 = state.dolls.findIndex(d => d.uid === u1);
   const idx2 = state.dolls.findIndex(d => d.uid === u2);
@@ -7885,8 +7885,8 @@ function renderSpecialCraftRecipes() {
 
   const recipes = [
     { id: 'spellbook_selector', name: '📖 Selector 4⭐ Star Spellbook', costCharges: 5, crystalId: 'crystal_s', crystalQty: 10, resultId: 'spellbook_4star' },
-    { id: 'boss_doll_box', name: '📦 Caixas de Boss Dolls (Queen Ant/Baium/Zaken)', costCharges: 3, crystalId: 'crystal_a', crystalQty: 5, resultDoll: 'doll_queen_ant' },
-    { id: 's_weapon_chest', name: '⚔️ Baú de Armas S-Grade', costCharges: 4, crystalId: 'crystal_a', crystalQty: 10, resultId: 'dragon_slayer' },
+    { id: 'boss_doll_box', name: '📦 首領娃娃箱（蟻后／巴溫／札肯）', costCharges: 3, crystalId: 'crystal_a', crystalQty: 5, resultDoll: 'doll_queen_ant' },
+    { id: 's_weapon_chest', name: '⚔️ S 級武器寶箱', costCharges: 4, crystalId: 'crystal_a', crystalQty: 10, resultId: 'dragon_slayer' },
     { id: 'enchant_scroll_s', name: '📜 Scroll Enchant S-Grade', costCharges: 1, crystalId: 'crystal_b', crystalQty: 5, resultId: 'crystal_s' }
   ];
 
@@ -7924,7 +7924,7 @@ function craftSpecialRecipe(recipeId) {
     if ((state.craftCharges || 0) < 5 || getInventoryCount('crystal_s') < 10) { log('資源不足！需要 5 次製作充能與 10 個 S 級水晶。', 'system'); return; }
     state.craftCharges -= 5; removeFromInventoryByItemId('crystal_s', 10);
     addToInventory('spellbook_4star', 1);
-    log('✨ SPECIAL CRAFT! Criou 1x Spellbook 4-Star ⭐!', 'rarity-legendary');
+    log('✨ 特殊製作成功！製作 1 本 4★ 魔法書 ⭐！', 'rarity-legendary');
   } else if (recipeId === 'boss_doll_box') {
     if ((state.craftCharges || 0) < 3 || getInventoryCount('crystal_a') < 5) { log('資源不足！需要 3 次製作充能與 5 個 A 級水晶。', 'system'); return; }
     state.craftCharges -= 3; removeFromInventoryByItemId('crystal_a', 5);
@@ -7932,17 +7932,17 @@ function craftSpecialRecipe(recipeId) {
     const chosen = dollKeys[Math.floor(Math.random() * dollKeys.length)];
     state.dolls = state.dolls || [];
     state.dolls.push({ uid: 'doll_' + Date.now(), dollId: chosen, level: 1 });
-    log(`✨ SPECIAL CRAFT! Abriu a caixa e obteve: **${BOSS_DOLLS[chosen]?.name}**!`, 'rarity-legendary');
+    log(`✨ 特殊製作成功！打開箱子並獲得：**${BOSS_DOLLS[chosen]?.name}**！`, 'rarity-legendary');
   } else if (recipeId === 's_weapon_chest') {
     if ((state.craftCharges || 0) < 4 || getInventoryCount('crystal_a') < 10) { log('資源不足！需要 4 次製作充能與 10 個 A 級水晶。', 'system'); return; }
     state.craftCharges -= 4; removeFromInventoryByItemId('crystal_a', 10);
     addToInventory('dragon_slayer', 1, 'epic');
-    log('✨ SPECIAL CRAFT! Criou 1x Dragon Slayer (S-Grade)!', 'rarity-legendary');
+    log('✨ 特殊製作成功！製作 1 把屠龍者（S 級）！', 'rarity-legendary');
   } else if (recipeId === 'enchant_scroll_s') {
     if ((state.craftCharges || 0) < 1 || getInventoryCount('crystal_b') < 5) { log('資源不足！需要 1 次製作充能與 5 個 B 級水晶。', 'system'); return; }
     state.craftCharges -= 1; removeFromInventoryByItemId('crystal_b', 5);
     addToInventory('crystal_s', 2);
-    log('✨ SPECIAL CRAFT! Forjou 2x Crystal S!', 'rarity-rare');
+    log('✨ 特殊製作成功！鍛造 2 個 S 級水晶！', 'rarity-rare');
   }
   triggerQuestEvent('craft', 1);
   updateAllUI(); save();
@@ -7973,7 +7973,7 @@ Object.entries(PILLAR_TABS_MAP).forEach(([pillar, tabs]) => {
 });
 
 export const TAB_NAMES_MAP = {
-  battle: 'Combate',
+  battle: '戰鬥',
   hero: '英雄',
   character: '角色',
   inventory: 'Mochila',
@@ -7989,18 +7989,18 @@ export const TAB_NAMES_MAP = {
   expeditions: 'Expedições',
   fishing: '釣魚',
   market: '奇岩市場',
-  shop: 'Mercador',
+  shop: '商人',
   craft: '帝國鍛造',
   alchemy: 'Alquimia',
   warehouse: 'Baú Privado',
   magiclamp: '神燈 Mágica',
   clan: 'Clã & Castelos',
-  olympiad: 'Olimpíadas',
-  rankings: 'Rankings Mundiais',
-  sevensigns: 'Sete Selos',
+  olympiad: '奧林匹亞',
+  rankings: '世界排行榜',
+  sevensigns: '七封印',
   fortress: 'Fortalezas',
   enchant: 'Encantamento',
-  codex: 'Codex'
+  codex: '圖鑑'
 };
 
 export function switchPillar(pillarKey) {
@@ -8583,25 +8583,25 @@ export function bindEvents() {
       adminWipeBtn.onclick = async () => {
         const confirm1 = confirm(
           '🚨 ATENÇÃO CRÍTICA: Deseja realmente executar o WIPE GERAL do servidor?\n\n' +
-          'Esta ação irá DELETAR TODAS as 17 coleções canônicas do Cloud Firestore:\n' +
+          '此操作將刪除 Cloud Firestore 中全部 17 個正式資料集合：\n' +
           '• Contas, Personagens, Nomes de Heróis\n' +
-          '• Clãs e Membros de Clã\n' +
-          '• Rankings PvP, Registros de Olimpíadas e Mercado\n' +
+          '• 血盟與血盟成員\n' +
+          '• PvP 排行榜、奧林匹亞紀錄與市場\n' +
           '• Presença, Amizades, Pedidos de Amizade, Mentorias e Bloqueios\n\n' +
-          'Todos os jogadores serão desconectados e iniciarão do zero na Criação de Personagem.\n\n' +
+          '所有玩家都會被登出，並從角色建立畫面重新開始。\n\n' +
           'Pressione OK se você tem certeza absoluta.'
         );
         if (!confirm1) return;
 
         const confirm2 = prompt('Para confirmar a destruição de dados, digite exatamente "WIPE ZERO":');
         if (confirm2 !== 'WIPE ZERO') {
-          alert('Operação cancelada. O texto digitado não confere com "WIPE ZERO".');
+          alert('操作已取消。輸入文字與「WIPE ZERO」不符。');
           return;
         }
 
         try {
           adminWipeBtn.disabled = true;
-          adminWipeBtn.textContent = '⏳ Executando Wipe Geral nas 17 coleções do Firestore...';
+          adminWipeBtn.textContent = '⏳ 正在清除 Firestore 的 17 個資料集合...';
 
           const wipeFn = (typeof window !== 'undefined' && window.FirebaseBridge?.wipeEntireGameDatabase) || 
                          (typeof window !== 'undefined' && window.wipeEntireGameDatabase);
@@ -8616,7 +8616,7 @@ export function bindEvents() {
             let errorMsg = `❌ O Firestore bloqueou a exclusão por falta de permissão!\n\n`;
             errorMsg += `Erros retornados (${result.errors.length}):\n${result.errors.slice(0, 4).join('\n')}\n\n`;
             errorMsg += `⚠️ MOTIVO: As Regras do Firestore (firestore.rules) ainda NÃO foram publicadas no Firebase Console!\n\n`;
-            errorMsg += `👉 SOLUÇÃO:\n1. Acesse o Firebase Console.\n2. Vá na aba "Regras" (ao lado de "Dados").\n3. Cole as regras do arquivo firestore.rules e clique em "Publicar".`;
+            errorMsg += `👉 解決方式：\n1. 開啟 Firebase Console。\n2. 前往「Rules／規則」分頁（位於「Data／資料」旁）。\n3. 貼上 firestore.rules 內容並點擊「Publish／發布」。`;
             alert(errorMsg);
             adminWipeBtn.disabled = false;
             adminWipeBtn.textContent = '🔥 WIPE GERAL DO BANCO DE DADOS (SERVIDOR ZERO)';
@@ -8632,10 +8632,10 @@ export function bindEvents() {
             }
           }
           if (totalDeleted === 0) {
-            msg += '• (Nenhum documento residual nas coleções)\n';
+            msg += '•（資料集合中沒有殘留文件）\n';
           }
 
-          alert(msg + '\n\nO servidor está zerado. A aplicação será reiniciada na Criação de Personagem.');
+          alert(msg + '\n\n伺服器資料已歸零，應用程式將重新啟動並回到角色建立畫面。');
 
           if (typeof localStorage !== 'undefined') {
             localStorage.setItem('aden_pending_char_creation', '1');
@@ -8857,9 +8857,9 @@ function initPanelResizers() {
 
 function upgradeAstralNode(nodeId) {
   if (!state.prestigeLevel || state.prestigeLevel < 1) {
-    log('🔒 A Maestria Astral requer realizar a 1ª Reencarnação (Reborn no Nível 75+)!', 'warning');
+    log('🔒 星界精通需要先完成第一次轉生（等級 75+ 重生）！', 'warning');
     if (typeof window !== 'undefined' && window.floatText) {
-      window.floatText('🔒 Requer Reencarnação!', 'float-meteor');
+      window.floatText('🔒 需要轉生！', 'float-meteor');
     }
     return false;
   }
@@ -8875,14 +8875,14 @@ function upgradeAstralNode(nodeId) {
 
   const shards = state.astralShards || 0;
   if (shards < node.cost) {
-    log(`⚠️ Fragmentos Astrais insuficientes! Requer ${node.cost} Fragmentos.`, 'warning');
+    log(`⚠️ 星界碎片不足！需要 ${node.cost} 個碎片。`, 'warning');
     return false;
   }
 
   state.astralShards -= node.cost;
   state.astralMastery[nodeId] = currentLvl + 1;
 
-  log(`🌟 Desbloqueou ${node.name} (Nível ${currentLvl + 1}/${node.max})!`, 'rarity-legendary');
+  log(`🌟 已解鎖 ${node.name}（等級 ${currentLvl + 1}/${node.max}）！`, 'rarity-legendary');
   updateAllUI();
   save();
   return true;
@@ -8920,7 +8920,7 @@ function reincarnateHero() {
   ];
   const title = titles[Math.min(state.prestigeLevel - 1, titles.length - 1)];
 
-  log(`✨ 古代轉生完成！ Prestígio Nível ${state.prestigeLevel} (${title}). Conquistou +${earnedShards} Fragmentos Astrais!`, 'rarity-legendary');
+  log(`✨ 古代轉生完成！聲望等級 ${state.prestigeLevel}（${title}），獲得 +${earnedShards} 個星界碎片！`, 'rarity-legendary');
   floatText(`PRESTÍGIO Lv.${state.prestigeLevel}`, 'float-gold');
 
   updateAllUI();
@@ -8943,7 +8943,7 @@ const MANOR_SEEDS = {
 const CASTLES_DEFS = {
   dion: { id: 'dion', name: 'Castelo de Dion', reqLevel: 30, taxPerHour: 5000, desc: '+5.000 Adena por hora', enemyName: 'Guarda de Dion (Lv. 30)' },
   giran: { id: 'giran', name: 'Castelo de Giran', reqLevel: 50, taxPerHour: 15000, desc: '+15.000 Adena por hora & 5% Desconto na Loja', enemyName: 'Guarda de Giran (Lv. 50)' },
-  goddard: { id: 'goddard', name: 'Castelo de Goddard', reqLevel: 70, taxPerHour: 35000, desc: '+35.000 Adena por hora & +5% XP Bônus', enemyName: 'Guarda de Goddard (Lv. 70)' },
+  goddard: { id: 'goddard', name: '高達特城堡', reqLevel: 70, taxPerHour: 35000, desc: '每小時 +35,000 金幣，並獲得 +5% XP 加成', enemyName: '高達特守衛（Lv.70）' },
   aden: { id: 'aden', name: 'Castelo Imperial de Aden', reqLevel: 85, taxPerHour: 75000, desc: '+75.000 Adena por hora & +10% Dano Geral', enemyName: 'Guarda Imperial de Aden (Lv. 85)' }
 };
 
@@ -8981,7 +8981,7 @@ function exchangeManorCrop(seedId, rewardOption = 1) {
 
   const ownedCrops = state.manorCrops ? (state.manorCrops[seedId] || 0) : 0;
   if (ownedCrops <= 0) {
-    log(`⚠️ Você não possui Colheita de ${seed.name} para entregar!`, 'warning');
+    log(`⚠️ 你沒有可交付的 ${seed.name} 收成物！`, 'warning');
     return false;
   }
 
@@ -9026,7 +9026,7 @@ function conquerCastle(castleId) {
     lastTaxClaim: Date.now()
   };
 
-  log(`🏰 CONQUISTOU O ${castle.name.toUpperCase()}! Bônus ativado: ${castle.desc}.`, 'rarity-legendary');
+  log(`🏰 已征服 ${castle.name.toUpperCase()}！加成已啟用：${castle.desc}。`, 'rarity-legendary');
   floatText(`DOMINOU ${castle.name.toUpperCase()}`, 'float-gold');
 
   updateAllUI();
@@ -9091,7 +9091,7 @@ function startExpedition(destId) {
     claimed: false
   });
 
-  log(`🧭 Esquadrão de Mercenários enviado para ${dest.name}! Duração: ${dest.duration / 3600000}h.`, 'loot');
+  log(`🧭 傭兵小隊已派往 ${dest.name}！時間：${dest.duration / 3600000} 小時。`, 'loot');
 
   updateAllUI();
   save();
@@ -9135,7 +9135,7 @@ function claimExpeditionReward(expId) {
 
   state.expeditions.splice(expIdx, 1);
 
-  log(`🎁 ${dest.name} 遠征完成！ Resgatou ${goldEarned.toLocaleString()}g e recompensas valiosas!`, 'rarity-legendary');
+  log(`🎁 ${dest.name} 遠征完成！獲得 ${goldEarned.toLocaleString()}g 與珍貴獎勵！`, 'rarity-legendary');
 
   updateAllUI();
   save();
@@ -9239,7 +9239,7 @@ function upgradeItemToMasterwork(itemUid) {
 function applyTattoo(plusStat = 'str', minusStat = 'con', val = 4) {
   if (!state.tattoos) state.tattoos = [];
   if (state.tattoos.length >= 3) {
-    log('⚠️ Você já possui o limite máximo de 3 Tatuagens aplicadas!', 'warning');
+    log('⚠️ 你已達到最多 3 個刺青的上限！', 'warning');
     return false;
   }
 
@@ -9276,7 +9276,7 @@ function removeTattoo(index) {
 function addSkillCharge() {
   state.charges = Math.min(8, (state.charges || 0) + 1);
   log(`⚡ 技能充能累積：**${state.charges}/8 級**（技能傷害 +${(state.charges - 1) * 20}%）！`, 'rarity-legendary');
-  floatText(`CARGA NÍVEL ${state.charges}!`, 'float-gold');
+  floatText(`充能等級 ${state.charges}！`, 'float-gold');
   updateAllUI(); save();
   return true;
 }
@@ -9456,7 +9456,7 @@ function renderDailyRewardModal() {
       statusBadge.style.background = 'rgba(107,114,128,0.2)';
       statusBadge.style.borderColor = 'rgba(107,114,128,0.4)';
       statusBadge.style.color = '#9ca3af';
-      statusBadge.textContent = '✓ Check-in de Hoje Concluído';
+      statusBadge.textContent = '✓ 今日簽到已完成';
     }
   }
 
@@ -9465,7 +9465,7 @@ function renderDailyRewardModal() {
     claimBtn.style.opacity = status.canClaim ? '1' : '0.5';
     claimBtn.style.cursor = status.canClaim ? 'pointer' : 'not-allowed';
     claimBtn.textContent = status.canClaim
-      ? `✨ Resgatar Presente do Dia ${status.currentDay}`
+      ? `✨ 領取第 ${status.currentDay} 天禮物`
       : `✓ 第 ${status.currentDay > 1 ? status.currentDay - 1 : 28} 天已領取（明天再來）`;
   }
 
@@ -9509,7 +9509,7 @@ function renderDailyRewardModal() {
 
     card.innerHTML = `
       <div style="font-size:10px; font-weight:bold; color:${isCurrent ? '#fef08a' : (isClaimed ? '#4ade80' : '#9ca3af')};">
-        ${item.isMilestone ? '⭐ ' : ''}Dia ${item.day}
+        ${item.isMilestone ? '⭐ ' : ''}第 ${item.day} 天
       </div>
       <div style="font-size:22px; margin:4px 0;">${item.icon}</div>
       <div style="font-size:10px; font-weight:600; color:#f3f4f6; line-height:1.2; max-width:80px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${item.desc}">
@@ -10311,11 +10311,11 @@ export function init() {
         return;
       }
       if ((state.level || 1) > 20) {
-        log('⚠️ O vínculo manual de código de indicação só é permitido até o Nível 20.', 'warning');
+        log('⚠️ 手動綁定推薦碼僅限等級 20 以前。', 'warning');
         return;
       }
       if (state.referredBy) {
-        log(`⚠️ Você já possui uma indicação vinculada a [${state.referredBy}].`, 'warning');
+        log(`⚠️ 你已經綁定推薦人 [${state.referredBy}]。`, 'warning');
         return;
       }
       const myName = (state.name || state.charName || '').trim().toLowerCase();
@@ -10428,7 +10428,7 @@ export function init() {
           updateAllUI();
           save();
         } else {
-          log('ℹ️ Nenhuma recompensa pendente no momento. Quando seus amigos indicados alcançarem o Nível 40, suas 50 AC e 5x Blessed Scrolls estarão disponíveis aqui!', 'info');
+          log('ℹ️ 目前沒有待領獎勵。當你推薦的朋友達到等級 40 後，可在這裡領取 50 AC 與 5 張祝福強化卷軸！', 'info');
           if (typeof floatText === 'function') floatText('Nenhuma recompensa pendente', 'float-normal');
         }
       } catch (err) {
@@ -10436,7 +10436,7 @@ export function init() {
       } finally {
         if (btn) {
           btn.disabled = false;
-          btn.innerHTML = '🔄 Verificar & Resgatar Recompensas de Amigos';
+          btn.innerHTML = '🔄 檢查並領取好友獎勵';
         }
         uiOpenReferralModal(state);
       }
@@ -10520,7 +10520,7 @@ export function init() {
           CardCodexService.absorbCardIntoCodex(state, cardId, { log });
           absorbedCount = 1;
         } else {
-          log('Você não possui esta carta para absorver.', 'system');
+          log('你沒有這張可吸收的卡片。', 'system');
           return;
         }
       } else {
@@ -10531,7 +10531,7 @@ export function init() {
         if (absorbedCount > 0) {
           const cardDef = MONSTER_CARDS[cardId];
           const cur = state.cardCodex?.[cardId] || {};
-          log(`🃏 Absorvidas **${absorbedCount}x cartas de ${cardDef?.name || cardId}** no Codex! (Rank ${cur.rank}/5 · Total: ${cur.count})`, 'gain');
+          log(`🃏 已將 **${absorbedCount} 張 ${cardDef?.name || cardId} 卡片**吸收到圖鑑！（階級 ${cur.rank}/5 · 總計：${cur.count}）`, 'gain');
         }
       }
 
@@ -10964,7 +10964,7 @@ export function init() {
     window.refreshRankingsAction = () => {
       uiSetActiveRankingTab(window._activeRankingCat || 'cp');
       updateRankingsUI();
-      log('🏆 Rankings e Combat Powers globais atualizados.', 'system');
+      log('🏆 世界排行榜與戰鬥力資料已更新。', 'system');
     };
     window.challengeRankingPlayerAction = (charName, oppCP) => {
       openPanel('colosseum');
@@ -11817,7 +11817,7 @@ export function init() {
           return;
         }
         log(`⚡ 狩獵難度已調整為 **${res.difficulty.name}**（${res.difficulty.xpMult}x XP／金幣、${res.difficulty.dropMult}x 掉落）！`, 'rarity-epic');
-        floatText(`⚡ MODO ${res.difficulty.name.toUpperCase()}!`, 'float-jackpot');
+        floatText(`⚡ ${res.difficulty.name.toUpperCase()} 模式！`, 'float-jackpot');
         state.activeMonster = null;
         pickRandomMonster();
         renderZoneMap();
