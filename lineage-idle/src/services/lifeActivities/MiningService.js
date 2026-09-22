@@ -159,7 +159,7 @@ export const MiningService = {
 
     mState.activeLamp = lampId;
     const lampDef = LAMPS_CATALOG[lampId];
-    if (callbacks.log) callbacks.log(`🏮 已點亮：**${lampDef?.name || lampId}**。`, 'system');
+    if (callbacks.log) callbacks.log(`🏮 已點亮：**${lampDef?.name || '未知礦燈'}**。`, 'system');
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
@@ -508,7 +508,7 @@ export const MiningService = {
   toggleAutoMining(state, callbacks = {}) {
     const mState = this.getMiningState(state);
     if (mState.skillLevel < 5) {
-      if (callbacks.log) callbacks.log('⚠️ 自動採礦（AFK）會在採礦等級 5 解鎖！', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 離線自動採礦會在採礦等級 5 解鎖！', 'warning');
       return false;
     }
 
@@ -537,7 +537,7 @@ export const MiningService = {
     const dur = mState.pickaxeDurability[activePickaxeId] ?? 0;
     if (dur <= 0) {
       mState.autoMining = false;
-      if (callbacks.log) callbacks.log('⚠️ AFK 採礦已中斷：你的十字鎬壞掉了！', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 離線採礦已中斷：你的十字鎬壞掉了！', 'warning');
       if (callbacks.updateAllUI) callbacks.updateAllUI();
       return;
     }
