@@ -4561,7 +4561,7 @@ export const SHOP_CATEGORY_TREE = {
       { id: 'jewels', name: '珠寶（項鍊、耳環、戒指）', icon: '💎' },
       { id: 'cloaks', name: '披風與斗篷', icon: '🧣' },
       { id: 'belts', name: '神秘腰帶', icon: '🪢' },
-      { id: 'special', name: '胸針、護符與阿加西翁', icon: '❇️' }
+      { id: 'special', name: '胸針、護符與阿加希翁', icon: '❇️' }
     ]
   },
   consumables: {
