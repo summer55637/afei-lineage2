@@ -178,7 +178,7 @@ export function getEnchantPreview(state, targetUid, scrollUid) {
     const cInfo = CRYSTAL_MAP[grade] || CRYSTAL_MAP['D'];
     crystalYield = cInfo.base + currentEnchant * cInfo.mult;
     crystalName = cInfo.name;
-    failureResultText = `💥 嚴重失敗：物品將被破壞並轉化為 ${crystalYield}x ${crystalName}。`;
+    failureResultText = `💥 嚴重失敗：物品將被破壞並轉化為 ${crystalYield}× ${crystalName}。`;
   } else if (currentEnchant >= safeLimit) {
     failureResultText = '💥 失敗：強化等級下降 1 級。';
   }
@@ -336,10 +336,10 @@ export function executeAtomicEnchant(state, targetUid, scrollUid, callbacks = {}
       }
 
       if (callbacks.log) {
-        callbacks.log(`💥 已結晶化！${targetDef.name} +${currentEnchant} 強化失敗並破壞，轉化為 ${crystalsAwarded}x ${cInfo.name}！`, 'rarity-legendary');
+        callbacks.log(`💥 已結晶化！${targetDef.name} +${currentEnchant} 強化失敗並破壞，轉化為 ${crystalsAwarded}× ${cInfo.name}！`, 'rarity-legendary');
       }
       if (callbacks.floatText) {
-        callbacks.floatText(`💥 已結晶化（+${crystalsAwarded}x）`, 'float-crit');
+        callbacks.floatText(`💥 已結晶化（+${crystalsAwarded}×）`, 'float-crit');
       }
     } else {
       outcomeType = 'FAILURE';
