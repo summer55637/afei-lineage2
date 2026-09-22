@@ -178,7 +178,7 @@ export function renderFishingUI(state) {
       tensionPulse = 'animation: pulse 0.6s infinite;';
     } else if (tensionPct >= 75) {
       tensionColor = '#f97316';
-      tensionStatus = '張力 Elevada';
+      tensionStatus = '張力過高';
     } else if (tensionPct >= 50) {
       tensionColor = '#eab308';
       tensionStatus = '中等';
