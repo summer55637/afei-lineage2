@@ -140,6 +140,45 @@ function getSkillBuffAtLevel(lvl) {
   return 0.20 + (Math.max(1, lvl) * 0.05);
 }
 
+function localizeSkillDisplayText(raw) {
+  let text = String(raw || '').trim();
+  if (!text) return '';
+
+  const replacements = [
+    [/\bP\.\s*Skill\s+Critical\s+Damage\b/gi, '物理技能暴擊傷害'],
+    [/\bP\.\s*Skill\s+Critical\s+Rate\b/gi, '物理技能暴擊率'],
+    [/\bP\.\s*Skill\s+Evasion\b/gi, '物理技能迴避'],
+    [/\bP\.\s*Skill\s+Power\b/gi, '物理技能威力'],
+    [/\bM\.\s*Skill\s+Critical\s+Damage\b/gi, '魔法技能暴擊傷害'],
+    [/\bM\.\s*Skill\s+Critical\s+Rate\b/gi, '魔法技能暴擊率'],
+    [/\bM\.\s*Skill\s+Evasion\b/gi, '魔法技能迴避'],
+    [/\bM\.\s*Skill\s+Power\b/gi, '魔法技能威力'],
+    [/\bAtk\.\s*Spd\.?\b/gi, '攻擊速度'],
+    [/\bCasting\s+Spd\.?\b/gi, '施法速度'],
+    [/\bP\.\s*Accuracy\b/gi, '物理命中'],
+    [/\bP\.\s*Evasion\b/gi, '物理迴避'],
+    [/\bM\.\s*Evasion\b/gi, '魔法迴避'],
+    [/\bP\.\s*Atk\.?\b/gi, '物理攻擊'],
+    [/\bM\.\s*Atk\.?\b/gi, '魔法攻擊'],
+    [/\bP\.\s*Def\.?\b/gi, '物理防禦'],
+    [/\bM\.\s*Def\.?\b/gi, '魔法防禦'],
+    [/\bMax\s+HP\b/gi, '最大生命值'],
+    [/\bMax\s+MP\b/gi, '最大魔力'],
+    [/\bMax\s+CP\b/gi, '最大戰鬥力'],
+    [/\bHP\b/g, '生命值'],
+    [/\bMP\b/g, '魔力'],
+    [/\bCP\b/g, '戰鬥力'],
+    [/\bCON\b/g, '體質'],
+    [/\bMEN\b/g, '精神'],
+    [/\bDEX\b/g, '敏捷'],
+    [/\bSTR\b/g, '力量'],
+    [/\bINT\b/g, '智力'],
+    [/\bWIT\b/g, '智慧']
+  ];
+  for (const [pattern, value] of replacements) text = text.replace(pattern, value);
+  return text.replace(/\s{2,}/g, ' ').trim();
+}
+
 /**
  * Gera texto dinâmico do efeito da skill baseado no nível atual.
  * Mostra valor atual e prévia do próximo nível quando aplicável.
@@ -149,7 +188,12 @@ function buildSkillEffectText(def, lvl) {
   const type = def.type;
   const currentLvl = Math.max(1, lvl || 0);
   const max = def.max || 5;
-  const effectBase = def.effectText || def.info || def.name;
+  const rawEffectText = String(def.effectText || '').trim();
+  const localizedInfo = localizeSkillDisplayText(def.info || def.desc || '');
+  const localizedEffect = localizeSkillDisplayText(rawEffectText);
+  const effectBase = /[\u3400-\u9fff]/.test(rawEffectText)
+    ? (localizedEffect || localizedInfo || def.name)
+    : (localizedInfo || localizedEffect || def.name);
 
   // Passivas: mostrar texto estático original
   if (type === 'passive' || type === 'stat') {
@@ -162,7 +206,7 @@ function buildSkillEffectText(def, lvl) {
     let text = `增益：+${Math.round(current * 100)}%，持續 60 秒`;
     if (currentLvl < max) {
       const next = getSkillBuffAtLevel(currentLvl + 1);
-      text += ` (Lv.${currentLvl + 1} → +${Math.round(next * 100)}%)`;
+      text += `（等級 ${currentLvl + 1} → +${Math.round(next * 100)}%）`;
     }
     return text;
   }
@@ -171,7 +215,7 @@ function buildSkillEffectText(def, lvl) {
   if (def.effect === 'heal' || type === 'heal') {
     let text = `治療：25% + ${currentLvl * 5}% 最大生命值`;
     if (currentLvl < max) {
-      text += ` (Lv.${currentLvl + 1} → ${25 + (currentLvl + 1) * 5}%)`;
+      text += `（等級 ${currentLvl + 1} → ${25 + (currentLvl + 1) * 5}%）`;
     }
     return text;
   }
@@ -181,7 +225,7 @@ function buildSkillEffectText(def, lvl) {
   let text = `${effectBase} — 威力：${currentPwr}`;
   if (currentLvl < max) {
     const nextPwr = getSkillPwrAtLevel(def, currentLvl + 1);
-    text += ` (Lv.${currentLvl + 1} → ${nextPwr})`;
+    text += `（等級 ${currentLvl + 1} → ${nextPwr}）`;
   }
   return text;
 }
