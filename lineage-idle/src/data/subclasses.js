@@ -40,21 +40,21 @@ export const DIVINE_TRANSFORMATIONS = {
     id: 'divineWarrior',
     name: '變身：神聖戰士',
     icon: '⚔️',
-    desc: '神聖戰士擁有戰吼（P.Atk +25%）、音速爆破與戰士犧牲（P.Atk +20%）。',
+    desc: '神聖戰士擁有戰吼（物理攻擊 +25%）、音速爆破與戰士犧牲（物理攻擊 +20%）。',
     buffs: { atkMult: 0.25, critDmgMult: 0.15 }
   },
   divineKnight: {
     id: 'divineKnight',
     name: '變身：神聖騎士',
     icon: '🛡️',
-    desc: '神聖騎士擁有極限防禦（Def +100%）、仇恨光環與騎士犧牲。',
+    desc: '神聖騎士擁有極限防禦（防禦 +100%）、仇恨光環與騎士犧牲。',
     buffs: { defMult: 0.50, mdefMult: 0.50 }
   },
   divineRogue: {
     id: 'divineRogue',
     name: '變身：神聖刺客',
     icon: '🗡️',
-    desc: '神聖刺客擁有暈眩射擊、雙重射擊、敏捷（Eva +4）與 CP 汲取。',
+    desc: '神聖刺客擁有暈眩射擊、雙重射擊、敏捷（迴避 +4）與 CP 汲取。',
     buffs: { critRateAdd: 40, evaAdd: 6 }
   },
   divineWizard: {
