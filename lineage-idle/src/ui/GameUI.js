@@ -8193,7 +8193,7 @@ export function renderForgeSynthesis(container, state) {
         <!-- Faixa de Autocompounding -->
         <div class="l2comp-auto-bar">
           <button class="l2comp-auto-btn" id="comp-auto-toggle-btn" onclick="window.synthesisSelectAllPairs && window.synthesisSelectAllPairs();">
-            <span>🔄</span> Autocompounding
+            <span>🔄</span> 自動選取合成
           </button>
           <button class="l2comp-reset-btn" onclick="window._synthesisTargetUid=null; window._synthesisIngredientUid=null; renderForgeSynthesis(document.getElementById('craft-recipes-container') || document.getElementById('craft-list'), window.state);">重設</button>
         </div>
@@ -8219,13 +8219,13 @@ export function renderForgeSynthesis(container, state) {
                 ${!canSynthesize ? 'disabled' : ''}
                 onclick="window.executeSynthesisAction('${selectedTargetItem ? selectedTargetItem.uid : ''}', '${selectedIngredientItem ? selectedIngredientItem.uid : ''}')"
               >
-                Compound
+                合成
               </button>
               <button
                 class="l2comp-btn"
                 onclick="window._synthesisTargetUid=null; window._synthesisIngredientUid=null; renderForgeSynthesis(document.getElementById('craft-recipes-container') || document.getElementById('craft-list'), window.state);"
               >
-                Cancel
+                取消
               </button>
             </div>
           </div>
@@ -8236,7 +8236,7 @@ export function renderForgeSynthesis(container, state) {
       <div class="l2comp-panel">
         <div class="l2comp-header">
           <div class="l2comp-header-title">
-            <span style="font-size:15px;">🎒</span> Materials (${eligibleItems.length})
+            <span style="font-size:15px;">🎒</span> 合成材料（${eligibleItems.length}）
           </div>
           <button class="l2comp-icon-btn" title="背包中可合成的物品">?</button>
         </div>
@@ -8247,7 +8247,7 @@ export function renderForgeSynthesis(container, state) {
 
         <div style="padding: 10px;">
           <button class="l2comp-select-all-btn" onclick="window.synthesisSelectAllPairs && window.synthesisSelectAllPairs();">
-            <span style="color:#34d399; font-size:14px;">🔄</span> Select all
+            <span style="color:#34d399; font-size:14px;">🔄</span> 全部選取
           </button>
         </div>
       </div>
@@ -8286,7 +8286,7 @@ export function renderForgeLifestones(container, state) {
             window._enhanceTargetUid = '${w.uid}';
             renderForgeLifestones(document.getElementById('craft-recipes-container') || document.getElementById('craft-list'), window.state);
           "
-          title="${w.name || w.itemId} ${w.enchant ? `+${w.enchant}` : ''} ${w.equipped ? '[已裝備]' : ''}"
+          title="${itemDef.name || '未知武器'} ${w.enchant ? `+${w.enchant}` : ''} ${w.equipped ? '［已裝備］' : ''}"
         >
           <div class="equip-icon" style="font-size:24px;">${getItemIcon(itemDef)}</div>
           ${w.enchant ? `<span class="l2comp-mat-lvl">+${w.enchant}</span>` : ''}
@@ -8360,7 +8360,7 @@ export function renderForgeLifestones(container, state) {
               class="l2comp-btn"
               onclick="window._enhanceTargetUid=null; renderForgeLifestones(document.getElementById('craft-recipes-container') || document.getElementById('craft-list'), window.state);"
             >
-              Reset
+              重設
             </button>
             <div class="l2comp-btn-group">
               <button
@@ -8368,7 +8368,7 @@ export function renderForgeLifestones(container, state) {
                 ${!selectedWeapon ? 'disabled' : ''}
                 onclick="window.applyAugmentAction('${selectedWeapon?.uid}', 'top')"
               >
-                Enhancement
+                強化
               </button>
               ${aug ? `
                 <button
@@ -8377,14 +8377,14 @@ export function renderForgeLifestones(container, state) {
                   onclick="window.removeAugmentAction('${selectedWeapon.uid}')"
                   title="移除附魔改造"
                 >
-                  Cleanse
+                  移除精煉
                 </button>
               ` : ''}
               <button
                 class="l2comp-btn"
                 onclick="_forgeViewMode='dialogue'; window.updateCraftUI && window.updateCraftUI(window.state);"
               >
-                Cancel
+                取消
               </button>
             </div>
           </div>
@@ -8395,7 +8395,7 @@ export function renderForgeLifestones(container, state) {
       <div class="l2comp-panel">
         <div class="l2comp-header">
           <div class="l2comp-header-title">
-            <span style="font-size:15px;">🗡️</span> Artifact / Equipment (${weapons.length})
+            <span style="font-size:15px;">🗡️</span> 武器／裝備（${weapons.length}）
           </div>
           <button class="l2comp-icon-btn" title="可進行強化與附魔改造的武器">?</button>
         </div>
