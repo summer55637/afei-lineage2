@@ -5,7 +5,7 @@
 export const BUFF_SKILLS = {
   fighter_will: {
     id: "fighter_will",
-    name: "Fighter's Will",
+    name: "戰士意志",
     type: "buff",
     rarity: "1★",
     cost: 5,
@@ -15,11 +15,11 @@ export const BUFF_SKILLS = {
     icon: "⚔️✨",
     effect: "warcry",
     baseCd: 60000,
-    info: "+15% P.Atk, +10% Atk Speed e +15 Velocidade de Movimento (20 min)."
+    info: "+15% 物理攻擊、+10% 攻擊速度、+15 移動速度（20 分鐘）。"
   },
   mage_will: {
     id: "mage_will",
-    name: "Mage's Will",
+    name: "法師意志",
     type: "buff",
     rarity: "1★",
     cost: 5,
@@ -29,11 +29,11 @@ export const BUFF_SKILLS = {
     icon: "🔮✨",
     effect: "warcry",
     baseCd: 60000,
-    info: "+15% M.Atk, +10% Cast Speed e +50 MP Máximo (20 min)."
+    info: "+15% 魔法攻擊、+10% 施法速度、+50 最大魔力（20 分鐘）。"
   },
   war_cry: {
     id: "war_cry",
-    name: "War Cry",
+    name: "戰吼",
     type: "buff",
     rarity: "2★",
     cost: 25,
@@ -43,11 +43,11 @@ export const BUFF_SKILLS = {
     icon: "📯",
     effect: "warcry",
     baseCd: 60000,
-    info: "+20% P.Atk temporário durante 60 segundos."
+    info: "60 秒內暫時提升 20% 物理攻擊。"
   },
   battle_roar: {
     id: "battle_roar",
-    name: "Battle Roar",
+    name: "戰鬥咆哮",
     type: "buff",
     rarity: "2★",
     cost: 20,
@@ -57,11 +57,11 @@ export const BUFF_SKILLS = {
     icon: "📯💥",
     effect: "warcry",
     baseCd: 60000,
-    info: "Restaura 20% de HP e aumenta Max HP temporariamente."
+    info: "恢復 20% 生命值，並暫時提高最大生命值。"
   },
   gladiators_harmony: {
     id: "gladiators_harmony",
-    name: "Gladiator's Harmony",
+    name: "鬥士和諧",
     type: "buff",
     rarity: "2★",
     cost: 10,
@@ -71,11 +71,11 @@ export const BUFF_SKILLS = {
     icon: "⚔️⚔️✨",
     effect: "warcry",
     baseCd: 60000,
-    info: "P.Atk Duplo +25%, Crit Dmg +20%, Atk Speed +15% (20 min)."
+    info: "雙刀物理攻擊 +25%、暴擊傷害 +20%、攻擊速度 +15%（20 分鐘）。"
   },
   paladins_harmony: {
     id: "paladins_harmony",
-    name: "Paladin's Harmony",
+    name: "聖騎士和諧",
     type: "buff",
     rarity: "2★",
     cost: 10,
@@ -85,11 +85,11 @@ export const BUFF_SKILLS = {
     icon: "🛡️✨",
     effect: "warcry",
     baseCd: 60000,
-    info: "P.Def +30%, M.Def +30%, Shield Block +40%, Max HP +25% (20 min)."
+    info: "物理防禦 +30%、魔法防禦 +30%、盾牌格擋 +40%、最大生命值 +25%（20 分鐘）。"
   },
   haste_buff: {
     id: "haste_buff",
-    name: "Haste",
+    name: "加速術",
     type: "buff",
     rarity: "2★",
     cost: 15,
@@ -99,11 +99,11 @@ export const BUFF_SKILLS = {
     icon: "⚡",
     effect: "warcry",
     baseCd: 600000,
-    info: "Aumenta a velocidade de ataque da party em +30% por 10 min."
+    info: "使隊伍攻擊速度提高 30%，持續 10 分鐘。"
   },
   might_buff: {
     id: "might_buff",
-    name: "Might",
+    name: "力量強化",
     type: "buff",
     rarity: "2★",
     cost: 15,
@@ -113,6 +113,6 @@ export const BUFF_SKILLS = {
     icon: "💪",
     effect: "warcry",
     baseCd: 600000,
-    info: "Aumenta o P.Atk da party em +20% por 10 min."
+    info: "使隊伍物理攻擊提高 20%，持續 10 分鐘。"
   }
 };
