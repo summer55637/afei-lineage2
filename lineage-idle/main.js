@@ -1369,7 +1369,7 @@ function crystallizeSelectedItems() {
 
   if (count > 0) {
     log(`💎 已成功結晶化 ${count} 件裝備並取得：**${summaryStr}**！`, 'rarity-legendary');
-    if (typeof floatText === 'function') floatText(`💎 CRISTALIZADO (+${count}x)`, 'float-jackpot');
+    if (typeof floatText === 'function') floatText(`💎 已結晶（+${count}x）`, 'float-jackpot');
   } else {
     log('沒有可結晶化的有效物品。', 'system');
   }
@@ -1621,7 +1621,7 @@ function useItem(uid) {
     }
     return;
   } else if (def.type === 'resurrect') { log('復活卷軸會在死亡時自動使用。', 'system'); return; } 
-  else { log(`Used ${def.name}`, 'heal'); }
+  else { log(`使用 ${def.name}`, 'heal'); }
   
   // Robust stack deduction — handles both item.count and item.qty
   const currentQty = (item.count != null ? item.count : item.qty) ?? 1;
@@ -1881,18 +1881,18 @@ function getLogBadgeHtml(type, category, msg = '') {
   if (category === 'loot') {
     if (type === 'rarity-legendary') return '<span class="log-badge badge-legendary">傳說</span>';
     if (type === 'rarity-epic') return '<span class="log-badge badge-rare">史詩</span>';
-    if (type === 'rarity-rare') return '<span class="log-badge badge-rare">RARO</span>';
-    return '<span class="log-badge badge-loot">DROP</span>';
+    if (type === 'rarity-rare') return '<span class="log-badge badge-rare">稀有</span>';
+    return '<span class="log-badge badge-loot">掉落</span>';
   }
   if (category === 'gold_xp') {
-    if (type === 'xp') return '<span class="log-badge badge-xp">XP</span>';
+    if (type === 'xp') return '<span class="log-badge badge-xp">經驗</span>';
     return '<span class="log-badge badge-gold">金幣</span>';
   }
   if (category === 'combat') {
     if (type === 'heal') return '<span class="log-badge badge-loot">治療</span>';
-    return '<span class="log-badge badge-combat">LUTA</span>';
+    return '<span class="log-badge badge-combat">戰鬥</span>';
   }
-  return '<span class="log-badge badge-sys">SISTEMA</span>';
+  return '<span class="log-badge badge-sys">系統</span>';
 }
 
 function log(msg, type = 'system', explicitCategory = null) {
@@ -2013,7 +2013,7 @@ function updateStatsUI() {
   }
   const _sgEl = el('saga-text'); if (_sgEl) _sgEl.textContent = (state.currentSaga ? (getSagaDef(state.currentSaga)?.name || state.currentSaga) : '-');
   const _sz = el('stage-zone');
-  if (_sz) { const _t = (state.zone && ZONES?.[state.zone]) ? ZONES[state.zone].name + (ZONES[state.zone].town ? ' · town' : '') : '—'; if (_sz.textContent !== _t) _sz.textContent = _t; }
+  if (_sz) { const _t = (state.zone && ZONES?.[state.zone]) ? ZONES[state.zone].name + (ZONES[state.zone].town ? ' · 城鎮' : '') : '—'; if (_sz.textContent !== _t) _sz.textContent = _t; }
   const _zn = el('zone-name');
   if (_zn) { const _tzn = (state.zone && ZONES?.[state.zone]) ? ZONES[state.zone].name : '—'; if (_zn.textContent !== _tzn) _zn.textContent = _tzn; }
   const _spaEl = el('sp-available'); if (_spaEl) _spaEl.textContent = state.sp;
@@ -2116,7 +2116,7 @@ function updateDetailedEquipStatsUI() {
         pdSlot.title = `${slot} · 空`; 
         pdSlot.innerHTML = `<span class="l2inv-pd-icon">${defaultEmoji}</span><span class="l2inv-pd-item" id="pd-item-${slot}"></span>`;
       }
-      if (elem) { elem.textContent = 'Empty'; elem.style.color = ''; elem.title = ''; }
+      if (elem) { elem.textContent = '空'; elem.style.color = ''; elem.title = ''; }
       if (wrap) { wrap.style.borderColor = ''; wrap.title = slot + ' · 空'; }
       continue;
     }
@@ -2129,7 +2129,7 @@ function updateDetailedEquipStatsUI() {
         pdSlot.title = `${slot} · 空`; 
         pdSlot.innerHTML = `<span class="l2inv-pd-icon">${defaultEmoji}</span><span class="l2inv-pd-item" id="pd-item-${slot}"></span>`;
       }
-      if (elem) { elem.textContent = 'Empty'; elem.style.color = ''; elem.title = ''; }
+      if (elem) { elem.textContent = '空'; elem.style.color = ''; elem.title = ''; }
       if (wrap) { wrap.style.borderColor = ''; wrap.title = slot + ' · 空'; }
       continue;
     }
@@ -2430,7 +2430,7 @@ function showSkillTooltip(skillId, e) {
           ${starBadge}
         </div>
         <div class="tt-slot" style="display:flex; align-items:center; gap:6px; margin-top:2px;">
-          <span>${tier} · Lv.${lvl}/${max}</span>
+          <span>${tier} · 等級 ${lvl}/${max}</span>
           ${elemBadge}
           ${roleBadge}
           ${cdText}
@@ -2440,7 +2440,7 @@ function showSkillTooltip(skillId, e) {
     <div class="tt-body" style="padding-top:6px;">
       <p class="tt-desc">${def.desc || def.info || ''}</p>
       <div class="tt-effect" style="margin-top:6px; color:#f0d080; font-weight:600;">${window.SkillScaling ? window.SkillScaling.buildSkillEffectText(def, lvl) : (def.info || '')}</div>
-      <div style="margin-top:6px; font-size:10px; color:#888;">Requisitos: ${reqText} (Lv.${def.reqLvl || def.requiredLevel || 1})</div>
+      <div style="margin-top:6px; font-size:10px; color:#888;">需求：${reqText}（等級 ${def.reqLvl || def.requiredLevel || 1}）</div>
     </div>
   `;
 
@@ -2527,7 +2527,7 @@ function renderShopPowerups(list) {
   const powerupIds = ['xp_boost_1h','xp_boost_4h','gold_boost_1h','gold_boost_4h','luck_boost_1h','auto_potion_1h','teleport_scroll','berserker_elixir','aegis_draught','sages_tea'];
   const activeBuffs = Object.entries(state.buffs || {}).filter(([k,b]) => ['xpBoost','goldBoost','luckBoost','autoPotion'].includes(k) && b.until > Date.now());
   if (activeBuffs.length) {
-    const hdr = mkEl('div'); hdr.className = 'shop-header'; hdr.innerHTML = '<h4>Active Powerups</h4>'; list.appendChild(hdr);
+    const hdr = mkEl('div'); hdr.className = 'shop-header'; hdr.innerHTML = '<h4>啟用中的增益效果</h4>'; list.appendChild(hdr);
     for (const [k, b] of activeBuffs) { const remaining = Math.max(0, b.until - Date.now()); const names = { xpBoost: '📘 XP 加成', goldBoost: '🪙 金幣加成', luckBoost: '🍀 幸運加成', autoPotion: '🧪 自動藥水' }; const row = mkEl('div'); row.className = 'shop-item active-buff'; row.innerHTML = `<div class="item-info"><div class="item-name">${names[k] || k}</div><div class="item-desc">+${Math.round(b.amount*100)}% · ${fmtCountdown(remaining)}</div></div><div class="buff-pulse"></div>`; list.appendChild(row); }
     const sep = mkEl('div'); sep.className = 'shop-header'; sep.innerHTML = '<h4>購買更多</h4>'; list.appendChild(sep);
   }
@@ -3030,8 +3030,8 @@ function renderZoneInfoCard() {
     const archBadge = `<span class="z-badge arch" style="background:${arch.bg}; color:${arch.color}; border:1px solid ${arch.border}; padding:1px 5px; border-radius:3px; font-size:10px; margin-left:4px;" title="${arch.desc}">${arch.icon} ${arch.label}</span>`;
     return `
       <div class="z-mon-item">
-        <span class="z-mon-name"><span class="z-mon-lvl">Lv.${mLvl}</span> ${mon.name || mId} ${badge} ${archBadge}</span>
-        <span class="z-mon-stats">❤️ ${(mon.hp || 0).toLocaleString()} HP | ⚔️ ${mon.atk || 0} ATK</span>
+        <span class="z-mon-name"><span class="z-mon-lvl">等級 ${mLvl}</span> ${mon.name || mId} ${badge} ${archBadge}</span>
+        <span class="z-mon-stats">❤️ 生命值 ${(mon.hp || 0).toLocaleString()}｜⚔️ 攻擊 ${mon.atk || 0}</span>
       </div>
     `;
   }).filter(Boolean).join('');
@@ -3959,13 +3959,13 @@ function selectMasterAbilityModal() {
 
 function selectDivineTransformationModal() {
   const transList = [
-    { key: 'divineWarrior', name: '⚔️ Divine Warrior (War Cry +25% P.Atk, Sonic Blaster)' },
-    { key: 'divineKnight', name: '🛡️ Divine Knight (Ultimate Defence +100% Def, Hate Aura)' },
-    { key: 'divineRogue', name: '🗡️ Divine Rogue (Stun Shot, Double Shot, +4 Eva)' },
-    { key: 'divineWizard', name: '🔮 Divine Wizard (Divine Flare, Divine Strike, Sleep AoE)' },
-    { key: 'divineSummoner', name: '🦄 Divine Summoner (Transfer Pain, Final Servitor)' },
-    { key: 'divineHealer', name: '🕊️ Divine Healer (Major Heal, Cleanse, Ress 70%)' },
-    { key: 'divineEnchanter', name: '📜 Divine Enchanter (Chant of Victory +10% Stats)' }
+    { key: 'divineWarrior', name: '⚔️ 神聖戰士（戰吼：物理攻擊 +25%、音速爆擊）' },
+    { key: 'divineKnight', name: '🛡️ 神聖騎士（終極防禦：防禦 +100%、仇恨光環）' },
+    { key: 'divineRogue', name: '🗡️ 神聖遊俠（暈眩射擊、雙重射擊、迴避 +4）' },
+    { key: 'divineWizard', name: '🔮 神聖巫師（神聖閃焰、神聖打擊、範圍睡眠）' },
+    { key: 'divineSummoner', name: '🦄 神聖召喚師（傷害轉移、終極召喚獸）' },
+    { key: 'divineHealer', name: '🕊️ 神聖治癒師（強效治癒、淨化、70% 復活）' },
+    { key: 'divineEnchanter', name: '📜 神聖賦予師（勝利頌歌：全屬性 +10%）' }
   ];
 
   const choice = prompt(`選擇你的神聖變身（等級 80）：\n\n${transList.map((t, i) => `${i + 1}. ${t.name}`).join('\n')}\n\n請輸入選項編號：`);
@@ -3976,7 +3976,7 @@ function selectDivineTransformationModal() {
   const selectedKey = transList[idx].key;
   state.activeTransformation = (state.activeTransformation === selectedKey) ? null : selectedKey;
 
-  log(`👼 TRANSFORMAÇÃO DIVINA **${transList[idx].name.toUpperCase()}** ${state.activeTransformation ? 'ATIVADA' : 'DESATIVADA'}!`, 'rarity-legendary');
+  log(`👼 神聖變身 **${transList[idx].name}** ${state.activeTransformation ? '已啟用' : '已停用'}！`, 'rarity-legendary');
   floatText('神聖變身！', 'float-gold');
   updateAllUI(); save();
 }
@@ -4031,12 +4031,12 @@ export function renderSubclassesUI() {
       <div style="font-weight:bold; color:${isMainActive ? 'var(--gilt-bright)' : 'var(--bone)'}; font-size:13px; display:flex; align-items:center; gap:6px;">
         <span>👑 主職業：</span>
         <span style="color:#fde047;">${mainClassDef?.name || mainClassId}</span>
-        <span style="color:#60a5fa; font-size:11px; background:rgba(96,165,250,0.15); padding:1px 6px; border-radius:4px;">Lv.${activeMainLevel}</span>
+        <span style="color:#60a5fa; font-size:11px; background:rgba(96,165,250,0.15); padding:1px 6px; border-radius:4px;">等級 ${activeMainLevel}</span>
       </div>
       <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">主要職業來源－所有副職業認證的永久加成都會累積在此。</div>
     </div>
     <button class="action-btn" style="padding:6px 12px; font-size:11px;" ${isMainActive ? 'disabled' : ''} onclick="switchSubclass(null)">
-      ${isMainActive ? '✓ Em Uso' : 'Alternar 👑'}
+      ${isMainActive ? '✓ 使用中' : '切換 👑'}
     </button>
   `;
   container.appendChild(mainCard);
@@ -4197,7 +4197,7 @@ function openCertificationModal(subId, milestoneKey) {
           <div style="font-size:10px; color:#38bdf8; margin-top:4px;">戰力貢獻： <strong>+${(opt.cp || 1500).toLocaleString('pt-BR')} CP</strong></div>
         </div>
         <button class="action-btn action-btn--primary" style="padding:8px 14px; font-size:11px; white-space:nowrap;" onclick="window.confirmLearnCertification('${subId}', '${milestoneKey}', '${opt.id}')">
-          Aprender 📜
+          學習 📜
         </button>
       </div>
     `;
@@ -4354,7 +4354,7 @@ function openDivineTransformationToggleModal() {
 function toggleDivineTransformation(transId) {
   if (state.activeTransformation === transId) {
     state.activeTransformation = null;
-    log('👼 Transformação Divina desativada.', 'system');
+    log('👼 神聖變身已停用。', 'system');
   } else {
     state.activeTransformation = transId;
     log(`👼 **神聖變身已啟用！** (+${transId.toUpperCase()})`, 'rarity-legendary');
@@ -4626,7 +4626,7 @@ function updateZoneBackground() {
 
   if (stageZone && name) {
     const isTown = state.zone && ZONES[state.zone]?.town;
-    stageZone.textContent = name.toUpperCase() + (isTown ? ' · TOWN' : '');
+    stageZone.textContent = name.toUpperCase() + (isTown ? ' · 城鎮' : '');
   }
 
   if (zoneNameEl && name) {
@@ -4662,7 +4662,7 @@ function updateMonsterHP() {
   const curHp = Math.max(0, Math.min(maxHp, Math.round(mon.hp !== undefined ? mon.hp : maxHp)));
   const pct = Math.max(0, Math.min(100, (curHp / maxHp) * 100));
   if (fill) fill.style.width = `${pct}%`;
-  if (text) text.textContent = `HP: ${curHp.toLocaleString()} / ${maxHp.toLocaleString()}`;
+  if (text) text.textContent = `生命值：${curHp.toLocaleString()} / ${maxHp.toLocaleString()}`;
 }
 
 function reflow(n) { /* non-blocking no-op to eliminate layout thrashing */ }
@@ -4691,7 +4691,7 @@ function stageMonsterHurt(dmg, crit, reaction = null, reactionDuration = 450) {
     });
   } 
   const floatClass = crit ? 'sf-crit crit-hit-text' : 'sf-dmg';
-  stageFloat((crit ? '💥 CRIT! ' : '') + Math.round(dmg), floatClass, 'right'); 
+  stageFloat((crit ? '💥 暴擊！ ' : '') + Math.round(dmg), floatClass, 'right'); 
 }
 function stageMonsterDie() { 
   const fill = el('monster-hp-fill') || el('m-hp-fill') || document.querySelector('#monster-hp-fill, .stage-hp-fill');
@@ -4699,7 +4699,7 @@ function stageMonsterDie() {
   if (fill) fill.style.width = '0%'; 
   if (text && state.activeMonster) {
     const maxHp = Math.max(1, Math.round(state.activeMonster._maxHp || state.activeMonster.maxHp || 100));
-    text.textContent = `HP: 0 / ${maxHp.toLocaleString()}`;
+    text.textContent = `生命值：0 / ${maxHp.toLocaleString()}`;
   }
   const m = el('stage-monster'); 
   if (m) { 
@@ -4710,7 +4710,7 @@ function stageMonsterDie() {
       setTimeout(() => m.classList.remove('is-dying'), 350); 
     });
   } 
-  stageFloat('SLAIN', 'sf-slain', 'right'); 
+  stageFloat('擊殺', 'sf-slain', 'right'); 
   try {
     if (globalVFXOrchestrator && typeof globalVFXOrchestrator.clear === 'function') {
       globalVFXOrchestrator.clear();
@@ -4744,7 +4744,7 @@ function stageHeroHurt(dmg) {
   }
   stageFloat('-' + Math.round(dmg), 'sf-hurt', 'left');
 }
-function stageHeroBlock() { stageFloat('BLOCK', 'sf-block', 'left'); }
+function stageHeroBlock() { stageFloat('格擋', 'sf-block', 'left'); }
 const MAX_FLOAT_ITEMS = 12;
 function stageFloat(text, cls, side) {
   const c = el('stage-floats');
@@ -5225,7 +5225,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
     if (killHeal > 0) {
       state.hp = Math.min(state.maxHp, state.hp + killHeal);
       log(`🩸 處決！擊敗 ${monster.name} 後恢復 ${killHeal} HP`, 'heal');
-      floatText(`+${killHeal} HP`, 'sf-heal');
+      floatText(`+${killHeal} 生命值`, 'sf-heal');
     }
   }
   if (!monster.boss && !monster.isTower && state.zone) {
@@ -5539,12 +5539,12 @@ export function attackMonster() {
     const bDmg = monster._bleedDamage || 20;
     monster.hp -= bDmg;
     log(`🩸 深度流血：${monster.name} 持續受到 ${bDmg} 傷害！`, 'combat');
-    if (typeof stageFloat === 'function') stageFloat(`-${bDmg} BLEED`, 'sf-crit', 'right');
+    if (typeof stageFloat === 'function') stageFloat(`-${bDmg} 流血`, 'sf-crit', 'right');
   }
 
   if (stats.regenHp > 0) {
     state._regenAcc = (state._regenAcc || 0) + 0.2; 
-    if (state._regenAcc >= 10) { state._regenAcc = 0; const heal = Math.max(1, Math.floor(state.maxHp * stats.regenHp)); if (state.hp < state.maxHp) { state.hp = Math.min(state.maxHp, state.hp + heal); log(`Holy Light: +${heal} HP`, 'heal'); } }
+    if (state._regenAcc >= 10) { state._regenAcc = 0; const heal = Math.max(1, Math.floor(state.maxHp * stats.regenHp)); if (state.hp < state.maxHp) { state.hp = Math.min(state.maxHp, state.hp + heal); log(`聖光：+${heal} 生命值`, 'heal'); } }
   }
   if (stats.mpRegen > 0) {
     state._mpRegenAcc = (state._mpRegenAcc || 0) + 0.2;
@@ -5817,7 +5817,7 @@ export function attackMonster() {
           const vHeal = calculateVampiricHeal(sDmg, stats.maxHp || state.maxHp, COMBAT_CONFIG.lifestealRatioDefault);
           if (vHeal > 0) {
             state.hp = Math.min(stats.maxHp || state.maxHp, state.hp + vHeal);
-            if (typeof floatText === 'function') floatText(`+${vHeal} HP`, 'sf-heal');
+            if (typeof floatText === 'function') floatText(`+${vHeal} 生命值`, 'sf-heal');
             log(`🦇 吸血！吸收 ${vHeal} HP`, 'heal');
           }
         }
@@ -5896,7 +5896,7 @@ export function attackMonster() {
         log(`💥 ${skill.def.name}！造成 ${sDmg} ${type} 傷害`, 'rarity-epic');
         if (skill.def.effect === 'stun' && !killedBySkill) {
            monster._stunnedUntil = realNow + 3500;
-           log(`💫 ${monster.name} foi Atordoado!`, 'rarity-rare');
+           log(`💫 ${monster.name} 被暈眩了！`, 'rarity-rare');
         }
 
         if (killedBySkill) {
@@ -5929,7 +5929,7 @@ export function attackMonster() {
     const missChance = gap >= 10 ? 0.70 : (gap >= 5 ? 0.35 : 0.15);
     if (Math.random() < missChance) {
       log(`❌ 未命中！${monster.name} 閃避了你的攻擊（等級差 +${gap}）！`, 'warning');
-      if (typeof stageFloat === 'function') stageFloat('MISS', 'sf-miss', 'right');
+      if (typeof stageFloat === 'function') stageFloat('未命中', 'sf-miss', 'right');
       return;
     }
   }
@@ -6062,8 +6062,8 @@ export function attackMonster() {
 
   if (procBonuses.stun_chance > 0 && Math.random() * 100 < procBonuses.stun_chance) {
     monster._stunnedUntil = realNowAttack + 1500;
-    log(`💫 Stun Proc! ${monster.name} foi Atordoado por 1.5s`, 'rarity-rare');
-    floatText('STUN!', 'float-epic');
+    log(`💫 暈眩觸發！${monster.name} 被暈眩 1.5 秒`, 'rarity-rare');
+    floatText('暈眩！', 'float-epic');
   }
 
   // Procs de Certificação de Subclasse ao Atacar (Warrior: Counter Haste, Rogue: Chance Critical)
@@ -6080,7 +6080,7 @@ export function attackMonster() {
     state.buffs['chance_critical'] = { amount: 35, until: realNowAttack + 10000 };
     log(`💥 **[副職業] 暴擊觸發！** +35 暴擊率、+10% 暴擊傷害，持續 10 秒！`, 'rarity-legendary');
     if (typeof stageFloat === 'function') stageFloat('💥 暴擊！', 'sf-crit', 'left');
-    else if (typeof floatText === 'function') floatText('💥 CRITICAL!', 'float-jackpot');
+    else if (typeof floatText === 'function') floatText('💥 暴擊！', 'float-jackpot');
   }
 
   // IA do Monstro: Reações defensivas (Bloqueio, Esquiva Ladina, Barreira, Enrage)
@@ -6236,7 +6236,7 @@ function monsterAttack(monster) {
 
   if (Math.random() < dodgeChance) {
     log(`${monster.name} 的攻擊未命中！`, 'combat');
-    stageFloat('DODGE', 'sf-miss', 'left');
+    stageFloat('閃避', 'sf-miss', 'left');
     return;
   }
   
@@ -6290,10 +6290,10 @@ function monsterAttack(monster) {
   if (aiAttack.manaBurnAmt > 0 && state.mp > 0) {
     state.mp = Math.max(0, state.mp - aiAttack.manaBurnAmt);
     log(`🔥 [魔力燃燒] **${monster.name}** 燃燒了你 ${aiAttack.manaBurnAmt} 點魔力！`, 'warning');
-    stageFloat(`-${aiAttack.manaBurnAmt} MP`, 'sf-hurt', 'left');
+    stageFloat(`-${aiAttack.manaBurnAmt} 魔力`, 'sf-hurt', 'left');
   }
   if (aiAttack.appliedDebuff) {
-    log(`🔮 [Maldição] **${monster.name}** conjurou ${aiAttack.appliedDebuff.name}!`, 'warning');
+    log(`🔮 [詛咒] **${monster.name}** 施放了 ${aiAttack.appliedDebuff.name}！`, 'warning');
     stageFloat(aiAttack.appliedDebuff.name, 'sf-block', 'left');
   }
 
@@ -6315,7 +6315,7 @@ function monsterAttack(monster) {
     damage = Math.max(1, Math.floor(damage * crushMult));
     isCrushingHit = true;
     log(`⚠️ [裝備落後] **${monster.name}** 施展粉碎重擊！造成 **${damage}** 傷害（衝擊倍率 ${Math.round(crushMult * 100)}%）！`, 'warning');
-    if (typeof stageFloat === 'function') stageFloat('CRUSHING!', 'sf-crit', 'left');
+    if (typeof stageFloat === 'function') stageFloat('粉碎！', 'sf-crit', 'left');
   }
 
   if (state.godMode) {
@@ -6326,9 +6326,9 @@ function monsterAttack(monster) {
   // Counter Barrier (Celestial Shield - Invulnerabilidade Total L2)
   if (state.buffs?.['counter_barrier'] && state.buffs['counter_barrier'].until > realNow) {
     damage = 0;
-    if (typeof stageFloat === 'function') stageFloat('🌟 INVULNERÁVEL', 'sf-block', 'left');
-    else if (typeof floatText === 'function') floatText('🌟 INVULNERÁVEL', 'float-jackpot');
-    log('🌟 [Celestial Shield] Escudo Divino absorveu todo o impacto!', 'rarity-legendary');
+    if (typeof stageFloat === 'function') stageFloat('🌟 無敵', 'sf-block', 'left');
+    else if (typeof floatText === 'function') floatText('🌟 無敵', 'float-jackpot');
+    log('🌟 [天界護盾] 神聖護盾吸收了全部傷害！', 'rarity-legendary');
   }
 
   if (damage > 0) {
@@ -6337,8 +6337,8 @@ function monsterAttack(monster) {
       state.buffs = state.buffs || {};
       state.buffs['counter_barrier'] = { until: realNow + 5000 };
       log('🌟 **[副職業] 反擊屏障觸發！** 完全免疫傷害 5 秒！', 'rarity-legendary');
-      if (typeof stageFloat === 'function') stageFloat('🌟 CELESTIAL!', 'sf-heal', 'left');
-      else if (typeof floatText === 'function') floatText('🌟 CELESTIAL SHIELD!', 'float-jackpot');
+      if (typeof stageFloat === 'function') stageFloat('🌟 天界護盾！', 'sf-heal', 'left');
+      else if (typeof floatText === 'function') floatText('🌟 天界護盾！', 'float-jackpot');
     }
     if (stats.defenceProc && Math.random() < 0.06) {
       state.buffs = state.buffs || {};
@@ -6366,7 +6366,7 @@ function monsterAttack(monster) {
       const vHeal = Math.max(1, Math.floor(damage * aiAttack.vampiricHeal));
       monster.hp = Math.min(monster._maxHp, monster.hp + vHeal);
       log(`🦇 [吸血] **${monster.name}** 從你身上吸收了 ${vHeal} HP！`, 'warning');
-      stageFloat(`+${vHeal} HP`, 'sf-heal', 'right');
+      stageFloat(`+${vHeal} 生命值`, 'sf-heal', 'right');
     }
   }
   if (state.hp <= 0) {
@@ -6570,7 +6570,7 @@ function handleChatSubmit(inputStr) {
   if (lower === '//god') {
     state.godMode = !state.godMode;
     log(`🛡️ [管理員] 無敵模式：${state.godMode ? '已啟用' : '已停用'}`, 'rarity-legendary');
-    if (typeof floatText === 'function') floatText(`🛡️ GOD MODE: ${state.godMode ? 'ON' : 'OFF'}`, 'float-jackpot');
+    if (typeof floatText === 'function') floatText(`🛡️ 無敵模式：${state.godMode ? '開啟' : '關閉'}`, 'float-jackpot');
     updateAllUI();
     save(true, true);
     return;
@@ -6803,7 +6803,7 @@ function addAdminXP(amount) {
   updateSkillUI();
   updateRaceClassUI();
   log(`🌟 [管理員] 已增加 ${amt.toLocaleString()} XP！（目前等級：${state.level}）`, 'rarity-legendary');
-  floatText(`🌟 +${amt.toLocaleString()} XP!`, 'float-jackpot');
+  floatText(`🌟 +${amt.toLocaleString()} 經驗值！`, 'float-jackpot');
   updateAllUI();
   save(true, true);
 }
@@ -6826,7 +6826,7 @@ function addAdminSP(amount) {
   if (amt <= 0) return;
   state.sp = (state.sp || 0) + amt;
   log(`✦ [管理員] 已增加 ${amt.toLocaleString()} SP！`, 'rarity-legendary');
-  floatText(`✦ +${amt.toLocaleString()} SP!`, 'float-jackpot');
+  floatText(`✦ +${amt.toLocaleString()} 技能點！`, 'float-jackpot');
   updateSkillUI();
   updateAllUI();
   save(true, true);
@@ -6904,7 +6904,7 @@ function adminMaxSkills() {
     }
   }
   log('📖 [管理員] 所有職業技能已提升至最高！', 'rarity-legendary');
-  floatText('📖 SKILLS MÁXIMAS', 'float-jackpot');
+  floatText('📖 技能已全滿', 'float-jackpot');
   updateSkillUI();
   updateAllUI();
   save(true, true);
@@ -6914,7 +6914,7 @@ function adminKillMonster() {
   if (!isAuthorizedAdmin()) return;
   const monster = state.currentMonster;
   if (monster) {
-    log(`⚡ [Admin] Matou o monstro ${monster.name} instantaneamente!`, 'rarity-legendary');
+    log(`⚡ [管理員] 已立即擊殺怪物 ${monster.name}！`, 'rarity-legendary');
     monster.hp = 0;
     onMonsterDefeated(monster);
   } else {
@@ -7123,7 +7123,7 @@ function executeAdminCmd(cmd) {
   else if (cmd === 'godmode') { 
     state.godMode = !state.godMode; 
     log(`🛡️ [管理員] 無敵狀態：${state.godMode ? '已啟用' : '已停用'}！`, 'rarity-legendary'); 
-    if (typeof floatText === 'function') floatText(`🛡️ GOD MODE: ${state.godMode ? 'ON' : 'OFF'}`, 'float-jackpot');
+    if (typeof floatText === 'function') floatText(`🛡️ 無敵模式：${state.godMode ? '開啟' : '關閉'}`, 'float-jackpot');
   }
   else if (cmd === 'healfull') { 
     const stats = getStats(); 
@@ -7578,7 +7578,7 @@ function renderMonsterCardsCodex(container, summaryEl) {
         </span>
         <div style="display:flex; gap:6px;">
           ${invCount > 0 ? `
-            <button class="action-btn action-btn--primary" style="padding:4px 10px; font-size:11px; font-weight:bold;" onclick="window.absorbCardAction('${cardId}', false)">Absorver 📥</button>
+            <button class="action-btn action-btn--primary" style="padding:4px 10px; font-size:11px; font-weight:bold;" onclick="window.absorbCardAction('${cardId}', false)">吸收 📥</button>
             ${invCount > 1 ? `
               <button class="action-btn" style="padding:4px 8px; font-size:11px; font-weight:bold; background:rgba(212,167,68,0.2); border-color:#d4a744; color:#fde047;" onclick="window.absorbCardAction('${cardId}', true)">全部（${invCount}）</button>
             ` : ''}
@@ -7690,7 +7690,7 @@ function updateDollsUI() {
       <div style="display:flex; align-items:center; gap: 10px;">
         <span style="font-size: 24px;">${def.icon}</span>
         <div>
-          <div style="font-weight:bold; color:var(--gilt-bright);">${def.name} <span style="color:#60a5fa;">Lv.${d.level || 1}</span></div>
+          <div style="font-weight:bold; color:var(--gilt-bright);">${def.name} <span style="color:#60a5fa;">等級 ${d.level || 1}</span></div>
           <div style="font-size:11px; color:#10b981;">${lvlInfo?.label || ''}</div>
         </div>
       </div>
@@ -7729,8 +7729,8 @@ function updateDollsUI() {
         const isThisLvl = maxOwnedLvl === lvl;
         lvlBadgesHtml += `
           <div style="font-size:11px; padding:5px 8px; border-radius:6px; background:${isThisLvl ? 'rgba(52,211,153,0.2)' : 'rgba(0,0,0,0.4)'}; border:1px solid ${isThisLvl ? '#34d399' : 'rgba(255,255,255,0.08)'}; color:${isThisLvl ? '#34d399' : '#aaa'}; display:flex; justify-content:space-between; align-items:center;">
-            <span><strong>Lv.${lvl}:</strong> ${info.label}</span>
-            ${isThisLvl ? '<span style="color:#34d399; font-weight:bold;">[ATIVO]</span>' : ''}
+            <span><strong>等級 ${lvl}：</strong> ${info.label}</span>
+            ${isThisLvl ? '<span style="color:#34d399; font-weight:bold;">[啟用中]</span>' : ''}
           </div>
         `;
       }
@@ -7849,15 +7849,15 @@ function useMagicLamp() {
         </div>
         <h4 style="margin:0; font-size:18px; font-family:'Cinzel',serif; color:#ffd877;">${result.cardName}</h4>
         <div style="font-size:16px; font-family:'IBM Plex Mono',monospace; font-weight:bold; color:#67e8f9; margin:10px 0 6px 0;">
-          +${result.expWon.toLocaleString()} EXP &bull; +${result.spWon.toLocaleString()} SP
+          +${result.expWon.toLocaleString()} 經驗值 &bull; +${result.spWon.toLocaleString()} 技能點
         </div>
         <span style="font-size:11px; color:#94a3b8; font-family:'IBM Plex Mono',monospace;">等級區間：${result.bracket}</span>
       </div>
     `;
   }
 
-  log(`🪔 已使用魔法神燈！抽中 **${result.cardName}**（+${result.expWon.toLocaleString()} XP、+${result.spWon.toLocaleString()} SP）[${result.bracket}]！`, 'rarity-legendary');
-  floatText(`🪔 +${result.expWon.toLocaleString()} XP!`, 'float-jackpot');
+  log(`🪔 已使用魔法神燈！抽中 **${result.cardName}**（+${result.expWon.toLocaleString()} 經驗值、+${result.spWon.toLocaleString()} 技能點）[${result.bracket}]！`, 'rarity-legendary');
+  floatText(`🪔 +${result.expWon.toLocaleString()} 經驗值！`, 'float-jackpot');
 
   updateAllUI();
   save();
@@ -7884,10 +7884,10 @@ function renderSpecialCraftRecipes() {
   grid.innerHTML = '';
 
   const recipes = [
-    { id: 'spellbook_selector', name: '📖 Selector 4⭐ Star Spellbook', costCharges: 5, crystalId: 'crystal_s', crystalQty: 10, resultId: 'spellbook_4star' },
+    { id: 'spellbook_selector', name: '📖 4★ 技能書選擇箱', costCharges: 5, crystalId: 'crystal_s', crystalQty: 10, resultId: 'spellbook_4star' },
     { id: 'boss_doll_box', name: '📦 首領娃娃箱（蟻后／巴溫／札肯）', costCharges: 3, crystalId: 'crystal_a', crystalQty: 5, resultDoll: 'doll_queen_ant' },
     { id: 's_weapon_chest', name: '⚔️ S 級武器寶箱', costCharges: 4, crystalId: 'crystal_a', crystalQty: 10, resultId: 'dragon_slayer' },
-    { id: 'enchant_scroll_s', name: '📜 Scroll Enchant S-Grade', costCharges: 1, crystalId: 'crystal_b', crystalQty: 5, resultId: 'crystal_s' }
+    { id: 'enchant_scroll_s', name: '📜 S 級強化卷軸', costCharges: 1, crystalId: 'crystal_b', crystalQty: 5, resultId: 'crystal_s' }
   ];
 
   recipes.forEach(r => {
@@ -7895,8 +7895,8 @@ function renderSpecialCraftRecipes() {
     card.style.cssText = 'border:1px solid var(--border-gilt); padding:10px; border-radius:8px; background:rgba(15,20,30,0.8);';
     card.innerHTML = `
       <div style="font-weight:bold; color:var(--gilt-bright); font-size:12px;">${r.name}</div>
-      <div style="font-size:11px; color:var(--text-muted); margin:4px 0;">Custo: ${r.costCharges} Cargas + ${r.crystalQty}x ${D().ALL_ITEMS[r.crystalId]?.name || r.crystalId}</div>
-      <button class="action-btn action-btn--primary special-craft-btn" style="padding:2px 8px; font-size:11px; width:100%; margin-top:6px;" data-recipe="${r.id}" onclick="craftSpecialRecipe('${r.id}')">Forjar ✨</button>
+      <div style="font-size:11px; color:var(--text-muted); margin:4px 0;">費用：${r.costCharges} 次充能 + ${r.crystalQty}x ${D().ALL_ITEMS[r.crystalId]?.name || r.crystalId}</div>
+      <button class="action-btn action-btn--primary special-craft-btn" style="padding:2px 8px; font-size:11px; width:100%; margin-top:6px;" data-recipe="${r.id}" onclick="craftSpecialRecipe('${r.id}')">鍛造 ✨</button>
     `;
     card.querySelectorAll('.special-craft-btn').forEach(b => {
       b.onclick = () => craftSpecialRecipe(b.dataset.recipe);
@@ -8221,7 +8221,7 @@ function depositMaterialsToWarehouse() {
 
 function withdrawAllFromWarehouse() {
   if (!state.warehouse || state.warehouse.length === 0) {
-    log('O Baú está vazio.', 'system');
+    log('倉庫是空的。', 'system');
     return;
   }
   let movedCount = 0;
@@ -9027,7 +9027,7 @@ function conquerCastle(castleId) {
   };
 
   log(`🏰 已征服 ${castle.name.toUpperCase()}！加成已啟用：${castle.desc}。`, 'rarity-legendary');
-  floatText(`DOMINOU ${castle.name.toUpperCase()}`, 'float-gold');
+  floatText(`已征服 ${castle.name}`, 'float-gold');
 
   updateAllUI();
   save();
@@ -9229,7 +9229,7 @@ function upgradeItemToMasterwork(itemUid) {
   item.name = item.name ? (item.name.includes('[Foundation MW]') ? item.name : `${item.name} [Foundation MW]`) : `${itemDef.name} [Foundation MW]`;
 
   log(`✨ 鐵匠大師普希金打造了 ${item.name.toUpperCase()}（稀有名匠裝備）！`, 'rarity-legendary');
-  floatText('MASTERWORK RARE!', 'float-gold');
+  floatText('稀有名匠裝備！', 'float-gold');
 
   updateAllUI();
   save();
@@ -9310,7 +9310,7 @@ function insertAttributeStone(itemUid, elemType = 'fire') {
   item.elemental.val = Math.min(300, item.elemental.val + inc);
 
   log(`🔥 元素鑲嵌成功！**${item.name || '物品'}** 獲得 +${inc} ${elemType.toUpperCase()} 屬性（總值：${item.elemental.val}）！`, 'rarity-legendary');
-  floatText(`ATRIBUTO ${elemType.toUpperCase()} +${inc}!`, 'float-gold');
+  floatText(`屬性 ${elemType.toUpperCase()} +${inc}！`, 'float-gold');
   updateAllUI(); save();
   return true;
 }
@@ -9327,7 +9327,7 @@ function compoundBelts() {
   if (roll <= 0.70) {
     addToInventory('blessed_top_belt', 1, 'legendary');
     log('✨ 腰帶合成成功！已打造祝福頂級腰帶 [S]（+7.2% 防禦／+6% 傷害）！', 'rarity-legendary');
-    floatText('CINTO SAGRADO FORJADO!', 'float-gold');
+    floatText('神聖腰帶鍛造完成！', 'float-gold');
   } else {
     log('⚠️ 腰帶合成失敗！請再試一次。', 'warning');
   }
