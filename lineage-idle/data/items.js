@@ -3,18 +3,18 @@
 // DO NOT EDIT MANUALLY - Run scratch/rebuild-from-folders.mjs to regenerate
 
 const RARITY = {
-  common: { name: 'Comum', mult: 1.0, color: '#9e9e9e', textClass: 'rarity-common', dropWeight: 70 },
-  uncommon: { name: 'Incomum', mult: 1.4, color: '#10b981', textClass: 'rarity-uncommon', dropWeight: 20 },
-  rare: { name: 'Raro', mult: 1.8, color: '#3b82f6', textClass: 'rarity-rare', dropWeight: 7 },
-  epic: { name: '├ëpico', mult: 2.4, color: '#a855f7', textClass: 'rarity-epic', dropWeight: 2.5 },
-  legendary: { name: 'Lend├írio', mult: 3.2, color: '#f59e0b', textClass: 'rarity-legendary', dropWeight: 0.5 }
+  common: { name: '一般', mult: 1.0, color: '#9e9e9e', textClass: 'rarity-common', dropWeight: 70 },
+  uncommon: { name: '非凡', mult: 1.4, color: '#10b981', textClass: 'rarity-uncommon', dropWeight: 20 },
+  rare: { name: '稀有', mult: 1.8, color: '#3b82f6', textClass: 'rarity-rare', dropWeight: 7 },
+  epic: { name: '史詩', mult: 2.4, color: '#a855f7', textClass: 'rarity-epic', dropWeight: 2.5 },
+  legendary: { name: '傳說', mult: 3.2, color: '#f59e0b', textClass: 'rarity-legendary', dropWeight: 0.5 }
 };
 
 const SLOT = {
-  weapon: 'Arma', armor: 'Armadura', helmet: 'Capacete', boots: 'Botas',
-  gloves: 'Luvas', ring: 'Anel', legs: 'Cal├ºa', shield: 'Escudo',
-  necklace: 'Colar', earring: 'Brinco', belt: 'Cinto', cloak: 'Manto',
-  sigil: 'Sigil', hair: 'Acess├│rio', agathion: 'Agathion', consumable: 'Consum├¡vel', material: 'Material'
+  weapon: '武器', armor: '防具', helmet: '頭盔', boots: '靴子',
+  gloves: '手套', ring: '戒指', legs: '褲子', shield: '盾牌',
+  necklace: '項鍊', earring: '耳環', belt: '腰帶', cloak: '披風',
+  sigil: '符印', hair: '飾品', agathion: '阿加希翁', consumable: '消耗品', material: '材料'
 };
 
 const ARMOR_SETS = {
