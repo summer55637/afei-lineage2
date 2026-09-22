@@ -79,7 +79,7 @@ export function renderSeasonLockedPanel(paneEl, tabId) {
         margin-bottom: 24px;
       ">
         <div style="color: #ffd700; font-family: 'Cinzel', serif; font-size: 12px; font-weight: bold; margin-bottom: 10px; text-align: center;">
-          ✦ Conteúdos desta Crônica ✦
+          ✦ 本編年史內容 ✦
         </div>
         <ul style="margin: 0; padding-left: 20px; color: rgba(255,255,255,0.8); font-size: 12px; line-height: 1.8;">
           ${(targetSeason.features || []).map(f => `<li>${f}</li>`).join('')}
