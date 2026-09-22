@@ -43,7 +43,7 @@ export const RAID_BOSSES = {
     },
     mechanics: [
       { name: '腐蝕毒雲', triggerHp: 0.75, damagePercent: 0.15, text: '⚠️ 巨蟻女王釋放了酸性毒雲！' },
-      { name: '護理蟻召喚', triggerHp: 0.35, healPercent: 0.20, text: '✨ 護理蟻為女王恢復了 20% HP！' }
+      { name: '護理蟻召喚', triggerHp: 0.35, healPercent: 0.20, text: '✨ 護理蟻為女王恢復了 20% 生命值！' }
     ],
     drops: [
       { itemId: 'jewel_ring_queen_ant', name: '巨蟻女王戒指', chance: 0.25, isEpicJewel: true },
@@ -119,7 +119,7 @@ export const RAID_BOSSES = {
     },
     mechanics: [
       { name: '幻覺孢子霧', triggerHp: 0.70, damagePercent: 0.18, text: '🌫️ 奧爾芬以劇毒孢子霧籠罩競技場！' },
-      { name: '瞬移回巢', triggerHp: 0.30, healPercent: 0.15, text: '🕷️ 奧爾芬退入暗影並恢復 15% HP！' }
+      { name: '瞬移回巢', triggerHp: 0.30, healPercent: 0.15, text: '🕷️ 奧爾芬退入暗影並恢復 15% 生命值！' }
     ],
     drops: [
       { itemId: 'jewel_earring_orfen', name: '奧爾芬耳環', chance: 0.25, isEpicJewel: true },
@@ -157,7 +157,7 @@ export const RAID_BOSSES = {
     },
     mechanics: [
       { name: '暗影步伐', triggerHp: 0.65, damagePercent: 0.22, text: '🌑 札肯融入暗影並從背後發動攻擊！' },
-      { name: '吸血盛宴', triggerHp: 0.30, healPercent: 0.20, damagePercent: 0.15, text: '🩸 吸血盛宴：札肯吸取你的生命並恢復 20% HP！' }
+      { name: '吸血盛宴', triggerHp: 0.30, healPercent: 0.20, damagePercent: 0.15, text: '🩸 吸血盛宴：札肯吸取你的生命並恢復 20% 生命值！' }
     ],
     drops: [
       { itemId: 'jewel_earring_of_zaken', name: '札肯耳環', chance: 0.25, isEpicJewel: true },
