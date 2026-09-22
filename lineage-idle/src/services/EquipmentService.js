@@ -206,7 +206,7 @@ export function unequipItem(state, slotOrUid, callbacks = {}) {
   state.maxMp = stats.maxMp;
   state.hp = Math.min(state.hp, state.maxHp);
   state.mp = Math.min(state.mp, state.maxMp);
-  if (callbacks.log) callbacks.log(`Desequipou ${targetSlot}`, 'system');
+  if (callbacks.log) callbacks.log(`已卸下 ${targetSlot}`, 'system');
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save(true, true);
 }
@@ -532,7 +532,7 @@ export function commitAutoEquipProposal(state, proposal, callbacks = {}) {
     callbacks.log(`⚡ 自動裝備已套用！（${changesCount} 項變更）`, 'rarity-legendary');
   }
   if (callbacks.floatText) {
-    callbacks.floatText('⚡ EQUIPADO!', 'float-jackpot');
+    callbacks.floatText('⚡ 已裝備！', 'float-jackpot');
   }
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save(true, true);
