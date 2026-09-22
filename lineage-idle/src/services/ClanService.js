@@ -454,14 +454,14 @@ export const CLAN_HALL_BUFFS = {
     id: 'paagrio_protection',
     name: "帕格立歐守護",
     icon: '🔥',
-    desc: '+12% P.Def e +12% M.Def',
+    desc: '+12% 物理防禦、+12% 魔法防禦',
     costAdena: 75000,
     durationMs: 3600000,
     stats: { pDefPercent: 0.12, mDefPercent: 0.12 }
   },
   shilen_harmony: {
     id: 'shilen_harmony',
-    name: 'Harmonia de Shilen',
+    name: '席琳的和諧',
     icon: '🌑',
     desc: '狩獵 EXP +15%、金幣掉落 +10%',
     costAdena: 100000,
