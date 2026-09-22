@@ -233,9 +233,9 @@ export function getConditionBadgeText(condition) {
 
   if (condition.minEnemies >= 2) parts.push(`👥 ${condition.minEnemies}+`);
 
-  if (condition.hpTrigger === 'self_below_75') parts.push('HP<75%');
-  else if (condition.hpTrigger === 'self_below_50') parts.push('HP<50%');
-  else if (condition.hpTrigger === 'self_below_30') parts.push('HP<30%');
+  if (condition.hpTrigger === 'self_below_75') parts.push('自身生命值 <75%');
+  else if (condition.hpTrigger === 'self_below_50') parts.push('自身生命值 <50%');
+  else if (condition.hpTrigger === 'self_below_30') parts.push('自身生命值 <30%');
   else if (condition.hpTrigger === 'target_below_30') parts.push('敵人<30%');
   else if (condition.hpTrigger === 'target_below_50') parts.push('敵人<50%');
 
