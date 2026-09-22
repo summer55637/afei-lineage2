@@ -197,7 +197,7 @@ export function renderMiningUI(state) {
           ${node?.icon || '⛏️'}
         </div>
         <h3 style="margin:0 0 4px 0; font-family:'Cinzel',serif; color:#fbbf24; font-size:18px;">
-          ${node?.name || 'Veio Mineral Localizado'}
+          ${node?.name || '已發現礦脈'}
           <span style="font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(245,158,11,0.2); border:1px solid #f59e0b; color:#fde68a; margin-left:6px;">
             ${activeTacticDef.icon} ${activeTacticDef.name}
           </span>
