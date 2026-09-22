@@ -435,7 +435,7 @@ export class ClanService {
       { name: '艾蓮娜・月歌', rank: '🔮 皇家法師', level: Math.max(38, pLvl + 1), className: '咒術詩人', contribution: 280000, isPlayer: false },
       { name: '凱倫・暗影', rank: '🗡️ 資深刺客', level: Math.max(35, pLvl), className: '深淵行者', contribution: 210000, isPlayer: false },
       { name: '索加・鐵匠', rank: '🛡️ 工匠大師', level: Math.max(32, pLvl - 2), className: '賞金獵人', contribution: 190000, isPlayer: false },
-      { name: '莉拉・日語', rank: '✨ 女祭司', level: Math.max(30, pLvl - 3), className: '主教', contribution: 150000, isPlayer: false }
+      { name: '莉拉・陽語', rank: '✨ 女祭司', level: Math.max(30, pLvl - 3), className: '主教', contribution: 150000, isPlayer: false }
     ];
   }
 }
