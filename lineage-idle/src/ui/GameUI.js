@@ -3404,7 +3404,7 @@ export function updateCharacterUI(state) {
             ${tattoosHtml}
           </div>
           <div class="l2-mystic-sa">
-            ${socket ? `🔮 武器特殊能力： <strong style="color:#38bdf8;">${({ focus: '專注', acumen: '靈敏', health: '生命', empower: '魔力增幅', guidance: '導引' })[socket.effect] || socket.effect} （階段 ${socket.stage}）</strong>` : '🔮 武器 SA： 尚未鑲嵌靈魂水晶。'}
+            ${socket ? `🔮 武器特殊能力： <strong style="color:#38bdf8;">${({ focus: '專注', acumen: '靈敏', health: '生命', empower: '魔力增幅', guidance: '導引' })[socket.effect] || socket.effect} （階段 ${socket.stage}）</strong>` : '🔮 武器特殊能力：尚未鑲嵌靈魂水晶。'}
           </div>
         </div>
       </div>
@@ -7547,7 +7547,7 @@ export function renderForgeSoulCrystals(container, state) {
   const weaponSelectorTabs = candidateWeapons.map(w => {
     const isSel = (w.uid === window._selectedSAWeaponUid);
     const def = getItemDef(w.itemId) || w;
-    const saLabel = w.soulCrystal ? ` [SA: ${w.soulCrystal.name}]` : '';
+    const saLabel = w.soulCrystal ? `【特殊能力：${w.soulCrystal.name}】` : '';
     return `
       <button onclick="window._selectedSAWeaponUid = '${w.uid}'; renderForgeSoulCrystals(document.getElementById('craft-recipes-container') || document.getElementById('craft-list'), window.getGameState ? window.getGameState() : null);"
         class="inv-batch-btn"
