@@ -7827,7 +7827,7 @@ export function renderForgeTattoos(container, state) {
             <strong style="color:#d8b4fe; font-size:12px; font-family:'Cinzel',serif;">節點 ${idx + 1}： ${d.name} （等級 ${d.stage}/5）</strong>
             <div class="l2-stat-chip-row">
               <span class="l2-stat-chip-pos">+${plusVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[plusStat] || '其他屬性'}</span>
-              <span class="l2-stat-chip-neg">-${minusVal} ${minusStat.toUpperCase()}</span>
+              <span class="l2-stat-chip-neg">-${minusVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[minusStat] || '其他屬性'}</span>
             </div>
           </div>
           <div style="display:flex; gap:5px;">
