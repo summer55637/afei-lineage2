@@ -174,7 +174,7 @@ export const MiningService = {
     const totalCost = lamp.buyPrice * count;
 
     if ((state.gold || 0) < totalCost) {
-      if (callbacks.log) callbacks.log(`⚠️ Ouro insuficiente! Requer ${totalCost.toLocaleString()} Adena para comprar ${count}x ${lamp.name}.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！購買 ${count}x ${lamp.name} 需要 ${totalCost.toLocaleString()} 金幣。`, 'warning');
       return false;
     }
 
@@ -186,7 +186,7 @@ export const MiningService = {
       mState.activeLamp = lampId;
     }
 
-    if (callbacks.log) callbacks.log(`🎒 Comprou ${count}x **${lamp.name}** por ${totalCost.toLocaleString()} Adena.`, 'loot');
+    if (callbacks.log) callbacks.log(`🎒 已用 ${totalCost.toLocaleString()} 金幣購買 ${count}x **${lamp.name}**。`, 'loot');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -208,7 +208,7 @@ export const MiningService = {
     }
 
     if ((state.gold || 0) < pick.buyPrice) {
-      if (callbacks.log) callbacks.log(`⚠️ Ouro insuficiente! Requer ${pick.buyPrice.toLocaleString()} Adena.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！需要 ${pick.buyPrice.toLocaleString()} 金幣。`, 'warning');
       return false;
     }
 
@@ -216,7 +216,7 @@ export const MiningService = {
     mState.pickaxeDurability[pickaxeId] = pick.durabilityMax;
     mState.pickaxe = pickaxeId;
 
-    if (callbacks.log) callbacks.log(`⛏️ Adquiriu e empunhou **${pick.name}**!`, 'rarity-legendary');
+    if (callbacks.log) callbacks.log(`⛏️ 已取得並裝備 **${pick.name}**！`, 'rarity-legendary');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -256,7 +256,7 @@ export const MiningService = {
     const cost = Math.max(100, Math.floor(pick.repairCost * missingPct));
 
     if ((state.gold || 0) < cost) {
-      if (callbacks.log) callbacks.log(`⚠️ Ouro insuficiente para reforjar a ponta da picareta! Requer ${cost.toLocaleString()} Adena.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！重新鍛造十字鎬尖端需要 ${cost.toLocaleString()} 金幣。`, 'warning');
       return false;
     }
 
@@ -267,7 +267,7 @@ export const MiningService = {
     const actState = LifeActivityCore.getActivityState(state, 'mining');
     actState.toolDurability = pick.durabilityMax;
 
-    if (callbacks.log) callbacks.log(`✨ **${pick.name}** foi reforjada! Durabilidade restaurada (${pick.durabilityMax}/${pick.durabilityMax}).`, 'system');
+    if (callbacks.log) callbacks.log(`✨ **${pick.name}** 已重新鍛造！耐久度恢復（${pick.durabilityMax}/${pick.durabilityMax}）。`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -371,7 +371,7 @@ export const MiningService = {
     mState.activeTactic = tactic.id;
 
     if (callbacks.log) {
-      callbacks.log(`⛏️ Veio selecionado! [${tactic.name}] Escavando **${node.name}** em ${zone.name}...`, 'system');
+      callbacks.log(`⛏️ 已選擇礦脈！[${tactic.name}] 正在 ${zone.name} 開採 **${node.name}**...`, 'system');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -413,7 +413,7 @@ export const MiningService = {
       mState.isMining = false;
       mState.targetedNodeId = null;
       mState.autoMining = false;
-      if (callbacks.log) callbacks.log(`💥 **PICARETA PARTIDA!** Sua ${pickDef?.name || 'picareta'} quebrou a ponta. Reforje-a no ferreiro para continuar.`, 'error');
+      if (callbacks.log) callbacks.log(`💥 **十字鎬損壞！** 你的 ${pickDef?.name || '十字鎬'} 尖端已損壞，請到鐵匠處重新鍛造後再繼續。`, 'error');
       if (callbacks.updateAllUI) callbacks.updateAllUI();
       if (callbacks.save) callbacks.save();
       return false;
