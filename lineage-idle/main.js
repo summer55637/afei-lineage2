@@ -2953,7 +2953,7 @@ function updateEnchantUI() {
       const isFullBody = def.slot === 'fullbody' || (def.slot === 'chest' && (def.isOnePiece || def.name?.toLowerCase().includes('full body') || def.name?.toLowerCase().includes('robe')));
       const safeLimit = isFullBody ? 4 : 3;
       const baseProb = getEnchantSuccessChance(grade, enchant, safeLimit);
-      const safeMsg = enchant < safeLimit ? `100% 安全 (Até +${safeLimit})` : `成功率： ${Math.round(baseProb * 100)}% (Grau ${grade})`;
+      const safeMsg = enchant < safeLimit ? `100% 安全（安全至 +${safeLimit}）` : `成功率：${Math.round(baseProb * 100)}%（品級 ${grade}）`;
       
       const card = mkEl('div'); card.className = 'enchant-card';
       const title = (enchant > 0 ? `+${enchant} ` : '') + def.name + (item.rarity ? ` [${D().RARITY?.[item.rarity]?.name || item.rarity}]` : '');
@@ -3090,8 +3090,8 @@ function updateRaceClassUI() {
   const display = el('hero-race-class-display');
   const raceObj = RACES[state.race];
   const clsObj = getClass(state.class);
-  const rName = raceObj ? raceObj.name : (state.race || 'Humano');
-  const cName = clsObj ? clsObj.name : (state.class || 'Guerreiro');
+  const rName = raceObj ? raceObj.name : (state.race || '人類');
+  const cName = clsObj ? clsObj.name : (state.class || '戰士');
   if (display) {
     display.textContent = `${rName} · ${cName}（等級 ${state.level}）`;
   }
@@ -3935,7 +3935,7 @@ function selectMasterAbilityModal() {
   const abilities = [
     { key: 'boostHp', name: '❤️ HP 強化（+8% HP、+20% HP 回復）' },
     { key: 'boostMp', name: '💙 MP 強化（+12% MP、+20% MP 回復）' },
-    { key: 'evasion', name: '👟 Evasion (+5 Esquiva)' },
+    { key: 'evasion', name: '👟 迴避（+5 迴避）' },
     { key: 'haste', name: '⚡ 急速觸發（+32% 攻擊速度）' },
     { key: 'barrier', name: '🌟 屏障（無敵天界護盾）' },
     { key: 'boostCp', name: '🛡️ CP 強化（+20% CP）' },
@@ -4122,7 +4122,7 @@ export function renderSubclassesUI() {
   const totalCertCp = SubclassCertificationService.calculateCertificationCP(state);
 
   if (cpBadge) {
-    cpBadge.textContent = `+${totalCertCp.toLocaleString('pt-BR')} CP`;
+    cpBadge.textContent = `+${totalCertCp.toLocaleString('zh-TW')} CP`;
   }
 
   if (summaryEl) {
@@ -4194,7 +4194,7 @@ function openCertificationModal(subId, milestoneKey) {
             ${opt.badge ? `<span style="font-size:10px; background:rgba(212,175,55,0.2); color:#ffd700; padding:1px 6px; border-radius:4px;">${opt.badge}</span>` : ''}
           </div>
           <div style="font-size:11px; color:#d1d5db; margin-top:4px; line-height:1.4;">${opt.desc}</div>
-          <div style="font-size:10px; color:#38bdf8; margin-top:4px;">戰力貢獻： <strong>+${(opt.cp || 1500).toLocaleString('pt-BR')} CP</strong></div>
+          <div style="font-size:10px; color:#38bdf8; margin-top:4px;">戰力貢獻： <strong>+${(opt.cp || 1500).toLocaleString('zh-TW')} CP</strong></div>
         </div>
         <button class="action-btn action-btn--primary" style="padding:8px 14px; font-size:11px; white-space:nowrap;" onclick="window.confirmLearnCertification('${subId}', '${milestoneKey}', '${opt.id}')">
           學習 📜
@@ -4258,7 +4258,7 @@ function openResetCertificationsModal(subId) {
     </div>
     <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:12px; font-size:11px; color:#d1d5db; line-height:1.4;">
       <p style="margin:0 0 6px 0;">確認後，此副職業已學習的所有認證將退還，讓你可以重新選擇等級 65、70、75、80 的技能。</p>
-      <p style="margin:0; color:${hasAdena ? '#fde047' : '#ef4444'}; font-weight:bold;">重置費用：1,000,000 金幣 (${(state.gold || 0).toLocaleString('pt-BR')} 目前金幣)</p>
+      <p style="margin:0; color:${hasAdena ? '#fde047' : '#ef4444'}; font-weight:bold;">重置費用：1,000,000 金幣 (${(state.gold || 0).toLocaleString('zh-TW')} 目前金幣)</p>
     </div>
     <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:14px;">
       <button class="action-btn" onclick="window.closeCertificationModal()">取消</button>
@@ -7839,7 +7839,7 @@ function useMagicLamp() {
   const cardRes = el('lamp-result-card');
   if (cardRes) {
     const cardClass = result.cardType === 'red' ? 'card-red' : (result.cardType === 'purple' ? 'card-purple' : 'card-blue');
-    const badgeText = result.cardType === 'red' ? '🔥 REVELAÇÃO JACKPOT!' : (result.cardType === 'purple' ? '✨ CARTA RARA' : '🌟 CARTA MÁGICA');
+    const badgeText = result.cardType === 'red' ? '🔥 大獎揭曉！' : (result.cardType === 'purple' ? '✨ 稀有卡牌' : '🌟 魔法卡牌');
     const badgeColor = result.cardType === 'red' ? '#ef4444' : (result.cardType === 'purple' ? '#a855f7' : '#3b82f6');
 
     cardRes.innerHTML = `
@@ -7980,21 +7980,21 @@ export const TAB_NAMES_MAP = {
   skills: 'Skills',
   astral: 'Maestria',
   dolls: 'Dolls & Pets',
-  cosmetics: 'Cosméticos',
-  quests: 'Missões',
+  cosmetics: '外觀',
+  quests: '任務',
   zones: '狩獵與區域',
   raids: '團隊首領與首領',
   tower: '傲慢之塔',
   colosseum: 'Coliseu PvP',
-  expeditions: 'Expedições',
+  expeditions: '遠征',
   fishing: '釣魚',
   market: '奇岩市場',
   shop: '商人',
   craft: '帝國鍛造',
   alchemy: 'Alquimia',
-  warehouse: 'Baú Privado',
+  warehouse: '私人倉庫',
   magiclamp: '魔法神燈',
-  clan: 'Clã & Castelos',
+  clan: '血盟與城堡',
   olympiad: '奧林匹亞',
   rankings: '世界排行榜',
   sevensigns: '七封印',
@@ -8914,8 +8914,8 @@ function reincarnateHero() {
 
   const titles = [
     'Aventureiro Renascido',
-    'Mestre da Constelação',
-    'Senhor da Reencarnação',
+    '星座大師',
+    '轉生之主',
     'Deus Ancestral de Aden'
   ];
   const title = titles[Math.min(state.prestigeLevel - 1, titles.length - 1)];
@@ -8949,9 +8949,9 @@ const CASTLES_DEFS = {
 
 const EXPEDITION_DESTINATIONS = {
   branded: { id: 'branded', name: '烙印地下墓穴', duration: 3600000, cost: 5000, minGold: 20000, maxGold: 30000, desc: '快速遠征（1 小時），可取得金幣與卷軸戰利品' },
-  martyrs: { id: 'martyrs', name: 'Necrópole dos Martírios', duration: 14400000, cost: 20000, minGold: 100000, maxGold: 150000, desc: 'Expedição média (4 horas) com baús C/B e materiais' },
-  dragon_valley: { id: 'dragon_valley', name: 'Vale dos Dragões Abissais', duration: 28800000, cost: 50000, minGold: 300000, maxGold: 400000, desc: 'Expedição longa (8 horas) com baús A/S e Fragmentos Astrais' },
-  shilen_temple: { id: 'shilen_temple', name: 'Templo da Deusa Shilen', duration: 43200000, cost: 100000, minGold: 800000, maxGold: 1200000, desc: 'Expedição mítica (12 horas) com Baú Frost Lord e 25 Fragmentos Astrais' }
+  martyrs: { id: 'martyrs', name: '殉道者墓地', duration: 14400000, cost: 20000, minGold: 100000, maxGold: 150000, desc: '中型遠征（4 小時），可取得 C／B 級寶箱與材料' },
+  dragon_valley: { id: 'dragon_valley', name: '深淵龍之谷', duration: 28800000, cost: 50000, minGold: 300000, maxGold: 400000, desc: '長程遠征（8 小時），可取得 A／S 級寶箱與星界碎片' },
+  shilen_temple: { id: 'shilen_temple', name: '席琳女神神殿', duration: 43200000, cost: 100000, minGold: 800000, maxGold: 1200000, desc: '神話遠征（12 小時），可取得霜之領主寶箱與 25 個星界碎片' }
 };
 
 function buyManorSeed(seedId, qty = 1) {
@@ -9348,11 +9348,11 @@ function augmentWithLifeStone(itemUid) {
 
   state.gold -= cost;
   const options = [
-    { name: 'Might (+8% P.Atk)', stat: 'patkMult', val: 0.08 },
-    { name: 'Empower (+15% M.Atk)', stat: 'matkMult', val: 0.15 },
-    { name: 'Shield (+10% P.Def)', stat: 'defMult', val: 0.10 },
+    { name: '力量（物理攻擊 +8%）', stat: 'patkMult', val: 0.08 },
+    { name: '魔力強化（魔法攻擊 +15%）', stat: 'matkMult', val: 0.15 },
+    { name: '盾牌（物理防禦 +10%）', stat: 'defMult', val: 0.10 },
     { name: '專注（+50 暴擊率）', stat: 'crit', val: 50 },
-    { name: 'Lesser Celestial Shield (7s Invencível)', stat: 'celestial', val: true }
+    { name: '次級天界護盾（無敵 7 秒）', stat: 'celestial', val: true }
   ];
   const chosen = options[Math.floor(Math.random() * options.length)];
   item.augmentation = chosen;
