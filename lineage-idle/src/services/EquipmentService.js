@@ -128,6 +128,7 @@ export function equipItem(state, uid, targetSlotOrCallbacks = null, maybeCallbac
   const equipSlotLabels = {
     weapon: '主武器（欄位 1）',
     weapon2: '副武器（欄位 2）',
+    shield: '盾牌',
     armor: '防具／胸甲',
     chest: '防具／胸甲',
     helmet: '頭盔',
@@ -142,6 +143,29 @@ export function equipItem(state, uid, targetSlotOrCallbacks = null, maybeCallbac
     cloak: '披風',
     belt: '腰帶',
     hair: '頭飾',
+    hair1: '飾品／髮飾 1',
+    hair2: '飾品／髮飾 2',
+    brooch: '胸針（珠寶盒）',
+    agathion_bracelet: '阿加希翁手鐲',
+    talisman_bracelet: '護符手鐲',
+    jewel1: '胸針寶石 1',
+    jewel2: '胸針寶石 2',
+    jewel3: '胸針寶石 3',
+    jewel4: '胸針寶石 4',
+    jewel5: '胸針寶石 5',
+    jewel6: '胸針寶石 6',
+    agathion1: '阿加希翁 1',
+    agathion2: '阿加希翁 2',
+    agathion3: '阿加希翁 3',
+    agathion4: '阿加希翁 4',
+    agathion5: '阿加希翁 5',
+    agathion6: '阿加希翁 6',
+    talisman1: '護符 1',
+    talisman2: '護符 2',
+    talisman3: '護符 3',
+    talisman4: '護符 4',
+    talisman5: '護符 5',
+    talisman6: '護符 6',
     sigil: '符印'
   };
   const slotLabel = equipSlotLabels[targetSlot] || targetSlot;
@@ -226,10 +250,18 @@ export function unequipItem(state, slotOrUid, callbacks = {}) {
   state.hp = Math.min(state.hp, state.maxHp);
   state.mp = Math.min(state.mp, state.maxMp);
   const slotLabels = {
-    weapon: '武器', shield: '盾牌', armor: '胸甲', chest: '胸甲', helmet: '頭盔',
+    weapon: '主武器', weapon2: '副武器', shield: '盾牌', armor: '胸甲', chest: '胸甲', helmet: '頭盔',
     gloves: '手套', boots: '靴子', legs: '腿甲', necklace: '項鍊',
     earring1: '耳環 1', earring2: '耳環 2', ring1: '戒指 1', ring2: '戒指 2',
-    cloak: '披風', belt: '腰帶', hair: '頭飾', sigil: '符印'
+    cloak: '披風', belt: '腰帶', hair: '頭飾', hair1: '飾品／髮飾 1', hair2: '飾品／髮飾 2',
+    brooch: '胸針（珠寶盒）', agathion_bracelet: '阿加希翁手鐲', talisman_bracelet: '護符手鐲',
+    jewel1: '胸針寶石 1', jewel2: '胸針寶石 2', jewel3: '胸針寶石 3',
+    jewel4: '胸針寶石 4', jewel5: '胸針寶石 5', jewel6: '胸針寶石 6',
+    agathion1: '阿加希翁 1', agathion2: '阿加希翁 2', agathion3: '阿加希翁 3',
+    agathion4: '阿加希翁 4', agathion5: '阿加希翁 5', agathion6: '阿加希翁 6',
+    talisman1: '護符 1', talisman2: '護符 2', talisman3: '護符 3',
+    talisman4: '護符 4', talisman5: '護符 5', talisman6: '護符 6',
+    sigil: '符印'
   };
   const targetSlotLabel = slotLabels[targetSlot] || targetSlot;
   if (callbacks.log) callbacks.log(`已卸下 ${targetSlotLabel}`, 'system');
