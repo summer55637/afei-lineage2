@@ -7,7 +7,7 @@
 export const LIFE_STONES = {
   life_stone_28: {
     id: 'life_stone_28',
-    name: 'Life Stone - Level 28 (D-Grade)',
+    name: '生命石－等級 28（D 級）',
     grade: 'normal',
     level: 28,
     icon: 'gradespecial/scrolls/scroll_enchant_weapon_d.png',
@@ -17,11 +17,11 @@ export const LIFE_STONES = {
     statMultiplier: 0.6,
     gemstonesNeeded: 5,
     gemstoneGrade: 'D',
-    desc: 'Pedra da Vida de Nível 28 para armas D-Grade. Concede atributos de combate básicos.'
+    desc: '等級 28 的 D 級武器生命石，可賦予基礎戰鬥屬性。'
   },
   life_stone_34: {
     id: 'life_stone_34',
-    name: 'Mid Life Stone - Level 34 (D-Grade TOP)',
+    name: '中級生命石－等級 34（D 級頂級）',
     grade: 'mid',
     level: 34,
     icon: 'gradespecial/scrolls/scroll_enchant_weapon_d.png',
@@ -31,11 +31,11 @@ export const LIFE_STONES = {
     statMultiplier: 0.8,
     gemstonesNeeded: 8,
     gemstoneGrade: 'D',
-    desc: 'Pedra da Vida intermediária para armas D-Grade. Boa chance de rolagem de atributos raros.'
+    desc: 'D 級武器用中級生命石，有較高機率取得稀有屬性。'
   },
   life_stone_40: {
     id: 'life_stone_40',
-    name: 'Top Life Stone - Level 40 (C-Grade)',
+    name: '頂級生命石－等級 40（C 級）',
     grade: 'high',
     level: 40,
     icon: 'gradespecial/scrolls/scroll_enchant_weapon_c.png',
@@ -45,11 +45,11 @@ export const LIFE_STONES = {
     statMultiplier: 1.0,
     gemstonesNeeded: 10,
     gemstoneGrade: 'C',
-    desc: 'Pedra da Vida superior de Nível 40 para armas C-Grade. Alta probabilidade de Glow e Habilidades de Item.'
+    desc: '等級 40 的 C 級頂級生命石，高機率獲得武器光效與物品技能。'
   },
   life_stone_mid_76: {
     id: 'life_stone_mid_76',
-    name: 'Mid-Grade Life Stone - Level 76 💠',
+    name: '中級生命石－等級 76 💠',
     grade: 'mid',
     level: 76,
     icon: 'gradespecial/scrolls/scroll_enchant_weapon_a.png',
@@ -57,11 +57,11 @@ export const LIFE_STONES = {
     glowChance: 0.35,
     skillChance: 0.20,
     statMultiplier: 1.2,
-    desc: 'Pedra da Vida de Grau Médio para armas de Nível 76+. Concede atributos extras e chance de brilho arcano.'
+    desc: '等級 76 以上武器用中級生命石，可賦予額外屬性並有機率獲得秘法光效。'
   },
   life_stone_high_76: {
     id: 'life_stone_high_76',
-    name: 'High-Grade Life Stone - Level 76 🔮',
+    name: '高級生命石－等級 76 🔮',
     grade: 'high',
     level: 76,
     icon: 'gradespecial/scrolls/scroll_enchant_weapon_s.png',
@@ -69,11 +69,11 @@ export const LIFE_STONES = {
     glowChance: 0.70,
     skillChance: 0.45,
     statMultiplier: 1.5,
-    desc: 'Pedra da Vida de Alto Grau para armas de Nível 76+. Alta probabilidade de Glow de Arma e Item Skill.'
+    desc: '等級 76 以上武器用高級生命石，高機率獲得武器光效與物品技能。'
   },
   life_stone_top_76: {
     id: 'life_stone_top_76',
-    name: 'Top-Grade Life Stone - Level 76 👑💎',
+    name: '頂級生命石－等級 76 👑💎',
     grade: 'top',
     level: 76,
     icon: 'gradespecial/scrolls/scroll_blessed_weapon_s.png',
@@ -81,65 +81,65 @@ export const LIFE_STONES = {
     glowChance: 1.0,
     skillChance: 0.75,
     statMultiplier: 2.0,
-    desc: 'A mais pura e lendária Pedra da Vida de Aden. 100% de garantia de Glow e altíssima chance de Habilidades de Item (Item Skills) raras!'
+    desc: '亞丁最純淨的傳說生命石，100% 產生武器光效，並有極高機率獲得稀有物品技能！'
   }
 };
 
 export const ITEM_SKILLS = [
   {
     id: 'item_skill_active_might',
-    name: 'Item Skill: Active Might ⚔️',
+    name: '物品技能：主動力量 ⚔️',
     type: 'active',
-    desc: 'Aumenta o P.Atk físico em +15% temporariamente.',
+    desc: '暫時提升物理 P.Atk 15%。',
     stats: { pAtkPercent: 0.15 }
   },
   {
     id: 'item_skill_active_shield',
-    name: 'Item Skill: Active Shield 🛡️',
+    name: '物品技能：主動護盾 🛡️',
     type: 'active',
-    desc: 'Aumenta a P.Def física em +15% temporariamente.',
+    desc: '暫時提升物理 P.Def 15%。',
     stats: { pDefPercent: 0.15 }
   },
   {
     id: 'item_skill_active_wild_magic',
-    name: 'Item Skill: Active Wild Magic 🔮',
+    name: '物品技能：主動狂野魔法 🔮',
     type: 'active',
-    desc: 'Aumenta a Taxa de Crítico Mágico em +25%.',
+    desc: '魔法暴擊率 +25%。',
     stats: { magicCritPercent: 0.25 }
   },
   {
     id: 'item_skill_active_heal',
-    name: 'Item Skill: Active Greater Heal 💚',
+    name: '物品技能：主動強效治療 💚',
     type: 'active',
-    desc: 'Recupera instantaneamente +3.000 pontos de HP.',
+    desc: '立即恢復 3,000 HP。',
     stats: { instantHeal: 3000 }
   },
   {
     id: 'item_skill_passive_focus',
-    name: 'Item Skill: Passive Focus 🎯',
+    name: '物品技能：被動專注 🎯',
     type: 'passive',
-    desc: 'Aumenta permanentemente a Taxa de Crítico em +30 pontos.',
+    desc: '永久增加 30 點暴擊率。',
     stats: { critBonus: 30 }
   },
   {
     id: 'item_skill_passive_clarity',
-    name: 'Item Skill: Passive Clarity 💧',
+    name: '物品技能：被動清晰 💧',
     type: 'passive',
-    desc: 'Reduz o consumo de MP de todas as habilidades em -15%.',
+    desc: '所有技能 MP 消耗降低 15%。',
     stats: { mpReductionPercent: 0.15 }
   },
   {
     id: 'item_skill_passive_duel',
-    name: 'Item Skill: Passive Duel Might 🏆',
+    name: '物品技能：被動決鬥之力 🏆',
     type: 'passive',
-    desc: 'Aumenta o dano causado em duelos da Grand Olympiad e PvP em +12%.',
+    desc: '大奧林匹亞決鬥與 PvP 傷害 +12%。',
     stats: { pvpDamagePercent: 0.12 }
   },
   {
     id: 'item_skill_chance_stun',
-    name: 'Item Skill: Chance Stun ⚡',
+    name: '物品技能：機率暈眩 ⚡',
     type: 'chance',
-    desc: '15% de chance de atordoar o alvo por 2 turnos ao desferir ataques normais.',
+    desc: '普通攻擊有 15% 機率使目標暈眩 2 回合。',
     stats: { stunChance: 0.15 }
   }
 ];
@@ -151,6 +151,6 @@ export const STAT_ROLL_POOL = [
   { name: '+M.Def', key: 'mdef', min: 18, max: 50 },
   { name: '+Max HP', key: 'hp', min: 200, max: 650 },
   { name: '+Max CP', key: 'cp', min: 250, max: 800 },
-  { name: '+Critical Rate', key: 'crit', min: 5, max: 18 },
-  { name: '+Evasion', key: 'eva', min: 3, max: 8 }
+  { name: '+暴擊率', key: 'crit', min: 5, max: 18 },
+  { name: '+迴避', key: 'eva', min: 3, max: 8 }
 ];
