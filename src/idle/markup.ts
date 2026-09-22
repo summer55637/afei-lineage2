@@ -1349,7 +1349,7 @@ export const IDLE_MARKUP = `
                 </div>
                 <div class="pass-xp-info">
                   <span id="pass-xp-text">0 / 100 通行證經驗</span>
-                  <button id="unlock-premium-pass-btn" class="inv-batch-btn gold-glow-btn" title="購買本賽季官方高級通行證">👑 取得高級通行證（R$ 15,00）</button>
+                  <button id="unlock-premium-pass-btn" class="inv-batch-btn gold-glow-btn" title="購買本賽季官方高級通行證">👑 取得高級通行證（15 巴西雷亞爾）</button>
                 </div>
               </div>
               <div class="bar-container pass-bar-container">
