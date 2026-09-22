@@ -15,7 +15,7 @@ export const STARTER_JOURNEY_STEPS = [
     icon: '⚔️',
     targetCount: 10,
     checkProgress: (state) => Math.min(10, state.stats?.monstersKilled || state.monstersKilled || 0),
-    rewardText: '25,000 金幣 + 500x 無等級魂彈',
+    rewardText: '25,000 金幣 + 500 發無等級魂彈',
     reward: { adena: 25000, itemId: 'soulshot_ng', qty: 500 }
   },
   {
@@ -26,7 +26,7 @@ export const STARTER_JOURNEY_STEPS = [
     icon: '⭐',
     targetCount: 20,
     checkProgress: (state) => Math.min(20, state.level || 1),
-    rewardText: '50,000 金幣 + 5x 武器強化卷軸',
+    rewardText: '50,000 金幣 + 5 張武器強化卷軸',
     reward: { adena: 50000, itemId: 'scroll_of_enchant_weapon', qty: 5 }
   },
   {
@@ -42,7 +42,7 @@ export const STARTER_JOURNEY_STEPS = [
       const hasEnchantedWeapon = Boolean(state.equipment?.weapon && (state.inventory?.find(i => i.uid === state.equipment.weapon)?.enchantLevel > 0));
       return (enchants > 0 || fusions > 0 || hasEnchantedWeapon) ? 1 : 0;
     },
-    rewardText: '1x 中級生命石 + 50,000 金幣',
+    rewardText: '1 顆中級生命石 + 50,000 金幣',
     reward: { adena: 50000, itemId: 'life_stone_mid', qty: 1 }
   },
   {
@@ -57,7 +57,7 @@ export const STARTER_JOURNEY_STEPS = [
       const hasLvl2 = Object.values(skills).some(s => (typeof s === 'number' ? s : s?.level || 0) >= 2);
       return hasLvl2 ? 1 : 0;
     },
-    rewardText: '2,500 SP + 100x XL 魔力藥水',
+    rewardText: '2,500 技能點 + 100 瓶特大型魔力藥水',
     reward: { sp: 2500, itemId: 'mp_potion_xl', qty: 100 }
   },
   {
@@ -105,7 +105,7 @@ export const STARTER_JOURNEY_STEPS = [
       const lvl40 = (state.level || 1) >= 40 ? 1 : 0;
       return (oly > 0 || col > 0 || lvl40 > 0) ? 1 : 0;
     },
-    rewardText: '100 亞丁幣（AC）+ 10x 武器強化卷軸 + 稱號：亞丁先驅者',
+    rewardText: '100 亞丁幣 + 10 張武器強化卷軸 + 稱號：亞丁先驅者',
     reward: { adenCoins: 100, itemId: 'scroll_of_enchant_weapon', qty: 10, cosmeticTitle: '亞丁先驅者' }
   }
 ];
