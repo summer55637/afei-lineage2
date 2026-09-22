@@ -25,7 +25,7 @@ export const RESONANCE_DEFINITIONS = {
     pairName: 'Arco + Adaga',
     icon: '🏹🗡️',
     color: '#a855f7',
-    desc: 'Habilidades de Arco aplicam [Marca das Sombras]. Golpes de Adaga causam +25% de Dano Crítico Fatal e Sangramento contínuo. Críticos têm 15% de chance de ignorar 20% da P.Def por 4s.',
+    desc: '弓系技能會附加【暗影標記】。匕首攻擊造成 +25% 致命暴擊傷害並持續流血。暴擊有 15% 機率在 4 秒內無視 20% 物理防禦。',
     weap1: 'bow',
     weap2: 'dagger',
     passives: { critChance: 6, eva: 6 }
@@ -47,7 +47,7 @@ export const RESONANCE_DEFINITIONS = {
   // 3. Arco + Cajado
   arcane_ranger: {
     id: 'arcane_ranger',
-    name: 'Arqueiro Arcano',
+    name: '奧術弓手',
     pairName: 'Arco + Cajado',
     icon: '🏹🔮',
     color: '#38bdf8',
@@ -99,7 +99,7 @@ export const RESONANCE_DEFINITIONS = {
   // 7. Arco + Espada 2H
   dragon_slayer: {
     id: 'dragon_slayer',
-    name: 'Atirador Pesado',
+    name: '重裝射手',
     pairName: 'Arco + Espada 2H',
     icon: '🏹🗡️',
     color: '#b91c1c',
@@ -112,7 +112,7 @@ export const RESONANCE_DEFINITIONS = {
   // 8. Arco + Dual Swords
   storm_ranger: {
     id: 'storm_ranger',
-    name: 'Tempestade de Flechas',
+    name: '箭矢風暴',
     pairName: 'Arco + Dual Swords',
     icon: '🏹⚔️',
     color: '#06b6d4',
@@ -125,7 +125,7 @@ export const RESONANCE_DEFINITIONS = {
   // 9. 長槍 + 匕首
   viper_skirmisher: {
     id: 'viper_skirmisher',
-    name: 'Espreitador Venenoso',
+    name: '劇毒潛伏者',
     pairName: '長槍 + 匕首',
     icon: '🔱🗡️',
     color: '#84cc16',
@@ -138,7 +138,7 @@ export const RESONANCE_DEFINITIONS = {
   // 10. 長槍 + 單手劍
   phalanx_warlord: {
     id: 'phalanx_warlord',
-    name: 'Comandante de Falange',
+    name: '方陣指揮官',
     pairName: '長槍 + 單手劍',
     icon: '🔱⚔️',
     color: '#eab308',
@@ -151,8 +151,8 @@ export const RESONANCE_DEFINITIONS = {
     passives: { pDefPct: 20, pAtkPct: 8 },
     passiveEffects: { pDefPct: 20, pAtkPct: 8 },
     triggerEffects: [
-      { trigger: 'sword_hit', effect: 'ARM_TACTICAL_FRACTURE', description: 'Arma Fratura Tática' },
-      { trigger: 'spear_hit', effect: 'CLEAVE_BONUS_45', description: 'Estocada tática focada com +45% de dano (+45% BaseSpearDamage)' }
+      { trigger: 'sword_hit', effect: 'ARM_TACTICAL_FRACTURE', description: '戰術破甲' },
+      { trigger: 'spear_hit', effect: 'CLEAVE_BONUS_45', description: '集中戰術突刺，造成 +45% 傷害（+45% 基礎長槍傷害）。' }
     ],
     cooldowns: { tacticalFracture: 0 },
     visual: { icon: '🔱⚔️', color: '#eab308', badge: 'Falange' }
@@ -161,11 +161,11 @@ export const RESONANCE_DEFINITIONS = {
   // 11. Lança + Dual Swords
   bladestorm_warlord: {
     id: 'bladestorm_warlord',
-    name: 'Senhor da Tempestade',
+    name: '暴風領主',
     pairName: 'Lança + Dual Swords',
     icon: '🔱⚔️',
     color: '#38bdf8',
-    desc: 'Fúria da Tempestade: Golpes de Lança acumulam ímpeto (até 3 cargas). Habilidades de Dual Swords consomem as cargas desferindo corte focado (+8% dano/carga, até +24%, e reduz 10% da P.Def do monstro). +15% Stagger passivo.',
+    desc: '暴風狂怒：長槍攻擊累積氣勢（最多 3 層）。雙劍技能消耗層數施展集中斬擊（每層 +8% 傷害，最多 +24%，並降低怪物 10% 物理防禦）。被動 +15% 失衡傷害。',
     weap1: 'spear',
     weap2: 'dual',
     passives: { staggerDmgPct: 15, pAtkPct: 8 }
@@ -174,11 +174,11 @@ export const RESONANCE_DEFINITIONS = {
   // 12. Lança + Maça/Blunt
   titan_colossus: {
     id: 'titan_colossus',
-    name: 'Colosso de Titã',
+    name: '泰坦巨像',
     pairName: 'Lança + Maça/Blunt',
     icon: '🔱🔨',
     color: '#f97316',
-    desc: 'Impacto Sísmico: Maça desestabiliza a armadura (-10% P.Atk do monstro). Habilidades de lança focam o impacto (+20% postura) e aumentam a duração do Stagger em +1.5s.',
+    desc: '地震衝擊：鈍器可破壞護甲穩定（怪物物理攻擊 -10%）。長槍技能集中衝擊（+20% 姿態傷害），並使失衡時間延長 1.5 秒。',
     weap1: 'spear',
     weap2: 'blunt',
     passives: { staggerDmgPct: 20, pDefPct: 8 }
@@ -187,11 +187,11 @@ export const RESONANCE_DEFINITIONS = {
   // 13. Lança + Espada 2H
   dreadnought: {
     id: 'dreadnought',
-    name: 'General Berserker',
+    name: '狂戰將軍',
     pairName: 'Lança + Espada 2H',
     icon: '🔱🗡️',
     color: '#dc2626',
-    desc: 'Golpe Titânico: +12% de P.Atk e +15% de Dano de Postura. Durante a janela de BREAK do monstro, desfere +15% de Dano Adicional focado.',
+    desc: '泰坦打擊：+12% 物理攻擊、+15% 姿態傷害。怪物進入 BREAK 期間，額外造成 +15% 集中傷害。',
     weap1: 'spear',
     weap2: ['twohand', 'ancientsword'],
     passives: { pAtkPct: 12, staggerDmgPct: 15 }
@@ -200,11 +200,11 @@ export const RESONANCE_DEFINITIONS = {
   // 14. Lança + Cajado
   storm_arbiter: {
     id: 'storm_arbiter',
-    name: 'Árbitro da Tempestade',
+    name: '暴風仲裁者',
     pairName: 'Lança + Cajado',
     icon: '🔱🔮',
     color: '#6366f1',
-    desc: 'Canalização Elemental: A lança canaliza feitiços concentrados no alvo (+15% de dano mágico elemental e +15% de Cast.Spd).',
+    desc: '元素引導：長槍將法術力量集中於目標（+15% 元素魔法傷害、+15% 施法速度）。',
     weap1: 'spear',
     weap2: 'staff',
     passives: { castSpd: 15, mAtkPct: 10 }
@@ -213,11 +213,11 @@ export const RESONANCE_DEFINITIONS = {
   // 15. Lança + Garras/Punhos
   asura_striker: {
     id: 'asura_striker',
-    name: 'Mestre Monástico',
+    name: '武僧大師',
     pairName: 'Lança + Garras/Punhos',
     icon: '🔱🥊',
     color: '#14b8a6',
-    desc: 'Fluxo Marcial: Golpes de Punho aceleram o combate (+2% Atk.Spd até +12%). O golpe de Lança consome o fluxo para desferir estocada focada que ignora 18% da P.Def.',
+    desc: '武鬥氣流：拳擊使戰鬥節奏加快（每層 +2% 攻擊速度，最多 +12%）。長槍攻擊會消耗氣流，施展無視 18% 物理防禦的集中突刺。',
     weap1: 'spear',
     weap2: 'fist',
     passives: { atkSpd: 10, pAtkPct: 8 }
@@ -226,11 +226,11 @@ export const RESONANCE_DEFINITIONS = {
   // 16. Adaga + Espada 1H
   shadow_duelist: {
     id: 'shadow_duelist',
-    name: 'Duelista das Sombras',
+    name: '暗影決鬥者',
     pairName: 'Adaga + Espada 1H',
     icon: '🗡️⚔️',
     color: '#ec4899',
-    desc: 'Dança de Lâminas: +15% Atk.Spd e +8% Chance Crítica. Golpes de adaga abrem a guarda do monstro com 20% de chance de reduzir em 0.5s o cooldown da skill em recarga.',
+    desc: '劍刃之舞：+15% 攻擊速度、+8% 暴擊率。匕首攻擊有 20% 機率突破怪物防守，使正在冷卻的技能減少 0.5 秒。',
     weap1: 'dagger',
     weap2: 'sword',
     passives: { atkSpd: 15, critChance: 8 }
@@ -239,11 +239,11 @@ export const RESONANCE_DEFINITIONS = {
   // 17. Adaga + Maça/Blunt
   iron_inquisitor: {
     id: 'iron_inquisitor',
-    name: 'Inquisidor de Ferro',
+    name: '鋼鐵審判者',
     pairName: 'Adaga + Maça/Blunt',
     icon: '🗡️🔨',
     color: '#78716c',
-    desc: 'Ponto Vulnerável: Golpes de Maça desestabilizam o monstro por 3s. Golpes de Adaga desferidos durante a desestabilização ignoram 20% da P.Def e causam +18% de dano focado.',
+    desc: '弱點暴露：鈍器攻擊使怪物失衡 3 秒。失衡期間的匕首攻擊無視 20% 物理防禦並造成 +18% 集中傷害。',
     weap1: 'dagger',
     weap2: 'blunt',
     passives: { critDmgPct: 12, staggerDmgPct: 12 }
@@ -252,11 +252,11 @@ export const RESONANCE_DEFINITIONS = {
   // 18. Adaga + Garras/Punhos
   ghost_phantom: {
     id: 'ghost_phantom',
-    name: 'Fantasma de Asura',
+    name: '修羅幻影',
     pairName: 'Adaga + Garras/Punhos',
     icon: '🗡️🥊',
     color: '#8b5cf6',
-    desc: 'Dilaceração Sombria: Críticos de garra desorientam o monstro. Golpes de adaga contra o alvo aceleram o Sangramento (+25% de dano hemorrágico focado) e concedem +12% Atk.Spd.',
+    desc: '暗影撕裂：爪類暴擊可擾亂怪物。對該目標的匕首攻擊會強化流血（+25% 集中流血傷害），並獲得 +12% 攻擊速度。',
     weap1: 'dagger',
     weap2: 'fist',
     passives: { atkSpd: 12, critChance: 8 }
@@ -265,11 +265,11 @@ export const RESONANCE_DEFINITIONS = {
   // 19. Adaga + Dual Swords
   blade_dancer: {
     id: 'blade_dancer',
-    name: 'Danseur Fantasma',
+    name: '幻影舞者',
     pairName: 'Adaga + Dual Swords',
     icon: '🗡️⚔️',
     color: '#f43f5e',
-    desc: 'Dança das Sombras: Cada ataque consecutivo no alvo aumenta o dano crítico em +3% (acumula até +15%). +10 de Evasão e +8% de Chance de Crítico.',
+    desc: '暗影之舞：對同一目標連續攻擊時，每次提高 +3% 暴擊傷害（最多 +15%）。另獲得 +10 迴避與 +8% 暴擊率。',
     weap1: 'dagger',
     weap2: 'dual',
     passives: { eva: 10, critChance: 8 }
@@ -278,11 +278,11 @@ export const RESONANCE_DEFINITIONS = {
   // 20. Espada 2H + 1H/Escudo
   avenging_paladin: {
     id: 'avenging_paladin',
-    name: 'Paladino Vingador',
+    name: '復仇聖騎士',
     pairName: 'Espada 2H + 1H/Escudo',
     icon: '🛡️⚔️',
     color: '#fbbf24',
-    desc: 'Retribuição Sagrada: Golpes de Escudo preparam Retribuição (+12% P.Def). O próximo golpe de Espada 2H desfere Golpe Justiceiro (+20% de Dano focado e +15% de Dano de Postura).',
+    desc: '神聖制裁：盾牌攻擊準備制裁效果（+12% 物理防禦）。下一次雙手劍攻擊觸發正義打擊（+20% 集中傷害、+15% 姿態傷害）。',
     weap1: 'sword',
     weap2: ['twohand', 'ancientsword'],
     reqShield: true,
@@ -292,11 +292,11 @@ export const RESONANCE_DEFINITIONS = {
   // 21. Espada 2H + Maça/Blunt
   skullbreaker: {
     id: 'skullbreaker',
-    name: 'Esmagador de Crânios',
+    name: '碎顱者',
     pairName: 'Espada 2H + Maça/Blunt',
     icon: '🗡️🔨',
     color: '#991b1b',
-    desc: 'Quebra-Armadura: Maça desgasta a guarda do alvo (+25% Stagger). Espada de 2 Mãos desfere +20% de dano pesado contra monstros em estado de BREAK.',
+    desc: '破甲：鈍器削弱目標防守（+25% 失衡傷害）。雙手劍對 BREAK 狀態怪物造成 +20% 重擊傷害。',
     weap1: ['twohand', 'ancientsword'],
     weap2: 'blunt',
     passives: { staggerDmgPct: 25, pAtkPct: 10 }
@@ -305,11 +305,11 @@ export const RESONANCE_DEFINITIONS = {
   // 22. Cajado + Espada/Lâmina
   spellblade_arcanist: {
     id: 'spellblade_arcanist',
-    name: 'Feiticeiro da Lâmina',
+    name: '魔刃術士',
     pairName: 'Cajado + Espada/Lâmina',
     icon: '🔮🗡️',
     color: '#c084fc',
-    desc: 'Lâmina Arcana: Magias acumulam Energia Rúnica. Golpes de lâmina causam dano híbrido (+15% de dano focado) e restauram 3% do MP máximo, reduzindo em 1s o tempo de recarga da habilidade mágica.',
+    desc: '奧術之刃：施法可累積符文能量。刀刃攻擊造成混合傷害（+15% 集中傷害），恢復最大 MP 的 3%，並使魔法技能冷卻減少 1 秒。',
     weap1: 'staff',
     weap2: ['sword', 'dagger', 'blunt'],
     passives: { castSpd: 12, mAtkPct: 8 }
@@ -318,11 +318,11 @@ export const RESONANCE_DEFINITIONS = {
   // 23. Cajado + Maça/Blunt
   battle_hierophant: {
     id: 'battle_hierophant',
-    name: 'Hierofante de Batalha',
+    name: '戰鬥祭司',
     pairName: 'Cajado + Maça/Blunt',
     icon: '🔮🔨',
     color: '#fde047',
-    desc: 'Prece de Guerra: Eficiência de cura e sustentação aumentada em +15%. Golpes de maça infundem poder sagrado (+12% de dano mágico sagrado no alvo e +12% M.Def).',
+    desc: '戰爭祈禱：治癒與續戰效率 +15%。鈍器攻擊灌注神聖力量（對目標 +12% 神聖魔法傷害，並獲得 +12% 魔法防禦）。',
     weap1: 'staff',
     weap2: 'blunt',
     passives: { healBoostPct: 15, mDefPct: 12 }
@@ -331,11 +331,11 @@ export const RESONANCE_DEFINITIONS = {
   // 24. Cajado + Garras/Punhos
   mystic_brawler: {
     id: 'mystic_brawler',
-    name: 'Monge Elemental',
+    name: '元素武僧',
     pairName: 'Cajado + Garras/Punhos',
     icon: '🔮🥊',
     color: '#a855f7',
-    desc: 'Harmonia Mística: Golpes de punho recuperam 1% MP e reduzem a M.Def do monstro em 10%. Com 5 cargas de punho, a próxima magia ofensiva desfere +18% de dano focado.',
+    desc: '神秘和諧：拳擊恢復 1% MP，並降低怪物 10% 魔法防禦。累積 5 層拳勁後，下一個攻擊魔法造成 +18% 集中傷害。',
     weap1: 'staff',
     weap2: 'fist',
     passives: { atkSpd: 10, castSpd: 12 }
@@ -344,11 +344,11 @@ export const RESONANCE_DEFINITIONS = {
   // 25. Garras + Espada/Dual
   soul_monk: {
     id: 'soul_monk',
-    name: 'Monge Espiritual',
+    name: '靈魂武僧',
     pairName: 'Garras + Espada/Dual',
     icon: '🥊⚔️',
     color: '#14b8a6',
-    desc: 'Espírito Guerreiro: Roubo de vida moderado (+4% Vampiric Rage) e +12% Velocidade de Ataque permanente em combate individual.',
+    desc: '戰士之魂：獲得中等生命吸取（+4% 吸血）與單體戰鬥永久 +12% 攻擊速度。',
     weap1: 'fist',
     weap2: ['sword', 'dual'],
     passives: { lifeDrain: 4, atkSpd: 12 }
@@ -357,11 +357,11 @@ export const RESONANCE_DEFINITIONS = {
   // 26. Cajado + Escudo
   grand_archon: {
     id: 'grand_archon',
-    name: 'Arquimago Guardião',
+    name: '守護大法師',
     pairName: 'Cajado + Escudo',
     icon: '🔮🛡️',
     color: '#60a5fa',
-    desc: 'Bastião Arcano: Barreira protetora que absorve 10% do dano recebido do monstro e concede +15% de Velocidade de Conjuração (Cast.Spd).',
+    desc: '奧術壁壘：防護屏障可吸收來自怪物的 10% 傷害，並提供 +15% 施法速度。',
     weap1: 'staff',
     weap2: 'any',
     reqShield: true,
@@ -371,11 +371,11 @@ export const RESONANCE_DEFINITIONS = {
   // 27. Espada + Espada (Sinfonia das Lâminas)
   blade_symphony: {
     id: 'blade_symphony',
-    name: 'Sinfonia das Lâminas',
+    name: '劍刃交響曲',
     pairName: 'Espada + Espada',
     icon: '⚔️⚔️',
     color: '#3b82f6',
-    desc: 'Sinfonia das Lâminas: Cadência sincronizada em alvo único: +12% Velocidade de Ataque (Atk.Spd) e +8% de Chance Crítica.',
+    desc: '劍刃交響曲：對單一目標維持同步節奏，獲得 +12% 攻擊速度與 +8% 暴擊率。',
     weap1: 'sword',
     weap2: 'sword',
     passives: { atkSpd: 12, critChance: 8 }
@@ -488,7 +488,7 @@ export class WeaponResonanceService {
     if (!resonance) {
       return {
         id: null,
-        name: 'Nenhuma Ressonância',
+        name: '無共鳴',
         state: RESONANCE_STATES.LOCKED,
         requirements: [],
         activationRule: 'Equipe armas complementares nos slots 1 e 2',
@@ -496,7 +496,7 @@ export class WeaponResonanceService {
         triggerEffects: [],
         cooldowns: {},
         visual: { icon: '⚔️', color: '#64748b', badge: 'Bloqueado' },
-        description: 'Equipe armas sinérgicas para desbloquear ressonâncias de combate.'
+        description: '裝備具有協同效果的武器即可解鎖戰鬥共鳴。'
       };
     }
 
