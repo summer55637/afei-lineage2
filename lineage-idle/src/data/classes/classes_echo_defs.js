@@ -2278,25 +2278,25 @@ skills: [
       { name: "狙擊",              type: "Ativo",   rarity: "3★", effect: "Dano 380% long range + crit bônus", cooldown: "22s", duration: null, note: "Skill permanece após trocar de classe" },
       { name: "快速射擊",         type: "Ativo",   rarity: "2★", effect: "+50% ATK Speed por 15s", cooldown: "45s", duration: "15s", note: "Skill permanece após trocar de classe" },
       { name: "爆裂射擊",     type: "Ativo",   rarity: "2★", effect: "Dano AoE 280%", cooldown: "18s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Chain Shot",         type: "Ativo",   rarity: "2★", effect: "Dano 260% + reset Quick Shot CD", cooldown: "16s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Aimed Shot",         type: "Ativo",   rarity: "3★", effect: "Dano 340% + ignore DEF", cooldown: "20s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Sylph's Grace",      type: "Passivo", rarity: "2★", effect: "+15% EVA, +10% Move Speed", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Wind Sniper Harmony", type: "Self-Buff", rarity: "3★", effect: "+35% ATK, +25% Crit, +20% Range por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
+      { name: "連鎖射擊",         type: "Ativo",   rarity: "2★", effect: "Dano 260% + reset Quick Shot CD", cooldown: "16s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "瞄準射擊",         type: "Ativo",   rarity: "3★", effect: "Dano 340% + ignore DEF", cooldown: "20s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "風精靈恩典",      type: "Passivo", rarity: "2★", effect: "+15% EVA, +10% Move Speed", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "風之狙擊手和諧", type: "Self-Buff", rarity: "3★", effect: "+35% ATK, +25% Crit, +20% Range por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   stormBlaster: {
-    name: 'Storm Blaster', parent: 'windSniper', race: 'sylph', archetype: 'gunner', stage: 3,
-    desc: 'Atirador da tempestade — devastação à distância com armas de fogo.',
+    name: '暴風砲手', parent: 'windSniper', race: 'sylph', archetype: 'gunner', stage: 3,
+    desc: '風暴射手——以槍械從遠距離造成毀滅性打擊。',
     base: { atk: 110, def: 28, hp: 420, mp: 125, eva: 48, crit: 48, mdef: 22 },
     skills: [
-      { name: "Storm Shot",                  type: "Ativo",   rarity: "3★", effect: "Dano vento 420% + knockback", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Wind Barrage",                type: "Ativo",   rarity: "3★", effect: "Dano AoE vento 380%", cooldown: "22s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Transcendent Storm Shot",     type: "Ativo",   rarity: "4★", effect: "Dano vento 680% + stun 3s + AoE", cooldown: "180s", duration: "3s", note: "Skill permanece após trocar de classe" },
-      { name: "Storm Blaster Spirit",        type: "Passivo", rarity: "3★", effect: "+25% ATK, +20% Crit, +15% Wind Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Body of the Storm Blaster",   type: "Passivo", rarity: "3★", effect: "+15% Max HP, +10% EVA, +10% Move Speed", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Master of Combat",            type: "Passivo", rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Storm Blaster Harmony",       type: "Self-Buff", rarity: "4★", effect: "+60% ATK, +50% Crit, +35% Wind Damage por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
+      { name: "暴風射擊",                  type: "Ativo",   rarity: "3★", effect: "Dano vento 420% + knockback", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "風之彈幕",                type: "Ativo",   rarity: "3★", effect: "Dano AoE vento 380%", cooldown: "22s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "超越暴風射擊",     type: "Ativo",   rarity: "4★", effect: "Dano vento 680% + stun 3s + AoE", cooldown: "180s", duration: "3s", note: "Skill permanece após trocar de classe" },
+      { name: "暴風砲手之魂",        type: "Passivo", rarity: "3★", effect: "+25% ATK, +20% Crit, +15% Wind Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "暴風砲手之軀",   type: "Passivo", rarity: "3★", effect: "+15% Max HP, +10% EVA, +10% Move Speed", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "戰鬥大師",            type: "Passivo", rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "暴風砲手和諧",       type: "Self-Buff", rarity: "4★", effect: "+60% ATK, +50% Crit, +35% Wind Damage por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
@@ -2304,458 +2304,458 @@ skills: [
   // HIGH ELF — DIVINE TEMPLAR / ELEMENT WEAVER / SHINEMAKER
   // ═══════════════════════════════════════════
   highElfBase: {
-    name: 'High Elf', race: 'highelf', archetype: 'highelf', stage: 0,
-    desc: 'Alto Elfo — poder sagrado e elemental inicial.',
+    name: '高等精靈', race: 'highelf', archetype: 'highelf', stage: 0,
+    desc: '高等精靈——初步掌握神聖與元素力量。',
     base: { atk: 10, def: 10, hp: 90, mp: 75, matk: 12, mdef: 10, eva: 6, crit: 4 },
     skills: [
-      { name: "Holy Light",         type: "Ativo",   rarity: "1★", effect: "Dano sagrado 150%", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Elemental Weave",    type: "Ativo",   rarity: "1★", effect: "Dano elemental 140%", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "High Elf Mastery",   type: "Passivo", rarity: "1★", effect: "+10% P.ATK e M.ATK", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "MP Increase",        type: "Passivo", rarity: "1★", effect: "+10% Max MP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" }
+      { name: "神聖之光",         type: "Ativo",   rarity: "1★", effect: "Dano sagrado 150%", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "元素編織",    type: "Ativo",   rarity: "1★", effect: "Dano elemental 140%", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "高等精靈精通",   type: "Passivo", rarity: "1★", effect: "+10% P.ATK e M.ATK", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "MP 提升",        type: "Passivo", rarity: "1★", effect: "+10% Max MP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" }
     ]
   },
 
   divineTemplarBase: {
-    name: 'Divine Templar', parent: null, race: 'highelf', archetype: 'tank', stage: 0,
-    desc: 'Templário Divino inicial — guardião sagrado com escudo e luz.',
+    name: '神聖聖騎士', parent: null, race: 'highelf', archetype: 'tank', stage: 0,
+    desc: '初階神聖聖騎士——以盾牌與聖光守護盟友。',
     base: { atk: 12, def: 14, hp: 105, mp: 45, eva: 6, crit: 4, mdef: 10 },
     skills: [
-      { name: "Holy Strike",        type: "Ativo",   rarity: "1★", effect: "Dano sagrado 160%", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Holy Light",         type: "Ativo",   rarity: "1★", effect: "Dano sagrado 140%", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Holy Shield Mastery", type: "Passivo", rarity: "1★", effect: "+12% DEF com escudo", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Heavy Armor Mastery", type: "Passivo", rarity: "1★", effect: "+10% DEF com armadura pesada", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" }
+      { name: "神聖打擊",        type: "Ativo",   rarity: "1★", effect: "Dano sagrado 160%", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "神聖之光",         type: "Ativo",   rarity: "1★", effect: "Dano sagrado 140%", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "神聖盾牌精通", type: "Passivo", rarity: "1★", effect: "+12% DEF com escudo", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "重甲精通", type: "Passivo", rarity: "1★", effect: "+10% DEF com armadura pesada", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" }
     ]
   },
 
   elementWeaverBase: {
-    name: 'Element Weaver', parent: null, race: 'highelf', archetype: 'mage', stage: 0,
-    desc: 'Tecelão Elemental inicial — canalizador de fogo, gelo e vento.',
+    name: '元素編織者', parent: null, race: 'highelf', archetype: 'mage', stage: 0,
+    desc: '初階元素編織者——引導火、冰與風之力。',
     base: { atk: 8, def: 8, hp: 80, mp: 85, matk: 16, mdef: 10, eva: 6, crit: 4 },
     skills: [
-      { name: "Fire Weave",    type: "Ativo", rarity: "1★", effect: "Dano fogo 160%", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Ice Weave",     type: "Ativo", rarity: "1★", effect: "Dano gelo 150% + slow 15% 3s", cooldown: "8s", duration: "3s", note: "Skill permanece após trocar de classe" },
-      { name: "Wind Weave",    type: "Ativo", rarity: "1★", effect: "Dano vento 150%", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Robe Mastery",  type: "Passivo", rarity: "1★", effect: "+10% M.ATK com robe", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" }
+      { name: "火焰編織",    type: "Ativo", rarity: "1★", effect: "Dano fogo 160%", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "冰霜編織",     type: "Ativo", rarity: "1★", effect: "Dano gelo 150% + slow 15% 3s", cooldown: "8s", duration: "3s", note: "Skill permanece após trocar de classe" },
+      { name: "風之編織",    type: "Ativo", rarity: "1★", effect: "Dano vento 150%", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "法袍精通",  type: "Passivo", rarity: "1★", effect: "+10% M.ATK com robe", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // Light Templar (Stage 1 - Lv 20)
   divineTemplarS1: {
-    name: 'Light Templar', parent: 'highElfBase', race: 'highelf', archetype: 'tank', stage: 1,
+    name: '光之聖殿騎士', parent: 'highElfBase', race: 'highelf', archetype: 'tank', stage: 1,
     base: { atk: 18, def: 28, hp: 200, mp: 65, eva: 6, crit: 4, mdef: 18 },
     skills: [
-      { name: "Holy Strike",        type: "Ativo",   rarity: "1★", effect: "Dano sagrado 190%", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Shield of Light",    type: "Ativo",   rarity: "2★", effect: "Absorve 2500 dano + reflete holy", cooldown: "30s", duration: "12s", note: "Skill permanece após trocar de classe" },
-      { name: "Holy Shield Mastery", type: "Passivo", rarity: "1★", effect: "+15% DEF com escudo", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Heavy Armor Mastery", type: "Passivo", rarity: "1★", effect: "+15% DEF com armadura pesada", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" }
+      { name: "神聖打擊",        type: "Ativo",   rarity: "1★", effect: "Dano sagrado 190%", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "光之盾",    type: "Ativo",   rarity: "2★", effect: "Absorve 2500 dano + reflete holy", cooldown: "30s", duration: "12s", note: "Skill permanece após trocar de classe" },
+      { name: "神聖盾牌精通", type: "Passivo", rarity: "1★", effect: "+15% DEF com escudo", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "重甲精通", type: "Passivo", rarity: "1★", effect: "+15% DEF com armadura pesada", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" }
     ]
   },
   lightTemplar: {
-    name: 'Light Templar', parent: 'highElfBase', race: 'highelf', archetype: 'tank', stage: 1,
+    name: '光之聖殿騎士', parent: 'highElfBase', race: 'highelf', archetype: 'tank', stage: 1,
     base: { atk: 18, def: 28, hp: 200, mp: 65, eva: 6, crit: 4, mdef: 18 },
     skills: [
-      { name: "Holy Strike",        type: "Ativo",   rarity: "1★", effect: "Dano sagrado 190%", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Shield of Light",    type: "Ativo",   rarity: "2★", effect: "Absorve 2500 dano + reflete holy", cooldown: "30s", duration: "12s", note: "Skill permanece após trocar de classe" },
-      { name: "Holy Shield Mastery", type: "Passivo", rarity: "1★", effect: "+15% DEF com escudo", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Heavy Armor Mastery", type: "Passivo", rarity: "1★", effect: "+15% DEF com armadura pesada", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" }
+      { name: "神聖打擊",        type: "Ativo",   rarity: "1★", effect: "Dano sagrado 190%", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "光之盾",    type: "Ativo",   rarity: "2★", effect: "Absorve 2500 dano + reflete holy", cooldown: "30s", duration: "12s", note: "Skill permanece após trocar de classe" },
+      { name: "神聖盾牌精通", type: "Passivo", rarity: "1★", effect: "+15% DEF com escudo", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "重甲精通", type: "Passivo", rarity: "1★", effect: "+15% DEF com armadura pesada", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // Holy Templar (Stage 2 - Lv 40)
   divineTemplarS2: {
-    name: 'Holy Templar', parent: 'divineTemplarS1', race: 'highelf', archetype: 'tank', stage: 2,
+    name: '神聖聖殿騎士', parent: 'divineTemplarS1', race: 'highelf', archetype: 'tank', stage: 2,
     base: { atk: 38, def: 62, hp: 450, mp: 98, eva: 10, crit: 6, mdef: 38 },
     skills: [
-      { name: "Divine Charge",           type: "Ativo",   rarity: "2★", effect: "Charge 260% + taunt AoE", cooldown: "18s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Sacred Aegis",            type: "Ativo",   rarity: "3★", effect: "+60% Block Rate + reflete holy 15s", cooldown: "60s", duration: "15s", note: "Skill permanece após trocar de classe" },
-      { name: "Celestial Punishment",    type: "Ativo",   rarity: "2★", effect: "Dano sagrado 280% + silence 3s", cooldown: "20s", duration: "3s", note: "Skill permanece após trocar de classe" },
-      { name: "Holy Chain",              type: "Ativo",   rarity: "2★", effect: "Taunt + root alvo 4s", cooldown: "22s", duration: "4s", note: "Skill permanece após trocar de classe" },
-      { name: "Divine Templar Harmony (S2)", type: "Self-Buff", rarity: "3★", effect: "+35% DEF, +25% ATK, +20% M.DEF por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
+      { name: "神聖衝鋒",           type: "Ativo",   rarity: "2★", effect: "Charge 260% + taunt AoE", cooldown: "18s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "神聖庇護",            type: "Ativo",   rarity: "3★", effect: "+60% Block Rate + reflete holy 15s", cooldown: "60s", duration: "15s", note: "Skill permanece após trocar de classe" },
+      { name: "天界懲戒",    type: "Ativo",   rarity: "2★", effect: "Dano sagrado 280% + silence 3s", cooldown: "20s", duration: "3s", note: "Skill permanece após trocar de classe" },
+      { name: "神聖鎖鏈",              type: "Ativo",   rarity: "2★", effect: "Taunt + root alvo 4s", cooldown: "22s", duration: "4s", note: "Skill permanece após trocar de classe" },
+      { name: "神聖聖騎士和諧（S2）", type: "Self-Buff", rarity: "3★", effect: "+35% DEF, +25% ATK, +20% M.DEF por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
     ]
   },
   holyTemplar: {
-    name: 'Holy Templar', parent: 'lightTemplar', race: 'highelf', archetype: 'tank', stage: 2,
+    name: '神聖聖殿騎士', parent: 'lightTemplar', race: 'highelf', archetype: 'tank', stage: 2,
     base: { atk: 38, def: 62, hp: 450, mp: 98, eva: 10, crit: 6, mdef: 38 },
     skills: [
-      { name: "Divine Charge",           type: "Ativo",   rarity: "2★", effect: "Charge 260% + taunt AoE", cooldown: "18s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Sacred Aegis",            type: "Ativo",   rarity: "3★", effect: "+60% Block Rate + reflete holy 15s", cooldown: "60s", duration: "15s", note: "Skill permanece após trocar de classe" },
-      { name: "Celestial Punishment",    type: "Ativo",   rarity: "2★", effect: "Dano sagrado 280% + silence 3s", cooldown: "20s", duration: "3s", note: "Skill permanece após trocar de classe" },
-      { name: "Holy Chain",              type: "Ativo",   rarity: "2★", effect: "Taunt + root alvo 4s", cooldown: "22s", duration: "4s", note: "Skill permanece após trocar de classe" },
-      { name: "Divine Templar Harmony (S2)", type: "Self-Buff", rarity: "3★", effect: "+35% DEF, +25% ATK, +20% M.DEF por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
+      { name: "神聖衝鋒",           type: "Ativo",   rarity: "2★", effect: "Charge 260% + taunt AoE", cooldown: "18s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "神聖庇護",            type: "Ativo",   rarity: "3★", effect: "+60% Block Rate + reflete holy 15s", cooldown: "60s", duration: "15s", note: "Skill permanece após trocar de classe" },
+      { name: "天界懲戒",    type: "Ativo",   rarity: "2★", effect: "Dano sagrado 280% + silence 3s", cooldown: "20s", duration: "3s", note: "Skill permanece após trocar de classe" },
+      { name: "神聖鎖鏈",              type: "Ativo",   rarity: "2★", effect: "Taunt + root alvo 4s", cooldown: "22s", duration: "4s", note: "Skill permanece após trocar de classe" },
+      { name: "神聖聖騎士和諧（S2）", type: "Self-Buff", rarity: "3★", effect: "+35% DEF, +25% ATK, +20% M.DEF por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // Divine Templar (Stage 3 - Lv 76)
   divineTemplarS3: {
-    name: 'Divine Templar', parent: 'divineTemplarS2', race: 'highelf', archetype: 'tank', stage: 3,
-    desc: 'Templário Divino — tanque sagrado com poder ofensivo e defesa suprema.',
+    name: '神聖聖騎士', parent: 'divineTemplarS2', race: 'highelf', archetype: 'tank', stage: 3,
+    desc: '神聖聖騎士——兼具神聖攻擊力與至高防禦力的坦克。',
     base: { atk: 72, def: 98, hp: 750, mp: 145, eva: 14, crit: 8, mdef: 68 },
     skills: [
-      { name: "Lord Knight",                   type: "Ativo",   rarity: "4★", effect: "Forma divina: +50% DEF e ATK por 30s + regen MP", cooldown: "120s", duration: "30s", note: "Skill permanece após trocar de classe" },
-      { name: "Divine Shield",                 type: "Ativo",   rarity: "3★", effect: "Absorve 8000 dano + cura 20% ao expirar", cooldown: "60s", duration: "15s", note: "Skill permanece após trocar de classe" },
-      { name: "Ultimate Divine Defense",       type: "Ativo",   rarity: "4★", effect: "Imunidade total 10s + taunt AoE massivo", cooldown: "300s", duration: "10s", note: "Skill permanece após trocar de classe" },
-      { name: "Transcendent Holy Charge",      type: "Ativo",   rarity: "4★", effect: "Charge dano sagrado 650% + stun 4s + AoE", cooldown: "180s", duration: "4s", note: "Skill permanece após trocar de classe" },
-      { name: "Lord Knight's Aura",            type: "Self-Buff", rarity: "3★", effect: "+30% DEF e +20% ATK para grupo por 120s", cooldown: "120s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "Divine Templar Spirit",         type: "Passivo", rarity: "3★", effect: "+25% DEF, +20% Max HP, +15% Holy Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Body of Divine Templar",        type: "Passivo", rarity: "3★", effect: "+20% Max HP, +15% M.DEF, +15% HP Regen", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Master of Combat",              type: "Passivo", rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Divine Templar Harmony",        type: "Self-Buff", rarity: "4★", effect: "+60% DEF, +45% Max HP, +35% Holy Damage por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
+      { name: "領主騎士",                   type: "Ativo",   rarity: "4★", effect: "Forma divina: +50% DEF e ATK por 30s + regen MP", cooldown: "120s", duration: "30s", note: "Skill permanece após trocar de classe" },
+      { name: "神聖護盾",                 type: "Ativo",   rarity: "3★", effect: "Absorve 8000 dano + cura 20% ao expirar", cooldown: "60s", duration: "15s", note: "Skill permanece após trocar de classe" },
+      { name: "終極神聖防禦",       type: "Ativo",   rarity: "4★", effect: "Imunidade total 10s + taunt AoE massivo", cooldown: "300s", duration: "10s", note: "Skill permanece após trocar de classe" },
+      { name: "超越神聖衝鋒",      type: "Ativo",   rarity: "4★", effect: "Charge dano sagrado 650% + stun 4s + AoE", cooldown: "180s", duration: "4s", note: "Skill permanece após trocar de classe" },
+      { name: "領主騎士光環",            type: "Self-Buff", rarity: "3★", effect: "+30% DEF e +20% ATK para grupo por 120s", cooldown: "120s", duration: "120s", note: "Skill permanece após trocar de classe" },
+      { name: "神聖聖騎士之魂",         type: "Passivo", rarity: "3★", effect: "+25% DEF, +20% Max HP, +15% Holy Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "神聖聖騎士之軀",        type: "Passivo", rarity: "3★", effect: "+20% Max HP, +15% M.DEF, +15% HP Regen", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "戰鬥大師",              type: "Passivo", rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "神聖聖騎士和諧",        type: "Self-Buff", rarity: "4★", effect: "+60% DEF, +45% Max HP, +35% Holy Damage por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // Element Weaver (stages 1-3)
   elementWeaverS1: {
-    name: 'Element Weaver', parent: 'highElfBase', race: 'highelf', archetype: 'mage', stage: 1,
+    name: '元素編織者', parent: 'highElfBase', race: 'highelf', archetype: 'mage', stage: 1,
     base: { atk: 6, def: 8, hp: 100, mp: 120, matk: 28, mdef: 16, eva: 5, crit: 4 },
     skills: [
-      { name: "Fire Weave",    type: "Ativo", rarity: "1★", effect: "Dano fogo 200%", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Ice Weave",     type: "Ativo", rarity: "1★", effect: "Dano gelo 190% + slow 20% 3s", cooldown: "10s", duration: "3s", note: "Skill permanece após trocar de classe" },
-      { name: "Wind Weave",    type: "Ativo", rarity: "1★", effect: "Dano vento 190%", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Robe Mastery",  type: "Passivo", rarity: "1★", effect: "+10% M.ATK com robe", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" }
+      { name: "火焰編織",    type: "Ativo", rarity: "1★", effect: "Dano fogo 200%", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "冰霜編織",     type: "Ativo", rarity: "1★", effect: "Dano gelo 190% + slow 20% 3s", cooldown: "10s", duration: "3s", note: "Skill permanece após trocar de classe" },
+      { name: "風之編織",    type: "Ativo", rarity: "1★", effect: "Dano vento 190%", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "法袍精通",  type: "Passivo", rarity: "1★", effect: "+10% M.ATK com robe", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" }
     ]
   },
 
   elementWeaverS2: {
-    name: 'Element Weaver', parent: 'elementWeaverS1', race: 'highelf', archetype: 'mage', stage: 2,
+    name: '元素編織者', parent: 'elementWeaverS1', race: 'highelf', archetype: 'mage', stage: 2,
     base: { atk: 8, def: 14, hp: 170, mp: 260, matk: 68, mdef: 38, eva: 8, crit: 6 },
     skills: [
-      { name: "Elemental Blast",        type: "Ativo",   rarity: "2★", effect: "Dano elemental 280%", cooldown: "16s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Elemental Convergence",  type: "Ativo",   rarity: "3★", effect: "Dano AoE all-element 340%", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Ultimate Dispel",        type: "Ativo",   rarity: "3★", effect: "Remove todos os buffs do alvo", cooldown: "60s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Elemental Mastery",      type: "Passivo", rarity: "2★", effect: "+15% All Elemental Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Element Weaver Harmony (S2)", type: "Self-Buff", rarity: "3★", effect: "+35% M.ATK, +25% Cast Speed, +20% Elemental Damage por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
+      { name: "元素爆發",        type: "Ativo",   rarity: "2★", effect: "Dano elemental 280%", cooldown: "16s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "元素匯聚",  type: "Ativo",   rarity: "3★", effect: "Dano AoE all-element 340%", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "終極驅散",        type: "Ativo",   rarity: "3★", effect: "Remove todos os buffs do alvo", cooldown: "60s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "元素精通",      type: "Passivo", rarity: "2★", effect: "+15% All Elemental Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "元素編織者和諧（S2）", type: "Self-Buff", rarity: "3★", effect: "+35% M.ATK, +25% Cast Speed, +20% Elemental Damage por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   elementWeaverS3: {
-    name: 'Element Weaver', parent: 'elementWeaverS2', race: 'highelf', archetype: 'mage', stage: 3,
-    desc: 'Tecelão elemental — mestre supremo dos elementos.',
+    name: '元素編織者', parent: 'elementWeaverS2', race: 'highelf', archetype: 'mage', stage: 3,
+    desc: '元素編織者——至高的元素大師。',
     base: { atk: 12, def: 22, hp: 290, mp: 440, matk: 128, mdef: 65, eva: 12, crit: 8 },
     skills: [
-      { name: "Elemental Overload",          type: "Ativo",   rarity: "4★", effect: "Dano AoE all-element 580% + burn/freeze/shock 6s", cooldown: "60s", duration: "6s", note: "Skill permanece após trocar de classe" },
-      { name: "Tri-Element Storm",           type: "Ativo",   rarity: "4★", effect: "Dano AoE 650% (fire+ice+wind combo)", cooldown: "120s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Transcendent Elemental Burst", type: "Ativo",  rarity: "4★", effect: "Dano AoE 750% + all debuffs elementais", cooldown: "180s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Element Weaver Spirit",       type: "Passivo", rarity: "3★", effect: "+25% M.ATK, +20% All Elemental Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Body of Element Weaver",      type: "Passivo", rarity: "3★", effect: "+15% Max MP, +15% MP Regen", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Master of Combat",            type: "Passivo", rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Element Weaver Harmony",      type: "Self-Buff", rarity: "4★", effect: "+60% M.ATK, +50% Elemental Damage, +35% Cast Speed por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
+      { name: "元素超載",          type: "Ativo",   rarity: "4★", effect: "Dano AoE all-element 580% + burn/freeze/shock 6s", cooldown: "60s", duration: "6s", note: "Skill permanece após trocar de classe" },
+      { name: "三元素風暴",           type: "Ativo",   rarity: "4★", effect: "Dano AoE 650% (fire+ice+wind combo)", cooldown: "120s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "超越元素爆發", type: "Ativo",  rarity: "4★", effect: "Dano AoE 750% + all debuffs elementais", cooldown: "180s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "元素編織者之魂",       type: "Passivo", rarity: "3★", effect: "+25% M.ATK, +20% All Elemental Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "元素編織者之軀",      type: "Passivo", rarity: "3★", effect: "+15% Max MP, +15% MP Regen", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "戰鬥大師",            type: "Passivo", rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "元素編織者和諧",      type: "Self-Buff", rarity: "4★", effect: "+60% M.ATK, +50% Elemental Damage, +35% Cast Speed por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // ShineMaker (stages 1-3)
   shineMakerS1: {
-    name: 'ShineMaker', parent: 'highElfBase', race: 'highelf', archetype: 'support', stage: 1,
+    name: '光耀創造者', parent: 'highElfBase', race: 'highelf', archetype: 'support', stage: 1,
     base: { atk: 8, def: 10, hp: 110, mp: 110, matk: 24, mdef: 18, eva: 6, crit: 4 },
     skills: [
-      { name: "Light Burst",        type: "Ativo",     rarity: "1★", effect: "Dano sagrado 190%", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Radiant Strike",     type: "Ativo",     rarity: "1★", effect: "Dano sagrado 170% + blind 2s", cooldown: "12s", duration: "2s", note: "Skill permanece após trocar de classe" },
-      { name: "Purifying Light",    type: "Ativo",     rarity: "1★", effect: "Remove 1 debuff do aliado", cooldown: "12s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Shining Barrier",    type: "Self-Buff", rarity: "2★", effect: "+15% DEF e M.DEF por 120s", cooldown: "60s", duration: "120s", note: "Skill permanece após trocar de classe" }
+      { name: "光芒爆發",        type: "Ativo",     rarity: "1★", effect: "Dano sagrado 190%", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "光輝打擊",     type: "Ativo",     rarity: "1★", effect: "Dano sagrado 170% + blind 2s", cooldown: "12s", duration: "2s", note: "Skill permanece após trocar de classe" },
+      { name: "淨化之光",    type: "Ativo",     rarity: "1★", effect: "Remove 1 debuff do aliado", cooldown: "12s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "光耀屏障",    type: "Self-Buff", rarity: "2★", effect: "+15% DEF e M.DEF por 120s", cooldown: "60s", duration: "120s", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   shineMakerS2: {
-    name: 'ShineMaker', parent: 'shineMakerS1', race: 'highelf', archetype: 'support', stage: 2,
+    name: '光耀創造者', parent: 'shineMakerS1', race: 'highelf', archetype: 'support', stage: 2,
     base: { atk: 14, def: 22, hp: 210, mp: 220, matk: 52, mdef: 42, eva: 10, crit: 6 },
     skills: [
-      { name: "Prismatic Ray",       type: "Ativo",     rarity: "2★", effect: "Dano sagrado 280% + slow 30% 4s", cooldown: "16s", duration: "4s", note: "Skill permanece após trocar de classe" },
-      { name: "Shining Nova",        type: "Ativo",     rarity: "3★", effect: "Dano AoE sagrado 320% + heal aliados 10%", cooldown: "22s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Crystal Arrow",       type: "Ativo",     rarity: "2★", effect: "Dano sagrado 260%", cooldown: "14s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Light of Creation",   type: "Self-Buff", rarity: "3★", effect: "+25% M.ATK, +15% Heal Power por 120s", cooldown: "120s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "Brilliant Aura",      type: "Party-Buff", rarity: "3★", effect: "+15% All Stats para o grupo por 300s", cooldown: "60s", duration: "300s", note: "Skill permanece após trocar de classe" },
-      { name: "ShineMaker Harmony (S2)", type: "Self-Buff", rarity: "3★", effect: "+35% M.ATK, +25% Heal Power, +20% M.DEF por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
+      { name: "稜鏡射線",       type: "Ativo",     rarity: "2★", effect: "Dano sagrado 280% + slow 30% 4s", cooldown: "16s", duration: "4s", note: "Skill permanece após trocar de classe" },
+      { name: "光耀新星",        type: "Ativo",     rarity: "3★", effect: "Dano AoE sagrado 320% + heal aliados 10%", cooldown: "22s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "水晶箭",       type: "Ativo",     rarity: "2★", effect: "Dano sagrado 260%", cooldown: "14s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "創造之光",   type: "Self-Buff", rarity: "3★", effect: "+25% M.ATK, +15% Heal Power por 120s", cooldown: "120s", duration: "120s", note: "Skill permanece após trocar de classe" },
+      { name: "璀璨光環",      type: "Party-Buff", rarity: "3★", effect: "+15% All Stats para o grupo por 300s", cooldown: "60s", duration: "300s", note: "Skill permanece após trocar de classe" },
+      { name: "光耀創造者和諧（S2）", type: "Self-Buff", rarity: "3★", effect: "+35% M.ATK, +25% Heal Power, +20% M.DEF por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   shineMakerS3: {
-    name: 'ShineMaker', parent: 'shineMakerS2', race: 'highelf', archetype: 'support', stage: 3,
-    desc: 'Criadora de luz — suporte sagrado com dano ofensivo.',
+    name: '光耀創造者', parent: 'shineMakerS2', race: 'highelf', archetype: 'support', stage: 3,
+    desc: '光之創造者——兼具神聖支援與攻擊能力。',
     base: { atk: 22, def: 38, hp: 350, mp: 400, matk: 98, mdef: 78, eva: 14, crit: 8 },
     skills: [
-      { name: "Luminous Wave",               type: "Ativo",     rarity: "3★", effect: "Dano AoE sagrado 400% + heal aliados 20%", cooldown: "28s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Star Fall",                    type: "Ativo",     rarity: "4★", effect: "Dano AoE sagrado 580% + stun 3s", cooldown: "60s", duration: "3s", note: "Skill permanece após trocar de classe" },
-      { name: "Transcendent Star Fall",       type: "Ativo",     rarity: "4★", effect: "Dano AoE sagrado 750% + blind 5s + heal grupo 30%", cooldown: "180s", duration: "5s", note: "Skill permanece após trocar de classe" },
-      { name: "ShineMaker Spirit",            type: "Passivo",   rarity: "3★", effect: "+25% M.ATK, +20% Heal Power, +15% Holy Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Body of the ShineMaker",       type: "Passivo",   rarity: "3★", effect: "+15% Max MP, +15% MP Regen, +10% Max HP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Master of Combat",             type: "Passivo",   rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "ShineMaker's Harmony", type: "Self-Buff", rarity: "4★", effect: "+55% M.ATK, +45% Heal Power, +35% Holy Damage por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
+      { name: "光明波動",               type: "Ativo",     rarity: "3★", effect: "Dano AoE sagrado 400% + heal aliados 20%", cooldown: "28s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "星辰墜落",                    type: "Ativo",     rarity: "4★", effect: "Dano AoE sagrado 580% + stun 3s", cooldown: "60s", duration: "3s", note: "Skill permanece após trocar de classe" },
+      { name: "超越星辰墜落",       type: "Ativo",     rarity: "4★", effect: "Dano AoE sagrado 750% + blind 5s + heal grupo 30%", cooldown: "180s", duration: "5s", note: "Skill permanece após trocar de classe" },
+      { name: "光耀創造者之魂",            type: "Passivo",   rarity: "3★", effect: "+25% M.ATK, +20% Heal Power, +15% Holy Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "光耀創造者之軀",       type: "Passivo",   rarity: "3★", effect: "+15% Max MP, +15% MP Regen, +10% Max HP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "戰鬥大師",             type: "Passivo",   rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "光耀創造者和諧", type: "Self-Buff", rarity: "4★", effect: "+55% M.ATK, +45% Heal Power, +35% Holy Damage por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
     ]
   },
   divineTemplar: {
-    name: 'Divine Templar', parent: 'holyTemplar', race: 'highelf', archetype: 'tank', stage: 3,
-    desc: 'Templário Divino — tanque sagrado com poder ofensivo e defesa suprema.',
+    name: '神聖聖騎士', parent: 'holyTemplar', race: 'highelf', archetype: 'tank', stage: 3,
+    desc: '神聖聖騎士——兼具神聖攻擊力與至高防禦力的坦克。',
     base: { atk: 72, def: 98, hp: 750, mp: 145, eva: 14, crit: 8, mdef: 68 },
     skills: [
-      { name: "Lord Knight",                   type: "Ativo",   rarity: "4★", effect: "Forma divina: +50% DEF e ATK por 30s + regen MP", cooldown: "120s", duration: "30s" },
-      { name: "Sacred Aegis",            type: "Ativo",   rarity: "3★", effect: "+60% Block Rate + reflete holy 15s", cooldown: "60s", duration: "15s" },
-      { name: "Ultimate Divine Defense",       type: "Ativo",   rarity: "4★", effect: "Imunidade total 10s + taunt AoE massivo", cooldown: "300s", duration: "10s" },
-      { name: "Divine Templar Harmony",        type: "Self-Buff", rarity: "4★", effect: "+60% DEF, +45% Max HP, +35% Holy Damage por 30 min", cooldown: "90 min", duration: "30 min" }
+      { name: "領主騎士",                   type: "Ativo",   rarity: "4★", effect: "Forma divina: +50% DEF e ATK por 30s + regen MP", cooldown: "120s", duration: "30s" },
+      { name: "神聖庇護",            type: "Ativo",   rarity: "3★", effect: "+60% Block Rate + reflete holy 15s", cooldown: "60s", duration: "15s" },
+      { name: "終極神聖防禦",       type: "Ativo",   rarity: "4★", effect: "Imunidade total 10s + taunt AoE massivo", cooldown: "300s", duration: "10s" },
+      { name: "神聖聖騎士和諧",        type: "Self-Buff", rarity: "4★", effect: "+60% DEF, +45% Max HP, +35% Holy Damage por 30 min", cooldown: "90 min", duration: "30 min" }
     ]
   },
   elementWeaver: {
-    name: 'Element Weaver', parent: 'elementWeaverS2', race: 'highelf', archetype: 'mage', stage: 3,
-    desc: 'Tecelão elemental — mestre supremo dos elementos.',
+    name: '元素編織者', parent: 'elementWeaverS2', race: 'highelf', archetype: 'mage', stage: 3,
+    desc: '元素編織者——至高的元素大師。',
     base: { atk: 12, def: 22, hp: 290, mp: 440, matk: 128, mdef: 65, eva: 12, crit: 8 },
     skills: [
-      { name: "Elemental Overload",          type: "Ativo",   rarity: "4★", effect: "Dano AoE all-element 580%", cooldown: "60s", duration: "6s" },
-      { name: "Tri-Element Storm",           type: "Ativo",   rarity: "4★", effect: "Dano AoE 650%", cooldown: "120s", duration: null },
-      { name: "Element Weaver Harmony",      type: "Self-Buff", rarity: "4★", effect: "+60% M.ATK, +50% Elemental Damage por 30 min", cooldown: "90 min", duration: "30 min" }
+      { name: "元素超載",          type: "Ativo",   rarity: "4★", effect: "Dano AoE all-element 580%", cooldown: "60s", duration: "6s" },
+      { name: "三元素風暴",           type: "Ativo",   rarity: "4★", effect: "Dano AoE 650%", cooldown: "120s", duration: null },
+      { name: "元素編織者和諧",      type: "Self-Buff", rarity: "4★", effect: "+60% M.ATK, +50% Elemental Damage por 30 min", cooldown: "90 min", duration: "30 min" }
     ]
   },
 
   // Warg (Human Beast Fighter)
   wargBase: {
-    name: 'Warg', parent: null, race: 'human', archetype: 'fighter', stage: 0,
+    name: '座狼戰士', parent: null, race: 'human', archetype: 'fighter', stage: 0,
     base: { atk: 26, def: 12, hp: 120, mp: 40, eva: 8, crit: 8, mdef: 8 },
     skills: [
-      { name: "Beast Claw",                 type: "Ativo",     rarity: "1★", effect: "Dano físico 150% com garras ferrenhas", cooldown: "6s" },
-      { name: "Feral Strike",               type: "Ativo",     rarity: "1★", effect: "Dano físico 190% + sangramento 3s", cooldown: "8s" },
-      { name: "Beast Howl",                 type: "Self-Buff", rarity: "1★", effect: "+15% ATK, +10% Atk Speed 60s", cooldown: "45s" },
-      { name: "Wolf Reflexes",              type: "Passivo",   rarity: "1★", effect: "+10% Move Speed e +8% Evasão", cooldown: null }
+      { name: "野獸利爪",                 type: "Ativo",     rarity: "1★", effect: "Dano físico 150% com garras ferrenhas", cooldown: "6s" },
+      { name: "野性打擊",               type: "Ativo",     rarity: "1★", effect: "Dano físico 190% + sangramento 3s", cooldown: "8s" },
+      { name: "野獸咆哮",                 type: "Self-Buff", rarity: "1★", effect: "+15% ATK, +10% Atk Speed 60s", cooldown: "45s" },
+      { name: "狼之反射",              type: "Passivo",   rarity: "1★", effect: "+10% Move Speed e +8% Evasão", cooldown: null }
     ]
   },
   wargS1: {
-    name: 'Warg', parent: 'wargBase', race: 'human', archetype: 'fighter', stage: 1,
+    name: '座狼戰士', parent: 'wargBase', race: 'human', archetype: 'fighter', stage: 1,
     base: { atk: 34, def: 18, hp: 220, mp: 60, eva: 12, crit: 12, mdef: 14 },
     skills: [
-      { name: "Beast Claw",                 type: "Ativo",     rarity: "1★", effect: "Dano físico 170% com garras ferrenhas", cooldown: "6s" },
-      { name: "Feral Strike",               type: "Ativo",     rarity: "1★", effect: "Dano físico 210% + sangramento 3s", cooldown: "8s" },
-      { name: "Beast Howl",                 type: "Self-Buff", rarity: "2★", effect: "+25% ATK, +20% Atk Speed 60s", cooldown: "45s" },
-      { name: "Ancestral Wolf Transformation", type: "Self-Buff", rarity: "4★", effect: "Transformação: +50% ATK, +40% Crit Dmg por 60s", cooldown: "90s" },
-      { name: "Vampiric Feral Bite",        type: "Ativo",     rarity: "3★", effect: "Mordida vampírica 240% + recupera 40% do dano em HP", cooldown: "14s" }
+      { name: "野獸利爪",                 type: "Ativo",     rarity: "1★", effect: "Dano físico 170% com garras ferrenhas", cooldown: "6s" },
+      { name: "野性打擊",               type: "Ativo",     rarity: "1★", effect: "Dano físico 210% + sangramento 3s", cooldown: "8s" },
+      { name: "野獸咆哮",                 type: "Self-Buff", rarity: "2★", effect: "+25% ATK, +20% Atk Speed 60s", cooldown: "45s" },
+      { name: "祖狼變身", type: "Self-Buff", rarity: "4★", effect: "Transformação: +50% ATK, +40% Crit Dmg por 60s", cooldown: "90s" },
+      { name: "吸血野性撕咬",        type: "Ativo",     rarity: "3★", effect: "Mordida vampírica 240% + recupera 40% do dano em HP", cooldown: "14s" }
     ]
   },
   wargS2: {
-    name: 'Warg', parent: 'wargS1', race: 'human', archetype: 'fighter', stage: 2,
+    name: '座狼戰士', parent: 'wargS1', race: 'human', archetype: 'fighter', stage: 2,
     base: { atk: 68, def: 32, hp: 440, mp: 90, eva: 18, crit: 18, mdef: 28 },
     skills: [
-      { name: "Beast Claw",                 type: "Ativo",     rarity: "2★", effect: "Dano físico 220% com garras afiadas", cooldown: "6s" },
-      { name: "Wolf Pack Rush",             type: "Ativo",     rarity: "2★", effect: "Dano físico 280% + stun 3s", cooldown: "12s" },
-      { name: "Beast Howl",                 type: "Self-Buff", rarity: "2★", effect: "+30% ATK, +20% Atk Speed 60s", cooldown: "45s" },
-      { name: "Ancestral Wolf Transformation", type: "Self-Buff", rarity: "4★", effect: "Transformação: +55% ATK, +40% Crit Dmg por 60s", cooldown: "90s" },
-      { name: "Vampiric Feral Bite",        type: "Ativo",     rarity: "3★", effect: "Mordida vampírica 260% + recupera 40% do dano em HP", cooldown: "14s" }
+      { name: "野獸利爪",                 type: "Ativo",     rarity: "2★", effect: "Dano físico 220% com garras afiadas", cooldown: "6s" },
+      { name: "狼群突襲",             type: "Ativo",     rarity: "2★", effect: "Dano físico 280% + stun 3s", cooldown: "12s" },
+      { name: "野獸咆哮",                 type: "Self-Buff", rarity: "2★", effect: "+30% ATK, +20% Atk Speed 60s", cooldown: "45s" },
+      { name: "祖狼變身", type: "Self-Buff", rarity: "4★", effect: "Transformação: +55% ATK, +40% Crit Dmg por 60s", cooldown: "90s" },
+      { name: "吸血野性撕咬",        type: "Ativo",     rarity: "3★", effect: "Mordida vampírica 260% + recupera 40% do dano em HP", cooldown: "14s" }
     ]
   },
   wargS3: {
-    name: 'Warg', parent: 'wargS2', race: 'human', archetype: 'fighter', stage: 3,
-    desc: 'Warg — guerreiro feral com transformação em lobo ancestral.',
+    name: '座狼戰士', parent: 'wargS2', race: 'human', archetype: 'fighter', stage: 3,
+    desc: '座狼戰士——能變身祖狼的野性戰士。',
     base: { atk: 138, def: 64, hp: 850, mp: 130, eva: 28, crit: 30, mdef: 55 },
     skills: [
-      { name: "Beast Claw",                 type: "Ativo",     rarity: "2★", effect: "Dano físico 260% com garras ancestrais", cooldown: "6s" },
-      { name: "Wolf Pack Rush",             type: "Ativo",     rarity: "3★", effect: "Investida brutal 360% + atordoa por 3s", cooldown: "12s" },
-      { name: "Beast Howl",                 type: "Self-Buff", rarity: "3★", effect: "+35% ATK, +25% Atk Speed por 120s", cooldown: "45s" },
-      { name: "Ancestral Wolf Transformation", type: "Self-Buff", rarity: "4★", effect: "Transformação em Lobo Ancestral: +60% ATK, +45% Crit Dmg por 60s", cooldown: "90s" },
-      { name: "Vampiric Feral Bite",        type: "Ativo",     rarity: "4★", effect: "Mordida vampírica 320% + recupera 50% do dano em HP", cooldown: "14s" }
+      { name: "野獸利爪",                 type: "Ativo",     rarity: "2★", effect: "Dano físico 260% com garras ancestrais", cooldown: "6s" },
+      { name: "狼群突襲",             type: "Ativo",     rarity: "3★", effect: "Investida brutal 360% + atordoa por 3s", cooldown: "12s" },
+      { name: "野獸咆哮",                 type: "Self-Buff", rarity: "3★", effect: "+35% ATK, +25% Atk Speed por 120s", cooldown: "45s" },
+      { name: "祖狼變身", type: "Self-Buff", rarity: "4★", effect: "Transformação em Lobo Ancestral: +60% ATK, +45% Crit Dmg por 60s", cooldown: "90s" },
+      { name: "吸血野性撕咬",        type: "Ativo",     rarity: "4★", effect: "Mordida vampírica 320% + recupera 50% do dano em HP", cooldown: "14s" }
     ]
   },
   warg: {
-    name: 'Warg', parent: null, race: 'human', archetype: 'fighter', stage: 3,
-    desc: 'Warg — guerreiro feral com transformação em lobo ancestral e vampirismo feral.',
+    name: '座狼戰士', parent: null, race: 'human', archetype: 'fighter', stage: 3,
+    desc: '座狼戰士——能變身祖狼並具備野性吸血能力的戰士。',
     base: { atk: 138, def: 64, hp: 850, mp: 130, eva: 28, crit: 30, mdef: 55 },
     skills: [
-      { name: "Beast Claw",                 type: "Ativo",     rarity: "2★", effect: "Dano físico 260% com garras ancestrais", cooldown: "6s" },
-      { name: "Wolf Pack Rush",             type: "Ativo",     rarity: "3★", effect: "Investida brutal 360% + atordoa por 3s", cooldown: "12s" },
-      { name: "Beast Howl",                 type: "Self-Buff", rarity: "3★", effect: "+35% ATK, +25% Atk Speed por 120s", cooldown: "45s" },
-      { name: "Ancestral Wolf Transformation", type: "Self-Buff", rarity: "4★", effect: "Transformação em Lobo Ancestral: +60% ATK, +45% Crit Dmg por 60s", cooldown: "90s" },
-      { name: "Vampiric Feral Bite",        type: "Ativo",     rarity: "4★", effect: "Mordida vampírica 320% + recupera 50% do dano em HP", cooldown: "14s" }
+      { name: "野獸利爪",                 type: "Ativo",     rarity: "2★", effect: "Dano físico 260% com garras ancestrais", cooldown: "6s" },
+      { name: "狼群突襲",             type: "Ativo",     rarity: "3★", effect: "Investida brutal 360% + atordoa por 3s", cooldown: "12s" },
+      { name: "野獸咆哮",                 type: "Self-Buff", rarity: "3★", effect: "+35% ATK, +25% Atk Speed por 120s", cooldown: "45s" },
+      { name: "祖狼變身", type: "Self-Buff", rarity: "4★", effect: "Transformação em Lobo Ancestral: +60% ATK, +45% Crit Dmg por 60s", cooldown: "90s" },
+      { name: "吸血野性撕咬",        type: "Ativo",     rarity: "4★", effect: "Mordida vampírica 320% + recupera 50% do dano em HP", cooldown: "14s" }
     ]
   },
 
   // ─── SHINEMAKER (Dwarf Exclusive) ───
   shineMakerBase: {
-    name: 'ShineMaker', parent: 'dwarfFighter', race: 'dwarf', archetype: 'support', stage: 0,
-    desc: 'ShineMaker — artífice anã dominadora de energia luminosa e suporte cristalino.',
+    name: '光耀創造者', parent: 'dwarfFighter', race: 'dwarf', archetype: 'support', stage: 0,
+    desc: '光耀創造者——操控光能與水晶支援的矮人工匠。',
     base: { atk: 12, def: 18, hp: 120, mp: 90, matk: 18, mdef: 16, eva: 6, crit: 6 },
     skills: [
-      { name: "Light Spark",                  type: "Ativo",     rarity: "1★", effect: "Dano sagrado 160% com martelo brilhante", cooldown: "8s" },
-      { name: "Luminary Glow",                type: "Self-Buff", rarity: "1★", effect: "+15% M.ATK e +10% P.DEF", cooldown: "60s" },
-      { name: "Crystal Weapon Mastery",       type: "Passivo",   rarity: "1★", effect: "+15% ATK com Martelos/Maças", cooldown: null },
-      { name: "ShineMaker's Harmony",         type: "Self-Buff", rarity: "1★", effect: "+20% M.ATK, +20% P.DEF por 30 min", cooldown: "30 min" }
+      { name: "光之火花",                  type: "Ativo",     rarity: "1★", effect: "Dano sagrado 160% com martelo brilhante", cooldown: "8s" },
+      { name: "光耀輝光",                type: "Self-Buff", rarity: "1★", effect: "+15% M.ATK e +10% P.DEF", cooldown: "60s" },
+      { name: "水晶武器精通",       type: "Passivo",   rarity: "1★", effect: "+15% ATK com Martelos/Maças", cooldown: null },
+      { name: "光耀創造者和諧",         type: "Self-Buff", rarity: "1★", effect: "+20% M.ATK, +20% P.DEF por 30 min", cooldown: "30 min" }
     ]
   },
   shinemaker: {
-    name: 'ShineMaker', parent: 'shineMakerS2', race: 'dwarf', archetype: 'support', stage: 3,
-    desc: 'Criadora de luz — suporte sagrado anão com poder celestial e dano luminoso.',
+    name: '光耀創造者', parent: 'shineMakerS2', race: 'dwarf', archetype: 'support', stage: 3,
+    desc: '光之創造者——具備天界力量與光屬性攻擊的矮人神聖支援職。',
     base: { atk: 26, def: 42, hp: 420, mp: 420, matk: 110, mdef: 86, eva: 16, crit: 10 },
     skills: [
-      { name: "Star Fall",                    type: "Ativo",     rarity: "4★", effect: "Dano AoE sagrado 580% + stun 3s", cooldown: "45s" },
-      { name: "Transcendent Star Fall",       type: "Ativo",     rarity: "4★", effect: "Dano AoE sagrado 750% + blind 5s", cooldown: "120s" },
-      { name: "Divine Crystal Aegis",         type: "Ativo",     rarity: "4★", effect: "Barreira protetora sagrada que absorve 35% do dano máximo", cooldown: "60s" },
-      { name: "ShineMaker's Ultimate Harmony", type: "Self-Buff", rarity: "4★", effect: "+60% M.ATK, +50% P.DEF, +40% Cura por 30 min", cooldown: "90 min" }
+      { name: "星辰墜落",                    type: "Ativo",     rarity: "4★", effect: "Dano AoE sagrado 580% + stun 3s", cooldown: "45s" },
+      { name: "超越星辰墜落",       type: "Ativo",     rarity: "4★", effect: "Dano AoE sagrado 750% + blind 5s", cooldown: "120s" },
+      { name: "神聖水晶庇護",         type: "Ativo",     rarity: "4★", effect: "Barreira protetora sagrada que absorve 35% do dano máximo", cooldown: "60s" },
+      { name: "光耀創造者終極和諧", type: "Self-Buff", rarity: "4★", effect: "+60% M.ATK, +50% P.DEF, +40% Cura por 30 min", cooldown: "90 min" }
     ]
   },
   shinemakerS1: {
-    name: 'ShineMaker', parent: 'dwarfFighter', race: 'dwarf', archetype: 'support', stage: 1,
+    name: '光耀創造者', parent: 'dwarfFighter', race: 'dwarf', archetype: 'support', stage: 1,
     base: { atk: 18, def: 24, hp: 190, mp: 180, matk: 45, mdef: 32, eva: 10, crit: 8 },
     skills: [
-      { name: "Light Spark",                  type: "Ativo",     rarity: "1★", effect: "Dano sagrado 190%", cooldown: "8s" },
-      { name: "Luminary Glow",                type: "Self-Buff", rarity: "2★", effect: "+20% M.ATK e +15% Cast Speed", cooldown: "60s" },
-      { name: "Crystal Blessing",             type: "Passivo",   rarity: "1★", effect: "+15% Max MP e +12% Regeneração de MP", cooldown: null }
+      { name: "光之火花",                  type: "Ativo",     rarity: "1★", effect: "Dano sagrado 190%", cooldown: "8s" },
+      { name: "光耀輝光",                type: "Self-Buff", rarity: "2★", effect: "+20% M.ATK e +15% Cast Speed", cooldown: "60s" },
+      { name: "水晶祝福",             type: "Passivo",   rarity: "1★", effect: "+15% Max MP e +12% Regeneração de MP", cooldown: null }
     ]
   },
   shinemakerS2: {
-    name: 'ShineMaker', parent: 'shinemakerS1', race: 'dwarf', archetype: 'support', stage: 2,
+    name: '光耀創造者', parent: 'shinemakerS1', race: 'dwarf', archetype: 'support', stage: 2,
     base: { atk: 28, def: 36, hp: 320, mp: 300, matk: 82, mdef: 60, eva: 14, crit: 10 },
     skills: [
-      { name: "Prism Burst",                  type: "Ativo",     rarity: "2★", effect: "Dano AoE sagrado 280%", cooldown: "14s" },
-      { name: "Shine Barrier",                type: "Ativo",     rarity: "3★", effect: "Escudo sagrado de 25% Max HP por 20s", cooldown: "35s" },
-      { name: "Radiant Hammer Strike",        type: "Ativo",     rarity: "3★", effect: "Dano físico/sagrado 320% + redução de defesa do alvo 20%", cooldown: "18s" }
+      { name: "稜鏡爆發",                  type: "Ativo",     rarity: "2★", effect: "Dano AoE sagrado 280%", cooldown: "14s" },
+      { name: "光耀屏障",                type: "Ativo",     rarity: "3★", effect: "Escudo sagrado de 25% Max HP por 20s", cooldown: "35s" },
+      { name: "光輝戰鎚打擊",        type: "Ativo",     rarity: "3★", effect: "Dano físico/sagrado 320% + redução de defesa do alvo 20%", cooldown: "18s" }
     ]
   },
   shinemakerS3: {
-    name: 'ShineMaker', parent: 'shinemakerS2', race: 'dwarf', archetype: 'support', stage: 3,
+    name: '光耀創造者', parent: 'shinemakerS2', race: 'dwarf', archetype: 'support', stage: 3,
     base: { atk: 38, def: 52, hp: 580, mp: 520, matk: 145, mdef: 98, eva: 20, crit: 14 },
     skills: [
-      { name: "Star Fall",                    type: "Ativo",     rarity: "4★", effect: "Dano AoE sagrado 580% + stun 3s", cooldown: "45s" },
-      { name: "Transcendent Star Fall",       type: "Ativo",     rarity: "4★", effect: "Dano AoE sagrado 750% + blind 5s", cooldown: "120s" },
-      { name: "ShineMaker's Harmony",         type: "Self-Buff", rarity: "4★", effect: "+55% M.ATK, +45% Heal Power por 30 min", cooldown: "90 min" }
+      { name: "星辰墜落",                    type: "Ativo",     rarity: "4★", effect: "Dano AoE sagrado 580% + stun 3s", cooldown: "45s" },
+      { name: "超越星辰墜落",       type: "Ativo",     rarity: "4★", effect: "Dano AoE sagrado 750% + blind 5s", cooldown: "120s" },
+      { name: "光耀創造者和諧",         type: "Self-Buff", rarity: "4★", effect: "+55% M.ATK, +45% Heal Power por 30 min", cooldown: "90 min" }
     ]
   },
 
   // ─── BLOOD ROSE (Dark Elf Exclusive — Espinhos Sombrios & Magia de Sangue) ───
   bloodRoseBase: {
-    name: 'Blood Rose', parent: null, race: 'darkelf', archetype: 'mage', stage: 0,
-    desc: 'Rosa de Sangue — mística dos Elfos Negros devota de Shillien, mestra de espinhos sombrios e roubo de vida.',
+    name: '血玫瑰', parent: null, race: 'darkelf', archetype: 'mage', stage: 0,
+    desc: '血玫瑰——侍奉席琳的黑暗精靈秘術師，精通黑暗荊棘與生命汲取。',
     base: { atk: 12, def: 10, hp: 110, mp: 130, matk: 30, mdef: 18, eva: 8, crit: 8 },
     skills: [
-      { name: "Rose Petal Strike",            type: "Ativo",     rarity: "1★", effect: "Dano de trevas 160% lançando pétalas cortantes", cooldown: "6s" },
-      { name: "Dark Thorn Shield",            type: "Passivo",   rarity: "1★", effect: "+15% M.DEF e reflete 10% do dano físico em espinhos", cooldown: null },
-      { name: "Sanguine Pulse",               type: "Ativo",     rarity: "1★", effect: "Pulso de sangue: dano 140% + drena 30% em HP", cooldown: "8s" },
-      { name: "Blood Rose Harmony",           type: "Self-Buff", rarity: "1★", effect: "+20% M.ATK, +15% Vampirismo por 30 min", cooldown: "30 min" }
+      { name: "玫瑰花瓣打擊",            type: "Ativo",     rarity: "1★", effect: "Dano de trevas 160% lançando pétalas cortantes", cooldown: "6s" },
+      { name: "黑暗荊棘護盾",            type: "Passivo",   rarity: "1★", effect: "+15% M.DEF e reflete 10% do dano físico em espinhos", cooldown: null },
+      { name: "血色脈動",               type: "Ativo",     rarity: "1★", effect: "Pulso de sangue: dano 140% + drena 30% em HP", cooldown: "8s" },
+      { name: "血玫瑰和諧",           type: "Self-Buff", rarity: "1★", effect: "+20% M.ATK, +15% Vampirismo por 30 min", cooldown: "30 min" }
     ]
   },
   bloodRoseS1: {
-    name: 'Blood Rose', parent: 'bloodRoseBase', race: 'darkelf', archetype: 'mage', stage: 1,
-    desc: 'Rosa de Sangue — sacerdotisa das trevas com controle de espinhos sangrentos.',
+    name: '血玫瑰', parent: 'bloodRoseBase', race: 'darkelf', archetype: 'mage', stage: 1,
+    desc: '血玫瑰——操控血色荊棘的黑暗祭司。',
     base: { atk: 16, def: 18, hp: 190, mp: 230, matk: 60, mdef: 36, eva: 12, crit: 10 },
     skills: [
-      { name: "Crimson Thorns",               type: "Ativo",     rarity: "1★", effect: "Erupção de espinhos: dano mágico 210% + sangramento 5s", cooldown: "8s" },
-      { name: "Sanguine Drain",               type: "Ativo",     rarity: "2★", effect: "Dano sombrio 200% + absorve 50% do dano em HP", cooldown: "10s" },
-      { name: "Thorn Armor Mastery",          type: "Passivo",   rarity: "1★", effect: "+15% M.ATK de Trevas e +10% Esquiva", cooldown: null },
-      { name: "Curse of Shillien",            type: "Ativo",     rarity: "2★", effect: "Maldição das trevas: reduz P.DEF e M.DEF do alvo em 20%", cooldown: "16s" }
+      { name: "緋紅荊棘",               type: "Ativo",     rarity: "1★", effect: "Erupção de espinhos: dano mágico 210% + sangramento 5s", cooldown: "8s" },
+      { name: "血色汲取",               type: "Ativo",     rarity: "2★", effect: "Dano sombrio 200% + absorve 50% do dano em HP", cooldown: "10s" },
+      { name: "荊棘護甲精通",          type: "Passivo",   rarity: "1★", effect: "+15% M.ATK de Trevas e +10% Esquiva", cooldown: null },
+      { name: "席琳詛咒",            type: "Ativo",     rarity: "2★", effect: "Maldição das trevas: reduz P.DEF e M.DEF do alvo em 20%", cooldown: "16s" }
     ]
   },
   bloodRoseS2: {
-    name: 'Blood Rose', parent: 'bloodRoseS1', race: 'darkelf', archetype: 'mage', stage: 2,
-    desc: 'Rosa de Sangue — dominadora do jardim profano de Shillien.',
+    name: '血玫瑰', parent: 'bloodRoseS1', race: 'darkelf', archetype: 'mage', stage: 2,
+    desc: '血玫瑰——支配席琳褻瀆花園的主人。',
     base: { atk: 25, def: 30, hp: 340, mp: 380, matk: 105, mdef: 65, eva: 18, crit: 15 },
     skills: [
-      { name: "Black Rose Petal Dance",       type: "Ativo",     rarity: "3★", effect: "Dano AoE profano 360% com tempestade de rosas negras", cooldown: "18s" },
-      { name: "Thorn Embrace",                type: "Ativo",     rarity: "3★", effect: "Aprisiona o alvo em espinhos sombrios: dano 320% + imobilização 3s", cooldown: "16s" },
-      { name: "Vampiric Blossom",             type: "Ativo",     rarity: "3★", effect: "Desabrochar vampírico: dano 300% + roubo de vida massivo de 60%", cooldown: "15s" },
-      { name: "Bleeding Thorn Mastery",       type: "Passivo",   rarity: "3★", effect: "+20% Dano Crítico Mágico e +15% Efeito de Sangramento", cooldown: null }
+      { name: "黑玫瑰花瓣之舞",       type: "Ativo",     rarity: "3★", effect: "Dano AoE profano 360% com tempestade de rosas negras", cooldown: "18s" },
+      { name: "荊棘擁抱",                type: "Ativo",     rarity: "3★", effect: "Aprisiona o alvo em espinhos sombrios: dano 320% + imobilização 3s", cooldown: "16s" },
+      { name: "吸血之花",             type: "Ativo",     rarity: "3★", effect: "Desabrochar vampírico: dano 300% + roubo de vida massivo de 60%", cooldown: "15s" },
+      { name: "流血荊棘精通",       type: "Passivo",   rarity: "3★", effect: "+20% Dano Crítico Mágico e +15% Efeito de Sangramento", cooldown: null }
     ]
   },
   bloodRoseS3: {
-    name: 'Blood Rose', parent: 'bloodRoseS2', race: 'darkelf', archetype: 'mage', stage: 3,
-    desc: 'Rosa de Sangue — Rainha Suprema dos Espinhos de Shillien.',
+    name: '血玫瑰', parent: 'bloodRoseS2', race: 'darkelf', archetype: 'mage', stage: 3,
+    desc: '血玫瑰——席琳荊棘的至高女王。',
     base: { atk: 42, def: 52, hp: 620, mp: 620, matk: 180, mdef: 105, eva: 25, crit: 20 },
     skills: [
-      { name: "Rose Garden Burst",            type: "Ativo",     rarity: "4★", effect: "Explosão do Jardim Negro: dano AoE 680% + drena 35% do dano total para curar o herói", cooldown: "60s" },
-      { name: "Blood Thorn Storm",            type: "Ativo",     rarity: "4★", effect: "Tempestade cataclísmica de espinhos sangrentos 820% + sangramento profundo 10s", cooldown: "120s" },
-      { name: "Queen of Thorns Aura",         type: "Passivo",   rarity: "4★", effect: "+25% Dano Mágico de Trevas, +20% Roubo de Vida Permanente", cooldown: null },
-      { name: "Blood Rose Ultimate Harmony",  type: "Self-Buff", rarity: "4★", effect: "+65% M.ATK, +40% Roubo de Vida, +30% Velocidade de Cast por 30 min", cooldown: "90 min" }
+      { name: "玫瑰花園爆發",            type: "Ativo",     rarity: "4★", effect: "Explosão do Jardim Negro: dano AoE 680% + drena 35% do dano total para curar o herói", cooldown: "60s" },
+      { name: "血荊棘風暴",            type: "Ativo",     rarity: "4★", effect: "Tempestade cataclísmica de espinhos sangrentos 820% + sangramento profundo 10s", cooldown: "120s" },
+      { name: "荊棘女王光環",         type: "Passivo",   rarity: "4★", effect: "+25% Dano Mágico de Trevas, +20% Roubo de Vida Permanente", cooldown: null },
+      { name: "血玫瑰終極和諧",  type: "Self-Buff", rarity: "4★", effect: "+65% M.ATK, +40% Roubo de Vida, +30% Velocidade de Cast por 30 min", cooldown: "90 min" }
     ]
   },
   bloodRose: {
-    name: 'Blood Rose', parent: 'bloodRoseS2', race: 'darkelf', archetype: 'mage', stage: 3,
-    desc: 'Rosa de Sangue — Rainha Suprema dos Espinhos de Shillien.',
+    name: '血玫瑰', parent: 'bloodRoseS2', race: 'darkelf', archetype: 'mage', stage: 3,
+    desc: '血玫瑰——席琳荊棘的至高女王。',
     base: { atk: 42, def: 52, hp: 620, mp: 620, matk: 180, mdef: 105, eva: 25, crit: 20 },
     skills: [
-      { name: "Rose Garden Burst",            type: "Ativo",     rarity: "4★", effect: "Explosão do Jardim Negro: dano AoE 680% + drena 35% do dano total para curar o herói", cooldown: "60s" },
-      { name: "Blood Thorn Storm",            type: "Ativo",     rarity: "4★", effect: "Tempestade cataclísmica de espinhos sangrentos 820% + sangramento profundo 10s", cooldown: "120s" },
-      { name: "Queen of Thorns Aura",         type: "Passivo",   rarity: "4★", effect: "+25% Dano Mágico de Trevas, +20% Roubo de Vida Permanente", cooldown: null },
-      { name: "Blood Rose Ultimate Harmony",  type: "Self-Buff", rarity: "4★", effect: "+65% M.ATK, +40% Roubo de Vida, +30% Velocidade de Cast por 30 min", cooldown: "90 min" }
+      { name: "玫瑰花園爆發",            type: "Ativo",     rarity: "4★", effect: "Explosão do Jardim Negro: dano AoE 680% + drena 35% do dano total para curar o herói", cooldown: "60s" },
+      { name: "血荊棘風暴",            type: "Ativo",     rarity: "4★", effect: "Tempestade cataclísmica de espinhos sangrentos 820% + sangramento profundo 10s", cooldown: "120s" },
+      { name: "荊棘女王光環",         type: "Passivo",   rarity: "4★", effect: "+25% Dano Mágico de Trevas, +20% Roubo de Vida Permanente", cooldown: null },
+      { name: "血玫瑰終極和諧",  type: "Self-Buff", rarity: "4★", effect: "+65% M.ATK, +40% Roubo de Vida, +30% Velocidade de Cast por 30 min", cooldown: "90 min" }
     ]
   },
 
   // ─── ERTHEIA MARAUDER & EVISCERATOR (Ertheia Martial Brawler) ───
   marauderBase: {
-    name: 'Ertheia Fighter', parent: null, race: 'ertheia', archetype: 'fighter', stage: 0,
-    desc: 'Lutadora Ertheia — mestre veloz de combate corporal com ventos de Sayha.',
+    name: '艾爾提亞戰士', parent: null, race: 'ertheia', archetype: 'fighter', stage: 0,
+    desc: '艾爾提亞戰士——駕馭賽哈之風、擅長高速近身戰鬥的武鬥家。',
     base: { atk: 16, def: 10, hp: 120, mp: 40, eva: 12, crit: 10, mdef: 8 },
     skills: [
-      { name: "Pummel Strike",                type: "Ativo",     rarity: "1★", effect: "Golpe rápido de punho: dano físico 160%", cooldown: "6s" },
-      { name: "Sayha Wind Step",              type: "Self-Buff", rarity: "1★", effect: "+15% Esquiva e +15% Velocidade de Movimento", cooldown: "45s" },
-      { name: "Fist Mastery",                 type: "Passivo",   rarity: "1★", effect: "+15% P.ATK com Garras/Punhos", cooldown: null },
-      { name: "Sayha's Harmony",              type: "Self-Buff", rarity: "1★", effect: "+20% P.ATK, +15% Velocidade de Ataque por 30 min", cooldown: "30 min" }
+      { name: "猛擊",                type: "Ativo",     rarity: "1★", effect: "Golpe rápido de punho: dano físico 160%", cooldown: "6s" },
+      { name: "賽哈風步",              type: "Self-Buff", rarity: "1★", effect: "+15% Esquiva e +15% Velocidade de Movimento", cooldown: "45s" },
+      { name: "拳術精通",                 type: "Passivo",   rarity: "1★", effect: "+15% P.ATK com Garras/Punhos", cooldown: null },
+      { name: "賽哈和諧",              type: "Self-Buff", rarity: "1★", effect: "+20% P.ATK, +15% Velocidade de Ataque por 30 min", cooldown: "30 min" }
     ]
   },
   marauder: {
-    name: 'Marauder', parent: 'marauderBase', race: 'ertheia', archetype: 'fighter', stage: 1,
-    desc: 'Saqueadora — especialista em combos rápidos de vento e golpes aéreos.',
+    name: '掠襲者', parent: 'marauderBase', race: 'ertheia', archetype: 'fighter', stage: 1,
+    desc: '掠襲者——擅長高速風系連擊與空中攻擊。',
     base: { atk: 34, def: 18, hp: 210, mp: 65, eva: 18, crit: 15, mdef: 14 },
     skills: [
-      { name: "Distortion Punch",             type: "Ativo",     rarity: "1★", effect: "Punho de distorção: dano 220% + atordoamento 1.5s", cooldown: "8s" },
-      { name: "Wind Blend Strike",            type: "Ativo",     rarity: "2★", effect: "Investida com vento: dano 240% com +30% chance crítica", cooldown: "10s" },
-      { name: "Aerial Combo",                 type: "Ativo",     rarity: "2★", effect: "Combo aéreo: dano 260% + lança o inimigo ao ar", cooldown: "12s" },
-      { name: "Retaliation Counter",          type: "Passivo",   rarity: "1★", effect: "+15% Esquiva e contra-ataca com 100% de dano ao esquivar", cooldown: null }
+      { name: "扭曲拳",             type: "Ativo",     rarity: "1★", effect: "Punho de distorção: dano 220% + atordoamento 1.5s", cooldown: "8s" },
+      { name: "融風打擊",            type: "Ativo",     rarity: "2★", effect: "Investida com vento: dano 240% com +30% chance crítica", cooldown: "10s" },
+      { name: "空中連擊",                 type: "Ativo",     rarity: "2★", effect: "Combo aéreo: dano 260% + lança o inimigo ao ar", cooldown: "12s" },
+      { name: "報復反擊",          type: "Passivo",   rarity: "1★", effect: "+15% Esquiva e contra-ataca com 100% de dano ao esquivar", cooldown: null }
     ]
   },
   ertheiaWarrior: {
-    name: 'Eviscerator', parent: 'marauder', race: 'ertheia', archetype: 'fighter', stage: 2,
-    desc: 'Evisceradora — guerreira marcial letal que corta o ar e destrói defesas.',
+    name: '裂空者', parent: 'marauder', race: 'ertheia', archetype: 'fighter', stage: 2,
+    desc: '裂空者——能撕裂氣流並摧毀防禦的致命武鬥家。',
     base: { atk: 70, def: 32, hp: 440, mp: 95, eva: 28, crit: 24, mdef: 28 },
     skills: [
-      { name: "Gravity Shockwave",            type: "Ativo",     rarity: "3★", effect: "Onda de choque gravitacional: dano AoE 360% + knockback", cooldown: "16s" },
-      { name: "Eviscerate Slash",             type: "Ativo",     rarity: "3★", effect: "Corte visceral: dano físico 380% com alto bônus crítico", cooldown: "14s" },
-      { name: "Hurricane Spin Kick",          type: "Ativo",     rarity: "3★", effect: "Chute furacão 360º: dano 340% em área", cooldown: "15s" },
-      { name: "Wind Fighter Mastery",         type: "Passivo",   rarity: "3★", effect: "+20% P.ATK, +20% Taxa de Crítico e +15% Velocidade de Ataque", cooldown: null }
+      { name: "重力震波",            type: "Ativo",     rarity: "3★", effect: "Onda de choque gravitacional: dano AoE 360% + knockback", cooldown: "16s" },
+      { name: "裂空斬",             type: "Ativo",     rarity: "3★", effect: "Corte visceral: dano físico 380% com alto bônus crítico", cooldown: "14s" },
+      { name: "颶風迴旋踢",          type: "Ativo",     rarity: "3★", effect: "Chute furacão 360º: dano 340% em área", cooldown: "15s" },
+      { name: "風之戰士精通",         type: "Passivo",   rarity: "3★", effect: "+20% P.ATK, +20% Taxa de Crítico e +15% Velocidade de Ataque", cooldown: null }
     ]
   },
   eviscerator: {
-    name: 'Eviscerator', parent: 'ertheiaWarrior', race: 'ertheia', archetype: 'fighter', stage: 3,
-    desc: 'Evisceradora Imperial — mestre suprema de combate corporal com poder dimensional de Sayha.',
+    name: '裂空者', parent: 'ertheiaWarrior', race: 'ertheia', archetype: 'fighter', stage: 3,
+    desc: '帝國裂空者——掌握賽哈次元力量的至高近戰大師。',
     base: { atk: 140, def: 60, hp: 860, mp: 140, eva: 42, crit: 35, mdef: 56 },
     skills: [
-      { name: "Ultimate Eviscerate Combo",    type: "Ativo",     rarity: "4★", effect: "Combo supremo de 10 golpes marciais 800% + 100% Taxa de Crítico", cooldown: "60s" },
-      { name: "Spacetime Annihilation",       type: "Ativo",     rarity: "4★", effect: "Distorção dimensional devastadora: dano AoE 880% + quebra de defesa 30%", cooldown: "120s" },
-      { name: "Sayha's Divine Protection",    type: "Passivo",   rarity: "4★", effect: "+25% Esquiva, +20% Redução de Dano Físico recebido", cooldown: null },
-      { name: "Eviscerator Ultimate Harmony", type: "Self-Buff", rarity: "4★", effect: "+60% P.ATK, +40% Crit Power, +35% Velocidade de Ataque por 30 min", cooldown: "90 min" }
+      { name: "終極裂空連擊",    type: "Ativo",     rarity: "4★", effect: "Combo supremo de 10 golpes marciais 800% + 100% Taxa de Crítico", cooldown: "60s" },
+      { name: "時空湮滅",       type: "Ativo",     rarity: "4★", effect: "Distorção dimensional devastadora: dano AoE 880% + quebra de defesa 30%", cooldown: "120s" },
+      { name: "賽哈神聖守護",    type: "Passivo",   rarity: "4★", effect: "+25% Esquiva, +20% Redução de Dano Físico recebido", cooldown: null },
+      { name: "裂空者終極和諧", type: "Self-Buff", rarity: "4★", effect: "+60% P.ATK, +40% Crit Power, +35% Velocidade de Ataque por 30 min", cooldown: "90 min" }
     ]
   },
 
   // ─── SAYHA SEEKER & SEER (Ertheia Wind Mage) ───
   sayhaMageBase: {
-    name: 'Sayha Mage', parent: null, race: 'ertheia', archetype: 'mage', stage: 0,
-    desc: 'Mística Ertheia — invocadora elemental dos vendavais de Sayha.',
+    name: '賽哈法師', parent: null, race: 'ertheia', archetype: 'mage', stage: 0,
+    desc: '艾爾提亞秘法師——召喚賽哈狂風的元素施法者。',
     base: { atk: 10, def: 10, hp: 100, mp: 130, matk: 26, mdef: 18, eva: 10, crit: 6 },
     skills: [
-      { name: "Sayha's Wind",                 type: "Ativo",     rarity: "1★", effect: "Rajada de vento cortante: dano mágico 160%", cooldown: "6s" },
-      { name: "Wind Veil",                    type: "Self-Buff", rarity: "1★", effect: "+15% M.ATK e +12% Esquiva por 60s", cooldown: "45s" },
-      { name: "Ertheia Magic Mastery",        type: "Passivo",   rarity: "1★", effect: "+15% M.ATK com Cajados", cooldown: null },
-      { name: "Sayha Seer's Harmony",         type: "Self-Buff", rarity: "1★", effect: "+20% M.ATK, +20% Dano de Vento por 30 min", cooldown: "30 min" }
+      { name: "賽哈之風",                 type: "Ativo",     rarity: "1★", effect: "Rajada de vento cortante: dano mágico 160%", cooldown: "6s" },
+      { name: "風之帷幕",                    type: "Self-Buff", rarity: "1★", effect: "+15% M.ATK e +12% Esquiva por 60s", cooldown: "45s" },
+      { name: "艾爾提亞魔法精通",        type: "Passivo",   rarity: "1★", effect: "+15% M.ATK com Cajados", cooldown: null },
+      { name: "賽哈先知和諧",         type: "Self-Buff", rarity: "1★", effect: "+20% M.ATK, +20% Dano de Vento por 30 min", cooldown: "30 min" }
     ]
   },
   sayhaSeer: {
-    name: 'Sayha Seeker', parent: 'sayhaMageBase', race: 'ertheia', archetype: 'mage', stage: 1,
-    desc: 'Buscadora de Sayha — canalizadora de correntes de ar e tempestades.',
+    name: '賽哈追尋者', parent: 'sayhaMageBase', race: 'ertheia', archetype: 'mage', stage: 1,
+    desc: '賽哈追尋者——引導氣流與暴風的施法者。',
     base: { atk: 14, def: 16, hp: 170, mp: 210, matk: 55, mdef: 32, eva: 16, crit: 8 },
     skills: [
-      { name: "Sayha's Wind Strike",          type: "Ativo",     rarity: "1★", effect: "Dano de vento concentrado 210%", cooldown: "7s" },
-      { name: "Gale Burst",                   type: "Ativo",     rarity: "2★", effect: "Rajada explosiva de ar: dano 240% + retarda inimigo 3s", cooldown: "10s" },
-      { name: "Eye of the Storm",             type: "Passivo",   rarity: "1★", effect: "+15% Velocidade de Cast e +10% M.DEF", cooldown: null }
+      { name: "賽哈風擊",          type: "Ativo",     rarity: "1★", effect: "Dano de vento concentrado 210%", cooldown: "7s" },
+      { name: "烈風爆發",                   type: "Ativo",     rarity: "2★", effect: "Rajada explosiva de ar: dano 240% + retarda inimigo 3s", cooldown: "10s" },
+      { name: "風暴之眼",             type: "Passivo",   rarity: "1★", effect: "+15% Velocidade de Cast e +10% M.DEF", cooldown: null }
     ]
   },
   windRiderErth: {
-    name: 'Sayha Seeker', parent: 'sayhaSeer', race: 'ertheia', archetype: 'mage', stage: 2,
-    desc: 'Condutora dos Ventos — maga que comanda tufões devastadores.',
+    name: '賽哈追尋者', parent: 'sayhaSeer', race: 'ertheia', archetype: 'mage', stage: 2,
+    desc: '御風者——能駕馭毀滅性颱風的法師。',
     base: { atk: 22, def: 28, hp: 320, mp: 360, matk: 98, mdef: 60, eva: 24, crit: 12 },
     skills: [
-      { name: "Typhoon Strike",               type: "Ativo",     rarity: "3★", effect: "Tufão cortante: dano AoE de vento 360%", cooldown: "16s" },
-      { name: "Cyclone Blast",                type: "Ativo",     rarity: "3★", effect: "Ciclone ascendente: dano 340% + knockup 2s", cooldown: "14s" },
-      { name: "Wind Domain",                  type: "Passivo",   rarity: "3★", effect: "+20% Dano Elemental de Vento e +15% Taxa de Crítico Mágico", cooldown: null }
+      { name: "颱風打擊",               type: "Ativo",     rarity: "3★", effect: "Tufão cortante: dano AoE de vento 360%", cooldown: "16s" },
+      { name: "旋風爆裂",                type: "Ativo",     rarity: "3★", effect: "Ciclone ascendente: dano 340% + knockup 2s", cooldown: "14s" },
+      { name: "風之領域",                  type: "Passivo",   rarity: "3★", effect: "+20% Dano Elemental de Vento e +15% Taxa de Crítico Mágico", cooldown: null }
     ]
   },
   sayhaSeeker: {
-    name: 'Sayha Seeker', parent: 'windRiderErth', race: 'ertheia', archetype: 'mage', stage: 3,
-    desc: 'Mestra Suprema de Sayha — soberana dos vendavais e tempestades de Aden.',
+    name: '賽哈追尋者', parent: 'windRiderErth', race: 'ertheia', archetype: 'mage', stage: 3,
+    desc: '賽哈至高大師——統御亞丁狂風與暴雨的風暴支配者。',
     base: { atk: 38, def: 48, hp: 580, mp: 580, matk: 175, mdef: 100, eva: 34, crit: 18 },
     skills: [
-      { name: "Sayha Ultimate Tempest",       type: "Ativo",     rarity: "4★", effect: "Tempestade Suprema de Sayha: dano AoE 820% + dispersão e retardo em massa", cooldown: "60s" },
-      { name: "Spacetime Vortex",             type: "Ativo",     rarity: "4★", effect: "Vórtice dimensional de vento: dano 860% com alta penetração mágica", cooldown: "120s" },
-      { name: "Wind Spirit Transcendence",    type: "Passivo",   rarity: "4★", effect: "+25% M.ATK, +20% Dano Crítico Mágico, +20% Esquiva Permanente", cooldown: null },
-      { name: "Sayha Seeker Ultimate Harmony", type: "Self-Buff", rarity: "4★", effect: "+65% M.ATK, +45% Dano de Vento, +35% Velocidade de Cast por 30 min", cooldown: "90 min" }
+      { name: "賽哈終極風暴",       type: "Ativo",     rarity: "4★", effect: "Tempestade Suprema de Sayha: dano AoE 820% + dispersão e retardo em massa", cooldown: "60s" },
+      { name: "時空漩渦",             type: "Ativo",     rarity: "4★", effect: "Vórtice dimensional de vento: dano 860% com alta penetração mágica", cooldown: "120s" },
+      { name: "風之精靈超越",    type: "Passivo",   rarity: "4★", effect: "+25% M.ATK, +20% Dano Crítico Mágico, +20% Esquiva Permanente", cooldown: null },
+      { name: "賽哈追尋者終極和諧", type: "Self-Buff", rarity: "4★", effect: "+65% M.ATK, +45% Dano de Vento, +35% Velocidade de Cast por 30 min", cooldown: "90 min" }
     ]
   }
 };
