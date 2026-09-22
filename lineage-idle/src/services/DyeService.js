@@ -53,7 +53,7 @@ export const DyeService = {
     const hasItems = invIdx >= 0 && (state.inventory[invIdx].count || 1) >= requiredItems;
 
     if (!hasItems) {
-      if (callbacks.log) callbacks.log(`你需要 ${requiredItems}x ${dyeDef.name} 才能刻印此符號！`, 'warning');
+      if (callbacks.log) callbacks.log(`你需要 ${requiredItems}× ${dyeDef.name} 才能刻印此符號！`, 'warning');
       return { success: false, reason: 'insufficient_items' };
     }
 
@@ -125,7 +125,7 @@ export const DyeService = {
     state.tattoos[slotIndex] = null;
 
     if (callbacks.log) {
-      callbacks.log(`🧹 已移除符號 **${existing.shortName}**！返還 ${refundedCount}x 染料。`, 'system');
+      callbacks.log(`🧹 已移除符號 **${existing.shortName}**！返還 ${refundedCount}× 染料。`, 'system');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
