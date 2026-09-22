@@ -3635,7 +3635,7 @@ export function renderZoneMap(state, callbacks = {}) {
           <div class="zone-card-body">
             <div class="zone-card-header">
               <span class="zone-card-title">${zDef.name}</span>
-              <span class="zone-card-lvl ${isCpLocked ? 'cp-warning' : ''}">Lv.${reqLvl}+${cpText}</span>
+              <span class="zone-card-lvl ${isCpLocked ? 'cp-warning' : ''}">等級 ${reqLvl}+${cpText}</span>
             </div>
             <div class="zone-card-desc">
               ${monsterCount} 種怪物 · 👑 ${bossName}
@@ -3656,7 +3656,7 @@ export function renderZoneMap(state, callbacks = {}) {
     block.innerHTML = `
       <div class="saga-header">
         <span class="saga-title">🗺️ ${sagaName}</span>
-        <span class="saga-req">Lv.${sagaReq}+</span>
+        <span class="saga-req">等級 ${sagaReq}+</span>
       </div>
       <div class="saga-zones-grid">${validCards.join('')}</div>
     `;
@@ -3707,7 +3707,7 @@ function renderLoadoutBar(state) {
             <span class="loadout-lock-icon">🔒</span>
           </div>
           <span class="loadout-slot-label">${slotLabel}</span>
-          <span class="loadout-unlock-lvl">Lv.${unlockLvl}</span>
+          <span class="loadout-unlock-lvl">等級 ${unlockLvl}</span>
         </div>
       `;
     }
@@ -3802,7 +3802,7 @@ function renderSkillCard(skill, state, activeLoadoutSlot = null) {
   const currentRank = typeof skill.rank === 'object' ? (skill.rank?.current || 0) : (Number(skill.rank) || 0);
   const maxRank = typeof skill.rank === 'object' ? (skill.rank?.max || 5) : 5;
   const rankBadge = currentRank > 0
-    ? `<span class="skill-rank-badge">Lv.${currentRank}/${maxRank}</span>`
+    ? `<span class="skill-rank-badge">等級 ${currentRank}/${maxRank}</span>`
     : '';
 
   const slotPill = equippedSlot
@@ -3819,7 +3819,7 @@ function renderSkillCard(skill, state, activeLoadoutSlot = null) {
     if (skill.primaryLockReason === 'CLASS_STAGE_LOCKED') {
       costBadge = `<span class="skill-cost-badge cost-locked" title="需要完成轉職">🔒 轉職</span>`;
     } else if (skill.primaryLockReason === 'LEVEL_LOCKED') {
-      costBadge = `<span class="skill-cost-badge cost-locked" title="等級 ${skill.requiredLevel} 需要">🔒 Lv.${skill.requiredLevel}</span>`;
+      costBadge = `<span class="skill-cost-badge cost-locked" title="等級 ${skill.requiredLevel} 需要">🔒 等級 ${skill.requiredLevel}</span>`;
     } else if (isBookLocked) {
       costBadge = `<span class="skill-cost-badge cost-book" title="需要技能書">🔒 魔法書 ${skill.starRank || 4}★</span>`;
     } else {
@@ -4036,7 +4036,7 @@ export function updateSkillUI(state, callbacks = {}) {
         <div class="skill-header-info">
           <div class="skill-header-title-row">
             <h3 class="skill-header-class">${viewModel.header.race} ${viewModel.header.className}</h3>
-            <span class="skill-header-badge level-badge">Lv.${viewModel.header.level}</span>
+            <span class="skill-header-badge level-badge">等級 ${viewModel.header.level}</span>
             <span class="skill-header-badge theme-badge" style="border-color:${viewModel.header.accentColor}; color:${viewModel.header.accentColor};">
               ${viewModel.header.elementalTheme}
             </span>
@@ -6320,7 +6320,7 @@ export function updateCraftUI(state, callbacks = {}) {
               <span class="shop-grade-badge" style="background:${gradeInfo.color}; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:bold; color:#fff; flex-shrink:0;">${gradeInfo.label}</span>
             </div>
             <div class="l2-blueprint-meta">
-              <span>⚒️ 鍛造 Lv.${reqForgeLvl}</span>
+              <span>⚒️ 鍛造等級 ${reqForgeLvl}</span>
               <span>·</span>
               <span style="color:#ffd877; font-weight:bold;">🪙 ${baseAdena.toLocaleString()} 金幣</span>
             </div>
@@ -8120,7 +8120,7 @@ export function renderForgeSynthesis(container, state) {
         >
           <div class="equip-icon" style="font-size:22px;">${getItemIcon(def || itemEntry)}</div>
           ${itemEntry.count && itemEntry.count > 1 ? `<span class="l2comp-mat-count">${itemEntry.count}</span>` : ''}
-          ${rank > 0 ? `<span class="l2comp-mat-lvl">Lv.${rank}</span>` : ''}
+          ${rank > 0 ? `<span class="l2comp-mat-lvl">等級 ${rank}</span>` : ''}
         </div>
       `;
     } else {
@@ -10383,7 +10383,7 @@ export function renderClanTab(container, state) {
             <div style="font-size:11px; color:#94a3b8; display:flex; gap:14px; flex-wrap:wrap;">
               <span>📊 交易稅率: <strong style="color:#fde047;">${c.taxRatePercent}%</strong></span>
               <span>💰 收益： <strong style="color:#a3e635;">${c.adenaPerMinute.toLocaleString()} 金幣/分鐘</strong></span>
-              <span>⚔️ 建議等級： <strong>Lv.${c.reqCharLevel}+</strong></span>
+              <span>⚔️ 建議等級： <strong>等級 ${c.reqCharLevel}+</strong></span>
             </div>
             ${isOwned ? `
               <div style="margin-top:8px; font-size:11.5px; color:#fef08a;">
