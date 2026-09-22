@@ -97,7 +97,7 @@ export const SA_RUNES = {
   },
   green: {
     acumen: { key: 'acumen', name: '靈敏', stat: 'castSpd', baseVal: 0.15, desc: '提高魔法施法速度' },
-    health: { key: 'health', name: '生命', stat: 'hp', baseVal: 0.20, desc: '提高最大 HP' }
+    health: { key: 'health', name: '生命', stat: 'hp', baseVal: 0.20, desc: '提高最大生命值' }
   },
   blue: {
     empower: { key: 'empower', name: '魔力增幅', stat: 'matk', baseVal: 0.15, desc: '提高魔法攻擊力' },
