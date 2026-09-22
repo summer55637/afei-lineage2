@@ -4113,7 +4113,7 @@ export function updateSkillUI(state, callbacks = {}) {
       updateSkillUI(state, callbacks);
       updateSkillInfoPanel(state, callbacks);
       if (typeof window !== 'undefined' && typeof window.floatText === 'function') {
-        window.floatText('Loadout Limpo', 'float-neutral');
+        window.floatText('技能配置已清空', 'float-neutral');
       }
     };
   }
@@ -4759,8 +4759,8 @@ function renderDialogueView(state, callbacks) {
   if (!optionsEl) return;
 
   if (_dialogueCategory === 'main') {
-    if (npcNameEl) npcNameEl.textContent = 'Trader Woodrow:';
-    if (npcTextEl) npcTextEl.textContent = 'Can I show you anything in particular? We are sure to have something for everyone.';
+    if (npcNameEl) npcNameEl.textContent = '商人伍德羅：';
+    if (npcTextEl) npcTextEl.textContent = '有什麼特別想看的嗎？我們這裡一定有適合每個人的商品。';
 
     optionsEl.innerHTML = `
       <button class="l2chat-option-btn" data-dialogue-cat="weapons">
@@ -4828,7 +4828,7 @@ function renderDialogueView(state, callbacks) {
     `;
   } else {
     const catData = SHOP_CATEGORY_TREE[_dialogueCategory] || SHOP_CATEGORY_TREE.weapons;
-    if (npcNameEl) npcNameEl.textContent = 'Trader Woodrow:';
+    if (npcNameEl) npcNameEl.textContent = '商人伍德羅：';
     if (npcTextEl) npcTextEl.textContent = catData.dialoguePrompt;
 
     let subHtml = catData.subcategories.map(sub => `
@@ -4917,7 +4917,7 @@ function renderStoreView(state, callbacks) {
   const winTitle = root.querySelector('#shop-window-title');
   if (winTitle) {
     const catName = SHOP_CATEGORY_TREE[_activeStoreCategory]?.name || '商店';
-    winTitle.textContent = `Store — ${catName}`;
+    winTitle.textContent = `商店 — ${catName}`;
   }
 
   // 3. Abas Principais (Buy, Sell, Refund)
@@ -5006,7 +5006,7 @@ function renderStoreView(state, callbacks) {
             <div style="font-size:11px; color:#cbd5e1;">每 3 小時隨機出現稀有遺物，也可以手動刷新。</div>
           </div>
           <button class="l2store-action-btn primary" data-reroll-mystic="true" style="padding:4px 12px; font-size:11px;">
-            力量r Restoque (50.000g)
+            重新進貨（50,000 金幣）
           </button>
         </div>
       `;
@@ -5045,8 +5045,8 @@ function renderStoreBuyTab(state, callbacks) {
   const purchaseListContainer = root.querySelector('#shop-purchase-list');
   const clearCartBtn = root.querySelector('#shop-clear-cart-btn');
 
-  if (leftColTitle) leftColTitle.textContent = 'Shop List';
-  if (rightColTitle) rightColTitle.textContent = 'Purchase List';
+  if (leftColTitle) leftColTitle.textContent = '商品列表';
+  if (rightColTitle) rightColTitle.textContent = '購買清單';
   if (clearCartBtn) {
     clearCartBtn.style.display = 'inline-block';
     clearCartBtn.onclick = () => {
@@ -7409,14 +7409,14 @@ export function renderExpeditionsUI(state) {
             ${!canExchange1 ? 'disabled' : ''}
             style="flex:1; padding:6px; font-size:11px; font-weight:bold; background:${canExchange1 ? 'rgba(52,211,153,0.2)' : 'rgba(50,50,50,0.3)'}; border:1px solid ${canExchange1 ? '#34d399' : '#555'}; color:${canExchange1 ? '#6ee7b7' : '#777'}; border-radius:6px; cursor:${canExchange1 ? 'pointer' : 'not-allowed'};"
           >
-            🔄 Trocar ${sDef.ratio1}x 作物 ➔ +1 ${sDef.reward1.toUpperCase()}
+            🔄 交換 ${sDef.ratio1}x 作物 ➔ +1 ${sDef.reward1.toUpperCase()}
           </button>
           <button
             onclick="window.exchangeManorCrop('${sId}', 2)"
             ${!canExchange2 ? 'disabled' : ''}
             style="flex:1; padding:6px; font-size:11px; font-weight:bold; background:${canExchange2 ? 'rgba(168,85,247,0.2)' : 'rgba(50,50,50,0.3)'}; border:1px solid ${canExchange2 ? '#a855f7' : '#555'}; color:${canExchange2 ? '#d8b4fe' : '#777'}; border-radius:6px; cursor:${canExchange2 ? 'pointer' : 'not-allowed'};"
           >
-            🔄 Trocar ${sDef.ratio2}x 作物 ➔ +1 ${sDef.reward2.toUpperCase()}
+            🔄 交換 ${sDef.ratio2}x 作物 ➔ +1 ${sDef.reward2.toUpperCase()}
           </button>
         </div>
       </div>
@@ -7628,7 +7628,7 @@ export function renderForgeSoulCrystals(container, state) {
           </div>
           ${selectedWpn?.soulCrystal ? `
             <button onclick="window.removeSAAction('${selectedWpn.uid}')" class="inv-batch-btn" style="padding:6px 10px; font-size:10px; color:#fca5a5; border-color:#ef4444; font-weight:700;">
-              🧹 Extrair SA (20.000 金幣)
+              🧹 取出特殊能力（20,000 金幣）
             </button>
           ` : ''}
         </div>
@@ -7641,24 +7641,24 @@ export function renderForgeSoulCrystals(container, state) {
 
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px;">
           <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); border-radius:6px; padding:10px;">
-            <strong style="color:#fca5a5; font-size:12px; font-family:'Cinzel',serif;">🔴 紅寶石符文（Focus / Might）</strong>
+            <strong style="color:#fca5a5; font-size:12px; font-family:'Cinzel',serif;">🔴 紅寶石符文（專注／力量）</strong>
             <div style="font-size:10px; color:#94a3b8; margin:3px 0 8px 0;">暴擊與物理攻擊。</div>
-            <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('red', 'focus', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; margin-bottom:4px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌 Focus（+暴擊）</button>
+            <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('red', 'focus', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; margin-bottom:4px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌專注（+暴擊）</button>
             <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('red', 'might', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌力量（+物理攻擊）</button>
           </div>
 
           <div style="background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.25); border-radius:6px; padding:10px;">
-            <strong style="color:#86efac; font-size:12px; font-family:'Cinzel',serif;">🟢 綠寶石符文（Acumen / Health）</strong>
+            <strong style="color:#86efac; font-size:12px; font-family:'Cinzel',serif;">🟢 綠寶石符文（靈敏／生命）</strong>
             <div style="font-size:10px; color:#94a3b8; margin:3px 0 8px 0;">施法速度與生命值。</div>
-            <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('green', 'acumen', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; margin-bottom:4px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌 Acumen（+施法速度）</button>
+            <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('green', 'acumen', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; margin-bottom:4px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌靈敏（+施法速度）</button>
             <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('green', 'health', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌生命（+最大生命值）</button>
           </div>
 
           <div style="background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.25); border-radius:6px; padding:10px;">
-            <strong style="color:#7dd3fc; font-size:12px; font-family:'Cinzel',serif;">🔵 藍寶石符文（Empower / Guidance）</strong>
+            <strong style="color:#7dd3fc; font-size:12px; font-family:'Cinzel',serif;">🔵 藍寶石符文（魔力增幅／導引）</strong>
             <div style="font-size:10px; color:#94a3b8; margin:3px 0 8px 0;">魔法攻擊與命中。</div>
             <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('blue', 'empower', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; margin-bottom:4px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌魔力增幅（+魔法攻擊）</button>
-            <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('blue', 'guidance', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌 Guidance（+命中）</button>
+            <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('blue', 'guidance', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌導引（+命中）</button>
           </div>
         </div>
       </div>
@@ -7684,7 +7684,7 @@ export function renderForgeMasterwork(container, state) {
           </div>
         </div>
         <button onclick="window.unsealItemAction('${item.uid}')" class="inv-batch-btn" style="padding:6px 14px; font-family:'Cinzel',serif; font-weight:bold; font-size:11px; color:#ffd877; border-color:#d4a744;">
-          🔓 Quebrar Selo
+          🔓 解除封印
         </button>
       </div>
     `;
@@ -7702,7 +7702,7 @@ export function renderForgeMasterwork(container, state) {
           </div>
         </div>
         <button onclick="window.polishMasterworkAction('${item.uid}')" class="inv-batch-btn" style="padding:6px 14px; font-family:'Cinzel',serif; font-weight:bold; font-size:11px; color:#e9d5ff; border-color:#a855f7;">
-          👑 Polir p/ Masterwork
+          👑 精工為名匠裝備
         </button>
       </div>
     `;
@@ -7758,7 +7758,7 @@ export function renderForgeMasterwork(container, state) {
               ${options}
             </select>
             <button onclick="const sel = document.getElementById('swap-select-${w.uid}'); if (sel && sel.value) { window.swapWeaponSameGradeAction('${w.uid}', sel.value); }" class="inv-batch-btn" style="padding:5px 12px; font-family:'Cinzel',serif; font-weight:bold; font-size:11px; color:#93c5fd; border-color:#3b82f6;">
-              🔄 Trocar
+              🔄 交換
             </button>
           ` : `
             <span style="font-size:10px; color:#64748b;">此等級沒有可用武器</span>
@@ -7772,9 +7772,9 @@ export function renderForgeMasterwork(container, state) {
     <div class="l2-workshop-panel">
       <!-- Banner Pushkin -->
       <div class="l2-workshop-altar">
-        <h3 class="l2-workshop-title">⚒️ 帝國鐵匠 Pushkin 的鐵砧（奇岩）</h3>
+        <h3 class="l2-workshop-title">⚒️ 帝國鐵匠普希金的鐵砧（奇岩）</h3>
         <p class="l2-workshop-subtitle">
-          亞丁鍛造大師：可解除 B／A／S 級防具封印、將 Foundation 裝備精煉為 Masterwork，並交換同等級武器。
+          亞丁鍛造大師：可解除 B／A／S 級防具封印、將基礎裝備精煉為名匠裝備，並交換同等級武器。
         </p>
       </div>
 
@@ -7822,7 +7822,7 @@ export function renderForgeTattoos(container, state) {
           <div style="display:flex; gap:5px;">
             ${canUpgrade ? `
               <button onclick="window.upgradeDyeAction(${idx})" class="inv-batch-btn" style="padding:4px 8px; font-size:10px; color:#34d399; border-color:#10b981; font-weight:bold;">
-                ⚡ Nv. ${d.stage + 1}
+                ⚡ 等級 ${d.stage + 1}
               </button>
             ` : '<span style="font-size:10px; color:#ffd877; font-weight:bold; padding:2px 6px;">👑 最高</span>'}
             <button onclick="window.removeDyeAction(${idx})" class="inv-batch-btn" style="padding:4px 8px; font-size:10px; color:#fca5a5; border-color:#ef4444;">
@@ -7857,7 +7857,7 @@ export function renderForgeTattoos(container, state) {
         <div style="font-size:10px; color:#94a3b8;">階段 1（+1 / -1） · 費用： 10.000 金幣</div>
       </div>
       <button onclick="window.applyInitialDyeAction('${c.key}')" class="inv-batch-btn" style="padding:5px 10px; font-size:10px; font-weight:bold; color:#d8b4fe; border-color:#a855f7;">
-        🖊️ Gravar
+        🖊️ 刻印
       </button>
     </div>
   `).join('');
@@ -7865,7 +7865,7 @@ export function renderForgeTattoos(container, state) {
   container.innerHTML = `
     <div class="l2-workshop-panel">
       <div class="l2-workshop-altar">
-        <h3 class="l2-workshop-title">🖊️ 神聖刺青祭壇（Symbol Maker）</h3>
+        <h3 class="l2-workshop-title">🖊️ 神聖刺青祭壇（符文製作師）</h3>
         <p class="l2-workshop-subtitle">
           最多可刻印 3 個染料符文。從第 1 階（+1／-1）開始，可提升至第 5 階（+5／-5）。每項淨屬性加成上限嚴格限制為 +5！
         </p>
@@ -11949,7 +11949,7 @@ export function openEnchantFlowModal(initialTargetUid = null, initialScrollUid =
     if (confirmBtn) {
       confirmBtn.onclick = () => {
         confirmBtn.disabled = true;
-        confirmBtn.textContent = '⏳ Encantando...';
+        confirmBtn.textContent = '⏳ 強化中...';
 
         const result = EnchantmentService.executeAtomicEnchant(gState, selectedTargetUid, selectedScrollUid, callbacks);
         if (result && (result.success || result.ok)) {
