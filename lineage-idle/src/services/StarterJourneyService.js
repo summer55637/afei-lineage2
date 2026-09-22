@@ -85,7 +85,7 @@ export const STARTER_JOURNEY_STEPS = [
     checkProgress: (state) => {
       const clan = state.clan;
       const hasDonation = (clan?.donationsAdena || 0) > 0 || (clan?.donationsSp || 0) > 0;
-      const hasCustomName = Boolean(clan?.name && clan.name !== 'Os Guardiões de Aden');
+      const hasCustomName = Boolean(clan?.name && clan.name !== '亞丁守護者');
       const hasReputation = (clan?.reputation || 0) > 100;
       return (hasDonation || hasCustomName || hasReputation) ? 1 : 0;
     },
