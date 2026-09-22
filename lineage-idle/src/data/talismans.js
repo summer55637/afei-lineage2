@@ -57,7 +57,7 @@ export const TALISMANS = {
     name: '力量護符 ⚔️',
     icon: '⚔️',
     costEpaulettes: 100,
-    desc: 'P.Atk +6%、M.Atk +6%',
+    desc: '物理攻擊 +6%、魔法攻擊 +6%',
     stats: { pAtkMult: 0.06, mAtkMult: 0.06 }
   },
   talisman_defense: {
@@ -65,7 +65,7 @@ export const TALISMANS = {
     name: '防禦護符 🛡️',
     icon: '🛡️',
     costEpaulettes: 100,
-    desc: 'P.Def +8%、M.Def +8%',
+    desc: '物理防禦 +8%、魔法防禦 +8%',
     stats: { pDefMult: 0.08, mDefMult: 0.08 }
   },
   talisman_haste: {
