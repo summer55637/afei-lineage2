@@ -1,4 +1,4 @@
-// HuntingService.js — Motor Central da Profissão de Caça Silvestre & Curtume de Aden
+// HuntingService.js — Motor Central da Profissão de 狩獵 Silvestre & Curtume de Aden
 import {
   HUNTING_ZONES,
   PREY_CATALOG,
@@ -74,7 +74,7 @@ export const HuntingService = {
     const tactic = APPROACH_TACTICS[tacticId] || APPROACH_TACTICS.ambush;
     hState.selectedTactic = tactic.id;
     hState.activeTactic = tactic.id;
-    if (callbacks.log) callbacks.log(`🎯 Tática de aproximação selecionada: **${tactic.name}** (${tactic.desc}).`, 'system');
+    if (callbacks.log) callbacks.log(`🎯 已選擇接近戰術：**${tactic.name}**（${tactic.desc}）。`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -92,7 +92,7 @@ export const HuntingService = {
 
     const playerLvl = Number(state?.level) || 1;
     if (playerLvl < zone.minLevel) {
-      if (callbacks.log) callbacks.log(`⚠️ Nível insuficiente para adentrar em ${zone.name}! Requer Nível ${zone.minLevel}.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 等級不足，無法進入 ${zone.name}！需要等級 ${zone.minLevel}。`, 'warning');
       return false;
     }
 
@@ -100,7 +100,7 @@ export const HuntingService = {
     hState.isHunting = false;
     hState.trackedPreyId = null;
 
-    if (callbacks.log) callbacks.log(`📍 Você armou seu acampamento de caça em **${zone.name}**.`, 'system');
+    if (callbacks.log) callbacks.log(`📍 你已在 **${zone.name}** 設置狩獵營地。`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -116,13 +116,13 @@ export const HuntingService = {
 
     const available = hState.lureInventory[lureId] || 0;
     if (available <= 0) {
-      if (callbacks.log) callbacks.log('⚠️ Você não possui esta isca/atrativo em estoque!', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 你沒有這種誘餌／引誘物！', 'warning');
       return false;
     }
 
     hState.activeLure = lureId;
     const lureDef = LURES_CATALOG[lureId];
-    if (callbacks.log) callbacks.log(`🥩 Atrativo selecionado: **${lureDef?.name || lureId}**.`, 'system');
+    if (callbacks.log) callbacks.log(`🥩 誘餌 selecionado: **${lureDef?.name || lureId}**.`, 'system');
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
@@ -137,7 +137,7 @@ export const HuntingService = {
     const totalCost = lure.buyPrice * count;
 
     if ((state.gold || 0) < totalCost) {
-      if (callbacks.log) callbacks.log(`⚠️ Ouro insuficiente! Requer ${totalCost.toLocaleString()} Adena para comprar ${count}x ${lure.name}.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！購買 ${count}x ${lure.name} 需要 ${totalCost.toLocaleString()} 金幣。`, 'warning');
       return false;
     }
 
@@ -161,17 +161,17 @@ export const HuntingService = {
 
     const hState = this.getHuntingState(state);
     if (hState.knifeDurability[knifeId] !== undefined) {
-      if (callbacks.log) callbacks.log(`⚠️ Você já adquiriu a faca ${knife.name}!`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 你已經擁有獵刀 ${knife.name}！`, 'warning');
       return false;
     }
 
     if (hState.skillLevel < knife.minHuntingLevel) {
-      if (callbacks.log) callbacks.log(`⚠️ Nível de Caça insuficiente! Requer Nível ${knife.minHuntingLevel} de Caça.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 狩獵等級不足！需要狩獵等級 ${knife.minHuntingLevel}。`, 'warning');
       return false;
     }
 
     if ((state.gold || 0) < knife.buyPrice) {
-      if (callbacks.log) callbacks.log(`⚠️ Ouro insuficiente! Requer ${knife.buyPrice.toLocaleString()} Adena.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！需要 ${knife.buyPrice.toLocaleString()} 金幣。`, 'warning');
       return false;
     }
 
@@ -191,12 +191,12 @@ export const HuntingService = {
 
     const hState = this.getHuntingState(state);
     if (hState.knifeDurability[knifeId] === undefined && knifeId !== 'knife_none') {
-      if (callbacks.log) callbacks.log('⚠️ Você não possui esta faca em sua coleção!', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 你的收藏中沒有這把獵刀！', 'warning');
       return false;
     }
 
     hState.knife = knifeId;
-    if (callbacks.log) callbacks.log(`🔪 Faca empunhada: **${knife.name}**.`, 'system');
+    if (callbacks.log) callbacks.log(`🔪 獵刀 empunhada: **${knife.name}**.`, 'system');
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
@@ -211,7 +211,7 @@ export const HuntingService = {
 
     const currentDur = hState.knifeDurability[targetKnifeId] ?? knife.durabilityMax;
     if (currentDur >= knife.durabilityMax) {
-      if (callbacks.log) callbacks.log(`⚠️ Sua ${knife.name} já está com o fio perfeito (100% afiada)!`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 你的 ${knife.name} 已經完全磨利（100%）！`, 'warning');
       return false;
     }
 
@@ -283,7 +283,7 @@ export const HuntingService = {
     const dur = hState.knifeDurability[activeKnifeId] ?? 0;
 
     if (dur <= 0) {
-      if (callbacks.log) callbacks.log(`⚠️ Sua ${knifeDef?.name || 'Faca'} perdeu todo o fio! Afie-a antes de continuar a caçada.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ Sua ${knifeDef?.name || '獵刀'} perdeu todo o fio! Afie-a antes de continuar a caçada.`, 'warning');
       return { success: false, reason: 'broken_tool' };
     }
 
@@ -375,7 +375,7 @@ export const HuntingService = {
       if (hState.knifeDurability[activeKnifeId] !== undefined) {
         hState.knifeDurability[activeKnifeId] = Math.max(0, hState.knifeDurability[activeKnifeId] - 1);
       }
-      if (callbacks.log) callbacks.log(`💨 A presa escapou no último segundo! (Faca perdeu 1 durabilidade no tropeço)`, 'warning');
+      if (callbacks.log) callbacks.log(`💨 A presa escapou no último segundo! (獵刀 perdeu 1 durabilidade no tropeço)`, 'warning');
       if (callbacks.updateAllUI) callbacks.updateAllUI();
       if (callbacks.save) callbacks.save();
       return false;
@@ -437,7 +437,7 @@ export const HuntingService = {
     hState.totalHunted = (hState.totalHunted || 0) + 1;
     LifeActivityCore.recordCodexDiscovery(state, 'hunting', prey.id);
 
-    // Ganho de XP de Caça
+    // Ganho de XP de 狩獵
     const xpBase = prey.xpReward || 10;
     const finalXp = Math.round(xpBase * quality.mult);
     LifeActivityCore.addXp(state, 'hunting', finalXp, callbacks);
@@ -449,7 +449,7 @@ export const HuntingService = {
       const qualityPrefix = quality.tier === 'perfect' ? '🌟 **ESFOLAÇÃO PERFEITA!**'
         : quality.tier === 'excellent' ? '✨ **ESFOLAÇÃO EXCELENTE!**'
         : '✓ Esfolação concluída:';
-      callbacks.log(`🐾 ${qualityPrefix} Abateu **${prey.name}** [${quality.name}]! Obteve +${primaryQty}x ${primaryMat.toUpperCase()}${secMat && secQty > 0 ? ` e +${secQty}x ${secMat.toUpperCase()}` : ''}! (+${finalXp} XP de Caça)`, 'loot');
+      callbacks.log(`🐾 ${qualityPrefix} Abateu **${prey.name}** [${quality.name}]! Obteve +${primaryQty}x ${primaryMat.toUpperCase()}${secMat && secQty > 0 ? ` e +${secQty}x ${secMat.toUpperCase()}` : ''}! (+${finalXp} XP de 狩獵)`, 'loot');
     }
 
     if (callbacks.floatText) {
@@ -538,7 +538,7 @@ export const HuntingService = {
     }
 
     if (leveledUp && callbacks.log) {
-      callbacks.log(`🎉 **Sua Maestria de Caça subiu para o Nível ${hState.skillLevel}!** Novas presas e ferramentas desbloqueadas.`, 'rarity-legendary');
+      callbacks.log(`🎉 **Sua Maestria de 狩獵 subiu para o Nível ${hState.skillLevel}!** Novas presas e ferramentas desbloqueadas.`, 'rarity-legendary');
     }
 
     return leveledUp;
@@ -547,7 +547,7 @@ export const HuntingService = {
   toggleAutoHunting(state, callbacks = {}) {
     const hState = this.getHuntingState(state);
     if (hState.skillLevel < 5) {
-      if (callbacks.log) callbacks.log('⚠️ O Modo de Caça Automática (AFK) é desbloqueado no Nível 5 de Caça!', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ O Modo de 狩獵 Automática (AFK) é desbloqueado no Nível 5 de 狩獵!', 'warning');
       return false;
     }
 
@@ -557,8 +557,8 @@ export const HuntingService = {
     if (callbacks.log) {
       callbacks.log(
         hState.autoHunting
-          ? '🐾 **Caça Automática (AFK) ATIVADA!** Seu caçador rastreará presas e extrairá peles continuamente.'
-          : '⏸️ **Caça Automática (AFK) PAUSADA.**',
+          ? '🐾 **狩獵 Automática (AFK) ATIVADA!** Seu caçador rastreará presas e extrairá peles continuamente.'
+          : '⏸️ **狩獵 Automática (AFK) PAUSADA.**',
         'system'
       );
     }
@@ -576,7 +576,7 @@ export const HuntingService = {
     const dur = hState.knifeDurability[activeKnifeId] ?? 0;
     if (dur <= 0) {
       hState.autoHunting = false;
-      if (callbacks.log) callbacks.log('⚠️ Caça AFK interrompida: Sua faca perdeu o corte!', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 狩獵 AFK interrompida: Sua faca perdeu o corte!', 'warning');
       if (callbacks.updateAllUI) callbacks.updateAllUI();
       return;
     }
@@ -643,7 +643,7 @@ export const HuntingService = {
     this.addHuntingXp(state, totalXp, callbacks);
 
     if (callbacks.log) {
-      callbacks.log(`💤 **Relatório de Caça Offline (${clampedMinutes}m):** Abateu ${actualHunts} presas nos ermos de Aden! (+${totalXp} XP de Caça)`, 'rarity-legendary');
+      callbacks.log(`💤 **Relatório de 狩獵 Offline (${clampedMinutes}m):** Abateu ${actualHunts} presas nos ermos de Aden! (+${totalXp} XP de 狩獵)`, 'rarity-legendary');
     }
 
     return { actualHunts, matsGained, totalXp };
