@@ -474,7 +474,7 @@ const CLASSES_ECHO = {
       { name: "屍體瘟疫",          type: "Ativo",    rarity: "2★", effect: "範圍 黑暗 280% + 中毒 10 秒",          cooldown: "20s",    desc: "以屍體散播瘟疫。" },
       { name: "吸血鬼之爪",         type: "Ativo",    rarity: "2★", effect: "傷害 240% + 吸取 35% HP",            cooldown: "14s",    desc: "以吸血鬼之爪汲取生命。" },
       { name: "黑暗束縛",                type: "Ativo",    rarity: "2★", effect: "定身在目標 6 秒 + 傷害 180%",         cooldown: "22s",    desc: "以黑暗力量束縛目標。" },
-      { name: "詛咒：幽暗",          type: "Ativo",    rarity: "2★", effect: "-25% ATK 和 魔法攻擊 do 目標 12 秒",        cooldown: "25s",    desc: "施加幽暗詛咒。" },
+      { name: "詛咒：幽暗",          type: "Ativo",    rarity: "2★", effect: "使目標 ATK 與魔法攻擊 -25%，持續 12 秒",        cooldown: "25s",    desc: "施加幽暗詛咒。" },
       { name: "屍爆",          type: "Ativo",    rarity: "3★", effect: "引爆屍體: 範圍 350% 黑暗",      cooldown: "25s",    desc: "引爆屍體造成傷害。" },
       { name: "召喚復生者", type: "Ativo",    rarity: "2★", effect: "召喚 不死生物 (ATK 50% 主人)", cooldown: "60s",    desc: "召喚復生的不死生物。" },
       { name: "召喚詛咒骨骸",    type: "Ativo",    rarity: "2★", effect: "召喚 骷髏 (ATK 40% 主人)",  cooldown: "45s",    desc: "召喚被詛咒的骨骸。" },
@@ -518,7 +518,7 @@ const CLASSES_ECHO = {
       { name: "召喚魅影",      type: "Ativo",    rarity: "2★", effect: "召喚幻影（坦克型，DEF 60%）",     cooldown: "60s",    desc: "召喚防禦型魅影。" },
       { name: "召喚無魂者",        type: "Ativo",    rarity: "3★", effect: "召喚 無魂者 (ATK 65% 主人)",   cooldown: "90s",    desc: "召喚強力的無魂生物。" },
       { name: "召喚獸治癒",          type: "Ativo",    rarity: "2★", effect: "治癒召喚物 35% HP",                  cooldown: "12s",    desc: "治療召喚獸。" },
-      { name: "召喚獸回復",      type: "Ativo",    rarity: "2★", effect: "恢復 30% MP do 召喚物",           cooldown: "15s",    desc: "恢復召喚獸的魔力。" },
+      { name: "召喚獸回復",      type: "Ativo",    rarity: "2★", effect: "恢復召喚物 30% MP",           cooldown: "15s",    desc: "恢復召喚獸的魔力。" },
       { name: "痛苦轉移",          type: "Toggle",   rarity: "2★", effect: "50% 傷害 受到的 轉移給 召喚物",    cooldown: "N/A",    desc: "將部分受到的傷害轉移給召喚獸。" },
       { name: "召喚束縛晶體",   type: "Ativo",    rarity: "2★", effect: "晶體 造成 定身於敵人",    cooldown: "45s",    desc: "召喚具有束縛能力的晶體。" },
       { name: "召喚幻影晶體",   type: "Ativo",    rarity: "2★", effect: "晶體 造成 傷害 黑暗 持續",  cooldown: "45s",    desc: "召喚幻影晶體協助戰鬥。" },
@@ -535,7 +535,7 @@ const CLASSES_ECHO = {
     base: { atk: 10, def: 22, hp: 310, mp: 430, eva: 5, crit: 5, matk: 118, mdef: 65 },
     skills: [
       { name: "召喚貓王",            type: "Ativo",    rarity: "4★", effect: "召喚貓王（ATK 為主人 90%）",       cooldown: "120s",   desc: "召喚至高的貓族之王。" },
-      { name: "召喚馬格努斯",                 type: "Ativo",    rarity: "3★", effect: "召喚 Magnus (範圍 ATK 70% 主人)",       cooldown: "90s",    desc: "召喚元素生物馬格努斯。" },
+      { name: "召喚馬格努斯",                 type: "Ativo",    rarity: "3★", effect: "召喚瑪格努斯（範圍 ATK 為主人 70%）",       cooldown: "90s",    desc: "召喚元素生物馬格努斯。" },
       { name: "召喚獸屏障",              type: "Ativo",    rarity: "3★", effect: "召喚物 獲得護盾 5000 HP 持續 15 秒",       cooldown: "60s",    desc: "為召喚獸展開防護屏障。" },
       { name: "群體召喚獸治癒",            type: "Ativo",    rarity: "3★", effect: "治癒所有召喚物 40% HP",                cooldown: "25s",    desc: "治療多個召喚獸。" },
       { name: "召喚獸強化",          type: "Self-Buff",rarity: "3★", effect: "+50% 召喚物 ATK/DEF 持續 30 秒",               cooldown: "90s",    desc: "強化召喚獸的戰鬥能力。" },
@@ -562,7 +562,7 @@ const CLASSES_ECHO = {
       { name: "解毒",      type: "Ativo",    rarity: "1★", effect: "移除 中毒",                    cooldown: "5s",     desc: "解除中毒狀態。" },
       { name: "止血",       type: "Ativo",    rarity: "1★", effect: "移除 流血",                     cooldown: "5s",     desc: "解除流血狀態。" },
       { name: "驅散不死生物",      type: "Ativo",    rarity: "2★", effect: "對不死族造成 200% 神聖傷害",         cooldown: "12s",    desc: "驅逐不死系敵人。" },
-      { name: "魔力回復",         type: "Ativo",    rarity: "1★", effect: "恢復 20% MP do 目標",          cooldown: "12s",    desc: "恢復目標的 MP。" },
+      { name: "魔力回復",         type: "Ativo",    rarity: "1★", effect: "恢復目標 20% MP",          cooldown: "12s",    desc: "恢復目標的 MP。" },
       { name: "牧師和諧", type: "Self-Buff",rarity: "2★", effect: "+20% 魔法攻擊, +20% 治癒威力 20 分鐘",cooldown: "45 min", desc: "牧師的戰鬥和諧。" }
     ]
   },
@@ -581,8 +581,8 @@ const CLASSES_ECHO = {
       { name: "祝福之軀",          type: "Party-Buff", rarity: "2★", effect: "+20% 最大 HP 隊伍 12 分鐘",            cooldown: "30 min", desc: "以祝福強化身體。" },
       { name: "祝福之魂",          type: "Party-Buff", rarity: "2★", effect: "+20% 最大 MP 隊伍 12 分鐘",            cooldown: "30 min", desc: "以祝福強化靈魂。" },
       { name: "神聖武器",           type: "Party-Buff", rarity: "2★", effect: "+15% 神聖 ATK 隊伍 12 分鐘",          cooldown: "30 min", desc: "賦予武器神聖力量。" },
-      { name: "淨化",                type: "Ativo",      rarity: "2★", effect: "移除 3 de增益 do 目標",            cooldown: "20s",    desc: "淨化負面狀態。" },
-      { name: "潔淨",               type: "Ativo",      rarity: "3★", effect: "移除所有減益效果 do 目標",        cooldown: "45s",    desc: "徹底清除異常狀態。" },
+      { name: "淨化",                type: "Ativo",      rarity: "2★", effect: "移除目標 3 個減益效果",            cooldown: "20s",    desc: "淨化負面狀態。" },
+      { name: "潔淨",               type: "Ativo",      rarity: "3★", effect: "移除目標所有減益效果",        cooldown: "45s",    desc: "徹底清除異常狀態。" },
       { name: "精神之盾",         type: "Party-Buff", rarity: "2★", effect: "+20% 魔法防禦 隊伍 12 分鐘",             cooldown: "30 min", desc: "提高精神異常抗性。" },
       { name: "審判者",            type: "Ativo",      rarity: "2★", effect: "傷害 神聖 250%",                      cooldown: "14s",    desc: "獲得審判者的神聖力量。" },
       { name: "神聖打擊",           type: "Ativo",      rarity: "3★", effect: "傷害 神聖 320% + 不死族 2x",          cooldown: "18s",    desc: "施展神聖屬性攻擊。" },
@@ -737,7 +737,7 @@ const CLASSES_ECHO = {
       { name: "伊娃聖殿騎士之魂",          type: "Passivo",  rarity: "3★", effect: "水屬性 ATK +15%、格擋率 +10%",              cooldown: "N/A",    desc: "伊娃聖殿騎士的戰鬥精神。" },
       { name: "伊娃聖殿騎士之軀",         type: "Passivo",  rarity: "3★", effect: "+15% 最大 HP, +10% DEF",                  cooldown: "N/A",    desc: "強化伊娃聖殿騎士的身軀。" },
       { name: "伊娃守護",             type: "Passivo",  rarity: "3★", effect: "+15% 水抗性",                       cooldown: "N/A",    desc: "獲得伊娃的守護。" },
-      { name: "伊娃援助",                    type: "Passivo",  rarity: "3★", effect: "10% 機率對ser 受到攻擊: 治癒 5% HP",   cooldown: "N/A",    desc: "觸發伊娃的援助效果。" }
+      { name: "伊娃援助",                    type: "Passivo",  rarity: "3★", effect: "受到攻擊時有 10% 機率恢復 5% HP",   cooldown: "N/A",    desc: "觸發伊娃的援助效果。" }
     ]
   },
 
@@ -956,7 +956,7 @@ const CLASSES_ECHO = {
       { name: "魔法大師",               type: "Passivo",  rarity: "3★", effect: "+10% 魔法攻擊, +10% 水 傷害, +5% 對怪物",    cooldown: "N/A",    desc: "精通各式魔法。" },
       { name: "法術精通",                  type: "Passivo",  rarity: "3★", effect: "+12% 魔法技能威力",                    cooldown: "N/A",    desc: "精通法術施放。" },
       { name: "魔法專注",                    type: "Passivo",  rarity: "3★", effect: "+8% 魔法暴擊率",                       cooldown: "N/A",    desc: "提高魔法專注力。" },
-      { name: "神秘繆思之魂",            type: "Passivo",  rarity: "3★", effect: "+15% 水 magic ATK",                    cooldown: "N/A",    desc: "神秘繆思的戰鬥精神。" },
+      { name: "神秘繆思之魂",            type: "Passivo",  rarity: "3★", effect: "水屬性魔法攻擊 +15%",                    cooldown: "N/A",    desc: "神秘繆思的戰鬥精神。" },
       { name: "神秘繆思之軀",       type: "Passivo",  rarity: "3★", effect: "+10% 最大 MP, +8% 魔法防禦",                 cooldown: "N/A",    desc: "強化神秘繆思的身軀。" }
     ]
   },
@@ -969,9 +969,9 @@ const CLASSES_ECHO = {
     skills: [
       { name: "召喚拳鬥獨角獸",   type: "Ativo",    rarity: "2★", effect: "召喚 戰鬥獨角獸 (ATK 50%)",  cooldown: "60s",    desc: "召喚擅長近戰的獨角獸。" },
       { name: "召喚幻影獨角獸",  type: "Ativo",    rarity: "2★", effect: "召喚 魔法獨角獸 (魔法攻擊 50%)",  cooldown: "60s",    desc: "召喚具有幻影能力的獨角獸。" },
-      { name: "召喚梅洛獨角獸",  type: "Ativo",    rarity: "3★", effect: "召喚 merrow (ATK 65%, tank)",      cooldown: "90s",    desc: "召喚水元素獨角獸梅洛。" },
+      { name: "召喚梅洛獨角獸",  type: "Ativo",    rarity: "3★", effect: "召喚梅洛（ATK 65%，坦克型）",      cooldown: "90s",    desc: "召喚水元素獨角獸梅洛。" },
       { name: "召喚獸治癒",          type: "Ativo",    rarity: "2★", effect: "治癒召喚物 35% HP",                 cooldown: "12s",    desc: "治療召喚獸。" },
-      { name: "召喚獸回復",      type: "Ativo",    rarity: "2★", effect: "恢復 30% MP do 召喚物",          cooldown: "15s",    desc: "恢復召喚獸的魔力。" },
+      { name: "召喚獸回復",      type: "Ativo",    rarity: "2★", effect: "恢復召喚物 30% MP",          cooldown: "15s",    desc: "恢復召喚獸的魔力。" },
       { name: "痛苦轉移",          type: "Toggle",   rarity: "2★", effect: "50% 傷害 受到的 轉移給 召喚物",   cooldown: "N/A",    desc: "將部分受到的傷害轉移給召喚獸。" },
       { name: "召喚生命晶體",      type: "Ativo",    rarity: "2★", effect: "晶體 會 治癒 5%/5 秒",               cooldown: "45s",    desc: "召喚具有生命恢復能力的晶體。" },
       { name: "元素召喚師和諧",           type: "Self-Buff",rarity: "3★", effect: "+30% 魔法攻擊, +25% 召喚物 ATK 25 分鐘",  cooldown: "60 min", desc: "元素召喚師的戰鬥和諧。" },
@@ -1021,7 +1021,7 @@ const CLASSES_ECHO = {
       { name: "高級治癒",       type: "Ativo",      rarity: "2★", effect: "治癒 40% HP 目標",                    cooldown: "10s",    desc: "施展更強力的治療。" },
       { name: "高級群體治癒", type: "Ativo",      rarity: "3★", effect: "治癒 30% HP 隊伍",                   cooldown: "18s",    desc: "治療隊伍成員。" },
       { name: "復活",       type: "Ativo",      rarity: "3★", effect: "復活 盟友 30% HP",            cooldown: "120s",   desc: "使倒下的目標復活。" },
-      { name: "淨化",             type: "Ativo",      rarity: "2★", effect: "移除 3 de增益",                    cooldown: "20s",    desc: "淨化負面狀態。" },
+      { name: "淨化",             type: "Ativo",      rarity: "2★", effect: "移除 3 個減益效果",                    cooldown: "20s",    desc: "淨化負面狀態。" },
       { name: "潔淨",            type: "Ativo",      rarity: "3★", effect: "移除所有減益效果",                cooldown: "45s",    desc: "徹底清除異常狀態。" },
       { name: "魔力強化",            type: "Self-Buff",  rarity: "2★", effect: "+25% 魔法攻擊 持續 20 分鐘",               cooldown: "50 min", desc: "提高魔法力量。" },
       { name: "靈活思緒",             type: "Self-Buff",  rarity: "2★", effect: "+25% 施法速度 持續 20 分鐘",          cooldown: "50 min", desc: "提高施法效率。" },
@@ -1051,7 +1051,7 @@ const CLASSES_ECHO = {
       { name: "治癒大師",             type: "Passivo",    rarity: "3★", effect: "+15% 治癒威力, +5% 對怪物",            cooldown: "N/A",    desc: "精通各式治療術。" },
       { name: "伊娃聖者之魂",            type: "Passivo",    rarity: "3★", effect: "神聖屬性魔法攻擊 +12%",                  cooldown: "N/A",    desc: "伊娃聖者的神聖精神。" },
       { name: "伊娃聖者之軀",           type: "Passivo",    rarity: "3★", effect: "+12% 最大 MP, +10% 魔法防禦",             cooldown: "N/A",    desc: "強化伊娃聖者的身軀。" },
-      { name: "伊娃援助",                    type: "Passivo",    rarity: "3★", effect: "10% 機率對ser 受到攻擊: 治癒 5% HP",cooldown: "N/A",    desc: "觸發伊娃的援助效果。" }
+      { name: "伊娃援助",                    type: "Passivo",    rarity: "3★", effect: "受到攻擊時有 10% 機率恢復 5% HP",cooldown: "N/A",    desc: "觸發伊娃的援助效果。" }
     ]
   },
 
@@ -1207,8 +1207,8 @@ skills: [
       { name: "致盲打擊",    type: "Ativo",   rarity: "2★", effect: "傷害 240% + 致盲 4 秒", cooldown: "18s", duration: "4s", note: "轉職後技能仍會保留" },
       { name: "位置交換",           type: "Ativo",   rarity: "2★", effect: "傳送到目標背後", cooldown: "20s", duration: null, note: "轉職後技能仍會保留" },
       { name: "暗影步伐",      type: "Ativo",   rarity: "2★", effect: "傳送至目標 + 傷害 180%", cooldown: "15s", duration: null, note: "轉職後技能仍會保留" },
-      { name: "詭計",            type: "Ativo",   rarity: "2★", effect: "移除 目標的mob + 降低 仇恨", cooldown: "20s", duration: null, note: "轉職後技能仍會保留" },
-      { name: "無聲移動",      type: "Toggle",  rarity: "2★", effect: "隱形 (移動緩慢), 取消對atacar", cooldown: "5s", duration: "Toggle", note: "轉職後技能仍會保留" },
+      { name: "詭計",            type: "Ativo",   rarity: "2★", effect: "使怪物失去目前目標並降低仇恨", cooldown: "20s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "無聲移動",      type: "Toggle",  rarity: "2★", effect: "隱形（移動速度降低），攻擊時解除", cooldown: "5s", duration: "Toggle", note: "轉職後技能仍會保留" },
       { name: "迴避",          type: "Passivo", rarity: "1★", effect: "+12% 迴避", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "暴擊威力",   type: "Passivo", rarity: "2★", effect: "+20% 暴擊威力", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "專注",            type: "Passivo", rarity: "1★", effect: "+10% 暴擊率", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
@@ -1222,11 +1222,11 @@ skills: [
     desc: '暗影中的至高刺客幽靈獵人。',
     base: { atk: 98, def: 28, hp: 420, mp: 105, eva: 52, crit: 42, mdef: 22 },
     skills: [
-      { name: "刺激冒險",       type: "Ativo",    rarity: "3★", effect: "傷害 380% + reset cooldown的Deadly Blow", cooldown: "28s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "刺激冒險",       type: "Ativo",    rarity: "3★", effect: "傷害 380% + 重置致命打擊冷卻", cooldown: "28s", duration: null, note: "轉職後技能仍會保留" },
       { name: "御風",              type: "Ativo",    rarity: "3★", effect: "+80% 移動速度 + 隱形 8 秒", cooldown: "60s", duration: "8s", note: "轉職後技能仍會保留" },
-      { name: "幸運打擊",             type: "Ativo",    rarity: "3★", effect: "傷害 420% + 20% 機率 drop extra", cooldown: "30s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "幸運打擊",             type: "Ativo",    rarity: "3★", effect: "傷害 420% + 20% 機率額外掉落", cooldown: "30s", duration: null, note: "轉職後技能仍會保留" },
       { name: "超越致命打擊",  type: "Ativo",    rarity: "4★", effect: "傷害 620% + 無視 DEF + 流血 8 秒", cooldown: "160s", duration: "8s bleed", note: "轉職後技能仍會保留" },
-      { name: "暗影感知",             type: "Passivo",  rarity: "3★", effect: "+25% 暴擊率 夜間 ou於地城", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "暗影感知",             type: "Passivo",  rarity: "3★", effect: "夜間或地城中暴擊率 +25%", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "最終狂熱",             type: "Passivo",  rarity: "3★", effect: "+30% ATK 當 HP < 30%", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "幽靈獵人之魂",      type: "Passivo",  rarity: "3★", effect: "+20% ATK, +20% 暴擊威力, +15% 迴避", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "幽靈獵人之軀",     type: "Passivo",  rarity: "3★", effect: "+15% 最大 HP, +10% HP 恢復", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
@@ -1246,7 +1246,7 @@ skills: [
       { name: "暈眩射擊",        type: "Ativo",   rarity: "2★", effect: "傷害 200% + 暈眩 2 秒", cooldown: "18s", duration: "2s", note: "轉職後技能仍會保留" },
       { name: "快速射擊",       type: "Ativo",   rarity: "2★", effect: "+50% 攻擊速度 持續 15 秒", cooldown: "45s", duration: "15s", note: "轉職後技能仍會保留" },
       { name: "箭雨",       type: "Ativo",   rarity: "3★", effect: "傷害 範圍 300%", cooldown: "22s", duration: null, note: "轉職後技能仍會保留" },
-      { name: "詛咒射擊",         type: "Ativo",   rarity: "2★", effect: "傷害 220% + curse (降低 DEF 20%)", cooldown: "16s", duration: "8s", note: "轉職後技能仍會保留" },
+      { name: "詛咒射擊",         type: "Ativo",   rarity: "2★", effect: "傷害 220% + 詛咒（DEF -20%）", cooldown: "16s", duration: "8s", note: "轉職後技能仍會保留" },
       { name: "弓精通",      type: "Passivo", rarity: "1★", effect: "+15% ATK 使用弓時", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "遠距射擊",        type: "Passivo", rarity: "2★", effect: "+30% 射程", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "專注",            type: "Passivo", rarity: "1★", effect: "+10% 暴擊率", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
@@ -1290,7 +1290,7 @@ skills: [
       { name: "風之打擊",    type: "Ativo",   rarity: "1★", effect: "傷害 風 魔法 150%", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
       { name: "自我治癒",      type: "Ativo",   rarity: "1★", effect: "恢復 20% HP", cooldown: "15s", duration: null, note: "轉職後技能仍會保留" },
       { name: "冰箭",       type: "Ativo",   rarity: "1★", effect: "傷害 冰 140% + 緩速 15% 3 秒", cooldown: "10s", duration: "3s", note: "轉職後技能仍會保留" },
-      { name: "睡眠",          type: "Ativo",   rarity: "1★", effect: "使其睡眠 目標 8 秒 (取消對tomar 傷害)", cooldown: "25s", duration: "8s", note: "轉職後技能仍會保留" },
+      { name: "睡眠",          type: "Ativo",   rarity: "1★", effect: "使目標睡眠 8 秒（受到傷害時解除）", cooldown: "25s", duration: "8s", note: "轉職後技能仍會保留" },
       { name: "法袍精通",   type: "Passivo", rarity: "1★", effect: "裝備法袍時魔法攻擊 +10%", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "MP 提升",    type: "Passivo", rarity: "1★", effect: "+10% 最大 MP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "黑暗法師意志", type: "Self-Buff", rarity: "1★", effect: "+10% 魔法攻擊 並 +8% 施法速度 持續 15 分鐘", cooldown: "30 min", duration: "15 min", note: "轉職後技能仍會保留" }
@@ -1319,7 +1319,7 @@ skills: [
     skills: [
       { name: "元素風暴",          type: "Ativo",   rarity: "3★", effect: "傷害 風 範圍 320%", cooldown: "25s", duration: null, note: "轉職後技能仍會保留" },
       { name: "颶風",        type: "Ativo",   rarity: "2★", effect: "傷害 風 280%", cooldown: "18s", duration: null, note: "轉職後技能仍會保留" },
-      { name: "奧術之力",     type: "Self-Buff", rarity: "3★", effect: "+30% 魔法攻擊, -15% Cast Time 持續 60 秒", cooldown: "120s", duration: "60s", note: "轉職後技能仍會保留" },
+      { name: "奧術之力",     type: "Self-Buff", rarity: "3★", effect: "魔法攻擊 +30%、施法時間 -15%，持續 60 秒", cooldown: "120s", duration: "60s", note: "轉職後技能仍會保留" },
       { name: "解除",           type: "Ativo",   rarity: "3★", effect: "移除目標 3 個增益效果", cooldown: "45s", duration: null, note: "轉職後技能仍會保留" },
       { name: "身心轉換",     type: "Ativo",   rarity: "2★", effect: "轉換 20% HP於MP", cooldown: "30s", duration: null, note: "轉職後技能仍會保留" },
       { name: "元素突擊",type: "Passivo", rarity: "2★", effect: "+15% 元素 傷害", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
@@ -1334,17 +1334,17 @@ skills: [
     base: { atk: 12, def: 22, hp: 280, mp: 420, matk: 122, mdef: 62, eva: 12, crit: 8 },
     skills: [
       { name: "惡魔之風",                  type: "Ativo",   rarity: "3★", effect: "傷害 風 400% + 擊退", cooldown: "28s", duration: null, note: "轉職後技能仍會保留" },
-      { name: "元素爆發",              type: "Ativo",   rarity: "3★", effect: "傷害 元素 380% + 爆炸 seed", cooldown: "25s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "元素爆發",              type: "Ativo",   rarity: "3★", effect: "元素傷害 380% + 引爆種子", cooldown: "25s", duration: null, note: "轉職後技能仍會保留" },
       { name: "元素風暴",              type: "Ativo",   rarity: "4★", effect: "傷害 範圍 480% + 全元素", cooldown: "45s", duration: null, note: "轉職後技能仍會保留" },
       { name: "風之種子",                 type: "Ativo",   rarity: "3★", effect: "標記目標: +25% 風 傷害 受到的 10 秒", cooldown: "20s", duration: "10s", note: "轉職後技能仍會保留" },
-      { name: "風之螺旋",                  type: "Ativo",   rarity: "3★", effect: "傷害 風 360% + 穿透 目標於linha", cooldown: "22s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "風之螺旋",                  type: "Ativo",   rarity: "3★", effect: "風屬性傷害 360% + 直線穿透目標", cooldown: "22s", duration: null, note: "轉職後技能仍會保留" },
       { name: "雷霆爆炸",            type: "Ativo",   rarity: "4★", effect: "傷害 雷電 範圍 520% (2 次命中) + 暈眩 2 秒", cooldown: "35s", duration: "2s stun", note: "轉職後技能仍會保留" },
       { name: "神秘免疫",              type: "Ativo",   rarity: "4★", effect: "免疫魔法 8 秒", cooldown: "180s", duration: "8s", note: "轉職後技能仍會保留" },
-      { name: "強化迴響",              type: "Ativo",   rarity: "3★", effect: "+40% 魔法攻擊 持續 20 秒 後 kill", cooldown: "60s", duration: "20s", note: "轉職後技能仍會保留" },
+      { name: "強化迴響",              type: "Ativo",   rarity: "3★", effect: "擊殺後魔法攻擊 +40%，持續 20 秒", cooldown: "60s", duration: "20s", note: "轉職後技能仍會保留" },
       { name: "超越雷霆爆炸", type: "Ativo", rarity: "4★", effect: "傷害 雷電 範圍 720% (3 次命中) + 麻痺 3 秒", cooldown: "180s", duration: "3s paralysis", note: "轉職後技能仍會保留" },
       { name: "法術精通",                type: "Passivo", rarity: "3★", effect: "+15% 魔法攻擊, +10% 魔法暴擊率", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
-      { name: "魔法專注",                  type: "Passivo", rarity: "3★", effect: "+5% M.技能威力, +10% 對怪物 傷害", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
-      { name: "精通（稀有）",               type: "Passivo", rarity: "4★", effect: "+10% M.技能威力, +15% 對怪物 傷害, +15% 最大 MP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "魔法專注",                  type: "Passivo", rarity: "3★", effect: "魔法技能威力 +5%、對怪物傷害 +10%", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "精通（稀有）",               type: "Passivo", rarity: "4★", effect: "魔法技能威力 +10%、對怪物傷害 +15%、最大 MP +15%", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "暴風狂嘯者之魂",        type: "Passivo", rarity: "3★", effect: "+20% 魔法攻擊, +15% 風 傷害, +10% 施法速度", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "暴風狂嘯者之軀",       type: "Passivo", rarity: "3★", effect: "+15% 最大 MP, +10% MP 恢復", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "暴風狂嘯者和諧",       type: "Self-Buff", rarity: "4★", effect: "+55% 魔法攻擊, +40% 施法速度, +30% 風 傷害 持續 30 分鐘", cooldown: "90 min", duration: "30 min", note: "轉職後技能仍會保留" }
@@ -1361,11 +1361,11 @@ skills: [
       { name: "召喚怨靈",          type: "Ativo",   rarity: "2★", effect: "召喚 怨靈 (ATK 中, 吸取 HP)", cooldown: "45s", duration: "Permanente", note: "轉職後技能仍會保留" },
       { name: "召喚幽靈領主",   type: "Ativo",   rarity: "3★", effect: "召喚 幽靈領主 (範圍 + 坦克)", cooldown: "60s", duration: "Permanente", note: "轉職後技能仍會保留" },
       { name: "召喚獸治癒",          type: "Ativo",   rarity: "1★", effect: "治癒召喚物 30% HP", cooldown: "12s", duration: null, note: "轉職後技能仍會保留" },
-      { name: "召喚獸回復",      type: "Ativo",   rarity: "1★", effect: "恢復 MP do 召喚物", cooldown: "15s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "召喚獸回復",      type: "Ativo",   rarity: "1★", effect: "恢復召喚物 MP", cooldown: "15s", duration: null, note: "轉職後技能仍會保留" },
       { name: "痛苦轉移",          type: "Toggle",  rarity: "2★", effect: "受到傷害的 50% 轉移給召喚物", cooldown: "5s", duration: "Toggle", note: "轉職後技能仍會保留" },
       { name: "召喚束縛晶體",   type: "Ativo",   rarity: "2★", effect: "晶體每 10 秒施加 3 秒定身", cooldown: "45s", duration: "120s", note: "轉職後技能仍會保留" },
       { name: "召喚幻影晶體",   type: "Ativo",   rarity: "2★", effect: "黑暗晶體每 8 秒造成 150% 傷害", cooldown: "45s", duration: "120s", note: "轉職後技能仍會保留" },
-      { name: "召喚獸物理攻擊", type: "Passivo", rarity: "2★", effect: "+20% ATK dos 召喚物", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "召喚獸物理攻擊", type: "Passivo", rarity: "2★", effect: "召喚物 ATK +20%", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "幽靈召喚師和諧", type: "Self-Buff", rarity: "3★", effect: "+35% 召喚物 威力, +20% 魔法攻擊 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
     ]
   },
@@ -1400,7 +1400,7 @@ skills: [
       { name: "盾牌",          type: "Party-Buff", rarity: "1★", effect: "隊伍 DEF +10%", cooldown: "20s", duration: "300s", note: "轉職後技能仍會保留" },
       { name: "解毒",     type: "Ativo",   rarity: "1★", effect: "移除 中毒", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
       { name: "止血",      type: "Ativo",   rarity: "1★", effect: "移除 流血", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
-      { name: "魔力回復",        type: "Ativo",   rarity: "1★", effect: "恢復 20% MP do 目標", cooldown: "12s", duration: null, note: "轉職後技能仍會保留" }
+      { name: "魔力回復",        type: "Ativo",   rarity: "1★", effect: "恢復目標 20% MP", cooldown: "12s", duration: null, note: "轉職後技能仍會保留" }
     ]
   },
 
