@@ -126,7 +126,7 @@ export function equipItem(state, uid, targetSlotOrCallbacks = null, maybeCallbac
   item.equippedSlot = targetSlot;
 
   const slotLabel = targetSlot === 'weapon2' ? '副武器（欄位 2）' : (targetSlot === 'weapon' ? '主武器（欄位 1）' : (targetSlot === 'chest' || targetSlot === 'armor' ? '防具／胸甲' : targetSlot));
-  if (callbacks.log) callbacks.log(`Equipou ${def.name} [${slotLabel}]`, 'loot');
+  if (callbacks.log) callbacks.log(`已裝備 ${def.name} [${slotLabel}]`, 'loot');
 
   const stats = getStats(state);
   state.maxHp = stats.maxHp; state.maxMp = stats.maxMp;
