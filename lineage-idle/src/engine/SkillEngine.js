@@ -109,7 +109,7 @@ export function spendSP(state, skillId, callbacks = {}) {
     else removeFromInventory(state, bookItem.uid, 1);
     const countAfter = state.inventory.find(i => i.uid === bookItem.uid)?.count ?? (state.inventory.includes(bookItem) ? 1 : 0);
     if (countAfter !== countBefore - 1) return false;
-    if (callbacks.log) callbacks.log(`📖 **${def.name}** 已成功解鎖！（消耗 ${bookItem.itemId}）`, 'rarity-legendary');
+    if (callbacks.log) callbacks.log(`📖 **${def.name}** 已成功解鎖！（消耗 ${bName}）`, 'rarity-legendary');
   }
 
   state.sp -= cost;
@@ -118,7 +118,7 @@ export function spendSP(state, skillId, callbacks = {}) {
   const TIER_NAMES = ['基礎', '修練', '精通', '昇華', '傳奇'];
   const tier = TIER_NAMES[def.tier] || '';
 
-  if (callbacks.log) callbacks.log(`✦ ${def.name} → Lv.${newLvl} [${tier}] (-${cost} SP)`, newLvl === max ? 'saga' : 'xp');
+  if (callbacks.log) callbacks.log(`✦ ${def.name} → 等級 ${newLvl} [${tier}]（-${cost} 技能點）`, newLvl === max ? 'saga' : 'xp');
 
   const stats = getStats(state);
   state.maxHp = stats.maxHp;
@@ -153,7 +153,7 @@ export function resetSP(state, callbacks = {}) {
   state.sp += totalRefunded;
 
   if (callbacks.log) callbacks.log(`🔄 技能已重置！返還 ${totalRefunded.toLocaleString()} 技能點。`, 'rarity-legendary');
-  if (callbacks.floatText) callbacks.floatText(`+${totalRefunded.toLocaleString()} SP`, 'float-jackpot');
+  if (callbacks.floatText) callbacks.floatText(`+${totalRefunded.toLocaleString()} 技能點`, 'float-jackpot');
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save();
