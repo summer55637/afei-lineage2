@@ -1,7 +1,7 @@
 // 寵物Service.js — Gerenciador de Mascotes & 夥伴s de Batalha
 import { PET_CATALOG } from '../data/pets.js';
 
-export const 寵物Service = {
+export const PetService = {
   get寵物State(state) {
     if (!state.petData) {
       state.petData = {
