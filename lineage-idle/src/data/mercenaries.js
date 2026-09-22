@@ -113,8 +113,8 @@ export const MERCENARY_SPECIALIZATIONS = {
     icon: '🛡️',
     role: 'Tanque & Defesa',
     desc: '建立防線保護隊伍，減輕危險與伏擊造成的損失。',
-    synergyName: 'Escudo Inabalável',
-    synergyDesc: '-35% Dano de emboscadas e perigos (+10% Adena protegida)',
+    synergyName: '不動之盾',
+    synergyDesc: '伏擊與危險傷害 -35%（額外保護 +10% 金幣）',
     hazardMitigation: 0.35,
     goldSafetyBonus: 0.10
   },
@@ -124,8 +124,8 @@ export const MERCENARY_SPECIALIZATIONS = {
     icon: '🏹',
     role: 'Batedor & Navegador',
     desc: '熟悉亞丁荒野的秘密路線，可縮短行軍時間並發現捷徑。',
-    synergyName: 'Passo 敏捷',
-    synergyDesc: '-20% Duração da expedição (+20% nós de recursos extras)',
+    synergyName: '敏捷步伐',
+    synergyDesc: '遠征時間 -20%（額外資源節點 +20%）',
     speedReduction: 0.20,
     extraResourceChance: 0.20
   },
@@ -135,8 +135,8 @@ export const MERCENARY_SPECIALIZATIONS = {
     icon: '🗡️',
     role: 'Infiltrador & Gatuno',
     desc: '擅長解除古代陷阱與撬開寶箱。',
-    synergyName: 'Mãos de Seda',
-    synergyDesc: '+35% Chance de Baú Bônus (-40% dano de armadilhas)',
+    synergyName: '絲綢之手',
+    synergyDesc: '額外寶箱機率 +35%（陷阱傷害 -40%）',
     bonusChestChance: 0.35,
     trapMitigation: 0.40
   },
@@ -146,8 +146,8 @@ export const MERCENARY_SPECIALIZATIONS = {
     icon: '🔮',
     role: 'Dano Arcano & Elemental',
     desc: '操控秘法力量，驅散魔法屏障與惡魔。',
-    synergyName: 'Sifão Astral',
-    synergyDesc: '+50% Cacos Astrais (+25% chance de câmara secreta)',
+    synergyName: '星界虹吸',
+    synergyDesc: '星界碎片 +50%（秘密房間機率 +25%）',
     extraShardsPct: 0.50,
     secretChamberChance: 0.25
   },
@@ -157,8 +157,8 @@ export const MERCENARY_SPECIALIZATIONS = {
     icon: '✨',
     role: 'Luz Sagrada & Suporte',
     desc: '治療戰傷、維持士氣並驅散詛咒。',
-    synergyName: 'Bênção de Eva',
-    synergyDesc: '+30% XP para o esquadrão (-25% dano residual da caravana)',
+    synergyName: '伊娃祝福',
+    synergyDesc: '小隊 XP +30%（車隊殘餘傷害 -25%）',
     extraXpPct: 0.30,
     residualMitigation: 0.25
   }
