@@ -7193,7 +7193,7 @@ function showSagaModal(saga) {
   const titleEl = el('saga-title');
   const descEl  = el('saga-desc');
   if (titleEl) titleEl.textContent = saga?.name || '新的史詩任務已解鎖！';
-  if (descEl)  descEl.textContent  = saga?.desc || 'Novas zonas aguardam.';
+  if (descEl)  descEl.textContent  = saga?.desc || '新的區域正在等待你探索。';
   modal.classList.add('active');
 }
 
@@ -7217,7 +7217,7 @@ function resetSP() { return engineResetSP(state, { log, floatText, updateAllUI, 
 function autoEquipBest() {
   const proposal = generateAutoEquipProposal(state);
   if (!proposal || !proposal.changes || proposal.changes.length === 0) {
-    log('Você já está usando os melhores equipamentos da mochila!', 'system');
+    log('你目前已經穿著背包中最好的裝備！', 'system');
     return;
   }
   const res = commitAutoEquipProposal(state, proposal, {
@@ -7235,7 +7235,7 @@ function autoEquipBest() {
     updateAllUI();
     save();
   } else {
-    log(`Falha no auto-equip: ${res.reason}`, 'system');
+    log(`自動裝備失敗：${res.reason}`, 'system');
   }
 }
 
@@ -7304,12 +7304,12 @@ function setClass(classId) {
 }
 function startGame() {
   if (!state.race || !state.class) {
-    log('Select race and class before beginning the saga.', 'system');
+    log('開始冒險前，請先選擇種族與職業。', 'system');
     return;
   }
   state.zone = RACES[state.race]?.startZone || 'talkingIsland';
   const zoneEl = el('zone-name');
-  if (zoneEl) zoneEl.textContent = ZONES[state.zone]?.name || 'Talking Island';
+  if (zoneEl) zoneEl.textContent = ZONES[state.zone]?.name || '說話之島';
   updateAllUI();
   startCombat();
   save();
@@ -7364,8 +7364,8 @@ function updateCodexUI() {
   const tabsNav = mkEl('div');
   tabsNav.style.cssText = 'display:flex; gap:8px; margin-bottom:14px; border-bottom:1px solid rgba(212,175,55,0.25); padding-bottom:8px;';
   tabsNav.innerHTML = `
-    <button class="inv-batch-btn ${subTab === 'sets' ? 'active' : ''}" style="font-family:\'Cinzel\',serif; font-weight:bold; ${subTab === 'sets' ? 'background:linear-gradient(180deg,#d4a744,#8a641c); color:#000;' : ''}" onclick="window.setCodexSubTab('sets')">📜 Coleções de Equipamentos</button>
-    <button class="inv-batch-btn ${subTab === 'cards' ? 'active' : ''}" style="font-family:\'Cinzel\',serif; font-weight:bold; ${subTab === 'cards' ? 'background:linear-gradient(180deg,#d4a744,#8a641c); color:#000;' : ''}" onclick="window.setCodexSubTab('cards')">🃏 Álbum de Cartas & Dolls de Monstros</button>
+    <button class="inv-batch-btn ${subTab === 'sets' ? 'active' : ''}" style="font-family:\'Cinzel\',serif; font-weight:bold; ${subTab === 'sets' ? 'background:linear-gradient(180deg,#d4a744,#8a641c); color:#000;' : ''}" onclick="window.setCodexSubTab('sets')">📜 裝備收藏</button>
+    <button class="inv-batch-btn ${subTab === 'cards' ? 'active' : ''}" style="font-family:\'Cinzel\',serif; font-weight:bold; ${subTab === 'cards' ? 'background:linear-gradient(180deg,#d4a744,#8a641c); color:#000;' : ''}" onclick="window.setCodexSubTab('cards')">🃏 怪物卡片與娃娃圖鑑</button>
   `;
   grid.appendChild(tabsNav);
 
@@ -7390,16 +7390,16 @@ function updateCodexUI() {
       const isReg = regList.includes(itemId);
       const inInv = getInventoryCount(itemId) > 0 || getWarehouseCount(itemId) > 0;
       let btn = '';
-      if (isReg) btn = '<span style="color:#10b981; font-weight:bold;">✓ Registrado</span>';
-      else if (inInv) btn = `<button class="action-btn action-btn--primary codex-reg-btn" style="padding: 2px 8px; font-size: 11px;" data-set="${setId}" data-item="${itemId}" onclick="registerCodexItem('${setId}', '${itemId}')">Registrar 📥</button>`;
-      else btn = '<span style="color:var(--text-muted); font-size: 11px;">Não possui</span>';
+      if (isReg) btn = '<span style="color:#10b981; font-weight:bold;">✓ 已登錄</span>';
+      else if (inInv) btn = `<button class="action-btn action-btn--primary codex-reg-btn" style="padding: 2px 8px; font-size: 11px;" data-set="${setId}" data-item="${itemId}" onclick="registerCodexItem('${setId}', '${itemId}')">登錄 📥</button>`;
+      else btn = '<span style="color:var(--text-muted); font-size: 11px;">未持有</span>';
 
       return `<div style="display:flex; justify-content:space-between; align-items:center; margin: 4px 0; font-size: 12px;"><span>${itemDef.name}</span>${btn}</div>`;
     }).join('');
 
     card.innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <h4 style="margin:0; color:${isComplete ? '#10b981' : 'var(--gilt-bright)'}">${setDef.name} ${isComplete ? '🏆 (Completo)' : ''}</h4>
+        <h4 style="margin:0; color:${isComplete ? '#10b981' : 'var(--gilt-bright)'}">${setDef.name} ${isComplete ? '🏆（已完成）' : ''}</h4>
         <span style="font-size:11px; background:rgba(0,0,0,0.5); padding:2px 8px; border-radius:10px; color:#f59e0b;">${setDef.label}</span>
       </div>
       <p style="font-size:11px; color:var(--text-muted); margin: 4px 0 8px 0;">${setDef.desc}</p>
@@ -7414,7 +7414,7 @@ function updateCodexUI() {
 
   if (summaryEl) {
     const b = getCodexBonuses();
-    summaryEl.innerHTML = `<span style="color:var(--gilt-bright); font-weight:bold;">Coleções 已完成: ${completedSets}/${totalSets}</span> · Bônus Totais: +${b.atk} ATK, +${b.def} DEF, +${b.matk} MATK, +${b.hp} HP`;
+    summaryEl.innerHTML = `<span style="color:var(--gilt-bright); font-weight:bold;">已完成收藏：${completedSets}/${totalSets}</span> · 總加成： +${b.atk} ATK, +${b.def} DEF, +${b.matk} MATK, +${b.hp} HP`;
   }
 }
 
@@ -7435,14 +7435,14 @@ function renderMonsterCardsCodex(container, summaryEl) {
       <input 
         type="text" 
         id="card-search-input" 
-        placeholder="🔍 Buscar por nome do monstro ou carta..." 
+        placeholder="🔍 依怪物或卡片名稱搜尋..." 
         value="${window._cardSearchQuery || ''}"
         style="width:100%; background:#090b10; color:#fff; border:1px solid rgba(212,167,68,0.3); border-radius:6px; padding:6px 10px; font-size:12px; font-family:sans-serif;"
       />
     </div>
     <div style="display:flex; flex-wrap:wrap; gap:4px;">
       ${['all', 'common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic'].map(r => {
-        const labels = { all: 'Todas', common: 'Comum', uncommon: 'Incomum', rare: 'Rara', epic: 'Épica', legendary: 'Lendária', mythic: 'Mítica+' };
+        const labels = { all: '全部', common: '一般', uncommon: '優良', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話以上' };
         const isActive = rarityFilter === r;
         return `
           <button 
@@ -7540,7 +7540,7 @@ function renderMonsterCardsCodex(container, summaryEl) {
                 ${cardDef.rarity}
               </span>
               <span style="font-size:10px; color:#94a3b8;">
-                Drop: <strong>${dropPct}%</strong>
+                掉落率：<strong>${dropPct}%</strong>
               </span>
             </div>
           </div>
@@ -7549,20 +7549,20 @@ function renderMonsterCardsCodex(container, summaryEl) {
         <!-- Bônus Passivo da Coleção -->
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.08); padding:8px 10px; border-radius:6px; margin:10px 0 8px 0; font-size:11px;">
           <div style="display:flex; justify-content:space-between; margin-bottom:2px;">
-            <span style="color:${rStyle.text}; font-weight:bold;">Bônus Passivo na Conta:</span>
+            <span style="color:${rStyle.text}; font-weight:bold;">帳號永久被動加成：</span>
             ${isAbsorbed ? `<span style="color:#fde047; font-size:10px;">(x${rankMult.toFixed(2)})</span>` : ''}
           </div>
-          <div style="color:#e2e8f0; font-family:sans-serif;">${bonusLabel || 'Nenhum'}</div>
+          <div style="color:#e2e8f0; font-family:sans-serif;">${bonusLabel || '無'}</div>
         </div>
 
         <!-- Rank e Progresso -->
         <div style="margin-bottom:8px;">
           <div style="display:flex; justify-content:space-between; font-size:11px; margin-bottom:3px;">
             <span style="color:${isAbsorbed ? '#86efac' : '#94a3b8'}; font-weight:bold;">
-              ${isAbsorbed ? `⭐ Rank ${current.rank}/5 (${current.count} absorvidas)` : '⚪ Não Absorvida'}
+              ${isAbsorbed ? `⭐ 階級 ${current.rank}/5（已吸收 ${current.count} 張）` : '⚪ 尚未吸收'}
             </span>
             <span style="font-size:10px; color:#94a3b8;">
-              ${current.rank >= 5 ? 'Rank Máximo' : `Próximo Rank: ${current.count}/${nextRankReq}`}
+              ${current.rank >= 5 ? '最高階級' : `下一階級：${current.count}/${nextRankReq}`}
             </span>
           </div>
           <div style="width:100%; height:6px; background:rgba(0,0,0,0.6); border-radius:3px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
@@ -7574,13 +7574,13 @@ function renderMonsterCardsCodex(container, summaryEl) {
       <!-- Ações -->
       <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.08); padding-top:8px; margin-top:4px;">
         <span style="font-size:11px; color:${invCount > 0 ? '#86efac' : '#64748b'}; font-weight:bold;">
-          ${invCount > 0 ? `📦 Possui: ${invCount}x` : 'Sem cartas no inventário'}
+          ${invCount > 0 ? `📦 持有：${invCount}x` : '背包中沒有卡片'}
         </span>
         <div style="display:flex; gap:6px;">
           ${invCount > 0 ? `
             <button class="action-btn action-btn--primary" style="padding:4px 10px; font-size:11px; font-weight:bold;" onclick="window.absorbCardAction('${cardId}', false)">Absorver 📥</button>
             ${invCount > 1 ? `
-              <button class="action-btn" style="padding:4px 8px; font-size:11px; font-weight:bold; background:rgba(212,167,68,0.2); border-color:#d4a744; color:#fde047;" onclick="window.absorbCardAction('${cardId}', true)">Todas (${invCount})</button>
+              <button class="action-btn" style="padding:4px 8px; font-size:11px; font-weight:bold; background:rgba(212,167,68,0.2); border-color:#d4a744; color:#fde047;" onclick="window.absorbCardAction('${cardId}', true)">全部（${invCount}）</button>
             ` : ''}
           ` : ''}
         </div>
@@ -7617,7 +7617,7 @@ function registerCodexItem(setId, itemId) {
       state.warehouse.splice(whIdx, 1);
       foundInWarehouse = true;
     } else {
-      log('Você não possui este item para registrar no Codex.', 'system');
+      log('你沒有可登錄到圖鑑的這件物品。', 'system');
       return;
     }
   }
@@ -7627,7 +7627,7 @@ function registerCodexItem(setId, itemId) {
   if (!state.codex[setId].includes(itemId)) state.codex[setId].push(itemId);
 
   const itemDef = D().ALL_ITEMS[itemId];
-  log(`📜 Item **${itemDef?.name || itemId}** registrado com sucesso no Codex!${foundInWarehouse ? ' (Retirado do Baú)' : ''}`, 'rarity-rare');
+  log(`📜 物品 **${itemDef?.name || itemId}** 已成功登錄圖鑑！${foundInWarehouse ? '（已從倉庫取出）' : ''}`, 'rarity-rare');
   floatText('📜 CODEX REGISTRADO!', 'float-jackpot');
   triggerQuestEvent('codex', 1);
 
@@ -7694,7 +7694,7 @@ function updateDollsUI() {
           <div style="font-size:11px; color:#10b981;">${lvlInfo?.label || ''}</div>
         </div>
       </div>
-      <button class="action-btn synth-doll-btn" style="padding: 4px 8px; font-size: 11px;" data-uid="${d.uid}" onclick="selectDollForSynth('${d.uid}')">${isSel1 ? 'Slot 1' : isSel2 ? 'Slot 2' : 'Selecionar 🔮'}</button>
+      <button class="action-btn synth-doll-btn" style="padding: 4px 8px; font-size: 11px;" data-uid="${d.uid}" onclick="selectDollForSynth('${d.uid}')">${isSel1 ? '欄位 1' : isSel2 ? '欄位 2' : '選擇 🔮'}</button>
     `;
     item.querySelectorAll('.synth-doll-btn').forEach(b => {
       b.onclick = () => selectDollForSynth(b.dataset.uid);
@@ -7704,7 +7704,7 @@ function updateDollsUI() {
 
   if (summaryEl) {
     const b = getDollsBonuses();
-    summaryEl.innerHTML = `Dolls na Coleção: <strong>${state.dolls.length}</strong> · Bônus Totais: +${b.atk} ATK, +${b.def} DEF, +${b.matk} MATK`;
+    summaryEl.innerHTML = `Dolls na Coleção: <strong>${state.dolls.length}</strong> · 總加成： +${b.atk} ATK, +${b.def} DEF, +${b.matk} MATK`;
   }
 
   // Render Enciclopédia de Boss Dolls & Fontes de Obtenção
@@ -7742,7 +7742,7 @@ function updateDollsUI() {
               <span style="font-size:26px;">${def.icon}</span>
               <div>
                 <h4 style="margin:0; font-family:'Cinzel',serif; color:${isUnlocked ? '#f4d58a' : '#aaa'}; font-size:14px; display:flex; align-items:center; gap:6px;">
-                  ${def.name} ${isUnlocked ? `<span style="font-size:10px; background:rgba(52,211,153,0.2); border:1px solid #34d399; color:#34d399; padding:1px 6px; border-radius:4px;">Nível Ativo: Lv.${maxOwnedLvl}</span>` : '<span style="font-size:10px; background:rgba(239,68,68,0.2); border:1px solid #ef4444; color:#fca5a5; padding:1px 6px; border-radius:4px;">🔒 Não Bloqueado</span>'}
+                  ${def.name} ${isUnlocked ? `<span style="font-size:10px; background:rgba(52,211,153,0.2); border:1px solid #34d399; color:#34d399; padding:1px 6px; border-radius:4px;">目前生效等級：Lv.${maxOwnedLvl}</span>` : '<span style="font-size:10px; background:rgba(239,68,68,0.2); border:1px solid #ef4444; color:#fca5a5; padding:1px 6px; border-radius:4px;">🔒 尚未解鎖</span>'}
                 </h4>
                 <p style="margin:2px 0 0 0; font-size:11px; color:#94a3b8;">${def.desc}</p>
               </div>
@@ -7783,8 +7783,8 @@ function synthesizeDolls() {
   if (idx1 < 0 || idx2 < 0) return;
 
   const d1 = state.dolls[idx1], d2 = state.dolls[idx2];
-  if (d1.dollId !== d2.dollId || d1.level !== d2.level) { log('As duas Dolls devem ser do mesmo tipo e nível!', 'system'); return; }
-  if (d1.level >= 5) { log('Sua Doll já está no Nível Máximo (Lv. 5)!', 'system'); return; }
+  if (d1.dollId !== d2.dollId || d1.level !== d2.level) { log('兩隻娃娃必須是相同種類且相同等級！', 'system'); return; }
+  if (d1.level >= 5) { log('你的娃娃已達最高等級（Lv.5）！', 'system'); return; }
 
   const rates = { 1: 0.70, 2: 0.55, 3: 0.40, 4: 0.25 };
   const chance = rates[d1.level] || 0.30;
@@ -7799,7 +7799,7 @@ function synthesizeDolls() {
     floatText('✨ 合成成功！', 'float-jackpot');
   } else {
     log(`💔 合成失敗！材料娃娃已消耗，但基底娃娃保留。`, 'system');
-    floatText('💔 FALHOU', 'float-gold');
+    floatText('💔 失敗', 'float-gold');
   }
 
   updateAllUI(); save();
@@ -7813,7 +7813,7 @@ function updateMagicLampUI() {
   const pct = Math.min(100, Math.floor(((state.magicLampExp || 0) / 50000) * 100));
   if (bar) bar.style.width = pct + '%';
   if (countLabel) {
-    countLabel.textContent = `${state.magicLamps || 0} 神燈s Prontas (${pct}% para a próxima)`;
+    countLabel.textContent = `${state.magicLamps || 0} 個神燈可用（下一個進度 ${pct}%）`;
   }
 
   const btn = el('use-magic-lamp-btn');
@@ -7825,7 +7825,7 @@ function updateMagicLampUI() {
 
 function useMagicLamp() {
   if (!state.magicLamps || state.magicLamps < 1) {
-    log('Você não possui 神燈s Mágicas para sortear!', 'system');
+    log('你沒有可使用的魔法神燈！', 'system');
     return;
   }
 
@@ -7851,7 +7851,7 @@ function useMagicLamp() {
         <div style="font-size:16px; font-family:'IBM Plex Mono',monospace; font-weight:bold; color:#67e8f9; margin:10px 0 6px 0;">
           +${result.expWon.toLocaleString()} EXP &bull; +${result.spWon.toLocaleString()} SP
         </div>
-        <span style="font-size:11px; color:#94a3b8; font-family:'IBM Plex Mono',monospace;">Faixa de Nível: ${result.bracket}</span>
+        <span style="font-size:11px; color:#94a3b8; font-family:'IBM Plex Mono',monospace;">等級區間：${result.bracket}</span>
       </div>
     `;
   }
@@ -7921,12 +7921,12 @@ function removeFromInventoryByItemId(itemId, count = 1) {
 
 function craftSpecialRecipe(recipeId) {
   if (recipeId === 'spellbook_selector') {
-    if ((state.craftCharges || 0) < 5 || getInventoryCount('crystal_s') < 10) { log('Recursos insuficientes! Requer 5 Cargas de Craft e 10x Crystal S.', 'system'); return; }
+    if ((state.craftCharges || 0) < 5 || getInventoryCount('crystal_s') < 10) { log('資源不足！需要 5 次製作充能與 10 個 S 級水晶。', 'system'); return; }
     state.craftCharges -= 5; removeFromInventoryByItemId('crystal_s', 10);
     addToInventory('spellbook_4star', 1);
     log('✨ SPECIAL CRAFT! Criou 1x Spellbook 4-Star ⭐!', 'rarity-legendary');
   } else if (recipeId === 'boss_doll_box') {
-    if ((state.craftCharges || 0) < 3 || getInventoryCount('crystal_a') < 5) { log('Recursos insuficientes! Requer 3 Cargas de Craft e 5x Crystal A.', 'system'); return; }
+    if ((state.craftCharges || 0) < 3 || getInventoryCount('crystal_a') < 5) { log('資源不足！需要 3 次製作充能與 5 個 A 級水晶。', 'system'); return; }
     state.craftCharges -= 3; removeFromInventoryByItemId('crystal_a', 5);
     const dollKeys = ['doll_queen_ant', 'doll_baium', 'doll_orfen', 'doll_zaken'];
     const chosen = dollKeys[Math.floor(Math.random() * dollKeys.length)];
@@ -7934,12 +7934,12 @@ function craftSpecialRecipe(recipeId) {
     state.dolls.push({ uid: 'doll_' + Date.now(), dollId: chosen, level: 1 });
     log(`✨ SPECIAL CRAFT! Abriu a caixa e obteve: **${BOSS_DOLLS[chosen]?.name}**!`, 'rarity-legendary');
   } else if (recipeId === 's_weapon_chest') {
-    if ((state.craftCharges || 0) < 4 || getInventoryCount('crystal_a') < 10) { log('Recursos insuficientes! Requer 4 Cargas de Craft e 10x Crystal A.', 'system'); return; }
+    if ((state.craftCharges || 0) < 4 || getInventoryCount('crystal_a') < 10) { log('資源不足！需要 4 次製作充能與 10 個 A 級水晶。', 'system'); return; }
     state.craftCharges -= 4; removeFromInventoryByItemId('crystal_a', 10);
     addToInventory('dragon_slayer', 1, 'epic');
     log('✨ SPECIAL CRAFT! Criou 1x Dragon Slayer (S-Grade)!', 'rarity-legendary');
   } else if (recipeId === 'enchant_scroll_s') {
-    if ((state.craftCharges || 0) < 1 || getInventoryCount('crystal_b') < 5) { log('Recursos insuficientes! Requer 1 Carga de Craft e 5x Crystal B.', 'system'); return; }
+    if ((state.craftCharges || 0) < 1 || getInventoryCount('crystal_b') < 5) { log('資源不足！需要 1 次製作充能與 5 個 B 級水晶。', 'system'); return; }
     state.craftCharges -= 1; removeFromInventoryByItemId('crystal_b', 5);
     addToInventory('crystal_s', 2);
     log('✨ SPECIAL CRAFT! Forjou 2x Crystal S!', 'rarity-rare');
@@ -7974,23 +7974,23 @@ Object.entries(PILLAR_TABS_MAP).forEach(([pillar, tabs]) => {
 
 export const TAB_NAMES_MAP = {
   battle: 'Combate',
-  hero: 'Herói',
-  character: 'Personagem',
+  hero: '英雄',
+  character: '角色',
   inventory: 'Mochila',
   skills: 'Skills',
   astral: 'Maestria',
   dolls: 'Dolls & Pets',
   cosmetics: 'Cosméticos',
   quests: 'Missões',
-  zones: 'Caça & Zonas',
+  zones: '狩獵與區域',
   raids: 'Raids & Bosses',
-  tower: 'Torre da Insolência',
+  tower: '傲慢之塔',
   colosseum: 'Coliseu PvP',
   expeditions: 'Expedições',
-  fishing: 'Pesca',
-  market: 'Mercado Giran',
+  fishing: '釣魚',
+  market: '奇岩市場',
   shop: 'Mercador',
-  craft: 'Forja Imperial',
+  craft: '帝國鍛造',
   alchemy: 'Alquimia',
   warehouse: 'Baú Privado',
   magiclamp: '神燈 Mágica',
@@ -8052,7 +8052,7 @@ export function openPanel(tabName) {
   if (!isBypass && targetTab !== 'zones' && (currentLvl < reqLvl || reqLvl > globalCap)) {
     const tabLabel = TAB_NAMES_MAP[targetTab] || targetTab;
     const msg = currentLvl < reqLvl 
-      ? `🔒 Aba [${tabLabel}] desbloqueia no Nível ${reqLvl}!` 
+      ? `🔒 分頁 [${tabLabel}] 將於等級 ${reqLvl} 解鎖！` 
       : `🔒 分頁 [${tabLabel}] 受到目前季節等級上限限制（Lv. ${globalCap}）！`;
     if (typeof showToast === 'function') showToast(msg, 'warning');
     else if (typeof log === 'function') log(`❌ ${msg}`, 'system');
@@ -8156,7 +8156,7 @@ export function openPanel(tabName) {
 function depositAllToWarehouse() {
   const unequipped = state.inventory.filter(i => !i.equipped);
   if (unequipped.length === 0) {
-    log('Nenhum item desequipado na mochila para guardar.', 'system');
+    log('背包中沒有可存入倉庫的未裝備物品。', 'system');
     return;
   }
   let movedCount = 0;
@@ -8168,7 +8168,7 @@ function depositAllToWarehouse() {
     }
   }
   if (movedCount > 0) {
-    log(`📦 ${movedCount} item(ns) guardado(s) no Baú.`, 'loot');
+    log(`📦 已將 ${movedCount} 件物品存入倉庫。`, 'loot');
     updateAllUI(); save();
   }
 }
@@ -8176,7 +8176,7 @@ function depositAllToWarehouse() {
 function depositSelectedToWarehouse() {
   const selectedSet = getSelectedSet(state);
   if (!selectedSet || selectedSet.size === 0) {
-    log('Nenhum item selecionado na mochila. Marque os itens para guardar.', 'system');
+    log('背包中沒有選取物品，請先勾選要存入倉庫的物品。', 'system');
     return;
   }
   let movedCount = 0;
@@ -8188,7 +8188,7 @@ function depositSelectedToWarehouse() {
     }
   }
   if (movedCount > 0) {
-    log(`📦 ${movedCount} item(ns) selecionado(s) guardado(s) no Baú.`, 'loot');
+    log(`📦 已將選取的 ${movedCount} 件物品存入倉庫。`, 'loot');
     updateAllUI(); save();
   }
 }
@@ -8202,7 +8202,7 @@ function depositMaterialsToWarehouse() {
     return ['consumable', 'material', 'scroll', 'powerup', 'potion', 'food', 'spellbook'].includes(slot) || !!def.stack;
   });
   if (unequipped.length === 0) {
-    log('Nenhum material ou consumível desequipado para guardar.', 'system');
+    log('沒有可存入倉庫的未裝備材料或消耗品。', 'system');
     return;
   }
   let movedCount = 0;
@@ -8233,7 +8233,7 @@ function withdrawAllFromWarehouse() {
     }
   }
   if (movedCount > 0) {
-    log(`🎒 ${movedCount} item(ns) retirado(s) do Baú.`, 'loot');
+    log(`🎒 已從倉庫取出 ${movedCount} 件物品。`, 'loot');
     updateAllUI(); save();
   }
 }
@@ -8241,7 +8241,7 @@ function withdrawAllFromWarehouse() {
 function withdrawSelectedFromWarehouse() {
   const selectedSet = getSelectedSet(state);
   if (!selectedSet || selectedSet.size === 0) {
-    log('Nenhum item selecionado no Baú. Marque os itens para retirar.', 'system');
+    log('倉庫中沒有選取物品，請先勾選要取出的物品。', 'system');
     return;
   }
   let movedCount = 0;
@@ -8253,7 +8253,7 @@ function withdrawSelectedFromWarehouse() {
     }
   }
   if (movedCount > 0) {
-    log(`🎒 ${movedCount} item(ns) selecionado(s) retirado(s) do Baú.`, 'loot');
+    log(`🎒 已從倉庫取出選取的 ${movedCount} 件物品。`, 'loot');
     updateAllUI(); save();
   }
 }
@@ -8285,7 +8285,7 @@ export function bindEvents() {
       } else if (e.key === ' ' || e.code === 'Space') {
         e.preventDefault();
         state.combatSpeed = state.combatSpeed === 1 ? 2 : (state.combatSpeed === 2 ? 4 : 1);
-        log(`⚡ Velocidade de Combate: ${state.combatSpeed}x`, 'system');
+        log(`⚡ 戰鬥速度：${state.combatSpeed}x`, 'system');
         updateAllUI();
       } else if (e.key === 's' || e.key === 'S') {
         if (e.ctrlKey || e.metaKey) e.preventDefault();
@@ -8301,8 +8301,8 @@ export function bindEvents() {
           const reqLvl = TAB_UNLOCK_LEVELS[tabName] || 1;
           const globalCap = Number(window.globalServerCap) || Number(state?.serverCap) || Number(state?.serverMaxLevel) || 40;
           const msg = (state.level || 1) < reqLvl
-            ? `🔒 Esta aba requer Nível ${reqLvl} para ser desbloqueada.`
-            : `🔒 Conteúdo bloqueado na Temporada Atual (Cap Lv. ${globalCap}).`;
+            ? `🔒 此分頁需要等級 ${reqLvl} 才能解鎖。`
+            : `🔒 此內容受目前季節限制（等級上限 Lv.${globalCap}）。`;
           if (typeof showToast === 'function') showToast(msg, 'warning');
           else log(`❌ ${msg}`, 'system');
           return;
@@ -8333,7 +8333,7 @@ export function bindEvents() {
       });
 
       // Update mobile title badges in top return bar
-      const badgeTitle = TAB_NAMES_MAP[state.mobileView] || (state.mobileView === 'hero' ? 'Herói' : 'Menu');
+      const badgeTitle = TAB_NAMES_MAP[state.mobileView] || (state.mobileView === 'hero' ? '英雄' : 'Menu');
       qsa('.mobile-current-tab-badge, #mobile-tabs-current-badge').forEach(b => {
         b.textContent = badgeTitle;
       });
@@ -11271,7 +11271,7 @@ export function init() {
         const pct = Math.round((status.claimedCount / 7) * 100);
         overviewEl.innerHTML = `
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-            <span style="font-weight:bold; color:#fef08a; font-size:14px; font-family:'Cinzel',serif;">Progresso dos 7 Passos:</span>
+            <span style="font-weight:bold; color:#fef08a; font-size:14px; font-family:'Cinzel',serif;">7 個步驟進度：</span>
             <span style="font-weight:bold; color:#38bdf8; font-size:13px;">${status.claimedCount} / 7 Concluídos (${pct}%)</span>
           </div>
           <div style="width:100%; height:8px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;">
@@ -11291,7 +11291,7 @@ export function init() {
           if (isClaimed) {
             btnHtml = `<button disabled style="background:rgba(255,255,255,0.05); color:#9ca3af; border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:6px 12px; font-size:12px; cursor:default;">✅ 已領取</button>`;
           } else if (canClaim) {
-            btnHtml = `<button onclick="window.claimStarterJourneyStepAction('${step.id}')" style="background:linear-gradient(180deg, #22c55e, #16a34a); color:#fff; border:1px solid #4ade80; border-radius:6px; padding:6px 14px; font-size:12px; font-weight:bold; cursor:pointer; box-shadow:0 0 10px rgba(34,197,94,0.4);">🎁 Resgatar</button>`;
+            btnHtml = `<button onclick="window.claimStarterJourneyStepAction('${step.id}')" style="background:linear-gradient(180deg, #22c55e, #16a34a); color:#fff; border:1px solid #4ade80; border-radius:6px; padding:6px 14px; font-size:12px; font-weight:bold; cursor:pointer; box-shadow:0 0 10px rgba(34,197,94,0.4);">🎁 領取</button>`;
           } else {
             btnHtml = `<button disabled style="background:rgba(0,0,0,0.4); color:#64748b; border:1px solid rgba(255,255,255,0.08); border-radius:6px; padding:6px 12px; font-size:12px; cursor:not-allowed;">進行中</button>`;
           }
@@ -11510,7 +11510,7 @@ export function init() {
             tier: cardDef.rarity === 'sovereign' ? 6 : (cardDef.rarity === 'primordial' ? 5 : (cardDef.rarity === 'mythic' ? 4 : (cardDef.rarity === 'legendary' ? 3 : 2))),
             price: cardDef.level ? cardDef.level * 250 : 2500,
             icon: cardDef.icon || '/assets/2d/monsters/low-level-32x/PNG/Transperent/Icon1.png',
-            desc: `Carta Colecionável do Monstro ${cardDef.monster}. Absorva no Codex para bônus passivos permanentes em toda a conta!`
+            desc: `怪物 ${cardDef.monster} 的收藏卡片。吸收到圖鑑後，可為整個帳號提供永久被動加成！`
           };
         }
       }
@@ -11602,7 +11602,7 @@ export function init() {
               state.battlePass.unlockedPremium = true;
               updateAllUI();
               save();
-              log('🎉 Pagamento aprovado! Seu Passe Premium foi ativado com sucesso!', 'rarity-legendary');
+              log('🎉 付款成功！你的高級通行證已啟用！', 'rarity-legendary');
             }
           }
         }
@@ -11650,7 +11650,7 @@ export function init() {
       window.buyInitialSoulCrystal = () => {
         const cost = 50000;
         if ((state.gold || 0) < cost) {
-          log('金幣不足 para adquirir o Soul Crystal Inicial (50.000 Adena necessária).', 'system');
+          log('金幣不足！購買初始靈魂水晶需要 50,000 金幣。', 'system');
           return;
         }
         state.gold -= cost;
@@ -11662,7 +11662,7 @@ export function init() {
           crystal.crystalLevel = 1;
           crystal.absorbedSouls = 0;
         }
-        log('🔮 Soul Crystal Adquirido! Mantenha na mochila para absorver almas.', 'rarity-epic');
+        log('🔮 已取得靈魂水晶！請放在背包中以吸收靈魂。', 'rarity-epic');
         updateAllUI();
         save();
       };
@@ -11670,7 +11670,7 @@ export function init() {
       window.applySAAction = (color, saKey, targetUid) => {
         const wpnUid = targetUid || window._selectedSAWeaponUid || state.equipment?.weapon;
         if (!wpnUid) {
-          log('Selecione ou equipe uma arma para engastar o Soul Crystal!', 'system');
+          log('請選擇或裝備一把武器，再鑲嵌靈魂水晶！', 'system');
           return;
         }
         ElementalService.applySoulCrystalToWeapon(state, wpnUid, color, saKey, { log, updateAllUI, save, floatText });
@@ -11696,12 +11696,12 @@ export function init() {
         state.dyeSymbols = state.dyeSymbols || [null, null, null];
         const freeSlot = state.dyeSymbols.findIndex(s => !s);
         if (freeSlot === -1) {
-          log('Todos os 3 slots de tatuagem estão ocupados! Remova uma tatuagem existente primeiro.', 'system');
+          log('3 個刺青欄位都已使用！請先移除一個現有刺青。', 'system');
           return;
         }
         const cost = 10000;
         if ((state.gold || 0) < cost) {
-          log('金幣不足 para gravar o símbolo (10.000 Adena necessária).', 'system');
+          log('金幣不足！刻印符號需要 10,000 金幣。', 'system');
           return;
         }
         state.gold -= cost;
@@ -11816,7 +11816,7 @@ export function init() {
           floatText(res.reason, 'float-warning');
           return;
         }
-        log(`⚡ Dificuldade de Caça ajustada para **${res.difficulty.name}** (${res.difficulty.xpMult}x XP/Adena, ${res.difficulty.dropMult}x Drops)!`, 'rarity-epic');
+        log(`⚡ 狩獵難度已調整為 **${res.difficulty.name}**（${res.difficulty.xpMult}x XP／金幣、${res.difficulty.dropMult}x 掉落）！`, 'rarity-epic');
         floatText(`⚡ MODO ${res.difficulty.name.toUpperCase()}!`, 'float-jackpot');
         state.activeMonster = null;
         pickRandomMonster();
@@ -11855,10 +11855,10 @@ export function init() {
           <div>
             <div style="display:flex; align-items:center; gap:8px;">
               <span style="font-size:12px; font-weight:bold; background:${status.isActive ? '#ef4444' : '#3b82f6'}; color:#fff; padding:2px 8px; border-radius:4px;">
-                ${status.isActive ? '● INVASÃO ATIVA AGORA' : '⏳ AGUARDANDO DESPERTAR'}
+                ${status.isActive ? '● 世界入侵進行中' : '⏳ 等待甦醒'}
               </span>
               <span style="font-size:13px; color:#cbd5e1; font-weight:bold;">
-                ${status.isActive ? 'Tempo restante no reino:' : 'Próxima Incursão em:'}
+                ${status.isActive ? '剩餘時間：' : '距離下次入侵：'}
               </span>
             </div>
             <div style="font-size:24px; font-family:'Cinzel',serif; font-weight:bold; color:${status.isActive ? '#f87171' : '#fde047'}; margin-top:4px;">
@@ -11888,7 +11888,7 @@ export function init() {
             <div style="display:flex; justify-content:space-between; align-items:baseline;">
               <div>
                 <h3 style="margin:0; font-family:'Cinzel',serif; font-size:18px; color:#fca5a5;">${boss.name}</h3>
-                <div style="font-size:12px; color:#ffd877; font-weight:bold;">${boss.title} (Nível ${boss.lvl})</div>
+                <div style="font-size:12px; color:#ffd877; font-weight:bold;">${boss.title}（等級 ${boss.lvl}）</div>
               </div>
               <div style="font-size:13px; font-weight:bold; color:#ef4444;">HP: ${boss.hp.toLocaleString()}</div>
             </div>
@@ -11897,7 +11897,7 @@ export function init() {
               <div>ATK: <strong style="color:#f87171;">${boss.atk}</strong></div>
               <div>DEF: <strong style="color:#60a5fa;">${boss.def}</strong></div>
               <div>M.DEF: <strong style="color:#c084fc;">${boss.mdef}</strong></div>
-              <div>Adena: <strong style="color:#facc15;">${boss.goldReward.toLocaleString()}</strong></div>
+              <div>金幣：<strong style="color:#facc15;">${boss.goldReward.toLocaleString()}</strong></div>
               <div>亞丁幣：<strong style="color:#ffd700;">+${boss.adenCoinsReward} AC</strong></div>
             </div>
           </div>
@@ -11906,7 +11906,7 @@ export function init() {
         <!-- Recompensas Épicas da Incursão -->
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(212,167,68,0.25); border-radius:10px; padding:14px;">
           <div style="font-family:'Cinzel',serif; font-size:13px; font-weight:bold; color:#fef08a; margin-bottom:8px;">
-            🏆 Recompensas &amp; Drops de Participação Global:
+            🏆 全服參與獎勵與掉落：
           </div>
           <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:8px;">
             ${boss.drops.map(d => `
@@ -11914,7 +11914,7 @@ export function init() {
                 <span style="font-size:16px;">${d.isEpicJewel ? '💎' : d.itemId.includes('book') ? '📜' : '⚡'}</span>
                 <div>
                   <div style="font-weight:bold; color:${d.isEpicJewel ? '#d8b4fe' : '#f8fafc'};">${d.name}</div>
-                  <div style="color:#94a3b8; font-size:10px;">Chance: ${Math.round(d.chance * 100)}%</div>
+                  <div style="color:#94a3b8; font-size:10px;">機率：${Math.round(d.chance * 100)}%</div>
                 </div>
               </div>
             `).join('')}
