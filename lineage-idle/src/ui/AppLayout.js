@@ -203,7 +203,7 @@ export function updateTabVisibilityByLevel(state) {
       btn.style.order = String(100 + reqLvl);
       btn.style.opacity = '0.55';
       btn.title = currentLvl < reqLvl
-        ? `Desbloqueia no Nível ${reqLvl}`
+        ? `於等級 ${reqLvl} 解鎖`
         : `Bloqueado na Temporada Atual (Cap Lv. ${globalCap})`;
       if (!btn.querySelector('.tab-lock-indicator')) {
         const lockSpan = document.createElement('span');
