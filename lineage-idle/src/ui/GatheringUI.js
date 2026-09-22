@@ -86,7 +86,7 @@ export function renderGatheringUI(state) {
         </p>
         <div style="display:flex; justify-content:space-between; font-size:10px; color:#aaa;">
           <span>採集籃： <strong style="color:#cbd5e1;">${reqPouchDef ? reqPouchDef.name : '任意'}</strong></span>
-          <span style="color:#34d399; font-weight:bold;">${isSelected ? '● ATUAL' : ''}</span>
+          <span style="color:#34d399; font-weight:bold;">${isSelected ? '● 目前使用' : ''}</span>
         </div>
       </div>
     `;
@@ -173,7 +173,7 @@ export function renderGatheringUI(state) {
             ${count <= 0 ? 'disabled' : ''}
             style="padding:4px 8px; font-size:10px; font-weight:bold; background:${isSelected ? 'rgba(52,211,153,0.3)' : 'rgba(70,70,70,0.3)'}; border:1px solid ${isSelected ? '#34d399' : '#666'}; color:${isSelected ? '#6ee7b7' : count > 0 ? '#cbd5e1' : '#666'}; border-radius:4px; cursor:${count > 0 ? 'pointer' : 'not-allowed'};"
           >
-            ${isSelected ? 'USANDO' : 'EQUIPAR'}
+            ${isSelected ? '使用中' : '裝備'}
           </button>
         </div>
       </div>
@@ -207,7 +207,7 @@ export function renderGatheringUI(state) {
         </p>
         <div style="margin-bottom:12px; font-size:12px; font-family:'Cinzel',serif;">
           ${gState.inspected 
-            ? `<span style="color:#f4d58a;">[Pureza: ${gState.targetedNodePurity}% - Perigo: ${gState.targetedNodeHazard.toUpperCase()}]</span>` 
+            ? `<span style="color:#f4d58a;">[純度：${gState.targetedNodePurity}%－危險：${gState.targetedNodeHazard.toUpperCase()}]</span>` 
             : `<span style="color:#94a3b8;">[Pureza: Oculta (Examinar Broto)]</span>`}
         </div>
         <p style="margin:0 0 12px 0; font-size:11px; color:#aaa;">
@@ -258,7 +258,7 @@ export function renderGatheringUI(state) {
           <p style="margin:0 0 6px 0; font-size:11px; color:#aaa; font-style:italic;">"${gState.targetedNodeSignal}"</p>
           <div style="font-size:11px; font-weight:bold;">
             ${gState.inspected 
-              ? `<span style="color:${gState.targetedNodeHazard === 'none' ? '#6ee7b7' : gState.targetedNodeHazard === 'thorn' ? '#f87171' : gState.targetedNodeHazard === 'toxin' ? '#a78bfa' : '#fbbf24'};">[Pureza: ${gState.targetedNodePurity}% - Perigo: ${gState.targetedNodeHazard.toUpperCase()}]</span>` 
+              ? `<span style="color:${gState.targetedNodeHazard === 'none' ? '#6ee7b7' : gState.targetedNodeHazard === 'thorn' ? '#f87171' : gState.targetedNodeHazard === 'toxin' ? '#a78bfa' : '#fbbf24'};">[純度：${gState.targetedNodePurity}%－危險：${gState.targetedNodeHazard.toUpperCase()}]</span>` 
               : `<span style="color:#94a3b8;">[Pureza: Oculta (Examinar Broto)]</span>`}
           </div>
         </div>
@@ -278,7 +278,7 @@ export function renderGatheringUI(state) {
 
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
           <button onclick="window.inspectGatheringNode()" style="padding:10px; background:rgba(30,40,50,0.8); border:1px solid #60a5fa; color:#93c5fd; border-radius:6px; cursor:pointer; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">🔍 Examinar Broto</button>
-          <button onclick="window.skipGatheringNode()" style="padding:10px; background:rgba(40,40,40,0.8); border:1px solid #aaa; color:#ddd; border-radius:6px; cursor:pointer; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">⏭️ Buscar Outro</button>
+          <button onclick="window.skipGatheringNode()" style="padding:10px; background:rgba(40,40,40,0.8); border:1px solid #aaa; color:#ddd; border-radius:6px; cursor:pointer; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">⏭️ 尋找其他採集點</button>
           <button onclick="window.selectGatheringTactic('delicate'); window.startGatheringHarvest()" ${isSickleDull ? 'disabled' : ''} style="padding:10px; background:rgba(20,50,30,0.8); border:1px solid #34d399; color:#6ee7b7; border-radius:6px; cursor:${isSickleDull ? 'not-allowed' : 'pointer'}; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">🌿 精準修剪</button>
           <button onclick="window.selectGatheringTactic('cleave'); window.startGatheringHarvest()" ${isSickleDull ? 'disabled' : ''} style="padding:10px; background:rgba(50,20,20,0.8); border:1px solid #f87171; color:#fca5a5; border-radius:6px; cursor:${isSickleDull ? 'not-allowed' : 'pointer'}; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">⚡ 快速收割</button>
         </div>
@@ -373,7 +373,7 @@ export function renderGatheringUI(state) {
                 cursor: ${isAfkUnlocked ? 'pointer' : 'not-allowed'};
               "
             >
-              ${isAfkActive ? '⏸️ PAUSAR AFK' : '▶️ ATIVAR AFK'}
+              ${isAfkActive ? '⏸️ 暫停自動採集' : '▶️ 開啟自動採集'}
             </button>
           </div>
         </div>
