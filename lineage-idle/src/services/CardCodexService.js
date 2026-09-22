@@ -12,7 +12,7 @@ export const MONSTER_CARDS = {};
 const EPIC_RAID_CARDS = {
   card_queen_ant: {
     id: 'card_queen_ant',
-    name: '蟻后卡片（Queen Ant）',
+    name: '蟻后卡片',
     monster: 'Queen Ant',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon30.png',
     image: '/img/Monsters/SemLocal/mon_queenant.png',
@@ -23,7 +23,7 @@ const EPIC_RAID_CARDS = {
   },
   card_core: {
     id: 'card_core',
-    name: '克魯瑪高塔 Core 卡片',
+    name: '克魯瑪高塔核心卡片',
     monster: 'Core',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon31.png',
     image: '/img/Monsters/SemLocal/mon_core.png',
@@ -34,7 +34,7 @@ const EPIC_RAID_CARDS = {
   },
   card_orfen: {
     id: 'card_orfen',
-    name: '孢子之海 Orfen 卡片',
+    name: '孢子之海奧爾芬卡片',
     monster: 'Orfen',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon32.png',
     image: '/img/Monsters/SemLocal/mon_orfen.png',
@@ -67,7 +67,7 @@ const EPIC_RAID_CARDS = {
   },
   card_barakiel: {
     id: 'card_barakiel',
-    name: '光輝之炎 Barakiel 卡片',
+    name: '光輝之炎巴拉基爾卡片',
     monster: 'Flame of Splendor Barakiel',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon35.png',
     image: '/img/Monsters/SemLocal/mon_barakiel.png',
