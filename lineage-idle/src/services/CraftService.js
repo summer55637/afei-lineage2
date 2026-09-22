@@ -282,19 +282,19 @@ export function getMaterialDropSources(matId) {
  */
 export const SA_DEFINITIONS = {
   red: {
-    focus: { name: 'Focus', desc: '物理暴擊率', stat: 'crit', baseVal: 65 },
-    critical_damage: { name: 'Critical Damage', desc: '物理暴擊傷害', stat: 'critDmg', baseVal: 280 },
-    might: { name: 'Might', desc: '物理攻擊 P.Atk', stat: 'atkPct', baseVal: 0.15 }
+    focus: { name: '專注', desc: '物理暴擊率', stat: 'crit', baseVal: 65 },
+    critical_damage: { name: '暴擊傷害', desc: '物理暴擊傷害', stat: 'critDmg', baseVal: 280 },
+    might: { name: '力量', desc: '物理攻擊 P.Atk', stat: 'atkPct', baseVal: 0.15 }
   },
   green: {
-    acumen: { name: 'Acumen', desc: 'Velocidade de Conjuração Mágica', stat: 'castSpd', baseVal: 0.15 },
-    haste: { name: 'Haste', desc: '攻擊速度 Físico', stat: 'atkSpd', baseVal: 0.10 },
-    health: { name: 'Health', desc: 'Vida 最大ima (Max HP)', stat: 'hpPct', baseVal: 0.25 }
+    acumen: { name: '靈敏', desc: '魔法施法速度', stat: 'castSpd', baseVal: 0.15 },
+    haste: { name: '加速', desc: '攻擊速度 Físico', stat: 'atkSpd', baseVal: 0.10 },
+    health: { name: '生命', desc: 'Vida 最大ima (Max HP)', stat: 'hpPct', baseVal: 0.25 }
   },
   blue: {
-    empower: { name: 'Empower', desc: 'Poder de Ataque Mágico (M.Atk)', stat: 'matkPct', baseVal: 0.20 },
-    guidance: { name: 'Guidance', desc: 'Precisão / Acerto', stat: 'acc', baseVal: 8 },
-    anger: { name: 'Anger', desc: 'Dano Físico quando HP < 50%', stat: 'anger', baseVal: 0.25 }
+    empower: { name: '魔力強化', desc: '魔法攻擊力（M.Atk）', stat: 'matkPct', baseVal: 0.20 },
+    guidance: { name: '導引', desc: '精準／命中', stat: 'acc', baseVal: 8 },
+    anger: { name: '憤怒', desc: 'HP 低於 50% 時提升物理傷害', stat: 'anger', baseVal: 0.25 }
   }
 };
 
@@ -411,7 +411,7 @@ export function applySoulCrystal(state, weaponUid, color = 'red', saKey = 'focus
     key: saKey,
     name: saBonus.name,
     level: crystalLevel,
-    desc: `${saBonus.desc} (+${typeof finalVal === 'number' && finalVal < 1 ? (finalVal * 100).toFixed(0) + '%' : finalVal})`,
+    desc: `${saBonus.desc}（+${typeof finalVal === 'number' && finalVal < 1 ? (finalVal * 100).toFixed(0) + '%' : finalVal}）`,
     stat: saBonus.stat,
     val: finalVal
   };
@@ -534,12 +534,12 @@ export function swapWeaponSameGrade(state, weaponUid, targetWeaponId, callbacks 
  * ═══════════════════════════════════════════════════════════════════════════
  */
 export const DYES_CATALOG = {
-  dye_str_con: { key: 'dye_str_con', name: 'Dye of STR/CON', statPlus: 'str', statMinus: 'con' },
-  dye_dex_con: { key: 'dye_dex_con', name: 'Dye of DEX/CON', statPlus: 'dex', statMinus: 'con' },
-  dye_con_str: { key: 'dye_con_str', name: 'Dye of CON/STR', statPlus: 'con', statMinus: 'str' },
-  dye_wit_men: { key: 'dye_wit_men', name: 'Dye of WIT/MEN', statPlus: 'wit', statMinus: 'men' },
-  dye_int_men: { key: 'dye_int_men', name: 'Dye of INT/MEN', statPlus: 'int', statMinus: 'men' },
-  dye_men_int: { key: 'dye_men_int', name: 'Dye of MEN/INT', statPlus: 'men', statMinus: 'int' }
+  dye_str_con: { key: 'dye_str_con', name: 'STR／CON 染料', statPlus: 'str', statMinus: 'con' },
+  dye_dex_con: { key: 'dye_dex_con', name: 'DEX／CON 染料', statPlus: 'dex', statMinus: 'con' },
+  dye_con_str: { key: 'dye_con_str', name: 'CON／STR 染料', statPlus: 'con', statMinus: 'str' },
+  dye_wit_men: { key: 'dye_wit_men', name: 'WIT／MEN 染料', statPlus: 'wit', statMinus: 'men' },
+  dye_int_men: { key: 'dye_int_men', name: 'INT／MEN 染料', statPlus: 'int', statMinus: 'men' },
+  dye_men_int: { key: 'dye_men_int', name: 'MEN／INT 染料', statPlus: 'men', statMinus: 'int' }
 };
 
 export function applyDyeSymbol(state, slotIdx = 0, dyeKey = 'dye_str_con', stage = 1, callbacks = {}) {
@@ -574,7 +574,7 @@ export function applyDyeSymbol(state, slotIdx = 0, dyeKey = 'dye_str_con', stage
   state.dyeSymbols[slotIdx] = {
     key: dyeKey,
     stage: validStage,
-    name: `${dye.name} (Estágio ${validStage}: +${validStage} / -${validStage})`,
+    name: `${dye.name}（階段 ${validStage}：+${validStage}／-${validStage}）`,
     plus: plusObj,
     minus: minusObj
   };
@@ -648,12 +648,12 @@ export function removeDyeSymbol(state, slotIdx = 0, callbacks = {}) {
  * ═══════════════════════════════════════════════════════════════════════════
  */
 export const ELEMENT_DEFINITIONS = {
-  fire: { name: 'Fogo 🔥', opposed: 'water', stoneId: 'fire_stone', dropZone: 'Forge of the Gods (Lv.70+)' },
-  water: { name: 'Água 💧', opposed: 'fire', stoneId: 'water_stone', dropZone: 'Garden of Eva (Lv.45+)' },
-  wind: { name: 'Vento 🌪️', opposed: 'earth', stoneId: 'wind_stone', dropZone: 'Dragon Valley (Lv.55+)' },
-  earth: { name: 'Terra 🌍', opposed: 'wind', stoneId: 'earth_stone', dropZone: 'Mithril Mines (Lv.35+)' },
-  holy: { name: 'Sagrado ✨', opposed: 'dark', stoneId: 'holy_stone', dropZone: 'Monastery of Silence (Lv.75+)' },
-  dark: { name: 'Trevas 🌑', opposed: 'holy', stoneId: 'dark_stone', dropZone: 'Imperial Tomb / Crypt (Lv.70+)' }
+  fire: { name: '火 🔥', opposed: 'water', stoneId: 'fire_stone', dropZone: 'Forge of the Gods (Lv.70+)' },
+  water: { name: '水 💧', opposed: 'fire', stoneId: 'water_stone', dropZone: 'Garden of Eva (Lv.45+)' },
+  wind: { name: '風 🌪️', opposed: 'earth', stoneId: 'wind_stone', dropZone: 'Dragon Valley (Lv.55+)' },
+  earth: { name: '地 🌍', opposed: 'wind', stoneId: 'earth_stone', dropZone: 'Mithril Mines (Lv.35+)' },
+  holy: { name: '神聖 ✨', opposed: 'dark', stoneId: 'holy_stone', dropZone: 'Monastery of Silence (Lv.75+)' },
+  dark: { name: '黑暗 🌑', opposed: 'holy', stoneId: 'dark_stone', dropZone: 'Imperial Tomb / Crypt (Lv.70+)' }
 };
 
 export function getElementalDropSources() {
@@ -768,10 +768,10 @@ export function compoundBeltsWithDuplicates(state, primaryUid, secondaryUid, cal
  */
 export function getLifeStoneDropSources() {
   return [
-    { grade: 'common', name: 'Life Stone Comum', source: 'Monstros de Caça (1% Glow, 2% Skill)' },
-    { grade: 'mid', name: 'Mid-Grade Life Stone', source: 'Monstros Campeões (5% Glow, 5% Skill)' },
-    { grade: 'high', name: 'High-Grade Life Stone', source: 'Chefes de Dungeon & Masmorras (15% Glow, 12% Skill)' },
-    { grade: 'top', name: 'Top-Grade Life Stone', source: 'Raid Bosses & Epic Bosses (40% Glow, 25% Skill)' }
+    { grade: 'common', name: '一般生命石', source: 'Monstros de Caça (1% Glow, 2% Skill)' },
+    { grade: 'mid', name: '中級生命石', source: 'Monstros Campeões (5% Glow, 5% Skill)' },
+    { grade: 'high', name: '高級生命石', source: 'Chefes de Dungeon & Masmorras (15% Glow, 12% Skill)' },
+    { grade: 'top', name: '頂級生命石', source: 'Raid Bosses & Epic Bosses (40% Glow, 25% Skill)' }
   ];
 }
 
@@ -792,10 +792,10 @@ export function applyLifeStone(state, weaponUid, grade = 'top', callbacks = {}) 
   const hpBonus = Math.floor((100 + Math.random() * 200) * mult);
 
   const skills = [
-    { name: 'Item Skill: Shield', desc: '+15% 物理防禦' },
-    { name: 'Item Skill: Wild Magic', desc: '+20% Taxa de Crítico Mágico' },
-    { name: 'Item Skill: Might', desc: '+12% Ataque Físico' },
-    { name: 'Item Skill: Heal', desc: 'Recupera 1.500 HP' }
+    { name: '物品技能：護盾', desc: '+15% 物理防禦' },
+    { name: '物品技能：狂野魔法', desc: '+20% 魔法暴擊率' },
+    { name: '物品技能：力量', desc: '+12% 物理攻擊' },
+    { name: '物品技能：治癒', desc: '恢復 1,500 HP' }
   ];
   const skill = (grade === 'top' || Math.random() < 0.25) ? skills[Math.floor(Math.random() * skills.length)] : null;
 
