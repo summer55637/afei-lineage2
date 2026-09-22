@@ -126,7 +126,7 @@ export const CASTLE_SHOP_CATALOG = [
     reqCastle: true,
     slot: 'head',
     icon: 'gradespecial/jewels/jewel_ring_queen_ant.png',
-    desc: '僅限亞丁城堡領主佩戴的神聖王冠。所有屬性（STR/DEX/INT/WIT/CON/MEN）+5，最大 生命值／CP +15%。',
+    desc: '僅限亞丁城堡領主佩戴的神聖王冠。所有屬性（力量／敏捷／智力／智慧／體質／精神）+5，最大生命值／戰鬥力 +15%。',
     stats: { allStats: 5, hpPercent: 0.15, cpPercent: 0.15 }
   },
   {
@@ -142,16 +142,16 @@ export const CASTLE_SHOP_CATALOG = [
   },
   {
     id: 'elixir_lord_cp_10x',
-    name: '10x 皇家 CP 靈藥 🧪',
+    name: '10 瓶皇家戰鬥力靈藥 🧪',
     priceAdena: 250000,
     priceAc: 0,
     reqCastle: true,
     icon: 'gradespecial/potions/potion_health_xl.png',
-    desc: '戰鬥中立即恢復 3,500 CP。'
+    desc: '戰鬥中立即恢復 3,500 戰鬥力。'
   },
   {
     id: 'giant_codex_castle_pack',
-    name: '3x 巨人秘典禮包 📜',
+    name: '3 本巨人秘典禮包 📜',
     priceAdena: 3000000,
     priceAc: 0,
     reqCastle: true,
