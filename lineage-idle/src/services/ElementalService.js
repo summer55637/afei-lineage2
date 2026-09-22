@@ -267,7 +267,7 @@ export function removeElementalInfusion(state, equipUid, callbacks = {}) {
   item.elementalAttribute = { element: 'none', val: 0 };
 
   if (callbacks.log) {
-    callbacks.log(`🌊 淨化完成：已成功移除 ${item.name || item.itemId} 的 [${oldElem.toUpperCase()}] 屬性。`, 'system');
+    callbacks.log(`🌊 淨化完成：已成功移除 ${item.name || item.itemId} 的 【${ELEMENT_DEFINITIONS[oldElem]?.name || oldElem}】 屬性。`, 'system');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
