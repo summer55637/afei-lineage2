@@ -472,7 +472,7 @@ export const FishingService = {
       : fishDef.rarity === 'epic' ? 'rarity-epic'
       : fishDef.rarity === 'rare' ? 'rarity-rare' : 'loot';
 
-    log(`🎣 **精彩捕獲！** 釣到 **${fishDef.name}** [${quality.name} · ${size.name}]（${finalWeight}kg）！（+${finalXp} 釣魚 XP）`, rarityClass);
+    log(`🎣 **精彩捕獲！** 釣到 **${fishDef.name}** [${quality.name} · ${size.name}]（${finalWeight} 公斤）！（+${finalXp} 釣魚經驗值）`, rarityClass);
     if (floatText) floatText(`+1 ${fishDef.icon} ${fishDef.name}!`, 'float-crit');
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
