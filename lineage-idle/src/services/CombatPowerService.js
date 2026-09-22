@@ -78,7 +78,7 @@ export const CombatPowerService = {
   getCombatPowerTier(cp) {
     const val = Number(cp) || 0;
     if (val >= 250000) return { name: 'Lenda Viva', color: '#ff3366', badge: '👑', tierIndex: 7 };
-    if (val >= 180000) return { name: 'Grão-Mestre', color: '#a855f7', badge: '💎', tierIndex: 6 };
+    if (val >= 180000) return { name: '宗師', color: '#a855f7', badge: '💎', tierIndex: 6 };
     if (val >= 120000) return { name: 'Mestre Arcano', color: '#38bdf8', badge: '🔷', tierIndex: 5 };
     if (val >= 80000)  return { name: 'Diamante', color: '#22c55e', badge: '💠', tierIndex: 4 };
     if (val >= 50000)  return { name: 'Platina', color: '#fbbf24', badge: '⭐', tierIndex: 3 };
@@ -158,15 +158,15 @@ export const CombatPowerService = {
       insights.push({
         type: 'impact',
         icon: '⚔️',
-        title: 'Força Concentrada em Equipamentos',
-        desc: `Seu arsenal e refinos representam ${equipPct}% de todo o seu Poder de Combate atual.`
+        title: '戰力集中於裝備',
+        desc: `你的武器裝備與精煉占目前總戰力的 ${equipPct}%。`
       });
     } else {
       insights.push({
         type: 'impact',
         icon: '🏛️',
-        title: 'Poder Predominante de Linhagem',
-        desc: `Seu nível e atributos raciais de base compõem ${basePct}% do seu Poder de Combate.`
+        title: '血統戰力占比最高',
+        desc: `你的等級與種族基礎屬性占目前總戰力的 ${basePct}%。`
       });
     }
 
@@ -177,8 +177,8 @@ export const CombatPowerService = {
       insights.push({
         type: 'warning',
         icon: '🛡️',
-        title: 'Defesa Física Abaixo do Padrão',
-        desc: `Sua P.Def (${currentDef.toLocaleString()}) está abaixo da linha de sobrevivência recomendada (${expectedDef.toLocaleString()}). Priorize elmo, armadura e calças.`
+        title: '物理防禦低於建議值',
+        desc: `你的 P.Def（${currentDef.toLocaleString()}）低於建議生存標準（${expectedDef.toLocaleString()}）。請優先提升頭盔、胸甲與腿甲。`
       });
     }
 
