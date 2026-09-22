@@ -1,5 +1,5 @@
 /**
- * SkillEnchantService.js — Motor de Encantamento de Habilidades do Lineage Idle.
+ * SkillEnchantService.js — Motor de Encantamento de 技能s do Lineage Idle.
  */
 
 import { ENCHANT_ROUTES, getEnchantLevelData, ENCHANT_ITEMS } from '../data/skill_enchant.js';
@@ -21,22 +21,22 @@ export class SkillEnchantService {
   static canEnchant(state, skillId, route = 'power', isMastery = false) {
     const current = this.getSkillEnchant(state, skillId);
     if (current.level >= 30) {
-      return { can: false, reason: 'max_level', message: 'Habilidade já atingiu o nível máximo de encantamento (+30)!' };
+      return { can: false, reason: 'max_level', message: '技能已達最高強化等級（+30）！' };
     }
 
     if ((state.level || 1) < 76) {
-      return { can: false, reason: 'level_req', message: 'Requer Nível 76+ e 3ª Evolução de Classe para encantar habilidades.' };
+      return { can: false, reason: 'level_req', message: '技能強化需要等級 76 以上並完成第三次轉職。' };
     }
 
     const nextLvl = current.level + 1;
     const costData = getEnchantLevelData(nextLvl);
 
     if ((state.sp || 0) < costData.spCost) {
-      return { can: false, reason: 'sp_low', message: `SP insuficiente. Requer ${costData.spCost.toLocaleString()} SP.` };
+      return { can: false, reason: 'sp_low', message: `SP 不足，需要 ${costData.spCost.toLocaleString()} SP。` };
     }
 
     if ((state.gold || 0) < costData.adenaCost) {
-      return { can: false, reason: 'gold_low', message: `Adena insuficiente. Requer ${costData.adenaCost.toLocaleString()} Adena.` };
+      return { can: false, reason: 'gold_low', message: `金幣不足，需要 ${costData.adenaCost.toLocaleString()} 金幣。` };
     }
 
     const reqItemId = isMastery ? costData.reqItemMastery : costData.reqItemNormal;
@@ -52,7 +52,7 @@ export class SkillEnchantService {
       return {
         can: false,
         reason: 'item_missing',
-        message: `Requer 1x ${codexDef?.name || "Giant's Codex"} no inventário (ou +${autoBuyCost.toLocaleString()} Adena para compra automática).`
+        message: `背包需要 1x ${codexDef?.name || "巨人秘典"}（或支付 ${autoBuyCost.toLocaleString()} 金幣自動購買）。`
       };
     }
 
@@ -62,7 +62,7 @@ export class SkillEnchantService {
   /**
    * Executa a tentativa de encantamento de uma habilidade.
    */
-  static enchantSkill(state, skillId, skillName = 'Habilidade', route = 'power', isMastery = false, callbacks = {}) {
+  static enchantSkill(state, skillId, skillName = '技能', route = 'power', isMastery = false, callbacks = {}) {
     const { log = console.log, onUpdate = () => {} } = callbacks;
     const check = this.canEnchant(state, skillId, route, isMastery);
 
@@ -106,13 +106,13 @@ export class SkillEnchantService {
       };
 
       const routeDef = ENCHANT_ROUTES[route] || ENCHANT_ROUTES.power;
-      const successMsg = `✨ SUCESSO! A habilidade ${skillName} foi encantada para +${targetLvl} (${routeDef.name})!`;
+      const successMsg = `✨ 成功！技能 ${skillName} 已強化至 +${targetLvl}（${routeDef.name}）！`;
       log(successMsg, 'success');
       onUpdate();
       return { success: true, newLevel: targetLvl, route };
     } else {
       if (isMastery) {
-        const failMsg = `🛡️ O encantamento de ${skillName} falhou, mas o Giant's Codex Mastery PROTEGEU seu nível atual (+${current.level})!`;
+        const failMsg = `🛡️ ${skillName} 強化失敗，但巨人秘典精通保護了目前等級（+${current.level}）！`;
         log(failMsg, 'warning');
         onUpdate();
         return { success: false, failedSafe: true, currentLevel: current.level };
@@ -121,7 +121,7 @@ export class SkillEnchantService {
           level: 0,
           route: route
         };
-        const resetMsg = `💥 O encantamento de ${skillName} FALHOU! A habilidade regrediu para +0.`;
+        const resetMsg = `💥 ${skillName} 強化失敗！技能降回 +0。`;
         log(resetMsg, 'error');
         onUpdate();
         return { success: false, failedSafe: false, currentLevel: 0 };
