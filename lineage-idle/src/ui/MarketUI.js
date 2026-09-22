@@ -131,7 +131,7 @@ export function renderMarketTab(container, state, callbacks = {}) {
 
   MarketService.initCloudSubscription(state, callbacks);
 
-  const playerName = state.charName || state.heroName || state.playerName || state.name || 'Hero of Aden';
+  const playerName = state.charName || state.heroName || state.playerName || state.name || '亞丁英雄';
   const playerGold = Number(state.gold || 0);
   const playerAc = Number(state.adenCoins || state.ac || 0);
   const salesData = MarketService.getPlayerSales(playerName);
@@ -149,7 +149,7 @@ export function renderMarketTab(container, state, callbacks = {}) {
             🏛️
           </div>
           <div>
-            <div class="l2wt-banner-title">World Trade</div>
+            <div class="l2wt-banner-title">世界交易所</div>
             <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px; font-family: 'Inter', sans-serif;">全球 P2P 交易 · 亞丁真實玩家官方市場</p>
           </div>
         </div>
@@ -182,7 +182,7 @@ export function renderMarketTab(container, state, callbacks = {}) {
           <button class="l2wt-tab ${_selectedCategory === cat.id ? 'active' : ''}" data-cat="${cat.id}">
             <span>${cat.icon}</span>
             <span>${cat.name}</span>
-            ${cat.soon ? '<span class="l2wt-soon-badge">SOON</span>' : ''}
+            ${cat.soon ? '<span class="l2wt-soon-badge">即將推出</span>' : ''}
           </button>
         `).join('')}
       </div>
@@ -197,7 +197,7 @@ export function renderMarketTab(container, state, callbacks = {}) {
         </div>
 
         <div style="display: flex; align-items: center; gap: 8px; flex: 1; max-width: 420px; justify-content: flex-end;">
-          <input type="text" id="market-search-input" value="${_searchQuery}" placeholder="🔍 Buscar item ou vendedor..." style="flex: 1; background: rgba(0,0,0,0.6); border: 1px solid rgba(212,167,68,0.3); border-radius: 4px; padding: 5px 10px; color: #fff; font-size: 11px; font-family: 'Inter', sans-serif;" />
+          <input type="text" id="market-search-input" value="${_searchQuery}" placeholder="🔍 搜尋物品或賣家..." style="flex: 1; background: rgba(0,0,0,0.6); border: 1px solid rgba(212,167,68,0.3); border-radius: 4px; padding: 5px 10px; color: #fff; font-size: 11px; font-family: 'Inter', sans-serif;" />
           <button id="btn-market-refresh" class="l2wt-refresh-btn" title="Sincronizar ofertas">
             🔄 Refresh
           </button>
@@ -267,7 +267,7 @@ function renderBuyTab(state) {
                 <div style="font-size: 32px; margin-bottom: 8px;">🏛️</div>
                 <div style="font-size: 15px; color: #ffd877; margin-bottom: 4px; font-weight: bold;">此分類目前沒有刊登物品</div>
                 <div style="font-size: 11px; color: #64748b; font-family: 'Inter', sans-serif;">
-                  市場中的所有物品都來自真實玩家。 Clique em <strong style="color: #67e8f9;">'My items'</strong> no topo para anunciar o seu!
+                  市場中的所有物品都來自真實玩家。點擊上方 <strong style="color: #67e8f9;">「我的刊登」</strong> 即可上架自己的物品！
                 </div>
               </td>
             </tr>
@@ -369,7 +369,7 @@ function renderSellTab(state) {
       <!-- Coluna Esquerda: Seleção de Item da Mochila -->
       <div style="background: rgba(15,20,30,0.85); border: 1px solid rgba(212,167,68,0.3); border-radius: 10px; padding: 14px;">
         <h4 style="margin: 0 0 10px 0; color: #f4d58a; font-family: 'Cinzel', serif; font-size: 14px;">
-          🎒 1. Escolha o item da sua mochila
+          🎒 1. 從背包選擇物品
         </h4>
 
         ${inventory.length === 0 ? `
@@ -478,7 +478,7 @@ function renderSellTab(state) {
  * Renderiza os anúncios ativos do jogador e histórico de vendas
  */
 function renderMySalesTab(state, salesData) {
-  const playerName = state.charName || state.heroName || state.playerName || state.name || 'Hero of Aden';
+  const playerName = state.charName || state.heroName || state.playerName || state.name || '亞丁英雄';
   const myListings = MarketService.getMyListings(state);
   const history = salesData.history || [];
   const pendingAdena = Number(salesData.pendingAdena || 0);
@@ -553,13 +553,13 @@ function renderMySalesTab(state, salesData) {
         </h4>
 
         ${history.length === 0 ? `
-          <p style="color: #94a3b8; font-size: 12px; margin: 0;">Nenhuma venda realizada recentemente.</p>
+          <p style="color: #94a3b8; font-size: 12px; margin: 0;">最近沒有完成的交易。</p>
         ` : `
           <div style="display: flex; flex-direction: column; gap: 6px; max-height: 220px; overflow-y: auto;">
             ${history.slice(0, 15).map(h => `
               <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.04); border-radius: 6px; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
                 <span style="color: #cbd5e1;">
-                  Vendido <strong style="color:#ffd877;">${h.quantity}x ${h.itemName}</strong> para <span style="color:#34d399;">${h.buyer}</span>
+                  已將 <strong style="color:#ffd877;">${h.quantity}x ${h.itemName}</strong> 售給 <span style="color:#34d399;">${h.buyer}</span>
                 </span>
                 <span style="font-weight: bold; color: ${h.currency === 'adena' ? '#ffd877' : '#60a5fa'}; font-family: 'IBM Plex Mono', monospace;">
                   +${h.currency === 'adena' ? '🪙 ' : '👑 '}${h.totalCost.toLocaleString()}
@@ -683,7 +683,7 @@ function attachMarketEvents(container, state, callbacks = {}) {
     refreshBtn.onclick = async () => {
       refreshBtn.disabled = true;
       refreshBtn.innerText = '⏳ Sincronizando...';
-      const playerName = state.name || state.charName || 'Hero of Aden';
+      const playerName = state.name || state.charName || '亞丁英雄';
       await MarketService.fetchRemoteListings();
       await MarketService.fetchPlayerSalesFromCloud(playerName);
       if (callbacks.log) callbacks.log('奇岩市場已與全球伺服器同步！', 'info');
@@ -809,7 +809,7 @@ function attachMarketEvents(container, state, callbacks = {}) {
   if (submitBtn) {
     submitBtn.onclick = async () => {
       if (!_selectedSellItemUid) {
-        showMarketToast('Selecione um item primeiro!', 'warning');
+        showMarketToast('請先選擇一個物品！', 'warning');
         return;
       }
       submitBtn.disabled = true;
