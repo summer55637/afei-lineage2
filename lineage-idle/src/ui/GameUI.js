@@ -2997,7 +2997,7 @@ export function renderStageMonster(state) {
 
   if (structure.name) {
     const badge = m.boss ? ' ★' : (m.isElite || m.elite ? ' ⚔' : '');
-    structure.name.textContent = `${m.name || 'Monstro'}${badge}`;
+    structure.name.textContent = `${m.name || '怪物'}${badge}`;
   }
 
   if (structure.level) {
@@ -3023,7 +3023,7 @@ export function renderStageMonster(state) {
   if (liveMiniNames.length > 0) {
     const hpPct = Math.max(0, Math.min(100, Math.round((curHp / (maxHp || 1)) * 100)));
     const badge = isBoss ? '👑 ' : (isElite ? '★ ' : '');
-    const displayName = `${badge}${m.name || 'Monstro'} (${hpPct}%)`;
+    const displayName = `${badge}${m.name || '怪物'} (${hpPct}%)`;
     liveMiniNames.forEach(el => el.textContent = `⚔️ ${displayName}`);
     liveMiniFills.forEach(el => el.style.width = `${hpPct}%`);
   }
@@ -3407,18 +3407,18 @@ export function updateCharacterUI(state) {
       weapon: { label: '主武器', icon: '⚔️' },
       weapon2: { label: '副武器', icon: '🗡️' },
       shield: { label: '盾牌／符印', icon: '🛡️' },
-      helmet: { label: 'Capacete', icon: '🪖' },
+      helmet: { label: '頭盔', icon: '🪖' },
       armor: { label: '胸甲', icon: '🛡️' },
-      legs: { label: 'Perneiras', icon: '👖' },
-      gloves: { label: 'Luvas', icon: '🧤' },
-      boots: { label: 'Botas', icon: '👢' },
-      necklace: { label: 'Colar', icon: '📿' },
-      earring1: { label: 'Brinco 1', icon: '💎' },
-      earring2: { label: 'Brinco 2', icon: '💎' },
-      ring1: { label: 'Anel 1', icon: '💍' },
-      ring2: { label: 'Anel 2', icon: '💍' },
-      cloak: { label: 'Capa', icon: '🧥' },
-      belt: { label: 'Cinto', icon: '🪢' }
+      legs: { label: '腿甲', icon: '👖' },
+      gloves: { label: '手套', icon: '🧤' },
+      boots: { label: '靴子', icon: '👢' },
+      necklace: { label: '項鍊', icon: '📿' },
+      earring1: { label: '耳環 1', icon: '💎' },
+      earring2: { label: '耳環 2', icon: '💎' },
+      ring1: { label: '戒指 1', icon: '💍' },
+      ring2: { label: '戒指 2', icon: '💍' },
+      cloak: { label: '披風', icon: '🧥' },
+      belt: { label: '腰帶', icon: '🪢' }
     };
 
     const equipCards = [];
@@ -3530,7 +3530,7 @@ export function updateZoneUI(state, callbacks = {}) {
 
   const stageZoneEl = findElement('stage-zone');
   if (stageZoneEl && zDef) {
-    stageZoneEl.textContent = zDef.name.toUpperCase() + (zDef.town ? ' · TOWN' : '');
+    stageZoneEl.textContent = zDef.name.toUpperCase() + (zDef.town ? ' · 城鎮' : '');
   }
 
   const stageEl = findElement('stage');
@@ -4366,8 +4366,8 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
     : `<span class="si-icon">${siIconVal}</span>`;
 
   const elemClass = `element-${String(semantic.element || def.element || 'physical').toLowerCase()}`;
-  const elemTag = `<span class="skill-element-tag ${elemClass}" style="margin-left:4px;">${semantic.element || def.element || 'Physical'}</span>`;
-  const roleTag = `<span class="skill-role-tag" style="margin-left:4px;">${semantic.role || def.type || 'Skill'}</span>`;
+  const elemTag = `<span class="skill-element-tag ${elemClass}" style="margin-left:4px;">${semantic.element || def.element || '物理'}</span>`;
+  const roleTag = `<span class="skill-role-tag" style="margin-left:4px;">${semantic.role || def.type || '技能'}</span>`;
 
   let loadoutSectionHtml = '';
   const isPassive = def.type === 'passive' || def.type === 'stat';
@@ -4526,13 +4526,13 @@ export const SHOP_CATEGORY_TREE = {
     dialoguePrompt: '你想為亞丁狩獵尋找哪種類型的武器？',
     subcategories: [
       { id: 'all', name: '全部武器', icon: '⚔️' },
-      { id: 'bows', name: 'Arcos & Bestas', icon: '🏹' },
-      { id: 'swords', name: 'Espadas & 雙刀s', icon: '🗡️' },
+      { id: 'bows', name: '弓與弩', icon: '🏹' },
+      { id: 'swords', name: '劍與雙刀', icon: '🗡️' },
       { id: 'staves', name: '法杖與魔法權杖', icon: '🪄' },
-      { id: 'daggers', name: 'Adagas & Facas', icon: '🗡' },
-      { id: 'blunts', name: '鈍器s, Martelos & Machados', icon: '🔨' },
+      { id: 'daggers', name: '匕首與短刀', icon: '🗡' },
+      { id: 'blunts', name: '鈍器、戰鎚與戰斧', icon: '🔨' },
       { id: 'polearms', name: '長槍與長柄武器', icon: '🔱' },
-      { id: 'fists', name: 'Punhos & Garras', icon: '🥊' }
+      { id: 'fists', name: '拳套與爪', icon: '🥊' }
     ]
   },
   armors: {
@@ -4542,11 +4542,11 @@ export const SHOP_CATEGORY_TREE = {
     dialoguePrompt: '一套好防具往往決定榮耀或死亡。你正在找什麼？',
     subcategories: [
       { id: 'all', name: '全部防具', icon: '🛡️' },
-      { id: 'heavy', name: '重型防具（Heavy）', icon: '🛡️' },
-      { id: 'light', name: '輕型防具（Light）', icon: '🥋' },
+      { id: 'heavy', name: '重型防具', icon: '🛡️' },
+      { id: 'light', name: '輕型防具', icon: '🥋' },
       { id: 'robe', name: '長袍與魔法法袍', icon: '👘' },
-      { id: 'shields', name: 'Escudos & Sigilos', icon: '🔰' },
-      { id: 'parts', name: 'Elmos, Luvas & Botas', icon: '🪖' }
+      { id: 'shields', name: '盾牌與符印', icon: '🔰' },
+      { id: 'parts', name: '頭盔、手套與靴子', icon: '🪖' }
     ]
   },
   accessories: {
@@ -4556,8 +4556,8 @@ export const SHOP_CATEGORY_TREE = {
     dialoguePrompt: '附魔珠寶與貴族遺物能提升你的秘法力量。',
     subcategories: [
       { id: 'all', name: '全部飾品', icon: '📿' },
-      { id: 'jewels', name: 'Joias (Colares, Brincos, 戒指)', icon: '💎' },
-      { id: 'cloaks', name: 'Capas & Mantos', icon: '🧣' },
+      { id: 'jewels', name: '珠寶（項鍊、耳環、戒指）', icon: '💎' },
+      { id: 'cloaks', name: '披風與斗篷', icon: '🧣' },
       { id: 'belts', name: '神秘腰帶', icon: '🪢' },
       { id: 'special', name: '胸針、護符與阿加西翁', icon: '❇️' }
     ]
@@ -4583,7 +4583,7 @@ export const SHOP_CATEGORY_TREE = {
     subcategories: [
       { id: 'mystic', name: '古代神秘商店', icon: '🔮' },
       { id: 'materials', name: '鍛造礦石與水晶（D～S）', icon: '💎' },
-      { id: 'dyes', name: 'Tinturas & Dyes (Henna)', icon: '🖊️' }
+      { id: 'dyes', name: '染料與紋身', icon: '🖊️' }
     ]
   }
 };
@@ -5702,54 +5702,54 @@ export function getItemTierNum(def) {
 export const SUBCATEGORIES_BY_CAT = {
   all: [
     { id: 'all', label: '🌟 全部' },
-    { id: 'staff', label: '🪄 Cajados (Staff)' },
+    { id: 'staff', label: '🪄 法杖' },
     { id: 'sword', label: '⚔️ 單手劍' },
-    { id: 'bow', label: '🏹 Arcos (Bow)' },
-    { id: 'dagger', label: '🗡️ Adagas (Dagger)' },
-    { id: 'dual', label: '⚔️⚔️ Duplas (雙刀)' },
-    { id: 'heavy', label: '🛡️ Pesada (Heavy)' },
-    { id: 'light', label: '🦺 Leve (Light)' },
+    { id: 'bow', label: '🏹 弓' },
+    { id: 'dagger', label: '🗡️ 匕首' },
+    { id: 'dual', label: '⚔️⚔️ 雙刀' },
+    { id: 'heavy', label: '🛡️ 重型防具' },
+    { id: 'light', label: '🦺 輕型防具' },
     { id: 'robe', label: '🧙 法袍' },
-    { id: 'necklace', label: '📿 Colares' },
+    { id: 'necklace', label: '📿 項鍊' },
     { id: 'ring', label: '💍 戒指' },
-    { id: 'earring', label: '👂 Brincos' },
+    { id: 'earring', label: '👂 耳環' },
     { id: 'potion', label: '🧪 藥水' },
     { id: 'shot', label: '⚡ 魂彈' },
     { id: 'material', label: '🧱 材料' }
   ],
   weapon: [
     { id: 'all', label: '⚔️ 全部' },
-    { id: 'staff', label: '🪄 Cajados (Staff)' },
-    { id: 'bow', label: '🏹 Arcos (Bow)' },
-    { id: 'dagger', label: '🗡️ Adagas (Dagger)' },
+    { id: 'staff', label: '🪄 法杖' },
+    { id: 'bow', label: '🏹 弓' },
+    { id: 'dagger', label: '🗡️ 匕首' },
     { id: 'sword', label: '⚔️ 單手劍' },
-    { id: 'dual', label: '⚔️⚔️ Duplas (雙刀)' },
+    { id: 'dual', label: '⚔️⚔️ 雙刀' },
     { id: 'spear', label: '🔱 長槍' },
     { id: 'twohand', label: '🔨 雙手武器' },
     { id: 'blunt', label: '🪓 鈍器' },
-    { id: 'fist', label: '🥊 拳套s (Fist)' }
+    { id: 'fist', label: '🥊 拳套' }
   ],
   armor: [
     { id: 'all', label: '🛡️ 全部' },
-    { id: 'heavy', label: '🛡️ Pesada (Heavy)' },
-    { id: 'light', label: '🦺 Leve (Light)' },
+    { id: 'heavy', label: '🛡️ 重型防具' },
+    { id: 'light', label: '🦺 輕型防具' },
     { id: 'robe', label: '🧙 法袍' },
-    { id: 'shield', label: '🛡️ Escudos' },
-    { id: 'helmet', label: '🪖 Elmos' },
-    { id: 'gloves', label: '🧤 Luvas' },
-    { id: 'boots', label: '👢 Botas' }
+    { id: 'shield', label: '🛡️ 盾牌' },
+    { id: 'helmet', label: '🪖 頭盔' },
+    { id: 'gloves', label: '🧤 手套' },
+    { id: 'boots', label: '👢 靴子' }
   ],
   jewel: [
     { id: 'all', label: '💎 全部' },
-    { id: 'necklace', label: '📿 Colares' },
-    { id: 'earring', label: '👂 Brincos' },
+    { id: 'necklace', label: '📿 項鍊' },
+    { id: 'earring', label: '👂 耳環' },
     { id: 'ring', label: '💍 戒指' }
   ],
   relic: [
     { id: 'all', label: '🌟 全部' },
-    { id: 'agathion', label: '🧚 Agathions' },
-    { id: 'cloak', label: '🧥 Capas' },
-    { id: 'belt', label: '🎗️ Cintos' },
+    { id: 'agathion', label: '🧚 阿加西翁' },
+    { id: 'cloak', label: '🧥 披風' },
+    { id: 'belt', label: '🎗️ 腰帶' },
     { id: 'talisman', label: '🧿 護符' }
   ],
   consumable: [
@@ -5858,11 +5858,11 @@ export function renderForgeDialogueView(state, callbacks = {}) {
   if (!optionsEl) return;
 
   if (_forgeWilbertTopic === 'main') {
-    if (npcNameEl) npcNameEl.textContent = '鐵匠 Wilbert：';
+    if (npcNameEl) npcNameEl.textContent = '鐵匠威爾伯特：';
     if (npcTextEl) {
       npcTextEl.innerHTML = `
-        Haha! Blacksmiths do so much more than just craft armor, spears, axes and the like. The town of Aden wouldn't even exist without our Black Anvil Guild.<br><br>
-        Oh, by the way, it's only rumors, but... I've heard that golems which were used to banish humans from our lands were constructed by our guild too. Who else could have invented such outstanding technology?
+        哈哈！鐵匠可不只是打造防具、長槍和戰斧而已。沒有我們黑色鐵砧公會，亞丁城甚至不可能存在。<br><br>
+        對了，雖然只是傳聞……聽說當年用來驅逐人類的魔像也是我們公會製造的。除了我們，還有誰能發明出這麼出色的技術？
       `;
     }
 
@@ -5898,7 +5898,7 @@ export function renderForgeDialogueView(state, callbacks = {}) {
         <span class="l2chat-bubble-icon">🗨️</span>
         <div style="flex:1;">
           <div class="l2chat-option-text">升級 R 級以上物品（名匠與交換）</div>
-          <div class="l2chat-option-hint">Pushkin 修復、名匠與同階武器交換</div>
+          <div class="l2chat-option-hint">普希金修復、名匠製作與同階武器交換</div>
         </div>
         <span style="color:#ffd877; font-size:12px;">➔</span>
       </button>
@@ -5958,7 +5958,7 @@ export function renderForgeDialogueView(state, callbacks = {}) {
       </button>
     `;
   } else if (_forgeWilbertTopic === 'taxes') {
-    if (npcNameEl) npcNameEl.textContent = '鐵匠 Wilbert：';
+    if (npcNameEl) npcNameEl.textContent = '鐵匠威爾伯特：';
     if (npcTextEl) {
       npcTextEl.innerHTML = `
         稅金？哼！亞丁城與奇岩城的領主會對交易與市場買賣收取合理的 5% 稅金。<br><br>
@@ -7930,7 +7930,7 @@ export function renderForgeElemental(container, state) {
                 ${equippedBadge}
               </div>
               <div style="font-size:11px; color:#94a3b8; margin-top:2px;">
-                Atributo: <strong style="color:${elemColor};">${elemIcon} ${elemName.toUpperCase()} +${elem.val}</strong> / <span style="color:#e2e8f0;">+${cap}</span>
+                元素屬性：<strong style="color:${elemColor};">${elemIcon} ${elemName.toUpperCase()} +${elem.val}</strong> / <span style="color:#e2e8f0;">+${cap}</span>
                 ${isOverCap ? '<span style="color:#f59e0b; font-size:10px; margin-left:4px; font-weight:bold;">(⚠️ 保留超出上限值)</span>' : ''}
               </div>
             </div>
@@ -8469,7 +8469,7 @@ export function renderForgeRandomCraft(container, state, callbacks = {}) {
           </div>
           <div style="text-align:right;">
             <div style="font-size:13px; font-weight:bold; color:#ffd877; font-family:'Cinzel',serif;">
-              Cargas: <strong style="color:#22c55e; font-size:16px;">${charges}</strong>
+              充能：<strong style="color:#22c55e; font-size:16px;">${charges}</strong>
             </div>
             <div style="font-size:10px; color:#94a3b8; font-family:'IBM Plex Mono',monospace;">
               下一個： <strong style="color:#a855f7;">${points}/100 點</strong>
