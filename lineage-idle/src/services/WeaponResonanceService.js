@@ -547,7 +547,7 @@ export class WeaponResonanceService {
       if (reqWeapon === 'bow' || skillNameLower.includes('shot') || skillNameLower.includes('arrow') || skillNameLower.includes('snipe')) {
         monster._shadowMarkUntil = realNow + 8000;
         if (callbacks.floatText) callbacks.floatText('🎯 MARCA DAS SOMBRAS!', 'float-epic');
-        if (callbacks.log) callbacks.log('🎯 暗影獵手: Alvo marcado! Próximo golpe de Adaga causará +25% de Dano Crítico Fatal e Sangramento!', 'combat');
+        if (callbacks.log) callbacks.log('🎯 暗影獵手：目標已標記！下一次匕首攻擊將造成 +25% 致命暴擊傷害並附加流血！', 'combat');
       }
     }
 
