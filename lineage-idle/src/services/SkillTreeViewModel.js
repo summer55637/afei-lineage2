@@ -40,6 +40,8 @@ import {
 } from '../data/elemental/SkillProgression.js';
 
 import { getSkillIcon, getSkillSemanticData } from './SkillIconRegistry.js';
+import CANONICAL_CLASS_REGISTRY from '../data/classes/CanonicalClassRegistry.js';
+import CANONICAL_RACES from '../data/classes/CanonicalRaceRegistry.js';
 
 export const SKILL_CATEGORIES = Object.freeze({
   CORE: 'CORE',
@@ -163,14 +165,26 @@ export function getSkillTreeViewModel(character, options = {}) {
 
   const canonicalClass = resolveCanonicalClassId(charClass, charRace) || charClass;
   const canonicalDagClass = resolveCanonicalDagClassId(charClass, charRace);
+  const canonicalCharacterClass = getCanonicalCharacterClass(character);
   const stageNum = getProgressionStage(charLevel);
   const theme = getClassTheme(canonicalClass, charRace);
   const activeTab = options.activeTab || SKILL_TABS.ACTIVE;
 
+  const raceKey = String(charRace || 'human').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const classLookupIds = [canonicalCharacterClass, canonicalDagClass, canonicalClass, charClass].filter(Boolean);
+  const browserData = typeof window !== 'undefined' ? window : null;
+  const raceDef = CANONICAL_RACES[raceKey]
+    || browserData?.GameData?.RACES?.[charRace]
+    || browserData?.EchoData?.RACES_ECHO?.[charRace]
+    || null;
+  const classDef = classLookupIds.map(id => CANONICAL_CLASS_REGISTRY[id]).find(Boolean)
+    || classLookupIds.map(id => browserData?.GameData?.CLASSES?.[id] || browserData?.EchoData?.CLASSES_ECHO?.[id]).find(Boolean)
+    || null;
+
   // Header presentation data
   const header = {
-    race: String(charRace).charAt(0).toUpperCase() + String(charRace).slice(1),
-    className: String(charClass).charAt(0).toUpperCase() + String(charClass).slice(1),
+    race: raceDef?.name || '未知種族',
+    className: classDef?.name || '未知職業',
     canonicalClass,
     level: charLevel,
     sp: charSp,
