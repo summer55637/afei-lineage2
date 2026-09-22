@@ -1173,109 +1173,109 @@ skills: [
       { name: "暗影斬",                type: "Ativo",      rarity: "3★", effect: "Dano dark 380% + bleed 6s", cooldown: "18s", duration: "6s bleed", note: "Skill permanece após trocar de classe" },
       { name: "黑暗舞擊",           type: "Ativo",      rarity: "3★", effect: "Dano AoE dark 420% + slow 40% 5s", cooldown: "25s", duration: "5s slow", note: "Skill permanece após trocar de classe" },
       { name: "超越之舞",          type: "Ativo",      rarity: "4★", effect: "Dano AoE dark 580% + silence 4s", cooldown: "160s", duration: "4s silence", note: "Skill permanece após trocar de classe" },
-      { name: "Spectral Dancer Spirit",      type: "Passivo",    rarity: "3★", effect: "+20% ATK, +15% EVA, +15% Dark Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Body of Spectral Dancer",     type: "Passivo",    rarity: "3★", effect: "+15% Crit Rate, +10% HP Regen", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Master of Combat",            type: "Passivo",    rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Spectral Dancer Harmony",     type: "Self-Buff",  rarity: "4★", effect: "+50% ATK, +35% ATK Speed, +30% EVA por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
+      { name: "幽靈舞者之魂",      type: "Passivo",    rarity: "3★", effect: "+20% ATK, +15% EVA, +15% Dark Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "幽靈舞者之軀",     type: "Passivo",    rarity: "3★", effect: "+15% Crit Rate, +10% HP Regen", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "戰鬥大師",            type: "Passivo",    rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "幽靈舞者和諧",     type: "Self-Buff",  rarity: "4★", effect: "+50% ATK, +35% ATK Speed, +30% EVA por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // ─── ASSASSIN DE (1ª classe — Dark Elf) ───
   assassinDE: {
-    name: 'Assassin', parent: 'darkElfFighter', race: 'darkelf', archetype: 'dagger', stage: 1,
-    desc: 'Assassino das sombras — mestre em emboscadas e venenos.',
+    name: '刺客', parent: 'darkElfFighter', race: 'darkelf', archetype: 'dagger', stage: 1,
+    desc: '精通伏擊與毒術的暗影刺客。',
     base: { atk: 24, def: 10, hp: 140, mp: 42, eva: 18, crit: 14, mdef: 6 },
     skills: [
-      { name: "Double Strike",           type: "Ativo",   rarity: "1★", effect: "Dano duplo 170% (2 hits)", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Backstab",              type: "Ativo",   rarity: "1★", effect: "Dano 200% por trás + crit garantido", cooldown: "14s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Dash",                  type: "Ativo",   rarity: "1★", effect: "+60% Move Speed por 6s", cooldown: "20s", duration: "6s", note: "Skill permanece após trocar de classe" },
-      { name: "Light Armor Mastery",   type: "Passivo", rarity: "1★", effect: "+10% EVA com armadura leve", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Dagger Mastery",        type: "Passivo", rarity: "1★", effect: "+12% ATK com adagas", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Critical Chance",       type: "Passivo", rarity: "1★", effect: "+10% Crit Rate", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" }
+      { name: "雙重打擊",           type: "Ativo",   rarity: "1★", effect: "Dano duplo 170% (2 hits)", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "背刺",              type: "Ativo",   rarity: "1★", effect: "Dano 200% por trás + crit garantido", cooldown: "14s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "疾走",                  type: "Ativo",   rarity: "1★", effect: "+60% Move Speed por 6s", cooldown: "20s", duration: "6s", note: "Skill permanece após trocar de classe" },
+      { name: "輕甲精通",   type: "Passivo", rarity: "1★", effect: "+10% EVA com armadura leve", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "匕首精通",        type: "Passivo", rarity: "1★", effect: "+12% ATK com adagas", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "暴擊機率",       type: "Passivo", rarity: "1★", effect: "+10% Crit Rate", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // ─── ABYSS WALKER (2ª classe) ───
   abyssWalker: {
-    name: 'Abyss Walker', parent: 'assassinDE', race: 'darkelf', archetype: 'dagger', stage: 2,
-    desc: 'Caminhante do Abismo — golpes fatais nas sombras.',
+    name: '深淵行者', parent: 'assassinDE', race: 'darkelf', archetype: 'dagger', stage: 2,
+    desc: '在暗影中施展致命打擊的深淵行者。',
     base: { atk: 52, def: 18, hp: 260, mp: 68, eva: 32, crit: 26, mdef: 14 },
     skills: [
-      { name: "Deadly Blow",      type: "Ativo",   rarity: "2★", effect: "Dano 280% + crit garantido por trás", cooldown: "14s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Lethal Blow",      type: "Ativo",   rarity: "3★", effect: "Dano 350% + 10% chance kill instantâneo (PvE)", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Sand Bomb",        type: "Ativo",   rarity: "2★", effect: "Blind AoE 5s", cooldown: "25s", duration: "5s", note: "Skill permanece após trocar de classe" },
-      { name: "Blinding Blow",    type: "Ativo",   rarity: "2★", effect: "Dano 240% + blind 4s", cooldown: "18s", duration: "4s", note: "Skill permanece após trocar de classe" },
-      { name: "Switch",           type: "Ativo",   rarity: "2★", effect: "Teleporta atrás do alvo", cooldown: "20s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Shadow Step",      type: "Ativo",   rarity: "2★", effect: "Teleporta para alvo + dano 180%", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Trick",            type: "Ativo",   rarity: "2★", effect: "Remove alvo de mob + reduz aggro", cooldown: "20s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Silent Move",      type: "Toggle",  rarity: "2★", effect: "Invisibilidade (move lento), cancela ao atacar", cooldown: "5s", duration: "Toggle", note: "Skill permanece após trocar de classe" },
-      { name: "Evasion",          type: "Passivo", rarity: "1★", effect: "+12% EVA", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Critical Power",   type: "Passivo", rarity: "2★", effect: "+20% Crit Power", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Focus",            type: "Passivo", rarity: "1★", effect: "+10% Crit Rate", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Abyss Walker's Harmony", type: "Self-Buff", rarity: "3★", effect: "+35% ATK, +25% Crit, +20% EVA por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
+      { name: "致命打擊",      type: "Ativo",   rarity: "2★", effect: "Dano 280% + crit garantido por trás", cooldown: "14s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "致死打擊",      type: "Ativo",   rarity: "3★", effect: "Dano 350% + 10% chance kill instantâneo (PvE)", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "沙塵炸彈",        type: "Ativo",   rarity: "2★", effect: "Blind AoE 5s", cooldown: "25s", duration: "5s", note: "Skill permanece após trocar de classe" },
+      { name: "致盲打擊",    type: "Ativo",   rarity: "2★", effect: "Dano 240% + blind 4s", cooldown: "18s", duration: "4s", note: "Skill permanece após trocar de classe" },
+      { name: "位置交換",           type: "Ativo",   rarity: "2★", effect: "Teleporta atrás do alvo", cooldown: "20s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "暗影步伐",      type: "Ativo",   rarity: "2★", effect: "Teleporta para alvo + dano 180%", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "詭計",            type: "Ativo",   rarity: "2★", effect: "Remove alvo de mob + reduz aggro", cooldown: "20s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "無聲移動",      type: "Toggle",  rarity: "2★", effect: "Invisibilidade (move lento), cancela ao atacar", cooldown: "5s", duration: "Toggle", note: "Skill permanece após trocar de classe" },
+      { name: "迴避",          type: "Passivo", rarity: "1★", effect: "+12% EVA", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "暴擊威力",   type: "Passivo", rarity: "2★", effect: "+20% Crit Power", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "專注",            type: "Passivo", rarity: "1★", effect: "+10% Crit Rate", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "深淵行者和諧", type: "Self-Buff", rarity: "3★", effect: "+35% ATK, +25% Crit, +20% EVA por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // ─── GHOST HUNTER (3ª classe) ───
   ghostHunter: {
-    name: 'Ghost Hunter', parent: 'abyssWalker', race: 'darkelf', archetype: 'dagger', stage: 3,
-    desc: 'Caçador fantasma — o assassino definitivo das sombras.',
+    name: '幽靈獵人', parent: 'abyssWalker', race: 'darkelf', archetype: 'dagger', stage: 3,
+    desc: '暗影中的至高刺客幽靈獵人。',
     base: { atk: 98, def: 28, hp: 420, mp: 105, eva: 52, crit: 42, mdef: 22 },
     skills: [
-      { name: "Exciting Adventure",       type: "Ativo",    rarity: "3★", effect: "Dano 380% + reset cooldown de Deadly Blow", cooldown: "28s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Wind Riding",              type: "Ativo",    rarity: "3★", effect: "+80% Move Speed + invisibilidade 8s", cooldown: "60s", duration: "8s", note: "Skill permanece após trocar de classe" },
-      { name: "Lucky Strike",             type: "Ativo",    rarity: "3★", effect: "Dano 420% + 20% chance drop extra", cooldown: "30s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Transcendent Deadly Blow",  type: "Ativo",    rarity: "4★", effect: "Dano 620% + ignore DEF + bleed 8s", cooldown: "160s", duration: "8s bleed", note: "Skill permanece após trocar de classe" },
-      { name: "Shadow Sense",             type: "Passivo",  rarity: "3★", effect: "+25% Crit Rate à noite ou em dungeon", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Final Frenzy",             type: "Passivo",  rarity: "3★", effect: "+30% ATK quando HP < 30%", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Ghost Hunter Spirit",      type: "Passivo",  rarity: "3★", effect: "+20% ATK, +20% Crit Power, +15% EVA", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Body of Ghost Hunter",     type: "Passivo",  rarity: "3★", effect: "+15% Max HP, +10% HP Regen", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Master of Combat",         type: "Passivo",  rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Ghost Hunter Harmony",     type: "Self-Buff", rarity: "4★", effect: "+55% ATK, +45% Crit, +35% EVA por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
+      { name: "刺激冒險",       type: "Ativo",    rarity: "3★", effect: "Dano 380% + reset cooldown de Deadly Blow", cooldown: "28s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "御風",              type: "Ativo",    rarity: "3★", effect: "+80% Move Speed + invisibilidade 8s", cooldown: "60s", duration: "8s", note: "Skill permanece após trocar de classe" },
+      { name: "幸運打擊",             type: "Ativo",    rarity: "3★", effect: "Dano 420% + 20% chance drop extra", cooldown: "30s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "超越致命打擊",  type: "Ativo",    rarity: "4★", effect: "Dano 620% + ignore DEF + bleed 8s", cooldown: "160s", duration: "8s bleed", note: "Skill permanece após trocar de classe" },
+      { name: "暗影感知",             type: "Passivo",  rarity: "3★", effect: "+25% Crit Rate à noite ou em dungeon", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "最終狂熱",             type: "Passivo",  rarity: "3★", effect: "+30% ATK quando HP < 30%", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "幽靈獵人之魂",      type: "Passivo",  rarity: "3★", effect: "+20% ATK, +20% Crit Power, +15% EVA", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "幽靈獵人之軀",     type: "Passivo",  rarity: "3★", effect: "+15% Max HP, +10% HP Regen", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "戰鬥大師",         type: "Passivo",  rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "幽靈獵人和諧",     type: "Self-Buff", rarity: "4★", effect: "+55% ATK, +45% Crit, +35% EVA por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // ─── PHANTOM RANGER (2ª classe — Archer) ───
   phantomRanger: {
-    name: 'Phantom Ranger', parent: 'assassinDE', race: 'darkelf', archetype: 'archer', stage: 2,
-    desc: 'Atirador fantasma — flechas envenenadas e precisas.',
+    name: '幽靈遊俠', parent: 'assassinDE', race: 'darkelf', archetype: 'archer', stage: 2,
+    desc: '使用精準毒箭的幽靈遊俠。',
     base: { atk: 58, def: 15, hp: 230, mp: 62, eva: 22, crit: 22, mdef: 10 },
     skills: [
-      { name: "Double Shot",      type: "Ativo",   rarity: "2★", effect: "Dano 220% (2 hits)", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Burst Shot",       type: "Ativo",   rarity: "2★", effect: "Dano 260% + knockback", cooldown: "14s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Stun Shot",        type: "Ativo",   rarity: "2★", effect: "Dano 200% + stun 2s", cooldown: "18s", duration: "2s", note: "Skill permanece após trocar de classe" },
-      { name: "Rapid Fire",       type: "Ativo",   rarity: "2★", effect: "+50% ATK Speed por 15s", cooldown: "45s", duration: "15s", note: "Skill permanece após trocar de classe" },
-      { name: "Arrow Rain",       type: "Ativo",   rarity: "3★", effect: "Dano AoE 300%", cooldown: "22s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Hex Shot",         type: "Ativo",   rarity: "2★", effect: "Dano 220% + curse (reduz DEF 20%)", cooldown: "16s", duration: "8s", note: "Skill permanece após trocar de classe" },
-      { name: "Bow Mastery",      type: "Passivo", rarity: "1★", effect: "+15% ATK com arco", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Long Shot",        type: "Passivo", rarity: "2★", effect: "+30% Range", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Focus",            type: "Passivo", rarity: "1★", effect: "+10% Crit Rate", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Critical Power",   type: "Passivo", rarity: "2★", effect: "+20% Crit Power", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Evasion",          type: "Passivo", rarity: "1★", effect: "+12% EVA", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Phantom Ranger's Harmony", type: "Self-Buff", rarity: "3★", effect: "+35% ATK, +25% Crit, +20% Range por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
+      { name: "雙重射擊",      type: "Ativo",   rarity: "2★", effect: "Dano 220% (2 hits)", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "爆裂射擊",       type: "Ativo",   rarity: "2★", effect: "Dano 260% + knockback", cooldown: "14s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "暈眩射擊",        type: "Ativo",   rarity: "2★", effect: "Dano 200% + stun 2s", cooldown: "18s", duration: "2s", note: "Skill permanece após trocar de classe" },
+      { name: "快速射擊",       type: "Ativo",   rarity: "2★", effect: "+50% ATK Speed por 15s", cooldown: "45s", duration: "15s", note: "Skill permanece após trocar de classe" },
+      { name: "箭雨",       type: "Ativo",   rarity: "3★", effect: "Dano AoE 300%", cooldown: "22s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "詛咒射擊",         type: "Ativo",   rarity: "2★", effect: "Dano 220% + curse (reduz DEF 20%)", cooldown: "16s", duration: "8s", note: "Skill permanece após trocar de classe" },
+      { name: "弓精通",      type: "Passivo", rarity: "1★", effect: "+15% ATK com arco", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "遠距射擊",        type: "Passivo", rarity: "2★", effect: "+30% Range", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "專注",            type: "Passivo", rarity: "1★", effect: "+10% Crit Rate", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "暴擊威力",   type: "Passivo", rarity: "2★", effect: "+20% Crit Power", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "迴避",          type: "Passivo", rarity: "1★", effect: "+12% EVA", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "幽靈遊俠和諧", type: "Self-Buff", rarity: "3★", effect: "+35% ATK, +25% Crit, +20% Range por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // ─── GHOST SENTINEL (3ª classe) ───
   ghostSentinel: {
-    name: 'Ghost Sentinel', parent: 'phantomRanger', race: 'darkelf', archetype: 'archer', stage: 3,
-    desc: 'Sentinela fantasma — atirador de elite com flechas elementais.',
+    name: '幽靈守衛', parent: 'phantomRanger', race: 'darkelf', archetype: 'archer', stage: 3,
+    desc: '使用元素箭矢的菁英射手幽靈守衛。',
     base: { atk: 108, def: 22, hp: 380, mp: 95, eva: 38, crit: 45, mdef: 18 },
     skills: [
-      { name: "Seven Arrow",                   type: "Ativo",   rarity: "3★", effect: "Dano 420% (7 hits)", cooldown: "28s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Dead Eye",                      type: "Self-Buff", rarity: "3★", effect: "+50% ATK, +40% Range por 18 min", cooldown: "55 min", duration: "18 min", note: "Skill permanece após trocar de classe" },
-      { name: "Pinpoint Shot",                 type: "Ativo",   rarity: "3★", effect: "Dano 380% + ignore DEF", cooldown: "22s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Triple Shot",                   type: "Ativo",   rarity: "3★", effect: "Dano 340% (3 hits rápidos)", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Thorn Shot",                    type: "Ativo",   rarity: "2★", effect: "Dano 260% + bleed 6s", cooldown: "12s", duration: "6s bleed", note: "Skill permanece após trocar de classe" },
-      { name: "Binding Shot",                  type: "Ativo",   rarity: "2★", effect: "Dano 220% + root 4s", cooldown: "18s", duration: "4s root", note: "Skill permanece após trocar de classe" },
-      { name: "Wind Shot",                     type: "Ativo",   rarity: "2★", effect: "Dano vento 280% + knockback", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Spiral Shot",                   type: "Ativo",   rarity: "3★", effect: "Dano 400% + penetra múltiplos alvos", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Target Lock",                   type: "Ativo",   rarity: "3★", effect: "Marca alvo: +30% dano contra ele por 10s", cooldown: "35s", duration: "10s", note: "Skill permanece após trocar de classe" },
-      { name: "Transcendent Seven Arrow",      type: "Ativo",   rarity: "4★", effect: "Dano 650% (7 hits) + elemental AoE", cooldown: "160s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Ghost Sentinel Spirit",         type: "Passivo", rarity: "3★", effect: "+20% ATK, +20% Crit Power, +15% Range", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Body of Ghost Sentinel",        type: "Passivo", rarity: "3★", effect: "+15% Max HP, +10% EVA", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Master of Combat",              type: "Passivo", rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Ghost Sentinel Harmony",        type: "Self-Buff", rarity: "4★", effect: "+55% ATK, +45% Crit, +35% Range por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
+      { name: "七連矢",                   type: "Ativo",   rarity: "3★", effect: "Dano 420% (7 hits)", cooldown: "28s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "死亡之眼",                      type: "Self-Buff", rarity: "3★", effect: "+50% ATK, +40% Range por 18 min", cooldown: "55 min", duration: "18 min", note: "Skill permanece após trocar de classe" },
+      { name: "精準射擊",                 type: "Ativo",   rarity: "3★", effect: "Dano 380% + ignore DEF", cooldown: "22s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "三重射擊",                   type: "Ativo",   rarity: "3★", effect: "Dano 340% (3 hits rápidos)", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "荊棘射擊",                    type: "Ativo",   rarity: "2★", effect: "Dano 260% + bleed 6s", cooldown: "12s", duration: "6s bleed", note: "Skill permanece após trocar de classe" },
+      { name: "束縛射擊",                  type: "Ativo",   rarity: "2★", effect: "Dano 220% + root 4s", cooldown: "18s", duration: "4s root", note: "Skill permanece após trocar de classe" },
+      { name: "風之射擊",                     type: "Ativo",   rarity: "2★", effect: "Dano vento 280% + knockback", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "螺旋射擊",                   type: "Ativo",   rarity: "3★", effect: "Dano 400% + penetra múltiplos alvos", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "目標鎖定",                   type: "Ativo",   rarity: "3★", effect: "Marca alvo: +30% dano contra ele por 10s", cooldown: "35s", duration: "10s", note: "Skill permanece após trocar de classe" },
+      { name: "超越七連矢",      type: "Ativo",   rarity: "4★", effect: "Dano 650% (7 hits) + elemental AoE", cooldown: "160s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "幽靈守衛之魂",         type: "Passivo", rarity: "3★", effect: "+20% ATK, +20% Crit Power, +15% Range", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "幽靈守衛之軀",        type: "Passivo", rarity: "3★", effect: "+15% Max HP, +10% EVA", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "戰鬥大師",              type: "Passivo", rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "幽靈守衛和諧",        type: "Self-Buff", rarity: "4★", effect: "+55% ATK, +45% Crit, +35% Range por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
@@ -1283,156 +1283,156 @@ skills: [
   //  DARK ELF MAGE
   // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
   darkElfMage: {
-    name: 'Dark Elf Mage', race: 'darkelf', archetype: 'mage', stage: 0,
-    desc: 'Mago sombrio com magia negra poderosa.',
+    name: '黑暗精靈法師', race: 'darkelf', archetype: 'mage', stage: 0,
+    desc: '擁有強大黑暗魔法的黑暗精靈法師。',
     base: { atk: 5, def: 5, hp: 65, mp: 95, matk: 14, mdef: 8, eva: 4, crit: 4 },
     skills: [
-      { name: "Wind Strike",    type: "Ativo",   rarity: "1★", effect: "Dano vento mágico 150%", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Self Heal",      type: "Ativo",   rarity: "1★", effect: "Recupera 20% HP", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Ice Bolt",       type: "Ativo",   rarity: "1★", effect: "Dano gelo 140% + slow 15% 3s", cooldown: "10s", duration: "3s", note: "Skill permanece após trocar de classe" },
-      { name: "Sleep",          type: "Ativo",   rarity: "1★", effect: "Adormece alvo 8s (cancela ao tomar dano)", cooldown: "25s", duration: "8s", note: "Skill permanece após trocar de classe" },
-      { name: "Robe Mastery",   type: "Passivo", rarity: "1★", effect: "+10% M.ATK com robe", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "MP Increase",    type: "Passivo", rarity: "1★", effect: "+10% Max MP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Dark Mage's Will", type: "Self-Buff", rarity: "1★", effect: "+10% M.ATK e +8% Cast Speed por 15 min", cooldown: "30 min", duration: "15 min", note: "Skill permanece após trocar de classe" }
+      { name: "風之打擊",    type: "Ativo",   rarity: "1★", effect: "Dano vento mágico 150%", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "自我治癒",      type: "Ativo",   rarity: "1★", effect: "Recupera 20% HP", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "冰箭",       type: "Ativo",   rarity: "1★", effect: "Dano gelo 140% + slow 15% 3s", cooldown: "10s", duration: "3s", note: "Skill permanece após trocar de classe" },
+      { name: "睡眠",          type: "Ativo",   rarity: "1★", effect: "Adormece alvo 8s (cancela ao tomar dano)", cooldown: "25s", duration: "8s", note: "Skill permanece após trocar de classe" },
+      { name: "法袍精通",   type: "Passivo", rarity: "1★", effect: "+10% M.ATK com robe", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "MP 提升",    type: "Passivo", rarity: "1★", effect: "+10% Max MP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "黑暗法師意志", type: "Self-Buff", rarity: "1★", effect: "+10% M.ATK e +8% Cast Speed por 15 min", cooldown: "30 min", duration: "15 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // ─── DARK WIZARD (1ª classe) ───
   darkWizard: {
-    name: 'Dark Wizard', parent: 'darkElfMage', race: 'darkelf', archetype: 'mage', stage: 1,
-    desc: 'Mago sombrio com magia elemental e dreno de vida.',
+    name: '黑暗巫師', parent: 'darkElfMage', race: 'darkelf', archetype: 'mage', stage: 1,
+    desc: '擅長元素魔法與生命吸取的黑暗巫師。',
     base: { atk: 6, def: 8, hp: 95, mp: 145, matk: 28, mdef: 16, eva: 5, crit: 4 },
     skills: [
-      { name: "Twister",          type: "Ativo",   rarity: "1★", effect: "Dano vento 190%", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Flame Strike",     type: "Ativo",   rarity: "2★", effect: "Dano fogo 240%", cooldown: "14s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Life Drain",       type: "Ativo",   rarity: "2★", effect: "Dano dark 200% + drain 25% como HP", cooldown: "14s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Boost Mana",       type: "Passivo", rarity: "1★", effect: "+15% Max MP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Dark Wizard's Harmony", type: "Self-Buff", rarity: "2★", effect: "+20% M.ATK, +15% Cast Speed por 20 min", cooldown: "50 min", duration: "20 min", note: "Skill permanece após trocar de classe" }
+      { name: "龍捲",          type: "Ativo",   rarity: "1★", effect: "Dano vento 190%", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "火焰打擊",     type: "Ativo",   rarity: "2★", effect: "Dano fogo 240%", cooldown: "14s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "生命吸取",       type: "Ativo",   rarity: "2★", effect: "Dano dark 200% + drain 25% como HP", cooldown: "14s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "MP 強化",       type: "Passivo", rarity: "1★", effect: "+15% Max MP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "黑暗巫師和諧", type: "Self-Buff", rarity: "2★", effect: "+20% M.ATK, +15% Cast Speed por 20 min", cooldown: "50 min", duration: "20 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // ─── SPELLHOWLER (2ª classe) ───
   spellhowler: {
-    name: 'Spellhowler', parent: 'darkWizard', race: 'darkelf', archetype: 'mage', stage: 2,
-    desc: 'Mago do vento sombrio — devastação elemental com foco em Wind.',
+    name: '狂咒術士', parent: 'darkWizard', race: 'darkelf', archetype: 'mage', stage: 2,
+    desc: '以風元素造成毀滅傷害的黑暗法師。',
     base: { atk: 8, def: 14, hp: 160, mp: 260, matk: 68, mdef: 38, eva: 8, crit: 6 },
     skills: [
-      { name: "Tempest",          type: "Ativo",   rarity: "3★", effect: "Dano vento AoE 320%", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Hurricane",        type: "Ativo",   rarity: "2★", effect: "Dano vento 280%", cooldown: "18s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Arcane Power",     type: "Self-Buff", rarity: "3★", effect: "+30% M.ATK, -15% Cast Time por 60s", cooldown: "120s", duration: "60s", note: "Skill permanece após trocar de classe" },
-      { name: "Cancel",           type: "Ativo",   rarity: "3★", effect: "Remove 3 buffs do alvo", cooldown: "45s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Body to Mind",     type: "Ativo",   rarity: "2★", effect: "Converte 20% HP em MP", cooldown: "30s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Elemental Assault",type: "Passivo", rarity: "2★", effect: "+15% Elemental Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Spellhowler's Harmony", type: "Self-Buff", rarity: "3★", effect: "+35% M.ATK, +25% Cast Speed, +15% Wind Damage por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
+      { name: "元素風暴",          type: "Ativo",   rarity: "3★", effect: "Dano vento AoE 320%", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "颶風",        type: "Ativo",   rarity: "2★", effect: "Dano vento 280%", cooldown: "18s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "奧術之力",     type: "Self-Buff", rarity: "3★", effect: "+30% M.ATK, -15% Cast Time por 60s", cooldown: "120s", duration: "60s", note: "Skill permanece após trocar de classe" },
+      { name: "解除",           type: "Ativo",   rarity: "3★", effect: "Remove 3 buffs do alvo", cooldown: "45s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "身心轉換",     type: "Ativo",   rarity: "2★", effect: "Converte 20% HP em MP", cooldown: "30s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "元素突擊",type: "Passivo", rarity: "2★", effect: "+15% Elemental Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "狂咒術士和諧", type: "Self-Buff", rarity: "3★", effect: "+35% M.ATK, +25% Cast Speed, +15% Wind Damage por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // ─── STORM SCREAMER (3ª classe) ───
   stormScreamer: {
-    name: 'Storm Screamer', parent: 'spellhowler', race: 'darkelf', archetype: 'mage', stage: 3,
-    desc: 'Arauto da tempestade — mago devastador com foco em vento e trovão.',
+    name: '暴風狂嘯者', parent: 'spellhowler', race: 'darkelf', archetype: 'mage', stage: 3,
+    desc: '以風與雷霆造成毀滅傷害的暴風狂嘯者。',
     base: { atk: 12, def: 22, hp: 280, mp: 420, matk: 122, mdef: 62, eva: 12, crit: 8 },
     skills: [
-      { name: "Demon Wind",                  type: "Ativo",   rarity: "3★", effect: "Dano vento 400% + knockback", cooldown: "28s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Elemental Burst",              type: "Ativo",   rarity: "3★", effect: "Dano elemental 380% + explode seed", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Elemental Storm",              type: "Ativo",   rarity: "4★", effect: "Dano AoE 480% + all elements", cooldown: "45s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Seed of Wind",                 type: "Ativo",   rarity: "3★", effect: "Marca alvo: +25% Wind Damage recebido 10s", cooldown: "20s", duration: "10s", note: "Skill permanece após trocar de classe" },
-      { name: "Wind Spiral",                  type: "Ativo",   rarity: "3★", effect: "Dano vento 360% + penetra alvos em linha", cooldown: "22s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Thunder Explosion",            type: "Ativo",   rarity: "4★", effect: "Dano trovão AoE 520% (2 hits) + stun 2s", cooldown: "35s", duration: "2s stun", note: "Skill permanece após trocar de classe" },
-      { name: "Mystic Immunity",              type: "Ativo",   rarity: "4★", effect: "Imunidade a magia 8s", cooldown: "180s", duration: "8s", note: "Skill permanece após trocar de classe" },
-      { name: "Empowering Echo",              type: "Ativo",   rarity: "3★", effect: "+40% M.ATK por 20s após kill", cooldown: "60s", duration: "20s", note: "Skill permanece após trocar de classe" },
-      { name: "Transcendent Thunder Explosion", type: "Ativo", rarity: "4★", effect: "Dano trovão AoE 720% (3 hits) + paralysis 3s", cooldown: "180s", duration: "3s paralysis", note: "Skill permanece após trocar de classe" },
-      { name: "Spell Mastery",                type: "Passivo", rarity: "3★", effect: "+15% M.ATK, +10% Magic Crit Rate", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Magic Focus",                  type: "Passivo", rarity: "3★", effect: "+5% M.Skill Power, +10% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Mastery (Rare)",               type: "Passivo", rarity: "4★", effect: "+10% M.Skill Power, +15% PvE Damage, +15% Max MP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Storm Screamer Spirit",        type: "Passivo", rarity: "3★", effect: "+20% M.ATK, +15% Wind Damage, +10% Cast Speed", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Body of Storm Screamer",       type: "Passivo", rarity: "3★", effect: "+15% Max MP, +10% MP Regen", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Storm Screamer Harmony",       type: "Self-Buff", rarity: "4★", effect: "+55% M.ATK, +40% Cast Speed, +30% Wind Damage por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
+      { name: "惡魔之風",                  type: "Ativo",   rarity: "3★", effect: "Dano vento 400% + knockback", cooldown: "28s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "元素爆發",              type: "Ativo",   rarity: "3★", effect: "Dano elemental 380% + explode seed", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "元素風暴",              type: "Ativo",   rarity: "4★", effect: "Dano AoE 480% + all elements", cooldown: "45s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "風之種子",                 type: "Ativo",   rarity: "3★", effect: "Marca alvo: +25% Wind Damage recebido 10s", cooldown: "20s", duration: "10s", note: "Skill permanece após trocar de classe" },
+      { name: "風之螺旋",                  type: "Ativo",   rarity: "3★", effect: "Dano vento 360% + penetra alvos em linha", cooldown: "22s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "雷霆爆炸",            type: "Ativo",   rarity: "4★", effect: "Dano trovão AoE 520% (2 hits) + stun 2s", cooldown: "35s", duration: "2s stun", note: "Skill permanece após trocar de classe" },
+      { name: "神秘免疫",              type: "Ativo",   rarity: "4★", effect: "Imunidade a magia 8s", cooldown: "180s", duration: "8s", note: "Skill permanece após trocar de classe" },
+      { name: "強化迴響",              type: "Ativo",   rarity: "3★", effect: "+40% M.ATK por 20s após kill", cooldown: "60s", duration: "20s", note: "Skill permanece após trocar de classe" },
+      { name: "超越雷霆爆炸", type: "Ativo", rarity: "4★", effect: "Dano trovão AoE 720% (3 hits) + paralysis 3s", cooldown: "180s", duration: "3s paralysis", note: "Skill permanece após trocar de classe" },
+      { name: "法術精通",                type: "Passivo", rarity: "3★", effect: "+15% M.ATK, +10% Magic Crit Rate", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "魔法專注",                  type: "Passivo", rarity: "3★", effect: "+5% M.Skill Power, +10% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "精通（稀有）",               type: "Passivo", rarity: "4★", effect: "+10% M.Skill Power, +15% PvE Damage, +15% Max MP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "暴風狂嘯者之魂",        type: "Passivo", rarity: "3★", effect: "+20% M.ATK, +15% Wind Damage, +10% Cast Speed", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "暴風狂嘯者之軀",       type: "Passivo", rarity: "3★", effect: "+15% Max MP, +10% MP Regen", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "暴風狂嘯者和諧",       type: "Self-Buff", rarity: "4★", effect: "+55% M.ATK, +40% Cast Speed, +30% Wind Damage por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // ─── PHANTOM SUMMONER (2ª classe) ───
   phantomSummoner: {
-    name: 'Phantom Summoner', parent: 'darkWizard', race: 'darkelf', archetype: 'summoner', stage: 2,
-    desc: 'Invocador sombrio — invoca criaturas das trevas para lutar.',
+    name: '幽靈召喚師', parent: 'darkWizard', race: 'darkelf', archetype: 'summoner', stage: 2,
+    desc: '召喚黑暗生物作戰的幽靈召喚師。',
     base: { atk: 8, def: 16, hp: 180, mp: 240, matk: 58, mdef: 35, eva: 6, crit: 4 },
     skills: [
-      { name: "Summon Nightmare",       type: "Ativo",   rarity: "2★", effect: "Invoca Nightmare (ATK alto, tanque médio)", cooldown: "45s", duration: "Permanente", note: "Skill permanece após trocar de classe" },
-      { name: "Summon Wraith",          type: "Ativo",   rarity: "2★", effect: "Invoca Wraith (ATK médio, drain HP)", cooldown: "45s", duration: "Permanente", note: "Skill permanece após trocar de classe" },
-      { name: "Summon Spectral Lord",   type: "Ativo",   rarity: "3★", effect: "Invoca Spectral Lord (AoE + tanque)", cooldown: "60s", duration: "Permanente", note: "Skill permanece após trocar de classe" },
-      { name: "Servitor Heal",          type: "Ativo",   rarity: "1★", effect: "Cura summon 30% HP", cooldown: "12s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Servitor Recharge",      type: "Ativo",   rarity: "1★", effect: "Restaura MP do summon", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Transfer Pain",          type: "Toggle",  rarity: "2★", effect: "50% dano recebido transferido ao summon", cooldown: "5s", duration: "Toggle", note: "Skill permanece após trocar de classe" },
-      { name: "Summon Binding Cubic",   type: "Ativo",   rarity: "2★", effect: "Cubo que dá root 3s a cada 10s", cooldown: "45s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "Summon Phantom Cubic",   type: "Ativo",   rarity: "2★", effect: "Cubo dark que ataca 150%/8s", cooldown: "45s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "Servitor Physical Attack", type: "Passivo", rarity: "2★", effect: "+20% ATK dos summons", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Phantom Summoner's Harmony", type: "Self-Buff", rarity: "3★", effect: "+35% Summon Power, +20% M.ATK por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
+      { name: "召喚夢魘",       type: "Ativo",   rarity: "2★", effect: "Invoca Nightmare (ATK alto, tanque médio)", cooldown: "45s", duration: "Permanente", note: "Skill permanece após trocar de classe" },
+      { name: "召喚怨靈",          type: "Ativo",   rarity: "2★", effect: "Invoca Wraith (ATK médio, drain HP)", cooldown: "45s", duration: "Permanente", note: "Skill permanece após trocar de classe" },
+      { name: "召喚幽靈領主",   type: "Ativo",   rarity: "3★", effect: "Invoca Spectral Lord (AoE + tanque)", cooldown: "60s", duration: "Permanente", note: "Skill permanece após trocar de classe" },
+      { name: "召喚獸治癒",          type: "Ativo",   rarity: "1★", effect: "Cura summon 30% HP", cooldown: "12s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "召喚獸回復",      type: "Ativo",   rarity: "1★", effect: "Restaura MP do summon", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "痛苦轉移",          type: "Toggle",  rarity: "2★", effect: "50% dano recebido transferido ao summon", cooldown: "5s", duration: "Toggle", note: "Skill permanece após trocar de classe" },
+      { name: "召喚束縛晶體",   type: "Ativo",   rarity: "2★", effect: "Cubo que dá root 3s a cada 10s", cooldown: "45s", duration: "120s", note: "Skill permanece após trocar de classe" },
+      { name: "召喚幻影晶體",   type: "Ativo",   rarity: "2★", effect: "Cubo dark que ataca 150%/8s", cooldown: "45s", duration: "120s", note: "Skill permanece após trocar de classe" },
+      { name: "召喚獸物理攻擊", type: "Passivo", rarity: "2★", effect: "+20% ATK dos summons", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "幽靈召喚師和諧", type: "Self-Buff", rarity: "3★", effect: "+35% Summon Power, +20% M.ATK por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // ─── SPECTRAL MASTER (3ª classe) ───
   spectralMaster: {
-    name: 'Spectral Master', parent: 'phantomSummoner', race: 'darkelf', archetype: 'summoner', stage: 3,
-    desc: 'Mestre espectral — summons supremos das trevas.',
+    name: '幽靈大師', parent: 'phantomSummoner', race: 'darkelf', archetype: 'summoner', stage: 3,
+    desc: '操控至高黑暗召喚獸的幽靈大師。',
     base: { atk: 12, def: 24, hp: 300, mp: 380, matk: 105, mdef: 58, eva: 10, crit: 6 },
     skills: [
-      { name: "Summon Spectral Lord (Enhanced)", type: "Ativo", rarity: "3★", effect: "Spectral Lord aprimorado (+50% ATK/HP)", cooldown: "90s", duration: "Permanente", note: "Skill permanece após trocar de classe" },
-      { name: "Servitor Barrier",            type: "Ativo",    rarity: "3★", effect: "Escudo no summon: absorve 3000 dano", cooldown: "45s", duration: "30s", note: "Skill permanece após trocar de classe" },
-      { name: "Mass Servitor Heal",          type: "Ativo",    rarity: "3★", effect: "Cura todos os summons 40%", cooldown: "18s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Final Servitor",              type: "Ativo",    rarity: "4★", effect: "Summon sacrifica-se: dano AoE 600% + heal dono 50%", cooldown: "180s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Transcendent Summon Burst",   type: "Ativo",    rarity: "4★", effect: "Todos os summons atacam juntos: dano 700% AoE", cooldown: "180s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Spectral Master Spirit",      type: "Passivo",  rarity: "3★", effect: "+25% Summon Power, +15% M.ATK", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Body of the Spectral Master", type: "Passivo",  rarity: "3★", effect: "+15% Max HP/MP, +10% MP Regen", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Master of Combat",            type: "Passivo",  rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Spectral Master Harmony",     type: "Self-Buff", rarity: "4★", effect: "+60% Summon Power, +40% M.ATK por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
+      { name: "召喚強化幽靈領主", type: "Ativo", rarity: "3★", effect: "Spectral Lord aprimorado (+50% ATK/HP)", cooldown: "90s", duration: "Permanente", note: "Skill permanece após trocar de classe" },
+      { name: "召喚獸屏障",            type: "Ativo",    rarity: "3★", effect: "Escudo no summon: absorve 3000 dano", cooldown: "45s", duration: "30s", note: "Skill permanece após trocar de classe" },
+      { name: "群體召喚獸治癒",          type: "Ativo",    rarity: "3★", effect: "Cura todos os summons 40%", cooldown: "18s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "最終召喚獸",              type: "Ativo",    rarity: "4★", effect: "Summon sacrifica-se: dano AoE 600% + heal dono 50%", cooldown: "180s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "超越召喚爆發",   type: "Ativo",    rarity: "4★", effect: "Todos os summons atacam juntos: dano 700% AoE", cooldown: "180s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "幽靈大師之魂",      type: "Passivo",  rarity: "3★", effect: "+25% Summon Power, +15% M.ATK", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "幽靈大師之軀", type: "Passivo",  rarity: "3★", effect: "+15% Max HP/MP, +10% MP Regen", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "戰鬥大師",            type: "Passivo",  rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "幽靈大師和諧",     type: "Self-Buff", rarity: "4★", effect: "+60% Summon Power, +40% M.ATK por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // ─── SHILLIEN ORACLE (1ª classe) ───
   shillienOracle: {
-    name: 'Shillien Oracle', parent: 'darkElfMage', race: 'darkelf', archetype: 'healer', stage: 1,
-    desc: 'Oráculo de Shillien — cura e proteção sombria.',
+    name: '席琳神使', parent: 'darkElfMage', race: 'darkelf', archetype: 'healer', stage: 1,
+    desc: '提供治癒與黑暗守護的席琳神使。',
     base: { atk: 6, def: 12, hp: 110, mp: 130, matk: 22, mdef: 22, eva: 5, crit: 4 },
     skills: [
-      { name: "Heal",            type: "Ativo",   rarity: "1★", effect: "Cura 250% M.ATK", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Battle Heal",     type: "Ativo",   rarity: "1★", effect: "Cura rápida 180% M.ATK", cooldown: "5s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Might",           type: "Party-Buff", rarity: "1★", effect: "+10% ATK para o grupo", cooldown: "20s", duration: "300s", note: "Skill permanece após trocar de classe" },
-      { name: "Shield",          type: "Party-Buff", rarity: "1★", effect: "+10% DEF para o grupo", cooldown: "20s", duration: "300s", note: "Skill permanece após trocar de classe" },
-      { name: "Cure Poison",     type: "Ativo",   rarity: "1★", effect: "Remove poison", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Cure Bleed",      type: "Ativo",   rarity: "1★", effect: "Remove bleed", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Recharge",        type: "Ativo",   rarity: "1★", effect: "Restaura 20% MP do alvo", cooldown: "12s", duration: null, note: "Skill permanece após trocar de classe" }
+      { name: "治癒",            type: "Ativo",   rarity: "1★", effect: "Cura 250% M.ATK", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "戰鬥治癒",     type: "Ativo",   rarity: "1★", effect: "Cura rápida 180% M.ATK", cooldown: "5s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "力量",           type: "Party-Buff", rarity: "1★", effect: "+10% ATK para o grupo", cooldown: "20s", duration: "300s", note: "Skill permanece após trocar de classe" },
+      { name: "盾牌",          type: "Party-Buff", rarity: "1★", effect: "+10% DEF para o grupo", cooldown: "20s", duration: "300s", note: "Skill permanece após trocar de classe" },
+      { name: "解毒",     type: "Ativo",   rarity: "1★", effect: "Remove poison", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "止血",      type: "Ativo",   rarity: "1★", effect: "Remove bleed", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "魔力回復",        type: "Ativo",   rarity: "1★", effect: "Restaura 20% MP do alvo", cooldown: "12s", duration: null, note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // ─── SHILLIEN ELDER (2ª classe) ───
   shillienElder: {
-    name: 'Shillien Elder', parent: 'shillienOracle', race: 'darkelf', archetype: 'healer', stage: 2,
-    desc: 'Anciã de Shillien — cura, buffs e magia dark ofensiva.',
+    name: '席琳長老', parent: 'shillienOracle', race: 'darkelf', archetype: 'healer', stage: 2,
+    desc: '兼具治療、增益與黑暗攻擊魔法的席琳長老。',
     base: { atk: 8, def: 22, hp: 200, mp: 260, matk: 48, mdef: 50, eva: 8, crit: 4 },
     skills: [
-      { name: "Greater Heal",     type: "Ativo",     rarity: "2★", effect: "Cura forte 400% M.ATK", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Greater Group Heal", type: "Ativo",   rarity: "3★", effect: "Cura grupo 300% M.ATK", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Resurrection",     type: "Ativo",     rarity: "3★", effect: "Ressuscita aliado com 30% HP/MP", cooldown: "120s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Purify",           type: "Ativo",     rarity: "2★", effect: "Remove 2 debuffs", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Cleanse",          type: "Ativo",     rarity: "3★", effect: "Remove todos os debuffs", cooldown: "30s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "Empower",          type: "Party-Buff", rarity: "2★", effect: "+20% M.ATK para o grupo", cooldown: "30s", duration: "300s", note: "Skill permanece após trocar de classe" },
-      { name: "Acumen",           type: "Party-Buff", rarity: "2★", effect: "+20% Cast Speed para o grupo", cooldown: "30s", duration: "300s", note: "Skill permanece após trocar de classe" },
-      { name: "Vampiric Rage",    type: "Party-Buff", rarity: "2★", effect: "Drain 8% dano como HP para o grupo", cooldown: "30s", duration: "300s", note: "Skill permanece após trocar de classe" },
-      { name: "Bless Shield",     type: "Party-Buff", rarity: "2★", effect: "+15% Block Rate para o grupo", cooldown: "30s", duration: "300s", note: "Skill permanece após trocar de classe" },
-      { name: "Mental Shield",    type: "Party-Buff", rarity: "2★", effect: "+15% M.DEF para o grupo", cooldown: "30s", duration: "300s", note: "Skill permanece após trocar de classe" },
-      { name: "Stigma of Shillien", type: "Ativo",   rarity: "3★", effect: "Marca alvo: recebe +25% dano por 10s", cooldown: "30s", duration: "10s", note: "Skill permanece após trocar de classe" },
-      { name: "Prophecy of Water", type: "Party-Buff", rarity: "3★", effect: "+15% M.ATK, +10% Cast Speed, +10% M.DEF para o grupo", cooldown: "60s", duration: "600s", note: "Skill permanece após trocar de classe" },
-      { name: "Shillien Elder's Harmony", type: "Self-Buff", rarity: "3★", effect: "+30% Heal Power, +25% M.ATK, +20% M.DEF por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
+      { name: "高級治癒",     type: "Ativo",     rarity: "2★", effect: "Cura forte 400% M.ATK", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "高級群體治癒", type: "Ativo",   rarity: "3★", effect: "Cura grupo 300% M.ATK", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "復活",     type: "Ativo",     rarity: "3★", effect: "Ressuscita aliado com 30% HP/MP", cooldown: "120s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "淨化",           type: "Ativo",     rarity: "2★", effect: "Remove 2 debuffs", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "潔淨",          type: "Ativo",     rarity: "3★", effect: "Remove todos os debuffs", cooldown: "30s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "魔力強化",          type: "Party-Buff", rarity: "2★", effect: "+20% M.ATK para o grupo", cooldown: "30s", duration: "300s", note: "Skill permanece após trocar de classe" },
+      { name: "靈活思緒",           type: "Party-Buff", rarity: "2★", effect: "+20% Cast Speed para o grupo", cooldown: "30s", duration: "300s", note: "Skill permanece após trocar de classe" },
+      { name: "吸血狂怒",    type: "Party-Buff", rarity: "2★", effect: "Drain 8% dano como HP para o grupo", cooldown: "30s", duration: "300s", note: "Skill permanece após trocar de classe" },
+      { name: "祝福之盾",     type: "Party-Buff", rarity: "2★", effect: "+15% Block Rate para o grupo", cooldown: "30s", duration: "300s", note: "Skill permanece após trocar de classe" },
+      { name: "精神之盾",    type: "Party-Buff", rarity: "2★", effect: "+15% M.DEF para o grupo", cooldown: "30s", duration: "300s", note: "Skill permanece após trocar de classe" },
+      { name: "席琳烙印", type: "Ativo",   rarity: "3★", effect: "Marca alvo: recebe +25% dano por 10s", cooldown: "30s", duration: "10s", note: "Skill permanece após trocar de classe" },
+      { name: "水之預言", type: "Party-Buff", rarity: "3★", effect: "+15% M.ATK, +10% Cast Speed, +10% M.DEF para o grupo", cooldown: "60s", duration: "600s", note: "Skill permanece após trocar de classe" },
+      { name: "席琳長老和諧", type: "Self-Buff", rarity: "3★", effect: "+30% Heal Power, +25% M.ATK, +20% M.DEF por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
     ]
   },
 
   // ─── SHILLIEN SAINT (3ª classe) ───
   shillienSaint: {
-    name: 'Shillien Saint', parent: 'shillienElder', race: 'darkelf', archetype: 'healer', stage: 3,
-    desc: 'Santa de Shillien — cura suprema + modo ofensivo Dark Side.',
+    name: '席琳聖者', parent: 'shillienElder', race: 'darkelf', archetype: 'healer', stage: 3,
+    desc: '席琳的至高聖者，兼具最高階治療與黑暗面攻擊模式。',
     base: { atk: 14, def: 38, hp: 340, mp: 420, matk: 88, mdef: 92, eva: 12, crit: 6 },
     skills: [
-      { name: "Sublime Self-Sacrifice",      type: "Ativo",    rarity: "4★", effect: "Sacrifica 90% HP próprio: cura total + remove debuffs de todo o grupo", cooldown: "300s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "崇高自我犧牲",      type: "Ativo",    rarity: "4★", effect: "Sacrifica 90% HP próprio: cura total + remove debuffs de todo o grupo", cooldown: "300s", duration: null, note: "Skill permanece após trocar de classe" },
       { name: "Balance Life",                type: "Ativo",    rarity: "3★", effect: "Equaliza HP do grupo (média)", cooldown: "60s", duration: null, note: "Skill permanece após trocar de classe" },
       { name: "Mass Resurrection",           type: "Ativo",    rarity: "4★", effect: "Ressuscita todos aliados mortos com 40% HP/MP", cooldown: "300s", duration: null, note: "Skill permanece após trocar de classe" },
       { name: "Blessing of Shillien",        type: "Party-Buff", rarity: "3★", effect: "+25% All Stats para o grupo por 10 min", cooldown: "60s", duration: "600s", note: "Skill permanece após trocar de classe" },
