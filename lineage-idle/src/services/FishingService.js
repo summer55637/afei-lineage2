@@ -679,7 +679,7 @@ export const FishingService = {
       callbacks.log(`📦 已交付 **${countToExchange}x ${fish.name}**，獲得 **${packages}x ${fish.materialName}** 作為鍛造材料！`, 'rarity-legendary');
     }
     if (callbacks.floatText) {
-      callbacks.floatText(`+${packages}x ${fish.materialName}!`, 'float-gold');
+      callbacks.floatText(`+${packages}× ${fish.materialName}！`, 'float-gold');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
