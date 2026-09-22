@@ -34,12 +34,12 @@ export const SLOT_PRIORITY_ORDER = Object.freeze([
  * Sorted ascending by level.
  */
 export const UNLOCK_SCHEDULE = Object.freeze([
-  { level: 1,  slots: Object.freeze(['basic', 'core1']),                                                                label: 'Novice' },
-  { level: 10, slots: Object.freeze(['basic', 'core1', 'core2']),                                                       label: 'Apprentice' },
-  { level: 20, slots: Object.freeze(['basic', 'core1', 'core2', 'special1']),                                            label: '1st Class Transfer' },
-  { level: 30, slots: Object.freeze(['basic', 'core1', 'core2', 'special1', 'special2']),                                label: 'Specialist' },
-  { level: 40, slots: Object.freeze(['basic', 'core1', 'core2', 'special1', 'special2', 'signature']),                   label: '2nd Class Transfer' },
-  { level: 76, slots: Object.freeze(['basic', 'core1', 'core2', 'special1', 'special2', 'signature', 'ultimate']),       label: '3rd Class Transfer' }
+  { level: 1,  slots: Object.freeze(['basic', 'core1']),                                                                label: '新手' },
+  { level: 10, slots: Object.freeze(['basic', 'core1', 'core2']),                                                       label: '見習' },
+  { level: 20, slots: Object.freeze(['basic', 'core1', 'core2', 'special1']),                                            label: '第一次轉職' },
+  { level: 30, slots: Object.freeze(['basic', 'core1', 'core2', 'special1', 'special2']),                                label: '專精' },
+  { level: 40, slots: Object.freeze(['basic', 'core1', 'core2', 'special1', 'special2', 'signature']),                   label: '第二次轉職' },
+  { level: 76, slots: Object.freeze(['basic', 'core1', 'core2', 'special1', 'special2', 'signature', 'ultimate']),       label: '第三次轉職' }
 ]);
 
 /**
