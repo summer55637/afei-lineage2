@@ -87,7 +87,7 @@ export const ManorService = {
       callbacks.log(`📦 已向城堡交付 ${usedCrops}x ${prov.seed.cropName}！獲得：**${packages}x ${prov.seed.rewardItemName}**！`, 'rarity-epic');
     }
     if (callbacks.floatText) {
-      callbacks.floatText(`🌾 +${packages}x ${prov.seed.rewardItemName}!`, 'float-epic');
+      callbacks.floatText(`🌾 +${packages}× ${prov.seed.rewardItemName}！`, 'float-epic');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
