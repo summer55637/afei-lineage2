@@ -12,7 +12,7 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: '提升物理攻擊力，但降低最大 HP。'
+    desc: '提升物理攻擊力，但降低最大 生命值。'
   },
   dye_str_dex_g: {
     id: 'dye_str_dex_g',
@@ -40,7 +40,7 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: '提升暴擊率、速度與迴避，但降低最大 HP。'
+    desc: '提升暴擊率、速度與迴避，但降低最大 生命值。'
   },
   dye_dex_str_g: {
     id: 'dye_dex_str_g',
@@ -68,7 +68,7 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: '提升最大 HP 與抗性，但降低物理傷害。'
+    desc: '提升最大 生命值 與抗性，但降低物理傷害。'
   },
   dye_con_dex_g: {
     id: 'dye_con_dex_g',
@@ -82,7 +82,7 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: '提升抗性與最大 HP，但降低速度與迴避。'
+    desc: '提升抗性與最大 生命值，但降低速度與迴避。'
   },
   dye_int_men_g: {
     id: 'dye_int_men_g',
@@ -138,7 +138,7 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: '提升魔法防禦與 MP，但降低魔法傷害。'
+    desc: '提升魔法防禦與 魔力，但降低魔法傷害。'
   },
   dye_men_wit_g: {
     id: 'dye_men_wit_g',
@@ -152,6 +152,6 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: '提升魔法抗性與 MP，但降低施法速度。'
+    desc: '提升魔法抗性與 魔力，但降低施法速度。'
   }
 };
