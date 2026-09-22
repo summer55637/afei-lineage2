@@ -6847,7 +6847,7 @@ export function renderAstralMasteryUI(state) {
           <button
             onclick="window.upgradeAstralNode('${node.id}')"
             ${!canUpgrade ? 'disabled' : ''}
-            title="${!isReborn ? 'Requer realizar a 1ª Reencarnação (Reborn no 等級 75+)' : (!canUpgrade ? 'Cacos Astrais Insuficientes' : 'Melhorar Nó Astral')}"
+            title="${!isReborn ? '需要先完成第 1 次轉生（等級 75+）' : (!canUpgrade ? '星界碎片不足' : '強化星界節點')}"
             style="padding:8px 14px; font-family:'Cinzel',serif; font-weight:bold; font-size:11px; background:${isMax ? 'rgba(52,211,153,0.15)' : (canUpgrade ? 'linear-gradient(180deg,#d4a744,#8a641c)' : 'rgba(60,50,40,0.5)')}; border:1px solid ${isMax ? '#34d399' : (canUpgrade ? '#ffe699' : 'rgba(100,80,60,0.3)')}; color:${isMax ? '#34d399' : (canUpgrade ? '#000' : '#777')}; border-radius:6px; cursor:${canUpgrade ? 'pointer' : 'default'}; min-width:90px;"
           >
             ${!isReborn ? '🔒 需要轉生' : (isMax ? '✓ 最高' : `🌟 升級 (${node.cost})`)}
@@ -6875,7 +6875,7 @@ export function renderAstralMasteryUI(state) {
       <span style="font-size:24px;">🔒</span>
       <div>
         <h4 style="margin:0; font-family:'Cinzel',serif; color:#f87171; font-size:14px;">MAESTRIA ASTRAL BLOQUEADA</h4>
-        <p style="margin:2px 0 0 0; font-size:11px; color:#e2e8f0;">Você precisa alcançar o 等級 75+ e realizar a sua <strong>1ª Reencarnação (Reborn)</strong> para utilizar os Cacos Astrais e despertar os bônus da Constelação!</p>
+        <p style="margin:2px 0 0 0; font-size:11px; color:#e2e8f0;">你必須達到等級 75+ 並完成<strong>第 1 次轉生</strong>，才能使用星界碎片並喚醒星座加成！</p>
       </div>
     </div>
   ` : '';
@@ -6913,7 +6913,7 @@ export function renderAstralMasteryUI(state) {
               🔥 Ritual da Reencarnação Ancestral
             </h4>
             <p style="margin:4px 0 0 0; font-size:11px; color:#aaa; max-width:480px;">
-              Reencarne para reiniciar ao 等級 1. Seus Equipamentos, Baú, Alquimia, Dolls e Pontos Astrais <strong>são preservados</strong>!
+              轉生後會重新回到等級 1；你的裝備、倉庫、煉金、娃娃與星界點數<strong>都會保留</strong>！
             </p>
           </div>
 
@@ -7399,7 +7399,7 @@ export function renderExpeditionsUI(state) {
             onclick="window.buyManorSeed('${sId}', 10)"
             style="padding:6px 12px; font-weight:bold; font-size:11px; background:rgba(212,167,68,0.2); border:1px solid rgba(212,167,68,0.4); color:#ffd877; border-radius:6px; cursor:pointer;"
           >
-            🛒 Comprar 10x Sementes (${(sDef.price * 10).toLocaleString()}g)
+            🛒 購買 10x 種子 (${(sDef.price * 10).toLocaleString()}g)
           </button>
         </div>
 
@@ -7561,7 +7561,7 @@ export function renderForgeSoulCrystals(container, state) {
           <div style="text-align:right;">
             <div style="font-size:10px; color:#94a3b8; font-family:'Cinzel',serif; text-transform:uppercase;">Cristal na Mochila:</div>
             <strong style="color:${crystalStage === 15 ? '#fbbf24' : '#c084fc'}; font-size:14px; font-family:'Cinzel',serif;">
-              ${crystal ? `Estágio ${crystalStage} ${crystalStage === 15 ? '👑 (最高IMO)' : ''}` : '❌ Nenhum Cristal'}
+              ${crystal ? `Estágio ${crystalStage} ${crystalStage === 15 ? '👑 (最高IMO)' : ''}` : '❌ 無水晶'}
             </strong>
           </div>
         </div>
@@ -7613,7 +7613,7 @@ export function renderForgeSoulCrystals(container, state) {
           </div>
           <div style="flex:1; min-width:200px;">
             <div style="display:flex; align-items:center; gap:8px;">
-              <span style="font-size:13px; font-weight:700; color:#ffd877; font-family:'Cinzel',serif;">${wpnDef ? (selectedWpn.name || wpnDef.name) : 'Nenhuma Arma Selecionada'}</span>
+              <span style="font-size:13px; font-weight:700; color:#ffd877; font-family:'Cinzel',serif;">${wpnDef ? (selectedWpn.name || wpnDef.name) : '尚未選擇武器'}</span>
               <span class="l2-stat-pill" style="font-size:10px; color:#fde047;">${gating.label}</span>
               <span style="font-size:10px; color:#94a3b8;">${selectedWpn?.equipSlotLabel || ''}</span>
             </div>
@@ -7623,7 +7623,7 @@ export function renderForgeSoulCrystals(container, state) {
                 : '此武器尚未鑲嵌特殊能力。'}
             </div>
             <div style="font-size:10px; color:#cbd5e1; margin-top:4px;">
-              Requisito de 等級: <strong style="color:${isLvlReady ? '#34d399' : '#f87171'};">Lv. ${gating.minLevel}+</strong> | Taxa de Engaste: <strong style="color:#fde047;">${gating.adenaCost.toLocaleString()} 金幣</strong>
+              等級需求： <strong style="color:${isLvlReady ? '#34d399' : '#f87171'};">Lv. ${gating.minLevel}+</strong> | 鑲嵌費用： <strong style="color:#fde047;">${gating.adenaCost.toLocaleString()} 金幣</strong>
             </div>
           </div>
           ${selectedWpn?.soulCrystal ? `
@@ -7635,7 +7635,7 @@ export function renderForgeSoulCrystals(container, state) {
 
         ${!isLvlReady ? `
           <div style="background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.4); border-radius:6px; padding:8px 12px; margin-bottom:12px; font-size:11px; color:#fca5a5;">
-            🔒 等級 Insuficiente: Seu personagem é 等級 ${playerLvl}. Itens de ${gating.label} requerem 等級 ${gating.minLevel} para receber Special Ability (SA).
+            🔒 等級不足：你的角色目前為等級 ${playerLvl}。${gating.label} 物品需要等級 ${gating.minLevel} 才能賦予特殊能力（SA）。
           </div>
         ` : ''}
 
@@ -7781,19 +7781,19 @@ export function renderForgeMasterwork(container, state) {
       <!-- Unseal Section -->
       <div style="margin-bottom:14px;">
         <h4 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#f5df93; font-size:13px; font-weight:700;">🔒 Deslacrar Equipamentos Selados (Unseal)</h4>
-        ${sealedHtml || '<div style="font-size:11px; color:#64748b; background:rgba(8,11,16,0.85); padding:10px 12px; border-radius:6px; border:1px dashed rgba(255,255,255,0.1);">Nenhum equipamento selado na mochila.</div>'}
+        ${sealedHtml || '<div style="font-size:11px; color:#64748b; background:rgba(8,11,16,0.85); padding:10px 12px; border-radius:6px; border:1px dashed rgba(255,255,255,0.1);">背包中沒有封印裝備。</div>'}
       </div>
 
       <!-- Masterwork Section -->
       <div style="margin-bottom:14px;">
         <h4 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#f5df93; font-size:13px; font-weight:700;">👑 Polimento Masterwork (Peças Foundation)</h4>
-        ${foundationHtml || '<div style="font-size:11px; color:#64748b; background:rgba(8,11,16,0.85); padding:10px 12px; border-radius:6px; border:1px dashed rgba(255,255,255,0.1);">Nenhuma peça Foundation na mochila. Forje itens na aba Criação Geral para obter peças Foundation!</div>'}
+        ${foundationHtml || '<div style="font-size:11px; color:#64748b; background:rgba(8,11,16,0.85); padding:10px 12px; border-radius:6px; border:1px dashed rgba(255,255,255,0.1);">背包中沒有 Foundation 裝備。請在一般製作分頁鍛造物品以取得 Foundation 裝備！</div>'}
       </div>
 
       <!-- Blacksmith Weapon Swap Section -->
       <div>
         <h4 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#f5df93; font-size:13px; font-weight:700;">🔄 Troca de Armas de Mesmo Grau (Blacksmith Swap)</h4>
-        ${swapHtml || '<div style="font-size:11px; color:#64748b; background:rgba(8,11,16,0.85); padding:10px 12px; border-radius:6px; border:1px dashed rgba(255,255,255,0.1);">Nenhuma arma desequipada na mochila disponível para troca.</div>'}
+        ${swapHtml || '<div style="font-size:11px; color:#64748b; background:rgba(8,11,16,0.85); padding:10px 12px; border-radius:6px; border:1px dashed rgba(255,255,255,0.1);">背包中沒有可供交換的未裝備武器。</div>'}
       </div>
     </div>
   `;
@@ -7874,7 +7874,7 @@ export function renderForgeTattoos(container, state) {
       <h4 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#f5df93; font-size:13px; font-weight:700;">✨ Nós Rúnicos do Herói (最大 3)</h4>
       <div style="margin-bottom:14px;">${slotsHtml}</div>
 
-      <h4 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#f5df93; font-size:13px; font-weight:700;">🛍️ Tintas Sagradas de Aden</h4>
+      <h4 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#f5df93; font-size:13px; font-weight:700;">🛍️ 亞丁神聖染料</h4>
       <div style="display:flex; flex-direction:column; gap:6px;">${catalogHtml}</div>
     </div>
   `;
@@ -7903,7 +7903,7 @@ export function renderForgeElemental(container, state) {
     const isAtCap = elem.val >= cap && cap > 0;
     const isOverCap = elem.val > cap && cap > 0; // Regra 17.4
     const elemColor = ELEMENT_DEFINITIONS[elem.element]?.color || '#38bdf8';
-    const elemName = ELEMENT_DEFINITIONS[elem.element]?.name || 'Nenhum';
+    const elemName = ELEMENT_DEFINITIONS[elem.element]?.name || '無';
     const elemIcon = ELEMENT_DEFINITIONS[elem.element]?.icon || '⚪';
 
     let equippedBadge = '';
@@ -7952,7 +7952,7 @@ export function renderForgeElemental(container, state) {
           </div>
         ` : (!isLvlReady ? `
           <div style="font-size:11px; color:#f87171; background:rgba(239,68,68,0.1); padding:6px 10px; border-radius:4px;">
-            🔒 等級 insuficiente! Requer 等級 ${gating.minLevel}+ para imbuir atributos em itens de ${gating.label}.
+            🔒 等級不足！需要等級 ${gating.minLevel}+ 才能為 ${gating.label} 物品賦予屬性。
           </div>
         ` : (isAtCap ? `
           <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(234,179,8,0.12); padding:6px 10px; border-radius:4px;">
@@ -8020,7 +8020,7 @@ export function renderForgeElemental(container, state) {
       <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#f5df93; font-size:13px; font-weight:700;">
         ${isWeaponsTab ? '🗡️ 可用武器' : '🛡️ 可用防具與盾牌'}
       </h4>
-      ${equipsHtml || `<div style="font-size:11px; color:#64748b; background:rgba(8,11,16,0.85); padding:10px 12px; border-radius:6px;">Nenhuma ${isWeaponsTab ? 'arma' : 'armadura ou escudo'} encontrada na mochila ou equipamento.</div>`}
+      ${equipsHtml || `<div style="font-size:11px; color:#64748b; background:rgba(8,11,16,0.85); padding:10px 12px; border-radius:6px;">背包或目前裝備中找不到${isWeaponsTab ? '武器' : '防具或盾牌'}。</div>`}
     </div>
   `;
 }
@@ -8116,7 +8116,7 @@ export function renderForgeSynthesis(container, state) {
             }
             renderForgeSynthesis(document.getElementById('craft-recipes-container') || document.getElementById('craft-list'), window.state);
           "
-          title="${def?.name || itemEntry.name || itemEntry.itemId} (Clique para selecionar)"
+          title="${def?.name || itemEntry.name || itemEntry.itemId} （點擊選擇）"
         >
           <div class="equip-icon" style="font-size:22px;">${getItemIcon(def || itemEntry)}</div>
           ${itemEntry.count && itemEntry.count > 1 ? `<span class="l2comp-mat-count">${itemEntry.count}</span>` : ''}
@@ -8136,7 +8136,7 @@ export function renderForgeSynthesis(container, state) {
           <div class="l2comp-header-title">Compounding</div>
           <div class="l2comp-header-controls">
             <button class="l2comp-icon-btn" title="Ajuda sobre Síntese">?</button>
-            <button class="l2comp-icon-btn close" onclick="_forgeViewMode='dialogue'; window.updateCraftUI && window.updateCraftUI(window.state);" title="Fechar Síntese">✕</button>
+            <button class="l2comp-icon-btn close" onclick="_forgeViewMode='dialogue'; window.updateCraftUI && window.updateCraftUI(window.state);" title="關閉合成">✕</button>
           </div>
         </div>
 
@@ -8153,7 +8153,7 @@ export function renderForgeSynthesis(container, state) {
             <!-- Slot 1: Base Target Item -->
             <div class="l2comp-slot-wrap">
               <div class="l2comp-slot-pointer">▼</div>
-              <div class="l2comp-anvil-slot ${!selectedTargetItem ? 'empty' : ''}" id="comp-slot-base" title="${targetDef?.name || 'Selecione o Item Base na grade de materiais'}">
+              <div class="l2comp-anvil-slot ${!selectedTargetItem ? 'empty' : ''}" id="comp-slot-base" title="${targetDef?.name || '請從材料欄選擇基底物品'}">
                 ${selectedTargetItem ? `<div class="equip-icon" style="font-size:28px;">${getItemIcon(targetDef || selectedTargetItem)}</div>` : ''}
               </div>
             </div>
@@ -8293,7 +8293,7 @@ export function renderForgeLifestones(container, state) {
       <div class="l2comp-panel">
         <div class="l2comp-header">
           <div class="l2comp-header-title">Enhance Artifact / Equipment</div>
-          <button class="l2comp-icon-btn close" onclick="_forgeViewMode='dialogue'; window.updateCraftUI && window.updateCraftUI(window.state);" title="Fechar Aprimoramento">✕</button>
+          <button class="l2comp-icon-btn close" onclick="_forgeViewMode='dialogue'; window.updateCraftUI && window.updateCraftUI(window.state);" title="關閉強化">✕</button>
         </div>
 
         <!-- Palco do Altar com Triquetra Celta em Pedra e Slots Catalisadores -->
@@ -8364,7 +8364,7 @@ export function renderForgeLifestones(container, state) {
                   class="l2comp-btn"
                   style="border-color:#ef4444; color:#fca5a5;"
                   onclick="window.removeAugmentAction('${selectedWeapon.uid}')"
-                  title="Remover Augmentation"
+                  title="移除附魔改造"
                 >
                   Cleanse
                 </button>
@@ -8444,7 +8444,7 @@ export function renderForgeRandomCraft(container, state, callbacks = {}) {
     slotsHtml = `
       <div style="background:rgba(8,11,16,0.85); border:1px dashed rgba(168,85,247,0.3); border-radius:8px; padding:24px; text-align:center; margin:16px 0;">
         <div style="font-size:32px; margin-bottom:8px;">🎲</div>
-        <div style="font-size:14px; font-weight:bold; color:#e9d5ff; margin-bottom:4px; font-family:'Cinzel',serif;">Nenhum Slot Carregado</div>
+        <div style="font-size:14px; font-weight:bold; color:#e9d5ff; margin-bottom:4px; font-family:'Cinzel',serif;">尚未載入任何欄位</div>
         <div style="font-size:11px; color:#94a3b8; max-width:460px; margin:0 auto 14px auto;">
           點擊更新可召喚 5 個新的帝國鍛造遺物！
         </div>
@@ -8501,7 +8501,7 @@ export function renderForgeRandomCraft(container, state, callbacks = {}) {
           class="imp-forge-subtab-btn"
           style="min-width:180px; font-size:11px; padding:8px 12px; background:rgba(30,41,59,0.85); border:1px solid rgba(148,163,184,0.3); color:#cbd5e1;"
         >
-          🔄 Atualizar Slots (50.000 金幣)
+          🔄 更新欄位（50,000 金幣）
         </button>
 
         <button
@@ -8509,7 +8509,7 @@ export function renderForgeRandomCraft(container, state, callbacks = {}) {
           class="imp-forge-subtab-btn"
           style="min-width:180px; font-size:11px; padding:8px 12px; background:rgba(180,83,9,0.25); border:1px solid rgba(245,158,11,0.4); color:#fde047;"
         >
-          🪙 Comprar Carga (+20 Pts - 200k)
+          🪙 購買充能（+20 點－200k）
         </button>
       </div>
     </div>
@@ -8621,7 +8621,7 @@ export function showDropLocatorModal(matId) {
 
       <div style="margin-top:16px; text-align:right;">
         <button onclick="document.getElementById('drop-locator-modal').style.display='none'" style="padding:8px 16px; font-family:'Cinzel',serif; font-weight:bold; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff; border-radius:6px; cursor:pointer;">
-          Fechar Localizador
+          關閉搜尋器
         </button>
       </div>
     </div>
@@ -8690,7 +8690,7 @@ export function renderAutoRecycleModal(container, state, callbacks = {}) {
         <div>
           <h3 style="margin:0; font-size:18px; color:#ffd877;">⚙️ Filtro de Loot AFK &amp; Auto-Recycle</h3>
           <div style="font-size:11px; color:#94a3b8; font-family:sans-serif; margin-top:2px;">
-            Gerencie e recicle automaticamente equipamentos comuns descartáveis durante a caçada AFK.
+            在 AFK 狩獵期間，自動管理並回收可淘汰的一般裝備。
           </div>
         </div>
       </div>
@@ -8702,7 +8702,7 @@ export function renderAutoRecycleModal(container, state, callbacks = {}) {
             ${isEnabled ? '🟢 Auto-Recycle ATIVADO' : '⚪ Auto-Recycle DESATIVADO'}
           </div>
           <div style="font-size:11px; color:#94a3b8; font-family:sans-serif; margin-top:2px;">
-            ${isEnabled ? 'Equipamentos comuns que atendem aos filtros são processados no momento do drop.' : 'Todos os itens dropados irão direto para a sua mochila normalmente.'}
+            ${isEnabled ? '符合篩選條件的一般裝備會在掉落時立即處理。' : '所有掉落物會照常直接進入背包。'}
           </div>
         </div>
         <button id="toggle-auto-recycle-btn" class="inv-batch-btn" style="padding:6px 14px; font-size:12px; font-weight:bold; cursor:pointer; border-radius:6px; background:${isEnabled ? 'linear-gradient(180deg,#ef4444,#991b1b)' : 'linear-gradient(180deg,#22c55e,#15803d)'}; border:1px solid ${isEnabled ? '#fca5a5' : '#86efac'}; color:#fff;">
@@ -8715,7 +8715,7 @@ export function renderAutoRecycleModal(container, state, callbacks = {}) {
         <div style="font-size:13px; font-weight:bold; color:#ffd877; margin-bottom:8px;">轉換模式:</div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
           <button id="ar-mode-sell" style="padding:10px; border-radius:8px; cursor:pointer; font-family:'Cinzel',serif; font-size:12px; font-weight:bold; display:flex; flex-direction:column; align-items:center; gap:4px; ${mode === 'sell' ? 'background:linear-gradient(180deg,#d4a744,#8a641c); border:1px solid #ffe699; color:#000;' : 'background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#cbd5e1;'}">
-            <span>🪙 Auto-Venda (金幣)</span>
+            <span>🪙 自動出售（金幣）</span>
             <span style="font-size:10px; font-family:sans-serif; font-weight:normal; opacity:0.9;">Converte drops em Ouro</span>
           </button>
           <button id="ar-mode-dismantle" style="padding:10px; border-radius:8px; cursor:pointer; font-family:'Cinzel',serif; font-size:12px; font-weight:bold; display:flex; flex-direction:column; align-items:center; gap:4px; ${mode === 'dismantle' ? 'background:linear-gradient(180deg,#a855f7,#6b21a8); border:1px solid #e9d5ff; color:#fff;' : 'background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#cbd5e1;'}">
@@ -8755,9 +8755,9 @@ export function renderAutoRecycleModal(container, state, callbacks = {}) {
       <div style="background:rgba(0,0,0,0.3); border:1px solid rgba(212,167,68,0.2); border-radius:10px; padding:14px; margin-bottom:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div style="font-size:13px; font-weight:bold; color:#ffd877;">最高稀有度：</div>
         <select id="ar-rarity-select" style="background:#090b10; color:#fff; border:1px solid rgba(212,167,68,0.4); border-radius:6px; padding:6px 10px; font-size:12px; font-family:sans-serif; cursor:pointer;">
-          <option value="common" ${maxRarity === 'common' ? 'selected' : ''}>Apenas Comum (Branco)</option>
-          <option value="uncommon" ${maxRarity === 'uncommon' ? 'selected' : ''}>Até Incomum (Verde)</option>
-          <option value="rare" ${maxRarity === 'rare' ? 'selected' : ''}>Até Raro (Azul)</option>
+          <option value="common" ${maxRarity === 'common' ? 'selected' : ''}>僅一般（白色）</option>
+          <option value="uncommon" ${maxRarity === 'uncommon' ? 'selected' : ''}>最高非凡（綠色）</option>
+          <option value="rare" ${maxRarity === 'rare' ? 'selected' : ''}>最高稀有（藍色）</option>
         </select>
       </div>
 
@@ -8767,10 +8767,10 @@ export function renderAutoRecycleModal(container, state, callbacks = {}) {
           🛡️ BLINDAGEM DE RECURSOS ATIVA:
         </div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px 12px; margin-top:6px;">
-          <div>✓ 🧱 <strong>Materiais &amp; Minérios:</strong> 100% Protegidos</div>
+          <div>✓ 🧱 <strong>材料與礦石：</strong> 100% 保護</div>
           <div>✓ 🧪 <strong>Poções &amp; Comidas:</strong> 100% Protegidas</div>
           <div>✓ ⚡ <strong>Soulshots &amp; Shots:</strong> 100% Protegidos</div>
-          <div>✓ 📜 <strong>Pergaminhos &amp; Livros:</strong> 100% Protegidos</div>
+          <div>✓ 📜 <strong>卷軸與書籍：</strong> 100% 保護</div>
           <div>✓ 👑 <strong>Itens de Herança:</strong> 100% Protegidos</div>
           <div>✓ ✨ <strong>Itens com Enchant / SA:</strong> 100% Protegidos</div>
         </div>
@@ -8779,7 +8779,7 @@ export function renderAutoRecycleModal(container, state, callbacks = {}) {
       <!-- Footer Button -->
       <div style="text-align:right;">
         <button id="save-close-auto-recycle-btn" style="padding:10px 22px; font-family:'Cinzel',serif; font-weight:bold; font-size:13px; background:linear-gradient(180deg,#d4a744,#8a641c); border:1px solid #ffe699; color:#000; border-radius:6px; cursor:pointer; box-shadow:0 2px 10px rgba(0,0,0,0.5);">
-          💾 Salvar e Fechar
+          💾 儲存並關閉
         </button>
       </div>
     </div>
@@ -8843,7 +8843,7 @@ export function renderAutoRecycleModal(container, state, callbacks = {}) {
       saveSettings();
       closeAutoRecycleModal();
       if (callbacks.log) {
-        callbacks.log(`⚙️ Filtro AFK salvo: ${st.autoRecycle.enabled ? 'Ativado (' + (st.autoRecycle.mode === 'sell' ? 'Auto-Venda' : 'Desmanche') + ')' : 'Desativado'}`, 'system');
+        callbacks.log(`⚙️ Filtro AFK salvo: ${st.autoRecycle.enabled ? '已啟用（' + (st.autoRecycle.mode === 'sell' ? '自動出售' : '分解') + '）' : '已停用'}`, 'system');
       }
     };
   }
@@ -9008,7 +9008,7 @@ export function renderCashShopModal(container) {
     { id: 'costumes_and_skins', name: '🎨 Trajes & Skins' },
     { id: 'titles_and_effects', name: '🏷️ 稱號與效果' },
     { id: 'utility_and_passes', name: '🧪 Utilitários & Passes' },
-    { id: 'donation_tiers', name: '🪙 Obter Aden Coins' }
+    { id: 'donation_tiers', name: '🪙 取得 Aden Coins' }
   ];
 
   const tabsHtml = tabs.map(t => `
@@ -9112,7 +9112,7 @@ export function renderCashShopModal(container) {
               onclick="window.executeCashShopBuy('utility', '${u.id}')"
               style="width:100%; padding:8px; font-family:'Cinzel',serif; font-weight:bold; font-size:11px; background:linear-gradient(180deg,#0284c7,#0369a1); border:1px solid #38bdf8; border-radius:4px; color:#fff; cursor:pointer;"
             >
-              🧪 COMPRAR (${u.priceAC} AC)
+              🧪 購買（${u.priceAC} AC）
             </button>
           </div>
         `).join('')}
@@ -9429,7 +9429,7 @@ export function uiOpenReferralModal(state, defaultTab) {
             ${s.blocked.length === 0 ? `
               <tr>
                 <td colspan="3" style="text-align: center; padding: 40px 14px; color: #94a3b8; font-size: 11px;">
-                  Nenhum jogador na lista de bloqueio.
+                  封鎖名單中目前沒有玩家。
                 </td>
               </tr>
             ` : s.blocked.map(bName => `
@@ -9535,7 +9535,7 @@ export function uiOpenReferralModal(state, defaultTab) {
         <div style="font-family: 'Cinzel', serif; font-size: 14px; font-weight: bold; color: #f5df93; display: flex; align-items: center; gap: 8px;">
           👥 Contatos, 好友s &amp; Mentoria
         </div>
-        <button id="close-referral-modal-btn" onclick="window.closeContactsModal ? window.closeContactsModal() : window.closeReferralModal()" style="background: none; border: none; color: #94a3b8; font-size: 20px; cursor: pointer; padding: 2px 6px; line-height: 1;" title="Fechar">✕</button>
+        <button id="close-referral-modal-btn" onclick="window.closeContactsModal ? window.closeContactsModal() : window.closeReferralModal()" style="background: none; border: none; color: #94a3b8; font-size: 20px; cursor: pointer; padding: 2px 6px; line-height: 1;" title="關閉">✕</button>
       </div>
 
       <!-- Tabs Bar -->
@@ -10422,7 +10422,7 @@ export function renderClanTab(container, state) {
       subContentHtml = `
         <div style="text-align:center; padding:30px; background:rgba(0,0,0,0.3); border-radius:8px; border:1px dashed rgba(255,255,255,0.1);">
           <div style="font-size:36px; margin-bottom:8px;">🏰</div>
-          <div style="font-family:'Cinzel',serif; font-size:15px; color:#e2e8f0; margin-bottom:6px;">Nenhum Cerco Ativo no Momento</div>
+          <div style="font-family:'Cinzel',serif; font-size:15px; color:#e2e8f0; margin-bottom:6px;">目前沒有進行中的攻城戰</div>
           <div style="font-size:12px; color:#94a3b8; margin-bottom:14px;">Vá até a aba "Castelos &amp; Tributos" e declare guerra a um dos 5 castelos de Aden!</div>
           <button
             onclick="window.setClanSubTab('castles')"
@@ -10794,7 +10794,7 @@ export function openSkillEnchantModal(skillId, skillName = 'Habilidade', state) 
           <strong style="color:#a3e635;">${costData.adenaCost.toLocaleString()} 金幣</strong>
         </div>
         <div style="display:flex; justify-content:space-between;">
-          <span>Requisito de Item:</span>
+          <span>物品需求：</span>
           <strong style="color:#fde047;">1x Giant's Codex</strong>
         </div>
       </div>
@@ -10845,7 +10845,7 @@ export function openAugmentModal(state) {
     modal.innerHTML = `
       <div style="background:#18181b; border:1px solid #ef4444; border-radius:12px; padding:20px; text-align:center; color:#e2e8f0; max-width:380px;">
         <div style="font-size:32px; margin-bottom:8px;">⚠️</div>
-        <div style="font-family:'Cinzel',serif; font-size:15px; margin-bottom:6px;">Nenhuma Arma Equipada</div>
+        <div style="font-family:'Cinzel',serif; font-size:15px; margin-bottom:6px;">目前未裝備武器</div>
         <div style="font-size:11.5px; color:#cbd5e1; margin-bottom:14px;">Equipe uma arma no seu personagem antes de visitar o Ferreiro de Augmentação.</div>
         <button onclick="document.querySelector('#idle-host')?.shadowRoot?.querySelector('#augment-modal')?.remove()" style="padding:6px 14px; background:#27272a; border:1px solid #3f3f46; color:#fff; border-radius:6px; cursor:pointer;">Fechar</button>
       </div>
@@ -10875,7 +10875,7 @@ export function openAugmentModal(state) {
             ${currentAug.itemSkill ? `<div style="color:#fde047; font-weight:bold; margin-top:2px;">技能： ${currentAug.itemSkill.name}</div>` : ''}
           </div>
         ` : `
-          <div style="font-size:11.5px; color:#94a3b8; margin-top:4px;">Nenhuma Pedra da Vida infundida nesta arma ainda.</div>
+          <div style="font-size:11.5px; color:#94a3b8; margin-top:4px;">這把武器目前尚未注入生命石。</div>
         `}
       </div>
 
@@ -10934,7 +10934,7 @@ export function renderSevenSignsTab(container, state) {
               🏛️ Seven Signs — Guerra dos Sete Selos
             </h2>
             <div style="font-size:12px; color:#c084fc; margin-top:4px;">
-              Facção Atual: <strong>${ss.faction ? FACTIONS[ss.faction].name : 'Nenhuma (Escolha sua facção)'}</strong> | 古代金幣: <strong style="color:#fef08a;">${(ss.ancientAdena || 0).toLocaleString()} AA</strong>
+              Facção Atual: <strong>${ss.faction ? FACTIONS[ss.faction].name : '無（請選擇陣營）'}</strong> | 古代金幣: <strong style="color:#fef08a;">${(ss.ancientAdena || 0).toLocaleString()} AA</strong>
             </div>
           </div>
           <div style="display:flex; gap:12px; align-items:center;">
@@ -11652,14 +11652,14 @@ export function renderCosmeticsTab(container, state) {
         <div style="background:rgba(15,23,42,0.8); border:1px solid rgba(255,215,0,0.4); padding:6px 12px; border-radius:6px; text-align:right;">
           <div style="font-size:10px; color:#cbd5e1;">AURA ATIVA: <span style="color:#ffd700; font-weight:bold;">${curAura.name}</span></div>
           <div style="font-size:10px; color:#cbd5e1;">MOLDURA: <span style="color:#67e8f9; font-weight:bold;">${curFrame.name}</span></div>
-          <div style="font-size:10px; color:#cbd5e1;">TÍTULO: <span style="color:${curTitle.color || '#ffd700'}; font-weight:bold;">${curTitle.titleText || 'Nenhum'}</span></div>
+          <div style="font-size:10px; color:#cbd5e1;">TÍTULO: <span style="color:${curTitle.color || '#ffd700'}; font-weight:bold;">${curTitle.titleText || '無'}</span></div>
         </div>
       </div>
 
       <!-- Aviso de Regra Canônica Sem Status -->
       <div style="background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.3); border-radius:6px; padding:8px 12px; font-size:11px; color:#93c5fd; display:flex; align-items:center; gap:8px;">
         <span>ℹ️</span>
-        <span><strong>100% Cosmético:</strong> Nenhum item deste guarda-roupa altera status, dano ou sobrevivência de combate.</span>
+        <span><strong>100% 外觀：</strong>此衣櫥中的任何物品都不會改變屬性、傷害或戰鬥生存能力。</span>
       </div>
 
       <!-- Navegação por Categorias -->
@@ -11792,7 +11792,7 @@ export function openEnchantFlowModal(initialTargetUid = null, initialScrollUid =
     if (scrolls.length === 0) {
       html += `
         <div style="font-size:11px; color:#f87171; padding:6px 0;">
-          ❌ Nenhum pergaminho de encantamento encontrado na sua mochila.
+          ❌ 背包中找不到強化卷軸。
         </div>
       `;
     } else {
@@ -11827,7 +11827,7 @@ export function openEnchantFlowModal(initialTargetUid = null, initialScrollUid =
     if (eligibleTargets.length === 0) {
       html += `
         <div style="font-size:11px; color:#94a3b8; padding:6px 0;">
-          Nenhum equipamento compatível com este pergaminho foi encontrado na sua mochila ou corpo.
+          背包或目前裝備中找不到可使用此卷軸的裝備。
         </div>
       `;
     } else {
