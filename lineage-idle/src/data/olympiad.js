@@ -204,7 +204,7 @@ export const OLYMPIAD_SHOP_CATALOG = [
   },
   {
     id: 'blessed_scroll_armor_s',
-    name: '祝福的武器強化卷軸dura',
+    name: '祝福的防具強化卷軸',
     priceTokens: 600,
     icon: 'scrolls/scroll_of_enchant_armor.png',
     desc: '祝福的防具強化卷軸：失敗時安全保護裝備。',
@@ -215,7 +215,7 @@ export const OLYMPIAD_SHOP_CATALOG = [
     name: "100x 英雄戰鬥 CP 藥水",
     priceTokens: 150,
     icon: 'consumables/cp_potion.png',
-    desc: 'Pacote com 100 Poções de Restauração Imediata de Pontos de Combate.',
+    desc: '內含 100 瓶可立即恢復戰鬥點數（CP）的藥水。',
     reward: { itemId: 'hp_potion_xl', count: 100 }
   },
   {
