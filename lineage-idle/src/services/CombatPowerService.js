@@ -77,14 +77,14 @@ export const CombatPowerService = {
    */
   getCombatPowerTier(cp) {
     const val = Number(cp) || 0;
-    if (val >= 250000) return { name: 'Lenda Viva', color: '#ff3366', badge: '👑', tierIndex: 7 };
+    if (val >= 250000) return { name: '活著的傳說', color: '#ff3366', badge: '👑', tierIndex: 7 };
     if (val >= 180000) return { name: '宗師', color: '#a855f7', badge: '💎', tierIndex: 6 };
-    if (val >= 120000) return { name: 'Mestre Arcano', color: '#38bdf8', badge: '🔷', tierIndex: 5 };
-    if (val >= 80000)  return { name: 'Diamante', color: '#22c55e', badge: '💠', tierIndex: 4 };
-    if (val >= 50000)  return { name: 'Platina', color: '#fbbf24', badge: '⭐', tierIndex: 3 };
-    if (val >= 25000)  return { name: 'Ouro', color: '#f59e0b', badge: '🥇', tierIndex: 2 };
-    if (val >= 10000)  return { name: 'Prata', color: '#94a3b8', badge: '🥈', tierIndex: 1 };
-    return { name: 'Bronze', color: '#b45309', badge: '🥉', tierIndex: 0 };
+    if (val >= 120000) return { name: '奧術大師', color: '#38bdf8', badge: '🔷', tierIndex: 5 };
+    if (val >= 80000)  return { name: '鑽石', color: '#22c55e', badge: '💠', tierIndex: 4 };
+    if (val >= 50000)  return { name: '白金', color: '#fbbf24', badge: '⭐', tierIndex: 3 };
+    if (val >= 25000)  return { name: '黃金', color: '#f59e0b', badge: '🥇', tierIndex: 2 };
+    if (val >= 10000)  return { name: '白銀', color: '#94a3b8', badge: '🥈', tierIndex: 1 };
+    return { name: '青銅', color: '#b45309', badge: '🥉', tierIndex: 0 };
   },
 
   /**
@@ -191,31 +191,31 @@ export const CombatPowerService = {
       insights.push({
         type: 'recommendation',
         icon: '✨',
-        title: 'Reforço Imediato Recomendado: Arma Principal',
-        desc: 'Encante sua arma principal até +4 na Forja para obter o bônus seguro de dano e salto de CP.'
+        title: '建議立即強化：主武器',
+        desc: '在鍛造所將主武器安全強化至 +4，可獲得傷害加成並提升戰鬥力。'
       });
     } else if (!state?.subclasses || state.subclasses.length === 0) {
       if ((state?.level || 1) >= 52) {
         insights.push({
           type: 'recommendation',
           icon: '📜',
-          title: 'Oportunidade de Subclasse Desbloqueada',
-          desc: 'Você já atingiu o nível necessário para iniciar sua primeira Subclasse e destravar Certificações permanentes.'
+          title: '已解鎖副職業機會',
+          desc: '你已達到開啟第一個副職業的等級，可進一步解鎖永久認證。'
         });
       } else {
         insights.push({
           type: 'recommendation',
           icon: '💎',
-          title: 'Fortaleça Conjuntos e Joias',
-          desc: 'Equipar conjuntos completos e refinar joias aumentará sua M.Def e imunidade mágica.'
+          title: '強化套裝與飾品',
+          desc: '裝備完整套裝並精煉飾品，可提高 M.Def 與魔法抗性。'
         });
       }
     } else {
       insights.push({
         type: 'recommendation',
         icon: '👑',
-        title: 'Maximização de Maestria Astral e Dolls',
-        desc: 'Sintetize Boss Dolls e aloque Cacos Astrais nas Constelações para multiplicadores percentuais.'
+        title: '最大化星界精通與人偶',
+        desc: '合成首領人偶並將星界碎片投入星座，以獲得百分比倍率加成。'
       });
     }
 
