@@ -192,7 +192,7 @@ export const GUIDES_DATA = {
         tip: '可以嘗試更換副武器：使用盾牌提升防禦，或使用匕首／雙刀追求高速暴擊！'
       },
       {
-        heading: '🛡️ Regras de Compatibilidade & Dicas Táticas',
+        heading: '🛡️ 相容規則與戰術提示',
         text: '• **雙手武器與弓**：弓、雙手劍與長槍對輕型副手有特殊相容規則，可解鎖獨特共鳴。\n• **武器階級**：共鳴不受階級限制（No-Grade～S 級），任何階級武器都能啟動協同效果。\n• **即時切換**：卸下或更換武器時，加成與 CP 會由 StatsEngine 立即重新計算。',
         tip: '帶有靈魂水晶（SA）、元素屬性與附魔改造的武器，其加成都會完整計入目前共鳴！'
       }
@@ -232,8 +232,8 @@ export const GUIDES_DATA = {
         tip: '先累積到 8 層充能，再使用最強技能，可以打出更高爆發傷害！'
       },
       {
-        heading: '👻 Almas Kamael (1-5 Almas)',
-        text: 'Personagens Kamael absorvem almas dos monstros derrotados. Cada alma acumulada concede **+5% de Dano de Skill** adicional.',
+        heading: '👻 闇天使靈魂（1～5）',
+        text: '闇天使角色會吸收被擊敗怪物的靈魂。每累積 1 個靈魂，額外獲得 **+5% 技能傷害**。',
         tip: '卡麥爾靈魂可消耗來啟動特殊技能與變身！'
       }
     ]
@@ -247,7 +247,7 @@ export const GUIDES_DATA = {
     color: '#facc15',
     sections: [
       {
-        heading: '🧪 Consumíveis de Sobrevivência',
+        heading: '🧪 生存消耗品',
         text: '補充 HP 藥水（P、M、G、XL）、MP 藥水與 Soulshots／Spiritshots，避免自動戰鬥因補給不足而中斷。',
         tip: 'XL 藥水可在 Raid 戰鬥中瞬間恢復大量 HP！'
       },
@@ -277,19 +277,19 @@ export const GUIDES_DATA = {
         tip: '你可以融合 2 顆相同等級的靈魂水晶來提升階級。'
       },
       {
-        heading: '✨ Mestre Pushkin MW (Masterwork)',
+        heading: '✨ 普希金大師 MW（名匠）',
         text: '將一般裝備交給 Pushkin 大師，可鍛造成 **Masterwork（MW）** 版本，獲得額外屬性加成與閃耀特效。',
         tip: 'Masterwork 裝備的倍率會高於一般基礎裝備！'
       },
       {
         heading: '🔥 元素屬性（最高 +300）',
         text: '將元素石（火、水、地、風、黑暗、神聖）注入武器與胸甲，對弱點怪物在 PvE 中最多可增加 +70% 傷害。',
-        tip: 'O primeiro engaste concede +20 de Atributo e engastes seguintes concedem +5.'
+        tip: '第一次鑲嵌提供 +20 屬性，之後每次鑲嵌提供 +5。'
       },
       {
-        heading: '🎗️ Síntese de Cintos [S]',
+        heading: '🎗️ 腰帶合成 [S]',
         text: '可花費 500k 金幣，以 70% 成功率合成傳說級 **Blessed Top-Grade Magic Ornament Belt [S]**，提供 **+7.2% PvE 防禦** 與 **+6% 傷害**。',
-        tip: 'O cinto abençoado é uma das melhores peças defensivas do jogo!'
+        tip: '祝福腰帶是遊戲中非常優秀的防禦裝備！'
       },
       {
         heading: '💎 附魔改造／生命石',
@@ -301,13 +301,13 @@ export const GUIDES_DATA = {
 
   alchemy: {
     id: 'alchemy',
-    title: '🧪 Laboratório de Alquimia',
+    title: '🧪 煉金實驗室',
     subtitle: '蒸餾屬性靈藥與魔法試劑。',
     icon: '🧪',
     color: '#10b981',
     sections: [
       {
-        heading: '🍷 Elixires de Status Permanentes',
+        heading: '🍷 永久屬性靈藥',
         text: '組合精華與水晶可製作 STR、DEX、CON、INT、WIT、MEN 靈藥。每使用一瓶，都會永久提升角色的基礎屬性。',
         tip: '每個等級可使用的靈藥數量有限，請優先強化主職業最重要的屬性！'
       }
@@ -317,7 +317,7 @@ export const GUIDES_DATA = {
   astral: {
     id: 'astral',
     title: '✨ 星界精通與星座',
-    subtitle: 'Canalize o poder das estrelas nas Constelações do Dragão e da Fênix.',
+    subtitle: '將星辰力量導入龍與鳳凰星座。',
     icon: '✨',
     color: '#ec4899',
     sections: [
@@ -344,7 +344,7 @@ export const GUIDES_DATA = {
       {
         heading: '🌱 莊園系統（種子與收成）',
         text: '購買莊園種子，在狩獵區播種並於擊敗怪物後收成，再到城鎮兌換稀有製作材料。',
-        tip: 'O Manor é uma das formas mais baratas de conseguir minérios e tecidos raros!'
+        tip: '莊園是取得稀有礦石與布料最省成本的方式之一！'
       },
       {
         heading: '👑 城堡（古魯丁、奇岩、亞丁）',
@@ -416,18 +416,18 @@ export const GUIDES_DATA = {
 
   tower: {
     id: 'tower',
-    title: '🏰 Torre da Insolência (Tower of Insolence)',
+    title: '🏰 傲慢之塔',
     subtitle: '挑戰傲慢之塔 100 層，並每天掃蕩已通關樓層的獎勵。',
     icon: '🏰',
     color: '#c084fc',
     sections: [
       {
-        heading: '🧗 Escalada dos 100 Andares',
+        heading: '🧗 攀登 100 層',
         text: '隨樓層上升，守衛與首領會越來越強。每通過一層都能獲得獨特獎勵，並逐步解鎖每日掃蕩。',
         tip: '如果挑戰失敗，可以先到鍛造系統強化裝備再重新挑戰！'
       },
       {
-        heading: '🧹 Varredura Diária (Sweep)',
+        heading: '🧹 每日掃蕩',
         text: '每天可使用一次「每日掃蕩」，立即領取所有已通關樓層的獎勵！',
         tip: '爬得越高，每天可獲得的金幣與 SP 就越多！'
       }
@@ -468,11 +468,11 @@ export const GUIDES_DATA = {
     sections: [
       {
         heading: '⚔️ 競技場 1v1 決鬥',
-        text: 'Enfrente cópias em tempo real de outros jogadores baseadas em Combat Power (CP) e Ranking. Vencer duelos concede Pontos de Honra e melhora seu posicionamento.',
+        text: '挑戰依戰鬥力（CP）與排名生成的其他玩家即時鏡像。贏得決鬥可獲得榮譽點數並提升排名。',
         tip: '進入競技場前記得調整裝備並開啟自動魂彈！'
       },
       {
-        heading: '🏛️ A Grande Olimpíada (Ciclos Mensais)',
+        heading: '🏛️ 大奧林匹亞（月度週期）',
         text: '只有 Noblesse 與菁英戰士才能參加排名對戰，每場勝利都會增加職業排名積分。',
         tip: '每個週期結束時，各職業第 1 名會成為亞丁英雄，獲得黃金光環、發光稱號與英雄武器！'
       }
