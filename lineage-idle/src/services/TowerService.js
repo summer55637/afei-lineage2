@@ -33,7 +33,7 @@ export function getTowerFloorDef(floorNum) {
     100: '傲慢大天使（最終首領）'
   };
 
-  const name = names[f] || (isBoss ? `第 ${f} 層守護者（首領）` : `傲慢戰士 Lv.${f}`);
+  const name = names[f] || (isBoss ? `第 ${f} 層守護者（首領）` : `傲慢戰士（等級 ${f}）`);
   const reqLvl = Math.min(100, Math.floor(f * 0.95) + 1);
 
   const baseHp = Math.floor(120 * Math.pow(1.12, f - 1) * (isBoss ? 2.5 : 1));
