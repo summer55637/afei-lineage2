@@ -21,7 +21,7 @@ function formatPassiveLabel(statKey, val) {
     staggerDmgPct: `+${val}% Stagger`,
     bossDmgPct: `+${val}% 首領傷害`,
     lifeDrain: `+${val}% Life Drain`,
-    healBoostPct: `+${val}% Cura`,
+    healBoostPct: `+${val}% 治癒`,
     damageReductionPct: `-${val}% 受到傷害`,
     mCrit: `+${val}% M.Crit`
   };
@@ -58,7 +58,7 @@ function renderResonancesCatalogHtml() {
 
         ${passivePills ? `
           <div style="display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 6px; align-items: center;">
-            <span style="font-size: 10px; color: #94a3b8; font-weight: 600; margin-right: 2px;">Passivas:</span>
+            <span style="font-size: 10px; color: #94a3b8; font-weight: 600; margin-right: 2px;">被動：</span>
             ${passivePills}
           </div>
         ` : ''}
@@ -216,13 +216,13 @@ export const GUIDES_DATA = {
 
   skills: {
     id: 'skills',
-    title: '⚡ 技能, Cargas & Almas Kamael',
+    title: '⚡ 技能、充能與闇天使靈魂',
     subtitle: '掌握主動、被動技能、技能充能與戰鬥靈魂。',
     icon: '⚡',
     color: '#38bdf8',
     sections: [
       {
-        heading: '📖 Árvore de 技能',
+        heading: '📖 技能樹',
         text: '消耗技能點數（SP）學習並升級職業的主動與被動技能。被動技能會提供永久加成。',
         tip: '傷害技能使用經典 RPG 的正式物理傷害公式（固定倍率 77/70）。'
       },
@@ -252,7 +252,7 @@ export const GUIDES_DATA = {
         tip: 'XL 藥水可在 Raid 戰鬥中瞬間恢復大量 HP！'
       },
       {
-        heading: '🔮 市場 Místico Rotativo',
+        heading: '🔮 輪替神秘市場',
         text: '神秘市場會定時刷新特殊商品，包括首領飾品與稀有材料。',
         tip: '留意神秘市場的限量庫存，可取得史詩飾品碎片！'
       }
@@ -402,7 +402,7 @@ export const GUIDES_DATA = {
     color: '#fbbf24',
     sections: [
       {
-        heading: '🎯 任務 Diárias & Caçadas',
+        heading: '🎯 每日任務與狩獵',
         text: '每天擊敗指定數量的怪物或首領，可領取補給箱與傳送券。',
         tip: '每日重置前記得領完所有每日獎勵！'
       },
@@ -487,9 +487,9 @@ export const GUIDES_DATA = {
     color: '#3b82f6',
     sections: [
       {
-        heading: '🏰 Níveis de 血盟 & 技能 Passivas',
+        heading: '🏰 血盟等級與被動技能',
         text: '隨著成員捐獻金幣與 SP，血盟會從 Lv.1 提升至 Lv.5，為所有成員解鎖技能：\n• **Lv.1 Clan Imperium**：+10% 最大 HP\n• **Lv.2 Clan Might**：+8% P.Atk\n• **Lv.3 Clan Shield**：+10% P.Def\n• **Lv.4 Clan Empower**：+10% M.Atk、+12% M.Def\n• **Lv.5 Clan Vitality**：+20% MP 恢復、+5 速度',
-        tip: 'Participar de um 血盟 ativo é um dos maiores saltos de poder para o seu Combat Power (CP)!'
+        tip: '加入活躍血盟，是大幅提升戰鬥力（CP）的重要方式之一！'
       },
       {
         heading: '💎 每日捐獻與聲望',
@@ -642,7 +642,7 @@ export function openTabGuideModal(guideKey) {
           const g = GUIDES_DATA[k];
           if (!g) return '';
           const isSel = (k === (data.id || guideKey));
-          const shortTitle = (k === 'resonance') ? 'Ressonâncias' : g.title.split('&')[0].split('(')[0].replace(/[^\w\sÀ-ú]/g, '').trim();
+          const shortTitle = (k === 'resonance') ? '共鳴' : g.title.split('&')[0].split('(')[0].replace(/[^\w\sÀ-ú]/g, '').trim();
           return `
             <button onclick="window.openTabGuideModal('${k}')" style="padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; border-radius: 12px; white-space: nowrap; cursor: pointer; transition: all 0.2s; border: 1px solid ${isSel ? (g.color || '#d4a744') : 'rgba(255,255,255,0.15)'}; background: ${isSel ? 'rgba(212, 167, 68, 0.25)' : 'rgba(20,24,36,0.6)'}; color: ${isSel ? (g.color || '#f4d58a') : '#aaa'};">
               ${g.icon} ${shortTitle}
