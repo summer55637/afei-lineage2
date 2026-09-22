@@ -64,22 +64,22 @@ export function calculatePhysicalSkillDamage({ pAtkSkill = 1000, pAtkChar = 500,
 
 export const ASTRAL_NODES = {
   // Constelação do Dragão (Combate)
-  dragon_1: { id: 'dragon_1', const: 'dragon', name: 'Fúria Titânica', icon: '⚔️', desc: '+3% Atk Físico por nível', max: 10, cost: 1, stat: 'patkMult', val: 0.03 },
-  dragon_2: { id: 'dragon_2', const: 'dragon', name: 'Chama Arcana', icon: '🔮', desc: '+3% Atk Mágico por nível', max: 10, cost: 1, stat: 'matkMult', val: 0.03 },
-  dragon_3: { id: 'dragon_3', const: 'dragon', name: 'Golpe Mortal', icon: '🎯', desc: '+2% Chance Crítica por nível', max: 5, cost: 2, stat: 'crit', val: 2 },
-  dragon_4: { id: 'dragon_4', const: 'dragon', name: 'Lâmina Suprema', icon: '💥', desc: '+5% Dano Crítico por nível', max: 10, cost: 2, stat: 'critDmg', val: 0.05 },
+  dragon_1: { id: 'dragon_1', const: 'dragon', name: '泰坦之怒', icon: '⚔️', desc: '每級物理攻擊 +3%', max: 10, cost: 1, stat: 'patkMult', val: 0.03 },
+  dragon_2: { id: 'dragon_2', const: 'dragon', name: '奧術烈焰', icon: '🔮', desc: '每級魔法攻擊 +3%', max: 10, cost: 1, stat: 'matkMult', val: 0.03 },
+  dragon_3: { id: 'dragon_3', const: 'dragon', name: '致命打擊', icon: '🎯', desc: '每級暴擊率 +2%', max: 5, cost: 2, stat: 'crit', val: 2 },
+  dragon_4: { id: 'dragon_4', const: 'dragon', name: '至高之刃', icon: '💥', desc: '每級暴擊傷害 +5%', max: 10, cost: 2, stat: 'critDmg', val: 0.05 },
 
   // Constelação da Fênix (Resistência)
-  phoenix_1: { id: 'phoenix_1', const: 'phoenix', name: 'Sangue da Fênix', icon: '❤️', desc: '+5% HP Máximo por nível', max: 10, cost: 1, stat: 'hpMult', val: 0.05 },
-  phoenix_2: { id: 'phoenix_2', const: 'phoenix', name: 'Mente Iluminada', icon: '🔵', desc: '+5% MP Máximo por nível', max: 10, cost: 1, stat: 'mpMult', val: 0.05 },
-  phoenix_3: { id: 'phoenix_3', const: 'phoenix', name: 'Éter Sagrado', icon: '🌿', desc: '+10% Regeneração de Mana por nível', max: 10, cost: 1, stat: 'mpRegen', val: 0.10 },
-  phoenix_4: { id: 'phoenix_4', const: 'phoenix', name: 'Escudo Divino', icon: '🛡️', desc: '+3% P.Def e M.Def por nível', max: 10, cost: 2, stat: 'defMult', val: 0.03 },
+  phoenix_1: { id: 'phoenix_1', const: 'phoenix', name: '鳳凰之血', icon: '❤️', desc: '每級最大 HP +5%', max: 10, cost: 1, stat: 'hpMult', val: 0.05 },
+  phoenix_2: { id: 'phoenix_2', const: 'phoenix', name: '啟明之心', icon: '🔵', desc: '每級最大 MP +5%', max: 10, cost: 1, stat: 'mpMult', val: 0.05 },
+  phoenix_3: { id: 'phoenix_3', const: 'phoenix', name: '神聖以太', icon: '🌿', desc: '每級 MP 恢復 +10%', max: 10, cost: 1, stat: 'mpRegen', val: 0.10 },
+  phoenix_4: { id: 'phoenix_4', const: 'phoenix', name: '神聖護盾', icon: '🛡️', desc: '每級物理防禦與魔法防禦 +3%', max: 10, cost: 2, stat: 'defMult', val: 0.03 },
 
   // Constelação de Midas (Economia)
-  midas_1: { id: 'midas_1', const: 'midas', name: 'Toque de Midas', icon: '🪙', desc: '+5% Ouro Ganho por nível', max: 10, cost: 1, stat: 'goldBoost', val: 0.05 },
-  midas_2: { id: 'midas_2', const: 'midas', name: 'Sorte dos Deuses', icon: '🍀', desc: '+3% Taxa de Drop por nível', max: 10, cost: 1, stat: 'luckBoost', val: 0.03 },
-  midas_3: { id: 'midas_3', const: 'midas', name: 'Sabedoria Ancestral', icon: '📚', desc: '+5% XP Bônus por nível', max: 10, cost: 1, stat: 'xpBoost', val: 0.05 },
-  midas_4: { id: 'midas_4', const: 'midas', name: 'Aceleração Temporal', icon: '⚡', desc: '+2% Velocidade de Ataque por nível', max: 10, cost: 2, stat: 'speed', val: 2 },
+  midas_1: { id: 'midas_1', const: 'midas', name: '米達斯之觸', icon: '🪙', desc: '每級金幣收益 +5%', max: 10, cost: 1, stat: 'goldBoost', val: 0.05 },
+  midas_2: { id: 'midas_2', const: 'midas', name: '眾神之幸', icon: '🍀', desc: '每級掉落率 +3%', max: 10, cost: 1, stat: 'luckBoost', val: 0.03 },
+  midas_3: { id: 'midas_3', const: 'midas', name: '遠古智慧', icon: '📚', desc: '每級經驗值加成 +5%', max: 10, cost: 1, stat: 'xpBoost', val: 0.05 },
+  midas_4: { id: 'midas_4', const: 'midas', name: '時間加速', icon: '⚡', desc: '每級攻擊速度 +2%', max: 10, cost: 2, stat: 'speed', val: 2 },
 };
 
 export function getAstralMasteryBonuses(state) {
