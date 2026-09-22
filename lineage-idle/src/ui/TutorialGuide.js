@@ -436,25 +436,25 @@ export const GUIDES_DATA = {
 
   raids: {
     id: 'raids',
-    title: '🏰 Masmorras Diárias & Epic Raid Bosses',
-    subtitle: 'Enfrente os maiores terrores de Aden em batalhas com mecânicas de Break e drops lendários.',
+    title: '🏰 每日地城與史詩 Raid Boss',
+    subtitle: '挑戰亞丁最強大的敵人，利用 Break 機制取得傳說掉落。',
     icon: '🏰',
     color: '#ef4444',
     sections: [
       {
         heading: '👹 Chefes Épicos Clássicos (Queen Ant, Baium, Valakas...)',
         text: 'Desafie chefes lendários como Queen Ant, Core, Orfen, Zaken, Baium, Antharas e Valakas. Cada chefe possui atributos elementais e resistências próprias.',
-        tip: 'Bosses concedem Joias Épicas, Pergaminhos Abençoados, Life Stones e SP massivo!'
+        tip: '首領會掉落史詩飾品、祝福卷軸、生命石與大量 SP！'
       },
       {
         heading: '⚡ Mecânica de Postura & Janela de BREAK',
-        text: 'Ataques contínuos e habilidades com atributos elementais reduzem a postura do Boss. Ao esvaziar a barra de postura, o Boss entra em **BREAK**: fica atordoado por 4 segundos e recebe **+50% de dano amplificado**!',
-        tip: 'Guarde suas habilidades mais destrutivas e Soulshots para descarregar durante o BREAK!'
+        text: '持續攻擊與元素技能會削減首領姿態值。姿態條歸零時，首領進入 **BREAK**：暈眩 4 秒，並承受 **+50% 額外傷害**！',
+        tip: '把最強技能與 Soulshots 留到 BREAK 期間一次爆發！'
       },
       {
-        heading: '🎫 Ingressos Diários de Raid',
-        text: 'Você recebe 3 Ingressos Diários de Raid a cada reset diário. Ingressos extras podem ser obtidos na Jornada dos Pioneiros, 任務 Diárias ou no Passe de Batalha.',
-        tip: 'Mantenha os ingressos sempre em uso para maximizar seus fragmentos de Joias de Boss!'
+        heading: '🎫 每日 Raid 入場券',
+        text: '每日重置會獲得 3 張 Raid 入場券；額外入場券可從先鋒之旅、每日任務或戰鬥通行證取得。',
+        tip: '盡量持續使用入場券，以最大化首領飾品碎片收益！'
       }
     ]
   },
@@ -462,7 +462,7 @@ export const GUIDES_DATA = {
   colosseum: {
     id: 'colosseum',
     title: '👑 Coliseu, Duelos & Grande Olimpíada',
-    subtitle: 'Prove seu valor contra outros aventureiros e busque o título de Herói Nobre de Aden.',
+    subtitle: '與其他冒險者較量，爭取亞丁貴族英雄稱號。',
     icon: '👑',
     color: '#f59e0b',
     sections: [
@@ -473,28 +473,28 @@ export const GUIDES_DATA = {
       },
       {
         heading: '🏛️ A Grande Olimpíada (Ciclos Mensais)',
-        text: 'Disputas ranqueadas exclusivas para Noblesses e Guerreiros de elite. Cada vitória soma pontos ao seu Rank de Classe.',
-        tip: 'No final de cada ciclo, o 1º colocado de cada classe torna-se o HERÓI DE ADEN, recebendo Aura Dourada, Título Luminoso e Armas Heroicas!'
+        text: '只有 Noblesse 與菁英戰士才能參加排名對戰，每場勝利都會增加職業排名積分。',
+        tip: '每個週期結束時，各職業第 1 名會成為亞丁英雄，獲得黃金光環、發光稱號與英雄武器！'
       }
     ]
   },
 
   clan: {
     id: 'clan',
-    title: '🛡️ 血盟s, Alianças & 技能 de 血盟',
-    subtitle: 'Junte-se a uma irmandade para dominar Aden e desbloquear bônus passivos de equipe.',
+    title: '🛡️ 血盟、聯盟與血盟技能',
+    subtitle: '加入血盟共同稱霸亞丁，並解鎖團隊被動加成。',
     icon: '🛡️',
     color: '#3b82f6',
     sections: [
       {
         heading: '🏰 Níveis de 血盟 & 技能 Passivas',
-        text: 'Conforme os membros doam Adena e SP, o nível do 血盟 sobe (Nv. 1 ao Nv. 5), desbloqueando habilidades para TODOS os membros:\n• **Nv. 1 Clan Imperium**: +10% Max HP\n• **Nv. 2 Clan Might**: +8% P.Atk\n• **Nv. 3 Clan Shield**: +10% P.Def\n• **Nv. 4 Clan Empower**: +10% M.Atk e +12% M.Def\n• **Nv. 5 Clan Vitality**: +20% Regen MP e +5 Velocidade',
+        text: '隨著成員捐獻金幣與 SP，血盟會從 Lv.1 提升至 Lv.5，為所有成員解鎖技能：\n• **Lv.1 Clan Imperium**：+10% 最大 HP\n• **Lv.2 Clan Might**：+8% P.Atk\n• **Lv.3 Clan Shield**：+10% P.Def\n• **Lv.4 Clan Empower**：+10% M.Atk、+12% M.Def\n• **Lv.5 Clan Vitality**：+20% MP 恢復、+5 速度',
         tip: 'Participar de um 血盟 ativo é um dos maiores saltos de poder para o seu Combat Power (CP)!'
       },
       {
-        heading: '💎 Doações Diárias & Reputação',
-        text: 'Faça doações de Adena ou SP para o cofre do clã todos os dias para acumular Pontos de Reputação. A reputação é necessária para manter bônus e evoluir o clã.',
-        tip: 'Doar também completa passos da Jornada dos Pioneiros e do Passe de Batalha!'
+        heading: '💎 每日捐獻與聲望',
+        text: '每天向血盟倉庫捐獻金幣或 SP 可累積聲望點數；聲望是維持加成與提升血盟的重要資源。',
+        tip: '捐獻也能完成先鋒之旅與戰鬥通行證的相關目標！'
       }
     ]
   },
@@ -508,17 +508,17 @@ export const GUIDES_DATA = {
     sections: [
       {
         heading: '👥 聯絡人與好友清單',
-        text: 'O menu de Contatos permite gerenciar sua rede social completa dentro do Aden Arena:\n• **Adicionar Amigos (+ Adicionar):** Registre até 128 amigos pelo nome de personagem para acompanhar seu nível, classe e status (Online/Offline).\n• **Comunicação Direta:** Envie **Sussurros instantâneos (💬 Msg)** ou envie cartas via **Correio Expresso (✉️ Mail)**.\n• **Ações Rápidas de Grupo e 血盟:** Convide facilmente seus companheiros para seu **Grupo (Party)** de caça ou para o seu **血盟**.\n• **Lista de Bloqueados:** Bloqueie até 64 jogadores indesejados para manter seu foco e tranquilidade nas batalhas.',
+        text: '聯絡人選單可管理完整社交網路：\n• **新增好友（+ 新增）：** 最多登錄 128 位好友，可查看等級、職業與在線／離線狀態。\n• **直接通訊：** 傳送即時密語（💬 訊息）或使用郵件（✉️ Mail）寄信。\n• **隊伍與血盟快捷操作：** 快速邀請好友加入狩獵隊伍或血盟。\n• **封鎖名單：** 最多封鎖 64 位玩家。',
         tip: '你可以隨時點擊上方的「👥 聯絡人」按鈕，或從「榮耀與社交」分頁開啟此功能。'
       },
       {
         heading: '🎓 導師系統（等級 20 以下新手）',
-        text: 'A mentoria fortalece os laços entre guerreiros veteranos e novatos:\n• **Sou Novato (Até Nv. 20):** Vincule um mentor experiente para receber imediatamente **+10% EXP permanente**, **1.000 Soulshots/Spiritshots No-Grade** e **10 Poções de Vida**!\n• **Marco de Evolução (Nível 40):** Ao atingir a 2ª Troca de Classe (Nv. 40), o Pupilo e o Mentor são recompensados com **50 Aden Coins (AC)** + **5x Pergaminhos Abençoados de Arma (Blessed Scrolls)**!\n• **Vínculo Rápido:** Selecione qualquer amigo na sua lista e clique em **"🎓 Tornar Mentor"** para vinculá-lo instantaneamente.',
+        text: '導師系統能連結資深玩家與新手：\n• **我是新手（Lv.20 以下）：** 綁定資深導師後立即獲得 **永久 +10% EXP**、**1,000 Soulshots／Spiritshots No-Grade** 與 **10 瓶生命藥水**。\n• **成長里程碑（Lv.40）：** 完成二轉後，學員與導師都會獲得 **50 Aden Coins（AC）** 與 **5 張祝福武器卷軸**。\n• **快速綁定：** 從好友清單選人並點擊 **「🎓 設為導師」** 即可。',
         tip: '導師綁定必須在等級 20 前完成，善用這項加成可以更快度過前期。'
       },
       {
         heading: '🎁 專屬連結、WhatsApp 與 Discord 社群',
-        text: 'Traga amigos para jogar no navegador e ganhem recompensas juntos:\n• **Link Exclusivo:** Copie seu link pessoal (`?ref=SeuNome`) ou use o botão de **Compartilhar no WhatsApp** com 1 clique.\n• **Resgate de Recompensas:** Use o botão **"Verificar & Resgatar Recompensas"** para coletar os prêmios conforme seus pupilos alcançam o Nível 40.\n• **Discord Oficial:** Junte-se à comunidade oficial para negociar itens, participar de eventos e tirar dúvidas!\n\n🔗 Link Oficial: **https://discord.gg/R7rwB5uCc**',
+        text: '邀請好友直接用瀏覽器加入遊戲，一起取得獎勵：\n• **專屬連結：** 複製個人推薦連結（`?ref=你的名稱`），或一鍵分享到 WhatsApp。\n• **領取獎勵：** 當學員達到 Lv.40 時，使用 **「檢查並領取獎勵」** 取得獎品。\n• **官方 Discord：** 加入社群交易物品、參加活動與交流問題。\n\n🔗 官方連結：**https://discord.gg/R7rwB5uCc**',
         tip: '記得留意 Discord 公告頻道，可能會有可兌換專屬加成的禮物序號！'
       }
     ]
