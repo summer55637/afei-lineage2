@@ -498,7 +498,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
       lvl: lvl,
       stat: statKey,
       val: passiveVal,
-      desc: `Herança de Linhagem (${def.name} Lv.${lvl}): +${(passiveVal * 100).toFixed(1)}% ${statLabel}`
+      desc: `血統傳承（${def.name} Lv.${lvl}）：+${(passiveVal * 100).toFixed(1)}% ${statLabel}`
     };
     convertedBuffsCount++;
   }
@@ -521,11 +521,11 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
   state.sp = (state.sp || 0) + totalRefunded + transferSpBonus;
 
   if (convertedBuffsCount > 0) {
-    if (callbacks.log) callbacks.log(`🧬 ${convertedBuffsCount} Habilidade(s) foram consagradas como **Passivas de Linhagem Permanentes (20% Eficácia)**!`, 'rarity-epic');
+    if (callbacks.log) callbacks.log(`🧬 ${convertedBuffsCount} 個技能已轉化為**永久血統被動技能（20% 效果）**！`, 'rarity-epic');
   }
 
   if (callbacks.log) {
-    callbacks.log(`🎉 PARABÉNS! Você concluiu a Cerimônia e agora é um **${newClassDef.name}**!`, 'rarity-legendary');
+    callbacks.log(`🎉 恭喜！你已完成轉職儀式，現在成為 **${newClassDef.name}**！`, 'rarity-legendary');
     if (totalRefunded > 0) {
       callbacks.log(`🔄 ${totalRefunded.toLocaleString()} SP investidos foram 100% reembolsados + ${transferSpBonus} SP de presente cerimonial!`, 'rarity-legendary');
     } else {
