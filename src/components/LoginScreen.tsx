@@ -704,7 +704,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
                             required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            placeholder="name@example.com"
+                            placeholder="請輸入電子郵件"
                             className="w-full px-3 py-2 rounded-md login-dark-input text-xs font-mono"
                           />
                         </div>
