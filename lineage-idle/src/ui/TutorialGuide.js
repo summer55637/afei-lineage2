@@ -708,7 +708,7 @@ export function renderPersistentHelpButton(tabKey, resolvedGuideKey) {
   if (topGuideBtn) {
     const guideData = GUIDES_DATA[guideKey];
     topGuideBtn.style.display = 'inline-flex';
-    topGuideBtn.title = `指南: ${guideData?.title || tabKey}`;
+    topGuideBtn.title = `指南：${guideData?.title || tabKey}`;
     topGuideBtn.onclick = (e) => {
       e.preventDefault();
       e.stopPropagation();
