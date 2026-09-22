@@ -29,7 +29,7 @@ export const CASH_SHOP_CATALOG = {
         ],
         consumables: [
           { id: 'soulshot_d', name: '2,000x 職業魂彈（魂彈／魔靈彈）', count: 2000 },
-          { id: 'hp_potion_l', name: '50x 大型 HP 藥水', count: 50 },
+          { id: 'hp_potion_l', name: '50x 大型生命藥水', count: 50 },
           { id: 'scroll_teleport', name: '5x 傳送卷軸', count: 5 }
         ]
       }
@@ -53,7 +53,7 @@ export const CASH_SHOP_CATALOG = {
         ],
         consumables: [
           { id: 'soulshot_d', name: '5,000x 職業魂彈（魂彈／魔靈彈）', count: 5000 },
-          { id: 'hp_potion_xl', name: '100x XL HP 藥水', count: 100 },
+          { id: 'hp_potion_xl', name: '100x XL 生命藥水', count: 100 },
           { id: 'potion_haste', name: '15x 加速藥水', count: 15 },
           { id: 'scroll_teleport', name: '10x 傳送卷軸', count: 10 }
         ]
@@ -66,7 +66,7 @@ export const CASH_SHOP_CATALOG = {
       brlEquivalent: 'R$ 29,90',
       badge: '至尊',
       icon: 'acessories/noble_gold_crown.png',
-      desc: '最高階傳承禮包。內含依職業配置的完整傳承裝備（5 件防具＋武器＋5 件飾品＋皇家披風＋腰帶＋翼冠＋神盾），可啟動至尊加成 +60% XP／金幣，另含黃金龍阿加西翁、15,000 發彈藥、30 天 貴賓通行證與金色［至尊領主］稱號。',
+      desc: '最高階傳承禮包。內含依職業配置的完整傳承裝備（5 件防具＋武器＋5 件飾品＋皇家披風＋腰帶＋翼冠＋神盾），可啟動至尊加成 +60% 經驗值／金幣，另含黃金龍阿加西翁、15,000 發彈藥、30 天 貴賓通行證與金色［至尊領主］稱號。',
       contents: {
         gearTier: '至尊領主全套（12 件以上 Lv.1～40 傳承裝備）',
         isHeirloomSet: true,
@@ -80,7 +80,7 @@ export const CASH_SHOP_CATALOG = {
         ],
         consumables: [
           { id: 'soulshot_c', name: '15,000x C 級魂彈（魂彈／魔靈彈）', count: 15000 },
-          { id: 'hp_potion_xl', name: '200x XL HP 藥水', count: 200 },
+          { id: 'hp_potion_xl', name: '200x XL 生命藥水', count: 200 },
           { id: 'elixir_vigor_1h', name: '20x 活力靈藥（1 小時）', count: 20 },
           { id: 'pass_vip_teleport_30d', name: '貴賓傳送通行證（30 天）', count: 1 }
         ]
