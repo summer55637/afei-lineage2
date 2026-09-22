@@ -440,7 +440,7 @@ export class CashShopService {
           count: 1
         });
       }
-      if (callbacks.log) callbacks.log('🌟 **Passe VIP de Teleporte (30 Dias)** entregue na mochila e ativado! Teleportes gratuitos habilitados.', 'system');
+      if (callbacks.log) callbacks.log('🌟 **VIP 傳送通行證（30 天）** 已放入背包並啟用！已開啟免費傳送。', 'system');
     } else if (utilityId === 'elixir_vigor_bundle_5') {
       const existing = state.inventory.find(i => i.itemId === 'elixir_vigor_1h');
       if (existing) {
