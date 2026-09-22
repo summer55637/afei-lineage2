@@ -701,7 +701,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "assassinS1",
-        "desc": "Assassino com sistema de sombras desbloqueado.",
+        "desc": "解鎖暗影系統的刺客。",
         "skillIds": [
             "forward_move",
             "sharp_blade",
@@ -720,7 +720,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "assassinS2",
-        "desc": "Assassino supremo — sombras letais e execuções instantâneas.",
+        "desc": "至高刺客——以致命暗影進行瞬間處決。",
         "skillIds": [
             "erosion",
             "murder_attempt",
@@ -1100,7 +1100,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "elfElder",
-        "desc": "Santa de Eva, curadora suprema élfica. Skills anteriores permanecem.",
+        "desc": "伊娃的至高聖者，精靈族最高階治癒職業。保留先前學會的技能。",
         "skillIds": [
             "shelter_master",
             "divine_beam",
