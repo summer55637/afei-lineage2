@@ -150,7 +150,7 @@ export function renderMarketTab(container, state, callbacks = {}) {
           </div>
           <div>
             <div class="l2wt-banner-title">世界交易所</div>
-            <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px; font-family: 'Inter', sans-serif;">全球 P2P 交易 · 亞丁真實玩家官方市場</p>
+            <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px; font-family: 'Inter', sans-serif;">全球玩家對玩家交易 · 亞丁真實玩家官方市場</p>
           </div>
         </div>
 
@@ -158,7 +158,7 @@ export function renderMarketTab(container, state, callbacks = {}) {
         <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
           <div style="background: rgba(0,0,0,0.6); border: 1px solid rgba(212,167,68,0.35); border-radius: 6px; padding: 6px 14px; display: flex; gap: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 12px;">
             <span style="color: #ffd877; display: flex; align-items: center; gap: 5px;">🪙 ${playerGold.toLocaleString()}</span>
-            <span style="color: #60a5fa; display: flex; align-items: center; gap: 5px;">👑 ${playerAc.toLocaleString()} AC</span>
+            <span style="color: #60a5fa; display: flex; align-items: center; gap: 5px;">👑 ${playerAc.toLocaleString()} 亞丁幣</span>
           </div>
 
           ${_activeMarketTab === 'buy' ? `
@@ -496,7 +496,7 @@ function renderMySalesTab(state, salesData) {
           </h4>
           <div style="margin-top: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; display: flex; gap: 14px;">
             <span style="color:#ffd877;">🪙 ${pendingAdena.toLocaleString()} 金幣</span>
-            <span style="color:#60a5fa;">👑 ${pendingAc.toLocaleString()} AC</span>
+            <span style="color:#60a5fa;">👑 ${pendingAc.toLocaleString()} 亞丁幣</span>
           </div>
         </div>
         ${hasProfits ? `
@@ -532,7 +532,7 @@ function renderMySalesTab(state, salesData) {
                         ${l.item?.enchant > 0 ? `<span style="color:#60a5fa;">+${l.item.enchant}</span> ` : ''}${l.quantity}x ${l.item?.name}
                       </div>
                       <div style="font-size: 11px; color: ${isAdena ? '#fde047' : '#93c5fd'}; font-family: 'IBM Plex Mono', monospace;">
-                        ${isAdena ? '🪙' : '👑'} ${Number(l.totalPrice).toLocaleString()} ${isAdena ? '金幣' : 'AC'}
+                        ${isAdena ? '🪙' : '👑'} ${Number(l.totalPrice).toLocaleString()} ${isAdena ? '金幣' : '亞丁幣'}
                       </div>
                     </div>
                   </div>
