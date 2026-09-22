@@ -4206,7 +4206,7 @@ function openCertificationModal(subId, milestoneKey) {
   body.innerHTML = `
     <div style="margin-bottom:14px;">
       <h3 style="margin:0; color:#fde047; font-family:'Cinzel',serif; font-size:16px;">📜 ${milestone.title}</h3>
-      <p style="margin:4px 0 0 0; font-size:11px; color:var(--text-muted);">Subclasse: <strong>${subClassDef?.name || sub.classId}</strong> (Arquétipo: <span style="text-transform:uppercase; color:#a855f7;">${archetype}</span>)</p>
+      <p style="margin:4px 0 0 0; font-size:11px; color:var(--text-muted);">副職業：<strong>${subClassDef?.name || sub.classId}</strong>（定位： <span style="text-transform:uppercase; color:#a855f7;">${archetype}</span>）</p>
     </div>
     <div style="display:flex; flex-direction:column; gap:8px; max-height:360px; overflow-y:auto; padding-right:4px;">
       ${optionsHtml}
@@ -7976,7 +7976,7 @@ export const TAB_NAMES_MAP = {
   battle: '戰鬥',
   hero: '英雄',
   character: '角色',
-  inventory: 'Mochila',
+  inventory: '背包',
   skills: 'Skills',
   astral: 'Maestria',
   dolls: 'Dolls & Pets',
@@ -8444,7 +8444,7 @@ export function bindEvents() {
     const autoEquipBtn = el('auto-equip-btn'); if (autoEquipBtn) autoEquipBtn.onclick = () => { if (typeof openAutoEquipPreviewModal === 'function') openAutoEquipPreviewModal(state, { updateAllUI, save, log }); else autoEquipBest(); };
     const organizeInvBtn = el('organize-inv-btn'); if (organizeInvBtn) organizeInvBtn.onclick = () => {
       const res = organizeInventory(state, state.inventorySortCriteria || 'recommended');
-      log(`🧹 Mochila organizada: ${res.freedSlots} espaço(s) liberado(s)!`, 'loot');
+      log(`🧹 背包整理完成：已釋放 ${res.freedSlots} 個欄位！`, 'loot');
       updateAllUI();
       save();
     };
@@ -8948,7 +8948,7 @@ const CASTLES_DEFS = {
 };
 
 const EXPEDITION_DESTINATIONS = {
-  branded: { id: 'branded', name: 'Catacumbas de Branded', duration: 3600000, cost: 5000, minGold: 20000, maxGold: 30000, desc: 'Expedição rápida (1 hora) com saque de ouro e pergaminhos' },
+  branded: { id: 'branded', name: '烙印地下墓穴', duration: 3600000, cost: 5000, minGold: 20000, maxGold: 30000, desc: '快速遠征（1 小時），可取得金幣與卷軸戰利品' },
   martyrs: { id: 'martyrs', name: 'Necrópole dos Martírios', duration: 14400000, cost: 20000, minGold: 100000, maxGold: 150000, desc: 'Expedição média (4 horas) com baús C/B e materiais' },
   dragon_valley: { id: 'dragon_valley', name: 'Vale dos Dragões Abissais', duration: 28800000, cost: 50000, minGold: 300000, maxGold: 400000, desc: 'Expedição longa (8 horas) com baús A/S e Fragmentos Astrais' },
   shilen_temple: { id: 'shilen_temple', name: 'Templo da Deusa Shilen', duration: 43200000, cost: 100000, minGold: 800000, maxGold: 1200000, desc: 'Expedição mítica (12 horas) com Baú Frost Lord e 25 Fragmentos Astrais' }
@@ -9516,7 +9516,7 @@ function renderDailyRewardModal() {
         ${item.name}
       </div>
       <div style="font-size:9px; color:${isClaimed ? '#4ade80' : (isCurrent ? '#f59e0b' : '#6b7280')}; margin-top:2px; font-weight:bold;">
-        ${isClaimed ? '✓ Coletado' : (isCurrent ? '🎁 Resgatar' : '🔒')}
+        ${isClaimed ? '✓ 已領取' : (isCurrent ? '🎁 領取' : '🔒')}
       </div>
     `;
 
@@ -9846,7 +9846,7 @@ export function init() {
           if (!s.unlocked) {
             card.innerHTML = `
               <div style="font-size:11px; font-weight:bold; color:#f87171;">🔒 ${s.name}</div>
-              <div style="font-size:11px; color:#94a3b8;">Desbloqueia no Nível ${s.requiredLvl}+</div>
+              <div style="font-size:11px; color:#94a3b8;">等級 ${s.requiredLvl}+ 解鎖</div>
             `;
           } else if (s.tattoo) {
             card.innerHTML = `
@@ -9866,7 +9866,7 @@ export function init() {
             card.innerHTML = `
               <div>
                 <div style="font-size:11px; font-weight:bold; color:#60a5fa;">✨ ${s.name}</div>
-                <div style="font-size:11px; color:#94a3b8; margin-top:4px;">Slot Vazio Disponível</div>
+                <div style="font-size:11px; color:#94a3b8; margin-top:4px;">可用空白欄位</div>
               </div>
               <div style="font-size:10px; color:#cbd5e1;">Selecione uma Henna abaixo para gravar</div>
             `;
@@ -9927,7 +9927,7 @@ export function init() {
                 <div style="font-weight:bold; color:#ffd877; font-size:13px;">${dye.name}</div>
                 <div style="font-size:11px; color:#cbd5e1;">${dye.desc}</div>
                 <div style="font-size:10px; color:#94a3b8; margin-top:2px;">
-                  Possui: <strong style="color:${hasReq ? '#86efac' : '#f87171'};">${count}/10 tintas</strong> · Taxa: <strong>${(dye.fee || 50000).toLocaleString()} Adena</strong>
+                  持有：<strong style="color:${hasReq ? '#86efac' : '#f87171'};">${count}/10 染料</strong> · 費用：<strong>${(dye.fee || 50000).toLocaleString()} 金幣</strong>
                 </div>
               </div>
             </div>
@@ -10004,9 +10004,9 @@ export function init() {
               <div style="display:flex; align-items:center; gap:12px;">
                 <span style="font-size:36px;">${def?.icon || '🐾'}</span>
                 <div>
-                  <div style="font-family:'Cinzel',serif; font-weight:bold; color:#ffd877; font-size:16px;">${activePet.name} (Lv. ${activePet.level}/60)</div>
+                  <div style="font-family:'Cinzel',serif; font-weight:bold; color:#ffd877; font-size:16px;">${activePet.name}（等級 ${activePet.level}/60）</div>
                   <div style="font-size:11px; color:#86efac; margin-top:2px;">✨ Bônus Ativo: ${bonus?.desc || ''} (+${Math.round((bonus?.val || 0) * 100)}%)</div>
-                  <div style="font-size:11px; color:#93c5fd; margin-top:2px;">⚔️ Ataque de Suporte: ${bonus?.atk || 0} Dano Físico</div>
+                  <div style="font-size:11px; color:#93c5fd; margin-top:2px;">⚔️ 支援攻擊：${bonus?.atk || 0} 物理傷害</div>
                   <div style="width:160px; height:6px; background:rgba(0,0,0,0.6); border-radius:3px; margin-top:6px; overflow:hidden;">
                     <div style="width:${xpPct}%; height:100%; background:#eab308;"></div>
                   </div>
@@ -10057,9 +10057,9 @@ export function init() {
             <div style="display:flex; align-items:center; gap:10px;">
               <span style="font-size:28px;">${petDef.icon}</span>
               <div>
-                <div style="font-weight:bold; color:#ffd877; font-size:13px;">${petDef.name} ${owned ? `(Lv. ${petData.level})` : `(Exige Lv. ${petDef.unlockLvl})`}</div>
+                <div style="font-weight:bold; color:#ffd877; font-size:13px;">${petDef.name} ${owned ? `（等級 ${petData.level}）` : `（需要等級 ${petDef.unlockLvl}）`}</div>
                 <div style="font-size:11px; color:#cbd5e1; margin-top:2px;">${petDef.desc}</div>
-                <div style="font-size:10px; color:#60a5fa; margin-top:2px;">Habilidade: <strong>${petDef.skillName}</strong> — ${petDef.skillDesc}</div>
+                <div style="font-size:10px; color:#60a5fa; margin-top:2px;">技能：<strong>${petDef.skillName}</strong> — ${petDef.skillDesc}</div>
               </div>
             </div>
             <div>
