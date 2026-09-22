@@ -8955,7 +8955,7 @@ export function renderCompoundModal(container, state) {
             ${(!targetItem || (st.gold || 0) < cost) ? 'disabled' : ''}
             style="width:100%; margin-top:12px; padding:10px; font-family:'Cinzel',serif; font-weight:bold; font-size:12px; background:${targetItem ? 'linear-gradient(180deg,#a855f7,#6b21a8)' : 'rgba(60,50,40,0.5)'}; border:1px solid ${targetItem ? '#c084fc' : 'rgba(100,80,60,0.3)'}; color:${targetItem ? '#fff' : '#777'}; border-radius:6px; cursor:${targetItem ? 'pointer' : 'not-allowed'};"
           >
-            ⚡ EXECUTAR COMPOUND
+            ⚡ 執行合成
           </button>
         </div>
       </div>
@@ -11489,7 +11489,7 @@ export function renderCosmeticsTab(container, state) {
                 <div style="margin-top:8px;">
                   ${isClaimed ? `
                     <button disabled style="width:100%; padding:6px; font-size:11px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.15); color:#9ca3af; border-radius:4px; font-weight:bold;">
-                      ✓ Resgatado
+                      ✓ 已領取
                     </button>
                   ` : canClaim ? `
                     <button onclick="window.claimAchievementAction('${ach.id}')" style="width:100%; padding:6px; font-size:11px; background:linear-gradient(180deg,#22c55e,#16a34a); border:1px solid #4ade80; color:#fff; border-radius:4px; font-weight:bold; cursor:pointer; box-shadow:0 0 10px rgba(34,197,94,0.4);">
@@ -11497,7 +11497,7 @@ export function renderCosmeticsTab(container, state) {
                     </button>
                   ` : `
                     <button disabled style="width:100%; padding:6px; font-size:11px; background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.08); color:#64748b; border-radius:4px;">
-                      Em Progresso (${pct}%)
+                      進行中（${pct}%）
                     </button>
                   `}
                 </div>
