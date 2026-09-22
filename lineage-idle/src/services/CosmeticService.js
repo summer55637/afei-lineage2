@@ -196,30 +196,30 @@ export class CosmeticService {
     if (!state) return;
     if (!state.cosmetics || typeof state.cosmetics !== 'object') {
       state.cosmetics = {
-        unlocked光環s: ['aura_none'],
-        active光環: 'aura_none',
+        unlockedAuras: ['aura_none'],
+        activeAura: 'aura_none',
         unlockedFrames: ['frame_default'],
         activeFrame: 'frame_default',
         unlockedTitles: ['title_none'],
         activeTitle: 'title_none'
       };
     }
-    state.cosmetics.unlocked光環s = state.cosmetics.unlocked光環s || ['aura_none'];
+    state.cosmetics.unlockedAuras = state.cosmetics.unlockedAuras || ['aura_none'];
     state.cosmetics.unlockedFrames = state.cosmetics.unlockedFrames || ['frame_default'];
     state.cosmetics.unlockedTitles = state.cosmetics.unlockedTitles || ['title_none'];
 
     // Se o jogador é Herói das Olimpíadas, desbloqueia automaticamente a 光環 Dourada
-    if ((state.isHero || state.heroStatus?.isHero) && !state.cosmetics.unlocked光環s.includes('aura_hero_golden')) {
-      state.cosmetics.unlocked光環s.push('aura_hero_golden');
+    if ((state.isHero || state.heroStatus?.isHero) && !state.cosmetics.unlockedAuras.includes('aura_hero_golden')) {
+      state.cosmetics.unlockedAuras.push('aura_hero_golden');
     }
   }
 
   /**
    * Retorna a aura atualmente equipada.
    */
-  static getActive光環(state) {
+  static getActiveAura(state) {
     this.ensureState(state);
-    const auraId = state.cosmetics.active光環;
+    const auraId = state.cosmetics.activeAura;
     // Se for Herói e não tiver aura explícita selecionada diferente de none, usa a dourada
     if (auraId === 'aura_none' && (state.isHero || state.heroStatus?.isHero)) {
       return AURAS_CATALOG.aura_hero_golden;
@@ -257,7 +257,7 @@ export class CosmeticService {
 
     if (category === 'aura') {
       catalog = AURAS_CATALOG;
-      unlockedList = state.cosmetics.unlocked光環s;
+      unlockedList = state.cosmetics.unlockedAuras;
     } else if (category === 'frame') {
       catalog = ITEM_FRAMES_CATALOG;
       unlockedList = state.cosmetics.unlockedFrames;
@@ -315,12 +315,12 @@ export class CosmeticService {
 
     if (category === 'aura') {
       catalog = AURAS_CATALOG;
-      unlockedList = state.cosmetics.unlocked光環s;
+      unlockedList = state.cosmetics.unlockedAuras;
       if (!unlockedList.includes(itemId) && itemId !== 'aura_none') {
         log('你必須先解鎖此光環。', 'error');
         return { success: false, reason: 'locked' };
       }
-      state.cosmetics.active光環 = itemId;
+      state.cosmetics.activeAura = itemId;
       log(`光環 alterada para "${catalog[itemId]?.name || 'Nenhuma'}".`, 'system');
     } else if (category === 'frame') {
       catalog = ITEM_FRAMES_CATALOG;
