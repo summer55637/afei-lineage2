@@ -348,7 +348,7 @@ export function executeAtomicEnchant(state, targetUid, scrollUid, callbacks = {}
         callbacks.log(`💥 強化失敗！${targetDef.name} 降至 +${targetItem.enchant}。`, 'system');
       }
       if (callbacks.floatText) {
-        callbacks.floatText(`💥 FALHOU (-1)`, 'float-crit');
+        callbacks.floatText(`💥 失敗（-1）`, 'float-crit');
       }
     }
   }
