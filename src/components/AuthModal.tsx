@@ -381,7 +381,7 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
 
               {tab === 'register' && (
                 <div>
-                  <label className="block text-[11px] font-semibold text-white/60 mb-1">Confirmar 密碼</label>
+                  <label className="block text-[11px] font-semibold text-white/60 mb-1">確認密碼</label>
                   <input 
                     type="password"
                     required
@@ -398,7 +398,7 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
                 disabled={loading}
                 className="w-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-bold rounded-xl py-2.5 text-xs shadow-lg shadow-amber-500/20 transition mt-2"
               >
-                {loading ? '請稍候...' : (tab === 'login' ? '登入 no Jogo' : '建立帳號並儲存')}
+                {loading ? '請稍候...' : (tab === 'login' ? '登入遊戲' : '建立帳號並儲存')}
               </button>
             </form>
           </div>
