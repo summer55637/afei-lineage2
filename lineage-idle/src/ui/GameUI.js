@@ -2813,7 +2813,7 @@ export function updateEquipmentUI(state, callbacks = {}) {
           <div class="res-title" style="color:${activeRes.color || '#eab308'}">共鳴： ${activeRes.name.toUpperCase()}</div>
           <div class="res-desc"><strong style="color:#f8fafc;">${activeRes.pairName}</strong> — ${activeRes.desc}</div>
         </div>
-        <button onclick="window.openTabGuideModal && window.openTabGuideModal('resonance')" title="在指南中查看全部 27 種共鳴" style="background: rgba(212,167,68,0.18); border: 1px solid rgba(212,167,68,0.45); color: #ffd877; font-family: 'Cinzel', serif; font-size: 10px; font-weight: bold; padding: 4px 8px; border-radius: 6px; cursor: pointer; white-space: nowrap; transition: all 0.2 秒; margin-left: 8px; display: inline-flex; align-items: center; gap: 4px; flex-shrink: 0;">
+        <button onclick="window.openTabGuideModal && window.openTabGuideModal('resonance')" title="在指南中查看全部 27 種共鳴" style="background: rgba(212,167,68,0.18); border: 1px solid rgba(212,167,68,0.45); color: #ffd877; font-family: 'Cinzel', serif; font-size: 10px; font-weight: bold; padding: 4px 8px; border-radius: 6px; cursor: pointer; white-space: nowrap; transition: all 0.2s; margin-left: 8px; display: inline-flex; align-items: center; gap: 4px; flex-shrink: 0;">
           📖 Guia
         </button>
       `;
@@ -6190,7 +6190,7 @@ export function updateCraftUI(state, callbacks = {}) {
       subfiltersBar.innerHTML = subcats.map(sub => {
         const isSubActive = (sub.id === activeSubcat);
         return `
-          <button class="inv-batch-btn ${isSubActive ? 'active' : ''}" data-craft-subcat="${sub.id}" style="padding:4px 10px; font-size:11px; border-radius:4px; cursor:pointer; transition:all 0.15 秒; ${isSubActive ? 'background:linear-gradient(180deg,#d4a744,#8a641c); color:#000; font-weight:bold; border:1px solid #ffe699; box-shadow:0 0 8px rgba(212,167,68,0.4);' : 'background:rgba(255,255,255,0.06); color:#cbd5e1; border:1px solid rgba(255,255,255,0.1);'}">
+          <button class="inv-batch-btn ${isSubActive ? 'active' : ''}" data-craft-subcat="${sub.id}" style="padding:4px 10px; font-size:11px; border-radius:4px; cursor:pointer; transition:all 0.15s; ${isSubActive ? 'background:linear-gradient(180deg,#d4a744,#8a641c); color:#000; font-weight:bold; border:1px solid #ffe699; box-shadow:0 0 8px rgba(212,167,68,0.4);' : 'background:rgba(255,255,255,0.06); color:#cbd5e1; border:1px solid rgba(255,255,255,0.1);'}">
             ${sub.label}
           </button>
         `;
@@ -8481,7 +8481,7 @@ export function renderForgeRandomCraft(container, state, callbacks = {}) {
 
         <!-- Progress Bar -->
         <div style="width:100%; height:8px; background:rgba(0,0,0,0.6); border-radius:4px; margin-top:12px; overflow:hidden; border:1px solid rgba(168,85,247,0.3);">
-          <div style="height:100%; width:${Math.min(100, points)}%; background:linear-gradient(90deg,#a855f7,#ec4899); transition:width 0.4 秒;"></div>
+          <div style="height:100%; width:${Math.min(100, points)}%; background:linear-gradient(90deg,#a855f7,#ec4899); transition:width 0.4s;"></div>
         </div>
       </div>
 
@@ -9218,7 +9218,7 @@ export function uiOpenPixCheckoutModal(tierId, state) {
         <label style="display:block; font-size:11px; font-weight:bold; color:#ffd877; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.05em;">官方 Pix 金鑰（E-mail）：</label>
         <div style="display:flex; gap:8px;">
           <input id="pix-key-input" type="text" readonly value="${pixKey}" style="flex:1; background:#0f172a; border:1px solid #334155; border-radius:6px; padding:8px 12px; color:#38bdf8; font-family:monospace; font-size:13px; font-weight:bold; outline:none;" />
-          <button id="pix-copy-btn" onclick="navigator.clipboard.writeText('${pixKey}').then(() => { const b = document.getElementById('pix-copy-btn'); b.textContent = '✅ 已複製！'; b.style.background = '#10b981'; setTimeout(() => { b.textContent = '📋 複製'; b.style.background = '#d97706'; }, 3000); })" style="padding:8px 16px; background:#d97706; border:1px solid #f59e0b; border-radius:6px; color:#fff; font-weight:bold; font-size:12px; cursor:pointer; font-family:'Cinzel',serif; white-space:nowrap; transition:background 0.2 秒;">
+          <button id="pix-copy-btn" onclick="navigator.clipboard.writeText('${pixKey}').then(() => { const b = document.getElementById('pix-copy-btn'); b.textContent = '✅ 已複製！'; b.style.background = '#10b981'; setTimeout(() => { b.textContent = '📋 複製'; b.style.background = '#d97706'; }, 3000); })" style="padding:8px 16px; background:#d97706; border:1px solid #f59e0b; border-radius:6px; color:#fff; font-weight:bold; font-size:12px; cursor:pointer; font-family:'Cinzel',serif; white-space:nowrap; transition:background 0.2s;">
             📋 複製
           </button>
         </div>
@@ -9796,7 +9796,7 @@ export function renderRaidsTab(container, state) {
 
     let actionBtnHtml = '';
     if (inCombat) {
-      actionBtnHtml = `<button disabled style="width:100%; padding:10px; font-weight:bold; font-size:12px; background:linear-gradient(180deg,#16a34a,#15803d); border:1px solid #4ade80; color:#fff; border-radius:6px; cursor:default; animation:pulse 1.5 秒 infinite;">⚔️ 戰鬥進行中</button>`;
+      actionBtnHtml = `<button disabled style="width:100%; padding:10px; font-weight:bold; font-size:12px; background:linear-gradient(180deg,#16a34a,#15803d); border:1px solid #4ade80; color:#fff; border-radius:6px; cursor:default; animation:pulse 1.5s infinite;">⚔️ 戰鬥進行中</button>`;
     } else if (isLocked) {
       actionBtnHtml = `<button disabled style="width:100%; padding:10px; font-weight:bold; font-size:12px; background:#27272a; border:1px solid #3f3f46; color:#71717a; border-radius:6px; cursor:not-allowed;">🔒 尚未解鎖（需要等級 ${boss.reqLvl}）</button>`;
     } else if (!hasTickets) {
@@ -10467,7 +10467,7 @@ export function renderClanTab(container, state) {
               <span>${hpCurrent.toLocaleString()} / ${hpMax.toLocaleString()} (${hpPercent}%)</span>
             </div>
             <div style="width:100%; height:12px; background:#18181b; border-radius:6px; overflow:hidden; border:1px solid #3f3f46;">
-              <div style="width:${hpPercent}%; height:100%; background:${siege.phase === 3 ? 'linear-gradient(90deg,#eab308,#fde047)' : 'linear-gradient(90deg,#ef4444,#dc2626)'}; transition:width 0.3 秒 ease;"></div>
+              <div style="width:${hpPercent}%; height:100%; background:${siege.phase === 3 ? 'linear-gradient(90deg,#eab308,#fde047)' : 'linear-gradient(90deg,#ef4444,#dc2626)'}; transition:width 0.3s ease;"></div>
             </div>
           </div>
 
@@ -11049,7 +11049,7 @@ function renderSevenSignsBossesView(ss, state) {
           </div>
           <!-- Barra de HP do Chefe -->
           <div style="margin-top:14px; background:rgba(0,0,0,0.6); border:1px solid #ef4444; border-radius:8px; height:20px; position:relative; overflow:hidden;">
-            <div style="width:${Math.max(0, Math.min(100, (activeFight.bossHp / activeFight.maxHp) * 100))}%; height:100%; background:linear-gradient(90deg, #dc2626, #f87171); transition:width 0.3 秒 ease;"></div>
+            <div style="width:${Math.max(0, Math.min(100, (activeFight.bossHp / activeFight.maxHp) * 100))}%; height:100%; background:linear-gradient(90deg, #dc2626, #f87171); transition:width 0.3s ease;"></div>
             <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:bold; color:#fff;">
               ${activeFight.bossHp.toLocaleString()} / ${activeFight.maxHp.toLocaleString()} 生命值
             </div>
@@ -11444,7 +11444,7 @@ export function renderCosmeticsTab(container, state) {
             <span style="font-weight:bold; color:#38bdf8; font-size:13px;">${achStatus.claimedCount} / ${achStatus.total} 已領取（${Math.round((achStatus.claimedCount / achStatus.total) * 100)}%）</span>
           </div>
           <div style="width:100%; height:8px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;">
-            <div style="width:${Math.round((achStatus.claimedCount / achStatus.total) * 100)}%; height:100%; background:linear-gradient(90deg, #eab308, #22c55e); transition:width 0.3 秒;"></div>
+            <div style="width:${Math.round((achStatus.claimedCount / achStatus.total) * 100)}%; height:100%; background:linear-gradient(90deg, #eab308, #22c55e); transition:width 0.3s;"></div>
           </div>
         </div>
 
@@ -11804,7 +11804,7 @@ export function openEnchantFlowModal(initialTargetUid = null, initialScrollUid =
         const sInfo = parseEnchantScroll(sDef);
         const isSelected = (s.uid === selectedScrollUid);
         html += `
-          <div class="enchant-scroll-pill ${isSelected ? 'selected' : ''}" data-select-scroll="${s.uid}" style="display:flex; align-items:center; gap:6px; padding:6px 10px; border-radius:6px; cursor:pointer; min-width:max-content; transition:all 0.15 秒; ${isSelected ? 'background:linear-gradient(135deg, rgba(212,167,68,0.35), rgba(212,167,68,0.15)); border:1px solid #ffd700; box-shadow:0 0 10px rgba(255,215,0,0.3);' : 'background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);'}">
+          <div class="enchant-scroll-pill ${isSelected ? 'selected' : ''}" data-select-scroll="${s.uid}" style="display:flex; align-items:center; gap:6px; padding:6px 10px; border-radius:6px; cursor:pointer; min-width:max-content; transition:all 0.15s; ${isSelected ? 'background:linear-gradient(135deg, rgba(212,167,68,0.35), rgba(212,167,68,0.15)); border:1px solid #ffd700; box-shadow:0 0 10px rgba(255,215,0,0.3);' : 'background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);'}">
             <span style="font-size:14px;">📜</span>
             <div style="display:flex; flex-direction:column;">
               <span style="font-size:11px; font-weight:bold; color:${isSelected ? '#ffd700' : '#e2e8f0'};">${sDef.name}</span>
@@ -11839,7 +11839,7 @@ export function openEnchantFlowModal(initialTargetUid = null, initialScrollUid =
         const isSelected = (t.uid === selectedTargetUid);
         const encLevel = Number(t.enchant || t.enchantLevel) || 0;
         html += `
-          <div class="enchant-target-pill ${isSelected ? 'selected' : ''}" data-select-target="${t.uid}" style="display:flex; align-items:center; gap:6px; padding:6px 10px; border-radius:6px; cursor:pointer; min-width:max-content; transition:all 0.15 秒; ${isSelected ? 'background:linear-gradient(135deg, rgba(56,189,248,0.3), rgba(14,165,233,0.1)); border:1px solid #38bdf8; box-shadow:0 0 10px rgba(56,189,248,0.3);' : 'background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);'}">
+          <div class="enchant-target-pill ${isSelected ? 'selected' : ''}" data-select-target="${t.uid}" style="display:flex; align-items:center; gap:6px; padding:6px 10px; border-radius:6px; cursor:pointer; min-width:max-content; transition:all 0.15s; ${isSelected ? 'background:linear-gradient(135deg, rgba(56,189,248,0.3), rgba(14,165,233,0.1)); border:1px solid #38bdf8; box-shadow:0 0 10px rgba(56,189,248,0.3);' : 'background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);'}">
             <span style="font-size:14px;">${tDef.slot === 'weapon' ? '⚔️' : '🛡️'}</span>
             <div style="display:flex; flex-direction:column;">
               <span style="font-size:11px; font-weight:bold; color:${isSelected ? '#38bdf8' : '#e2e8f0'};">${encLevel > 0 ? '+' + encLevel + ' ' : ''}${tDef.name}</span>
@@ -11919,7 +11919,7 @@ export function openEnchantFlowModal(initialTargetUid = null, initialScrollUid =
 
             <!-- Action Button -->
             <div style="display:flex; justify-content:flex-end; gap:8px;">
-              <button id="enchant-modal-confirm-btn" style="background:linear-gradient(180deg, #d4a744, #8a641c); color:#000; font-family:'Cinzel',serif; font-size:12px; font-weight:bold; padding:8px 18px; border:1px solid #ffe699; border-radius:6px; cursor:pointer; box-shadow:0 0 12px rgba(212,167,68,0.4); transition:all 0.15 秒;">
+              <button id="enchant-modal-confirm-btn" style="background:linear-gradient(180deg, #d4a744, #8a641c); color:#000; font-family:'Cinzel',serif; font-size:12px; font-weight:bold; padding:8px 18px; border:1px solid #ffe699; border-radius:6px; cursor:pointer; box-shadow:0 0 12px rgba(212,167,68,0.4); transition:all 0.15s;">
                 ✨ 確認強化 (+${nxtEnc})
               </button>
             </div>
