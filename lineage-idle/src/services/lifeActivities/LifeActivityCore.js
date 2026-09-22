@@ -142,8 +142,8 @@ export const LifeActivityCore = {
     if (actState.toolDurability <= 0) {
       actState.isWorking = false;
       actState.autoMode = false;
-      log(`💥 **FERRAMENTA QUEBRADA!** Sua ferramenta de ${activityType} atingiu 0 de durabilidade e a atividade foi interrompida. Repare-a na cidade.`, 'error');
-      if (callbacks.floatText) callbacks.floatText('💥 FERRAMENTA QUEBROU!', 'float-damage');
+      log(`💥 **工具損壞！** 你的 ${activityType} 工具耐久度已降至 0，活動已中斷。請回城市修理。`, 'error');
+      if (callbacks.floatText) callbacks.floatText('💥 工具損壞！', 'float-damage');
       if (callbacks.updateUI) callbacks.updateUI();
       if (callbacks.save) callbacks.save();
       return { broken: true };
@@ -206,7 +206,7 @@ export const LifeActivityCore = {
 
     state.gold -= totalCost;
     actState.toolDurability = maxDur;
-    log(`🛠️ Ferramenta de ${activityType} reparada com sucesso (+${missing} durabilidade) por ${totalCost.toLocaleString()} Adena.`, 'gain');
+    log(`🛠️ ${activityType} 工具已成功修理（耐久度 +${missing}），花費 ${totalCost.toLocaleString()} 金幣。`, 'gain');
 
     if (callbacks.updateUI) callbacks.updateUI();
     if (callbacks.save) callbacks.save();
