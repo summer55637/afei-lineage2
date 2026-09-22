@@ -176,7 +176,7 @@ export function claimPassReward(state, tierLevel, passType = 'free', callbacks =
     if (rew.sp) state.sp = (state.sp || 0) + rew.sp;
     if (rew.magicLamps) state.magicLamps = (state.magicLamps || 0) + rew.magicLamps;
     if (rew.item) addToInventory(state, rew.item, rew.count || 1, null, false, callbacks);
-    if (callbacks.log) callbacks.log(`🎫 已領取通行證 Lv.${tierLevel} 免費獎勵！`, 'loot');
+    if (callbacks.log) callbacks.log(`🎫 已領取通行證等級 ${tierLevel} 免費獎勵！`, 'loot');
   } else if (passType === 'premium') {
     if (!state.battlePass.unlockedPremium) return;
     if (state.battlePass.claimedPremium.includes(tierLevel)) return;
@@ -188,7 +188,7 @@ export function claimPassReward(state, tierLevel, passType = 'free', callbacks =
       if (!state.titles.includes(rew.title)) state.titles.push(rew.title);
     }
     if (rew.item) addToInventory(state, rew.item, rew.count || 1, 'legendary', false, callbacks);
-    if (callbacks.log) callbacks.log(`👑 已領取通行證 Lv.${tierLevel} 高級獎勵！`, 'rarity-legendary');
+    if (callbacks.log) callbacks.log(`👑 已領取通行證等級 ${tierLevel} 高級獎勵！`, 'rarity-legendary');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
