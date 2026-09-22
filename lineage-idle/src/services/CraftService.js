@@ -326,7 +326,7 @@ export function processSoulDrainOnKill(state, monster = {}, callbacks = {}) {
         if (callbacks.floatText) callbacks.floatText('🌟 靈魂水晶階段 15！', 'float-jackpot');
       } else {
         if (callbacks.log) {
-          callbacks.log(`💨 史詩首領的靈魂逃脫了……Lv.14 靈魂水晶共鳴失敗（50% 機率）。`, 'system');
+          callbacks.log(`💨 史詩首領的靈魂逃脫了……等級 14 靈魂水晶共鳴失敗（50% 機率）。`, 'system');
         }
       }
       if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -458,7 +458,7 @@ export function unsealItem(state, itemUid, callbacks = {}) {
 export function polishMasterwork(state, itemUid, callbacks = {}) {
   const item = (state.inventory || []).find(i => i.uid === itemUid || i.id === itemUid);
   if (!item || !item.foundation) {
-    if (callbacks.log) callbacks.log('只有具有遠古之魂的 Foundation 裝備才能精製為名匠裝備！', 'system');
+    if (callbacks.log) callbacks.log('只有具有遠古之魂的基礎裝備才能精製為名匠裝備！', 'system');
     return false;
   }
 
@@ -566,7 +566,7 @@ export function applyDyeSymbol(state, slotIdx = 0, dyeKey = 'dye_str_con', stage
 
   for (const [k, v] of Object.entries(netStats)) {
     if (v > 5) {
-      if (callbacks.log) callbacks.log(`超過上限！${k.toUpperCase()} 的調整值不可超過 +5。`, 'system');
+      if (callbacks.log) callbacks.log(`超過上限！${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神' })[k] || k.toUpperCase()} 的調整值不可超過 +5。`, 'system');
       return false;
     }
   }
