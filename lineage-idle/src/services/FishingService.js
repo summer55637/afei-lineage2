@@ -102,7 +102,7 @@ export const FishingService = {
 
     fState.activeBait = baitId;
     const bait = BAIT_CATALOG[baitId];
-    if (callbacks.log) callbacks.log(`🪱 Anzol iscado com **${bait ? bait.name : baitId}** (${available} restantes).`, 'system');
+    if (callbacks.log) callbacks.log(`🪱 已裝上魚餌 **${bait ? bait.name : baitId}**（剩餘 ${available} 個）。`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     return true;
   },
