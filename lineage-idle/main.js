@@ -1227,7 +1227,7 @@ function sellSelectedItems() {
   
   set.clear();
   state.gold += totalGold;
-  log(`💰 已出售 ${count} 件所選物品，獲得 ${totalGold.toLocaleString()}g！`, 'loot');
+  log(`💰 已出售 ${count} 件所選物品，獲得 ${totalGold.toLocaleString()} 金幣！`, 'loot');
   updateAllUI();
   save();
 }
@@ -1775,7 +1775,7 @@ export function sellItem(uid) {
   state.inventory.splice(idx, 1);
   state.gold += goldEarned;
   const name = uiFormatItemDisplayName(item, def);
-  log(`💰 已出售 ${name}，獲得 ${goldEarned.toLocaleString()}g！`, 'loot');
+  log(`💰 已出售 ${name}，獲得 ${goldEarned.toLocaleString()} 金幣！`, 'loot');
   hideItemTooltip();
   updateAllUI();
   save();
@@ -2484,14 +2484,14 @@ function shopRow(def, id, price, extra = '') {
   if (isStackable && !lockLvl && !lockCls) {
     buyActionHtml = `
       <div class="shop-bulk-actions">
-        <button class="item-action" data-buy="${id}" data-qty="1" ${state.gold < price ? 'disabled' : ''}>1x (${price}g)</button>
-        <button class="item-action" data-buy="${id}" data-qty="10" ${state.gold < price * 10 ? 'disabled' : ''}>10x (${(price * 10).toLocaleString()}g)</button>
-        <button class="item-action" data-buy="${id}" data-qty="100" ${state.gold < price * 100 ? 'disabled' : ''}>100x (${(price * 100).toLocaleString()}g)</button>
-        <button class="item-action" data-buy="${id}" data-qty="1000" ${state.gold < price * 1000 ? 'disabled' : ''}>1000x (${(price * 1000).toLocaleString()}g)</button>
+        <button class="item-action" data-buy="${id}" data-qty="1" ${state.gold < price ? 'disabled' : ''}>1x (${price} 金幣)</button>
+        <button class="item-action" data-buy="${id}" data-qty="10" ${state.gold < price * 10 ? 'disabled' : ''}>10x (${(price * 10).toLocaleString()} 金幣)</button>
+        <button class="item-action" data-buy="${id}" data-qty="100" ${state.gold < price * 100 ? 'disabled' : ''}>100x (${(price * 100).toLocaleString()} 金幣)</button>
+        <button class="item-action" data-buy="${id}" data-qty="1000" ${state.gold < price * 1000 ? 'disabled' : ''}>1000x (${(price * 1000).toLocaleString()} 金幣)</button>
       </div>
     `;
   } else {
-    buyActionHtml = `<button class="item-action" data-buy="${id}" data-qty="1" ${(!canAfford || lockLvl || lockCls) ? 'disabled' : ''}>${price.toLocaleString()}g</button>`;
+    buyActionHtml = `<button class="item-action" data-buy="${id}" data-qty="1" ${(!canAfford || lockLvl || lockCls) ? 'disabled' : ''}>${price.toLocaleString()} 金幣</button>`;
   }
 
   row.innerHTML = `<div class="item-info"><div class="item-name">${def.name}${def.tier ? ' <span class="tier-tag">T'+def.tier+'</span>' : ''}</div><div class="item-desc">${def.desc || ''}</div>${statsLine ? `<div class="item-stats">${statsLine}</div>` : ''}${lockReason ? `<div class="lock-reason">🔒 ${lockReason}</div>` : ''}</div>${buyActionHtml}${extra}`;
@@ -2575,7 +2575,7 @@ function renderShopMystic(list) {
     row.className = `shop-item rarity-${pick.rarity}` + (lockLvl || lockCls ? ' locked' : '');
     const statsLine = buildStatLine(cloned);
     const rLabel = D().RARITY?.[pick.rarity]?.name || pick.rarity;
-    row.innerHTML = `<div class="item-info"><div class="item-name rarity-${pick.rarity}">${def.name} <span class="rarity-tag">${rLabel}</span></div><div class="item-desc">${def.desc || ''}</div>${statsLine ? `<div class="item-stats">${statsLine}</div>` : ''}</div><button class="item-action mystic-buy" data-buy-rarity="${pick.id}" data-rarity="${pick.rarity}" ${(!canAfford || lockLvl || lockCls) ? 'disabled' : ''}>${price.toLocaleString()}g</button>`;
+    row.innerHTML = `<div class="item-info"><div class="item-name rarity-${pick.rarity}">${def.name} <span class="rarity-tag">${rLabel}</span></div><div class="item-desc">${def.desc || ''}</div>${statsLine ? `<div class="item-stats">${statsLine}</div>` : ''}</div><button class="item-action mystic-buy" data-buy-rarity="${pick.id}" data-rarity="${pick.rarity}" ${(!canAfford || lockLvl || lockCls) ? 'disabled' : ''}>${price.toLocaleString()} 金幣</button>`;
     list.appendChild(row);
   }
 
@@ -2801,7 +2801,7 @@ function checkOfflineProgress(lastTime) {
       <div style="color:var(--rarity-epic); font-weight:bold; margin-bottom:8px;">🌙 離線自動狩獵效率：30%（線上為 100%）</div>
       <div>⏱️ 離線時間：<strong>${minutesOffline} 分鐘</strong></div>
       <div>⚔️ 擊敗怪物（30% 效率）：<strong>約 ${kills}</strong></div>
-      <div>💰 獲得金幣： <strong style="color:var(--gilt-bright);">+${goldEarned.toLocaleString()}g</strong></div>
+      <div>💰 獲得金幣： <strong style="color:var(--gilt-bright);">+${goldEarned.toLocaleString()} 金幣</strong></div>
       <div>📘 獲得經驗值：<strong style="color:#60a5fa;">+${xpEarned.toLocaleString()}</strong></div>
       <div>✨ 獲得技能點：<strong style="color:#a855f7;">+${spEarned.toLocaleString()}</strong></div>
       ${fishOfflineResult && fishOfflineResult.totalCaught > 0 ? `
@@ -3287,7 +3287,7 @@ function updateQuestsUI() {
     const cardsHtml = QUEST_DEFS.daily.map(q => {
       const isLocked = q.unlockLevel && currentLvl < q.unlockLevel;
       const rewardsText = [];
-      if (q.reward.gold) rewardsText.push(`💰 +${q.reward.gold.toLocaleString()}g`);
+      if (q.reward.gold) rewardsText.push(`💰 +${q.reward.gold.toLocaleString()} 金幣`);
       if (q.reward.sp) rewardsText.push(`✦ +${q.reward.sp} 技能點`);
       if (q.reward.craftPoints) rewardsText.push(`⚒️ +${q.reward.craftPoints} 鍛造點數`);
       if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} 神燈`);
@@ -3397,7 +3397,7 @@ function updateQuestsUI() {
       const cardClass = isClaimed ? 'quest-card completed' : (isCompleted ? 'quest-card can-claim' : 'quest-card');
 
       const rewardsText = [];
-      if (q.reward.gold) rewardsText.push(`💰 +${q.reward.gold.toLocaleString()}g`);
+      if (q.reward.gold) rewardsText.push(`💰 +${q.reward.gold.toLocaleString()} 金幣`);
       if (q.reward.sp) rewardsText.push(`✦ +${q.reward.sp} 技能點`);
       if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} 魔法神燈`);
       if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} 通行證經驗值`);
@@ -3584,7 +3584,7 @@ function updateTowerUI() {
   const detailsCard = el('tower-floor-details-card');
   if (detailsCard) {
     const rewardsStr = [];
-    rewardsStr.push(`💰 +${nextDef.gold.toLocaleString()}g`);
+    rewardsStr.push(`💰 +${nextDef.gold.toLocaleString()} 金幣`);
     rewardsStr.push(`✦ +${nextDef.sp} 技能點`);
     if (nextDef.rewardLamps > 0) rewardsStr.push(`🪔 +${nextDef.rewardLamps} 魔法神燈`);
     if (nextDef.rewardCrystals) rewardsStr.push(`✨ +3x ${D().ALL_ITEMS[nextDef.rewardCrystals]?.name || nextDef.rewardCrystals}`);
@@ -8961,7 +8961,7 @@ function buyManorSeed(seedId, qty = 1) {
   const totalCost = seed.price * count;
 
   if ((state.gold || 0) < totalCost) {
-    log(`⚠️ 金幣不足！需要 ${totalCost.toLocaleString()}g。`, 'warning');
+    log(`⚠️ 金幣不足！需要 ${totalCost.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -9077,7 +9077,7 @@ function startExpedition(destId) {
   }
 
   if ((state.gold || 0) < dest.cost) {
-    log(`⚠️ 金幣不足，無法準備遠征！需要 ${dest.cost.toLocaleString()}g。`, 'warning');
+    log(`⚠️ 金幣不足，無法準備遠征！需要 ${dest.cost.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -9135,7 +9135,7 @@ function claimExpeditionReward(expId) {
 
   state.expeditions.splice(expIdx, 1);
 
-  log(`🎁 ${dest.name} 遠征完成！獲得 ${goldEarned.toLocaleString()}g 與珍貴獎勵！`, 'rarity-legendary');
+  log(`🎁 ${dest.name} 遠征完成！獲得 ${goldEarned.toLocaleString()} 金幣 與珍貴獎勵！`, 'rarity-legendary');
 
   updateAllUI();
   save();
@@ -9148,7 +9148,7 @@ function buySoulCrystal(color = 'red', stage = 1) {
   const cost = prices[stage] || 15000;
 
   if ((state.gold || 0) < cost) {
-    log(`⚠️ 金幣不足！需要 ${cost.toLocaleString()}g。`, 'warning');
+    log(`⚠️ 金幣不足！需要 ${cost.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -9220,7 +9220,7 @@ function upgradeItemToMasterwork(itemUid) {
 
   const req = costs[tier] || costs[3];
   if ((state.gold || 0) < req.adena) {
-    log(`⚠️ 金幣不足！普希金大師需要 ${req.adena.toLocaleString()}g。`, 'warning');
+    log(`⚠️ 金幣不足！普希金大師需要 ${req.adena.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -9245,7 +9245,7 @@ function applyTattoo(plusStat = 'str', minusStat = 'con', val = 4) {
 
   const cost = val * 50000;
   if ((state.gold || 0) < cost) {
-    log(`⚠️ 金幣不足！套用刺青需要 ${cost.toLocaleString()}g。`, 'warning');
+    log(`⚠️ 金幣不足！套用刺青需要 ${cost.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -9297,7 +9297,7 @@ function insertAttributeStone(itemUid, elemType = 'fire') {
   }
   const cost = 250000;
   if ((state.gold || 0) < cost) {
-    log(`⚠️ 金幣不足！元素鑲嵌需要 ${cost.toLocaleString()}g。`, 'warning');
+    log(`⚠️ 金幣不足！元素鑲嵌需要 ${cost.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -9318,7 +9318,7 @@ function insertAttributeStone(itemUid, elemType = 'fire') {
 function compoundBelts() {
   const cost = 500000;
   if ((state.gold || 0) < cost) {
-    log(`⚠️ 金幣不足！腰帶合成需要 ${cost.toLocaleString()}g。`, 'warning');
+    log(`⚠️ 金幣不足！腰帶合成需要 ${cost.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -9342,7 +9342,7 @@ function augmentWithLifeStone(itemUid) {
 
   const cost = 750000;
   if ((state.gold || 0) < cost) {
-    log(`⚠️ 金幣不足！精煉需要 ${cost.toLocaleString()}g。`, 'warning');
+    log(`⚠️ 金幣不足！精煉需要 ${cost.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -9390,7 +9390,7 @@ function executeCompoundAction(targetUid, ingredientUid) {
   const cost = 100000 * Math.pow(2, Math.min(8, curLv - 1));
 
   if ((state.gold || 0) < cost) {
-    log(`⚠️ 金幣不足！等級 ${curLv} 合成費用為 ${cost.toLocaleString()}g。`, 'warning');
+    log(`⚠️ 金幣不足！等級 ${curLv} 合成費用為 ${cost.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
