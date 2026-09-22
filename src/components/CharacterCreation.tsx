@@ -509,7 +509,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
 
             {/* Race Perks Summary */}
             <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-3 text-xs space-y-1">
-              <span className="font-bold text-amber-300 block mb-1">✨ 種族加成：{currentRaceObj.name}:</span>
+              <span className="font-bold text-amber-300 block mb-1">✨ 種族加成（{currentRaceObj.name}）：</span>
               {currentRaceObj.perks.map((perk, idx) => (
                 <div key={idx} className="text-slate-300 text-[11px]">
                   • {perk}
