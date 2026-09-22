@@ -28,7 +28,7 @@ export class 奧林匹亞Service {
         isHero: false,
         canEnter: false,
         reason: '狀態無效',
-        tierName: 'Iniciante'
+        tierName: '新手'
       };
     }
 
@@ -39,11 +39,11 @@ export class 奧林匹亞Service {
     const losses = state.olympiadLosses ?? 0;
     const isHero = Boolean(state.isHero);
 
-    let tierName = '🛡️ Nobre Desafiante';
-    if (isHero) tierName = '👑 GRAND OLYMPIAD HERO';
+    let tierName = '🛡️ 貴族挑戰者';
+    if (isHero) tierName = '👑 大奧林匹亞英雄';
     else if (points >= 1500) tierName = '⭐ 競技場大師';
-    else if (points >= 1300) tierName = '⚔️ Gladiador de Elite';
-    else if (points >= 1150) tierName = '🛡️ Combatente Veterano';
+    else if (points >= 1300) tierName = '⚔️ 菁英鬥士';
+    else if (points >= 1150) tierName = '🛡️ 資深鬥士';
 
     return {
       points,
@@ -126,7 +126,7 @@ export class 奧林匹亞Service {
           return {
             id: chosen.id,
             name: chosen.charName,
-            title: `Lv. ${level} ${chosen.className || 'Combatente'} [Player Real 🛡️]`,
+            title: `等級 ${level} ${chosen.className || '鬥士'}【真人玩家 🛡️】`,
             clanName: chosen.clanName || '無血盟',
             hp,
             currentHp: hp,
