@@ -312,7 +312,7 @@ export function addToInventory(state, itemId, amount = 1, rarity = null, foundat
     stage: 1,
     tier: 3,
     rarity: 'rare',
-    desc: 'Item místico de Aden.'
+    desc: '亞丁的神秘物品。'
   };
 
   const maxSlots = getMaxInventorySlots(state);
@@ -368,7 +368,7 @@ export function addToInventory(state, itemId, amount = 1, rarity = null, foundat
         const price = Math.max(1, Math.floor((def.price || 10) * 0.4 * mult)) * amount;
         state.gold = (state.gold || 0) + price;
         if (callbacks.log) {
-          callbacks.log(`🪙 [Auto-Sell] ${amount}x ${def.name} [${itemRarity.toUpperCase()}] vendido por +${price.toLocaleString()}g`, 'loot');
+          callbacks.log(`🪙 [自動出售] ${amount}x ${def.name}【${itemRarity.toUpperCase()}】售出，獲得 +${price.toLocaleString()}g`, 'loot');
         }
         return true;
       }
@@ -377,7 +377,7 @@ export function addToInventory(state, itemId, amount = 1, rarity = null, foundat
 
   for (let i = 0; i < amount; i++) {
     if (state.inventory.length >= maxSlots) {
-      if (callbacks.log) callbacks.log('Inventory full!', 'system');
+      if (callbacks.log) callbacks.log('背包已滿！', 'system');
       return false;
     }
     const isEquip = def.slot && def.slot !== 'consumable' && def.slot !== 'material' && def.slot !== 'scroll' && def.slot !== 'powerup';
