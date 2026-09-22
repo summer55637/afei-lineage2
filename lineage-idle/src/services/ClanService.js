@@ -427,15 +427,15 @@ export class ClanService {
     const clan = (state && state.clan) ? state.clan : { name: '亞丁守護者', level: 1, reputation: 100 };
     const pName = state?.name || 'Tristan';
     const pLvl = state?.level || 1;
-    const pClass = state?.className || state?.class || 'Guerreiro';
+    const pClass = state?.className || state?.class || '戰士';
 
     return [
       { name: pName, rank: '👑 血盟盟主', level: pLvl, className: pClass, contribution: (clan.donationsAdena || 0) + (clan.donationsSp || 0) * 10, isPlayer: true },
-      { name: 'SirGalahad', rank: '⚔️ General', level: Math.max(40, pLvl + 2), className: 'Paladin', contribution: 350000, isPlayer: false },
-      { name: 'ElenaMoonsong', rank: '🔮 Feiticeira Real', level: Math.max(38, pLvl + 1), className: 'Spellsinger', contribution: 280000, isPlayer: false },
-      { name: 'KaelenShadow', rank: '🗡️ 資深刺客', level: Math.max(35, pLvl), className: 'Abyss Walker', contribution: 210000, isPlayer: false },
-      { name: 'ThorgarIron', rank: '🛡️ 工匠大師', level: Math.max(32, pLvl - 2), className: 'Bounty Hunter', contribution: 190000, isPlayer: false },
-      { name: 'LyraSunwhisper', rank: '✨ Sacerdotisa', level: Math.max(30, pLvl - 3), className: 'Bishop', contribution: 150000, isPlayer: false }
+      { name: 'SirGalahad', rank: '⚔️ 將軍', level: Math.max(40, pLvl + 2), className: '聖騎士', contribution: 350000, isPlayer: false },
+      { name: 'ElenaMoonsong', rank: '🔮 皇家法師', level: Math.max(38, pLvl + 1), className: '咒術詩人', contribution: 280000, isPlayer: false },
+      { name: 'KaelenShadow', rank: '🗡️ 資深刺客', level: Math.max(35, pLvl), className: '深淵行者', contribution: 210000, isPlayer: false },
+      { name: 'ThorgarIron', rank: '🛡️ 工匠大師', level: Math.max(32, pLvl - 2), className: '賞金獵人', contribution: 190000, isPlayer: false },
+      { name: 'LyraSunwhisper', rank: '✨ 女祭司', level: Math.max(30, pLvl - 3), className: '主教', contribution: 150000, isPlayer: false }
     ];
   }
 }
