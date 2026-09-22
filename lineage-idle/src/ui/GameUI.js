@@ -453,7 +453,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
   const STAT_LABEL = {
     atk: 'P.ATK', def: 'P.DEF', matk: 'M.ATK', mdef: 'M.DEF', hp: '最大 HP', mp: '最大 MP',
     eva: '迴避', crit: '暴擊率', speed: '速度', lifesteal: '吸血',
-    hit: '命中', atkSpeed: 'Atk Speed', castSpeed: 'Cast Speed', weightBonus: 'Capacidade de Carga',
+    hit: '命中', atkSpeed: '攻擊速度', castSpeed: '施法速度', weightBonus: '負重上限',
     invSlots: '背包欄位', xpBoost: 'XP 加成', stunChance: '暈眩機率',
     stunResist: '暈眩抗性', blockRate: '格擋率', hpRegen: 'HP 恢復/秒',
     mpRegen: 'Regen MP/s', critDmg: '暴擊傷害', aoeTargets: '範圍目標'
@@ -623,7 +623,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
           if (bObj.mp) parts.push(`+${bObj.mp} MP`);
           if (bObj.eva) parts.push(`+${bObj.eva} Eva`);
           if (bObj.crit) parts.push(`+${bObj.crit}% Crit`);
-          if (bObj.speed) parts.push(`+${bObj.speed} Spd`);
+          if (bObj.speed) parts.push(`+${bObj.speed} 速度`);
           if (bObj.primary) {
             for (const [pk, pv] of Object.entries(bObj.primary)) {
               parts.push(`+${pv} ${pk.toUpperCase()}`);
