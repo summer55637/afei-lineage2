@@ -153,7 +153,7 @@ export function renderHuntingUI(state) {
         <div style="flex:1;">
           <div style="display:flex; align-items:center; gap:6px;">
             <strong style="font-size:12px; color:${isSelected ? '#6ee7b7' : '#f4d58a'};">${lDef.icon} ${lDef.name}</strong>
-            <span style="font-size:10px; color:#ffd877; font-weight:bold;">x${count}</span>
+            <span style="font-size:10px; color:#ffd877; font-weight:bold;">×${count}</span>
           </div>
           <div style="font-size:10px; color:#94a3b8; margin-top:2px;">
             ${lDef.desc}（每個 ${lDef.buyPrice} 金幣）
@@ -339,7 +339,7 @@ export function renderHuntingUI(state) {
         <div>
           <div style="display:flex; align-items:center; gap:6px;">
             <strong style="font-size:12px; color:#f4d58a;">${pDef.icon} ${pDef.name}</strong>
-            <span style="font-size:10px; color:#34d399; font-weight:bold;">擊殺： ${huntedCount}x</span>
+            <span style="font-size:10px; color:#34d399; font-weight:bold;">擊殺：${huntedCount}×</span>
           </div>
           <div style="font-size:10px; color:#aaa; margin-top:2px;">
             兌換：<strong>${pDef.exchangeRate}</strong> 份獵物 ➔ +1 <strong style="color:#ffd877;">${pDef.exchangeRewardName}</strong>
