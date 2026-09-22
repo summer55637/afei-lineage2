@@ -208,7 +208,7 @@ export function renderGatheringUI(state) {
         <div style="margin-bottom:12px; font-size:12px; font-family:'Cinzel',serif;">
           ${gState.inspected 
             ? `<span style="color:#f4d58a;">[純度：${gState.targetedNodePurity}%－危險：${gState.targetedNodeHazard.toUpperCase()}]</span>` 
-            : `<span style="color:#94a3b8;">[Pureza: Oculta (Examinar Broto)]</span>`}
+            : `<span style="color:#94a3b8;">[純度：未知（檢查嫩芽）]</span>`}
         </div>
         <p style="margin:0 0 12px 0; font-size:11px; color:#aaa;">
           Insumos: <strong style="color:#cbd5e1;">${node?.yields?.primary?.toUpperCase()}</strong> ${node?.yields?.secondary ? `+ <strong style="color:#94a3b8;">${node?.yields?.secondary?.toUpperCase()}</strong>` : ''}
@@ -242,7 +242,7 @@ export function renderGatheringUI(state) {
         </div>
         ` : `
         <div style="display:flex; justify-content:center; gap:8px;">
-          <button style="padding:10px 24px; font-family:'Cinzel',serif; font-size:14px; font-weight:bold; background:rgba(50,60,50,0.5); border:1px solid #444; color:#777; border-radius:8px; cursor:not-allowed;">🌿 PODANDO BROTOS...</button>
+          <button style="padding:10px 24px; font-family:'Cinzel',serif; font-size:14px; font-weight:bold; background:rgba(50,60,50,0.5); border:1px solid #444; color:#777; border-radius:8px; cursor:not-allowed;">🌿 修剪嫩芽中...</button>
         </div>
         `}
       </div>
@@ -259,7 +259,7 @@ export function renderGatheringUI(state) {
           <div style="font-size:11px; font-weight:bold;">
             ${gState.inspected 
               ? `<span style="color:${gState.targetedNodeHazard === 'none' ? '#6ee7b7' : gState.targetedNodeHazard === 'thorn' ? '#f87171' : gState.targetedNodeHazard === 'toxin' ? '#a78bfa' : '#fbbf24'};">[純度：${gState.targetedNodePurity}%－危險：${gState.targetedNodeHazard.toUpperCase()}]</span>` 
-              : `<span style="color:#94a3b8;">[Pureza: Oculta (Examinar Broto)]</span>`}
+              : `<span style="color:#94a3b8;">[純度：未知（檢查嫩芽）]</span>`}
           </div>
         </div>
       `;
@@ -277,7 +277,7 @@ export function renderGatheringUI(state) {
         ${targetCardHtml || `<p style="color:#888; font-size:12px; margin-bottom:16px;">目前沒有選定植物。點擊「尋找其他」重新搜尋。</p>`}
 
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
-          <button onclick="window.inspectGatheringNode()" style="padding:10px; background:rgba(30,40,50,0.8); border:1px solid #60a5fa; color:#93c5fd; border-radius:6px; cursor:pointer; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">🔍 Examinar Broto</button>
+          <button onclick="window.inspectGatheringNode()" style="padding:10px; background:rgba(30,40,50,0.8); border:1px solid #60a5fa; color:#93c5fd; border-radius:6px; cursor:pointer; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">🔍 檢查嫩芽</button>
           <button onclick="window.skipGatheringNode()" style="padding:10px; background:rgba(40,40,40,0.8); border:1px solid #aaa; color:#ddd; border-radius:6px; cursor:pointer; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">⏭️ 尋找其他採集點</button>
           <button onclick="window.selectGatheringTactic('delicate'); window.startGatheringHarvest()" ${isSickleDull ? 'disabled' : ''} style="padding:10px; background:rgba(20,50,30,0.8); border:1px solid #34d399; color:#6ee7b7; border-radius:6px; cursor:${isSickleDull ? 'not-allowed' : 'pointer'}; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">🌿 精準修剪</button>
           <button onclick="window.selectGatheringTactic('cleave'); window.startGatheringHarvest()" ${isSickleDull ? 'disabled' : ''} style="padding:10px; background:rgba(50,20,20,0.8); border:1px solid #f87171; color:#fca5a5; border-radius:6px; cursor:${isSickleDull ? 'not-allowed' : 'pointer'}; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">⚡ 快速收割</button>
