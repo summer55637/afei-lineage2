@@ -168,6 +168,7 @@ function localizeSkillDisplayText(raw) {
     [/\bHP\b/g, '生命值'],
     [/\bMP\b/g, '魔力'],
     [/\bCP\b/g, '戰鬥力'],
+    [/\bSP\b/g, '技能點'],
     [/\bCON\b/g, '體質'],
     [/\bMEN\b/g, '精神'],
     [/\bDEX\b/g, '敏捷'],
