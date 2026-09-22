@@ -698,10 +698,10 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
       } else if (isWeapon) {
         actionsHtml += `<button data-tt-action="equip" data-slot-target="weapon" data-uid="${item.uid}"
           style="flex:1;padding:5px 6px;background:linear-gradient(180deg,#1a3a5a,#0a1a2a);border:1px solid #3a7ab0;
-          border-radius:4px;color:#70c8f8;font-size:10.5px;cursor:pointer;font-weight:600;" title="Equipar no Slot de Arma 1">⚔ Slot 1</button>`;
+          border-radius:4px;color:#70c8f8;font-size:10.5px;cursor:pointer;font-weight:600;" title="裝備到武器欄位 1">⚔ Slot 1</button>`;
         actionsHtml += `<button data-tt-action="equip" data-slot-target="weapon2" data-uid="${item.uid}"
           style="flex:1;padding:5px 6px;background:linear-gradient(180deg,#3a1a5a,#1a0a2a);border:1px solid #7a3ab0;
-          border-radius:4px;color:#c870f8;font-size:10.5px;cursor:pointer;font-weight:600;" title="Equipar no Slot de Arma 2">🗡 Slot 2</button>`;
+          border-radius:4px;color:#c870f8;font-size:10.5px;cursor:pointer;font-weight:600;" title="裝備到武器欄位 2">🗡 Slot 2</button>`;
       } else {
         actionsHtml += `<button data-tt-action="equip" data-uid="${item.uid}"
           style="flex:1;padding:5px 8px;background:linear-gradient(180deg,#1a3a5a,#0a1a2a);border:1px solid #3a7ab0;
@@ -1809,7 +1809,7 @@ export function updateInventoryUI(state, callbacks = {}) {
     organizeBtn.dataset.bound = 'true';
     organizeBtn.onclick = () => {
       const res = organizeInventory(state, state.inventorySortCriteria || 'recommended');
-      if (callbacks.log) callbacks.log(`🧹 背包已整理: ${res.freedSlots} espaço(s) liberado(s)!`, 'loot');
+      if (callbacks.log) callbacks.log(`🧹 背包已整理：釋放 ${res.freedSlots} 個欄位！`, 'loot');
       updateInventoryUI(state, callbacks);
       if (callbacks.save) callbacks.save();
     };
@@ -2306,7 +2306,7 @@ export function openBatchSellModal(state, callbacks = {}, uids) {
 
   if (preview.items.length === 0) {
     if (preview.protectedCount > 0) {
-      alert(`🛡️ 所有已選物品 (${preview.protectedCount}) 受到保護 (equipados, favoritos ou missões) e 無法出售.`);
+      alert(`🛡️ 所有已選物品（${preview.protectedCount}）都受到保護（已裝備、收藏或任務物品），無法出售。`);
     } else {
       alert('Nenhum item selecionado para venda.');
     }
@@ -3292,10 +3292,10 @@ export function updateCharacterUI(state) {
 
     primContainer.innerHTML = `
       ${renderTablet('STR', '力量', baseAttrs.str || 40, state.primaryStats?.str || 40, setPrim.str || 0, tatStr, 'STR: 每點提高 P.Atk 0.5%，並強化物理技能成長')}
-      ${renderTablet('DEX', 'Destreza', baseAttrs.dex || 30, state.primaryStats?.dex || 30, setPrim.dex || 0, tatDex, 'DEX: Aumenta Velocidade de Ataque, 暴擊率 Física e Esquiva')}
+      ${renderTablet('DEX', 'Destreza', baseAttrs.dex || 30, state.primaryStats?.dex || 30, setPrim.dex || 0, tatDex, 'DEX：提高攻擊速度、物理暴擊率與迴避')}
       ${renderTablet('CON', 'Vigor', baseAttrs.con || 43, state.primaryStats?.con || 43, setPrim.con || 0, tatCon, 'CON: 每點提高最大 HP 1.0%，並提升生命恢復')}
       ${renderTablet('INT', '魔法', baseAttrs.int || 21, state.primaryStats?.int || 21, setPrim.int || 0, tatInt, 'INT: 每點提高 M.Atk 0.5%，並提升法術傷害')}
-      ${renderTablet('WIT', '靈巧', baseAttrs.wit || 11, state.primaryStats?.wit || 11, setPrim.wit || 0, tatWit, 'WIT: Aumenta Velocidade de Conjuração e 暴擊率 魔法')}
+      ${renderTablet('WIT', '靈巧', baseAttrs.wit || 11, state.primaryStats?.wit || 11, setPrim.wit || 0, tatWit, 'WIT：提高施法速度與魔法暴擊率')}
       ${renderTablet('MEN', '精神', baseAttrs.men || 25, state.primaryStats?.men || 25, setPrim.men || 0, tatMen, 'MEN: 每點提高 M.Def 0.5%、最大 MP 0.2% 與抗性')}
     `;
   }
@@ -3393,7 +3393,7 @@ export function updateCharacterUI(state) {
             ${tattoosHtml}
           </div>
           <div class="l2-mystic-sa">
-            ${socket ? `🔮 SA da Arma: <strong style="color:#38bdf8;">${socket.effect.toUpperCase()} (Stage ${socket.stage})</strong>` : '🔮 SA da Arma: Nenhum Soul Crystal engastado.'}
+            ${socket ? `🔮 武器 SA： <strong style="color:#38bdf8;">${socket.effect.toUpperCase()} (Stage ${socket.stage})</strong>` : '🔮 武器 SA： 尚未鑲嵌靈魂水晶。'}
           </div>
         </div>
       </div>
@@ -3404,7 +3404,7 @@ export function updateCharacterUI(state) {
   const equipContainer = root.querySelector('#char-equipped-power-list');
   if (equipContainer && state.equipment) {
     const slotNames = {
-      weapon: { label: 'Arma Principal', icon: '⚔️' },
+      weapon: { label: '主武器', icon: '⚔️' },
       weapon2: { label: '副武器', icon: '🗡️' },
       shield: { label: 'Escudo / Sigil', icon: '🛡️' },
       helmet: { label: 'Capacete', icon: '🪖' },
@@ -3714,7 +3714,7 @@ function renderLoadoutBar(state) {
 
     if (!skillId || !def) {
       return `
-        <div class="loadout-slot is-empty" data-slot="${slotName}" title="${slotLabel} — Vazio (arraste uma habilidade ou selecione abaixo)">
+        <div class="loadout-slot is-empty" data-slot="${slotName}" title="${slotLabel} — 空白（拖曳技能或從下方選擇）">
           <div class="loadout-slot-frame">
             <span class="loadout-empty-icon">${slotIcon}</span>
           </div>
@@ -3735,7 +3735,7 @@ function renderLoadoutBar(state) {
       : '';
 
     return `
-      <div class="loadout-slot is-equipped" data-slot="${slotName}" data-skill-id="${skillId}" title="${def.name} (${slotLabel}) — Clique para ver detalhes e configurar táticas">
+      <div class="loadout-slot is-equipped" data-slot="${slotName}" data-skill-id="${skillId}" title="${def.name} (${slotLabel}) — 點擊查看詳細資訊並設定戰術">
         <div class="loadout-slot-frame">
           <img src="${iconUrl}" class="loadout-skill-icon" alt="${def.name}" onerror="this.onerror=null; this.src='${NEUTRAL_SKILL_PLACEHOLDER}'; this.style.opacity='0.4';" />
           ${skillLevel > 1 ? `<span class="loadout-skill-lvl">${skillLevel}</span>` : ''}
@@ -3755,7 +3755,7 @@ function renderLoadoutBar(state) {
           <span class="loadout-progress">${progressLabel} · ${unlockedSlots.length}/7 Slots</span>
         </div>
         <div class="loadout-header-actions">
-          <button class="loadout-btn-action loadout-btn-auto" type="button" title="Auto-equipa as melhores habilidades aprendidas nos slots disponíveis">⚡ Auto-Equipar</button>
+          <button class="loadout-btn-action loadout-btn-auto" type="button" title="自動將已學習的最佳技能裝入可用欄位">⚡ Auto-Equipar</button>
           <button class="loadout-btn-action loadout-btn-clear" type="button" title="Desequipa todas as habilidades do loadout">✕ 清除</button>
         </div>
       </div>
@@ -3817,7 +3817,7 @@ function renderSkillCard(skill, state, activeLoadoutSlot = null) {
     costBadge = `<span class="skill-cost-badge cost-maxed">MAX</span>`;
   } else if (isLocked) {
     if (skill.primaryLockReason === 'CLASS_STAGE_LOCKED') {
-      costBadge = `<span class="skill-cost-badge cost-locked" title="需要完成轉職">🔒 Troca de Classe</span>`;
+      costBadge = `<span class="skill-cost-badge cost-locked" title="需要完成轉職">🔒 轉職</span>`;
     } else if (skill.primaryLockReason === 'LEVEL_LOCKED') {
       costBadge = `<span class="skill-cost-badge cost-locked" title="等級 ${skill.requiredLevel} 需要">🔒 Lv.${skill.requiredLevel}</span>`;
     } else if (isBookLocked) {
@@ -4162,7 +4162,7 @@ export function updateSkillUI(state, callbacks = {}) {
             window.floatText(`Equipado em [${slotLabel}]!`, 'sf-heal');
           }
         } else if (typeof window !== 'undefined' && typeof window.floatText === 'function') {
-          window.floatText(res.error || 'Não pode equipar', 'float-warning');
+          window.floatText(res.error || '無法裝備', 'float-warning');
         }
       }
     };
@@ -4302,8 +4302,8 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
   const bookNames = {
     'book_1star': 'Tomo 1★ (Comum)',
     'book_2star': 'Tomo 2★ (Raro)',
-    'book_3star': 'Tomo 3★ (Épico)',
-    'book_4star': 'Tomo 4★ (Lendário)',
+    'book_3star': '技能書 3★（史詩）',
+    'book_4star': '技能書 4★（傳說）',
     'book_5star': 'Tomo 5★ (Transcendente)'
   };
   const bName = reqBookId ? (bookNames[reqBookId] || 'Livro de Magia') : '';
@@ -4337,7 +4337,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
         <div style="display:flex; justify-content:space-between; align-items:center;">
           <span style="color:#fbbf24; font-weight:bold;">📖 Requisito: ${bName}</span>
           <span style="background:rgba(0,0,0,0.4); padding:2px 6px; border-radius:4px; color:${hasRequiredBook ? '#34d399' : '#f87171'}; font-weight:bold;">
-            ${hasRequiredBook ? '✓ 背包中可用' : '✗ Falta na Mochila'}
+            ${hasRequiredBook ? '✓ 背包中可用' : '✗ 背包中缺少'}
           </span>
         </div>
         <p style="margin:4px 0 0 0; color:var(--text-muted);">Desbloquear esta habilidade consumirá 1x <strong>${bName}</strong> da sua mochila. (Encontre em caçadas/bosses ou compre no Mercado Global!)</p>
@@ -4407,7 +4407,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
             <div style="grid-column: span 2;">
               <label style="color:#cbd5e1; font-size:10px; display:block; margin-bottom:2px;">Inimigos Mínimos (Tática AoE):</label>
               <select class="si-cond-select" data-slot="${curSlot}" data-field="minEnemies" style="width:100%; background:#1e293b; color:#f8fafc; border:1px solid #475569; border-radius:4px; padding:4px;">
-                <option value="1" ${Number(cond.minEnemies) === 1 ? 'selected' : ''}>1+ Inimigo (Padrão)</option>
+                <option value="1" ${Number(cond.minEnemies) === 1 ? 'selected' : ''}>1+ 敵人（預設）</option>
                 <option value="2" ${Number(cond.minEnemies) === 2 ? 'selected' : ''}>2+ Inimigos (Foco em Grupo)</option>
                 <option value="3" ${Number(cond.minEnemies) === 3 ? 'selected' : ''}>3+ Inimigos (Horda)</option>
               </select>
@@ -4480,7 +4480,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
           window.floatText(`Equipado em [${slotLabel}]!`, 'sf-heal');
         }
       } else if (typeof window !== 'undefined' && typeof window.floatText === 'function') {
-        window.floatText(res.error || 'Erro ao equipar', 'float-warning');
+        window.floatText(res.error || '裝備時發生錯誤', 'float-warning');
       }
     };
   }
@@ -4916,7 +4916,7 @@ function renderStoreView(state, callbacks) {
   // 2. Título da Janela Store com Categoria Ativa
   const winTitle = root.querySelector('#shop-window-title');
   if (winTitle) {
-    const catName = SHOP_CATEGORY_TREE[_activeStoreCategory]?.name || 'Loja';
+    const catName = SHOP_CATEGORY_TREE[_activeStoreCategory]?.name || '商店';
     winTitle.textContent = `Store — ${catName}`;
   }
 
@@ -5187,7 +5187,7 @@ function renderStoreBuyTab(state, callbacks) {
             <button class="l2store-cart-btn" data-cart-minus="${cartItem.id}">-</button>
             <span class="l2store-cart-qty">${cartItem.qty}</span>
             <button class="l2store-cart-btn" data-cart-plus="${cartItem.id}">+</button>
-            <button class="l2store-cart-btn" data-cart-max="${cartItem.id}" title="Comprar Máximo Possível" style="width:auto; padding:0 4px; font-size:9px;">Máx</button>
+            <button class="l2store-cart-btn" data-cart-max="${cartItem.id}" title="購買可負擔的最大數量" style="width:auto; padding:0 4px; font-size:9px;">Máx</button>
             <button class="l2store-cart-btn remove" data-cart-remove="${cartItem.id}" title="Remover da lista">✕</button>
           </div>
         </div>
@@ -5302,8 +5302,8 @@ function renderStoreSellTab(state, callbacks) {
   const purchaseListContainer = root.querySelector('#shop-purchase-list');
   const clearCartBtn = root.querySelector('#shop-clear-cart-btn');
 
-  if (leftColTitle) leftColTitle.textContent = 'Itens na Mochila';
-  if (rightColTitle) rightColTitle.textContent = 'Ações de Venda & Descarte';
+  if (leftColTitle) leftColTitle.textContent = '背包物品';
+  if (rightColTitle) rightColTitle.textContent = '出售與丟棄操作';
   if (clearCartBtn) clearCartBtn.style.display = 'none';
 
   const inv = state.inventory || [];
@@ -5347,7 +5347,7 @@ function renderStoreSellTab(state, callbacks) {
       <div style="grid-column:1/-1; display:flex; flex-direction:column; gap:10px; padding:8px;">
         <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:6px; padding:10px;">
           <h5 style="margin:0 0 4px 0; color:#fca5a5; font-family:'Cinzel',serif;">🧹 Venda de Lixo (Junk Sell)</h5>
-          <p style="margin:0 0 8px 0; font-size:11px; color:#cbd5e1;">Venda instantaneamente todos os itens comuns não bloqueados da mochila pelo valor de 50% de 金幣.</p>
+          <p style="margin:0 0 8px 0; font-size:11px; color:#cbd5e1;">立即以 50% 金幣價值出售背包中所有未鎖定的普通物品。</p>
           <button class="l2store-action-btn primary" data-sell-junk="true" style="width:100%; background:linear-gradient(180deg,#ef4444,#991b1b); border-color:#f87171; color:#fff;">
             🧹 出售全部普通物品
           </button>
@@ -5410,8 +5410,8 @@ function renderStoreRefundTab(state, callbacks) {
   const purchaseListContainer = root.querySelector('#shop-purchase-list');
   const clearCartBtn = root.querySelector('#shop-clear-cart-btn');
 
-  if (leftColTitle) leftColTitle.textContent = 'Fila de Recompra (Últimos 10)';
-  if (rightColTitle) rightColTitle.textContent = 'Informações de Recompra';
+  if (leftColTitle) leftColTitle.textContent = '回購清單（最近 10 件）';
+  if (rightColTitle) rightColTitle.textContent = '回購資訊';
   if (clearCartBtn) clearCartBtn.style.display = 'none';
 
   const buyback = state.buybackQueue || [];
@@ -5713,7 +5713,7 @@ export const SUBCATEGORIES_BY_CAT = {
     { id: 'necklace', label: '📿 Colares' },
     { id: 'ring', label: '💍 戒指' },
     { id: 'earring', label: '👂 Brincos' },
-    { id: 'potion', label: '🧪 Poções' },
+    { id: 'potion', label: '🧪 藥水' },
     { id: 'shot', label: '⚡ Soulshots' },
     { id: 'material', label: '🧱 Materiais' }
   ],
@@ -5726,7 +5726,7 @@ export const SUBCATEGORIES_BY_CAT = {
     { id: 'dual', label: '⚔️⚔️ Duplas (Dual)' },
     { id: 'spear', label: '🔱 長槍' },
     { id: 'twohand', label: '🔨 雙手武器' },
-    { id: 'blunt', label: '🪓 Maças (Blunt)' },
+    { id: 'blunt', label: '🪓 鈍器' },
     { id: 'fist', label: '🥊 Manoplas (Fist)' }
   ],
   armor: [
@@ -5750,11 +5750,11 @@ export const SUBCATEGORIES_BY_CAT = {
     { id: 'agathion', label: '🧚 Agathions' },
     { id: 'cloak', label: '🧥 Capas' },
     { id: 'belt', label: '🎗️ Cintos' },
-    { id: 'talisman', label: '🧿 Talismãs' }
+    { id: 'talisman', label: '🧿 護符' }
   ],
   consumable: [
     { id: 'all', label: '🧪 Todos' },
-    { id: 'potion', label: '🧪 Poções' },
+    { id: 'potion', label: '🧪 藥水' },
     { id: 'shot', label: '⚡ Soulshots' },
     { id: 'scroll', label: '📜 Pergaminhos' },
     { id: 'material', label: '🧱 Materiais' }
@@ -6803,10 +6803,10 @@ export function renderAstralMasteryUI(state) {
 
   const isReborn = prestigeLvl > 0;
   const titles = [
-    'Sem Prestígio (Mortal)',
+    '無聲望（凡人）',
     'Aventureiro Renascido',
-    'Mestre da Constelação',
-    'Senhor da Reencarnação',
+    '星座大師',
+    '轉生之主',
     'Deus Ancestral de Aden'
   ];
   const currentTitle = isReborn ? titles[Math.min(prestigeLvl, titles.length - 1)] : titles[0];
@@ -10206,7 +10206,7 @@ export function renderOlympiadTab(container, state) {
       </div>
     `;
   }
-  // 4. Sub-aba: Loja de Tokens de Olimpíada
+  // 4. Sub-aba: 商店 de Tokens de Olimpíada
   else if (activeSubTab === 'shop') {
     const shopCardsHtml = OLYMPIAD_SHOP_CATALOG.map(item => {
       const canAfford = (olyStatus.tokens || 0) >= item.priceTokens;
@@ -10234,7 +10234,7 @@ export function renderOlympiadTab(container, state) {
       <div style="background:rgba(15,23,42,0.6); border:1px solid rgba(255,215,0,0.25); border-radius:10px; padding:16px; margin-bottom:16px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
           <div>
-            <h3 style="margin:0 0 4px 0; font-family:'Cinzel',serif; color:#fde047; font-size:17px;">🛍️ Loja de Tokens de Olimpíada (Noblesse Gate Pass)</h3>
+            <h3 style="margin:0 0 4px 0; font-family:'Cinzel',serif; color:#fde047; font-size:17px;">🛍️ 商店 de Tokens de Olimpíada (Noblesse Gate Pass)</h3>
             <p style="margin:0; font-size:12px; color:#cbd5e1;">Adquira Giant's Codex, Blessed Scrolls S-Grade e suprimentos raros com seus tokens.</p>
           </div>
           <div style="background:rgba(0,0,0,0.6); border:1px solid #fde047; border-radius:8px; padding:6px 14px; font-weight:bold; color:#fde047; font-size:13px;">
@@ -10309,7 +10309,7 @@ export function renderOlympiadTab(container, state) {
           onclick="window.setOlympiadSubTab('shop')"
           style="padding:8px 16px; font-family:'Cinzel',serif; font-size:12px; font-weight:bold; background:${activeSubTab === 'shop' ? 'linear-gradient(180deg,#ca8a04,#a16207)' : 'rgba(0,0,0,0.4)'}; border:1px solid ${activeSubTab === 'shop' ? '#fde047' : 'rgba(255,255,255,0.1)'}; color:${activeSubTab === 'shop' ? '#fff' : '#cbd5e1'}; border-radius:6px; cursor:pointer;"
         >
-          🛍️ Loja de Tokens
+          🛍️ 商店 de Tokens
         </button>
       </div>
 
@@ -10477,7 +10477,7 @@ export function renderClanTab(container, state) {
       `;
     }
   }
-  // 4. Sub-aba: Loja do Castelo
+  // 4. Sub-aba: 商店 do Castelo
   else if (activeSubTab === 'shop') {
     const shopHtml = CASTLE_SHOP_CATALOG.map(item => `
       <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(234,179,8,0.3); border-radius:8px; padding:12px; display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;">
@@ -10717,7 +10717,7 @@ export function renderClanTab(container, state) {
           onclick="window.setClanSubTab('shop')"
           style="padding:8px 14px; font-family:'Cinzel',serif; font-size:11.5px; font-weight:bold; background:${activeSubTab === 'shop' ? 'linear-gradient(180deg,#ca8a04,#a16207)' : 'rgba(0,0,0,0.4)'}; border:1px solid ${activeSubTab === 'shop' ? '#fde047' : 'rgba(255,255,255,0.1)'}; color:${activeSubTab === 'shop' ? '#fff' : '#cbd5e1'}; border-radius:6px; cursor:pointer;"
         >
-          🛍️ Loja do Castelo
+          🛍️ 商店 do Castelo
         </button>
       </div>
 
@@ -11225,7 +11225,7 @@ export function renderFortressTab(container, state) {
           </div>
         </div>
 
-        <!-- Loja & Montagem de Talismãs -->
+        <!-- 商店 & Montagem de Talismãs -->
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(212,167,68,0.3); border-radius:8px; padding:14px;">
           <h3 style="margin:0 0 10px 0; color:#fef08a; font-family:'Cinzel',serif; font-size:15px;">📿 Braceletes & Talismãs Equipados</h3>
           
@@ -11363,7 +11363,7 @@ export function renderColosseumTab(container, state) {
           </div>
         </div>
 
-        <!-- Desafio de Sobrevivência & Loja de Badges -->
+        <!-- Desafio de Sobrevivência & 商店 de Badges -->
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(245,158,11,0.3); border-radius:8px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;">
           <div>
             <h3 style="margin:0 0 10px 0; color:#fde047; font-family:'Cinzel',serif; font-size:15px;">🏆 Desafio das 10 Ondas</h3>
@@ -11376,9 +11376,9 @@ export function renderColosseumTab(container, state) {
             </button>
           </div>
 
-          <!-- Loja de Badges do Coliseu -->
+          <!-- 商店 de Badges do Coliseu -->
           <div style="margin-top:16px; border-top:1px solid rgba(245,158,11,0.2); padding-top:12px;">
-            <h4 style="margin:0 0 8px 0; color:#fde047; font-size:13px;">Loja de Badges do Coliseu</h4>
+            <h4 style="margin:0 0 8px 0; color:#fde047; font-size:13px;">商店 de Badges do Coliseu</h4>
             <div style="display:flex; flex-direction:column; gap:6px; max-height:160px; overflow-y:auto;">
               ${COLOSSEUM_SHOP_CATALOG.map(it => `
                 <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.08); border-radius:6px; padding:6px 10px; display:flex; justify-content:space-between; align-items:center;">
