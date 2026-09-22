@@ -180,15 +180,15 @@ export function auditAllSkillIcons(skillsCatalog = null) {
 export function generateSkillIconAuditReport(skillsCatalog = null) {
   const audit = auditAllSkillIcons(skillsCatalog);
 
-  let md = `# SKILL ICON AUDIT REPORT\n\n`;
-  md += `- **Total Audited Skills**: ${audit.totalAudited}\n`;
-  md += `- **Unique Dedicated Icons**: ${audit.uniqueCount}\n`;
-  md += `- **Intentional Shared Icons**: ${audit.intentionalSharedCount}\n`;
-  md += `- **Suspicious Collisions**: ${audit.suspiciousCount}\n`;
-  md += `- **Missing Assets**: ${audit.missingCount}\n`;
-  md += `- **Malformed Registrations**: ${audit.wrongCount}\n\n`;
+  let md = `# 技能圖示稽核報告\n\n`;
+  md += `- **已稽核技能總數**：${audit.totalAudited}\n`;
+  md += `- **專屬獨立圖示**：${audit.uniqueCount}\n`;
+  md += `- **刻意共用圖示**：${audit.intentionalSharedCount}\n`;
+  md += `- **疑似圖示衝突**：${audit.suspiciousCount}\n`;
+  md += `- **缺少素材**：${audit.missingCount}\n`;
+  md += `- **格式錯誤的登錄資料**：${audit.wrongCount}\n\n`;
 
-  md += `| Skill ID | Icon ID | Asset Path | Exists | Status | Duplicates |\n`;
+  md += `| 技能 ID | 圖示 ID | 素材路徑 | 存在 | 狀態 | 重複項目 |\n`;
   md += `| :--- | :--- | :--- | :---: | :---: | :--- |\n`;
 
   for (const item of audit.results) {
