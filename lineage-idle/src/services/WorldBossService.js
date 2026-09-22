@@ -36,7 +36,7 @@ export const WORLD_BOSS_CATALOG = {
       { itemId: 'jewel_ring_queen_ant', name: '蟻后戒指', chance: 0.35, isEpicJewel: true },
       { itemId: 'book_4star', name: '神聖魔法書：4★（神聖）', chance: 0.20 },
       { itemId: 'scroll_blessed_weapon', name: '祝福武器強化卷軸', count: 3, chance: 0.60 },
-      { itemId: 'adena_coins', count: 25, name: '25 枚亞丁幣（AC）', chance: 1.0 }
+      { itemId: 'adena_coins', count: 25, name: '25 枚亞丁幣', chance: 1.0 }
     ]
   },
   zaken_world: {
@@ -62,7 +62,7 @@ export const WORLD_BOSS_CATALOG = {
       { itemId: 'jewel_earring_zaken', name: '札肯耳環', chance: 0.35, isEpicJewel: true },
       { itemId: 'book_4star', name: '神聖魔法書：4★（神聖）', chance: 0.30 },
       { itemId: 'scroll_blessed_weapon', name: '祝福武器強化卷軸', count: 5, chance: 0.70 },
-      { itemId: 'adena_coins', count: 35, name: '35 枚亞丁幣（AC）', chance: 1.0 }
+      { itemId: 'adena_coins', count: 35, name: '35 枚亞丁幣', chance: 1.0 }
     ]
   },
   baium_world: {
@@ -88,7 +88,7 @@ export const WORLD_BOSS_CATALOG = {
       { itemId: 'jewel_ring_baium', name: '巴溫戒指', chance: 0.35, isEpicJewel: true },
       { itemId: 'book_4star', name: '神聖魔法書：4★（神聖）', chance: 0.40 },
       { itemId: 'scroll_blessed_weapon', name: '祝福武器強化卷軸', count: 8, chance: 0.80 },
-      { itemId: 'adena_coins', count: 50, name: '50 枚亞丁幣（AC）', chance: 1.0 }
+      { itemId: 'adena_coins', count: 50, name: '50 枚亞丁幣', chance: 1.0 }
     ]
   },
   antharas_world: {
@@ -114,7 +114,7 @@ export const WORLD_BOSS_CATALOG = {
       { itemId: 'jewel_earring_antharas', name: '安塔瑞斯耳環', chance: 0.35, isEpicJewel: true },
       { itemId: 'book_4star', name: '神聖魔法書：4★（神聖）', chance: 0.60 },
       { itemId: 'scroll_blessed_weapon', name: '祝福武器強化卷軸', count: 12, chance: 0.90 },
-      { itemId: 'adena_coins', count: 75, name: '75 枚亞丁幣（AC）', chance: 1.0 }
+      { itemId: 'adena_coins', count: 75, name: '75 枚亞丁幣', chance: 1.0 }
     ]
   },
   valakas_world: {
@@ -140,7 +140,7 @@ export const WORLD_BOSS_CATALOG = {
       { itemId: 'jewel_necklace_valakas', name: '瓦拉卡斯項鍊', chance: 0.35, isEpicJewel: true },
       { itemId: 'book_4star', name: '神聖魔法書：4★（神聖）', chance: 0.75 },
       { itemId: 'scroll_blessed_weapon', name: '祝福武器強化卷軸', count: 15, chance: 1.0 },
-      { itemId: 'adena_coins', count: 100, name: '100 枚亞丁幣（AC）', chance: 1.0 }
+      { itemId: 'adena_coins', count: 100, name: '100 枚亞丁幣', chance: 1.0 }
     ]
   }
 };
