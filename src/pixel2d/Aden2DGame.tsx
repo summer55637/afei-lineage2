@@ -285,7 +285,7 @@ export default function Aden2DGame() {
     const w = window as any;
     const getState = () => w.getGameState ? w.getGameState() : {
       hp: 100, maxHp: 100, mp: 50, maxMp: 50, xp: 0, gold: 0, level: 1,
-      name: 'Hero', class: 'fighter', zone: 0
+      name: '冒險者', class: 'fighter', zone: 0
     };
 
     const playerState = getState();
