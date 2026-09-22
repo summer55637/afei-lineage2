@@ -5105,7 +5105,7 @@ function renderStoreBuyTab(state, callbacks) {
     });
   }
 
-  if (leftCountBadge) leftCountBadge.textContent = `${itemsToDisplay.length} itens`;
+  if (leftCountBadge) leftCountBadge.textContent = `${itemsToDisplay.length} 件物品`;
 
   // Renderizar a Coluna Esquerda: Shop List
   if (!itemsContainer) return;
@@ -5311,7 +5311,7 @@ function renderStoreSellTab(state, callbacks) {
   const allItems = gData?.ALL_ITEMS || {};
   const selectedSet = getSelectedSet ? getSelectedSet(state) : new Set();
 
-  if (leftCountBadge) leftCountBadge.textContent = `${inv.length} itens`;
+  if (leftCountBadge) leftCountBadge.textContent = `${inv.length} 件物品`;
 
   if (!itemsContainer) return;
   if (inv.length === 0) {
@@ -5418,7 +5418,7 @@ function renderStoreRefundTab(state, callbacks) {
   const gData = D();
   const allItems = gData?.ALL_ITEMS || {};
 
-  if (leftCountBadge) leftCountBadge.textContent = `${buyback.length} itens`;
+  if (leftCountBadge) leftCountBadge.textContent = `${buyback.length} 件物品`;
 
   if (!itemsContainer) return;
   if (buyback.length === 0) {
@@ -5503,7 +5503,7 @@ export function buildShopStatsSummary(def) {
   if (def.castSpeed != null && def.castSpeed > 0) parts.push(`⚡ +${def.castSpeed}% Cast`);
   if (def.atkSpeed != null && def.atkSpeed > 0) parts.push(`💨 +${def.atkSpeed}% AtkSpd`);
   if (def.effect) parts.push(`✨ ${def.effect}`);
-  if (def.healAmount) parts.push(`🧪 Recupera ${def.healAmount} HP`);
+  if (def.healAmount) parts.push(`🧪 恢復 ${def.healAmount} HP`);
   if (def.bonus) parts.push(`✨ ${def.bonus}`);
 
   return parts.join(' · ');
@@ -9008,7 +9008,7 @@ export function renderCashShopModal(container) {
     { id: 'costumes_and_skins', name: '🎨 Trajes & Skins' },
     { id: 'titles_and_effects', name: '🏷️ 稱號與效果' },
     { id: 'utility_and_passes', name: '🧪 實用道具與通行證' },
-    { id: 'donation_tiers', name: '🪙 取得 Aden Coins' }
+    { id: 'donation_tiers', name: '🪙 取得亞丁幣' }
   ];
 
   const tabsHtml = tabs.map(t => `
@@ -10064,7 +10064,7 @@ export function renderOlympiadTab(container, state) {
         npc: '👤 Caradine (Goddard)',
         dialog: '「女神的神聖權杖落在阿爾戈斯之壁的光輝火焰巴拉基爾手中。擊敗他並取回權杖！」',
         desc: '協助阿爾戈斯之壁的卡拉丁，並擊敗傳說團隊首領「光輝火焰巴拉基爾」，取回女神之杖。',
-        progressText: prog.barakielKilled ? '✓ 已擊敗 Barakiel' : '擊敗 Raid Boss Barakiel',
+        progressText: prog.barakielKilled ? '✓ 已擊敗巴拉基爾' : '擊敗團隊首領巴拉基爾',
         travelBtn: `<button onclick="window.startRaidBossAction('barakiel')" style="padding:4px 10px; font-size:10.5px; font-weight:bold; background:#7f1d1d; border:1px solid #f87171; color:#fca5a5; border-radius:4px; cursor:pointer; margin-top:4px;">⚔️ 挑戰 Barakiel 團隊首領</button>`,
         isDone: nobStatus.isNoblesse || (state.noblesseStep || 1) > 3,
         isCurrent: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 3,
