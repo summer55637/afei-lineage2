@@ -1695,7 +1695,7 @@ window.executeRaceClassChange = (scrollUid, newRace, newClass) => {
   // 7. Save & Update UI
   updateAllUI();
   save();
-  log(`✨ 種族與職業已成功變更為 ${(raceObj.name || newRace).toUpperCase()} ${(clsObj?.name || newClass).toUpperCase()}！返還 ${refundedSp} 技能點，裝備已存回背包。`, 'rarity-legendary');
+  log(`✨ 種族與職業已成功變更為 ${raceObj.name || '未知種族'} ${clsObj?.name || '未知職業'}！返還 ${refundedSp} 技能點，裝備已存回背包。`, 'rarity-legendary');
 };
 
 window.onCharacterCreated = (data) => {
@@ -1706,7 +1706,7 @@ window.onCharacterCreated = (data) => {
   if (typeof window !== 'undefined' && typeof window.saveCloudNow === 'function') {
     window.saveCloudNow(state, true);
   }
-  log(`🎉 角色建立成功：${data.charName || state.charName}（${RACES?.[data.race]?.name || data.race} · ${getClass(data.className)?.name || data.className}）！已裝備初始無等級套裝！`, 'rarity-legendary');
+  log(`🎉 角色建立成功：${data.charName || state.charName}（${RACES?.[data.race]?.name || '未知種族'} · ${getClass(data.className)?.name || '未知職業'}）！已裝備初始無等級套裝！`, 'rarity-legendary');
 };
 
 // --------------------------- LEVEL UP wrapper ---------------------------
@@ -4039,7 +4039,7 @@ export function renderSubclassesUI() {
     <div>
       <div style="font-weight:bold; color:${isMainActive ? 'var(--gilt-bright)' : 'var(--bone)'}; font-size:13px; display:flex; align-items:center; gap:6px;">
         <span>👑 主職業：</span>
-        <span style="color:#fde047;">${mainClassDef?.name || mainClassId}</span>
+        <span style="color:#fde047;">${mainClassDef?.name || '未知職業'}</span>
         <span style="color:#60a5fa; font-size:11px; background:rgba(96,165,250,0.15); padding:1px 6px; border-radius:4px;">等級 ${activeMainLevel}</span>
       </div>
       <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">主要職業來源－所有副職業認證的永久加成都會累積在此。</div>
@@ -4072,7 +4072,7 @@ export function renderSubclassesUI() {
         }
 
         const icon = optDef?.icon || '✨';
-        const name = optDef?.name || m.learnedId;
+        const name = optDef?.name || '未知認證';
         milestoneSlotsHtml += `
           <div style="flex:1; min-width:110px; background:rgba(212,175,55,0.15); border:1px solid rgba(212,175,55,0.4); border-radius:6px; padding:6px; font-size:10px; display:flex; flex-direction:column; gap:2px;" title="${optDef?.desc || ''}">
             <div style="color:#fde047; font-weight:bold; display:flex; align-items:center; gap:4px;">
@@ -4104,7 +4104,7 @@ export function renderSubclassesUI() {
         <div>
           <div style="font-weight:bold; color:${isSubActive ? '#34d399' : 'var(--bone)'}; font-size:13px; display:flex; align-items:center; gap:6px;">
             <span>⚔️ 副職業 ${idx + 1}：</span>
-            <span style="color:#fde047;">${subClassDef?.name || sub.classId}</span>
+            <span style="color:#fde047;">${subClassDef?.name || '未知職業'}</span>
             <span style="color:#60a5fa; font-size:11px; background:rgba(96,165,250,0.15); padding:1px 6px; border-radius:4px;">等級 ${sub.level}/85</span>
             <span style="color:#a855f7; font-size:10px; background:rgba(168,85,247,0.15); padding:1px 5px; border-radius:4px; text-transform:uppercase;">${({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[archetype] || archetype}</span>
           </div>
@@ -4215,7 +4215,7 @@ function openCertificationModal(subId, milestoneKey) {
   body.innerHTML = `
     <div style="margin-bottom:14px;">
       <h3 style="margin:0; color:#fde047; font-family:'Cinzel',serif; font-size:16px;">📜 ${milestone.title}</h3>
-      <p style="margin:4px 0 0 0; font-size:11px; color:var(--text-muted);">副職業：<strong>${subClassDef?.name || sub.classId}</strong>（定位： <span style="text-transform:uppercase; color:#a855f7;">${({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[archetype] || archetype}</span>）</p>
+      <p style="margin:4px 0 0 0; font-size:11px; color:var(--text-muted);">副職業：<strong>${subClassDef?.name || '未知職業'}</strong>（定位： <span style="text-transform:uppercase; color:#a855f7;">${({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[archetype] || '戰士'}</span>）</p>
     </div>
     <div style="display:flex; flex-direction:column; gap:8px; max-height:360px; overflow-y:auto; padding-right:4px;">
       ${optionsHtml}
@@ -4400,7 +4400,7 @@ function openAddSubclassModal() {
           <div style="font-size:10px; color:#a855f7; text-transform:uppercase;">定位：${({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[arch] || arch}</div>
         </div>
         <button class="action-btn action-btn--primary" style="padding:6px 12px; font-size:11px;" onclick="window.confirmAddSubclass('${cId}')">
-          Adicionar ⚔️
+          新增 ⚔️
         </button>
       </div>
     `;
@@ -4440,7 +4440,7 @@ function confirmAddSubclass(chosenClassId) {
     skills: {}
   });
 
-  log(`🌟 恭喜！你已學會副職業 **${CLASSES[chosenClassId]?.name || chosenClassId}**（等級 40）！`, 'rarity-legendary');
+  log(`🌟 恭喜！你已學會副職業 **${CLASSES[chosenClassId]?.name || '未知職業'}**（等級 40）！`, 'rarity-legendary');
   floatText(`🌟 已學會副職業！`, 'float-jackpot');
 
   closeCertificationModal();
@@ -4560,7 +4560,7 @@ export function switchSubclass(targetIndex) {
       }
 
       const clsObj = getClass(state.class);
-      log(`⚔️ 已切換至副職業 **${clsObj?.name || state.class}**（等級 ${state.level}）！`, 'rarity-rare');
+      log(`⚔️ 已切換至副職業 **${clsObj?.name || '未知職業'}**（等級 ${state.level}）！`, 'rarity-rare');
     }
   }
 
