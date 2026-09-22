@@ -4,22 +4,22 @@
  * Responsável por:
  * 1. Controle das 4 etapas canônicas da saga de 貴族 (Lv. 75+).
  * 2. Rastreamento de abates em Valley of Saints, Swamp of Screams e confronto contra Barakiel.
- * 3. Consagração como 貴族 (`state.is貴族 = true`).
+ * 3. Consagração como 貴族 (`state.isNoblesse = true`).
  * 4. Entrega da 貴族 Tiara e validação do requisito Nível 76+ 貴族 para a Grand Olympiad.
  */
 
 import { NOBLESSE_QUEST_DEFS } from '../data/quests.js';
 
-export class 貴族Service {
+export class NoblesseService {
   /**
    * Retorna o status de nobreza e progresso atual da questline do jogador.
    * @param {Object} state
-   * @returns {{is貴族: boolean, currentStep: number, progress: Object, canJoinOlympiad: boolean, reason?: string}}
+   * @returns {{isNoblesse: boolean, currentStep: number, progress: Object, canJoinOlympiad: boolean, reason?: string}}
    */
-  static get貴族Status(state) {
-    if (!state) return { is貴族: false, currentStep: 1, progress: {}, canJoinOlympiad: false };
+  static getNoblesseStatus(state) {
+    if (!state) return { isNoblesse: false, currentStep: 1, progress: {}, canJoinOlympiad: false };
 
-    const is貴族 = Boolean(state.is貴族);
+    const isNoblesse = Boolean(state.isNoblesse);
     const currentStep = state.noblesseStep || 1;
     const progress = state.noblesseProgress || { part1Kills: 0, part2Kills: 0, barakielKilled: false };
 
@@ -27,15 +27,15 @@ export class 貴族Service {
     const isLevelOk = level >= 76;
 
     let reason = '';
-    if (!is貴族 && !isLevelOk) reason = '需要等級 76+ 並完成貴族任務。';
-    else if (!is貴族) reason = '需要完成貴族傳奇（珍貴靈魂的擁有者）。';
+    if (!isNoblesse && !isLevelOk) reason = '需要等級 76+ 並完成貴族任務。';
+    else if (!isNoblesse) reason = '需要完成貴族傳奇（珍貴靈魂的擁有者）。';
     else if (!isLevelOk) reason = '需要等級 76+ 才能參加大奧林匹亞。';
 
     return {
-      is貴族,
+      isNoblesse,
       currentStep,
       progress,
-      canJoinOlympiad: is貴族 && isLevelOk,
+      canJoinOlympiad: isNoblesse && isLevelOk,
       reason
     };
   }
@@ -53,7 +53,7 @@ export class 貴族Service {
     }
 
     const currentStep = state.noblesseStep || 1;
-    if (state.is貴族) {
+    if (state.isNoblesse) {
       return { ok: false, reason: '你已經取得最高貴族身分！' };
     }
 
@@ -82,7 +82,7 @@ export class 貴族Service {
    * @param {Object} callbacks
    */
   static recordKill(state, monster, callbacks = {}) {
-    if (!state || state.is貴族) return;
+    if (!state || state.isNoblesse) return;
     state.noblesseProgress = state.noblesseProgress || { part1Kills: 0, part2Kills: 0, barakielKilled: false };
     const step = state.noblesseStep || 1;
 
@@ -146,7 +146,7 @@ export class 貴族Service {
     } else {
       // Conclusão Final: Consagração como 貴族!
       state.noblesseStep = 5;
-      state.is貴族 = true;
+      state.isNoblesse = true;
 
       // Entrega a 貴族 Tiara
       state.inventory = state.inventory || [];
@@ -164,7 +164,7 @@ export class 貴族Service {
 
       if (callbacks.log) {
         callbacks.log('👑✨ **貴族神聖祝聖完成！**', 'rarity-legendary');
-        callbacks.log('你完成了傳奇任務 *珍貴靈魂的擁有者*，獲得 **貴族頭冠**、**貴族祝福**，並取得參加 **大奧林匹亞（Lv.76+）** 的資格！', 'rarity-legendary');
+        callbacks.log('你完成了傳奇任務 *珍貴靈魂的擁有者*，獲得 **貴族頭冠**、**貴族祝福**，並取得參加 **大奧林匹亞（等級 76+）** 的資格！', 'rarity-legendary');
       }
     }
 
