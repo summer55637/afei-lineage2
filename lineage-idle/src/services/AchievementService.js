@@ -9,8 +9,8 @@ import { TITLES_CATALOG } from './CosmeticService.js';
 export const ACHIEVEMENTS = [
   {
     id: 'ach_first_blood',
-    title: 'Primeiro Sangue',
-    desc: 'Derrote pelo menos 100 monstros em combate.',
+    title: '初次擊殺',
+    desc: '在戰鬥中至少擊敗 100 隻怪物。',
     icon: '⚔️',
     target: 100,
     checkProgress: (state) => state.stats?.monstersKilled || state.monstersKilled || 0,
@@ -19,7 +19,7 @@ export const ACHIEVEMENTS = [
   },
   {
     id: 'ach_carnage',
-    title: 'Carnificina em Aden',
+    title: '亞丁大屠獵',
     desc: '在冒險旅途中擊敗 2,500 隻怪物。',
     icon: '💀',
     target: 2500,
@@ -57,31 +57,31 @@ export const ACHIEVEMENTS = [
   },
   {
     id: 'ach_titan_slayer',
-    title: 'Terror dos Titãs',
-    desc: 'Derrote pelo menos 10 Chefes de Raid épicos.',
+    title: '泰坦剋星',
+    desc: '擊敗至少 10 隻史詩團隊首領。',
     icon: '👹',
     target: 10,
     checkProgress: (state) => {
       const clears = Object.values(state.dailyRaidClears || {}).reduce((a, b) => a + (typeof b === 'number' ? b : 1), 0);
       return Math.max(clears, state.stats?.raidsAttempted || 0);
     },
-    rewardText: 'Título: « Flagelo dos Titãs » + 500.000 Adena',
-    reward: { adena: 500000, titleId: 'title_titan_slayer', titleName: 'Flagelo dos Titãs', titleColor: '#f97316' }
+    rewardText: '稱號：「泰坦天敵」+ 500,000 金幣',
+    reward: { adena: 500000, titleId: 'title_titan_slayer', titleName: '泰坦天敵', titleColor: '#f97316' }
   },
   {
     id: 'ach_tower_sovereign',
-    title: 'Soberano da Torre',
-    desc: 'Conquiste pelo menos 15 andares na Torre da Insolência.',
+    title: '高塔霸主',
+    desc: '至少攻略傲慢之塔 15 層。',
     icon: '🏰',
     target: 15,
     checkProgress: (state) => state.tower?.highestFloor || state.towerFloor || 1,
-    rewardText: 'Título: « 成就dor das Alturas » + Aura Abissal',
-    reward: { titleId: 'title_tower_sovereign', titleName: '成就dor das Alturas', titleColor: '#c084fc', auraId: 'aura_abyssal_shadow' }
+    rewardText: '稱號：「高處征服者」+ 深淵光環',
+    reward: { titleId: 'title_tower_sovereign', titleName: '高處征服者', titleColor: '#c084fc', auraId: 'aura_abyssal_shadow' }
   },
   {
     id: 'ach_feudal_lord',
-    title: 'Lorde Feudal de Aden',
-    desc: 'Conquiste um Castelo ou Fortaleza para seu estandarte.',
+    title: '亞丁領主',
+    desc: '為你的旗幟攻下一座城堡或要塞。',
     icon: '🛡️',
     target: 1,
     checkProgress: (state) => {
@@ -89,13 +89,13 @@ export const ACHIEVEMENTS = [
       const hasFort = (state.fortress?.owned && state.fortress.owned.length > 0);
       return (hasCastle || hasFort) ? 1 : 0;
     },
-    rewardText: 'Título: « Lorde de Aden » + Moldura Prata Épica',
-    reward: { titleId: 'title_lorde', titleName: 'Lorde de Aden', titleColor: '#38bdf8', frameId: 'frame_silver' }
+    rewardText: '稱號：「亞丁領主」+ 史詩銀色邊框',
+    reward: { titleId: 'title_lorde', titleName: '亞丁領主', titleColor: '#38bdf8', frameId: 'frame_silver' }
   },
   {
     id: 'ach_gladiator',
-    title: 'Gladiador Eterno',
-    desc: 'Vença pelo menos 20 confrontos no Coliseu ou nas Olimpíadas.',
+    title: '永恆鬥士',
+    desc: '在競技場或奧林匹亞至少贏得 20 場戰鬥。',
     icon: '👑',
     target: 20,
     checkProgress: (state) => {
@@ -103,28 +103,28 @@ export const ACHIEVEMENTS = [
       const col = state.colosseum?.duelWins || 0;
       return oly + col;
     },
-    rewardText: 'Título: « Gladiador Eterno » + 100 Aden Coins',
-    reward: { adenCoins: 100, titleId: 'title_gladiator', titleName: 'Gladiador Eterno', titleColor: '#f97316' }
+    rewardText: 'Título: « 永恆鬥士 » + 100 Aden Coins',
+    reward: { adenCoins: 100, titleId: 'title_gladiator', titleName: '永恆鬥士', titleColor: '#f97316' }
   },
   {
     id: 'ach_noblesse',
-    title: 'Nobreza Sagrada',
-    desc: 'Atinja Nível 75+ e conquiste a dádiva de Noblesse ou Subclasse ativa.',
+    title: '神聖貴族',
+    desc: '達到等級 75 以上，並取得貴族資格或啟用副職業。',
     icon: '🕊️',
     target: 1,
     checkProgress: (state) => (state.level >= 75 || state.isNoblesse || (state.subclasses && state.subclasses.length > 0)) ? 1 : 0,
-    rewardText: 'Título: « Nobre de Einhasad » + Aura Serafim Divina',
-    reward: { titleId: 'title_nobre', titleName: 'Nobre de Einhasad', titleColor: '#38bdf8', auraId: 'aura_divine_seraph' }
+    rewardText: '稱號：「殷海薩貴族」+ 神聖熾天使光環',
+    reward: { titleId: 'title_nobre', titleName: '殷海薩貴族', titleColor: '#38bdf8', auraId: 'aura_divine_seraph' }
   },
   {
     id: 'ach_ancient_legend',
-    title: 'Lenda Ancestral (Nível 80)',
-    desc: 'Alcance o cobiçado Nível 80 no continente de Aden.',
+    title: '古代傳說（等級 80）',
+    desc: '在亞丁大陸達到令人嚮往的等級 80。',
     icon: '⭐',
     target: 80,
     checkProgress: (state) => state.level || 1,
-    rewardText: 'Título: « Lenda de Aden » + Moldura Celestial dos Deuses',
-    reward: { titleId: 'title_lenda', titleName: 'Lenda de Aden', titleColor: '#ffd700', frameId: 'frame_celestial' }
+    rewardText: '稱號：「亞丁傳說」+ 諸神天界邊框',
+    reward: { titleId: 'title_lenda', titleName: '亞丁傳說', titleColor: '#ffd700', frameId: 'frame_celestial' }
   }
 ];
 
@@ -171,13 +171,13 @@ export const AchievementService = {
     if (!ach) return { success: false, reason: 'invalid_achievement' };
 
     if ((state.achievements.claimed || []).includes(achId)) {
-      log('Esta conquista já foi resgatada anteriormente.', 'warning');
+      log('此成就獎勵已經領取。', 'warning');
       return { success: false, reason: 'already_claimed' };
     }
 
     const current = ach.checkProgress(state);
     if (current < ach.target) {
-      log(`成就 ainda em andamento: ${ach.title} (${current}/${ach.target}).`, 'error');
+      log(`成就尚未完成：${ach.title}（${current}/${ach.target}）。`, 'error');
       return { success: false, reason: 'incomplete' };
     }
 
@@ -200,7 +200,7 @@ export const AchievementService = {
           id: rew.titleId,
           name: rew.titleName,
           titleText: rew.titleName,
-          desc: `成就do na realização: ${ach.title}`,
+          desc: `達成成就：${ach.title}`,
           color: rew.titleColor || '#ffd700',
           costAdena: 0
         };
@@ -220,8 +220,8 @@ export const AchievementService = {
       state.cosmetics.unlockedAuras.push(rew.auraId);
     }
 
-    log(`🏆 **[CONQUISTA CONCLUÍDA]** Você completou '${ach.title}'! 獎勵: ${ach.rewardText}!`, 'rarity-legendary');
-    floatText('🏆 CONQUISTA CONCLUÍDA!', 'float-jackpot');
+    log(`🏆 **[成就完成]** 你完成了「${ach.title}」！獎勵：${ach.rewardText}！`, 'rarity-legendary');
+    floatText('🏆 成就完成！', 'float-jackpot');
 
     onUpdate();
     return { success: true, ach };
