@@ -151,7 +151,7 @@ export function startRaidBoss(state, raidId, callbacks = {}) {
 
   if (callbacks.log) {
     callbacks.log(`⚔️ **團隊副本挑戰開始！** 你已進入 **${bossTemplate.name}**（${bossTemplate.title}）的領域！`, 'rarity-legendary');
-    callbacks.log(`🎟️ Ingressos restantes hoje: **${state.dailyRaidTickets}/${DAILY_FREE_TICKETS}**`, 'system');
+    callbacks.log(`🎟️ 今日剩餘入場券：**${state.dailyRaidTickets}/${DAILY_FREE_TICKETS}**`, 'system');
   }
   if (callbacks.renderStageMonster) callbacks.renderStageMonster();
   if (callbacks.onUpdate) callbacks.onUpdate();
@@ -220,7 +220,7 @@ export function processRaidBossMechanics(state, callbacks = {}) {
           callbacks.log(`💀 **[致命技能未打斷]** ${m.name} 施放 **${m.fatalSkill.name}**，造成 **${fatalDmg.toLocaleString()} 致命傷害**（最大 HP 的 60%）！`, 'rarity-legendary');
         }
         if (callbacks.floatText) {
-          callbacks.floatText(`💀 ${fatalDmg} FATAL!`, 'sf-crit');
+          callbacks.floatText(`💀 ${fatalDmg} 致命傷害！`, 'sf-crit');
         }
         if (callbacks.onFatalImpact) {
           callbacks.onFatalImpact(fatalDmg);
@@ -246,7 +246,7 @@ export function processRaidBossMechanics(state, callbacks = {}) {
       callbacks.log(`🔥 **[極限狂暴]** ${m.name} 進入狂暴狀態！破壞力提升（ATK +30%、速度 +25%）！`, 'rarity-legendary');
     }
     if (callbacks.floatText) {
-      callbacks.floatText('🔥 ENRAGE ATIVADO!', 'sf-crit');
+      callbacks.floatText('🔥 狂暴已啟動！', 'sf-crit');
     }
   }
 
@@ -334,7 +334,7 @@ export function handleRaidVictory(state, raidId, callbacks = {}) {
         if (drop.itemId === 'adena_coins') {
           const acAmount = drop.count || 10;
           state.adenCoins = (state.adenCoins || 0) + acAmount;
-          droppedItems.push({ itemId: 'adena_coins', name: `${acAmount}x Aden Coins (AC)`, isAC: true });
+          droppedItems.push({ itemId: 'adena_coins', name: `${acAmount}x 亞丁幣（AC）`, isAC: true });
           if (callbacks.log) {
             callbacks.log(`🪙 **稀有掉落：** 你獲得 **+${acAmount} 亞丁幣（AC）**！`, 'rarity-legendary');
           }
