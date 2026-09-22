@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Aden Arena — Homologação de Gameplay Interativa Real</title>
+  <title>亞丁競技場－真實互動玩法驗證</title>
   <style>
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #06080f; color: #d0d7de; padding: 20px; }
     h1 { color: #f0883e; font-size: 22px; border-bottom: 1px solid #21262d; padding-bottom: 8px; }
@@ -24,33 +24,33 @@
   </style>
 </head>
 <body>
-  <h1>Aden Arena: Homologação de Gameplay no Navegador Real (Edge Headless)</h1>
-  <div id="status-line">Inicializando motores de produção...</div>
+  <h1>亞丁競技場：真實瀏覽器玩法驗證（Edge 無頭模式）</h1>
+  <div id="status-line">正在初始化正式遊戲引擎……</div>
 
   <!-- Real Character Creation UI Form (exercised by Scenario 1) -->
   <div id="creation-ui-container">
-    <h3 style="color:#ffd877; margin-top:0;">Interface Real de Criação de Personagem (UI)</h3>
+    <h3 style="color:#ffd877; margin-top:0;">真實角色建立介面</h3>
     <form id="character-creation-form">
       <div>
-        <label>Nome: </label>
+        <label>名稱：</label>
         <input type="text" id="char-name-input" value="Tristan" maxlength="16" style="background:#161b22; color:#fff; border:1px solid #30363d; padding:4px 8px; border-radius:4px;" />
       </div>
       <div style="margin-top:8px;">
-        <label>Gênero: </label>
-        <button type="button" class="ui-btn active" id="gender-btn-M">♂️ Masculino</button>
-        <button type="button" class="ui-btn" id="gender-btn-F">♀️ Feminino</button>
+        <label>性別：</label>
+        <button type="button" class="ui-btn active" id="gender-btn-M">♂️ 男性</button>
+        <button type="button" class="ui-btn" id="gender-btn-F">♀️ 女性</button>
       </div>
       <div style="margin-top:8px;">
-        <label>Raça: </label>
+        <label>種族：</label>
         <div id="race-buttons-bar"></div>
       </div>
       <div style="margin-top:8px;">
-        <label>Classe: </label>
+        <label>職業：</label>
         <div id="class-buttons-bar"></div>
       </div>
       <div style="margin-top:12px;">
         <button type="submit" id="submit-create-hero" class="ui-btn" style="background:linear-gradient(180deg,#d4a744,#8a641c); color:#000; font-weight:bold; padding:8px 16px;">
-          ✨ Criar Personagem & Entrar em Aden
+          ✨ 建立角色並進入亞丁
         </button>
       </div>
     </form>
@@ -62,8 +62,8 @@
   <div id="scenarios-container"></div>
 
   <div id="summary-panel">
-    <h2>Relatório de Execução de Homologação Real</h2>
-    <pre id="gameplay-report-json">Executando...</pre>
+    <h2>真實驗證執行報告</h2>
+    <pre id="gameplay-report-json">執行中……</pre>
   </div>
 
   <script>
@@ -232,7 +232,7 @@
     // PASS 1: CENÁRIOS 1 A 7 + PREPARAÇÃO DO SAVE REAL (CENÁRIO 8) + RELOAD
     // ─────────────────────────────────────────────────────────────────────────────
     async function runPass1() {
-      document.getElementById('status-line').textContent = 'Executando Fase 1: Cenários 1 a 7 e Preparação de Save...';
+      document.getElementById('status-line').textContent = '正在執行第 1 階段：情境 1～7 與存檔準備……';
       const scenarioResults = [];
 
       // ─────────────────────────────────────────────────────────────
@@ -763,7 +763,7 @@
       sessionStorage.setItem('gameplay_homologation_pass1', JSON.stringify(scenarioResults));
       sessionStorage.setItem('gameplay_homologation_phase', 'pass2');
 
-      document.getElementById('status-line').textContent = 'Fase 1 concluída. Recarregando página efetivamente no navegador...';
+      document.getElementById('status-line').textContent = '第 1 階段完成。正在於瀏覽器中重新載入頁面……';
       window.location.search = '?pass=2';
     }
 
@@ -771,7 +771,7 @@
     // PASS 2: APÓS RECARGA EFETIVA DA PÁGINA (CENÁRIOS 8 E 9)
     // ─────────────────────────────────────────────────────────────────────────────
     async function runPass2() {
-      document.getElementById('status-line').textContent = 'Executando Fase 2: Pós-Recarga Efetiva (Cenários 8 e 9)...';
+      document.getElementById('status-line').textContent = '正在執行第 2 階段：重新載入後驗證（情境 8、9）……';
       sessionStorage.removeItem('gameplay_homologation_phase');
 
       let scenarioResults = [];
@@ -909,11 +909,11 @@
             <span class="scenario-title">[${res.type}] ${res.title}</span>
             <span class="scenario-badge ${badgeClass}">${res.status}</span>
           </div>
-          <div class="field-row"><span class="field-label">Estado Inicial:</span><span class="field-val">${res.initialState}</span></div>
-          <div class="field-row"><span class="field-label">Ações Reais:</span><span class="field-val">${res.actions}</span></div>
-          <div class="field-row"><span class="field-label">Resultado Esperado:</span><span class="field-val">${res.expected}</span></div>
-          <div class="field-row"><span class="field-label">Resultado Observado:</span><span class="field-val">${res.observed}</span></div>
-          <div class="field-row"><span class="field-label">Erros de Console:</span><span class="field-val">${res.consoleErrorsCount}</span></div>
+          <div class="field-row"><span class="field-label">初始狀態：</span><span class="field-val">${res.initialState}</span></div>
+          <div class="field-row"><span class="field-label">實際操作：</span><span class="field-val">${res.actions}</span></div>
+          <div class="field-row"><span class="field-label">預期結果：</span><span class="field-val">${res.expected}</span></div>
+          <div class="field-row"><span class="field-label">觀察結果：</span><span class="field-val">${res.observed}</span></div>
+          <div class="field-row"><span class="field-label">主控台錯誤：</span><span class="field-val">${res.consoleErrorsCount}</span></div>
         `;
         container.appendChild(card);
       }
@@ -930,7 +930,7 @@
       };
 
       document.getElementById('gameplay-report-json').textContent = JSON.stringify(report, null, 2);
-      document.getElementById('status-line').textContent = `HOMOLOGAÇÃO CONCLUÍDA: ${report.passedScenarios}/${report.totalScenarios} APROVADOS (${report.totalConsoleErrors} erros de console)`;
+      document.getElementById('status-line').textContent = `驗證完成：${report.passedScenarios}/${report.totalScenarios} 個情境通過（${report.totalConsoleErrors} 個主控台錯誤）`;
       document.title = 'HOMOLOGATION_COMPLETE_' + report.passedScenarios + '_OF_' + report.totalScenarios;
     }
 
