@@ -316,7 +316,7 @@ export class SevenSignsService {
     }
 
     hooks.log?.(
-      `💀 **死亡懲罰：**你損失了 ${expLost.toLocaleString()} EXP！${droppedItem ? `💥 物品【${droppedItem.name || droppedItem.id}】掉落在地上！` : ''}`,
+      `💀 **死亡懲罰：**你損失了 ${expLost.toLocaleString()} 經驗值！${droppedItem ? `💥 物品【${droppedItem.name || droppedItem.id}】掉落在地上！` : ''}`,
       'danger'
     );
     hooks.onUpdate?.();
