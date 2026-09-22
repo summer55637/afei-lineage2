@@ -19360,7 +19360,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "adena_stun": {
         "id": "adena_stun",
-        "name": "Adena Stun",
+        "name": "亞丁幣暈眩",
         "slug": "adena_stun",
         "type": "active",
         "rawType": "Ativo",
@@ -19372,7 +19372,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Throws some adena at the target.Attacks the target. Power 5018. Stuns for 3 sec.",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Throws some adena at the target.Attacks the target. Power 5018. Stuns for 3 sec.With a certain chance, removes up to 3 buff(s) from the target.Ignores Shield Defense.No critical.",
+        "desc": "向目標投擲亞丁幣並攻擊目標，威力 5018，使其暈眩 3 秒。有一定機率移除目標最多 3 個增益效果。無視盾牌防禦。不會暴擊。",
         "balance": {
             "mpCost": 54,
             "pwr": 500,
@@ -19390,7 +19390,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "maphr_s_magic_barrier": {
         "id": "maphr_s_magic_barrier",
-        "name": "Maphr's Magic Barrier",
+        "name": "瑪芙爾的魔法屏障",
         "slug": "maphr_s_magic_barrier",
         "type": "buff",
         "rawType": "Buff",
@@ -19402,7 +19402,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Maphr's Magic Barrier effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Maphr's Magic Barrier",
+        "desc": "瑪芙爾的魔法屏障。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -19428,7 +19428,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "maphr_s_haste": {
         "id": "maphr_s_haste",
-        "name": "Maphr's Haste",
+        "name": "瑪芙爾的加速",
         "slug": "maphr_s_haste",
         "type": "buff",
         "rawType": "Buff",
@@ -19440,7 +19440,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Maphr's Haste effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Maphr's Haste",
+        "desc": "瑪芙爾的加速。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -19466,7 +19466,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "trophy_thief": {
         "id": "trophy_thief",
-        "name": "Trophy Thief",
+        "name": "戰利品竊賊",
         "slug": "trophy_thief",
         "type": "active",
         "rawType": "Ativo",
@@ -19478,7 +19478,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target. Power 6373.Ignores Shield Defense.Ignores 20% of the target'",
         "canonicalCooldown": "8 sec.",
         "canonicalCooldownMs": 8000,
-        "desc": "Attacks the target. Power 6373.Ignores Shield Defense.Ignores 20% of the target's defense.With a certain chance, steals items from monsters.",
+        "desc": "攻擊目標，威力 6373。無視盾牌防禦與目標 20% 防禦力。有一定機率從怪物身上竊取物品。",
         "balance": {
             "mpCost": 72,
             "pwr": 500,
@@ -19496,7 +19496,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "maphr_s_wild_magic": {
         "id": "maphr_s_wild_magic",
-        "name": "Maphr's Wild Magic",
+        "name": "瑪芙爾的野性魔力",
         "slug": "maphr_s_wild_magic",
         "type": "buff",
         "rawType": "Buff",
@@ -19508,7 +19508,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Maphr's Wild Magic effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Maphr's Wild Magic",
+        "desc": "瑪芙爾的野性魔力。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -19534,7 +19534,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "spoil_crush": {
         "id": "spoil_crush",
-        "name": "Spoil Crush",
+        "name": "搜刮重擊",
         "slug": "spoil_crush",
         "type": "active",
         "rawType": "Ativo",
@@ -19546,7 +19546,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target. Power 4907.With a certain chance, steals items from monsters",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "Attacks the target. Power 4907.With a certain chance, steals items from monsters.Ignores Shield Defense.Ignores 10% of the target's defense.",
+        "desc": "攻擊目標，威力 4907。有一定機率從怪物身上竊取物品。無視盾牌防禦與目標 10% 防禦力。",
         "balance": {
             "mpCost": 60,
             "pwr": 500,
@@ -19564,7 +19564,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "crushing_leap": {
         "id": "crushing_leap",
-        "name": "Crushing Leap",
+        "name": "粉碎跳躍",
         "slug": "crushing_leap",
         "type": "active",
         "rawType": "Ativo",
@@ -19576,7 +19576,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target. Power 5545.When using the skill, increases its power with a ",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "Attacks the target. Power 5545.When using the skill, increases its power with a certain chance.Ignores Shield Defense.Ignores 10% of the target's defense.",
+        "desc": "攻擊目標，威力 5545。使用技能時有一定機率提高技能威力。無視盾牌防禦與目標 10% 防禦力。",
         "balance": {
             "mpCost": 65,
             "pwr": 500,
@@ -19594,7 +19594,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "maphr_s_wind_walk": {
         "id": "maphr_s_wind_walk",
-        "name": "Maphr's Wind Walk",
+        "name": "瑪芙爾的風之疾走",
         "slug": "maphr_s_wind_walk",
         "type": "buff",
         "rawType": "Buff",
@@ -19606,7 +19606,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Maphr's Wind Walk effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Maphr's Wind Walk",
+        "desc": "瑪芙爾的風之疾走。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -19629,7 +19629,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "body_crush": {
         "id": "body_crush",
-        "name": "Body Crush",
+        "name": "身體粉碎",
         "slug": "body_crush",
         "type": "active",
         "rawType": "Ativo",
@@ -19641,7 +19641,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target. Power 4129.With a certain chance, stuns for 3 sec.With a cer",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "Attacks the target. Power 4129.With a certain chance, stuns for 3 sec.With a certain chance, removes up to 2 buff(s) from the target.Ignores Shield Defense.No critical.",
+        "desc": "攻擊目標，威力 4129。有一定機率使目標暈眩 3 秒，並有一定機率移除目標最多 2 個增益效果。無視盾牌防禦。不會暴擊。",
         "balance": {
             "mpCost": 61,
             "pwr": 500,
@@ -19664,7 +19664,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "maphr_s_berserker_spirit": {
         "id": "maphr_s_berserker_spirit",
-        "name": "Maphr's Berserker Spirit",
+        "name": "瑪芙爾的狂戰士之魂",
         "slug": "maphr_s_berserker_spirit",
         "type": "buff",
         "rawType": "Buff",
@@ -19676,7 +19676,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Maphr's Berserker Spirit effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Maphr's Berserker Spirit",
+        "desc": "瑪芙爾的狂戰士之魂。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -19702,7 +19702,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "rolling_dice": {
         "id": "rolling_dice",
-        "name": "Rolling Dice",
+        "name": "擲骰子",
         "slug": "rolling_dice",
         "type": "buff",
         "rawType": "Buff",
@@ -19714,7 +19714,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Rolling Dice effect",
         "canonicalCooldown": "7 sec.",
         "canonicalCooldownMs": 7000,
-        "desc": "Rolling Dice",
+        "desc": "擲骰子。",
         "balance": {
             "mpCost": 150,
             "pwr": 20,
@@ -19732,7 +19732,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "spoil_festival": {
         "id": "spoil_festival",
-        "name": "Spoil Festival",
+        "name": "搜刮祭典",
         "slug": "spoil_festival",
         "type": "active",
         "rawType": "Ativo",
@@ -19744,7 +19744,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Curses the target and nearby enemies.",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "Curses the target and nearby enemies.",
+        "desc": "詛咒目標與附近敵人。",
         "balance": {
             "mpCost": 89,
             "pwr": 20,
@@ -19764,7 +19764,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "weapon_reinforcement": {
         "id": "weapon_reinforcement",
-        "name": "Weapon Reinforcement",
+        "name": "武器強化",
         "slug": "weapon_reinforcement",
         "type": "buff",
         "rawType": "Buff",
@@ -19776,7 +19776,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "When using a sword, a blunt weapon, or a spear:P. Atk. +12%With a certain chance",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "When using a sword, a blunt weapon, or a spear:P. Atk. +12%With a certain chance, applies the Physical Damage debuff on a basic attack.Physical DamageDebuff: Atk. Spd./ Casting Spd. -10%Duration: 15 sec.Trigger cooldown: 15 sec.",
+        "desc": "使用劍、鈍器或長槍時：P.Atk +12%。基礎攻擊時有一定機率附加 Physical Damage 弱化效果：攻速／施法速度 -10%，持續 15 秒；觸發冷卻 15 秒。",
         "balance": {
             "mpCost": 40,
             "pwr": 1,
@@ -19799,7 +19799,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "tenacity": {
         "id": "tenacity",
-        "name": "Tenacity",
+        "name": "堅毅",
         "slug": "tenacity",
         "type": "buff",
         "rawType": "Buff",
@@ -19811,7 +19811,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Tenacity effect",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "Tenacity",
+        "desc": "堅毅。",
         "balance": {
             "mpCost": 72,
             "pwr": 20,
@@ -19834,7 +19834,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "mount_kukuru": {
         "id": "mount_kukuru",
-        "name": "Mount Kukuru",
+        "name": "騎乘庫庫魯",
         "slug": "mount_kukuru",
         "type": "active",
         "rawType": "Ativo",
@@ -19846,7 +19846,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Mount Kukuru effect",
         "canonicalCooldown": "1s",
         "canonicalCooldownMs": 1000,
-        "desc": "Mount Kukuru",
+        "desc": "騎乘庫庫魯。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -19865,7 +19865,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "fortune_time": {
         "id": "fortune_time",
-        "name": "Fortune Time",
+        "name": "幸運時刻",
         "slug": "fortune_time",
         "type": "active",
         "rawType": "Ativo",
@@ -19877,7 +19877,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max HP +20%Max HP +2500P. Skill Power +5%With a certain chance when attacking a ",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "Max HP +20%Max HP +2500P. Skill Power +5%With a certain chance when attacking a raid boss and some monsters:For 2 min., the Fortune Seeker's Mark debuff is applied.(Trigger cooldown: 10 sec.)When Fortune Seeker's Mark is active:An additional reward is dropped on killing a raid boss and some monsters.<Additional rewards and their drop rates>Fortune Time Box - Boss Raid: 1%Scroll: Enchant Rare Accessories, Improved Scroll: Enchant Rare Accessories, Transcendent Upgrade StoneFortune Time Box - Command Channel Raid: 0.8%Improved/ Cursed Scroll: Enchant A-grade Weapon/ Armor, Scroll of Blessing - Weapon/ Armor, Charging Stone: Skill Enchant - 3-star (10%), Transcendent Upgrade StoneFortune Time Box - Special Monster: 1%Fire/ Water/ Earth/ Wind Spirit Evolution Stone, Scroll: Enchant A-grade Weapon/ Armor, Improved/ Cursed Scroll: Enchant A-grade Weapon/ Armor, Scroll of Blessing - Weapon/ ArmorFortune Time Box - Guardian Raid: 0.8%Guardian Pendant Lv. 1, Guardian Book Coupon - 1-3 Stars, Guardian Ring/ Earring, Scroll: Enchant Guardian Ornaments<Note!>The additional reward can only be obtained from certain bosses and monsters.Re-applying Fortune Seeker's Mark will not renew Fortune Seeker's Mark that is already applied to a boss or monster.",
+        "desc": "最大 HP +20%、最大 HP +2500、物理技能威力 +5%。攻擊團體首領與部分怪物時有一定機率附加 Fortune Seeker's Mark，持續 2 分鐘（觸發冷卻 10 秒）。標記生效時，擊殺團體首領或部分怪物可掉落額外獎勵。<額外獎勵與掉落率>幸運時刻箱－首領團體：1%：稀有飾品強化卷軸、改良稀有飾品強化卷軸、超越升級石。幸運時刻箱－指揮頻道團體：0.8%：改良／詛咒 A 級武器／防具強化卷軸、祝福卷軸－武器／防具、充能石：技能強化－3 星（10%）、超越升級石。幸運時刻箱－特殊怪物：1%：火／水／地／風精靈進化石、A 級武器／防具強化卷軸、改良／詛咒 A 級武器／防具強化卷軸、祝福卷軸－武器／防具。幸運時刻箱－守護團體：0.8%：守護墜飾 Lv.1、守護之書兌換券－1～3 星、守護戒指／耳環、守護飾品強化卷軸。<注意>額外獎勵只能從特定首領與怪物取得；對已帶有 Fortune Seeker's Mark 的首領或怪物再次施放，不會刷新標記持續時間。",
         "balance": {
             "mpCost": 102,
             "pwr": 2,
@@ -19895,7 +19895,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "blazing_fury": {
         "id": "blazing_fury",
-        "name": "Blazing Fury",
+        "name": "烈焰狂怒",
         "slug": "blazing_fury",
         "type": "buff",
         "rawType": "Buff",
@@ -19907,7 +19907,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Blazing Fury effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Blazing Fury",
+        "desc": "烈焰狂怒。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -19926,7 +19926,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "blazing_beast": {
         "id": "blazing_beast",
-        "name": "Blazing Beast",
+        "name": "烈焰野獸",
         "slug": "blazing_beast",
         "type": "buff",
         "rawType": "Buff",
@@ -19938,7 +19938,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Blazing Beast effect",
         "canonicalCooldown": "for",
         "canonicalCooldownMs": 1000,
-        "desc": "Blazing Beast",
+        "desc": "烈焰野獸。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -19956,7 +19956,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "summon_mechanic_golem": {
         "id": "summon_mechanic_golem",
-        "name": "Summon Mechanic Golem",
+        "name": "召喚機械魔像",
         "slug": "summon_mechanic_golem",
         "type": "active",
         "rawType": "Ativo",
@@ -19968,7 +19968,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summons a Mechanical Golem.",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "Summons a Mechanical Golem.",
+        "desc": "召喚機械魔像。",
         "balance": {
             "mpCost": 49,
             "pwr": 20,
@@ -19991,7 +19991,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "wild_rush": {
         "id": "wild_rush",
-        "name": "Wild Rush",
+        "name": "野性突進",
         "slug": "wild_rush",
         "type": "active",
         "rawType": "Ativo",
@@ -20003,7 +20003,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Wild Rush effect",
         "canonicalCooldown": ".Terms",
         "canonicalCooldownMs": 1000,
-        "desc": "Wild Rush",
+        "desc": "野性突進。",
         "balance": {
             "mpCost": 30,
             "pwr": 20,
@@ -20024,7 +20024,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "piercing": {
         "id": "piercing",
-        "name": "Piercing",
+        "name": "穿刺",
         "slug": "piercing",
         "type": "active",
         "rawType": "Ativo",
@@ -20036,7 +20036,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Spear skill>Attacks the target with a spear.Deals P. damage. Power 419.Ignores ",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "<Spear skill>Attacks the target with a spear.Deals P. damage. Power 419.Ignores Shield Defense.",
+        "desc": "<長槍技能>使用長槍攻擊目標，造成物理傷害，威力 419。無視盾牌防禦。",
         "balance": {
             "mpCost": 18,
             "pwr": 419,
@@ -20055,7 +20055,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "wild_scratch": {
         "id": "wild_scratch",
-        "name": "Wild Scratch",
+        "name": "野性抓擊",
         "slug": "wild_scratch",
         "type": "active",
         "rawType": "Ativo",
@@ -20067,7 +20067,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Beast skill>The beast attacks the target with its claws.Deals damage based on y",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "<Beast skill>The beast attacks the target with its claws.Deals damage based on your P. Atk. Power 8087.Ignores Shield Defense.Ignores 10% of the target's defense.",
+        "desc": "<野獸技能>野獸以利爪攻擊目標，傷害依自身 P.Atk 計算，威力 8087。無視盾牌防禦與目標 10% 防禦力。",
         "balance": {
             "mpCost": 61,
             "pwr": 500,
@@ -20086,7 +20086,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "amazing_piercing": {
         "id": "amazing_piercing",
-        "name": "Amazing Piercing",
+        "name": "驚人穿刺",
         "slug": "amazing_piercing",
         "type": "active",
         "rawType": "Ativo",
@@ -20098,7 +20098,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Spear skill>Attacks the target with a spear.Deals P. damage. Power 7276.Ignores",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "<Spear skill>Attacks the target with a spear.Deals P. damage. Power 7276.Ignores Shield Defense.Ignores 15% of the target's defense.",
+        "desc": "<長槍技能>使用長槍攻擊目標，造成物理傷害，威力 7276。無視盾牌防禦與目標 15% 防禦力。",
         "balance": {
             "mpCost": 60,
             "pwr": 500,
@@ -20116,7 +20116,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "sweeper_festival": {
         "id": "sweeper_festival",
-        "name": "Sweeper Festival",
+        "name": "掃蕩祭典",
         "slug": "sweeper_festival",
         "type": "active",
         "rawType": "Ativo",
@@ -20128,7 +20128,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Sweeper Festival effect",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "Sweeper Festival",
+        "desc": "掃蕩祭典。",
         "balance": {
             "mpCost": 12,
             "pwr": 20,
@@ -20146,7 +20146,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "wild_charge": {
         "id": "wild_charge",
-        "name": "Wild Charge",
+        "name": "野性衝鋒",
         "slug": "wild_charge",
         "type": "active",
         "rawType": "Ativo",
@@ -20158,7 +20158,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Beast skill>The beast's materialized soul strikes at the target.Attacks the tar",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "<Beast skill>The beast's materialized soul strikes at the target.Attacks the target and nearby enemies twice, the damage is based on your P. Atk. Power 3773.Ignores Shield Defense.Ignores 10% of the target's defense.",
+        "desc": "<野獸技能>野獸實體化的靈魂打擊目標，連續 2 次攻擊目標與附近敵人，傷害依自身 P.Atk 計算，威力 3773。無視盾牌防禦與目標 10% 防禦力。",
         "balance": {
             "mpCost": 88,
             "pwr": 500,
@@ -20176,7 +20176,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "wide_threatening_swing": {
         "id": "wide_threatening_swing",
-        "name": "Wide Threatening Swing",
+        "name": "廣域威嚇揮擊",
         "slug": "wide_threatening_swing",
         "type": "active",
         "rawType": "Ativo",
@@ -20188,7 +20188,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Spear skill>Attacks nearby targets. Power 6198.Ignores Shield Defense.Ignores 1",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "<Spear skill>Attacks nearby targets. Power 6198.Ignores Shield Defense.Ignores 10% of the target's defense.",
+        "desc": "<長槍技能>攻擊附近目標，威力 6198。無視盾牌防禦與目標 10% 防禦力。",
         "balance": {
             "mpCost": 68,
             "pwr": 500,
@@ -20206,7 +20206,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "giant_s_stomp": {
         "id": "giant_s_stomp",
-        "name": "Giant's Stomp",
+        "name": "巨人踐踏",
         "slug": "giant_s_stomp",
         "type": "buff",
         "rawType": "Buff",
@@ -20218,7 +20218,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Giant's Stomp effect",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "Giant's Stomp",
+        "desc": "巨人踐踏。",
         "balance": {
             "mpCost": 120,
             "pwr": 20,
@@ -20236,7 +20236,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "wild_growl": {
         "id": "wild_growl",
-        "name": "Wild Growl",
+        "name": "野性咆哮",
         "slug": "wild_growl",
         "type": "buff",
         "rawType": "Buff",
@@ -20248,7 +20248,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Suppression skill>With a certain chance, suppresses nearby enemies for 3 sec.Su",
         "canonicalCooldown": "45 sec.",
         "canonicalCooldownMs": 45000,
-        "desc": "<Suppression skill>With a certain chance, suppresses nearby enemies for 3 sec.Suppression: Speed -70%",
+        "desc": "<壓制技能>有一定機率壓制附近敵人 3 秒。壓制：速度 -70%。",
         "balance": {
             "mpCost": 90,
             "pwr": 7,
@@ -20266,7 +20266,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "threatening_swing": {
         "id": "threatening_swing",
-        "name": "Threatening Swing",
+        "name": "威嚇揮擊",
         "slug": "threatening_swing",
         "type": "active",
         "rawType": "Ativo",
@@ -20278,7 +20278,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Spear skill>Attacks nearby targets. Power 1136.Ignores Shield Defense.",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "<Spear skill>Attacks nearby targets. Power 1136.Ignores Shield Defense.",
+        "desc": "<長槍技能>攻擊附近目標，威力 1136。無視盾牌防禦。",
         "balance": {
             "mpCost": 38,
             "pwr": 500,
@@ -20296,7 +20296,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "wild_assault": {
         "id": "wild_assault",
-        "name": "Wild Assault",
+        "name": "野性突擊",
         "slug": "wild_assault",
         "type": "active",
         "rawType": "Ativo",
@@ -20308,7 +20308,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Wild Assault effect",
         "canonicalCooldown": ".Terms",
         "canonicalCooldownMs": 1000,
-        "desc": "Wild Assault",
+        "desc": "野性突擊。",
         "balance": {
             "mpCost": 100,
             "pwr": 20,
