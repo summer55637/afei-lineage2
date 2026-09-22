@@ -14,7 +14,7 @@ export const DEFAULT_COMMUNITY_GOAL = {
   baseCap: 40,
   targetCap: 45,
   bossId: 'flamingDemonLord',
-  bossName: 'Flaming Demon Lord (Black Citadel)',
+  bossName: '黑色城堡的烈焰魔王',
   targetKills: 100,
   currentKills: 0,
   unlocked: false,
@@ -190,7 +190,7 @@ export class CommunityCapService {
         <div style="background:rgba(0,0,0,0.6); border:1px solid rgba(255,255,255,0.1); border-radius:8px; height:18px; position:relative; overflow:hidden;">
           <div style="width:${pct}%; height:100%; background:${goal.unlocked ? 'linear-gradient(90deg,#10b981,#34d399)' : 'linear-gradient(90deg,#eab308,#f59e0b)'}; transition:width 0.4s ease; box-shadow:0 0 10px rgba(234,179,8,0.5);"></div>
           <div style="position:absolute; inset:0; display:flex; justify-content:space-between; align-items:center; padding:0 8px; font-size:10px; font-weight:bold; color:#fff; text-shadow:0 1px 2px #000;">
-            <span>${goal.currentKills} / ${goal.targetKills} Abates Globais</span>
+            <span>${goal.currentKills} / ${goal.targetKills} 全服擊殺</span>
             <span>${pct}%</span>
           </div>
         </div>
