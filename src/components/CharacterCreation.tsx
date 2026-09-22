@@ -119,7 +119,7 @@ const RACES_INFO: Record<string, {
     name: '半獸人',
     icon: '👹',
     desc: '擁有驚人力量與強韌體魄的戰士種族。',
-    perks: ['💪 +100 最大生命值（HP）', '🛡️ 長時間戰鬥耐久', '🏝️ 從說話之島開始（等級 1）'],
+    perks: ['💪 +100 最大生命值', '🛡️ 長時間戰鬥耐久', '🏝️ 從說話之島開始（等級 1）'],
     allowedClasses: [
       { id: 'orc_fighter', name: '半獸人戰士', desc: '使用雙手斧與狂暴之力作戰的破壞者。', icon: '🪓' },
       { id: 'orc_mage', name: '半獸人薩滿', desc: '使用戰鬥魔法與部族增益強化血量及耐力。', icon: '🔥' },
@@ -350,7 +350,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
             <div>
               <p className="font-bold text-amber-300">重新專精提醒：</p>
               <p className="mt-0.5 text-amber-200/90 leading-relaxed">
-                確認變更種族與職業後，<strong>所有技能都會重置</strong>，<strong>已花費的 SP 會全數返還</strong>，<strong>目前裝備會安全卸下</strong>並放回背包。
+                確認變更種族與職業後，<strong>所有技能都會重置</strong>，<strong>已花費的技能點會全數返還</strong>，<strong>目前裝備會安全卸下</strong>並放回背包。
               </p>
             </div>
           </div>
