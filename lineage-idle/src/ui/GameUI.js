@@ -550,8 +550,8 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
       if (equippedStats !== null) {
         const eqV = equippedStats[s] || 0;
         const diff = v - eqV;
-        if (diff > 0) deltaHtml = `<span style="color:#4ade80;font-size:10px;font-weight:bold;margin-left:5px;">(+${diff}${suffix})</span>`;
-        else if (diff < 0) deltaHtml = `<span style="color:#ef4444;font-size:10px;font-weight:bold;margin-left:5px;">(${diff}${suffix})</span>`;
+        if (diff > 0) deltaHtml = `<span style="color:#4ade80;font-size:10px;font-weight:bold;margin-left:5px;">（+${diff}${suffix}）</span>`;
+        else if (diff < 0) deltaHtml = `<span style="color:#ef4444;font-size:10px;font-weight:bold;margin-left:5px;">（${diff}${suffix}）</span>`;
       }
       statsHtml += `<div style="display:flex;justify-content:space-between;font-size:11px;margin:2px 0;">`
         + `<span style="color:#cbd5e1;">${STAT_LABEL[s] || s.toUpperCase()}</span>`
@@ -629,13 +629,13 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
               parts.push(`+${pv} ${pk.toUpperCase()}`);
             }
           }
-          bonusLines.push(`<div style="color:${color}; font-size:10px; margin:1px 0;">• (${reqP} 件): ${parts.join(', ')}</div>`);
+          bonusLines.push(`<div style="color:${color}; font-size:10px; margin:1px 0;">•（${reqP} 件）：${parts.join(', ')}</div>`);
         }
       }
 
       setBonusStr = `<div style="margin-top:6px; padding-top:4px; border-top:1px dashed rgba(212,167,68,0.4);">
         <div style="font-size:11px; font-weight:bold; color:#f4d58a; display:flex; justify-content:space-between; margin-bottom:2px;">
-          <span>🛡️ Set ${setDef.name}</span>
+          <span>🛡️ 套裝 ${setDef.name}</span>
           <span style="color:${equippedCount >= 2 ? '#4ade80' : '#d4a744'}; font-size:10px;">（${equippedCount}/${totalReq} 已裝備）</span>
         </div>
         ${bonusLines.join('')}
@@ -725,7 +725,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
         border-radius:4px;color:#f88870;font-size:11px;cursor:pointer;font-weight:600;">🔨 分解</button>`;
       actionsHtml += `<button data-tt-action="sell" data-uid="${item.uid}"
         style="padding:5px 8px;background:linear-gradient(180deg,#4a4a1a,#20200a);border:1px solid #b0b03a;
-        border-radius:4px;color:#f8f870;font-size:11px;cursor:pointer;font-weight:600;">💰 出售 (${sellPrice}g)</button>`;
+        border-radius:4px;color:#f8f870;font-size:11px;cursor:pointer;font-weight:600;">💰 出售（${sellPrice}g）</button>`;
     }
     actionsHtml += `</div>`;
   }
@@ -788,7 +788,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
 
   let heirloomSetBonusText = '';
   if (heirloomCount >= 12) {
-    heirloomSetBonusText = '<span style="color:#4ade80;">👑 君王套裝 (12/12 Full):</span> +60% XP/金幣, +20% Stats, +25% HP';
+    heirloomSetBonusText = '<span style="color:#4ade80;">👑 君王套裝（12/12 完整）：</span> +60% XP/金幣, +20% Stats, +25% HP';
   } else if (heirloomCount >= 8) {
     heirloomSetBonusText = '<span style="color:#4ade80;">👑 君王加成（8/12）：</span> +45% XP/金幣, +10% Stats';
   } else if (heirloomCount >= 5) {
@@ -1784,10 +1784,10 @@ export function updateInventoryUI(state, callbacks = {}) {
   if (actionBar) {
     const selSize = selectedSet.size || 0;
     actionBar.innerHTML = `
-      <button class="inv-action-btn sell" id="btn-sell-selected" title="出售所選物品">💰 出售 (${selSize})</button>
-      <button class="inv-action-btn salvage" id="btn-salvage-selected" title="將已選取裝備分解為水晶／材料">🔨 分解 (${selSize})</button>
+      <button class="inv-action-btn sell" id="btn-sell-selected" title="出售所選物品">💰 出售（${selSize}）</button>
+      <button class="inv-action-btn salvage" id="btn-salvage-selected" title="將已選取裝備分解為水晶／材料">🔨 分解（${selSize}）</button>
       <button class="inv-action-btn select-junk" id="btn-select-junk" title="選取所有一般與非凡品質物品">🧹 選取低階物品</button>
-      ${selSize > 0 ? `<button class="inv-action-btn clear-sel" id="btn-clear-sel" title="清除目前選擇">❌ 清除 (${selSize})</button>` : ''}
+      ${selSize > 0 ? `<button class="inv-action-btn clear-sel" id="btn-clear-sel" title="清除目前選擇">❌ 清除（${selSize}）</button>` : ''}
     `;
 
     const btnSell = actionBar.querySelector('#btn-sell-selected');
@@ -2086,7 +2086,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
       ${isGear && !isCurrentItemEquipped ? `
         <div class="impact-decision-banner ${impactClass}">
           <span>${impactLabel}</span>
-          <span>ΔCP: +${cpDelta.toLocaleString()}</span>
+          <span>CP 變化：+${cpDelta.toLocaleString()}</span>
         </div>
       ` : ''}
     `;
@@ -2243,7 +2243,7 @@ export function openAutoEquipPreviewModal(state, callbacks = {}) {
         <span style="font-weight:bold; color:var(--gilt-bright);">戰鬥力（CP）：</span>
         <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:bold;">
           ${proposal.currentCp.toLocaleString()} → <span style="color:#4ade80;">${proposal.proposedCp.toLocaleString()}</span>
-          <span style="color:#4ade80; margin-left:6px;">(+${cpGain.toLocaleString()} CP)</span>
+          <span style="color:#4ade80; margin-left:6px;">（+${cpGain.toLocaleString()} CP）</span>
         </span>
       </div>
       <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; font-size:10px;">
@@ -2251,7 +2251,7 @@ export function openAutoEquipPreviewModal(state, callbacks = {}) {
         <div>M.Atk: <strong style="color:${d.matkDelta >= 0 ? '#4ade80' : '#f87171'}">${d.matkDelta >= 0 ? '+' : ''}${d.matkDelta}</strong></div>
         <div>P.Def: <strong style="color:${d.defDelta >= 0 ? '#4ade80' : '#f87171'}">${d.defDelta >= 0 ? '+' : ''}${d.defDelta}</strong></div>
         <div>M.Def: <strong style="color:${d.mdefDelta >= 0 ? '#4ade80' : '#f87171'}">${d.mdefDelta >= 0 ? '+' : ''}${d.mdefDelta}</strong></div>
-        <div>Max HP: <strong style="color:${d.hpDelta >= 0 ? '#4ade80' : '#f87171'}">${d.hpDelta >= 0 ? '+' : ''}${d.hpDelta}</strong></div>
+        <div>最大 HP： <strong style="color:${d.hpDelta >= 0 ? '#4ade80' : '#f87171'}">${d.hpDelta >= 0 ? '+' : ''}${d.hpDelta}</strong></div>
         <div>暴擊: <strong style="color:${d.critDelta >= 0 ? '#4ade80' : '#f87171'}">${d.critDelta >= 0 ? '+' : ''}${d.critDelta}%</strong></div>
       </div>
     </div>
@@ -2289,7 +2289,7 @@ export function openAutoEquipPreviewModal(state, callbacks = {}) {
     closeInventoryPreviewModal();
     if (res && res.success) {
       if (callbacks.log) {
-        callbacks.log(`⚡ 裝備最佳化成功！ (+${cpGain.toLocaleString()} CP)`, 'rarity-legendary');
+        callbacks.log(`⚡ 裝備最佳化成功！ （+${cpGain.toLocaleString()} CP）`, 'rarity-legendary');
       }
       updateInventoryUI(state, callbacks);
       if (callbacks.save) callbacks.save();
@@ -3342,7 +3342,7 @@ export function updateCharacterUI(state) {
             <span class="l2-row-val val-spd">${stats.spd || 100}</span>
           </div>
           <div class="l2-matrix-row">
-            <span class="l2-row-lbl">🎯 命中 de Golpe</span>
+            <span class="l2-row-lbl">🎯 命中率</span>
             <span class="l2-row-val val-acc">${stats.accuracy || (stats.eva ? stats.eva + 5 : 105)}</span>
           </div>
         </div>
@@ -3364,7 +3364,7 @@ export function updateCharacterUI(state) {
             <span class="l2-row-val val-mdef">${(stats.mdef || 0).toLocaleString()}</span>
           </div>
           <div class="l2-matrix-row">
-            <span class="l2-row-lbl">👟 迴避 / Esquiva</span>
+            <span class="l2-row-lbl">👟 迴避</span>
             <span class="l2-row-val val-eva">${stats.eva || 0}%</span>
           </div>
           <div class="l2-matrix-row">
@@ -3377,7 +3377,7 @@ export function updateCharacterUI(state) {
           </div>
           <div class="l2-matrix-row">
             <span class="l2-row-lbl">🌿 HP 恢復</span>
-            <span class="l2-row-val val-regen">+${stats.regenHp ? Math.round(stats.regenHp * 100) : 1}% / tick</span>
+            <span class="l2-row-val val-regen">+${stats.regenHp ? Math.round(stats.regenHp * 100) : 1}% / 次</span>
           </div>
         </div>
       </div>
@@ -3393,7 +3393,7 @@ export function updateCharacterUI(state) {
             ${tattoosHtml}
           </div>
           <div class="l2-mystic-sa">
-            ${socket ? `🔮 武器 SA： <strong style="color:#38bdf8;">${socket.effect.toUpperCase()} (Stage ${socket.stage})</strong>` : '🔮 武器 SA： 尚未鑲嵌靈魂水晶。'}
+            ${socket ? `🔮 武器 SA： <strong style="color:#38bdf8;">${socket.effect.toUpperCase()} （階段 ${socket.stage}）</strong>` : '🔮 武器 SA： 尚未鑲嵌靈魂水晶。'}
           </div>
         </div>
       </div>
@@ -3458,7 +3458,7 @@ export function updateCharacterUI(state) {
 
     equipContainer.innerHTML = equipCards.length > 0 
       ? equipCards.join('') 
-      : '<div style="font-size:11px; color:#94a3b8; font-style:italic; padding:10px;">目前沒有裝備物品。請從背包裝備物品以提升 CP。</div>';
+      : '<div style="font-size:11px; color:#94a3b8; font-style:italic; padding:10px;">目前沒有裝備物品。請從背包裝備物品以提升戰鬥力（CP）。</div>';
 
     // Bônus de Set Ativos
     const setContainer = root.querySelector('#char-set-bonuses-container');
@@ -3467,7 +3467,7 @@ export function updateCharacterUI(state) {
         setContainer.innerHTML = `
           <div style="background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.3); border-radius:6px; padding:8px 12px; display:flex; justify-content:space-between; align-items:center;">
             <div>
-              <span style="font-family:'Cinzel',serif; font-size:11px; font-weight:bold; color:#4ade80;">✨ 啟用套裝： ${setRes.name}</span>
+              <span style="font-family:'Cinzel',serif; font-size:11px; font-weight:bold; color:#4ade80;">✨ 啟用套裝：${setRes.name}</span>
               <div style="font-size:10px; color:#94a3b8; margin-top:2px;">${setRes.desc || '完整防具套裝加成已成功啟用。'}</div>
             </div>
             <span style="font-size:10px; color:#4ade80; font-weight:bold; background:rgba(34,197,94,0.2); padding:2px 6px; border-radius:4px;">套裝完成</span>
@@ -3500,7 +3500,7 @@ export function updateCharacterUI(state) {
     const m = CombatPowerService.getNextMilestone(cp);
     milestoneContainer.innerHTML = `
       <div class="l2-milestone-head">
-        <span class="l2-milestone-title">下一個里程碑： ${CombatPowerService.formatCombatPower(m.nextMilestone)}</span>
+        <span class="l2-milestone-title">下一個里程碑：${CombatPowerService.formatCombatPower(m.nextMilestone)}</span>
         <span class="l2-milestone-delta">還差 ${m.remainingCp.toLocaleString()} CP</span>
       </div>
       <div class="l2-milestone-bar-wrap">
@@ -3508,7 +3508,7 @@ export function updateCharacterUI(state) {
       </div>
       <div class="l2-milestone-footer">
         <span>進度：<strong>${m.progressPct}%</strong></span>
-        <span>Meta: <strong>${CombatPowerService.formatCombatPower(m.nextMilestone)}</strong></span>
+        <span>目標： <strong>${CombatPowerService.formatCombatPower(m.nextMilestone)}</strong></span>
       </div>
     `;
   }
@@ -3578,7 +3578,7 @@ export function renderZoneMap(state, callbacks = {}) {
               title="${isLocked ? `需要等級 ${d.minLvl || 1}+` : (d.desc || '')}">
         <span>${d.icon || '⚔️'}</span>
         <span>${d.name || d.id}</span>
-        <span style="font-size: 10px; opacity: 0.85;">${isLocked ? `🔒 (Lv.${d.minLvl || 1})` : `(${d.xpMult || 1}x)`}</span>
+        <span style="font-size: 10px; opacity: 0.85;">${isLocked ? `🔒（Lv.${d.minLvl || 1}）` : `（${d.xpMult || 1}x）`}</span>
       </button>
     `;
   }).filter(Boolean).join('');
@@ -3656,7 +3656,7 @@ export function renderZoneMap(state, callbacks = {}) {
     block.innerHTML = `
       <div class="saga-header">
         <span class="saga-title">🗺️ ${sagaName}</span>
-        <span class="saga-req">Lv. ${sagaReq}+</span>
+        <span class="saga-req">Lv.${sagaReq}+</span>
       </div>
       <div class="saga-zones-grid">${validCards.join('')}</div>
     `;
@@ -3752,7 +3752,7 @@ function renderLoadoutBar(state) {
       <div class="loadout-header">
         <div class="loadout-header-left">
           <span class="loadout-title">⚔️ 戰鬥配置</span>
-          <span class="loadout-progress">${progressLabel} · ${unlockedSlots.length}/7 Slots</span>
+          <span class="loadout-progress">${progressLabel} · ${unlockedSlots.length}/7 欄位</span>
         </div>
         <div class="loadout-header-actions">
           <button class="loadout-btn-action loadout-btn-auto" type="button" title="自動將已學習的最佳技能裝入可用欄位">⚡ 自動裝備</button>
@@ -3814,19 +3814,19 @@ function renderSkillCard(skill, state, activeLoadoutSlot = null) {
   const elemClass = `element-${String(skill.element || 'physical').toLowerCase()}`;
   let costBadge = '';
   if (isMaxed) {
-    costBadge = `<span class="skill-cost-badge cost-maxed">MAX</span>`;
+    costBadge = `<span class="skill-cost-badge cost-maxed">最大</span>`;
   } else if (isLocked) {
     if (skill.primaryLockReason === 'CLASS_STAGE_LOCKED') {
       costBadge = `<span class="skill-cost-badge cost-locked" title="需要完成轉職">🔒 轉職</span>`;
     } else if (skill.primaryLockReason === 'LEVEL_LOCKED') {
       costBadge = `<span class="skill-cost-badge cost-locked" title="等級 ${skill.requiredLevel} 需要">🔒 Lv.${skill.requiredLevel}</span>`;
     } else if (isBookLocked) {
-      costBadge = `<span class="skill-cost-badge cost-book" title="需要技能書">🔒 Livro ${skill.starRank || 4}★</span>`;
+      costBadge = `<span class="skill-cost-badge cost-book" title="需要技能書">🔒 魔法書 ${skill.starRank || 4}★</span>`;
     } else {
-      costBadge = `<span class="skill-cost-badge cost-locked">🔒 Bloqueada</span>`;
+      costBadge = `<span class="skill-cost-badge cost-locked">🔒 未解鎖</span>`;
     }
   } else if (isBookLocked) {
-    costBadge = `<span class="skill-cost-badge cost-book">🔒 Livro ${skill.starRank || 4}★</span>`;
+    costBadge = `<span class="skill-cost-badge cost-book">🔒 魔法書 ${skill.starRank || 4}★</span>`;
   } else {
     costBadge = `<span class="skill-cost-badge ${canAfford ? 'cost-affordable' : 'cost-expensive'}">✦ ${cost.sp} SP</span>`;
   }
@@ -3994,7 +3994,7 @@ export function updateSkillUI(state, callbacks = {}) {
               <div class="locked-progress-fill" style="width: ${pct}%;"></div>
             </div>
             <div class="locked-progress-labels">
-              <span>目前等級： <strong>Lv. ${state.level || 1}</strong></span>
+              <span>目前等級： <strong>Lv.${state.level || 1}</strong></span>
               <span>需求：<strong>Lv. 80</strong></span>
             </div>
           </div>
@@ -4036,7 +4036,7 @@ export function updateSkillUI(state, callbacks = {}) {
         <div class="skill-header-info">
           <div class="skill-header-title-row">
             <h3 class="skill-header-class">${viewModel.header.race} ${viewModel.header.className}</h3>
-            <span class="skill-header-badge level-badge">Lv. ${viewModel.header.level}</span>
+            <span class="skill-header-badge level-badge">Lv.${viewModel.header.level}</span>
             <span class="skill-header-badge theme-badge" style="border-color:${viewModel.header.accentColor}; color:${viewModel.header.accentColor};">
               ${viewModel.header.elementalTheme}
             </span>
@@ -4389,8 +4389,8 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
               <label style="color:#cbd5e1; font-size:10px; display:block; margin-bottom:2px;">HP 觸發條件：</label>
               <select class="si-cond-select" data-slot="${curSlot}" data-field="hpTrigger" style="width:100%; background:#1e293b; color:#f8fafc; border:1px solid #475569; border-radius:4px; padding:4px;">
                 <option value="none" ${cond.hpTrigger === 'none' ? 'selected' : ''}>永遠（冷卻完成時）</option>
-                <option value="self_below_75" ${cond.hpTrigger === 'self_below_75' ? 'selected' : ''}>Meu HP < 75%</option>
-                <option value="self_below_50" ${cond.hpTrigger === 'self_below_50' ? 'selected' : ''}>Meu HP < 50%</option>
+                <option value="self_below_75" ${cond.hpTrigger === 'self_below_75' ? 'selected' : ''}>我的 HP < 75%</option>
+                <option value="self_below_50" ${cond.hpTrigger === 'self_below_50' ? 'selected' : ''}>我的 HP < 50%</option>
                 <option value="self_below_30" ${cond.hpTrigger === 'self_below_30' ? 'selected' : ''}>我的 HP < 30%（危急）</option>
                 <option value="target_below_30" ${cond.hpTrigger === 'target_below_30' ? 'selected' : ''}>敵人 HP < 30%（處決）</option>
                 <option value="target_below_50" ${cond.hpTrigger === 'target_below_50' ? 'selected' : ''}>HP Inimigo < 50%</option>
@@ -4767,7 +4767,7 @@ function renderDialogueView(state, callbacks) {
         <span class="l2chat-bubble-icon">🗨️</span>
         <div style="flex:1;">
           <div class="l2chat-option-text">購買武器</div>
-          <div class="l2chat-option-hint">Arcos, Espadas, Cajados, Adagas, 鈍器s, 長槍s, Punhos</div>
+          <div class="l2chat-option-hint">弓、劍、法杖、匕首、鈍器、長槍、拳套</div>
         </div>
         <span style="color:#ffd877; font-size:12px;">➔</span>
       </button>
@@ -5122,7 +5122,7 @@ function renderStoreBuyTab(state, callbacks) {
       const isLvlOk = charLvl >= reqLvl;
       const price = isMystic ? Math.floor((def.price || 500) * (gData?.RARITY?.[rarity]?.mult || 1) * 2) : (def.price || 100);
       const stats = buildShopStatsSummary(def);
-      const tooltip = `${def.name} [${gradeInfo.label}]\n${stats ? stats + '\n' : ''}價格： ${price.toLocaleString()} 金幣${!isLvlOk ? `\n🔒 需要 Lv. ${reqLvl}` : ''}`;
+      const tooltip = `${def.name} [${gradeInfo.label}]\n${stats ? stats + '\n' : ''}價格： ${price.toLocaleString()} 金幣${!isLvlOk ? `\n🔒 需要 Lv.${reqLvl}` : ''}`;
 
       return `
         <div class="l2store-slot ${!isLvlOk ? 'locked' : ''}" data-add-cart="${def.id}" data-rarity="${rarity}" title="${tooltip}">
@@ -5180,7 +5180,7 @@ function renderStoreBuyTab(state, callbacks) {
             </div>
             <div style="min-width:0; flex:1;">
               <div class="l2store-cart-item-name" title="${cartItem.name}">${cartItem.name}</div>
-              <div class="l2store-cart-item-price">🪙 ${subtotal.toLocaleString()} (${cartItem.unitPrice.toLocaleString()}g un)</div>
+              <div class="l2store-cart-item-price">🪙 ${subtotal.toLocaleString()}（單價 ${cartItem.unitPrice.toLocaleString()}g）</div>
             </div>
           </div>
           <div class="l2store-cart-controls">
@@ -5334,7 +5334,7 @@ function renderStoreSellTab(state, callbacks) {
           <span class="l2store-slot-grade grade-${gradeInfo.code}">${gradeInfo.code.toUpperCase()}</span>
           ${getItemIcon(def)}
           ${count > 1 ? `<span class="l2store-slot-qty">${count}</span>` : ''}
-          ${isEquipped ? `<div style="position:absolute; inset:0; background:rgba(16,185,129,0.5); display:flex; align-items:center; justify-content:center; font-size:8px; color:#fff; font-weight:bold;">EQUIP</div>` : ''}
+          ${isEquipped ? `<div style="position:absolute; inset:0; background:rgba(16,185,129,0.5); display:flex; align-items:center; justify-content:center; font-size:8px; color:#fff; font-weight:bold;">裝備</div>` : ''}
           ${isLocked ? `<div style="position:absolute; inset:0; background:rgba(245,158,11,0.5); display:flex; align-items:center; justify-content:center; font-size:10px;">🔒</div>` : ''}
         </div>
       `;
@@ -5346,7 +5346,7 @@ function renderStoreSellTab(state, callbacks) {
     purchaseListContainer.innerHTML = `
       <div style="grid-column:1/-1; display:flex; flex-direction:column; gap:10px; padding:8px;">
         <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:6px; padding:10px;">
-          <h5 style="margin:0 0 4px 0; color:#fca5a5; font-family:'Cinzel',serif;">🧹 垃圾出售（Junk Sell）</h5>
+          <h5 style="margin:0 0 4px 0; color:#fca5a5; font-family:'Cinzel',serif;">🧹 垃圾出售</h5>
           <p style="margin:0 0 8px 0; font-size:11px; color:#cbd5e1;">立即以 50% 金幣價值出售背包中所有未鎖定的普通物品。</p>
           <button class="l2store-action-btn primary" data-sell-junk="true" style="width:100%; background:linear-gradient(180deg,#ef4444,#991b1b); border-color:#f87171; color:#fff;">
             🧹 出售全部普通物品
@@ -5871,7 +5871,7 @@ export function renderForgeDialogueView(state, callbacks = {}) {
         <span class="l2chat-bubble-icon">🗨️</span>
         <div style="flex:1;">
           <div class="l2chat-option-text">為武器／防具賦予靈魂水晶效果或變更 SA</div>
-          <div class="l2chat-option-hint">在武器上啟用 Focus、Acumen、Health 或 Might</div>
+          <div class="l2chat-option-hint">在武器上啟用專注、靈敏、生命或力量效果</div>
         </div>
         <span style="color:#ffd877; font-size:12px;">➔</span>
       </button>
@@ -5888,7 +5888,7 @@ export function renderForgeDialogueView(state, callbacks = {}) {
       <button class="l2chat-option-btn" data-forge-target="lifestones">
         <span class="l2chat-bubble-icon">🗨️</span>
         <div style="flex:1;">
-          <div class="l2chat-option-text">附魔改造（Life Stones）</div>
+          <div class="l2chat-option-text">附魔改造（生命石）</div>
           <div class="l2chat-option-hint">使用生命石與寶石進行附魔改造的祭壇</div>
         </div>
         <span style="color:#ffd877; font-size:12px;">➔</span>
@@ -5897,8 +5897,8 @@ export function renderForgeDialogueView(state, callbacks = {}) {
       <button class="l2chat-option-btn" data-forge-target="masterwork">
         <span class="l2chat-bubble-icon">🗨️</span>
         <div style="flex:1;">
-          <div class="l2chat-option-text">升級 R 級以上物品（Masterwork 與交換）</div>
-          <div class="l2chat-option-hint">Pushkin 修復、Masterwork 與同階武器交換</div>
+          <div class="l2chat-option-text">升級 R 級以上物品（名匠與交換）</div>
+          <div class="l2chat-option-hint">Pushkin 修復、名匠與同階武器交換</div>
         </div>
         <span style="color:#ffd877; font-size:12px;">➔</span>
       </button>
@@ -5915,7 +5915,7 @@ export function renderForgeDialogueView(state, callbacks = {}) {
       <button class="l2chat-option-btn" data-forge-target="synthesis">
         <span class="l2chat-bubble-icon">🗨️</span>
         <div style="flex:1;">
-          <div class="l2chat-option-text">帝國合成（Compounding）</div>
+          <div class="l2chat-option-text">帝國合成</div>
           <div class="l2chat-option-hint">使用奧術融合祭壇提升裝備與神器階級</div>
         </div>
         <span style="color:#ffd877; font-size:12px;">➔</span>
@@ -5942,7 +5942,7 @@ export function renderForgeDialogueView(state, callbacks = {}) {
       <button class="l2chat-option-btn" data-forge-target="tattoos">
         <span class="l2chat-bubble-icon">🗨️</span>
         <div style="flex:1;">
-          <div class="l2chat-option-text">刺青與染料（Henna）</div>
+          <div class="l2chat-option-text">刺青與染料</div>
           <div class="l2chat-option-hint">使用染料刻印奧術符號以調整基礎屬性</div>
         </div>
         <span style="color:#ffd877; font-size:12px;">➔</span>
@@ -6445,7 +6445,7 @@ export function openCraftModal(itemId, state, callbacks = {}) {
           <button class="inv-batch-btn ${currentQty === 10 ? 'active' : ''}" data-modal-qty="10">10x</button>
           <button class="inv-batch-btn ${currentQty === 50 ? 'active' : ''}" data-modal-qty="50">50x</button>
           <button class="inv-batch-btn ${currentQty === 100 ? 'active' : ''}" data-modal-qty="100">100x</button>
-          <button class="inv-batch-btn ${currentQty === maxCraftable ? 'active' : ''}" data-modal-qty="${maxCraftable}">最高 (${maxCraftable}x)</button>
+          <button class="inv-batch-btn ${currentQty === maxCraftable ? 'active' : ''}" data-modal-qty="${maxCraftable}">最高（${maxCraftable}x）</button>
         </div>
       </div>
 
@@ -6566,7 +6566,7 @@ export function renderAlchemyUI(state) {
           <div class="imp-item-meta">
             <div class="imp-item-header">
               <span class="imp-item-name">${rec.name}</span>
-              <span class="imp-item-grade-tag" style="background:rgba(168,85,247,0.25); border:1px solid rgba(168,85,247,0.5); color:#c084fc;">ELIXIR</span>
+              <span class="imp-item-grade-tag" style="background:rgba(168,85,247,0.25); border:1px solid rgba(168,85,247,0.5); color:#c084fc;">靈藥</span>
             </div>
             <p style="margin:2px 0 4px 0; font-size:11px; color:#94a3b8;">${rec.desc}</p>
             <div style="font-size:11px; font-family:'IBM Plex Mono',monospace;">
@@ -6626,7 +6626,7 @@ export function renderAlchemyUI(state) {
       const def = getItemDef(item.itemId);
       const rName = def?.name || item.itemId;
       const gCode = getItemGradeCode(def).toUpperCase();
-      return `<option value="${item.uid}" ${item.uid === selectedItem.uid ? 'selected' : ''}>[${gCode}] ${rName} (x${item.count || 1})</option>`;
+      return `<option value="${item.uid}" ${item.uid === selectedItem.uid ? 'selected' : ''}>[${gCode}] ${rName}（x${item.count || 1}）</option>`;
     }).join('');
 
     crucibleSelectHtml = `
@@ -6717,7 +6717,7 @@ export function renderAlchemyUI(state) {
           </span>
         </div>
         <p style="margin:0 0 12px 0; font-size:12px; color:#cbd5e1; line-height:1.4;">
-          在放置戰鬥中撕裂空間，召喚史詩首領的 <strong>[CHAOS]</strong> 混沌版本。混沌首領擁有更高屬性，並會掉落 <strong>特殊戰利品與 +100 帝國鍛造點數（隨機製作）</strong>！
+          在放置戰鬥中撕裂空間，召喚史詩首領的 <strong>[混沌]</strong> 混沌版本。混沌首領擁有更高屬性，並會掉落 <strong>特殊戰利品與 +100 帝國鍛造點數（隨機製作）</strong>！
         </p>
         <button
           onclick="if (window.useChaosBossSummonStoneAction) window.useChaosBossSummonStoneAction();"
@@ -7002,7 +7002,7 @@ export function renderExpeditionsUI(state) {
           </div>
           ${cand.trait && MERCENARY_TRAITS[cand.trait] ? `
             <div style="font-size:10px; color:${MERCENARY_TRAITS[cand.trait].color}; background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.1); border-radius:4px; padding:3px 6px; margin-bottom:6px;">
-              ${MERCENARY_TRAITS[cand.trait].icon} <strong>特性： ${MERCENARY_TRAITS[cand.trait].name}</strong> — ${MERCENARY_TRAITS[cand.trait].desc}
+              ${MERCENARY_TRAITS[cand.trait].icon} <strong>特性：${MERCENARY_TRAITS[cand.trait].name}</strong> — ${MERCENARY_TRAITS[cand.trait].desc}
             </div>
           ` : ''}
           <p style="font-size:10px; color:#888; font-style:italic; margin:0 0 8px 0; line-height:1.2;">
@@ -7168,8 +7168,8 @@ export function renderExpeditionsUI(state) {
         squadSelectorHtml = `
           <div style="margin-top:8px; padding-top:8px; border-top:1px solid rgba(212,167,68,0.2);">
             <div style="font-size:11px; color:#f4d58a; margin-bottom:4px; display:flex; justify-content:space-between;">
-              <span>編入傭兵（${selectedUids.length}/3）：</span>
-              <span style="color:#6ee7b7; font-weight:bold;">小隊戰力： ${synergies.totalSquadPower}</span>
+              <span>已編入傭兵（${selectedUids.length}/3）：</span>
+              <span style="color:#6ee7b7; font-weight:bold;">小隊戰力：${synergies.totalSquadPower}</span>
             </div>
             <div style="display:flex; gap:6px; flex-wrap:wrap;">
         `;
@@ -7307,7 +7307,7 @@ export function renderExpeditionsUI(state) {
           <div style="flex:1; min-width:220px;">
             <div style="display:flex; align-items:center; gap:8px;">
               <h4 style="margin:0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px;">${dDef.name}</h4>
-              <span style="font-size:10px; background:rgba(0,0,0,0.5); padding:1px 6px; border-radius:4px; color:#ffd877; font-weight:bold;">Lv. ${dDef.minLevel || 20}+</span>
+              <span style="font-size:10px; background:rgba(0,0,0,0.5); padding:1px 6px; border-radius:4px; color:#ffd877; font-weight:bold;">Lv.${dDef.minLevel || 20}+</span>
             </div>
             <p style="margin:4px 0 6px 0; font-size:11px; color:#aaa; line-height:1.3;">${dDef.desc}</p>
             <div style="font-size:10px; color:#fca5a5; margin-bottom:6px;">
@@ -7392,7 +7392,7 @@ export function renderExpeditionsUI(state) {
       <div style="background:rgba(18,22,34,0.85); border:1px solid rgba(212,167,68,0.25); border-radius:10px; padding:12px; margin-bottom:8px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
           <div>
-            <h4 style="margin:0; font-family:'Cinzel',serif; color:#f4d58a; font-size:14px;">🌾 ${sDef.name} (Lv. ${sDef.level})</h4>
+            <h4 style="margin:0; font-family:'Cinzel',serif; color:#f4d58a; font-size:14px;">🌾 ${sDef.name}（Lv.${sDef.level}）</h4>
             <div style="font-size:11px; color:#aaa;">累積收成： <strong style="color:#34d399;">${cropsCount}x 作物</strong></div>
           </div>
           <button
@@ -7623,7 +7623,7 @@ export function renderForgeSoulCrystals(container, state) {
                 : '此武器尚未鑲嵌特殊能力。'}
             </div>
             <div style="font-size:10px; color:#cbd5e1; margin-top:4px;">
-              等級需求： <strong style="color:${isLvlReady ? '#34d399' : '#f87171'};">Lv. ${gating.minLevel}+</strong> | 鑲嵌費用： <strong style="color:#fde047;">${gating.adenaCost.toLocaleString()} 金幣</strong>
+              等級需求： <strong style="color:${isLvlReady ? '#34d399' : '#f87171'};">Lv.${gating.minLevel}+</strong> | 鑲嵌費用： <strong style="color:#fde047;">${gating.adenaCost.toLocaleString()} 金幣</strong>
             </div>
           </div>
           ${selectedWpn?.soulCrystal ? `
@@ -7697,7 +7697,7 @@ export function renderForgeMasterwork(container, state) {
         <div style="display:flex; align-items:center; gap:10px;">
           <div class="l2-blueprint-socket" style="width:38px; height:38px; min-width:38px; border-color:#c084fc;">${getItemIcon(def)}</div>
           <div>
-            <strong style="color:#d8b4fe; font-family:'Cinzel',serif; font-size:13px;">✨ ${item.name || item.itemId} (Alma Ancestral)</strong>
+            <strong style="color:#d8b4fe; font-family:'Cinzel',serif; font-size:13px;">✨ ${item.name || item.itemId}（古代靈魂）</strong>
             <div style="font-size:10px; color:#94a3b8;">精工費用：100,000 金幣</div>
           </div>
         </div>
@@ -7780,14 +7780,14 @@ export function renderForgeMasterwork(container, state) {
 
       <!-- Unseal Section -->
       <div style="margin-bottom:14px;">
-        <h4 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#f5df93; font-size:13px; font-weight:700;">🔒 解除封印裝備（Unseal）</h4>
+        <h4 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#f5df93; font-size:13px; font-weight:700;">🔒 解除封印裝備</h4>
         ${sealedHtml || '<div style="font-size:11px; color:#64748b; background:rgba(8,11,16,0.85); padding:10px 12px; border-radius:6px; border:1px dashed rgba(255,255,255,0.1);">背包中沒有封印裝備。</div>'}
       </div>
 
       <!-- Masterwork Section -->
       <div style="margin-bottom:14px;">
-        <h4 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#f5df93; font-size:13px; font-weight:700;">👑 名匠精工（Foundation 裝備）</h4>
-        ${foundationHtml || '<div style="font-size:11px; color:#64748b; background:rgba(8,11,16,0.85); padding:10px 12px; border-radius:6px; border:1px dashed rgba(255,255,255,0.1);">背包中沒有 Foundation 裝備。請在一般製作分頁鍛造物品以取得 Foundation 裝備！</div>'}
+        <h4 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#f5df93; font-size:13px; font-weight:700;">👑 名匠精工（基礎裝備）</h4>
+        ${foundationHtml || '<div style="font-size:11px; color:#64748b; background:rgba(8,11,16,0.85); padding:10px 12px; border-radius:6px; border:1px dashed rgba(255,255,255,0.1);">背包中沒有基礎裝備。請在一般製作分頁鍛造物品以取得基礎裝備！</div>'}
       </div>
 
       <!-- Blacksmith Weapon Swap Section -->
@@ -7936,7 +7936,7 @@ export function renderForgeElemental(container, state) {
             </div>
           </div>
           <div style="text-align:right;">
-            <div style="font-size:10px; color:#94a3b8;">需求：<strong style="color:${isLvlReady ? '#34d399' : '#f87171'};">Lv. ${gating.minLevel}+</strong></div>
+            <div style="font-size:10px; color:#94a3b8;">需求：<strong style="color:${isLvlReady ? '#34d399' : '#f87171'};">Lv.${gating.minLevel}+</strong></div>
             <div style="font-size:10px; color:#cbd5e1;">費用： <strong style="color:#fde047;">${gating.stoneCost.toLocaleString()} 金幣</strong></div>
           </div>
         </div>
@@ -7965,7 +7965,7 @@ export function renderForgeElemental(container, state) {
           <div style="display:flex; gap:5px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
             <div style="display:flex; gap:4px; flex-wrap:wrap;">
               <button onclick="window.applyElementalAction('${item.uid}', 'fire')" class="inv-batch-btn" style="padding:4px 8px; font-size:10px; color:#fca5a5; border-color:#ef4444;">🔥 火焰（${stepLabel}）</button>
-              <button onclick="window.applyElementalAction('${item.uid}', 'water')" class="inv-batch-btn" style="padding:4px 8px; font-size:10px; color:#93c5fd; border-color:#3b82f6;">💧 水 (${stepLabel})</button>
+              <button onclick="window.applyElementalAction('${item.uid}', 'water')" class="inv-batch-btn" style="padding:4px 8px; font-size:10px; color:#93c5fd; border-color:#3b82f6;">💧 水（${stepLabel}）</button>
               <button onclick="window.applyElementalAction('${item.uid}', 'wind')" class="inv-batch-btn" style="padding:4px 8px; font-size:10px; color:#86efac; border-color:#22c55e;">🌪️ 風（${stepLabel}）</button>
               <button onclick="window.applyElementalAction('${item.uid}', 'earth')" class="inv-batch-btn" style="padding:4px 8px; font-size:10px; color:#fde68a; border-color:#d97706;">🌍 地（${stepLabel}）</button>
               <button onclick="window.applyElementalAction('${item.uid}', 'holy')" class="inv-batch-btn" style="padding:4px 8px; font-size:10px; color:#fef08a; border-color:#eab308;">✨ 神聖（${stepLabel}）</button>
@@ -7997,8 +7997,8 @@ export function renderForgeElemental(container, state) {
           <span class="l2-stat-pill">✨ 神聖 ↔ 黑暗 🌑（對不死族 +30%）</span>
         </div>
         <div style="font-size:10px; color:#94a3b8; margin-top:8px; display:flex; gap:12px; flex-wrap:wrap;">
-          <span>• <strong>Grau C/B:</strong> Lv.40+ (Teto +60)</span>
-          <span>• <strong>Grau A:</strong> Lv.61+ (Teto +150)</span>
+          <span>• <strong>C/B 級：</strong> Lv.40+ (Teto +60)</span>
+          <span>• <strong>A 級：</strong> Lv.61+ (Teto +150)</span>
           <span>• <strong>S 級：</strong>Lv.76+（武器上限 +300／防具 +120）</span>
         </div>
       </div>
@@ -8200,7 +8200,7 @@ export function renderForgeSynthesis(container, state) {
           <div class="l2comp-actions-row">
             <label class="l2comp-checkbox-wrap">
               <input type="checkbox" id="comp-no-vfx" ${window._synthesisNoVfx ? 'checked' : ''} onchange="window._synthesisNoVfx=this.checked;" />
-              <span>No visual effect</span>
+              <span>無視覺效果</span>
             </label>
             <div class="l2comp-btn-group">
               <button
@@ -8279,7 +8279,7 @@ export function renderForgeLifestones(container, state) {
         >
           <div class="equip-icon" style="font-size:24px;">${getItemIcon(itemDef)}</div>
           ${w.enchant ? `<span class="l2comp-mat-lvl">+${w.enchant}</span>` : ''}
-          ${w.equipped ? '<span style="position:absolute; top:2px; left:2px; font-size:8px; color:#38bdf8; font-weight:bold;">EQ</span>' : ''}
+          ${w.equipped ? '<span style="position:absolute; top:2px; left:2px; font-size:8px; color:#38bdf8; font-weight:bold;">裝備</span>' : ''}
         </div>
       `;
     } else {
@@ -8602,7 +8602,7 @@ export function showDropLocatorModal(matId) {
         ${sources.length > 0 ? sources.map(s => `
           <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px; display:flex; justify-content:space-between; align-items:center; gap:8px;">
             <div style="flex:1;">
-              <div style="font-weight:bold; font-size:13px; color:#fff;">📍 ${s.zoneName} <span style="font-size:11px; color:#94a3b8;">(Lv.${s.minLvl}+)</span></div>
+              <div style="font-weight:bold; font-size:13px; color:#fff;">📍 ${s.zoneName} <span style="font-size:11px; color:#94a3b8;">（Lv.${s.minLvl}+）</span></div>
               <div style="font-size:11px; color:#aaa; margin-top:2px;">怪物： <strong style="color:#ffd877;">${s.monster}</strong></div>
             </div>
             <div style="display:flex; align-items:center; gap:6px;">
@@ -8769,7 +8769,7 @@ export function renderAutoRecycleModal(container, state, callbacks = {}) {
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px 12px; margin-top:6px;">
           <div>✓ 🧱 <strong>材料與礦石：</strong> 100% 保護</div>
           <div>✓ 🧪 <strong>藥水與食物：</strong> 100% 保護</div>
-          <div>✓ ⚡ <strong>Soulshots 與彈藥：</strong>100% 保護</div>
+          <div>✓ ⚡ <strong>魂彈與彈藥：</strong>100% 保護</div>
           <div>✓ 📜 <strong>卷軸與書籍：</strong> 100% 保護</div>
           <div>✓ 👑 <strong>傳承物品：</strong>100% 保護</div>
           <div>✓ ✨ <strong>帶強化／SA 物品：</strong>100% 保護</div>
@@ -8902,7 +8902,7 @@ export function renderCompoundModal(container, state) {
         style="padding:10px; border-radius:8px; background:${isSel ? 'rgba(168,85,247,0.25)' : 'rgba(255,255,255,0.05)'}; border:1px solid ${isSel ? '#a855f7' : 'rgba(255,255,255,0.15)'}; cursor:pointer; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
         <div>
           <strong style="color:#f4d58a; font-size:13px;">${t.name || def?.name || '物品'}</strong>
-          <div style="font-size:11px; color:#aaa;">目前等級： Lv.${t.compoundLevel || 1}</div>
+          <div style="font-size:11px; color:#aaa;">目前等級：Lv.${t.compoundLevel || 1}</div>
         </div>
         <span style="font-size:11px; color:#34d399;">數量：${t.count || 1}x</span>
       </div>
@@ -9193,7 +9193,7 @@ export function uiOpenPixCheckoutModal(tierId, state) {
       
       <div style="text-align:center; margin-bottom:16px;">
         <span style="font-size:32px;">⚜️</span>
-        <h3 style="margin:6px 0 2px 0; font-family:'Cinzel',serif; color:#ffd700; font-size:20px;">PIX 捐款 · 亞丁競技場</h3>
+        <h3 style="margin:6px 0 2px 0; font-family:'Cinzel',serif; color:#ffd700; font-size:20px;">PIX 贊助 · 亞丁競技場</h3>
         <p style="margin:0; font-size:12px; color:#94a3b8;">安全快速地重新充能並迅速釋放</p>
       </div>
 
@@ -9474,7 +9474,7 @@ export function uiOpenReferralModal(state, defaultTab) {
               🎯 綁定導師（等級 20 前可用）：
             </div>
             <div style="font-size: 10.5px; color: #94a3b8; margin-bottom: 8px; line-height: 1.4;">
-              綁定導師後，你會立即獲得 <strong style="color:#6ee7b7;">永久 +10% EXP</strong>、<strong>1,000 Soulshots</strong> 與 <strong>10 瓶生命藥水</strong>！達到等級 40 時，雙方都可獲得 <strong>50 AC</strong> 與 <strong>5 張祝福卷軸</strong>。
+              綁定導師後，你會立即獲得 <strong style="color:#6ee7b7;">永久 +10% EXP</strong>、<strong>1,000 魂彈</strong> 與 <strong>10 瓶生命藥水</strong>！達到等級 40 時，雙方都可獲得 <strong>50 AC</strong> 與 <strong>5 張祝福卷軸</strong>。
             </div>
             <div style="display: flex; gap: 8px;">
               <input id="ref-friend-code-input" type="text" placeholder="輸入你的導師名稱..." style="flex: 1; background: #0b0d13; border: 1px solid #334155; border-radius: 4px; padding: 7px 10px; color: #fff; font-size: 11px;" />
@@ -9796,7 +9796,7 @@ export function renderRaidsTab(container, state) {
     if (inCombat) {
       actionBtnHtml = `<button disabled style="width:100%; padding:10px; font-weight:bold; font-size:12px; background:linear-gradient(180deg,#16a34a,#15803d); border:1px solid #4ade80; color:#fff; border-radius:6px; cursor:default; animation:pulse 1.5s infinite;">⚔️ 戰鬥進行中</button>`;
     } else if (isLocked) {
-      actionBtnHtml = `<button disabled style="width:100%; padding:10px; font-weight:bold; font-size:12px; background:#27272a; border:1px solid #3f3f46; color:#71717a; border-radius:6px; cursor:not-allowed;">🔒 尚未解鎖（需要 Lv. ${boss.reqLvl}）</button>`;
+      actionBtnHtml = `<button disabled style="width:100%; padding:10px; font-weight:bold; font-size:12px; background:#27272a; border:1px solid #3f3f46; color:#71717a; border-radius:6px; cursor:not-allowed;">🔒 尚未解鎖（需要 Lv.${boss.reqLvl}）</button>`;
     } else if (!hasTickets) {
       actionBtnHtml = `<button disabled style="width:100%; padding:10px; font-weight:bold; font-size:12px; background:#450a0a; border:1px solid #7f1d1d; color:#fca5a5; border-radius:6px; cursor:not-allowed;">🎟️ 今日票券已用完</button>`;
     } else {
@@ -9827,7 +9827,7 @@ export function renderRaidsTab(container, state) {
         <div style="display:flex; align-items:center; gap:4px; background:${bgCol}; border:1px solid ${borderCol}; border-radius:4px; padding:2px 6px; font-size:10px; color:${isEpic ? '#ffd700' : '#f8fafc'}; font-weight:${isEpic ? 'bold' : 'normal'};">
           <span>${isEpic ? '👑' : (isAC ? '🪙' : '🎁')}</span>
           <span>${d.name}</span>
-          <span style="color:#94a3b8; font-size:9px;">(${Math.round(d.chance * 100)}%)</span>
+          <span style="color:#94a3b8; font-size:9px;">（${Math.round(d.chance * 100)}%）</span>
         </div>
       `;
     }).join('');
@@ -9845,16 +9845,16 @@ export function renderRaidsTab(container, state) {
               <span style="background:rgba(0,0,0,0.6); border:1px solid ${diffColor}; color:${diffColor}; font-size:10px; font-weight:bold; padding:2px 8px; border-radius:10px;">
                 ${diffBadge}
               </span>
-              <span style="font-size:10px; color:#cbd5e1;">需求 Lv. ${boss.reqLvl}</span>
+              <span style="font-size:10px; color:#cbd5e1;">需求 Lv.${boss.reqLvl}</span>
             </div>
           </div>
 
           <!-- Status do Boss -->
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:8px; margin-bottom:8px; font-size:11px;">
-            <div>❤️ HP: <strong style="color:#ef4444;">${boss.hp.toLocaleString()}</strong></div>
-            <div>⚔️ P.ATK: <strong style="color:#f87171;">${boss.atk}</strong></div>
-            <div>🛡️ P.DEF: <strong style="color:#60a5fa;">${boss.def}</strong></div>
-            <div>🔮 M.DEF: <strong style="color:#c084fc;">${boss.mdef}</strong></div>
+            <div>❤️ HP： <strong style="color:#ef4444;">${boss.hp.toLocaleString()}</strong></div>
+            <div>⚔️ P.ATK： <strong style="color:#f87171;">${boss.atk}</strong></div>
+            <div>🛡️ P.DEF： <strong style="color:#60a5fa;">${boss.def}</strong></div>
+            <div>🔮 M.DEF： <strong style="color:#c084fc;">${boss.mdef}</strong></div>
           </div>
 
           <!-- Descrição -->
@@ -9914,7 +9914,7 @@ export function renderRaidsTab(container, state) {
         <div style="background:linear-gradient(135deg, rgba(35,25,12,0.95), rgba(20,15,5,0.98)); border:1px solid #eab308; border-radius:10px; padding:14px 18px; margin-bottom:16px; display:flex; align-items:center; gap:14px; box-shadow:0 4px 15px rgba(0,0,0,0.4);">
           <div style="font-size:32px; background:rgba(0,0,0,0.4); border-radius:8px; padding:6px 10px; border:1px solid rgba(234,179,8,0.3);">👑</div>
           <div>
-            <div style="font-family:'Cinzel',serif; font-weight:bold; color:#fde047; font-size:14px;">第一場 Raid 於等級 30 解鎖！</div>
+            <div style="font-family:'Cinzel',serif; font-weight:bold; color:#fde047; font-size:14px;">第一場團隊首領戰於等級 30 解鎖！</div>
             <div style="font-size:12px; color:#cbd5e1; margin-top:3px; line-height:1.4;">
               世界 Raid 會在等級 20 的旅程中揭露。第一場大型戰鬥是對抗 <strong>蟻后（Queen Ant）</strong>，於 <strong>等級 30</strong> 開放。繼續在狩獵區提升角色並強化裝備，準備迎接挑戰！
             </div>
@@ -9990,12 +9990,12 @@ export function renderOlympiadTab(container, state) {
           <div style="background:rgba(0,0,0,0.5); border:1px solid #3b82f6; border-radius:8px; padding:12px; text-align:center;">
             <div style="font-size:11px; color:#93c5fd; text-transform:uppercase; font-weight:bold;">你的角色</div>
             <div style="font-family:'Cinzel',serif; font-size:16px; font-weight:bold; color:#fff; margin:4px 0;">${state.heroName || '你'}</div>
-            <div style="font-size:11px; color:#cbd5e1; margin-bottom:8px;">Lv. ${olyStatus.level} • ${olyStatus.tierName}</div>
+            <div style="font-size:11px; color:#cbd5e1; margin-bottom:8px;">Lv.${olyStatus.level} • ${olyStatus.tierName}</div>
             <div style="font-size:11px; text-align:left; background:rgba(0,0,0,0.3); padding:8px; border-radius:6px; line-height:1.4;">
-              <div>❤️ HP 最大: <strong style="color:#ef4444;">${heroHpMax.toLocaleString()}</strong></div>
-              <div>⚔️ P.Atk: <strong style="color:#f87171;">${heroAtk}</strong></div>
-              <div>🔮 M.Atk: <strong style="color:#c084fc;">${heroMatk}</strong></div>
-              <div>🛡️ P.Def: <strong style="color:#60a5fa;">${heroDef}</strong> | M.Def: <strong style="color:#818cf8;">${heroMdef}</strong></div>
+              <div>❤️ 最大 HP： <strong style="color:#ef4444;">${heroHpMax.toLocaleString()}</strong></div>
+              <div>⚔️ P.Atk： <strong style="color:#f87171;">${heroAtk}</strong></div>
+              <div>🔮 M.Atk： <strong style="color:#c084fc;">${heroMatk}</strong></div>
+              <div>🛡️ P.Def： <strong style="color:#60a5fa;">${heroDef}</strong> | M.Def： <strong style="color:#818cf8;">${heroMdef}</strong></div>
             </div>
           </div>
 
@@ -10008,12 +10008,12 @@ export function renderOlympiadTab(container, state) {
           <div style="background:rgba(0,0,0,0.5); border:1px solid #ef4444; border-radius:8px; padding:12px; text-align:center;">
             <div style="font-size:11px; color:#fca5a5; text-transform:uppercase; font-weight:bold;">競技場鬥士</div>
             <div style="font-family:'Cinzel',serif; font-size:16px; font-weight:bold; color:#f87171; margin:4px 0;">${gladiator.name}</div>
-            <div style="font-size:11px; color:#cbd5e1; margin-bottom:8px;">Lv. ${gladiator.lvl} • ${gladiator.title}</div>
+            <div style="font-size:11px; color:#cbd5e1; margin-bottom:8px;">Lv.${gladiator.lvl} • ${gladiator.title}</div>
             <div style="font-size:11px; text-align:left; background:rgba(0,0,0,0.3); padding:8px; border-radius:6px; line-height:1.4;">
-              <div>❤️ HP 最大: <strong style="color:#ef4444;">${gladiator.hp.toLocaleString()}</strong></div>
-              <div>⚔️ P.Atk: <strong style="color:#f87171;">${gladiator.atk}</strong></div>
-              <div>🛡️ P.Def: <strong style="color:#60a5fa;">${gladiator.def}</strong></div>
-              <div>🔮 M.Def: <strong style="color:#c084fc;">${gladiator.mdef}</strong></div>
+              <div>❤️ 最大 HP： <strong style="color:#ef4444;">${gladiator.hp.toLocaleString()}</strong></div>
+              <div>⚔️ P.Atk： <strong style="color:#f87171;">${gladiator.atk}</strong></div>
+              <div>🛡️ P.Def： <strong style="color:#60a5fa;">${gladiator.def}</strong></div>
+              <div>🔮 M.Def： <strong style="color:#c084fc;">${gladiator.mdef}</strong></div>
             </div>
           </div>
         </div>
@@ -10037,7 +10037,7 @@ export function renderOlympiadTab(container, state) {
         progressText: `${prog.part1Kills || 0}/25 聖者之谷怪物`,
         travelBtn: (state.level || 1) >= 72
           ? `<button onclick="window.teleportToQuestZone('valleyOfSaints')" style="padding:4px 10px; font-size:10.5px; font-weight:bold; background:#1e3a8a; border:1px solid #60a5fa; color:#93c5fd; border-radius:4px; cursor:pointer; margin-top:4px;">🗺️ 前往聖者之谷</button>`
-          : `<span style="display:inline-block; margin-top:4px; padding:3px 8px; font-size:10.5px; font-weight:bold; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.35); color:#fca5a5; border-radius:4px;">🔒 需要等級 72+（目前：${state.level || 1}）</span>`,
+          : `<span style="display:inline-block; margin-top:4px; padding:3px 8px; font-size:10.5px; font-weight:bold; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.35); color:#fca5a5; border-radius:4px;">🔒 需要等級 72+（目前：Lv.${state.level || 1}）</span>`,
         isDone: nobStatus.isNoblesse || (state.noblesseStep || 1) > 1,
         isCurrent: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 1,
         canComplete: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 1 && (prog.part1Kills || 0) >= 25,
@@ -10052,7 +10052,7 @@ export function renderOlympiadTab(container, state) {
         progressText: `${prog.part2Kills || 0}/30 悲鳴沼澤靈魂`,
         travelBtn: (state.level || 1) >= 74
           ? `<button onclick="window.teleportToQuestZone('swampOfScreams')" style="padding:4px 10px; font-size:10.5px; font-weight:bold; background:#1e3a8a; border:1px solid #60a5fa; color:#93c5fd; border-radius:4px; cursor:pointer; margin-top:4px;">🗺️ 前往悲鳴沼澤</button>`
-          : `<span style="display:inline-block; margin-top:4px; padding:3px 8px; font-size:10.5px; font-weight:bold; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.35); color:#fca5a5; border-radius:4px;">🔒 需要等級 74+（目前：${state.level || 1}）</span>`,
+          : `<span style="display:inline-block; margin-top:4px; padding:3px 8px; font-size:10.5px; font-weight:bold; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.35); color:#fca5a5; border-radius:4px;">🔒 需要等級 74+（目前：Lv.${state.level || 1}）</span>`,
         isDone: nobStatus.isNoblesse || (state.noblesseStep || 1) > 2,
         isCurrent: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 2,
         canComplete: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 2 && (prog.part2Kills || 0) >= 30,
@@ -10065,7 +10065,7 @@ export function renderOlympiadTab(container, state) {
         dialog: '"女神神聖權杖落在 Wall of Argos 的 Flame of Splendor Barakiel 手中。擊敗他並取回權杖！"',
         desc: '協助 Wall of Argos 的 Caradine，並擊敗傳說 Raid Boss「Flame of Splendor Barakiel」，取回女神之杖。',
         progressText: prog.barakielKilled ? '✓ 已擊敗 Barakiel' : '擊敗 Raid Boss Barakiel',
-        travelBtn: `<button onclick="window.startRaidBossAction('barakiel')" style="padding:4px 10px; font-size:10.5px; font-weight:bold; background:#7f1d1d; border:1px solid #f87171; color:#fca5a5; border-radius:4px; cursor:pointer; margin-top:4px;">⚔️ 挑戰 Barakiel Raid</button>`,
+        travelBtn: `<button onclick="window.startRaidBossAction('barakiel')" style="padding:4px 10px; font-size:10.5px; font-weight:bold; background:#7f1d1d; border:1px solid #f87171; color:#fca5a5; border-radius:4px; cursor:pointer; margin-top:4px;">⚔️ 挑戰 Barakiel 團隊首領</button>`,
         isDone: nobStatus.isNoblesse || (state.noblesseStep || 1) > 3,
         isCurrent: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 3,
         canComplete: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 3 && Boolean(prog.barakielKilled),
@@ -10122,7 +10122,7 @@ export function renderOlympiadTab(container, state) {
               <span style="font-family:'Cinzel',serif; font-size:13.5px; font-weight:bold; color:${s.isDone ? '#4ade80' : (s.isCurrent ? '#fde047' : '#e2e8f0')};">${s.title}</span>
               ${statusBadge}
             </div>
-            <div style="font-size:11px; color:#fef08a; font-style:italic; margin-bottom:4px;">${s.npc}: ${s.dialog}</div>
+            <div style="font-size:11px; color:#fef08a; font-style:italic; margin-bottom:4px;">${s.npc}：${s.dialog}</div>
             <p style="margin:0; font-size:11px; color:#cbd5e1; line-height:1.35;">${s.desc}</p>
           </div>
           <div>${btnHtml}</div>
@@ -10185,7 +10185,7 @@ export function renderOlympiadTab(container, state) {
       <div style="background:rgba(15,23,42,0.6); border:1px solid rgba(255,215,0,0.25); border-radius:10px; padding:16px; margin-bottom:16px;">
         <div style="margin-bottom:14px;">
           <h3 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#fde047; font-size:17px;">👑 大奧林匹亞英雄紀念碑</h3>
-          <p style="margin:0; font-size:12px; color:#cbd5e1;">各職業最強冠軍可獲得 <strong>閃耀黃金光環</strong>、<strong>Infinity 武器</strong> 與 4 個 <strong>英雄神話技能</strong>。</p>
+          <p style="margin:0; font-size:12px; color:#cbd5e1;">各職業最強冠軍可獲得 <strong>閃耀黃金光環</strong>、<strong>無限武器</strong> 與 4 個 <strong>英雄神話技能</strong>。</p>
         </div>
 
         <div style="margin-bottom:16px;">${claimBtnHtml}</div>
@@ -10235,7 +10235,7 @@ export function renderOlympiadTab(container, state) {
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
           <div>
             <h3 style="margin:0 0 4px 0; font-family:'Cinzel',serif; color:#fde047; font-size:17px;">🛍️ 奧林匹亞代幣商店（貴族通行證）</h3>
-            <p style="margin:0; font-size:12px; color:#cbd5e1;">使用代幣購買 Giant's Codex、S 級祝福卷軸與稀有補給品。</p>
+            <p style="margin:0; font-size:12px; color:#cbd5e1;">使用代幣購買巨人秘傳書、S 級祝福卷軸與稀有補給品。</p>
           </div>
           <div style="background:rgba(0,0,0,0.6); border:1px solid #fde047; border-radius:8px; padding:6px 14px; font-weight:bold; color:#fde047; font-size:13px;">
             🪙 餘額：${olyStatus.tokens.toLocaleString()} 代幣
@@ -10259,7 +10259,7 @@ export function renderOlympiadTab(container, state) {
               <span>🏆 大奧林匹亞 與職業英雄</span>
             </h2>
             <p style="margin:0; font-size:12px; color:#cbd5e1; line-height:1.4;">
-              貴族專屬 1v1 排名決鬥（<strong>Lv.76+ 且 Noblesse</strong>）。爭奪 <strong>HERO</strong> 王冠、<strong>黃金光環</strong> 與 <strong>Infinity 武器</strong>！
+              貴族專屬 1v1 排名決鬥（<strong>Lv.76+ 且 Noblesse</strong>）。爭奪 <strong>英雄</strong> 王冠、<strong>黃金光環</strong> 與 <strong>無限武器</strong>！
             </p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
@@ -10383,7 +10383,7 @@ export function renderClanTab(container, state) {
             <div style="font-size:11px; color:#94a3b8; display:flex; gap:14px; flex-wrap:wrap;">
               <span>📊 交易稅率: <strong style="color:#fde047;">${c.taxRatePercent}%</strong></span>
               <span>💰 收益： <strong style="color:#a3e635;">${c.adenaPerMinute.toLocaleString()} 金幣/分鐘</strong></span>
-              <span>⚔️ 建議等級： <strong>Lv. ${c.reqCharLevel}+</strong></span>
+              <span>⚔️ 建議等級： <strong>Lv.${c.reqCharLevel}+</strong></span>
             </div>
             ${isOwned ? `
               <div style="margin-top:8px; font-size:11.5px; color:#fef08a;">
@@ -10516,7 +10516,7 @@ export function renderClanTab(container, state) {
           ${m.isPlayer ? '👑 ' : ''}${m.name} ${m.isPlayer ? '<span style="font-size:10px; background:rgba(234,179,8,0.25); color:#fde047; padding:1px 5px; border-radius:4px;">你</span>' : ''}
         </td>
         <td style="padding:10px 8px; color:#cbd5e1;">${m.rank}</td>
-        <td style="padding:10px 8px; color:#94a3b8;">Lv. ${m.level} (${m.className})</td>
+        <td style="padding:10px 8px; color:#94a3b8;">Lv.${m.level}（${m.className}）</td>
         <td style="padding:10px 8px; text-align:right; font-weight:bold; color:#a3e635;">${m.contribution.toLocaleString()}</td>
       </tr>
     `).join('');
@@ -10621,7 +10621,7 @@ export function renderClanTab(container, state) {
                 ${isBuffActive ? `<span style="background:rgba(74,222,128,0.2); border:1px solid #4ade80; color:#86efac; font-size:10.5px; padding:1px 6px; border-radius:8px; font-weight:bold;">⏳ 啟用中（${remainingMin} 分鐘）</span>` : ''}
               </div>
               <div style="font-size:11.5px; color:#cbd5e1; margin-top:2px;">${b.desc}</div>
-              <div style="font-size:11px; color:#a3e635; margin-top:2px;">費用： <strong>${b.costAdena.toLocaleString()} 金幣</strong> (持續時間： 60 min)</div>
+              <div style="font-size:11px; color:#a3e635; margin-top:2px;">費用： <strong>${b.costAdena.toLocaleString()} 金幣</strong> （持續時間：60 分鐘）</div>
             </div>
           </div>
           <div>
@@ -10660,7 +10660,7 @@ export function renderClanTab(container, state) {
           <div>
             <div style="display:flex; align-items:center; gap:8px;">
               <span style="font-family:'Cinzel',serif; font-size:18px; font-weight:bold; color:#fde047;">${clan.name}</span>
-              <span style="background:#ca8a04; color:#fff; font-size:11px; font-weight:bold; padding:2px 8px; border-radius:10px;">等級 ${clan.level} (${lvlData.title})</span>
+              <span style="background:#ca8a04; color:#fff; font-size:11px; font-weight:bold; padding:2px 8px; border-radius:10px;">等級 ${clan.level} （${lvlData.title}）</span>
             </div>
             <div style="font-size:11.5px; color:#cbd5e1; margin-top:2px;">${lvlData.desc}</div>
             <div style="font-size:11px; color:#94a3b8; margin-top:4px;">容量：<strong>${lvlData.maxMembers} 名成員</strong>｜統治城堡： <strong style="color:#fde047;">${(clan.castles || []).length}</strong></div>
@@ -10795,7 +10795,7 @@ export function openSkillEnchantModal(skillId, skillName = '技能', state) {
         </div>
         <div style="display:flex; justify-content:space-between;">
           <span>物品需求：</span>
-          <strong style="color:#fde047;">1x Giant's Codex</strong>
+          <strong style="color:#fde047;">1x 巨人秘傳書</strong>
         </div>
       </div>
 
@@ -10939,12 +10939,12 @@ export function renderSevenSignsTab(container, state) {
           </div>
           <div style="display:flex; gap:12px; align-items:center;">
             <div style="background:rgba(234,179,8,0.15); border:1px solid #eab308; border-radius:8px; padding:6px 12px; text-align:center;">
-              <div style="font-size:10px; color:#fde047; font-weight:bold;">DAWN</div>
+              <div style="font-size:10px; color:#fde047; font-weight:bold;">黎明</div>
               <div style="font-size:13px; font-weight:bold; color:#fef08a;">${(ss.dawnScore || 0).toLocaleString()}</div>
             </div>
             <span style="font-size:16px; font-weight:bold; color:#a855f7;">VS</span>
             <div style="background:rgba(168,85,247,0.15); border:1px solid #a855f7; border-radius:8px; padding:6px 12px; text-align:center;">
-              <div style="font-size:10px; color:#d8b4fe; font-weight:bold;">DUSK</div>
+              <div style="font-size:10px; color:#d8b4fe; font-weight:bold;">黃昏</div>
               <div style="font-size:13px; font-weight:bold; color:#e9d5ff;">${(ss.duskScore || 0).toLocaleString()}</div>
             </div>
           </div>
@@ -11063,7 +11063,7 @@ function renderSevenSignsBossesView(ss, state) {
               <div style="display:flex; justify-content:space-between; align-items:flex-start;">
                 <div>
                   <h3 style="margin:0; color:#fef08a; font-family:'Cinzel',serif; font-size:16px;">${boss.name}</h3>
-                  <div style="font-size:11px; color:#c084fc;">${boss.title} (Lv. ${boss.level})</div>
+                  <div style="font-size:11px; color:#c084fc;">${boss.title}（Lv.${boss.level}）</div>
                 </div>
                 <span style="font-size:11px; font-weight:bold; padding:2px 8px; border-radius:10px; background:rgba(168,85,247,0.2); color:#e9d5ff; border:1px solid #a855f7;">
                   擊敗次數： ${ss.bossDefeats?.[boss.id] || 0}
@@ -11093,7 +11093,7 @@ function renderSevenSignsMammonView(ss, state) {
       ${accessCheck.allowed ? `
         <div style="grid-column:1/-1; background:rgba(34,197,94,0.15); border:1px solid #22c55e; border-radius:8px; padding:10px 14px; font-size:12px; color:#86efac; display:flex; align-items:center; gap:8px;">
           <span>✅</span>
-          <div><strong>封印祝福已啟用：</strong>你的陣營 [${(ss.winnerFaction || ss.faction || 'DAWN').toUpperCase()}] 主宰本週循環！瑪門鐵匠 已開放 SA 與防具解封功能。</div>
+          <div><strong>封印祝福已啟用：</strong>你的陣營【${(ss.winnerFaction || ss.faction || '黎明').toUpperCase()}】主宰本週循環！瑪門鐵匠已開放 SA 與防具解封功能。</div>
         </div>
       ` : `
         <div style="grid-column:1/-1; background:rgba(239,68,68,0.15); border:1px solid #ef4444; border-radius:8px; padding:10px 14px; font-size:12px; color:#fca5a5; display:flex; align-items:center; gap:8px;">
@@ -11173,7 +11173,7 @@ export function renderFortressTab(container, state) {
           </div>
           <div style="background:rgba(0,0,0,0.5); border:1px solid #d4a744; border-radius:8px; padding:8px 14px; text-align:center;">
             <div style="font-size:10px; color:#9ca3af; text-transform:uppercase;">已裝備手環</div>
-            <div style="font-size:13px; font-weight:bold; color:#fef08a;">${bracelet.name} (${fState.equippedTalismans.length}/${bracelet.slots} 護符)</div>
+            <div style="font-size:13px; font-weight:bold; color:#fef08a;">${bracelet.name}（${fState.equippedTalismans.length}/${bracelet.slots} 護符）</div>
           </div>
         </div>
       </div>
@@ -11209,7 +11209,7 @@ export function renderFortressTab(container, state) {
               return `
                 <div style="background:rgba(0,0,0,0.5); border:1px solid ${isOwned ? '#22c55e' : 'rgba(255,255,255,0.1)'}; border-radius:8px; padding:12px; display:flex; justify-content:space-between; align-items:center;">
                   <div>
-                    <div style="font-weight:bold; color:#fef08a; font-size:13px;">${fort.name} (Lv. ${fort.level})</div>
+                    <div style="font-weight:bold; color:#fef08a; font-size:13px;">${fort.name}（Lv.${fort.level}）</div>
                     <div style="font-size:11px; color:#9ca3af;">${fort.region} | 產量：+${fort.epauletteRate} 肩章/分鐘</div>
                     <div style="font-size:11px; color:#4ade80; font-weight:bold;">${fort.buff.label}</div>
                   </div>
@@ -11227,7 +11227,7 @@ export function renderFortressTab(container, state) {
 
         <!-- 商店 & Montagem de 護符 -->
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(212,167,68,0.3); border-radius:8px; padding:14px;">
-          <h3 style="margin:0 0 10px 0; color:#fef08a; font-family:'Cinzel',serif; font-size:15px;">📿 Braceletes & 護符 Equipados</h3>
+          <h3 style="margin:0 0 10px 0; color:#fef08a; font-family:'Cinzel',serif; font-size:15px;">📿 已裝備手環與護符</h3>
           
           <!-- Seleção de Bracelete -->
           <div style="margin-bottom:12px; display:flex; gap:6px; flex-wrap:wrap;">
@@ -11297,8 +11297,8 @@ export function renderColosseumTab(container, state) {
         <div style="background:linear-gradient(135deg, rgba(40,15,15,0.95), rgba(20,5,5,0.98)); border:2px solid #ef4444; border-radius:10px; padding:16px;">
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
             <div>
-              <h3 style="margin:0; color:#fca5a5; font-family:'Cinzel',serif; font-size:18px;">⚔️ 1v1 決鬥： ${activeDuel.opponentName}</h3>
-              <div style="font-size:12px; color:#f87171;">${activeDuel.opponentTitle} | 賭注： ${(activeDuel.bet * 2).toLocaleString()}g 正在競逐！</div>
+              <h3 style="margin:0; color:#fca5a5; font-family:'Cinzel',serif; font-size:18px;">⚔️ 1v1 決鬥：${activeDuel.opponentName}</h3>
+              <div style="font-size:12px; color:#f87171;">${activeDuel.opponentTitle} | 賭注：${(activeDuel.bet * 2).toLocaleString()}g 正在競逐！</div>
             </div>
             <button
               onclick="window.executeDuelTurnAction()"
@@ -11321,8 +11321,8 @@ export function renderColosseumTab(container, state) {
         <div style="background:linear-gradient(135deg, rgba(40,20,5,0.95), rgba(20,10,2,0.98)); border:2px solid #f59e0b; border-radius:10px; padding:16px;">
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
             <div>
-              <h3 style="margin:0; color:#fde047; font-family:'Cinzel',serif; font-size:18px;">🔥 波次 ${activeSurvival.waveIndex + 1}/10： ${activeSurvival.waveData.name}</h3>
-              <div style="font-size:12px; color:#fbbf24;">挑戰累積徽章： +${activeSurvival.totalBadgesAccumulated} 🎖️</div>
+              <h3 style="margin:0; color:#fde047; font-family:'Cinzel',serif; font-size:18px;">🔥 波次 ${activeSurvival.waveIndex + 1}/10：${activeSurvival.waveData.name}</h3>
+              <div style="font-size:12px; color:#fbbf24;">挑戰累積徽章：+${activeSurvival.totalBadgesAccumulated} 🎖️</div>
             </div>
             <button
               onclick="window.executeSurvivalTurnAction()"
@@ -11350,7 +11350,7 @@ export function renderColosseumTab(container, state) {
               <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:12px; display:flex; justify-content:space-between; align-items:center;">
                 <div>
                   <div style="font-weight:bold; color:#fee2e2; font-size:13px;">${tier.name}</div>
-                  <div style="font-size:11px; color:#fca5a5;">賭注： ${tier.label} (雙倍獎勵： ${(tier.bet * 2).toLocaleString()}g)</div>
+                  <div style="font-size:11px; color:#fca5a5;">賭注：${tier.label}（雙倍獎勵：${(tier.bet * 2).toLocaleString()}g）</div>
                 </div>
                 <button
                   onclick="window.startColosseumDuelAction('${tier.id}')"
@@ -11439,7 +11439,7 @@ export function renderCosmeticsTab(container, state) {
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(212,167,68,0.3); border-radius:8px; padding:12px 16px; margin-bottom:6px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
             <span style="font-weight:bold; color:#fef08a; font-size:14px; font-family:'Cinzel',serif;">成就進度：</span>
-            <span style="font-weight:bold; color:#38bdf8; font-size:13px;">${achStatus.claimedCount} / ${achStatus.total} 已領取 (${Math.round((achStatus.claimedCount / achStatus.total) * 100)}%)</span>
+            <span style="font-weight:bold; color:#38bdf8; font-size:13px;">${achStatus.claimedCount} / ${achStatus.total} 已領取（${Math.round((achStatus.claimedCount / achStatus.total) * 100)}%）</span>
           </div>
           <div style="width:100%; height:8px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;">
             <div style="width:${Math.round((achStatus.claimedCount / achStatus.total) * 100)}%; height:100%; background:linear-gradient(90deg, #eab308, #22c55e); transition:width 0.3s;"></div>
@@ -11785,7 +11785,7 @@ export function openEnchantFlowModal(initialTargetUid = null, initialScrollUid =
       <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(212,167,68,0.25); border-radius:8px; padding:10px 12px; margin-bottom:12px;">
         <div style="font-size:11px; font-weight:bold; color:#ffd700; margin-bottom:6px; display:flex; justify-content:space-between;">
           <span>📜 強化卷軸</span>
-          <span>${scrolls.length} tipos na mochila</span>
+          <span>背包中 ${scrolls.length} 種</span>
         </div>
     `;
 
@@ -11883,7 +11883,7 @@ export function openEnchantFlowModal(initialTargetUid = null, initialScrollUid =
                   <div style="font-size:14px; font-weight:bold; color:#ffd700;">
                     +${curEnc} → <span style="color:#38bdf8; font-size:16px;">+${nxtEnc}</span> ${targetDef.name}
                   </div>
-                  <div style="font-size:10px; color:#94a3b8;">品級 ${(targetDef.grade || 'NG').toUpperCase()} · 安全上限： +${preview.safeLimit}</div>
+                  <div style="font-size:10px; color:#94a3b8;">品級 ${(targetDef.grade || 'NG').toUpperCase()} · 安全上限：+${preview.safeLimit}</div>
                 </div>
               </div>
               <div style="text-align:right;">
