@@ -85,7 +85,7 @@ export function renderMiningUI(state) {
           ${z.description}
         </p>
         <div style="display:flex; justify-content:space-between; font-size:10px; color:#aaa;">
-          <span>Lanterna: <strong style="color:#cbd5e1;">${reqLampDef ? reqLampDef.name : 'Qualquer'}</strong></span>
+          <span>提燈： <strong style="color:#cbd5e1;">${reqLampDef ? reqLampDef.name : '任意'}</strong></span>
           <span style="color:#f59e0b; font-weight:bold;">${isSelected ? '● ATUAL' : ''}</span>
         </div>
       </div>
