@@ -126,7 +126,7 @@ export const CODEX_SETS = {
     label: '+60 P.防禦 與 +200 最大 HP'
   },
   c_grade_assassins: {
-    name:  '🩸 Theca 暗影利刃',
+    name:  '🩸 泰卡暗影利刃',
     desc:  '兼具高機動與致命斬擊能力的裝備。',
     items: ['theca_light_armor', 'darkelven_dagger'],
     bonus: { def: 40, crit: 8, eva: 12 },
@@ -134,7 +134,7 @@ export const CODEX_SETS = {
   },
   c_grade_magisters: {
     name:  '🌟 狄恩緋紅魔導',
-    desc:  'Karmian 奧術法袍與 Homunculus 魔法劍的組合。',
+    desc:  '卡米安奧術法袍與何蒙庫魯斯魔法劍的組合。',
     items: ['karmian_robe_armor', 'homunkuluss_magic_sword'],
     bonus: { matk: 70, mdef: 45, mp: 150 },
     label: '+70 魔法攻擊、+45 M.防禦 與 +150 最大 MP'
@@ -285,7 +285,7 @@ export const BOSS_DOLLS = {
   },
   doll_baium: {
     name: '⚡ 巴溫娃娃', icon: '⚡', rarity: 'legendary',
-    source: '👑 傲慢之塔 Raid 首領巴溫掉落（3%）',
+    source: '👑 傲慢之塔團隊首領巴溫掉落（3%）',
     desc: '巴溫皇帝精華，可提升戰鬥速度。',
     statsByLvl: {
       1: { speed: 5,  label: '+5% 速度'  },
