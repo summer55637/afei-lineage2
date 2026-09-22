@@ -1450,7 +1450,7 @@ export class Game {
     if (!sk) return;
     if (this.skillCd[i] > 0) return;
     if (this.mana < sk.mana) {
-      this.spawnText(this.px * S, 1.8, this.py * S, "MP 不足", "#ff9090");
+      this.spawnText(this.px * S, 1.8, this.py * S, "魔力不足", "#ff9090");
       return;
     }
     this.mana -= sk.mana;
@@ -2190,7 +2190,7 @@ export class Game {
     ctx.font = "800 13px Cinzel, serif";
     ctx.fillStyle = "#ffd877";
     const heroTitle = this.idleState
-      ? `${this.idleState.charName || this.idleState.heroName || "角色"} · Lv.${this.level} (${this.cfg.cls.name})`
+      ? `${this.idleState.charName || this.idleState.heroName || "角色"} · 等級 ${this.level}（${this.cfg.cls.name}）`
       : `${this.cfg.cls.name} (${this.cfg.race.name})`;
     ctx.fillText(heroTitle, barX, 32);
 
