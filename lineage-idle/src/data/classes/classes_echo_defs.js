@@ -333,45 +333,45 @@ const CLASSES_ECHO = {
     skills: [
       { name: "雙重射擊",           type: "Ativo",    rarity: "2★", effect: "2 disparos, dano total 260%",         cooldown: "10s",    desc: "施展強化的雙重射擊。" },
       { name: "爆裂射擊",            type: "Ativo",    rarity: "2★", effect: "Dano 280% + knockback",               cooldown: "14s",    desc: "發射具有爆炸威力的箭矢。" },
-      { name: "Stun Shot",             type: "Ativo",    rarity: "2★", effect: "Dano 220% + stun 3s",                cooldown: "18s",    desc: "Disparo atordoante." },
-      { name: "Arrow Rain",            type: "Ativo",    rarity: "3★", effect: "Dano AoE 320% (8 alvos)",            cooldown: "22s",    desc: "Chuva de flechas." },
-      { name: "Rapid Fire",            type: "Ativo",    rarity: "2★", effect: "+50% ATK Speed arco por 15s",        cooldown: "45s",    desc: "Disparo rápido." },
-      { name: "Cheap Shot",            type: "Ativo",    rarity: "2★", effect: "Dano 200% + slow 30% por 8s",        cooldown: "16s",    desc: "Disparo sujo." },
-      { name: "Hawkeye's Harmony",     type: "Self-Buff",rarity: "3★", effect: "+35% ATK, +25% Crit, +15% Range 25min",cooldown: "60 min",desc: "Harmonia do olho de falcão." },
-      { name: "Bow Mastery",           type: "Passivo",  rarity: "2★", effect: "+18% ATK com arco",                  cooldown: "N/A",    desc: "Maestria em arcos." },
-      { name: "Long Shot",             type: "Passivo",  rarity: "2★", effect: "+30% Range",                          cooldown: "N/A",    desc: "Tiro de longo alcance." },
-      { name: "Focus",                 type: "Passivo",  rarity: "1★", effect: "+10% Crit Rate",                      cooldown: "N/A",    desc: "Concentração." },
-      { name: "Critical Power",        type: "Passivo",  rarity: "2★", effect: "+18% Crit Damage",                    cooldown: "N/A",    desc: "Poder crítico." },
-      { name: "Evasion",               type: "Passivo",  rarity: "1★", effect: "+10% EVA",                            cooldown: "N/A",    desc: "Evasão." }
+      { name: "暈眩射擊",             type: "Ativo",    rarity: "2★", effect: "Dano 220% + stun 3s",                cooldown: "18s",    desc: "發射可使敵人暈眩的箭矢。" },
+      { name: "箭雨",            type: "Ativo",    rarity: "3★", effect: "Dano AoE 320% (8 alvos)",            cooldown: "22s",    desc: "向範圍內降下大量箭矢。" },
+      { name: "快速射擊",            type: "Ativo",    rarity: "2★", effect: "+50% ATK Speed arco por 15s",        cooldown: "45s",    desc: "短時間提高射擊速度。" },
+      { name: "卑劣射擊",            type: "Ativo",    rarity: "2★", effect: "Dano 200% + slow 30% por 8s",        cooldown: "16s",    desc: "以干擾性射擊削弱敵人。" },
+      { name: "鷹眼和諧",     type: "Self-Buff",rarity: "3★", effect: "+35% ATK, +25% Crit, +15% Range 25min",cooldown: "60 min",desc: "鷹眼的戰鬥和諧。" },
+      { name: "弓精通",           type: "Passivo",  rarity: "2★", effect: "+18% ATK com arco",                  cooldown: "N/A",    desc: "精通弓類武器。" },
+      { name: "遠距射擊",             type: "Passivo",  rarity: "2★", effect: "+30% Range",                          cooldown: "N/A",    desc: "提高射擊距離。" },
+      { name: "專注",                 type: "Passivo",  rarity: "1★", effect: "+10% Crit Rate",                      cooldown: "N/A",    desc: "提升專注力。" },
+      { name: "暴擊威力",        type: "Passivo",  rarity: "2★", effect: "+18% Crit Damage",                    cooldown: "N/A",    desc: "提高暴擊威力。" },
+      { name: "迴避",               type: "Passivo",  rarity: "1★", effect: "+10% EVA",                            cooldown: "N/A",    desc: "提高迴避能力。" }
     ]
   },
 
   // ─── SAGITTARIUS (3ª classe) ───
   sagittarius: {
-    name: 'Sagittarius', parent: 'hawkeye', stage: 3,
-    desc: 'Atirador lendário, mestre do arco. Skills anteriores permanecem.',
+    name: '射手座', parent: 'hawkeye', stage: 3,
+    desc: '傳說級弓箭手，精通弓術。保留先前學會的技能。',
     base: { atk: 112, def: 25, hp: 460, mp: 95, eva: 35, crit: 45, mdef: 18 },
     skills: [
-      { name: "Seven Arrow",                  type: "Ativo",    rarity: "3★", effect: "7 flechas, dano total 480%",              cooldown: "25s",    desc: "Sete flechas consecutivas." },
-      { name: "Arrow Flare",                  type: "Ativo",    rarity: "3★", effect: "Dano AoE 380% + burn 8s",                cooldown: "22s",    desc: "Explosão de flechas." },
-      { name: "Dead Eye",                     type: "Self-Buff",rarity: "3★", effect: "+50% ATK, +40% Range por 20min",         cooldown: "55 min", desc: "Olho mortal — mira perfeita." },
-      { name: "Pinpoint Shot",                type: "Ativo",    rarity: "3★", effect: "Dano 400% + ignora 50% DEF",             cooldown: "28s",    desc: "Tiro preciso." },
-      { name: "Triple Shot",                  type: "Ativo",    rarity: "3★", effect: "3 disparos, dano total 360%",             cooldown: "14s",    desc: "Tiro triplo." },
-      { name: "Thorn Shot",                   type: "Ativo",    rarity: "2★", effect: "Dano 260% + bleed 10s",                  cooldown: "12s",    desc: "Flecha de espinhos." },
-      { name: "Binding Shot",                 type: "Ativo",    rarity: "2★", effect: "Dano 220% + root 4s",                    cooldown: "18s",    desc: "Flecha aprisionadora." },
-      { name: "Incendiary Shot",              type: "Ativo",    rarity: "2★", effect: "Dano fogo 280% + burn 8s",               cooldown: "16s",    desc: "Flecha incendiária." },
-      { name: "Freezing Shot",                type: "Ativo",    rarity: "2★", effect: "Dano gelo 260% + slow 40% 6s",           cooldown: "16s",    desc: "Flecha congelante." },
-      { name: "Wind Shot",                    type: "Ativo",    rarity: "2★", effect: "Dano vento 270% + knockback",            cooldown: "16s",    desc: "Flecha do vento." },
-      { name: "Flame Arrow Rain",             type: "Ativo",    rarity: "3★", effect: "AoE fogo 380% (10 alvos) + burn",        cooldown: "28s",    desc: "Chuva de flechas flamejantes." },
-      { name: "Water Arrow Rain",             type: "Ativo",    rarity: "3★", effect: "AoE gelo 360% (10 alvos) + slow",        cooldown: "28s",    desc: "Chuva de flechas gélidas." },
-      { name: "Storm Arrow Rain",             type: "Ativo",    rarity: "3★", effect: "AoE vento 370% (10 alvos) + stun 2s",    cooldown: "28s",    desc: "Chuva de flechas tempestuosas." },
-      { name: "Spiral Shot",                  type: "Ativo",    rarity: "3★", effect: "Dano 420% + penetra múltiplos alvos",    cooldown: "24s",    desc: "Tiro espiral perfurante." },
-      { name: "Target Lock",                  type: "Ativo",    rarity: "3★", effect: "Marca alvo: +40% dano contra ele 12s",   cooldown: "30s",    desc: "Trava de mira." },
-      { name: "Transcendent Seven Arrow",     type: "Ativo",    rarity: "4★", effect: "Dano 700% + elemental + ignora DEF",     cooldown: "180s",   desc: "Sete flechas transcendentes." },
-      { name: "Sagittarius' Harmony",         type: "Self-Buff",rarity: "4★", effect: "+60% ATK, +50% Crit, +40% Range 30min",  cooldown: "90 min", desc: "Harmonia do sagitário." },
-      { name: "Master of Combat",             type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% Range, +5% PvE",         cooldown: "N/A",    desc: "Mestre do combate." },
-      { name: "Sagittarius Spirit",            type: "Passivo",  rarity: "3★", effect: "+15% Bow ATK",                           cooldown: "N/A",    desc: "Espírito do sagitário." },
-      { name: "Body of the Sagittarius",       type: "Passivo",  rarity: "3★", effect: "+10% Max HP, +8% EVA",                  cooldown: "N/A",    desc: "Corpo do sagitário." }
+      { name: "七連矢",                  type: "Ativo",    rarity: "3★", effect: "7 flechas, dano total 480%",              cooldown: "25s",    desc: "連續射出七支箭矢。" },
+      { name: "箭矢爆裂",                  type: "Ativo",    rarity: "3★", effect: "Dano AoE 380% + burn 8s",                cooldown: "22s",    desc: "引爆箭矢造成範圍傷害。" },
+      { name: "死亡之眼",                     type: "Self-Buff",rarity: "3★", effect: "+50% ATK, +40% Range por 20min",         cooldown: "55 min", desc: "進入完美瞄準狀態。" },
+      { name: "精準射擊",                type: "Ativo",    rarity: "3★", effect: "Dano 400% + ignora 50% DEF",             cooldown: "28s",    desc: "對要害施展精準射擊。" },
+      { name: "三重射擊",                  type: "Ativo",    rarity: "3★", effect: "3 disparos, dano total 360%",             cooldown: "14s",    desc: "連續射擊三次。" },
+      { name: "荊棘射擊",                   type: "Ativo",    rarity: "2★", effect: "Dano 260% + bleed 10s",                  cooldown: "12s",    desc: "發射帶有荊棘力量的箭矢。" },
+      { name: "束縛射擊",                 type: "Ativo",    rarity: "2★", effect: "Dano 220% + root 4s",                    cooldown: "18s",    desc: "發射可束縛敵人的箭矢。" },
+      { name: "燃燒射擊",              type: "Ativo",    rarity: "2★", effect: "Dano fogo 280% + burn 8s",               cooldown: "16s",    desc: "發射燃燒箭矢。" },
+      { name: "冰凍射擊",                type: "Ativo",    rarity: "2★", effect: "Dano gelo 260% + slow 40% 6s",           cooldown: "16s",    desc: "發射冰凍箭矢。" },
+      { name: "風之射擊",                    type: "Ativo",    rarity: "2★", effect: "Dano vento 270% + knockback",            cooldown: "16s",    desc: "發射風屬性箭矢。" },
+      { name: "烈焰箭雨",             type: "Ativo",    rarity: "3★", effect: "AoE fogo 380% (10 alvos) + burn",        cooldown: "28s",    desc: "降下燃燒的箭雨。" },
+      { name: "寒冰箭雨",             type: "Ativo",    rarity: "3★", effect: "AoE gelo 360% (10 alvos) + slow",        cooldown: "28s",    desc: "降下冰冷的箭雨。" },
+      { name: "暴風箭雨",             type: "Ativo",    rarity: "3★", effect: "AoE vento 370% (10 alvos) + stun 2s",    cooldown: "28s",    desc: "降下暴風般的箭雨。" },
+      { name: "螺旋射擊",                  type: "Ativo",    rarity: "3★", effect: "Dano 420% + penetra múltiplos alvos",    cooldown: "24s",    desc: "發射具有穿透力的螺旋箭矢。" },
+      { name: "目標鎖定",                  type: "Ativo",    rarity: "3★", effect: "Marca alvo: +40% dano contra ele 12s",   cooldown: "30s",    desc: "鎖定目標以提高對其造成的傷害。" },
+      { name: "超越七連矢",     type: "Ativo",    rarity: "4★", effect: "Dano 700% + elemental + ignora DEF",     cooldown: "180s",   desc: "施展超越極限的七連箭攻擊。" },
+      { name: "射手座和諧",         type: "Self-Buff",rarity: "4★", effect: "+60% ATK, +50% Crit, +40% Range 30min",  cooldown: "90 min", desc: "射手座的戰鬥和諧。" },
+      { name: "戰鬥大師",             type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% Range, +5% PvE",         cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
+      { name: "射手之魂",            type: "Passivo",  rarity: "3★", effect: "+15% Bow ATK",                           cooldown: "N/A",    desc: "射手座的戰鬥精神。" },
+      { name: "射手之軀",       type: "Passivo",  rarity: "3★", effect: "+10% Max HP, +8% EVA",                  cooldown: "N/A",    desc: "獲得射手般靈活的身軀。" }
     ]
   },
 
@@ -380,35 +380,35 @@ const CLASSES_ECHO = {
   // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 
   mage: {
-    name: 'Human Mage', archetype: 'mage', race: 'human', stage: 0,
-    desc: 'Classe base mágica humana.',
+    name: '人類法師', archetype: 'mage', race: 'human', stage: 0,
+    desc: '人類的基礎魔法職業。',
     base: { atk: 5, def: 6, hp: 70, mp: 80, eva: 4, crit: 3, matk: 15, mdef: 12 },
     skills: [
-      { name: "Wind Strike",       type: "Ativo",    rarity: "1★", effect: "Dano vento 160%",              cooldown: "8s",     desc: "Rajada de vento." },
-      { name: "Flame Strike",      type: "Ativo",    rarity: "1★", effect: "Dano fogo 170%",               cooldown: "9s",     desc: "Chama ardente." },
-      { name: "Ice Bolt",          type: "Ativo",    rarity: "1★", effect: "Dano gelo 155% + slow 15% 4s", cooldown: "8s",     desc: "Projétil de gelo." },
-      { name: "Self Heal",         type: "Ativo",    rarity: "1★", effect: "Cura 20% HP",                  cooldown: "25s",    desc: "Autocura básica." },
-      { name: "Sleep",             type: "Ativo",    rarity: "1★", effect: "Adormece alvo 8s (cancela dano)",cooldown: "30s",   desc: "Sono mágico." },
-      { name: "Mage's Will",       type: "Self-Buff",rarity: "1★", effect: "+10% M.ATK, +10% M.DEF 15min", cooldown: "30 min", desc: "Vontade do mago." },
-      { name: "Robe Mastery",      type: "Passivo",  rarity: "1★", effect: "+10% M.DEF, +8% Cast Speed com robe",cooldown: "N/A",desc: "Maestria em vestes." },
-      { name: "MP Increase",       type: "Passivo",  rarity: "1★", effect: "+8% Max MP",                   cooldown: "N/A",    desc: "Reserva mágica." }
+      { name: "風之打擊",       type: "Ativo",    rarity: "1★", effect: "Dano vento 160%",              cooldown: "8s",     desc: "釋放風之衝擊。" },
+      { name: "火焰打擊",      type: "Ativo",    rarity: "1★", effect: "Dano fogo 170%",               cooldown: "9s",     desc: "釋放熾熱火焰。" },
+      { name: "冰箭",          type: "Ativo",    rarity: "1★", effect: "Dano gelo 155% + slow 15% 4s", cooldown: "8s",     desc: "發射冰之彈體。" },
+      { name: "自我治癒",         type: "Ativo",    rarity: "1★", effect: "Cura 20% HP",                  cooldown: "25s",    desc: "進行基礎自我治療。" },
+      { name: "睡眠",             type: "Ativo",    rarity: "1★", effect: "Adormece alvo 8s (cancela dano)",cooldown: "30s",   desc: "以魔法使目標陷入睡眠。" },
+      { name: "法師意志",       type: "Self-Buff",rarity: "1★", effect: "+10% M.ATK, +10% M.DEF 15min", cooldown: "30 min", desc: "法師堅定的意志。" },
+      { name: "法袍精通",      type: "Passivo",  rarity: "1★", effect: "+10% M.DEF, +8% Cast Speed com robe",cooldown: "N/A",desc: "精通法袍裝備。" },
+      { name: "MP 提升",       type: "Passivo",  rarity: "1★", effect: "+8% Max MP",                   cooldown: "N/A",    desc: "提高魔力儲備。" }
     ]
   },
 
   // ─── WIZARD (1ª classe) ───
   wizard: {
-    name: 'Wizard', parent: 'mage', race: 'human', archetype: 'mage', stage: 1,
-    desc: 'Mago elemental versátil. Skills anteriores permanecem.',
+    name: '巫師', parent: 'mage', race: 'human', archetype: 'mage', stage: 1,
+    desc: '擅長多種元素魔法的施法者。保留先前學會的技能。',
     base: { atk: 6, def: 8, hp: 100, mp: 140, eva: 4, crit: 4, matk: 35, mdef: 22 },
     skills: [
-      { name: "Blaze",                 type: "Ativo",    rarity: "1★", effect: "Dano fogo 210%",                    cooldown: "10s",    desc: "Chamas ardentes." },
-      { name: "Aqua Swirl",            type: "Ativo",    rarity: "1★", effect: "Dano água 200% + slow 20% 5s",      cooldown: "10s",    desc: "Turbilhão aquático." },
-      { name: "Twister",               type: "Ativo",    rarity: "1★", effect: "Dano vento 195%",                   cooldown: "10s",    desc: "Tornado menor." },
-      { name: "Aura Burn",             type: "Ativo",    rarity: "2★", effect: "AoE fogo 180% ao redor",            cooldown: "14s",    desc: "Queimadura áurica." },
-      { name: "Life Drain",            type: "Ativo",    rarity: "2★", effect: "Dano dark 190% + drena 25% como HP",cooldown: "15s",    desc: "Dreno vital." },
-      { name: "Surrender to Fire",     type: "Ativo",    rarity: "2★", effect: "-20% Fire Resist no alvo 15s",      cooldown: "25s",    desc: "Vulnerabilidade ao fogo." },
-      { name: "Surrender to Water",    type: "Ativo",    rarity: "2★", effect: "-20% Water Resist no alvo 15s",     cooldown: "25s",    desc: "Vulnerabilidade à água." },
-      { name: "Surrender to Wind",     type: "Ativo",    rarity: "2★", effect: "-20% Wind Resist no alvo 15s",      cooldown: "25s",    desc: "Vulnerabilidade ao vento." },
+      { name: "烈焰",                 type: "Ativo",    rarity: "1★", effect: "Dano fogo 210%",                    cooldown: "10s",    desc: "釋放熾熱火焰。" },
+      { name: "水之漩渦",            type: "Ativo",    rarity: "1★", effect: "Dano água 200% + slow 20% 5s",      cooldown: "10s",    desc: "召喚水流漩渦。" },
+      { name: "龍捲",               type: "Ativo",    rarity: "1★", effect: "Dano vento 195%",                   cooldown: "10s",    desc: "召喚小型龍捲風。" },
+      { name: "光環燃燒",             type: "Ativo",    rarity: "2★", effect: "AoE fogo 180% ao redor",            cooldown: "14s",    desc: "以魔力燃燒周圍敵人。" },
+      { name: "生命吸取",            type: "Ativo",    rarity: "2★", effect: "Dano dark 190% + drena 25% como HP",cooldown: "15s",    desc: "吸取目標生命力。" },
+      { name: "火焰弱化",     type: "Ativo",    rarity: "2★", effect: "-20% Fire Resist no alvo 15s",      cooldown: "25s",    desc: "降低目標對火屬性的抗性。" },
+      { name: "水之弱化",    type: "Ativo",    rarity: "2★", effect: "-20% Water Resist no alvo 15s",     cooldown: "25s",    desc: "降低目標對水屬性的抗性。" },
+      { name: "風之弱化",     type: "Ativo",    rarity: "2★", effect: "-20% Wind Resist no alvo 15s",      cooldown: "25s",    desc: "降低目標對風屬性的抗性。" },
       { name: "Wizard's Harmony",      type: "Self-Buff",rarity: "2★", effect: "+25% M.ATK, +15% Cast Speed 20min", cooldown: "45 min", desc: "Harmonia do mago." },
       { name: "Boost Mana",            type: "Passivo",  rarity: "1★", effect: "+12% Max MP",                       cooldown: "N/A",    desc: "Reserva mágica aprimorada." }
     ]
