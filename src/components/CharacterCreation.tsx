@@ -568,7 +568,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
                       className="w-5 h-5 object-contain rounded bg-black/60 border border-amber-500/40 p-0.5"
                       onError={(e) => { e.currentTarget.style.display = 'none'; }}
                     />
-                    <span>{currentRaceObj.allowedClasses.find(c => c.id === selectedClass)?.name || selectedClass}</span>
+                    <span>{currentRaceObj.allowedClasses.find(c => c.id === selectedClass)?.name || '未知職業'}</span>
                   </span>
                 </div>
                 <div className="flex justify-between">
