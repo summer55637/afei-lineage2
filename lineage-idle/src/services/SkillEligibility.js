@@ -1330,7 +1330,7 @@ export function normalizeAndValidateSkills(state, callbacks = {}) {
         spRefunded += Math.floor(baseCost * Math.pow(1.4, l));
       }
       if (callbacks.log) {
-        callbacks.log(`🛡️ 技能 [${def.name || sId}] 因與目前等級／職業不相容而被修正並移除（返還 +${spRefunded} SP）。`, 'system');
+        callbacks.log(`🛡️ 技能 [${def.name || sId}] 因與目前等級／職業不相容而被修正並移除（返還 +${spRefunded} 技能點）。`, 'system');
       }
     }
   }
