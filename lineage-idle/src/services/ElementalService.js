@@ -3,7 +3,7 @@
  * ELEMENTAL SERVICE — NÍVEL 17: SOUL CRYSTALS & ATRIBUTOS ELEMENTAIS
  * ═══════════════════════════════════════════════════════════════════════════
  * Gerencia o sistema canônico de Encrustação de Lineage 2:
- * 1. Atributos Elementais (Fogo, Água, Vento, Terra, Sagrado, Trevas)
+ * 1. Atributos Elementais (Fogo, 水, Vento, Terra, Sagrado, Trevas)
  * 2. Gating e Tetos por Grau de Equipamento (C/B: 60, A: 150, S: 300 Arma / 120 Armadura)
  * 3. Soul Crystals com suporte a Armas Primárias e Secundárias (Dual Arsenal)
  * 4. Sinergia em Combate (Vantagem Oposta, Dano Sagrado vs Undead, Defesa Elemental)
@@ -20,17 +20,17 @@ export const ELEMENT_DEFINITIONS = {
     color: '#ef4444',
     opposed: 'water',
     stoneId: 'fire_stone',
-    desc: 'Amplifica dano contra seres de Água (+20%). Reduz dano contra fogo (-20%).',
+    desc: '對水屬性敵人傷害 +20%，對火屬性敵人傷害 -20%。',
     dropZone: 'Forge of the Gods (Lv.70+)'
   },
   water: {
     key: 'water',
-    name: 'Água',
+    name: '水',
     icon: '💧',
     color: '#3b82f6',
     opposed: 'fire',
     stoneId: 'water_stone',
-    desc: 'Amplifica dano contra seres de Fogo (+20%). Reduz dano contra água (-20%).',
+    desc: '對火屬性敵人傷害 +20%，對水屬性敵人傷害 -20%。',
     dropZone: 'Garden of Eva (Lv.45+)'
   },
   wind: {
@@ -40,7 +40,7 @@ export const ELEMENT_DEFINITIONS = {
     color: '#22c55e',
     opposed: 'earth',
     stoneId: 'wind_stone',
-    desc: 'Amplifica dano contra seres de Terra (+20%). Reduz dano contra vento (-20%).',
+    desc: '對地屬性敵人傷害 +20%，對風屬性敵人傷害 -20%。',
     dropZone: 'Dragon Valley (Lv.55+)'
   },
   earth: {
@@ -50,7 +50,7 @@ export const ELEMENT_DEFINITIONS = {
     color: '#d97706',
     opposed: 'wind',
     stoneId: 'earth_stone',
-    desc: 'Amplifica dano contra seres de Vento (+20%). Reduz dano contra terra (-20%).',
+    desc: '對風屬性敵人傷害 +20%，對地屬性敵人傷害 -20%。',
     dropZone: 'Mithril Mines (Lv.35+)'
   },
   holy: {
@@ -170,7 +170,7 @@ export function applyElementalInfusion(state, equipUid, elementKey = 'fire', cal
   const inv = state.inventory || [];
   const item = inv.find(i => i.uid === equipUid || i.id === equipUid);
   if (!item) {
-    if (callbacks.log) callbacks.log('Item não encontrado para infusão elemental.', 'system');
+    if (callbacks.log) callbacks.log('找不到可進行元素灌注的物品。', 'system');
     return false;
   }
 
@@ -179,19 +179,19 @@ export function applyElementalInfusion(state, equipUid, elementKey = 'fire', cal
   const slot = def?.slot || item.slot;
   const validSlots = ['weapon', 'weapon2', 'armor', 'chest', 'legs', 'head', 'helmet', 'gloves', 'boots', 'shield'];
   if (!validSlots.includes(slot)) {
-    if (callbacks.log) callbacks.log('Apenas armas, armaduras e escudos podem ser imbuídos com elementos!', 'system');
+    if (callbacks.log) callbacks.log('只有武器、防具與盾牌可以進行元素灌注！', 'system');
     return false;
   }
 
   const gating = getElementalGating(item);
   if (!gating.eligible) {
-    if (callbacks.log) callbacks.log(`Equipamentos de ${gating.label} não suportam infusão elemental. Requer Grau C ou superior.`, 'system');
+    if (callbacks.log) callbacks.log(`${gating.label} 裝備不支援元素灌注，需要 C 級以上裝備。`, 'system');
     return false;
   }
 
   const playerLvl = Number(state.level || 1);
   if (playerLvl < gating.minLevel) {
-    if (callbacks.log) callbacks.log(`Nível insuficiente! Itens de ${gating.label} requerem Nível ${gating.minLevel}+ para infusão elemental.`, 'system');
+    if (callbacks.log) callbacks.log(`等級不足！${gating.label} 裝備需要等級 ${gating.minLevel} 以上才能進行元素灌注。`, 'system');
     return false;
   }
 
@@ -200,20 +200,20 @@ export function applyElementalInfusion(state, equipUid, elementKey = 'fire', cal
 
   // Regra de Migração 17.4: Se já tem valor igual ou superior ao teto, não reduz mas trava novos ganhos
   if (currentVal >= gating.maxCap) {
-    if (callbacks.log) callbacks.log(`Este equipamento já atingiu o limite de +${gating.maxCap} para o ${gating.label}!`, 'system');
+    if (callbacks.log) callbacks.log(`此裝備的 ${gating.label} 已達 +${gating.maxCap} 上限！`, 'system');
     return false;
   }
 
   // Se o item já tem outro elemento diferente, canonicamente no L2 precisa ser limpo ou sobreposto
   if (currentElem !== 'none' && currentElem !== elementKey && currentVal > 0) {
-    if (callbacks.log) callbacks.log(`Este item já possui o elemento [${currentElem.toUpperCase()}]. Limpe o atributo anterior antes de imbuir ${elementKey.toUpperCase()}.`, 'system');
+    if (callbacks.log) callbacks.log(`此物品已具有 [${currentElem.toUpperCase()}] 元素。請先清除原屬性，再灌注 ${elementKey.toUpperCase()}。`, 'system');
     return false;
   }
 
   // Custo em Adena
   const cost = gating.stoneCost;
   if ((state.gold || 0) < cost) {
-    if (callbacks.log) callbacks.log(`Adena insuficiente! Requer ${cost.toLocaleString()} Adena para a infusão elemental.`, 'system');
+    if (callbacks.log) callbacks.log(`金幣不足！元素灌注需要 ${cost.toLocaleString()} 金幣。`, 'system');
     return false;
   }
 
@@ -240,7 +240,7 @@ export function applyElementalInfusion(state, equipUid, elementKey = 'fire', cal
   };
 
   if (callbacks.log) {
-    callbacks.log(`✨ ALQUIMIA ELEMENTAL: ${item.name || def.name} imbuído com +${step} de ${elemDef.name} ${elemDef.icon}! (${newVal}/${gating.maxCap})`, 'rarity-epic');
+    callbacks.log(`✨ 元素鍊金：${item.name || def.name} 已灌注 +${step} ${elemDef.name} ${elemDef.icon}！（${newVal}/${gating.maxCap}）`, 'rarity-epic');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -258,7 +258,7 @@ export function removeElementalInfusion(state, equipUid, callbacks = {}) {
 
   const resetCost = 25000;
   if ((state.gold || 0) < resetCost) {
-    if (callbacks.log) callbacks.log(`Adena insuficiente para purificação elemental. Requer ${resetCost.toLocaleString()} Adena.`, 'system');
+    if (callbacks.log) callbacks.log(`金幣不足，無法進行元素淨化。需要 ${resetCost.toLocaleString()} 金幣。`, 'system');
     return false;
   }
 
@@ -267,7 +267,7 @@ export function removeElementalInfusion(state, equipUid, callbacks = {}) {
   item.elementalAttribute = { element: 'none', val: 0 };
 
   if (callbacks.log) {
-    callbacks.log(`🌊 PURIFICAÇÃO: O atributo [${oldElem.toUpperCase()}] foi removido com sucesso de ${item.name || item.itemId}.`, 'system');
+    callbacks.log(`🌊 淨化完成：已成功移除 ${item.name || item.itemId} 的 [${oldElem.toUpperCase()}] 屬性。`, 'system');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -282,7 +282,7 @@ export function applySoulCrystalToWeapon(state, weaponUid, color = 'red', saKey 
   const inv = state.inventory || [];
   const item = inv.find(i => i.uid === weaponUid || i.id === weaponUid);
   if (!item) {
-    if (callbacks.log) callbacks.log('Arma não encontrada para engaste de Soul Crystal.', 'system');
+    if (callbacks.log) callbacks.log('找不到可鑲嵌靈魂水晶的武器。', 'system');
     return false;
   }
 
@@ -290,7 +290,7 @@ export function applySoulCrystalToWeapon(state, weaponUid, color = 'red', saKey 
   const def = gData?.ALL_ITEMS?.[item.itemId || item.id] || item;
   const slot = def?.slot || item.slot;
   if (slot !== 'weapon' && slot !== 'weapon2') {
-    if (callbacks.log) callbacks.log('Soul Crystals só podem ser engastados em armas (Primária ou Secundária)!', 'system');
+    if (callbacks.log) callbacks.log('靈魂水晶只能鑲嵌在主武器或副武器上！', 'system');
     return false;
   }
 
