@@ -3921,11 +3921,11 @@ function _performFullUIUpdate() {
 function completeFateWhisperQuest() {
   const activeMainLevel = state.activeSubclassIndex === null ? state.level : (state.mainClassData?.level || 1);
   if (activeMainLevel < 52) {
-    log('⚠️ 主職業需要達到 52 級才能完成 Fate's Whisper 任務！', 'warning');
+    log('⚠️ 主職業需要達到 52 級才能完成「命運的低語」任務！', 'warning');
     return false;
   }
   state.fateWhisperQuest = true;
-  log('📜 Fate's Whisper 任務完成！副職業已解鎖！', 'rarity-legendary');
+  log('📜 「命運的低語」任務完成！副職業已解鎖！', 'rarity-legendary');
   floatText('副職業已解鎖！', 'float-gold');
   updateAllUI(); save();
   return true;
