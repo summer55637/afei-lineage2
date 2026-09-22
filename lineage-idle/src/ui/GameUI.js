@@ -7332,7 +7332,7 @@ export function renderExpeditionsUI(state) {
             <p style="margin:4px 0 6px 0; font-size:11px; color:#aaa; line-height:1.3;">${dDef.desc}</p>
             <div style="font-size:10px; color:#fca5a5; margin-bottom:6px;">
               <strong>⚠️ 威脅：</strong> ${dDef.threat || '遠古危機'}
-              <span style="color:#94a3b8; margin-left:6px;">（推薦： ${dDef.recommendedSpecs?.map(s => MERCENARY_SPECIALIZATIONS[s]?.name || s).join(', ') || '不限'})</span>
+              <span style="color:#94a3b8; margin-left:6px;">（推薦： ${dDef.recommendedSpecs?.map(s => MERCENARY_SPECIALIZATIONS[s]?.name || '其他專精').join(', ') || '不限'})</span>
             </div>
             <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
               <span style="font-size:10px; background:rgba(212,167,68,0.15); border:1px solid rgba(212,167,68,0.3); padding:2px 8px; border-radius:6px; color:#ffd877; font-weight:bold;">🪙 ${minG}-${maxG} 金幣</span>
