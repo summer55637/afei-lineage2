@@ -130,11 +130,11 @@ export function renderRankingTab(container, state) {
                   </div>
                   <div>
                     <div style="font-weight: bold; color: ${isTop1 ? '#fde047' : '#fff'}; font-size: 14px; font-family: 'Cinzel', serif; display: flex; align-items: center; gap: 6px;">
-                      🛡️ ${p.clanName} ${isSelf ? '<span style="color:#60a5fa; font-size:10px;">(你的血盟)</span>' : ''}
+                      🛡️ ${p.clanName} ${isSelf ? '<span style="color:#60a5fa; font-size:10px;">（你的血盟）</span>' : ''}
                       ${isVerified ? '<span style="background:rgba(34,197,94,0.15); border:1px solid #22c55e; color:#4ade80; font-size:10px; padding:1px 5px; border-radius:4px;">🛡️ 已驗證</span>' : ''}
                     </div>
                     <div style="font-size: 11px; color: #94a3b8;">
-                      盟主： <strong>${p.charName}</strong> · 等級 ${p.level} · 成員： ${p.membersCount || 6} ${p.castleLord ? `· 🏰 ${p.castleLord}` : ''}
+                      盟主：<strong>${p.charName}</strong> · 等級 ${p.level} · 成員：${p.membersCount || 6} ${p.castleLord ? `· 🏰 ${p.castleLord}` : ''}
                     </div>
                   </div>
                 </div>
@@ -160,12 +160,12 @@ export function renderRankingTab(container, state) {
                       ${p.castle}
                     </div>
                     <div style="font-size: 11px; color: #cbd5e1;">
-                      領主： <strong style="color:#fff;">${p.lord}</strong> (${p.clan})
+                      領主：<strong style="color:#fff;">${p.lord}</strong>（${p.clan}）
                     </div>
                   </div>
                 </div>
                 <div style="text-align: right; font-family: 'IBM Plex Mono', monospace;">
-                  <div style="font-size: 13px; font-weight: bold; color: #4ade80;">稅率： ${p.tax}</div>
+                  <div style="font-size: 13px; font-weight: bold; color: #4ade80;">稅率：${p.tax}</div>
                   <div style="font-size: 10px; color: #94a3b8;">金幣排名獎勵</div>
                 </div>
               </div>
