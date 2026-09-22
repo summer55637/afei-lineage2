@@ -46,7 +46,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
   if (recipes.length === 0) {
     recipesCardsHtml = `
       <div style="grid-column: 1 / -1; padding: 24px; text-align: center; color: #94a3b8; font-style: italic;">
-        Nenhuma receita nesta categoria.
+        此分類目前沒有配方。
       </div>
     `;
   } else {
@@ -105,7 +105,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
                 </div>
               </div>
               <span style="font-size: 10px; color: #ffd877; background: rgba(212,167,68,0.15); border: 1px solid rgba(212,167,68,0.3); border-radius: 4px; padding: 2px 6px; font-weight: bold;">
-                🪙 ${rec.adenaCost.toLocaleString()} Adena
+                🪙 ${rec.adenaCost.toLocaleString()} 金幣
               </span>
             </div>
 
@@ -208,14 +208,14 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
       ">
         <div>
           <h3 style="margin: 0; font-family: 'Cinzel', serif; color: #6ee7b7; font-size: 16px;">
-            ⚗️ Bancada de Refino de Materiais (Life Activities 2.0)
+            ⚗️ 材料精煉工作台（生活系統 2.0）
           </h3>
           <p style="margin: 4px 0 0 0; font-size: 11px; color: #cbd5e1;">
             將生活活動取得的木材、皮革、骨頭、礦石與草藥精煉成帝國鍛造所需的高級材料。
           </p>
         </div>
         <div style="font-size: 11px; color: #ffd877; background: rgba(0,0,0,0.5); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(212,167,68,0.3);">
-          🪙 金幣： <strong style="color:#fde047;">${(state.gold || 0).toLocaleString()} Adena</strong>
+          🪙 金幣： <strong style="color:#fde047;">${(state.gold || 0).toLocaleString()} 金幣</strong>
         </div>
       </div>
 
