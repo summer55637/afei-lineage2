@@ -529,7 +529,7 @@ function renderMySalesTab(state, salesData) {
                     ${getItemIcon(l.item)}
                     <div>
                       <div style="font-weight: bold; color: #ffd877; font-size: 12px;">
-                        ${l.item?.enchant > 0 ? `<span style="color:#60a5fa;">+${l.item.enchant}</span> ` : ''}${l.quantity}x ${l.item?.name}
+                        ${l.item?.enchant > 0 ? `<span style="color:#60a5fa;">+${l.item.enchant}</span> ` : ''}${l.quantity}× ${l.item?.name}
                       </div>
                       <div style="font-size: 11px; color: ${isAdena ? '#fde047' : '#93c5fd'}; font-family: 'IBM Plex Mono', monospace;">
                         ${isAdena ? '🪙' : '👑'} ${Number(l.totalPrice).toLocaleString()} ${isAdena ? '金幣' : '亞丁幣'}
