@@ -443,7 +443,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
     const def = skillDefs[sId] || { name: sId };
 
     let statKey = 'patk';
-    let statLabel = 'P.ATK';
+    let statLabel = '物理攻擊';
     let baseVal = 0.06 + (lvl * 0.02);
 
     const sName = (def.name || '').toLowerCase();
@@ -456,11 +456,11 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
       baseVal = 0.06 + (lvl * 0.02);
     } else if (sName.includes('mdef') || sName.includes('magic def') || sName.includes('resist') || sName.includes('barrier') || sName.includes('ward')) {
       statKey = 'mdef';
-      statLabel = 'M.DEF';
+      statLabel = '魔法防禦';
       baseVal = 0.06 + (lvl * 0.02);
     } else if (sName.includes('def') || sName.includes('shield') || sName.includes('aegis') || sName.includes('iron') || sName.includes('will') || sName.includes('armor') || sName.includes('guard')) {
       statKey = 'pdef';
-      statLabel = 'P.DEF';
+      statLabel = '物理防禦';
       baseVal = 0.06 + (lvl * 0.02);
     } else if (sName.includes('mana') || sName.includes('mp') || sName.includes('clarity') || sName.includes('recovery') || sName.includes('mind')) {
       statKey = 'mpRegen';
@@ -468,7 +468,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
       baseVal = 0.08 + (lvl * 0.025);
     } else if (sName.includes('magic') || sName.includes('mage') || sName.includes('mystic') || sName.includes('elem') || sName.includes('fire') || sName.includes('water') || sName.includes('wind') || sName.includes('spell') || sName.includes('empower') || sType === 'magic') {
       statKey = 'matk';
-      statLabel = 'M.ATK';
+      statLabel = '魔法攻擊';
       baseVal = 0.06 + (lvl * 0.02);
     } else if (sName.includes('crit') || sName.includes('fury') || sName.includes('stance') || sName.includes('focus') || sName.includes('precision') || sName.includes('deadly')) {
       statKey = 'crit';
@@ -484,7 +484,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
       baseVal = 0.05 + (lvl * 0.015);
     } else {
       statKey = 'patk';
-      statLabel = 'P.ATK';
+      statLabel = '物理攻擊';
       baseVal = 0.06 + (lvl * 0.02);
     }
 
