@@ -9355,7 +9355,7 @@ export function uiOpenReferralModal(state, defaultTab) {
               <tr>
                 <td colspan="6" style="text-align: center; padding: 40px 14px; color: #94a3b8; font-size: 11px;">
                   好友清單目前是空的。<br />
-                  <span style="color: #64748b; font-size: 10px;">Clique no botão <strong style="color:#60a5fa;">'+ 新增'</strong> acima para adicionar um amigo pelo nome!</span>
+                  <span style="color: #64748b; font-size: 10px;">點擊上方 <strong style="color:#60a5fa;">「+ 新增」</strong>，即可依角色名稱加入好友！</span>
                 </td>
               </tr>
             ` : s.friends.map(f => {
@@ -9479,7 +9479,7 @@ export function uiOpenReferralModal(state, defaultTab) {
             <div style="display: flex; gap: 8px;">
               <input id="ref-friend-code-input" type="text" placeholder="輸入你的導師名稱..." style="flex: 1; background: #0b0d13; border: 1px solid #334155; border-radius: 4px; padding: 7px 10px; color: #fff; font-size: 11px;" />
               <button onclick="window.submitReferralCodeAction && window.submitReferralCodeAction()" style="padding: 7px 16px; background: linear-gradient(180deg, #10b981, #059669); border: 1px solid #34d399; border-radius: 4px; color: #052e16; font-weight: bold; font-size: 11px; cursor: pointer; font-family: 'Cinzel', serif; box-shadow: 0 2px 8px rgba(16,185,129,0.3);">
-                Vincular
+                綁定
               </button>
             </div>
           </div>
@@ -9677,10 +9677,10 @@ export function uiOpenReferralModal(state, defaultTab) {
     detailedInfoBtn.onclick = () => {
       const friend = s.friends.find(f => f.name === _contactsSelectedFriendName) || s.friends[0];
       if (!friend) {
-        if (window.showMarketToast) window.showMarketToast('Selecione um amigo para ver informações detalhadas.', 'warning');
+        if (window.showMarketToast) window.showMarketToast('請先選擇一位好友查看詳細資料。', 'warning');
         return;
       }
-      if (window.showMarketToast) window.showMarketToast(`🗎 [${friend.name}] Nv. ${friend.level} · Classe: ${friend.classTitle} · ${friend.online ? 'Online' : 'Offline'}`, 'info');
+      if (window.showMarketToast) window.showMarketToast(`🗎 [${friend.name}] 等級 ${friend.level} · 職業：${friend.classTitle} · ${friend.online ? '在線' : '離線'}`, 'info');
     };
   }
 
@@ -9689,15 +9689,15 @@ export function uiOpenReferralModal(state, defaultTab) {
     makeMentorBtn.onclick = () => {
       const friend = s.friends.find(f => f.name === _contactsSelectedFriendName) || s.friends[0];
       if (!friend) {
-        if (window.showMarketToast) window.showMarketToast('Selecione um amigo na lista para tornar seu mentor.', 'warning');
+        if (window.showMarketToast) window.showMarketToast('請先從好友清單中選擇要設為導師的人。', 'warning');
         return;
       }
       if ((s.level || 1) > 20) {
-        if (window.showMarketToast) window.showMarketToast('Apenas heróis até o 等級 20 podem vincular um Mentor. Você já é experiente!', 'warning');
+        if (window.showMarketToast) window.showMarketToast('只有等級 20 以下的英雄可以綁定導師，你目前已超過限制！', 'warning');
         return;
       }
       if (s.referredBy) {
-        if (window.showMarketToast) window.showMarketToast(`Você já possui o mentor [${s.referredBy}] vinculado!`, 'warning');
+        if (window.showMarketToast) window.showMarketToast(`你已經綁定導師 [${s.referredBy}]！`, 'warning');
         return;
       }
       _contactsActiveTab = 'mentorship';
@@ -9731,13 +9731,13 @@ export function uiOpenReferralModal(state, defaultTab) {
   const addBlockBtn = modal.querySelector('#btn-contact-add-block');
   if (addBlockBtn) {
     addBlockBtn.onclick = () => {
-      const name = prompt('Digite o nome do jogador para bloquear:');
+      const name = prompt('輸入要封鎖的玩家名稱：');
       if (name && name.trim()) {
         const cleanName = name.trim();
         if (!s.blocked.includes(cleanName)) {
           s.blocked.push(cleanName);
           if (typeof window.saveGameState === 'function') window.saveGameState();
-          if (window.showMarketToast) window.showMarketToast(`Jogador ${cleanName} bloqueado.`, 'info');
+          if (window.showMarketToast) window.showMarketToast(`玩家 ${cleanName} 已封鎖。`, 'info');
           uiOpenReferralModal(s);
         }
       }
@@ -9749,7 +9749,7 @@ export function uiOpenReferralModal(state, defaultTab) {
       const name = b.dataset.name;
       s.blocked = s.blocked.filter(n => n !== name);
       if (typeof window.saveGameState === 'function') window.saveGameState();
-      if (window.showMarketToast) window.showMarketToast(`Jogador ${name} desbloqueado.`, 'success');
+      if (window.showMarketToast) window.showMarketToast(`玩家 ${name} 已解除封鎖。`, 'success');
       uiOpenReferralModal(s);
     };
   });
@@ -9786,17 +9786,17 @@ export function renderRaidsTab(container, state) {
 
     let diffBadge = '⭐ Normal';
     let diffColor = '#60a5fa';
-    if (boss.lvl >= 100) { diffBadge = '👑 SUPREMO'; diffColor = '#ffd700'; }
-    else if (boss.lvl >= 90) { diffBadge = '⭐⭐⭐⭐⭐ Lendário'; diffColor = '#f59e0b'; }
-    else if (boss.lvl >= 75) { diffBadge = '⭐⭐⭐⭐ Mítico'; diffColor = '#c084fc'; }
-    else if (boss.lvl >= 60) { diffBadge = '⭐⭐⭐ Épico'; diffColor = '#f43f5e'; }
-    else if (boss.lvl >= 50) { diffBadge = '⭐⭐ Desafiador'; diffColor = '#34d399'; }
+    if (boss.lvl >= 100) { diffBadge = '👑 最高級'; diffColor = '#ffd700'; }
+    else if (boss.lvl >= 90) { diffBadge = '⭐⭐⭐⭐⭐ 傳說'; diffColor = '#f59e0b'; }
+    else if (boss.lvl >= 75) { diffBadge = '⭐⭐⭐⭐ 神話'; diffColor = '#c084fc'; }
+    else if (boss.lvl >= 60) { diffBadge = '⭐⭐⭐ 史詩'; diffColor = '#f43f5e'; }
+    else if (boss.lvl >= 50) { diffBadge = '⭐⭐ 挑戰級'; diffColor = '#34d399'; }
 
     let actionBtnHtml = '';
     if (inCombat) {
       actionBtnHtml = `<button disabled style="width:100%; padding:10px; font-weight:bold; font-size:12px; background:linear-gradient(180deg,#16a34a,#15803d); border:1px solid #4ade80; color:#fff; border-radius:6px; cursor:default; animation:pulse 1.5s infinite;">⚔️ EM COMBATE ATIVO</button>`;
     } else if (isLocked) {
-      actionBtnHtml = `<button disabled style="width:100%; padding:10px; font-weight:bold; font-size:12px; background:#27272a; border:1px solid #3f3f46; color:#71717a; border-radius:6px; cursor:not-allowed;">🔒 Bloqueado (Requer Lv. ${boss.reqLvl})</button>`;
+      actionBtnHtml = `<button disabled style="width:100%; padding:10px; font-weight:bold; font-size:12px; background:#27272a; border:1px solid #3f3f46; color:#71717a; border-radius:6px; cursor:not-allowed;">🔒 尚未解鎖（需要 Lv. ${boss.reqLvl}）</button>`;
     } else if (!hasTickets) {
       actionBtnHtml = `<button disabled style="width:100%; padding:10px; font-weight:bold; font-size:12px; background:#450a0a; border:1px solid #7f1d1d; color:#fca5a5; border-radius:6px; cursor:not-allowed;">🎟️ Sem Ingressos Diários</button>`;
     } else {
@@ -9807,7 +9807,7 @@ export function renderRaidsTab(container, state) {
           onmouseover="this.style.filter='brightness(1.15)'"
           onmouseout="this.style.filter='none'"
         >
-          ⚔️ DESAFIAR RAID (1 🎟️)
+          ⚔️ 挑戰團隊首領（1 🎟️）
         </button>
       `;
     }
@@ -9839,13 +9839,13 @@ export function renderRaidsTab(container, state) {
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
             <div>
               <div style="font-family:'Cinzel',serif; font-size:15px; font-weight:bold; color:#fef08a;">${boss.name}</div>
-              <div style="font-size:11px; color:#94a3b8; font-style:italic;">${boss.title || 'Chefe de Raid'}</div>
+              <div style="font-size:11px; color:#94a3b8; font-style:italic;">${boss.title || '團隊首領'}</div>
             </div>
             <div style="display:flex; flex-direction:column; align-items:flex-end; gap:2px;">
               <span style="background:rgba(0,0,0,0.6); border:1px solid ${diffColor}; color:${diffColor}; font-size:10px; font-weight:bold; padding:2px 8px; border-radius:10px;">
                 ${diffBadge}
               </span>
-              <span style="font-size:10px; color:#cbd5e1;">Req. Lv. ${boss.reqLvl}</span>
+              <span style="font-size:10px; color:#cbd5e1;">需求 Lv. ${boss.reqLvl}</span>
             </div>
           </div>
 
@@ -9894,7 +9894,7 @@ export function renderRaidsTab(container, state) {
               <span>🐉 每日副本與史詩團隊首領</span>
             </h2>
             <p style="margin:0; font-size:12px; color:#cbd5e1; line-height:1.4;">
-              Enfrente as lendas de Lineage II para conquistar <strong>Joias de Chefe Lendárias</strong> (+Crit Dmg, +Lifesteal, +Stats), <strong>Blessed Scrolls</strong> e <strong>金幣</strong>!
+              挑戰 Lineage II 傳說首領，取得 <strong>傳說首領飾品</strong>（+暴擊傷害、+吸血、+屬性）、<strong>祝福卷軸</strong> 與 <strong>金幣</strong>！
             </p>
           </div>
           <div style="display:flex; gap:10px; align-items:center;">
@@ -9914,9 +9914,9 @@ export function renderRaidsTab(container, state) {
         <div style="background:linear-gradient(135deg, rgba(35,25,12,0.95), rgba(20,15,5,0.98)); border:1px solid #eab308; border-radius:10px; padding:14px 18px; margin-bottom:16px; display:flex; align-items:center; gap:14px; box-shadow:0 4px 15px rgba(0,0,0,0.4);">
           <div style="font-size:32px; background:rgba(0,0,0,0.4); border-radius:8px; padding:6px 10px; border:1px solid rgba(234,179,8,0.3);">👑</div>
           <div>
-            <div style="font-family:'Cinzel',serif; font-weight:bold; color:#fde047; font-size:14px;">Primeira Raid Desbloqueia no 等級 30!</div>
+            <div style="font-family:'Cinzel',serif; font-weight:bold; color:#fde047; font-size:14px;">第一場 Raid 於等級 30 解鎖！</div>
             <div style="font-size:12px; color:#cbd5e1; margin-top:3px; line-height:1.4;">
-              As Raids Mundiais foram reveladas na sua jornada no 等級 20. Sua primeira batalha colossal será contra a <strong>Rainha Formiga (Queen Ant)</strong>, disponível no <strong>等級 30</strong>. Continue evoluindo seu personagem pelas zonas de caça e fortalecendo seus equipamentos para encarar o desafio!
+              世界 Raid 會在等級 20 的旅程中揭露。第一場大型戰鬥是對抗 <strong>蟻后（Queen Ant）</strong>，於 <strong>等級 30</strong> 開放。繼續在狩獵區提升角色並強化裝備，準備迎接挑戰！
             </div>
           </div>
         </div>
@@ -9981,7 +9981,7 @@ export function renderOlympiadTab(container, state) {
     subContentHtml = `
       <div style="background:rgba(15,23,42,0.6); border:1px solid rgba(255,215,0,0.25); border-radius:10px; padding:16px; margin-bottom:16px;">
         <div style="text-align:center; margin-bottom:16px;">
-          <h3 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#fde047; font-size:18px;">🏟️ Coliseu Imperial de Aden</h3>
+          <h3 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#fde047; font-size:18px;">🏟️ 亞丁帝國競技場</h3>
           <p style="margin:0; font-size:12px; color:#cbd5e1;">與積分相近的鬥士進行 1 對 1 戰鬥。 勝利可獲得 ELO 積分與 <strong>Olympiad Tokens</strong>!</p>
         </div>
 
@@ -10033,11 +10033,11 @@ export function renderOlympiadTab(container, state) {
         title: 'Parte 1: O Legado de Eva & Talien',
         npc: '👤 Talien (Giran)',
         dialog: '"Nobre guerreiro, para comprovar o valor de sua alma, recupere as 25 Páginas do Poema de Eva caídas com as criaturas de Valley of Saints."',
-        desc: 'Investigue o legado dos heróis antigos com Talien em Giran. Recupere as 25 Páginas do Poema de Eva em Valley of Saints.',
+        desc: '與奇岩的 Talien 調查古代英雄傳承，並在聖者之谷找回 25 頁伊娃之詩。',
         progressText: `${prog.part1Kills || 0}/25 monstros em Valley of Saints`,
         travelBtn: (state.level || 1) >= 72
           ? `<button onclick="window.teleportToQuestZone('valleyOfSaints')" style="padding:4px 10px; font-size:10.5px; font-weight:bold; background:#1e3a8a; border:1px solid #60a5fa; color:#93c5fd; border-radius:4px; cursor:pointer; margin-top:4px;">🗺️ Ir para Valley of Saints</button>`
-          : `<span style="display:inline-block; margin-top:4px; padding:3px 8px; font-size:10.5px; font-weight:bold; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.35); color:#fca5a5; border-radius:4px;">🔒 Requer 等級 72+ (Seu Nv: ${state.level || 1})</span>`,
+          : `<span style="display:inline-block; margin-top:4px; padding:3px 8px; font-size:10.5px; font-weight:bold; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.35); color:#fca5a5; border-radius:4px;">🔒 需要等級 72+（目前：${state.level || 1}）</span>`,
         isDone: nobStatus.isNoblesse || (state.noblesseStep || 1) > 1,
         isCurrent: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 1,
         canComplete: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 1 && (prog.part1Kills || 0) >= 25,
@@ -10047,12 +10047,12 @@ export function renderOlympiadTab(container, state) {
         num: 2,
         title: 'Parte 2: Ritual de Virgil em Rune',
         npc: '👤 Virgil (Rune Township)',
-        dialog: '"As almas do Pântano dos Gritos anseiam por libertação. Purifique 30 espíritos corrompidos em Swamp of Screams para consagrar a essência."',
+        dialog: '「悲鳴沼澤的靈魂渴望解放。前往 Swamp of Screams 淨化 30 個墮落靈魂，完成精華祝聖。」',
         desc: 'Leve a carta sagrada a Virgil em Rune Township e purifique 30 espíritos no pântano sombrio de Swamp of Screams.',
         progressText: `${prog.part2Kills || 0}/30 almas em Swamp of Screams`,
         travelBtn: (state.level || 1) >= 74
           ? `<button onclick="window.teleportToQuestZone('swampOfScreams')" style="padding:4px 10px; font-size:10.5px; font-weight:bold; background:#1e3a8a; border:1px solid #60a5fa; color:#93c5fd; border-radius:4px; cursor:pointer; margin-top:4px;">🗺️ Ir para Swamp of Screams</button>`
-          : `<span style="display:inline-block; margin-top:4px; padding:3px 8px; font-size:10.5px; font-weight:bold; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.35); color:#fca5a5; border-radius:4px;">🔒 Requer 等級 74+ (Seu Nv: ${state.level || 1})</span>`,
+          : `<span style="display:inline-block; margin-top:4px; padding:3px 8px; font-size:10.5px; font-weight:bold; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.35); color:#fca5a5; border-radius:4px;">🔒 需要等級 74+（目前：${state.level || 1}）</span>`,
         isDone: nobStatus.isNoblesse || (state.noblesseStep || 1) > 2,
         isCurrent: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 2,
         canComplete: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 2 && (prog.part2Kills || 0) >= 30,
@@ -10063,9 +10063,9 @@ export function renderOlympiadTab(container, state) {
         title: 'Parte 3: O Julgamento de Barakiel',
         npc: '👤 Caradine (Goddard)',
         dialog: '"O Cajado Sagrado da Deusa está nas mãos do temível Flame of Splendor Barakiel em Wall of Argos. Derrote-o em combate épico para recuperá-lo!"',
-        desc: 'Ajude Caradine em Wall of Argos e derrote o lendário Raid Boss Flame of Splendor Barakiel para recuperar o Cajado da Deusa.',
-        progressText: prog.barakielKilled ? '✓ Barakiel Derrotado' : 'Derrotar Raid Boss Barakiel',
-        travelBtn: `<button onclick="window.startRaidBossAction('barakiel')" style="padding:4px 10px; font-size:10.5px; font-weight:bold; background:#7f1d1d; border:1px solid #f87171; color:#fca5a5; border-radius:4px; cursor:pointer; margin-top:4px;">⚔️ Desafiar Raid Barakiel</button>`,
+        desc: '協助 Wall of Argos 的 Caradine，並擊敗傳說 Raid Boss「Flame of Splendor Barakiel」，取回女神之杖。',
+        progressText: prog.barakielKilled ? '✓ 已擊敗 Barakiel' : '擊敗 Raid Boss Barakiel',
+        travelBtn: `<button onclick="window.startRaidBossAction('barakiel')" style="padding:4px 10px; font-size:10.5px; font-weight:bold; background:#7f1d1d; border:1px solid #f87171; color:#fca5a5; border-radius:4px; cursor:pointer; margin-top:4px;">⚔️ 挑戰 Barakiel Raid</button>`,
         isDone: nobStatus.isNoblesse || (state.noblesseStep || 1) > 3,
         isCurrent: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 3,
         canComplete: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 3 && Boolean(prog.barakielKilled),
@@ -10073,27 +10073,27 @@ export function renderOlympiadTab(container, state) {
       },
       {
         num: 4,
-        title: 'Parte 4: Consagração da Deusa Eva',
+        title: '第 4 部分：伊娃女神祝聖',
         npc: '👑 Lady of the Lake (Obelisco Sagrado)',
         dialog: '"你的靈魂純潔而勇敢。 獻上伊娃女神祝聖的法杖 e 接受永恆祝聖，成為亞丁貴族！"',
-        desc: 'Apresente o cajado sagrado à Lady of the Lake. Receba a Bênção Sagrada, a Noblesse Tiara e a sagração como Nobre de Aden!',
-        progressText: nobStatus.isNoblesse ? '✓ Noblesse Consagrado' : 'Apresentar à Lady of the Lake',
+        desc: '將神聖權杖交給 Lady of the Lake，獲得神聖祝福、Noblesse Tiara，並正式成為亞丁貴族！',
+        progressText: nobStatus.isNoblesse ? '✓ 已完成貴族祝聖' : '交給 Lady of the Lake',
         travelBtn: '',
         isDone: nobStatus.isNoblesse,
         isCurrent: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 4,
         canComplete: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 4,
-        btnText: '👑 Falar com Lady of the Lake (Consagração)'
+        btnText: '👑 與 Lady of the Lake 對話（祝聖）'
       }
     ];
 
     const stepsHtml = steps.map(s => {
-      let statusBadge = `<span style="color:#94a3b8; font-size:11px;">🔒 Bloqueado</span>`;
+      let statusBadge = `<span style="color:#94a3b8; font-size:11px;">🔒 尚未解鎖</span>`;
       let btnHtml = '';
 
       if (s.isDone) {
         statusBadge = `<span style="color:#4ade80; font-size:11px; font-weight:bold;">✓ 已完成</span>`;
       } else if (s.isCurrent) {
-        statusBadge = `<span style="color:#fde047; font-size:11px; font-weight:bold;">⚡ Em Andamento (${s.progressText})</span>`;
+        statusBadge = `<span style="color:#fde047; font-size:11px; font-weight:bold;">⚡ 進行中（${s.progressText}）</span>`;
         if (s.canComplete) {
           btnHtml = `
             <button
@@ -10133,8 +10133,8 @@ export function renderOlympiadTab(container, state) {
     subContentHtml = `
       <div style="background:rgba(15,23,42,0.6); border:1px solid rgba(255,215,0,0.25); border-radius:10px; padding:16px; margin-bottom:16px;">
         <div style="margin-bottom:14px;">
-          <h3 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#fde047; font-size:17px;">📜 Saga de Noblesse: Possessor of a Precious Soul</h3>
-          <p style="margin:0; font-size:12px; color:#cbd5e1;">Requisito canônico para acessar a <strong>Grand Olympiad (Lv. 76+)</strong>. Conclua as 4 partes da saga para receber a <strong>Noblesse Tiara</strong> e o título permanente de Nobreza!</p>
+          <h3 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#fde047; font-size:17px;">📜 貴族傳奇：Possessor of a Precious Soul</h3>
+          <p style="margin:0; font-size:12px; color:#cbd5e1;">進入 <strong>Grand Olympiad（Lv.76+）</strong> 的正式必要條件。完成 4 個篇章即可獲得 <strong>Noblesse Tiara</strong> 與永久貴族資格！</p>
         </div>
         ${stepsHtml}
       </div>
@@ -10149,7 +10149,7 @@ export function renderOlympiadTab(container, state) {
           <p style="font-size:11px; color:#cbd5e1; line-height:1.35; margin:0 0 8px 0;">${w.desc}</p>
         </div>
         <div style="font-size:10px; color:#93c5fd; background:rgba(0,0,0,0.4); padding:4px 8px; border-radius:4px;">
-          Requer: Lv. 76+ &amp; Status de Herói Ativo
+          需求：Lv.76+ 且目前為英雄狀態
         </div>
       </div>
     `).join('');
@@ -10163,7 +10163,7 @@ export function renderOlympiadTab(container, state) {
 
     let claimBtnHtml = '';
     if (state.isHero) {
-      claimBtnHtml = `<div style="text-align:center; padding:12px; background:rgba(234,179,8,0.2); border:1px solid #ffd700; border-radius:8px; color:#fde047; font-weight:bold; font-size:14px;">👑 VOCÊ É UM HERÓI DE CLASSE SUPREMO DE ADEN!</div>`;
+      claimBtnHtml = `<div style="text-align:center; padding:12px; background:rgba(234,179,8,0.2); border:1px solid #ffd700; border-radius:8px; color:#fde047; font-weight:bold; font-size:14px;">👑 你是亞丁最高級職業英雄！</div>`;
     } else if (olyStatus.points >= 1500) {
       claimBtnHtml = `
         <button
@@ -10176,7 +10176,7 @@ export function renderOlympiadTab(container, state) {
     } else {
       claimBtnHtml = `
         <div style="text-align:center; padding:10px; background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:8px; color:#94a3b8; font-size:12px;">
-          達到 <strong>1.500 奧林匹亞積分</strong> 即可成為該職業英雄！ (Atual: ${olyStatus.points} pts)
+          達到 <strong>1,500 奧林匹亞積分</strong> 即可成為該職業英雄！（目前：${olyStatus.points} pts）
         </div>
       `;
     }
@@ -10185,7 +10185,7 @@ export function renderOlympiadTab(container, state) {
       <div style="background:rgba(15,23,42,0.6); border:1px solid rgba(255,215,0,0.25); border-radius:10px; padding:16px; margin-bottom:16px;">
         <div style="margin-bottom:14px;">
           <h3 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#fde047; font-size:17px;">👑 大奧林匹亞英雄紀念碑</h3>
-          <p style="margin:0; font-size:12px; color:#cbd5e1;">Os campeões absolutos de cada classe recebem a <strong>Aura Dourada Cintilante</strong>, as <strong>Armas Infinity</strong> e as 4 <strong>Habilidades Míticas de Herói</strong>.</p>
+          <p style="margin:0; font-size:12px; color:#cbd5e1;">各職業最強冠軍可獲得 <strong>閃耀黃金光環</strong>、<strong>Infinity 武器</strong> 與 4 個 <strong>英雄神話技能</strong>。</p>
         </div>
 
         <div style="margin-bottom:16px;">${claimBtnHtml}</div>
@@ -10234,11 +10234,11 @@ export function renderOlympiadTab(container, state) {
       <div style="background:rgba(15,23,42,0.6); border:1px solid rgba(255,215,0,0.25); border-radius:10px; padding:16px; margin-bottom:16px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
           <div>
-            <h3 style="margin:0 0 4px 0; font-family:'Cinzel',serif; color:#fde047; font-size:17px;">🛍️ 商店 de Tokens de Olimpíada (Noblesse Gate Pass)</h3>
+            <h3 style="margin:0 0 4px 0; font-family:'Cinzel',serif; color:#fde047; font-size:17px;">🛍️ 奧林匹亞代幣商店（Noblesse Gate Pass）</h3>
             <p style="margin:0; font-size:12px; color:#cbd5e1;">Adquira Giant's Codex, Blessed Scrolls S-Grade e suprimentos raros com seus tokens.</p>
           </div>
           <div style="background:rgba(0,0,0,0.6); border:1px solid #fde047; border-radius:8px; padding:6px 14px; font-weight:bold; color:#fde047; font-size:13px;">
-            🪙 Saldo: ${olyStatus.tokens.toLocaleString()} Tokens
+            🪙 餘額：${olyStatus.tokens.toLocaleString()} 代幣
           </div>
         </div>
 
@@ -10256,21 +10256,21 @@ export function renderOlympiadTab(container, state) {
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
           <div>
             <h2 style="margin:0 0 4px 0; font-family:'Cinzel',serif; color:#ffd700; font-size:20px; display:flex; align-items:center; gap:8px;">
-              <span>🏆 Grand Olympiad Games &amp; Heróis de Classe</span>
+              <span>🏆 Grand Olympiad 與職業英雄</span>
             </h2>
             <p style="margin:0; font-size:12px; color:#cbd5e1; line-height:1.4;">
-              Duelos ranqueados 1v1 para Nobres (<strong>Lv. 76+ &amp; Noblesse</strong>). Conquiste a coroa de <strong>HERO</strong>, a <strong>Aura Dourada</strong> e as <strong>Armas Infinity</strong>!
+              貴族專屬 1v1 排名決鬥（<strong>Lv.76+ 且 Noblesse</strong>）。爭奪 <strong>HERO</strong> 王冠、<strong>黃金光環</strong> 與 <strong>Infinity 武器</strong>！
             </p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
             <div style="background:rgba(0,0,0,0.55); border:1px solid ${olyStatus.isNoblesse ? '#4ade80' : '#ef4444'}; border-radius:8px; padding:6px 12px; text-align:center;">
-              <div style="font-size:9.5px; color:#cbd5e1; text-transform:uppercase;">Status</div>
+              <div style="font-size:9.5px; color:#cbd5e1; text-transform:uppercase;">狀態</div>
               <div style="font-size:12px; font-weight:bold; color:${olyStatus.isNoblesse ? '#4ade80' : '#f87171'};">
-                ${olyStatus.isNoblesse ? '👑 Noblesse' : '🔒 非貴族'}
+                ${olyStatus.isNoblesse ? '👑 貴族' : '🔒 非貴族'}
               </div>
             </div>
             <div style="background:rgba(0,0,0,0.55); border:1px solid #ffd700; border-radius:8px; padding:6px 12px; text-align:center;">
-              <div style="font-size:9.5px; color:#cbd5e1; text-transform:uppercase;">Pontuação ELO</div>
+              <div style="font-size:9.5px; color:#cbd5e1; text-transform:uppercase;">ELO 積分</div>
               <div style="font-size:13px; font-weight:bold; color:#fde047;">🏆 ${olyStatus.points} pts</div>
             </div>
             <div style="background:rgba(0,0,0,0.55); border:1px solid #38bdf8; border-radius:8px; padding:6px 12px; text-align:center;">
@@ -10297,7 +10297,7 @@ export function renderOlympiadTab(container, state) {
           onclick="window.setOlympiadSubTab('noblesse')"
           style="padding:8px 16px; font-family:'Cinzel',serif; font-size:12px; font-weight:bold; background:${activeSubTab === 'noblesse' ? 'linear-gradient(180deg,#ca8a04,#a16207)' : 'rgba(0,0,0,0.4)'}; border:1px solid ${activeSubTab === 'noblesse' ? '#fde047' : 'rgba(255,255,255,0.1)'}; color:${activeSubTab === 'noblesse' ? '#fff' : '#cbd5e1'}; border-radius:6px; cursor:pointer;"
         >
-          📜 Saga de Noblesse
+          📜 貴族傳奇
         </button>
         <button
           onclick="window.setOlympiadSubTab('monument')"
@@ -10404,7 +10404,7 @@ export function renderClanTab(container, state) {
                 onclick="window.startCastleSiegeAction('${c.id}')"
                 style="padding:8px 16px; font-size:11px; font-weight:bold; background:linear-gradient(180deg,#b91c1c,#991b1b); border:1px solid #ef4444; color:#fff; border-radius:6px; cursor:pointer;"
               >
-                ⚔️ Declarar Cerco
+                ⚔️ 宣戰攻城
               </button>
             `}
           </div>
@@ -10423,20 +10423,20 @@ export function renderClanTab(container, state) {
         <div style="text-align:center; padding:30px; background:rgba(0,0,0,0.3); border-radius:8px; border:1px dashed rgba(255,255,255,0.1);">
           <div style="font-size:36px; margin-bottom:8px;">🏰</div>
           <div style="font-family:'Cinzel',serif; font-size:15px; color:#e2e8f0; margin-bottom:6px;">目前沒有進行中的攻城戰</div>
-          <div style="font-size:12px; color:#94a3b8; margin-bottom:14px;">Vá até a aba "Castelos &amp; Tributos" e declare guerra a um dos 5 castelos de Aden!</div>
+          <div style="font-size:12px; color:#94a3b8; margin-bottom:14px;">前往「城堡與稅收」分頁，向亞丁 5 座城堡之一宣戰！</div>
           <button
             onclick="window.setClanSubTab('castles')"
             style="padding:8px 16px; font-size:11.5px; font-weight:bold; background:linear-gradient(180deg,#ca8a04,#a16207); border:1px solid #fde047; color:#fff; border-radius:6px; cursor:pointer;"
           >
-            Ver Castelos Disponíveis
+            查看可攻打城堡
           </button>
         </div>
       `;
     } else {
       const phaseNames = {
         1: 'Fase 1: Destruição dos Portões Exteriores',
-        2: 'Fase 2: Confronto com a Guarda Real do Castelo',
-        3: 'Fase 3: Sala do Trono — Canalização do Seal of Ruler'
+        2: '階段 2：迎戰城堡皇家衛隊',
+        3: '階段 3：王座之間－引導 Seal of Ruler'
       };
 
       const hpCurrent = siege.phase === 1 ? siege.gateHp : (siege.phase === 2 ? siege.guardsHp : siege.castRounds);
@@ -10447,7 +10447,7 @@ export function renderClanTab(container, state) {
         <div style="background:rgba(0,0,0,0.5); border:1px solid #ef4444; border-radius:8px; padding:16px; margin-bottom:14px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
             <div>
-              <div style="font-family:'Cinzel',serif; font-size:16px; font-weight:bold; color:#f87171;">⚔️ CERCO ATIVO: ${siege.castleName}</div>
+              <div style="font-family:'Cinzel',serif; font-size:16px; font-weight:bold; color:#f87171;">⚔️ 攻城戰進行中：${siege.castleName}</div>
               <div style="font-size:12px; color:#fde047; font-weight:bold;">${phaseNames[siege.phase]}</div>
             </div>
             <button
@@ -10505,7 +10505,7 @@ export function renderClanTab(container, state) {
   // 5. Sub-aba: Membros & Doações
   else if (activeSubTab === 'roster') {
     const roster = ClanService.getClanRoster(state);
-    const motto = clan.motto || 'Pela Glória e Honra de Aden!';
+    const motto = clan.motto || '為亞丁的榮耀與名譽！';
     const rep = clan.reputation || 100;
     const adenaDonated = clan.donationsAdena || 0;
     const spDonated = clan.donationsSp || 0;
@@ -10526,16 +10526,16 @@ export function renderClanTab(container, state) {
       <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(234,179,8,0.25); border-radius:8px; padding:14px; margin-bottom:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
         <div>
           <div style="font-family:'Cinzel',serif; font-size:13.5px; font-weight:bold; color:#fde047; margin-bottom:4px;">
-            📜 Lema do Clã: <span style="font-style:italic; color:#e2e8f0;">"${motto}"</span>
+            📜 血盟格言： <span style="font-style:italic; color:#e2e8f0;">"${motto}"</span>
           </div>
           <div style="font-size:11.5px; color:#94a3b8; display:flex; gap:16px; flex-wrap:wrap;">
-            <span>🛡️ Reputação de Clã: <strong style="color:#fde047;">${rep.toLocaleString()} CRP</strong></span>
-            <span>💰 Doação Total de 金幣: <strong style="color:#a3e635;">${adenaDonated.toLocaleString()}</strong></span>
-            <span>✨ Doação Total de SP: <strong style="color:#38bdf8;">${spDonated.toLocaleString()}</strong></span>
+            <span>🛡️ 血盟聲望： <strong style="color:#fde047;">${rep.toLocaleString()} CRP</strong></span>
+            <span>💰 金幣總捐獻： <strong style="color:#a3e635;">${adenaDonated.toLocaleString()}</strong></span>
+            <span>✨ SP 總捐獻： <strong style="color:#38bdf8;">${spDonated.toLocaleString()}</strong></span>
           </div>
         </div>
         <button
-          onclick="const n = prompt('Novo lema do clã:', '${motto}'); if (n) window.createOrEditClanAction('${clan.name}', n);"
+          onclick="const n = prompt('新的血盟格言：', '${motto}'); if (n) window.createOrEditClanAction('${clan.name}', n);"
           style="padding:6px 14px; font-size:11px; font-weight:bold; background:linear-gradient(180deg,#ca8a04,#a16207); border:1px solid #fde047; color:#fff; border-radius:6px; cursor:pointer;"
         >
           ✏️ Editar Lema
@@ -10545,10 +10545,10 @@ export function renderClanTab(container, state) {
       <!-- Doações Rápidas -->
       <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:14px; margin-bottom:14px;">
         <div style="font-family:'Cinzel',serif; font-size:13px; font-weight:bold; color:#fde047; margin-bottom:8px;">
-          🤝 Fundo do Clã &amp; Doações
+          🤝 血盟基金與捐獻
         </div>
         <div style="font-size:11.5px; color:#94a3b8; margin-bottom:10px;">
-          Doe 金幣 e Pontos de SP para aumentar a Reputação do Clã e financiar melhorias e bênçãos do Clan Hall.
+          捐獻金幣與 SP 可提升血盟聲望，並用於血盟會館升級與祝福。
         </div>
         <div style="display:flex; gap:8px; flex-wrap:wrap;">
           <button
@@ -10591,7 +10591,7 @@ export function renderClanTab(container, state) {
             <tr style="background:rgba(255,255,255,0.04); border-bottom:1px solid rgba(255,255,255,0.1); font-size:11px; color:#94a3b8;">
               <th style="padding:8px;">Membro</th>
               <th style="padding:8px;">Cargo</th>
-              <th style="padding:8px;">Classe &amp; 等級</th>
+              <th style="padding:8px;">職業與等級</th>
               <th style="padding:8px; text-align:right;">Contribuição Total</th>
             </tr>
           </thead>
@@ -10663,7 +10663,7 @@ export function renderClanTab(container, state) {
               <span style="background:#ca8a04; color:#fff; font-size:11px; font-weight:bold; padding:2px 8px; border-radius:10px;">等級 ${clan.level} (${lvlData.title})</span>
             </div>
             <div style="font-size:11.5px; color:#cbd5e1; margin-top:2px;">${lvlData.desc}</div>
-            <div style="font-size:11px; color:#94a3b8; margin-top:4px;">Capacidade: <strong>${lvlData.maxMembers} membros</strong> | Castelos Governados: <strong style="color:#fde047;">${(clan.castles || []).length}</strong></div>
+            <div style="font-size:11px; color:#94a3b8; margin-top:4px;">容量：<strong>${lvlData.maxMembers} 名成員</strong>｜統治城堡： <strong style="color:#fde047;">${(clan.castles || []).length}</strong></div>
           </div>
         </div>
 
@@ -10676,7 +10676,7 @@ export function renderClanTab(container, state) {
               ⬆️ 提升血盟至等級 ${nextLvl.level} (${nextLvl.costAdena.toLocaleString()} 金幣 / ${nextLvl.costSp.toLocaleString()} SP)
             </button>
           ` : `
-            <span style="color:#fde047; font-weight:bold; font-size:12px;">👑 等級 最大imo do Clã</span>
+            <span style="color:#fde047; font-weight:bold; font-size:12px;">👑 血盟已達最高等級</span>
           `}
         </div>
       </div>
@@ -10687,7 +10687,7 @@ export function renderClanTab(container, state) {
           onclick="window.setClanSubTab('skills')"
           style="padding:8px 14px; font-family:'Cinzel',serif; font-size:11.5px; font-weight:bold; background:${activeSubTab === 'skills' ? 'linear-gradient(180deg,#ca8a04,#a16207)' : 'rgba(0,0,0,0.4)'}; border:1px solid ${activeSubTab === 'skills' ? '#fde047' : 'rgba(255,255,255,0.1)'}; color:${activeSubTab === 'skills' ? '#fff' : '#cbd5e1'}; border-radius:6px; cursor:pointer;"
         >
-          🛡️ Habilidades
+          🛡️ 技能
         </button>
         <button
           onclick="window.setClanSubTab('roster')"
@@ -10705,19 +10705,19 @@ export function renderClanTab(container, state) {
           onclick="window.setClanSubTab('castles')"
           style="padding:8px 14px; font-family:'Cinzel',serif; font-size:11.5px; font-weight:bold; background:${activeSubTab === 'castles' ? 'linear-gradient(180deg,#ca8a04,#a16207)' : 'rgba(0,0,0,0.4)'}; border:1px solid ${activeSubTab === 'castles' ? '#fde047' : 'rgba(255,255,255,0.1)'}; color:${activeSubTab === 'castles' ? '#fff' : '#cbd5e1'}; border-radius:6px; cursor:pointer;"
         >
-          🏰 Castelos &amp; Tributos
+          🏰 城堡與稅收
         </button>
         <button
           onclick="window.setClanSubTab('siege')"
           style="padding:8px 14px; font-family:'Cinzel',serif; font-size:11.5px; font-weight:bold; background:${activeSubTab === 'siege' ? 'linear-gradient(180deg,#ca8a04,#a16207)' : 'rgba(0,0,0,0.4)'}; border:1px solid ${activeSubTab === 'siege' ? '#fde047' : 'rgba(255,255,255,0.1)'}; color:${activeSubTab === 'siege' ? '#fff' : '#cbd5e1'}; border-radius:6px; cursor:pointer;"
         >
-          ⚔️ Guerra de Cerco
+          ⚔️ 攻城戰
         </button>
         <button
           onclick="window.setClanSubTab('shop')"
           style="padding:8px 14px; font-family:'Cinzel',serif; font-size:11.5px; font-weight:bold; background:${activeSubTab === 'shop' ? 'linear-gradient(180deg,#ca8a04,#a16207)' : 'rgba(0,0,0,0.4)'}; border:1px solid ${activeSubTab === 'shop' ? '#fde047' : 'rgba(255,255,255,0.1)'}; color:${activeSubTab === 'shop' ? '#fff' : '#cbd5e1'}; border-radius:6px; cursor:pointer;"
         >
-          🛍️ 商店 do Castelo
+          🛍️ 城堡商店
         </button>
       </div>
 
@@ -10728,9 +10728,9 @@ export function renderClanTab(container, state) {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   16. SKILL ENCHANTMENT MODAL (🔮 Encantamento de Habilidades)
+   16. SKILL ENCHANTMENT MODAL (🔮 技能強化s)
 ═══════════════════════════════════════════════════════════════════════════ */
-export function openSkillEnchantModal(skillId, skillName = 'Habilidade', state) {
+export function openSkillEnchantModal(skillId, skillName = '技能', state) {
   const root = getRoot();
   let modal = root.querySelector('#skill-enchant-modal');
   if (!modal) {
@@ -10758,7 +10758,7 @@ export function openSkillEnchantModal(skillId, skillName = 'Habilidade', state) 
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px;">
         <div style="display:flex; align-items:center; gap:8px;">
           <span style="font-size:20px;">🔮</span>
-          <span style="font-family:'Cinzel',serif; font-size:16px; font-weight:bold; color:#c084fc;">Encantamento de Habilidade</span>
+          <span style="font-family:'Cinzel',serif; font-size:16px; font-weight:bold; color:#c084fc;">技能強化</span>
         </div>
         <button onclick="document.querySelector('#idle-host')?.shadowRoot?.querySelector('#skill-enchant-modal')?.remove()" style="background:none; border:none; color:#94a3b8; font-size:18px; cursor:pointer;">✕</button>
       </div>
@@ -10770,7 +10770,7 @@ export function openSkillEnchantModal(skillId, skillName = 'Habilidade', state) 
 
       <!-- Seleção de Rota -->
       <div style="margin-bottom:14px;">
-        <label style="font-size:11.5px; color:#94a3b8; display:block; margin-bottom:6px;">Escolha a Rota de Encantamento:</label>
+        <label style="font-size:11.5px; color:#94a3b8; display:block; margin-bottom:6px;">選擇強化路線：</label>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
           ${Object.values(ENCHANT_ROUTES).map(r => `
             <button
@@ -10846,7 +10846,7 @@ export function openAugmentModal(state) {
       <div style="background:#18181b; border:1px solid #ef4444; border-radius:12px; padding:20px; text-align:center; color:#e2e8f0; max-width:380px;">
         <div style="font-size:32px; margin-bottom:8px;">⚠️</div>
         <div style="font-family:'Cinzel',serif; font-size:15px; margin-bottom:6px;">目前未裝備武器</div>
-        <div style="font-size:11.5px; color:#cbd5e1; margin-bottom:14px;">Equipe uma arma no seu personagem antes de visitar o Ferreiro de Augmentação.</div>
+        <div style="font-size:11.5px; color:#cbd5e1; margin-bottom:14px;">前往附魔改造鐵匠前，請先讓角色裝備一把武器。</div>
         <button onclick="document.querySelector('#idle-host')?.shadowRoot?.querySelector('#augment-modal')?.remove()" style="padding:6px 14px; background:#27272a; border:1px solid #3f3f46; color:#fff; border-radius:6px; cursor:pointer;">Fechar</button>
       </div>
     `;
@@ -10861,7 +10861,7 @@ export function openAugmentModal(state) {
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px;">
         <div style="display:flex; align-items:center; gap:8px;">
           <span style="font-size:20px;">💎</span>
-          <span style="font-family:'Cinzel',serif; font-size:16px; font-weight:bold; color:#67e8f9;">Ferreiro de Augmentação de Armas</span>
+          <span style="font-family:'Cinzel',serif; font-size:16px; font-weight:bold; color:#67e8f9;">武器附魔改造鐵匠</span>
         </div>
         <button onclick="document.querySelector('#idle-host')?.shadowRoot?.querySelector('#augment-modal')?.remove()" style="background:none; border:none; color:#94a3b8; font-size:18px; cursor:pointer;">✕</button>
       </div>
@@ -10870,7 +10870,7 @@ export function openAugmentModal(state) {
         <div style="font-family:'Cinzel',serif; font-size:16px; font-weight:bold; color:#fde047;">${weapon.name || 'Arma Equipada'}</div>
         ${currentAug ? `
           <div style="margin-top:6px; background:#083344; border:1px solid #06b6d4; border-radius:6px; padding:8px; font-size:11.5px; color:#a5f3fc;">
-            <div>✨ Augmentação Ativa: <strong>${currentAug.lifeStoneName}</strong></div>
+            <div>✨ 目前附魔改造： <strong>${currentAug.lifeStoneName}</strong></div>
             <div style="margin-top:2px;">Atributos: <strong>${Object.entries(currentAug.stats || {}).map(([k,v]) => `+${v} ${k.toUpperCase()}`).join(', ')}</strong></div>
             ${currentAug.itemSkill ? `<div style="color:#fde047; font-weight:bold; margin-top:2px;">技能： ${currentAug.itemSkill.name}</div>` : ''}
           </div>
@@ -10908,7 +10908,7 @@ export function openAugmentModal(state) {
             onclick="window.removeAugmentAction()"
             style="padding:10px 16px; font-size:11px; font-weight:bold; background:#7f1d1d; border:1px solid #ef4444; color:#fca5a5; border-radius:6px; cursor:pointer;"
           >
-            🔨 Remover (100k)
+            🔨 移除（100k）
           </button>
         ` : ''}
       </div>
@@ -10931,10 +10931,10 @@ export function renderSevenSignsTab(container, state) {
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
           <div>
             <h2 style="margin:0; font-family:'Cinzel',serif; color:#e9d5ff; font-size:20px; display:flex; align-items:center; gap:8px;">
-              🏛️ Seven Signs — Guerra dos Sete Selos
+              🏛️ 七封印－封印之戰
             </h2>
             <div style="font-size:12px; color:#c084fc; margin-top:4px;">
-              Facção Atual: <strong>${ss.faction ? FACTIONS[ss.faction].name : '無（請選擇陣營）'}</strong> | 古代金幣: <strong style="color:#fef08a;">${(ss.ancientAdena || 0).toLocaleString()} AA</strong>
+              目前陣營： <strong>${ss.faction ? FACTIONS[ss.faction].name : '無（請選擇陣營）'}</strong> | 古代金幣: <strong style="color:#fef08a;">${(ss.ancientAdena || 0).toLocaleString()} AA</strong>
             </div>
           </div>
           <div style="display:flex; gap:12px; align-items:center;">
@@ -10959,7 +10959,7 @@ export function renderSevenSignsTab(container, state) {
             👑 Lilith & Anakim
           </button>
           <button onclick="window.setSevenSignsSubTab('mammon')" style="padding:6px 14px; font-size:12px; border-radius:6px; cursor:pointer; font-weight:bold; ${activeSubTab === 'mammon' ? 'background:#9333ea; color:#fff; border:1px solid #c084fc;' : 'background:rgba(0,0,0,0.4); color:#c084fc; border:1px solid rgba(168,85,247,0.3);'}">
-            🧙‍♂️ Mercadores de Mammon
+            🧙‍♂️ Mammon 商人
           </button>
         </div>
       </div>
@@ -10977,7 +10977,7 @@ function renderSevenSignsStatusView(ss, state) {
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:14px;">
       <!-- Facções -->
       <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(168,85,247,0.3); border-radius:8px; padding:14px;">
-        <h3 style="margin:0 0 10px 0; color:#fef08a; font-family:'Cinzel',serif; font-size:15px;">Escolha de Facção</h3>
+        <h3 style="margin:0 0 10px 0; color:#fef08a; font-family:'Cinzel',serif; font-size:15px;">選擇陣營</h3>
         <div style="display:flex; flex-direction:column; gap:10px;">
           ${Object.values(FACTIONS).map(fac => `
             <div style="background:rgba(0,0,0,0.5); border:1px solid ${ss.faction === fac.id ? '#a855f7' : 'rgba(255,255,255,0.1)'}; border-radius:8px; padding:12px; display:flex; justify-content:space-between; align-items:center;">
@@ -11035,7 +11035,7 @@ function renderSevenSignsBossesView(ss, state) {
         <div style="background:linear-gradient(135deg, rgba(40,10,20,0.95), rgba(20,5,10,0.98)); border:2px solid #ef4444; border-radius:10px; padding:16px; box-shadow:0 0 20px rgba(239,68,68,0.3);">
           <div style="display:flex; justify-content:space-between; align-items:center;">
             <div>
-              <h3 style="margin:0; color:#fca5a5; font-family:'Cinzel',serif; font-size:18px;">🔥 Confronto: ${activeFight.bossName}</h3>
+              <h3 style="margin:0; color:#fca5a5; font-family:'Cinzel',serif; font-size:18px;">🔥 對決：${activeFight.bossName}</h3>
               <div style="font-size:12px; color:#f87171;">Turno: ${activeFight.turn}</div>
             </div>
             <button
@@ -11066,11 +11066,11 @@ function renderSevenSignsBossesView(ss, state) {
                   <div style="font-size:11px; color:#c084fc;">${boss.title} (Lv. ${boss.level})</div>
                 </div>
                 <span style="font-size:11px; font-weight:bold; padding:2px 8px; border-radius:10px; background:rgba(168,85,247,0.2); color:#e9d5ff; border:1px solid #a855f7;">
-                  Derrotas: ${ss.bossDefeats?.[boss.id] || 0}
+                  擊敗次數： ${ss.bossDefeats?.[boss.id] || 0}
                 </span>
               </div>
               <p style="font-size:12px; color:#9ca3af; margin:8px 0;">${boss.desc}</p>
-              <div style="font-size:11px; color:#fde047;">Custo de Abertura: <strong>${boss.reqAA.toLocaleString()} AA</strong></div>
+              <div style="font-size:11px; color:#fde047;">開啟費用： <strong>${boss.reqAA.toLocaleString()} AA</strong></div>
             </div>
             <button
               onclick="window.startSevenSignsBossFightAction('${boss.id}')"
@@ -11093,12 +11093,12 @@ function renderSevenSignsMammonView(ss, state) {
       ${accessCheck.allowed ? `
         <div style="grid-column:1/-1; background:rgba(34,197,94,0.15); border:1px solid #22c55e; border-radius:8px; padding:10px 14px; font-size:12px; color:#86efac; display:flex; align-items:center; gap:8px;">
           <span>✅</span>
-          <div><strong>Bênção dos Selos Ativa:</strong> Sua facção [${(ss.winnerFaction || ss.faction || 'DAWN').toUpperCase()}] domina o ciclo semanal! Blacksmith of Mammon liberado para SA e deselamento de armaduras.</div>
+          <div><strong>封印祝福已啟用：</strong>你的陣營 [${(ss.winnerFaction || ss.faction || 'DAWN').toUpperCase()}] 主宰本週循環！Blacksmith of Mammon 已開放 SA 與防具解封功能。</div>
         </div>
       ` : `
         <div style="grid-column:1/-1; background:rgba(239,68,68,0.15); border:1px solid #ef4444; border-radius:8px; padding:10px 14px; font-size:12px; color:#fca5a5; display:flex; align-items:center; gap:8px;">
           <span>🔒</span>
-          <div><strong>Acesso Exclusivo Bloqueado:</strong> ${accessCheck.message}</div>
+          <div><strong>專屬功能尚未解鎖：</strong> ${accessCheck.message}</div>
         </div>
       `}
 
@@ -11117,7 +11117,7 @@ function renderSevenSignsMammonView(ss, state) {
                 ${accessCheck.allowed ? 'onclick="window.unsealArmorAction()"' : 'disabled'}
                 style="padding:6px 12px; font-size:11px; font-weight:bold; ${accessCheck.allowed ? 'background:#9333ea; border:1px solid #c084fc; color:#fff; cursor:pointer;' : 'background:#4b5563; border:1px solid #6b7280; color:#9ca3af; cursor:not-allowed; opacity:0.6;'} border-radius:6px;"
               >
-                ${accessCheck.allowed ? 'Utilizar' : '🔒 Bloqueado'}
+                ${accessCheck.allowed ? '使用' : '🔒 尚未解鎖'}
               </button>
             </div>
           `).join('')}
@@ -11168,7 +11168,7 @@ export function renderFortressTab(container, state) {
               ⚔️ Fortalezas & Braceletes com Talismãs
             </h2>
             <div style="font-size:12px; color:#d1d5db; margin-top:4px;">
-              Fortalezas Conquistadas: <strong>${fState.owned?.length || 0}/5</strong> | Knight's Epaulettes: <strong style="color:#f59e0b;">${(fState.epaulettes || 0).toLocaleString()} 🎖️</strong>
+              已征服要塞： <strong>${fState.owned?.length || 0}/5</strong> | Knight's Epaulettes: <strong style="color:#f59e0b;">${(fState.epaulettes || 0).toLocaleString()} 🎖️</strong>
             </div>
           </div>
           <div style="background:rgba(0,0,0,0.5); border:1px solid #d4a744; border-radius:8px; padding:8px 14px; text-align:center;">
@@ -11183,7 +11183,7 @@ export function renderFortressTab(container, state) {
         <div style="background:linear-gradient(135deg, rgba(40,25,10,0.95), rgba(20,10,5,0.98)); border:2px solid #f59e0b; border-radius:10px; padding:16px;">
           <div style="display:flex; justify-content:space-between; align-items:center;">
             <div>
-              <h3 style="margin:0; color:#fde047; font-family:'Cinzel',serif; font-size:18px;">🔥 Cerco Ativo: ${activeSiege.fortName}</h3>
+              <h3 style="margin:0; color:#fde047; font-family:'Cinzel',serif; font-size:18px;">🔥 攻城進行中：${activeSiege.fortName}</h3>
               <div style="font-size:12px; color:#fbbf24;">
                 ${activeSiege.generatorsRemaining > 0 ? `⚡ Geradores Restantes: ${activeSiege.generatorsRemaining}` : `⚔️ 要塞隊長正在與你的角色交戰！`}
               </div>
@@ -11217,7 +11217,7 @@ export function renderFortressTab(container, state) {
                     onclick="window.startFortressSiegeAction('${fort.id}')"
                     style="padding:6px 12px; font-size:11px; font-weight:bold; border-radius:6px; cursor:pointer; ${isOwned ? 'background:#15803d; color:#fff; border:none;' : 'background:#b45309; color:#fff; border:1px solid #f59e0b;'}"
                   >
-                    ${isOwned ? '✓ Conquistada' : '⚔️ Declarar Cerco'}
+                    ${isOwned ? '✓ 已征服' : '⚔️ 宣戰攻城'}
                   </button>
                 </div>
               `;
@@ -11255,7 +11255,7 @@ export function renderFortressTab(container, state) {
                     onclick="${isEquipped ? `window.unequipTalismanAction('${tal.id}')` : `window.equipTalismanAction('${tal.id}')`}"
                     style="padding:4px 10px; font-size:11px; font-weight:bold; border-radius:4px; cursor:pointer; ${isEquipped ? 'background:#ef4444; color:#fff; border:none;' : 'background:#2563eb; color:#fff; border:1px solid #60a5fa;'}"
                   >
-                    ${isEquipped ? '✕ Remover' : 'Equipar'}
+                    ${isEquipped ? '✕ 移除' : '裝備'}
                   </button>
                 </div>
               `;
@@ -11283,7 +11283,7 @@ export function renderColosseumTab(container, state) {
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
           <div>
             <h2 style="margin:0; font-family:'Cinzel',serif; color:#fca5a5; font-size:20px; display:flex; align-items:center; gap:8px;">
-              🎭 Coliseu & Duelos Livres de Aden
+              🎭 亞丁競技場與自由決鬥
             </h2>
             <div style="font-size:12px; color:#d1d5db; margin-top:4px;">
               Vitórias em Duelo: <strong>${colState.duelWins || 0}</strong> | Onda 最大ima no Coliseu: <strong>${colState.highestWave || 0}/10</strong> | Badges do Coliseu: <strong style="color:#fde047;">${colState.badges || 0} 🎖️</strong>
@@ -11367,7 +11367,7 @@ export function renderColosseumTab(container, state) {
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(245,158,11,0.3); border-radius:8px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;">
           <div>
             <h3 style="margin:0 0 10px 0; color:#fde047; font-family:'Cinzel',serif; font-size:15px;">🏆 Desafio das 10 Ondas</h3>
-            <p style="font-size:12px; color:#9ca3af; margin:0 0 12px 0;">Enfrente 10 ondas consecutivas de gladiadores e chefes do coliseu sem descanso para conquistar glória e Badges!</p>
+            <p style="font-size:12px; color:#9ca3af; margin:0 0 12px 0;">連續迎戰 10 波角鬥士與競技場首領，中途不得休息，爭取榮耀與徽章！</p>
             <button
               onclick="window.startColosseumSurvivalAction()"
               style="width:100%; padding:10px; font-size:13px; font-weight:bold; background:#d97706; border:1px solid #f59e0b; color:#fff; border-radius:8px; cursor:pointer;"
@@ -11438,8 +11438,8 @@ export function renderCosmeticsTab(container, state) {
       <div style="display:flex; flex-direction:column; gap:10px;">
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(212,167,68,0.3); border-radius:8px; padding:12px 16px; margin-bottom:6px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-            <span style="font-weight:bold; color:#fef08a; font-size:14px; font-family:'Cinzel',serif;">Progresso das Conquistas:</span>
-            <span style="font-weight:bold; color:#38bdf8; font-size:13px;">${achStatus.claimedCount} / ${achStatus.total} Resgatadas (${Math.round((achStatus.claimedCount / achStatus.total) * 100)}%)</span>
+            <span style="font-weight:bold; color:#fef08a; font-size:14px; font-family:'Cinzel',serif;">成就進度：</span>
+            <span style="font-weight:bold; color:#38bdf8; font-size:13px;">${achStatus.claimedCount} / ${achStatus.total} 已領取 (${Math.round((achStatus.claimedCount / achStatus.total) * 100)}%)</span>
           </div>
           <div style="width:100%; height:8px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;">
             <div style="width:${Math.round((achStatus.claimedCount / achStatus.total) * 100)}%; height:100%; background:linear-gradient(90deg, #eab308, #22c55e); transition:width 0.3s;"></div>
@@ -11482,7 +11482,7 @@ export function renderCosmeticsTab(container, state) {
                     </button>
                   ` : canClaim ? `
                     <button onclick="window.claimAchievementAction('${ach.id}')" style="width:100%; padding:6px; font-size:11px; background:linear-gradient(180deg,#22c55e,#16a34a); border:1px solid #4ade80; color:#fff; border-radius:4px; font-weight:bold; cursor:pointer; box-shadow:0 0 10px rgba(34,197,94,0.4);">
-                      🎁 Resgatar Conquista
+                      🎁 領取成就
                     </button>
                   ` : `
                     <button disabled style="width:100%; padding:6px; font-size:11px; background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.08); color:#64748b; border-radius:4px;">
@@ -11530,7 +11530,7 @@ export function renderCosmeticsTab(container, state) {
                   </button>
                 ` : isUnlocked ? `
                   <button onclick="window.equipCosmeticAction('aura', '${a.id}')" style="width:100%; padding:6px; font-size:11px; background:#065f46; border:1px solid #10b981; color:#fff; border-radius:4px; font-weight:bold; cursor:pointer;">
-                    Equipar Aura
+                    裝備光環
                   </button>
                 ` : isHeroLocked ? `
                   <button disabled style="width:100%; padding:6px; font-size:11px; background:#27272a; border:1px solid #3f3f46; color:#a1a1aa; border-radius:4px;">
@@ -11578,7 +11578,7 @@ export function renderCosmeticsTab(container, state) {
                   </button>
                 ` : isUnlocked ? `
                   <button onclick="window.equipCosmeticAction('frame', '${f.id}')" style="width:100%; padding:6px; font-size:11px; background:#065f46; border:1px solid #10b981; color:#fff; border-radius:4px; font-weight:bold; cursor:pointer;">
-                    Aplicar Moldura
+                    套用邊框
                   </button>
                 ` : `
                   <button onclick="window.buyCosmeticAction('frame', '${f.id}')" ${!canAfford ? 'disabled' : ''} style="width:100%; padding:6px; font-size:11px; background:${canAfford ? 'linear-gradient(180deg,#d97706,#b45309)' : '#27272a'}; border:1px solid ${canAfford ? '#f59e0b' : '#3f3f46'}; color:${canAfford ? '#fff' : '#71717a'}; border-radius:4px; font-weight:bold; cursor:${canAfford ? 'pointer' : 'not-allowed'};">
@@ -11646,13 +11646,13 @@ export function renderCosmeticsTab(container, state) {
             ✨ Guarda-Roupa &amp; Efeitos Visuais
           </h3>
           <p style="margin:4px 0 0 0; font-size:11px; color:#94a3b8;">
-            Personalize a aura mística, as molduras de inventário e os títulos de honra do seu campeão.
+            自訂冠軍的神秘光環、背包邊框與榮譽稱號。
           </p>
         </div>
         <div style="background:rgba(15,23,42,0.8); border:1px solid rgba(255,215,0,0.4); padding:6px 12px; border-radius:6px; text-align:right;">
-          <div style="font-size:10px; color:#cbd5e1;">AURA ATIVA: <span style="color:#ffd700; font-weight:bold;">${curAura.name}</span></div>
-          <div style="font-size:10px; color:#cbd5e1;">MOLDURA: <span style="color:#67e8f9; font-weight:bold;">${curFrame.name}</span></div>
-          <div style="font-size:10px; color:#cbd5e1;">TÍTULO: <span style="color:${curTitle.color || '#ffd700'}; font-weight:bold;">${curTitle.titleText || '無'}</span></div>
+          <div style="font-size:10px; color:#cbd5e1;">目前光環： <span style="color:#ffd700; font-weight:bold;">${curAura.name}</span></div>
+          <div style="font-size:10px; color:#cbd5e1;">邊框： <span style="color:#67e8f9; font-weight:bold;">${curFrame.name}</span></div>
+          <div style="font-size:10px; color:#cbd5e1;">稱號： <span style="color:${curTitle.color || '#ffd700'}; font-weight:bold;">${curTitle.titleText || '無'}</span></div>
         </div>
       </div>
 
@@ -11665,13 +11665,13 @@ export function renderCosmeticsTab(container, state) {
       <!-- Navegação por Categorias -->
       <div class="cosmetic-category-nav">
         <button class="cosmetic-nav-btn ${activeSubTab === 'auras' ? 'active' : ''}" onclick="window.setCosmeticsSubTab('auras')">
-          👑 Auras Místicas (${state.cosmetics.unlockedAuras.length}/${auras.length})
+          👑 神秘光環 (${state.cosmetics.unlockedAuras.length}/${auras.length})
         </button>
         <button class="cosmetic-nav-btn ${activeSubTab === 'frames' ? 'active' : ''}" onclick="window.setCosmeticsSubTab('frames')">
-          🔲 Molduras de Equipamento (${state.cosmetics.unlockedFrames.length}/${frames.length})
+          🔲 裝備邊框 (${state.cosmetics.unlockedFrames.length}/${frames.length})
         </button>
         <button class="cosmetic-nav-btn ${activeSubTab === 'titles' ? 'active' : ''}" onclick="window.setCosmeticsSubTab('titles')">
-          📜 Títulos Honoríficos (${state.cosmetics.unlockedTitles.length}/${titles.length})
+          📜 榮譽稱號 (${state.cosmetics.unlockedTitles.length}/${titles.length})
         </button>
       </div>
 
@@ -11784,7 +11784,7 @@ export function openEnchantFlowModal(initialTargetUid = null, initialScrollUid =
     html += `
       <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(212,167,68,0.25); border-radius:8px; padding:10px 12px; margin-bottom:12px;">
         <div style="font-size:11px; font-weight:bold; color:#ffd700; margin-bottom:6px; display:flex; justify-content:space-between;">
-          <span>📜 Pergaminho de Encantamento</span>
+          <span>📜 強化卷軸</span>
           <span>${scrolls.length} tipos na mochila</span>
         </div>
     `;
