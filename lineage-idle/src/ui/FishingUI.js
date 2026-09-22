@@ -91,7 +91,7 @@ export function renderFishingUI(state) {
     } else if (isOwned) {
       rodActionBtn = `
         <button onclick="window.equipFishingRod('${rId}')" style="padding:3px 8px; font-size:10px; font-weight:bold; background:#1e293b; border:1px solid #64748b; color:#e2e8f0; border-radius:4px; cursor:pointer;">
-          Equipar
+          裝備
         </button>
       `;
     } else {
@@ -147,7 +147,7 @@ export function renderFishingUI(state) {
             style="flex:1; padding:3px 6px; font-size:10px; font-weight:bold; background:${canAfford10 ? 'linear-gradient(180deg,#eab308,#a16207)' : '#27272a'}; border:1px solid ${canAfford10 ? '#fde047' : '#52525b'}; color:${canAfford10 ? '#000' : '#71717a'}; border-radius:4px; cursor:${canAfford10 ? 'pointer' : 'not-allowed'};"
             title="購買 10x，花費 ${(bDef.buyPrice * 10).toLocaleString()} 金幣"
           >
-            +10 (${(bDef.buyPrice * 10).toLocaleString()}a)
+            +10（${(bDef.buyPrice * 10).toLocaleString()} 金幣）
           </button>
         </div>
       </div>
@@ -249,7 +249,7 @@ export function renderFishingUI(state) {
             onclick="window.fishingAction('reel')"
             style="padding:10px 8px; font-family:'Cinzel',serif; font-size:11px; font-weight:bold; background:linear-gradient(180deg,#2563eb,#1d4ed8); border:1px solid #93c5fd; color:#fff; border-radius:6px; cursor:pointer; text-align:center;"
           >
-            🎣 Recolher (Reel)
+            🎣 收線
             <div style="font-size:9px; color:#cbd5e1; font-family:sans-serif; margin-top:2px; font-weight:normal;">+控制、+張力</div>
           </button>
 
@@ -257,7 +257,7 @@ export function renderFishingUI(state) {
             onclick="window.fishingAction('yield')"
             style="padding:10px 8px; font-family:'Cinzel',serif; font-size:11px; font-weight:bold; background:linear-gradient(180deg,#0891b2,#0e7490); border:1px solid #67e8f9; color:#fff; border-radius:6px; cursor:pointer; text-align:center;"
           >
-            🌊 Ceder Linha (Yield)
+            🌊 放線
             <div style="font-size:9px; color:#cffafe; font-family:sans-serif; margin-top:2px; font-weight:normal;">大幅降低張力、降低控制</div>
           </button>
 
