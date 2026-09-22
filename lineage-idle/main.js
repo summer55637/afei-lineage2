@@ -1576,7 +1576,7 @@ function useItem(uid) {
     return;
   } else if (def.type === 'skin_weapon' || item.itemId.startsWith('skin_weapon_')) {
     state.activeSkin = (state.activeSkin === item.itemId) ? null : item.itemId;
-    log(`🎨 ${state.activeSkin ? 'Equipou' : 'Desequipou'} a ${def.name}!`, 'system');
+    log(`🎨 ${state.activeSkin ? '已裝備' : '已卸下'} ${def.name}！`, 'system');
     if (state.activeSkin) {
       const auraColor = state.activeSkin === 'skin_weapon_frost_lord' ? '140,225,255' : (state.activeSkin === 'skin_weapon_infernal_dragon' ? '255,120,40' : '255,235,140');
       playCombatVFX('hero_skin_aura', { color: auraColor, duration: 1200 });
@@ -1586,7 +1586,7 @@ function useItem(uid) {
     return;
   } else if (def.type === 'costume' || item.itemId.startsWith('costume_')) {
     state.activeCostume = (state.activeCostume === item.itemId) ? null : item.itemId;
-    log(`🥋 ${state.activeCostume ? 'Equipou' : 'Desequipou'} o ${def.name}!`, 'system');
+    log(`🥋 ${state.activeCostume ? '已裝備' : '已卸下'} ${def.name}！`, 'system');
     updateAllUI(); save();
     return;
   } else if (def.type === 'title_token' || item.itemId.startsWith('title_')) {
@@ -1876,7 +1876,7 @@ function resolveLogCategory(type, msg) {
 
 function getLogBadgeHtml(type, category, msg = '') {
   if (type === 'boss' || msg.includes('首領') || msg.includes('菁英') || msg.includes('Miniboss')) {
-    return '<span class="log-badge badge-boss">BOSS</span>';
+    return '<span class="log-badge badge-boss">首領</span>';
   }
   if (category === 'loot') {
     if (type === 'rarity-legendary') return '<span class="log-badge badge-legendary">傳說</span>';
@@ -3306,7 +3306,7 @@ function updateQuestsUI() {
             </div>
             <div class="quest-action-group">
               <span class="quest-progress-num" style="color:#f87171;">已鎖定</span>
-              <button class="claim-quest-btn" disabled style="opacity:0.4; cursor:not-allowed;">🔒 Nv. ${q.unlockLevel}</button>
+              <button class="claim-quest-btn" disabled style="opacity:0.4; cursor:not-allowed;">🔒 等級 ${q.unlockLevel}</button>
             </div>
           </div>
         `;
@@ -4077,7 +4077,7 @@ export function renderSubclassesUI() {
         milestoneSlotsHtml += `
           <div style="flex:1; min-width:110px; background:rgba(16,185,129,0.15); border:1px dashed #10b981; border-radius:6px; padding:6px; font-size:10px; display:flex; flex-direction:column; justify-content:space-between; gap:4px;">
             <div style="color:#10b981; font-weight:bold;">✨ ${m.badge}</div>
-            <button class="action-btn action-btn--primary" style="padding:3px 6px; font-size:9px; font-weight:bold;" onclick="window.openCertificationModal('${sub.id}', '${m.milestoneKey}')">Aprender 📜</button>
+            <button class="action-btn action-btn--primary" style="padding:3px 6px; font-size:9px; font-weight:bold;" onclick="window.openCertificationModal('${sub.id}', '${m.milestoneKey}')">學習 📜</button>
           </div>
         `;
       } else {
@@ -4096,15 +4096,15 @@ export function renderSubclassesUI() {
           <div style="font-weight:bold; color:${isSubActive ? '#34d399' : 'var(--bone)'}; font-size:13px; display:flex; align-items:center; gap:6px;">
             <span>⚔️ 副職業 ${idx + 1}：</span>
             <span style="color:#fde047;">${subClassDef?.name || sub.classId}</span>
-            <span style="color:#60a5fa; font-size:11px; background:rgba(96,165,250,0.15); padding:1px 6px; border-radius:4px;">Lv.${sub.level}/85</span>
+            <span style="color:#60a5fa; font-size:11px; background:rgba(96,165,250,0.15); padding:1px 6px; border-radius:4px;">等級 ${sub.level}/85</span>
             <span style="color:#a855f7; font-size:10px; background:rgba(168,85,247,0.15); padding:1px 5px; border-radius:4px; text-transform:uppercase;">${archetype}</span>
           </div>
-          <div style="font-size:10px; color:var(--text-muted); margin-top:2px;">MasterWork 認證可於 Lv.65、70、75、80 取得。</div>
+          <div style="font-size:10px; color:var(--text-muted); margin-top:2px;">名匠認證可於 Lv.65、70、75、80 取得。</div>
         </div>
         <div style="display:flex; gap:6px;">
-          <button class="inv-batch-btn" style="padding:4px 8px; font-size:10px;" onclick="window.openResetCertificationsModal('${sub.id}')" title="重新分配此副職業的認證">🔄 Resetar (1kk)</button>
+          <button class="inv-batch-btn" style="padding:4px 8px; font-size:10px;" onclick="window.openResetCertificationsModal('${sub.id}')" title="重新分配此副職業的認證">🔄 重置（1kk）</button>
           <button class="action-btn" style="padding:6px 12px; font-size:11px;" ${isSubActive ? 'disabled' : ''} onclick="switchSubclass(${idx})">
-            ${isSubActive ? '✓ Em Uso' : 'Alternar ⚔️'}
+            ${isSubActive ? '✓ 使用中' : '切換 ⚔️'}
           </button>
         </div>
       </div>
@@ -4126,7 +4126,7 @@ export function renderSubclassesUI() {
   }
 
   if (summaryEl) {
-    const activeTransStr = state.activeTransformation ? `<div style="margin-top:4px; color:#fde047; font-weight:bold;">👼 Transformação Divina Ativa: ${state.activeTransformation.toUpperCase()}</div>` : '';
+    const activeTransStr = state.activeTransformation ? `<div style="margin-top:4px; color:#fde047; font-weight:bold;">👼 神聖變身已啟用：${state.activeTransformation.toUpperCase()}</div>` : '';
     
     if (certBonuses.totalCertCount === 0) {
       summaryEl.innerHTML = `目前尚未學習任何認證。將副職業提升至 Lv.65、70、75、80 即可累積永久加成！`;
@@ -4154,8 +4154,8 @@ export function renderSubclassesUI() {
 
       summaryEl.innerHTML = `
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-          <span style="color:#fde047; font-weight:bold;">Certificados Ativos: ${certBonuses.totalCertCount}/12</span>
-          <button class="inv-batch-btn" style="padding:2px 8px; font-size:9px;" onclick="window.openDivineTransformationToggleModal()">👼 Gerenciar Transformação</button>
+          <span style="color:#fde047; font-weight:bold;">已啟用認證：${certBonuses.totalCertCount}/12</span>
+          <button class="inv-batch-btn" style="padding:2px 8px; font-size:9px;" onclick="window.openDivineTransformationToggleModal()">👼 管理變身</button>
         </div>
         <div style="line-height:1.5; color:var(--bone); font-size:11px;">
           ${parts.join(' · ')}
