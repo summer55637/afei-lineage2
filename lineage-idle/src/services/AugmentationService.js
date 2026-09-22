@@ -126,9 +126,19 @@ export class AugmentationService {
       itemSkill: acquiredSkill
     };
 
+    const statLabels = {
+      atk: '物理攻擊',
+      matk: '魔法攻擊',
+      def: '物理防禦',
+      mdef: '魔法防禦',
+      hp: '最大生命值',
+      cp: '最大戰鬥力',
+      crit: '暴擊率',
+      eva: '迴避'
+    };
     const statSummary = Object.entries(rolledStats)
-      .map(([k, v]) => `+${v} ${k.toUpperCase()}`)
-      .join(', ');
+      .map(([k, v]) => `+${v} ${statLabels[k] || k}`)
+      .join('、');
 
     const skillText = acquiredSkill ? ` 並獲得稀有技能 [${acquiredSkill.name}]` : '';
     const glowText = hasGlow ? ` ✨ 獲得光效（${glowColor}）！` : '';
