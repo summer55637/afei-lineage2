@@ -34,21 +34,21 @@ export function buyItem(state, itemId, qty = 1, rarity = 'common', callbacks = {
   const cost = basePrice * cleanQty;
 
   if ((state.gold || 0) < cost) {
-    if (callbacks.log) callbacks.log('Ouro insuficiente para realizar a compra!', 'system');
+    if (callbacks.log) callbacks.log('金幣不足，無法購買！', 'system');
     return false;
   }
   const reqLvl = def.req?.level || def.reqLvl || 1;
   if (reqLvl > (state.level || 1)) {
-    if (callbacks.log) callbacks.log(`Nível insuficiente. Requer Lv. ${reqLvl}.`, 'system');
+    if (callbacks.log) callbacks.log(`等級不足，需要 Lv.${reqLvl}。`, 'system');
     return false;
   }
   if (def.classReq && callbacks.classSatisfies && !callbacks.classSatisfies(state.class, def.classReq)) {
-    if (callbacks.log) callbacks.log('Sua classe não pode utilizar este item.', 'system');
+    if (callbacks.log) callbacks.log('你的職業無法使用此物品。', 'system');
     return false;
   }
 
   if (!addToInventory(state, itemId, cleanQty, rarity, false, callbacks)) {
-    if (callbacks.log) callbacks.log('Mochila cheia! Libere espaço no inventário.', 'system');
+    if (callbacks.log) callbacks.log('背包已滿！請先騰出空間。', 'system');
     return false;
   }
 
@@ -77,26 +77,26 @@ export function buyMysticItem(state, itemId, rarity, callbacks = {}) {
   const price = Math.floor((def.price || 500) * rarityMult * 2);
 
   if ((state.gold || 0) < price) {
-    if (callbacks.log) callbacks.log('Ouro insuficiente para o Mercador Místico!', 'system');
+    if (callbacks.log) callbacks.log('金幣不足，無法向神秘商人購買！', 'system');
     return false;
   }
   if (def.req && def.req.level > (state.level || 1)) {
-    if (callbacks.log) callbacks.log('Nível insuficiente para esta relíquia.', 'system');
+    if (callbacks.log) callbacks.log('等級不足，無法使用此遺物。', 'system');
     return false;
   }
   if (def.classReq && callbacks.classSatisfies && !callbacks.classSatisfies(state.class, def.classReq)) {
-    if (callbacks.log) callbacks.log('Sua classe não pode utilizar este item.', 'system');
+    if (callbacks.log) callbacks.log('你的職業無法使用此物品。', 'system');
     return false;
   }
 
   if (!addToInventory(state, itemId, 1, rarity, false, callbacks)) {
-    if (callbacks.log) callbacks.log('Mochila cheia! Libere espaço no inventário.', 'system');
+    if (callbacks.log) callbacks.log('背包已滿！請先騰出空間。', 'system');
     return false;
   }
 
   state.gold -= price;
   const rarityName = gData?.RARITY?.[rarity]?.name || rarity;
-  if (callbacks.log) callbacks.log(`✨ Compra Mística: ${def.name} [${rarityName}] por 💰 ${price.toLocaleString()}g!`, 'rarity-' + rarity);
+  if (callbacks.log) callbacks.log(`✨ 神秘購買：${def.name} [${rarityName}]，花費 💰 ${price.toLocaleString()}g！`, 'rarity-' + rarity);
 
   // Remove o item comprado do estoque místico atual
   if (Array.isArray(state.mysticShopInventory)) {
@@ -127,13 +127,13 @@ export function sellItem(state, uid, qty = 1, callbacks = {}) {
 
   const item = state.inventory[itemIndex];
   if (item.equipped) {
-    if (callbacks.log) callbacks.log('Desequipe o item antes de vendê-lo!', 'system');
+    if (callbacks.log) callbacks.log('請先卸下物品再出售！', 'system');
     return false;
   }
 
   const selectedSet = getSelectedSet(state);
   if (selectedSet.has(item.uid)) {
-    if (callbacks.log) callbacks.log('Item bloqueado 🔒! Desbloqueie-o para vender.', 'system');
+    if (callbacks.log) callbacks.log('物品已鎖定 🔒！解除鎖定後才能出售。', 'system');
     return false;
   }
 
@@ -239,11 +239,11 @@ export function sellAllJunk(state, callbacks = {}) {
 
   if (itemsSold > 0) {
     if (callbacks.log) {
-      callbacks.log(`🧹 Limpeza de Mochila: Vendeu ${itemsSold}x itens comuns por +${totalGold.toLocaleString()} Adena!`, 'loot');
+      callbacks.log(`🧹 背包清理：出售 ${itemsSold} 件普通物品，獲得 +${totalGold.toLocaleString()} 金幣！`, 'loot');
     }
   } else {
     if (callbacks.log) {
-      callbacks.log('Nenhum item comum disponível para venda em massa.', 'system');
+      callbacks.log('沒有可批次出售的普通物品。', 'system');
     }
   }
 
@@ -267,7 +267,7 @@ export function buybackItem(state, buybackIndex, callbacks = {}) {
   if (!entry || !entry.itemCopy) return false;
 
   if ((state.gold || 0) < entry.sellPrice) {
-    if (callbacks.log) callbacks.log(`Ouro insuficiente para recompra! Requer ${entry.sellPrice.toLocaleString()} Adena.`, 'system');
+    if (callbacks.log) callbacks.log(`金幣不足，無法回購！需要 ${entry.sellPrice.toLocaleString()} 金幣。`, 'system');
     return false;
   }
 
