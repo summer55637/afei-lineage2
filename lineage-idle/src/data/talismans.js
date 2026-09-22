@@ -89,7 +89,7 @@ export const TALISMANS = {
     name: '生命力護符 🌿',
     icon: '🌿',
     costEpaulettes: 200,
-    desc: '最大 HP +15%、MP 恢復 +25%',
+    desc: '最大 生命值 +15%、魔力 恢復 +25%',
     stats: { hpMult: 0.15, mpRegen: 0.25 }
   },
   talisman_cancel: {
@@ -97,7 +97,7 @@ export const TALISMANS = {
     name: '增益解除護符 🌀',
     icon: '🌀',
     costEpaulettes: 250,
-    desc: 'PvP 傷害 +10%，並有機率解除目標的防禦增益',
+    desc: 'PVP 傷害 +10%，並有機率解除目標的防禦增益',
     stats: { pvpDmg: 0.10, pAtkMult: 0.04 }
   }
 };
