@@ -425,17 +425,17 @@ export class ClanService {
    */
   static getClanRoster(state) {
     const clan = (state && state.clan) ? state.clan : { name: '亞丁守護者', level: 1, reputation: 100 };
-    const pName = state?.name || 'Tristan';
+    const pName = state?.charName || state?.heroName || state?.playerName || state?.name || '冒險者';
     const pLvl = state?.level || 1;
     const pClass = state?.className || state?.class || '戰士';
 
     return [
       { name: pName, rank: '👑 血盟盟主', level: pLvl, className: pClass, contribution: (clan.donationsAdena || 0) + (clan.donationsSp || 0) * 10, isPlayer: true },
-      { name: 'SirGalahad', rank: '⚔️ 將軍', level: Math.max(40, pLvl + 2), className: '聖騎士', contribution: 350000, isPlayer: false },
-      { name: 'ElenaMoonsong', rank: '🔮 皇家法師', level: Math.max(38, pLvl + 1), className: '咒術詩人', contribution: 280000, isPlayer: false },
-      { name: 'KaelenShadow', rank: '🗡️ 資深刺客', level: Math.max(35, pLvl), className: '深淵行者', contribution: 210000, isPlayer: false },
-      { name: 'ThorgarIron', rank: '🛡️ 工匠大師', level: Math.max(32, pLvl - 2), className: '賞金獵人', contribution: 190000, isPlayer: false },
-      { name: 'LyraSunwhisper', rank: '✨ 女祭司', level: Math.max(30, pLvl - 3), className: '主教', contribution: 150000, isPlayer: false }
+      { name: '加拉哈德爵士', rank: '⚔️ 將軍', level: Math.max(40, pLvl + 2), className: '聖騎士', contribution: 350000, isPlayer: false },
+      { name: '艾蓮娜・月歌', rank: '🔮 皇家法師', level: Math.max(38, pLvl + 1), className: '咒術詩人', contribution: 280000, isPlayer: false },
+      { name: '凱倫・暗影', rank: '🗡️ 資深刺客', level: Math.max(35, pLvl), className: '深淵行者', contribution: 210000, isPlayer: false },
+      { name: '索加・鐵匠', rank: '🛡️ 工匠大師', level: Math.max(32, pLvl - 2), className: '賞金獵人', contribution: 190000, isPlayer: false },
+      { name: '莉拉・日語', rank: '✨ 女祭司', level: Math.max(30, pLvl - 3), className: '主教', contribution: 150000, isPlayer: false }
     ];
   }
 }
@@ -445,7 +445,7 @@ export const CLAN_HALL_BUFFS = {
     id: 'eva_blessing',
     name: '伊娃祝福',
     icon: '💧',
-    desc: 'MP 恢復 +20%、MP 消耗 -10%',
+    desc: '魔力恢復 +20%、魔力消耗 -10%',
     costAdena: 50000,
     durationMs: 3600000,
     stats: { mpRegenPercent: 0.20 }
