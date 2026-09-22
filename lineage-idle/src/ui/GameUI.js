@@ -2254,7 +2254,7 @@ export function openAutoEquipPreviewModal(state, callbacks = {}) {
         <div>物理防禦： <strong style="color:${d.defDelta >= 0 ? '#4ade80' : '#f87171'}">${d.defDelta >= 0 ? '+' : ''}${d.defDelta}</strong></div>
         <div>魔法防禦： <strong style="color:${d.mdefDelta >= 0 ? '#4ade80' : '#f87171'}">${d.mdefDelta >= 0 ? '+' : ''}${d.mdefDelta}</strong></div>
         <div>最大生命值： <strong style="color:${d.hpDelta >= 0 ? '#4ade80' : '#f87171'}">${d.hpDelta >= 0 ? '+' : ''}${d.hpDelta}</strong></div>
-        <div>暴擊: <strong style="color:${d.critDelta >= 0 ? '#4ade80' : '#f87171'}">${d.critDelta >= 0 ? '+' : ''}${d.critDelta}%</strong></div>
+        <div>暴擊： <strong style="color:${d.critDelta >= 0 ? '#4ade80' : '#f87171'}">${d.critDelta >= 0 ? '+' : ''}${d.critDelta}%</strong></div>
       </div>
     </div>
 
@@ -2268,7 +2268,7 @@ export function openAutoEquipPreviewModal(state, callbacks = {}) {
 
     bodyHtml += `
       <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:4px; padding:6px 10px; display:flex; align-items:center; justify-content:space-between; font-size:11px;">
-        <span style="font-weight:bold; color:var(--gilt); text-transform:uppercase; font-size:10px; min-width:80px;">${chg.slot}:</span>
+        <span style="font-weight:bold; color:var(--gilt); text-transform:uppercase; font-size:10px; min-width:80px;">${({ weapon: '武器', weapon2: '副手武器', shield: '盾牌', helmet: '頭盔', head: '頭盔', armor: '胸甲', chest: '胸甲', legs: '腿甲', gloves: '手套', boots: '靴子', necklace: '項鍊', earring1: '耳環 1', earring2: '耳環 2', ring1: '戒指 1', ring2: '戒指 2', cloak: '披風', belt: '腰帶', hair: '頭飾', hair1: '頭飾 1', hair2: '頭飾 2', brooch: '胸針', agathion_bracelet: '阿加西翁手鐲', talisman_bracelet: '護符手鐲' })[chg.slot] || chg.slot}：</span>
         <span style="color:#94a3b8; flex:1; text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
           ${curDef ? curDef.name : '<span style="color:#64748b;">（空）</span>'}
         </span>
