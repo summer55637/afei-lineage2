@@ -362,7 +362,7 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="name@example.com"
+                  placeholder="請輸入電子郵件"
                   className="w-full bg-slate-900/80 border border-white/15 rounded-xl px-3 py-2 text-xs text-white placeholder-white/20 focus:outline-none focus:border-amber-400"
                 />
               </div>
