@@ -607,7 +607,7 @@ export function openTabGuideModal(guideKey) {
       `}
       ${s.tip ? `
         <div style="margin-top: 8px; font-size: 11px; color: #34d399; background: rgba(52, 211, 153, 0.1); border-left: 3px solid #34d399; padding: 6px 10px; border-radius: 0 6px 6px 0;">
-          💡 <strong>Dica Estratégica:</strong> ${s.tip}
+          💡 <strong>策略提示：</strong> ${s.tip}
         </div>
       ` : ''}
     </div>
