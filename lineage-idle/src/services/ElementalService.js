@@ -267,7 +267,7 @@ export function removeElementalInfusion(state, equipUid, callbacks = {}) {
   item.elementalAttribute = { element: 'none', val: 0 };
 
   if (callbacks.log) {
-    callbacks.log(`🌊 淨化完成：已成功移除 ${item.name || item.itemId} 的 【${ELEMENT_DEFINITIONS[oldElem]?.name || oldElem}】 屬性。`, 'system');
+    callbacks.log(`🌊 淨化完成：已成功移除 ${item.name || '未知物品'} 的【${ELEMENT_DEFINITIONS[oldElem]?.name || '其他屬性'}】屬性。`, 'system');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -367,7 +367,7 @@ export function removeSoulCrystalFromWeapon(state, weaponUid, callbacks = {}) {
   item.soulCrystal = null;
 
   if (callbacks.log) {
-    callbacks.log(`🧹 已從 ${item.name || item.itemId} 取出靈魂水晶 [${oldSa}]。`, 'system');
+    callbacks.log(`🧹 已從 ${item.name || '未知武器'} 取出靈魂水晶【${oldSa || '未知效果'}】。`, 'system');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
