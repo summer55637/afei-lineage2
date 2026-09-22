@@ -115,7 +115,7 @@ export const MAMMON_BLACKSMITH_SERVICES = [
     id: 'sa_infusion',
     name: '靈魂水晶灌注（SA 等級 13）',
     costAA: 100000,
-    desc: '直接在已裝備武器上附加純粹特殊能力（Focus、Haste 或 Acumen）。'
+    desc: '直接在已裝備武器上附加特殊能力（專注、急速或靈敏）。'
   }
 ];
 
