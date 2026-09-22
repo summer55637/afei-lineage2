@@ -124,7 +124,7 @@ export class SevenSignsService {
     const playerDmg = Math.max(100, Math.floor((playerStats.atk || 1500) * 1.5 - fight.pDef * 0.4));
     fight.bossHp = Math.max(0, fight.bossHp - playerDmg);
 
-    hooks.log?.(`⚔️ 你對 **${boss.name}** 造成 **${playerDmg.toLocaleString()}** 傷害（HP：${fight.bossHp.toLocaleString()} / ${fight.maxHp.toLocaleString()}）`, 'combat');
+    hooks.log?.(`⚔️ 你對 **${boss.name}** 造成 **${playerDmg.toLocaleString()}** 傷害（生命值：${fight.bossHp.toLocaleString()} / ${fight.maxHp.toLocaleString()}）`, 'combat');
 
     if (fight.bossHp <= 0) {
       // Vitória!
@@ -144,7 +144,7 @@ export class SevenSignsService {
       }
 
       ss.activeBossFight = null;
-      hooks.log?.(`🏆 榮耀勝利！你擊敗了 **${boss.name}**！獎勵：+${boss.rewards.aa.toLocaleString()} AA、+${boss.rewards.xp.toLocaleString()} XP 與頂級物品！`, 'victory');
+      hooks.log?.(`🏆 榮耀勝利！你擊敗了 **${boss.name}**！獎勵：+${boss.rewards.aa.toLocaleString()} 古代金幣、+${boss.rewards.xp.toLocaleString()} 經驗值 與頂級物品！`, 'victory');
       hooks.onUpdate?.();
       return { success: true, isVictory: true, rewards: boss.rewards };
     }
@@ -168,7 +168,7 @@ export class SevenSignsService {
     if (!item) return { success: false, message: '找不到瑪門物品。' };
 
     if (ss.ancientAdena < item.costAA) {
-      return { success: false, message: `古代金幣不足，需要 ${item.costAA.toLocaleString()} AA。` };
+      return { success: false, message: `古代金幣不足，需要 ${item.costAA.toLocaleString()} 古代金幣。` };
     }
 
     ss.ancientAdena -= item.costAA;
@@ -181,7 +181,7 @@ export class SevenSignsService {
       count: 1
     });
 
-    hooks.log?.(`🛒 你以 **${item.costAA.toLocaleString()} AA** 從瑪門商人購買了 **${item.name}**！`, 'gain');
+    hooks.log?.(`🛒 你以 **${item.costAA.toLocaleString()} 古代金幣** 從瑪門商人購買了 **${item.name}**！`, 'gain');
     hooks.onUpdate?.();
     return { success: true, item };
   }
@@ -198,7 +198,7 @@ export class SevenSignsService {
     const ss = this.ensureState(state);
     const cost = 50000;
     if (ss.ancientAdena < cost) {
-      return { success: false, message: `古代金幣不足，解除防具封印需要 ${cost.toLocaleString()} AA。` };
+      return { success: false, message: `古代金幣不足，解除防具封印需要 ${cost.toLocaleString()} 古代金幣。` };
     }
     if (!armorItem) return { success: false, message: '請選擇一件封印防具。' };
 
