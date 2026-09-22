@@ -168,7 +168,7 @@ export function processAutoRecycleItem(item, def, state, callbacks = {}) {
 
     const matName = gData?.ALL_ITEMS?.[matId]?.name || matId;
     if (callbacks.log) {
-      callbacks.log(`🔨 [掛機自動回收] ${def.name} 已分解為 +${matAmount}x ${matName}`, 'loot');
+      callbacks.log(`🔨 [掛機自動回收] ${def.name} 已分解為 +${matAmount}× ${matName}`, 'loot');
     }
     return true;
   }
@@ -372,7 +372,7 @@ export function addToInventory(state, itemId, amount = 1, rarity = null, foundat
             common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩',
             legendary: '傳說', mythic: '神話', s: 'S 級'
           }[itemRarity] || itemRarity;
-          callbacks.log(`🪙 [自動出售] ${amount}x ${def.name}【${rarityLabel}】售出，獲得 +${price.toLocaleString()} 金幣`, 'loot');
+          callbacks.log(`🪙 [自動出售] ${amount}× ${def.name}【${rarityLabel}】售出，獲得 +${price.toLocaleString()} 金幣`, 'loot');
         }
         return true;
       }
