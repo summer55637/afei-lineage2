@@ -336,7 +336,7 @@ export class ClanService {
     const { log = console.log, onUpdate = () => {}, floatText = () => {} } = callbacks;
     const cleanName = String(name || '').trim();
     if (!cleanName || cleanName.length < 3) {
-      log('O nome do 血盟 deve ter pelo menos 3 caracteres.', 'error');
+      log('血盟名稱至少需要 3 個字元。', 'error');
       return { success: false, reason: 'name_too_short' };
     }
     const isNew = !state.clan || !state.clan.name || state.clan.name === '亞丁守護者';
@@ -470,7 +470,7 @@ export const CLAN_HALL_BUFFS = {
   },
   royal_teleport: {
     id: 'royal_teleport',
-    name: 'Portal Arcano do 血盟',
+    name: '血盟祕法傳送門',
     icon: '🌀',
     desc: '降低瞬間移動費用並增加 10 點速度',
     costAdena: 60000,
