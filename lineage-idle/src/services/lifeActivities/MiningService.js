@@ -9,7 +9,7 @@ import {
 import { addToInventory, removeFromInventory } from '../InventoryService.js';
 import { LifeActivityCore } from './LifeActivityCore.js';
 import { RewardEngine } from './RewardEngine.js';
-import { resolveCanonicalResourceId } from './ResourceDictionary.js';
+import { resolveCanonicalResourceId, getCanonicalResourceDef } from './ResourceDictionary.js';
 
 export const MiningService = {
   getMiningState(state) {
@@ -486,15 +486,18 @@ export const MiningService = {
     const hazards = ['none', 'none', 'none', 'gas_pocket', 'seismic_fault', 'dense_crystal'];
     mState.veinHazard = hazards[Math.floor(Math.random() * hazards.length)];
 
+    const primaryDisplayName = getCanonicalResourceDef(primaryMat)?.name || primaryMat;
+    const secondaryDisplayName = secMat ? (getCanonicalResourceDef(secMat)?.name || secMat) : null;
+
     if (callbacks.log) {
       const qualityPrefix = quality.tier === 'perfect' ? '💎 **無瑕礦石！**'
         : quality.tier === 'excellent' ? '✨ **極純礦石！**'
         : '✓ 開採完成：';
-      callbacks.log(`⛏️ ${qualityPrefix} 開採 **${node.name}**【${quality.name}】！獲得 +${primaryQty}x ${primaryMat.toUpperCase()}${secMat && secQty > 0 ? `、+${secQty}x ${secMat.toUpperCase()}` : ''}！（+${finalXp} 採礦 XP）`, 'loot');
+      callbacks.log(`⛏️ ${qualityPrefix} 開採 **${node.name}**【${quality.name}】！獲得 +${primaryQty}x ${primaryDisplayName}${secMat && secQty > 0 ? `、+${secQty}x ${secondaryDisplayName}` : ''}！（+${finalXp} 採礦 XP）`, 'loot');
     }
 
     if (callbacks.floatText) {
-      callbacks.floatText(`+${primaryQty}x ${primaryMat.toUpperCase()}`, 'float-gold');
+      callbacks.floatText(`+${primaryQty}x ${primaryDisplayName}`, 'float-gold');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
