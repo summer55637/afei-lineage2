@@ -402,7 +402,7 @@ export const MarketService = {
   /**
    * Obtém o histórico de vendas e lucros pendentes do jogador
    */
-  getPlayerSales(charName = 'Hero of Aden') {
+  getPlayerSales(charName = '亞丁英雄') {
     try {
       const raw = localStorage.getItem(MARKET_SALES_KEY);
       if (raw) {
@@ -419,7 +419,7 @@ export const MarketService = {
   /**
    * Atualiza as vendas do jogador com base na nuvem e API
    */
-  async fetchPlayerSalesFromCloud(charName = 'Hero of Aden') {
+  async fetchPlayerSalesFromCloud(charName = '亞丁英雄') {
     let remoteSales = null;
 
     // 1. Tenta Firebase
@@ -517,7 +517,7 @@ export const MarketService = {
       state.inventory.splice(itemIndex, 1);
     }
 
-    const sellerName = state.charName || state.heroName || state.playerName || state.name || 'Hero of Aden';
+    const sellerName = state.charName || state.heroName || state.playerName || state.name || '亞丁英雄';
     const sellerUid = typeof window !== 'undefined' ? (window.FirebaseBridge?.getCurrentUserId?.() || sellerName) : sellerName;
     const listingId = 'mkt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
 
@@ -590,7 +590,7 @@ export const MarketService = {
     }
 
     const listing = listings[index];
-    const buyerName = state.charName || state.heroName || state.playerName || state.name || 'Hero of Aden';
+    const buyerName = state.charName || state.heroName || state.playerName || state.name || '亞丁英雄';
     const buyerUid = typeof window !== 'undefined' ? window.FirebaseBridge?.getCurrentUserId?.() : null;
 
     if (this._isMyListing(listing, state)) {
@@ -815,7 +815,7 @@ export const MarketService = {
   async claimProfits(state) {
     if (!state) return { ok: false, msg: '目前狀態不可用。' };
 
-    const playerName = state.charName || state.heroName || state.playerName || state.name || 'Hero of Aden';
+    const playerName = state.charName || state.heroName || state.playerName || state.name || '亞丁英雄';
     let claimedAdena = 0;
     let claimedCoins = 0;
 
