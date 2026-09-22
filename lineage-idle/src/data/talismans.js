@@ -97,7 +97,7 @@ export const TALISMANS = {
     name: '增益解除護符 🌀',
     icon: '🌀',
     costEpaulettes: 250,
-    desc: 'PVP 傷害 +10%，並有機率解除目標的防禦增益',
+    desc: 'PvP 傷害 +10%，並有機率解除目標的防禦增益',
     stats: { pvpDmg: 0.10, pAtkMult: 0.04 }
   }
 };
