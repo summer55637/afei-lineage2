@@ -39,9 +39,9 @@ export const SupabaseService = {
     try {
       const payload = {
         user_id: userId,
-        char_name: state.name || state.charName || 'Hero of Aden',
+        char_name: state.name || state.charName || '亞丁英雄',
         level: state.level || 1,
-        class_name: state.className || state.class || 'Warrior',
+        class_name: state.className || state.class || '戰士',
         combat_power: state.combatPower || 1000,
         gold: state.gold || 0,
         aden_coins: state.adenCoins || state.ac || 0,
