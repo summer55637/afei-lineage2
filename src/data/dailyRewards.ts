@@ -42,7 +42,7 @@ export const DAILY_REWARDS_28: DailyRewardDay[] = [
   { day: 17, name: '古代技能書頁', icon: '📖', desc: '5 張古代技能書頁', rewardType: 'item', itemId: 'ancient_spellbook_page', count: 5, rarity: 'rare' },
   { day: 18, name: 'B 級武器強化卷軸', icon: '📜', desc: '3 張 B 級武器強化卷軸', rewardType: 'item', itemId: 'scroll_enchant_weapon_b', count: 3, rarity: 'rare' },
   { day: 19, name: 'B 級防具強化卷軸', icon: '🛡️', desc: '5 張 B 級防具強化卷軸', rewardType: 'item', itemId: 'scroll_enchant_armor_b', count: 5, rarity: 'rare' },
-  { day: 20, name: '大量技能點補給', icon: '🔮', desc: '1.500 技能點', rewardType: 'sp', count: 1500, rarity: 'epic' },
+  { day: 20, name: '大量技能點補給', icon: '🔮', desc: '1,500 技能點', rewardType: 'sp', count: 1500, rarity: 'epic' },
   { day: 21, name: '⭐⭐⭐ 第三週榮耀', icon: '👑', desc: '10 張 4★ 技能書頁 + 500,000 金幣', isMilestone: true, rewardType: 'item', itemId: 'ancient_spellbook_page', count: 10, rarity: 'epic' },
 
   // Semana 4: Grau A/S & Glória Suprema
