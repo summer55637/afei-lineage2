@@ -150,7 +150,7 @@ export const STAT_ROLL_POOL = [
   { name: '+物理防禦', key: 'def', min: 15, max: 40 },
   { name: '+魔法防禦', key: 'mdef', min: 18, max: 50 },
   { name: '+最大 生命值', key: 'hp', min: 200, max: 650 },
-  { name: '+最大 CP', key: 'cp', min: 250, max: 800 },
+  { name: '+最大戰鬥力', key: 'cp', min: 250, max: 800 },
   { name: '+暴擊率', key: 'crit', min: 5, max: 18 },
   { name: '+迴避', key: 'eva', min: 3, max: 8 }
 ];
