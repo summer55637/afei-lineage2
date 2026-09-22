@@ -2054,14 +2054,14 @@ function updateStatsUI() {
         autoPotion: ['🧪', 'Auto-Heal'],
         atk: ['⚔', `+${b.amount} ATK`],
         def: ['🛡', `+${b.amount} DEF`],
-        matk: ['✦', `+${b.amount} MATK`],
+        matk: ['✦', `+${b.amount} 魔法攻擊`],
         speed: ['⚡', `+${b.amount} SPD`],
         warcry: ['🗣', `+${(b.amount||0)*100}% ATK`],
         elixir_berserker: ['⚔️', '狂戰士靈藥（+15% 攻擊、+10 速度）'],
-        elixir_arcanist: ['🔮', '奧術師靈藥（魔法攻擊 +20%、MP +50%）'],
+        elixir_arcanist: ['🔮', '奧術師靈藥（魔法攻擊 +20%、魔力 +50%）'],
         elixir_fortune: ['💰', '幸運靈藥（掉落 +25%、金幣 +30%）'],
-        elixir_titan: ['🛡️', '泰坦靈藥（HP +25%、防禦 +20%）'],
-        elixir_transcendence: ['✨', '超越靈藥（XP／SP +20%）']
+        elixir_titan: ['🛡️', '泰坦靈藥（生命值 +25%、防禦 +20%）'],
+        elixir_transcendence: ['✨', '超越靈藥（經驗值／技能點 +20%）']
       };
       const e = map[k] || (b.icon ? [b.icon, b.desc || b.name || k] : ['🧪', b.name || k]);
       return `<span class="ab-chip" title="${e[1]} · ${fmtCountdown(b.until-now)}">${e[0]}<em>${fmtCountdown(b.until-now)}</em></span>`;
@@ -3933,8 +3933,8 @@ function completeFateWhisperQuest() {
 
 function selectMasterAbilityModal() {
   const abilities = [
-    { key: 'boostHp', name: '❤️ HP 強化（+8% HP、+20% HP 回復）' },
-    { key: 'boostMp', name: '💙 MP 強化（+12% MP、+20% MP 回復）' },
+    { key: 'boostHp', name: '❤️ 生命值強化（+8% 生命值、+20% 生命值回復）' },
+    { key: 'boostMp', name: '💙 魔力強化（+12% 魔力、+20% 魔力回復）' },
     { key: 'evasion', name: '👟 迴避（+5 迴避）' },
     { key: 'haste', name: '⚡ 急速觸發（+32% 攻擊速度）' },
     { key: 'barrier', name: '🌟 屏障（無敵天界護盾）' },
@@ -6343,14 +6343,14 @@ function monsterAttack(monster) {
     if (stats.defenceProc && Math.random() < 0.06) {
       state.buffs = state.buffs || {};
       state.buffs['counter_defense'] = { amount: 25, until: realNow + 10000 };
-      log('🛡️ **[副職業] 反擊防禦觸發！** +25% P.Def、+25% M.Def，持續 10 秒！', 'rarity-epic');
+      log('🛡️ **[副職業] 反擊防禦觸發！**  +25% 物理防禦、+25% 魔法防禦，持續 10 秒！', 'rarity-epic');
       if (typeof stageFloat === 'function') stageFloat('🛡️ 反擊防禦！', 'sf-block', 'left');
       else if (typeof floatText === 'function') floatText('🛡️ 反擊防禦！', 'float-epic');
     }
     if (stats.spiritProc && Math.random() < 0.05) {
       state.buffs = state.buffs || {};
       state.buffs['counter_spirit'] = { amount: 10, until: realNow + 10000 };
-      log('👻 **[副職業] 反擊之魂觸發！** +10% P.Atk、M.Atk 與攻擊速度，持續 10 秒！', 'rarity-epic');
+      log('👻 **[副職業] 反擊之魂觸發！** +10% 物理攻擊、魔法攻擊與攻擊速度，持續 10 秒！', 'rarity-epic');
       if (typeof stageFloat === 'function') stageFloat('👻 反擊之魂！', 'sf-crit', 'left');
       else if (typeof floatText === 'function') floatText('👻 反擊之魂！', 'float-epic');
     }
