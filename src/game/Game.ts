@@ -1443,7 +1443,7 @@ export class Game {
     if (!sk) return;
     if (this.skillCd[i] > 0) return;
     if (this.mana < sk.mana) {
-      this.spawnText(this.px * S, 1.8, this.py * S, "NO MANA", "#ff9090");
+      this.spawnText(this.px * S, 1.8, this.py * S, "MP 不足", "#ff9090");
       return;
     }
     this.mana -= sk.mana;
@@ -2183,7 +2183,7 @@ export class Game {
     ctx.font = "800 13px Cinzel, serif";
     ctx.fillStyle = "#ffd877";
     const heroTitle = this.idleState
-      ? `${this.idleState.charName || this.idleState.heroName || "Herói"} · Lv.${this.level} (${this.cfg.cls.name})`
+      ? `${this.idleState.charName || this.idleState.heroName || "角色"} · Lv.${this.level} (${this.cfg.cls.name})`
       : `${this.cfg.cls.name} (${this.cfg.race.name})`;
     ctx.fillText(heroTitle, barX, 32);
 
@@ -2235,10 +2235,10 @@ export class Game {
 
     // --- Bottom Centered Graveyard Keeper Action Hotbar ---
     const slots = [
-      { key: "1", icon: "⚔️", label: "Ataque", cd: 0, maxCd: 1 },
+      { key: "1", icon: "⚔️", label: "攻擊", cd: 0, maxCd: 1 },
       { key: "2", icon: this.skills[0]?.emoji || "🔮", label: this.skills[0]?.name || "Skill 1", cd: this.skillCd[0] || 0, maxCd: this.skills[0]?.cooldown || 1 },
       { key: "3", icon: this.skills[1]?.emoji || "⚡", label: this.skills[1]?.name || "Skill 2", cd: this.skillCd[1] || 0, maxCd: this.skills[1]?.cooldown || 1 },
-      { key: "4", icon: "🧪", label: "Poção HP", count: 12 },
+      { key: "4", icon: "🧪", label: "HP 藥水", count: 12 },
       { key: "5", icon: "🍖", label: "Comida", count: 5 },
     ];
 
