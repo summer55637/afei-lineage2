@@ -3,7 +3,7 @@ export const DYES_CATALOG = {
   dye_str_con_g: {
     id: 'dye_str_con_g',
     name: '高級染料：+4 STR / -4 CON',
-    shortName: '+4 STR / -4 CON',
+    shortName: '+4 力量 / -4 體質',
     icon: '⚔️🩸',
     category: 'dye',
     plusStat: 'str',
@@ -17,7 +17,7 @@ export const DYES_CATALOG = {
   dye_str_dex_g: {
     id: 'dye_str_dex_g',
     name: '高級染料：+4 STR / -4 DEX',
-    shortName: '+4 STR / -4 DEX',
+    shortName: '+4 力量 / -4 敏捷',
     icon: '⚔️🌪️',
     category: 'dye',
     plusStat: 'str',
@@ -31,7 +31,7 @@ export const DYES_CATALOG = {
   dye_dex_con_g: {
     id: 'dye_dex_con_g',
     name: '高級染料：+4 DEX / -4 CON',
-    shortName: '+4 DEX / -4 CON',
+    shortName: '+4 敏捷 / -4 體質',
     icon: '🎯🩸',
     category: 'dye',
     plusStat: 'dex',
@@ -45,7 +45,7 @@ export const DYES_CATALOG = {
   dye_dex_str_g: {
     id: 'dye_dex_str_g',
     name: '高級染料：+4 DEX / -4 STR',
-    shortName: '+4 DEX / -4 STR',
+    shortName: '+4 敏捷 / -4 力量',
     icon: '🎯⚔️',
     category: 'dye',
     plusStat: 'dex',
@@ -59,7 +59,7 @@ export const DYES_CATALOG = {
   dye_con_str_g: {
     id: 'dye_con_str_g',
     name: '高級染料：+4 CON / -4 STR',
-    shortName: '+4 CON / -4 STR',
+    shortName: '+4 體質 / -4 力量',
     icon: '🛡️⚔️',
     category: 'dye',
     plusStat: 'con',
@@ -73,7 +73,7 @@ export const DYES_CATALOG = {
   dye_con_dex_g: {
     id: 'dye_con_dex_g',
     name: '高級染料：+4 CON / -4 DEX',
-    shortName: '+4 CON / -4 DEX',
+    shortName: '+4 體質 / -4 敏捷',
     icon: '🛡️🎯',
     category: 'dye',
     plusStat: 'con',
@@ -87,7 +87,7 @@ export const DYES_CATALOG = {
   dye_int_men_g: {
     id: 'dye_int_men_g',
     name: '高級染料：+4 INT / -4 MEN',
-    shortName: '+4 INT / -4 MEN',
+    shortName: '+4 智力 / -4 精神',
     icon: '🔮📜',
     category: 'dye',
     plusStat: 'int',
@@ -101,7 +101,7 @@ export const DYES_CATALOG = {
   dye_wit_men_g: {
     id: 'dye_wit_men_g',
     name: '高級染料：+4 WIT / -4 MEN',
-    shortName: '+4 WIT / -4 MEN',
+    shortName: '+4 智慧 / -4 精神',
     icon: '⚡📜',
     category: 'dye',
     plusStat: 'wit',
@@ -115,7 +115,7 @@ export const DYES_CATALOG = {
   dye_wit_int_g: {
     id: 'dye_wit_int_g',
     name: '高級染料：+4 WIT / -4 INT',
-    shortName: '+4 WIT / -4 INT',
+    shortName: '+4 智慧 / -4 智力',
     icon: '⚡🔮',
     category: 'dye',
     plusStat: 'wit',
@@ -129,7 +129,7 @@ export const DYES_CATALOG = {
   dye_men_int_g: {
     id: 'dye_men_int_g',
     name: '高級染料：+4 MEN / -4 INT',
-    shortName: '+4 MEN / -4 INT',
+    shortName: '+4 精神 / -4 智力',
     icon: '📜🔮',
     category: 'dye',
     plusStat: 'men',
@@ -143,7 +143,7 @@ export const DYES_CATALOG = {
   dye_men_wit_g: {
     id: 'dye_men_wit_g',
     name: '高級染料：+4 MEN / -4 WIT',
-    shortName: '+4 MEN / -4 WIT',
+    shortName: '+4 精神 / -4 智慧',
     icon: '📜⚡',
     category: 'dye',
     plusStat: 'men',
