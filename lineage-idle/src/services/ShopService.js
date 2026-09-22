@@ -39,7 +39,7 @@ export function buyItem(state, itemId, qty = 1, rarity = 'common', callbacks = {
   }
   const reqLvl = def.req?.level || def.reqLvl || 1;
   if (reqLvl > (state.level || 1)) {
-    if (callbacks.log) callbacks.log(`等級不足，需要 Lv.${reqLvl}。`, 'system');
+    if (callbacks.log) callbacks.log(`等級不足，需要等級 ${reqLvl}。`, 'system');
     return false;
   }
   if (def.classReq && callbacks.classSatisfies && !callbacks.classSatisfies(state.class, def.classReq)) {
