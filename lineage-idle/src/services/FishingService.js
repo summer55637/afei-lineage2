@@ -115,7 +115,7 @@ export const FishingService = {
     const totalCost = bait.buyPrice * count;
 
     if ((state.gold || 0) < totalCost) {
-      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！購買 ${count}x ${bait.name} 需要 ${totalCost.toLocaleString()} 金幣。`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！購買 ${count}× ${bait.name} 需要 ${totalCost.toLocaleString()} 金幣。`, 'warning');
       return false;
     }
 
@@ -128,7 +128,7 @@ export const FishingService = {
       fState.activeBait = baitId;
     }
 
-    if (callbacks.log) callbacks.log(`🛒 已購買 **${count}x ${bait.name}**，花費 ${totalCost.toLocaleString()} 金幣。`, 'gain');
+    if (callbacks.log) callbacks.log(`🛒 已購買 **${count}× ${bait.name}**，花費 ${totalCost.toLocaleString()} 金幣。`, 'gain');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -659,7 +659,7 @@ export const FishingService = {
     const reqRate = fish.exchangeRate || 5;
 
     if (ownedCount < reqRate) {
-      if (callbacks.log) callbacks.log(`⚠️ ${fish.name} 數量不足！至少需要 ${reqRate}x 才能向釣魚大師進行兌換。`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ ${fish.name} 數量不足！至少需要 ${reqRate}× 才能向釣魚大師進行兌換。`, 'warning');
       return { success: false, reason: 'insufficient_fish' };
     }
 
@@ -676,7 +676,7 @@ export const FishingService = {
     addToInventory(state, canonicalMatId, packages, 'common', false, callbacks, true);
 
     if (callbacks.log) {
-      callbacks.log(`📦 已交付 **${countToExchange}x ${fish.name}**，獲得 **${packages}x ${fish.materialName}** 作為鍛造材料！`, 'rarity-legendary');
+      callbacks.log(`📦 已交付 **${countToExchange}× ${fish.name}**，獲得 **${packages}× ${fish.materialName}** 作為鍛造材料！`, 'rarity-legendary');
     }
     if (callbacks.floatText) {
       callbacks.floatText(`+${packages}× ${fish.materialName}！`, 'float-gold');
