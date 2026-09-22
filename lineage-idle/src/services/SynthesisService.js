@@ -1,5 +1,5 @@
 /**
- * SynthesisService.js — Sistema de Síntese e Fusão de Duplicatas na Forja (NÍVEL 16).
+ * SynthesisService.js — Sistema de 合成 e 合成 de Duplicatas na Forja (NÍVEL 16).
  * 
  * Permite fundir itens idênticos para desbloquear Synthesis Ranks (1 a 5) em armas/armaduras
  * e elevar o nível de artefatos (cintos, talismãs, joias e brooches).
@@ -15,31 +15,31 @@ export const SYNTHESIS_CONFIG = {
     successRate: 0.80,
     costAdena: 100000,
     reqForgeLvl: 1,
-    desc: 'Fusão Básica: 80% de chance de sucesso. O sacrifício é consumido na falha.'
+    desc: '基礎合成：成功率 80%。失敗時祭品會被消耗。'
   },
   2: {
     successRate: 0.70,
     costAdena: 250000,
     reqForgeLvl: 2,
-    desc: 'Fusão Intermediária: 70% de chance de sucesso. O sacrifício é consumido na falha.'
+    desc: '中階合成：成功率 70%。失敗時祭品會被消耗。'
   },
   3: {
     successRate: 0.55,
     costAdena: 500000,
     reqForgeLvl: 4,
-    desc: 'Fusão Avançada: 55% de chance de sucesso. O sacrifício é consumido na falha.'
+    desc: '高階合成：成功率 55%。失敗時祭品會被消耗。'
   },
   4: {
     successRate: 0.40,
     costAdena: 1000000,
     reqForgeLvl: 6,
-    desc: 'Fusão Superior: 40% de chance de sucesso. O sacrifício é consumido na falha.'
+    desc: '上級合成：成功率 40%。失敗時祭品會被消耗。'
   },
   5: {
     successRate: 0.30,
     costAdena: 2500000,
     reqForgeLvl: 10,
-    desc: 'Fusão Mestra Suprema: 30% de chance (+10% com Forja Lv 10). Risco: na falha o alvo pode regredir 1 rank!'
+    desc: '究極大師合成：成功率 30%（鍛造 Lv.10 時 +10%）。風險：失敗時目標可能下降 1 階！'
   }
 };
 
@@ -135,17 +135,17 @@ export class SynthesisService {
     const secondaryItem = inv.find(i => i.uid === secondaryUid || i.id === secondaryUid);
 
     if (!primaryItem || !secondaryItem) {
-      log('Selecione o item alvo e o ingrediente sacrifício!', 'error');
+      log('請選擇目標物品與祭品素材！', 'error');
       return { success: false, reason: 'missing_items' };
     }
 
     if (primaryItem === secondaryItem || (primaryItem.uid && primaryItem.uid === secondaryItem.uid)) {
-      log('Você não pode sacrificar o próprio item alvo!', 'error');
+      log('不能把目標物品本身當作祭品！', 'error');
       return { success: false, reason: 'same_item' };
     }
 
     if (secondaryItem.equipped) {
-      log('O item sacrifício não pode estar equipado!', 'error');
+      log('祭品物品不能處於裝備狀態！', 'error');
       return { success: false, reason: 'secondary_equipped' };
     }
 
@@ -153,13 +153,13 @@ export class SynthesisService {
     const secondaryId = secondaryItem.itemId || secondaryItem.id;
 
     if (primaryId !== secondaryId) {
-      log('A síntese requer dois itens idênticos do mesmo tipo e nome!', 'error');
+      log('合成需要兩件類型與名稱相同的物品！', 'error');
       return { success: false, reason: 'different_types' };
     }
 
     const currentRank = this.getItemSynthesisRank(primaryItem);
     if (currentRank >= 5) {
-      log('Este item já alcançou o Rank Máximo de Síntese (Rank 5 ★★★★★)!', 'warning');
+      log('Este item já alcançou o Rank Máximo de 合成 (Rank 5 ★★★★★)!', 'warning');
       return { success: false, reason: 'max_rank' };
     }
 
@@ -256,7 +256,7 @@ export class SynthesisService {
 
       return { success: true, newRank: targetRank, resultItem: primaryItem };
     } else {
-      // Falha na síntese
+      // 失敗 na síntese
       let regressed = false;
       if (currentRank >= 4 && Math.random() < 0.50) {
         // No Rank 4 tentando 5, 50% de chance de regredir para Rank 3
