@@ -48,54 +48,54 @@ export const ESSENCE_FEE_PER_GRADE = {
 export const ALCHEMY_RECIPES = {
   elixir_berserker: {
     id: 'elixir_berserker',
-    name: 'Elixir do Berserker',
+    name: '狂戰士靈藥',
     icon: '⚔️',
-    desc: '+15% P.Atk e +10% Vel. de Ataque por 1 hora',
+    desc: '+15% 物理攻擊、+10% 攻擊速度，持續 1 小時',
     cost: { fire: 15, wind: 10 },
     gold: 2500,
     duration: 3600000
   },
   elixir_arcanist: {
     id: 'elixir_arcanist',
-    name: 'Elixir do Arcanista',
+    name: '奧術師靈藥',
     icon: '🔮',
-    desc: '+20% M.Atk e +50% Regeneração de Mana por 1 hora',
+    desc: '+20% 魔法攻擊、+50% MP 恢復，持續 1 小時',
     cost: { water: 15, fire: 10 },
     gold: 2500,
     duration: 3600000
   },
   elixir_fortune: {
     id: 'elixir_fortune',
-    name: 'Elixir da Fortuna',
+    name: '幸運靈藥',
     icon: '💰',
-    desc: '+25% Taxa de Drop e +30% Ouro Ganho por 1 hora',
+    desc: '+25% 掉落率、+30% 金幣獲得量，持續 1 小時',
     cost: { earth: 20, water: 15 },
     gold: 5000,
     duration: 3600000
   },
   elixir_titan: {
     id: 'elixir_titan',
-    name: 'Elixir de Titã',
+    name: '泰坦靈藥',
     icon: '🛡️',
-    desc: '+25% HP Máximo e +20% P.Def por 1 hora',
+    desc: '+25% 最大 HP、+20% 物理防禦，持續 1 小時',
     cost: { earth: 25, fire: 15 },
     gold: 5000,
     duration: 3600000
   },
   elixir_transcendence: {
     id: 'elixir_transcendence',
-    name: 'Elixir da Transcendência',
+    name: '超越靈藥',
     icon: '✨',
-    desc: '+20% EXP e +20% SP Ganho por 1 hora',
+    desc: '+20% EXP、+20% SP 獲得量，持續 1 小時',
     cost: { water: 25, wind: 20 },
     gold: 10000,
     duration: 3600000
   },
   boss_summon_stone: {
     id: 'boss_summon_stone',
-    name: 'Pedra de Convocação Abissal',
+    name: '深淵召喚石',
     icon: '🌀',
-    desc: 'Rasga o tecido do espaço no modo idle e invoca um Boss do Caos [CHAOS] com drops supremos!',
+    desc: '在放置模式撕裂空間，召喚擁有頂級掉落的【混沌】首領！',
     cost: { fire: 50, water: 50 },
     gold: 25000,
     duration: 0,
@@ -429,13 +429,13 @@ export function useChaosBossSummonStone(state, callbacks = {}) {
 
   const gData = D();
   const bosses = [
-    { id: 'queen_ant', name: 'Rainha Formiga (Queen Ant)', level: 40, hp: 120000, atk: 450, def: 220, exp: 35000, sp: 8000, gold: 50000, icon: 'monsters/queen_ant.png' },
-    { id: 'core', name: 'Core da Torre Cruma', level: 50, hp: 200000, atk: 650, def: 350, exp: 60000, sp: 15000, gold: 80000, icon: 'monsters/core.png' },
-    { id: 'orfen', name: 'Orfen do Mar de Esporos', level: 60, hp: 350000, atk: 900, def: 480, exp: 110000, sp: 28000, gold: 120000, icon: 'monsters/orfen.png' },
-    { id: 'zaken', name: 'Capitão Pirata Zaken', level: 70, hp: 600000, atk: 1300, def: 650, exp: 220000, sp: 55000, gold: 200000, icon: 'monsters/zaken.png' },
-    { id: 'baium', name: 'Imperador Baium', level: 75, hp: 1200000, atk: 2200, def: 900, exp: 450000, sp: 120000, gold: 400000, icon: 'monsters/baium.png' },
-    { id: 'barakiel', name: 'Flame of Splendor Barakiel', level: 80, hp: 1800000, atk: 2800, def: 1200, exp: 700000, sp: 200000, gold: 600000, icon: 'monsters/barakiel.png' },
-    { id: 'frintezza', name: 'Príncipe Frintezza & Halisha', level: 85, hp: 2500000, atk: 3600, def: 1500, exp: 1100000, sp: 320000, gold: 900000, icon: 'monsters/frintezza.png' },
+    { id: 'queen_ant', name: '蟻后（Queen Ant）', level: 40, hp: 120000, atk: 450, def: 220, exp: 35000, sp: 8000, gold: 50000, icon: 'monsters/queen_ant.png' },
+    { id: 'core', name: '克魯瑪高塔 Core', level: 50, hp: 200000, atk: 650, def: 350, exp: 60000, sp: 15000, gold: 80000, icon: 'monsters/core.png' },
+    { id: 'orfen', name: '孢子之海 Orfen', level: 60, hp: 350000, atk: 900, def: 480, exp: 110000, sp: 28000, gold: 120000, icon: 'monsters/orfen.png' },
+    { id: 'zaken', name: '海賊王札肯', level: 70, hp: 600000, atk: 1300, def: 650, exp: 220000, sp: 55000, gold: 200000, icon: 'monsters/zaken.png' },
+    { id: 'baium', name: '皇帝巴溫', level: 75, hp: 1200000, atk: 2200, def: 900, exp: 450000, sp: 120000, gold: 400000, icon: 'monsters/baium.png' },
+    { id: 'barakiel', name: '光輝之炎 Barakiel', level: 80, hp: 1800000, atk: 2800, def: 1200, exp: 700000, sp: 200000, gold: 600000, icon: 'monsters/barakiel.png' },
+    { id: 'frintezza', name: '王子 Frintezza 與 Halisha', level: 85, hp: 2500000, atk: 3600, def: 1500, exp: 1100000, sp: 320000, gold: 900000, icon: 'monsters/frintezza.png' },
     { id: 'antharas', name: 'Dragão da 地 Antharas', level: 90, hp: 4000000, atk: 5000, def: 2000, exp: 2000000, sp: 600000, gold: 1500000, icon: 'monsters/antharas.png' },
     { id: 'valakas', name: 'Dragão do 火 Valakas', level: 95, hp: 6000000, atk: 6800, def: 2600, exp: 3500000, sp: 1000000, gold: 2500000, icon: 'monsters/valakas.png' }
   ];
@@ -452,8 +452,8 @@ export function useChaosBossSummonStone(state, callbacks = {}) {
     ...baseBoss,
     id: `chaos_${baseBoss.id}`,
     baseId: baseBoss.id,
-    name: `[CHAOS] ${baseBoss.name}`,
-    title: '👑 CHEFE DO CAOS',
+    name: `[混沌] ${baseBoss.name}`,
+    title: '👑 混沌首領',
     isChaosBoss: true,
     isBoss: true,
     isRaid: true,
