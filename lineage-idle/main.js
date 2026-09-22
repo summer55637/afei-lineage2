@@ -6837,7 +6837,7 @@ function addAdminAC(amount) {
   const amt = parseInt(amount) || 0;
   if (amt <= 0) return;
   state.adenCoins = (state.adenCoins || 0) + amt;
-  log(`🪙 [Admin] +${amt.toLocaleString()} Aden Coins (AC) concedida(s)!`, 'rarity-legendary');
+  log(`🪙 [管理員] 已增加 ${amt.toLocaleString()} 亞丁幣（AC）！`, 'rarity-legendary');
   floatText(`🪙 +${amt.toLocaleString()} AC!`, 'float-gold');
   updateAllUI();
   save(true, true);
@@ -10614,7 +10614,7 @@ export function init() {
             <p style="margin:0 0 4px 0;">• <strong>Zonas:</strong> Gludio Castle, Wolf Mountain, Rift of the Void, Emerald Grove, Gates of the Underworld, Valley of Saints, Swamp of Screams.</p>
             <p style="margin:0 0 4px 0;">• <strong>Raid Bosses:</strong> Core (Lv. 50), Orfen (Lv. 55), Zaken (Lv. 60).</p>
             <p style="margin:0 0 4px 0;">• <strong>鍛造等級 10：</strong>鍛造達到等級 10 後，將解鎖<strong>全球市場</strong>，可自由交易物品。</p>
-            <p style="margin:0 0 4px 0;">• <strong>Saga de Noblesse (Lv. 75):</strong> Complete as 4 partes da quest em Valley of Saints, Swamp of Screams e derrote o <strong>Raid Boss Barakiel</strong> para se consagrar Noblesse!</p>
+            <p style="margin:0 0 4px 0;">• <strong>貴族任務（Lv.75）：</strong>完成 4 個階段，前往聖者之谷與悲鳴沼澤，並擊敗<strong>團隊首領巴拉基爾</strong>，即可正式成為貴族！</p>
             <p style="margin:0; color:#34d399; font-weight:bold;">🏆 Marco: 3ª Troca de Classe no Nível 76 (Sagas Ancestrais e Grau S).</p>
           </div>
 
@@ -10655,7 +10655,7 @@ export function init() {
           <h4 style="color:#fbbf24; margin-top:0;">🏛️ Sete Selos (Seven Signs), Mammon &amp; Noblesse</h4>
           <p>• <strong>Ciclo Semanal das Seven Signs:</strong> Escolha entre <strong>Senhores do Amanhecer (Dawn)</strong> ou <strong>Revolucionários do Crepúsculo (Dusk)</strong>. Entregue Seal Stones obtidas nas caças para acumular pontos de vitória.</p>
           <p>• <strong>Ferreiro &amp; Mercador de Mammon:</strong> A facção vencedora ganha acesso exclusivo ao Ferreiro de Mammon para remoção de selos, trocas de armas Grau A/S e serviços sem perda de encanto usando Ancient Adena.</p>
-          <p>• <strong>Questline de Noblesse (Possessor of a Precious Soul):</strong> No Nível 75, cumpra as 4 etapas da jornada em Valley of Saints e Swamp of Screams e derrote o Raid Boss <strong>Barakiel</strong> para conquistar o status de Noblesse.</p>
+          <p>• <strong>貴族任務線（珍貴靈魂的擁有者）：</strong>達到等級 75 後，完成聖者之谷與悲鳴沼澤的 4 個階段，並擊敗團隊首領<strong>巴拉基爾</strong>，即可取得貴族資格。</p>
           <p>• <strong>Grand Olympiad:</strong> Nobres Nível 76+ podem lutar na arena 1v1 pelas cobiçadas Armas da Infinidade e o manto de Herói Supremo de Aden!</p>
         `;
       }
@@ -11898,7 +11898,7 @@ export function init() {
               <div>DEF: <strong style="color:#60a5fa;">${boss.def}</strong></div>
               <div>M.DEF: <strong style="color:#c084fc;">${boss.mdef}</strong></div>
               <div>Adena: <strong style="color:#facc15;">${boss.goldReward.toLocaleString()}</strong></div>
-              <div>Aden Coins: <strong style="color:#ffd700;">+${boss.adenCoinsReward} AC</strong></div>
+              <div>亞丁幣：<strong style="color:#ffd700;">+${boss.adenCoinsReward} AC</strong></div>
             </div>
           </div>
         </div>
