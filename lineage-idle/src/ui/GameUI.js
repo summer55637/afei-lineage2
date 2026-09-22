@@ -452,7 +452,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
   ];
   const STAT_LABEL = {
     atk: 'P.ATK', def: 'P.DEF', matk: 'M.ATK', mdef: 'M.DEF', hp: '最大 HP', mp: '最大 MP',
-    eva: '迴避', crit: '暴擊率', speed: 'Velocidade', lifesteal: '吸血',
+    eva: '迴避', crit: '暴擊率', speed: '速度', lifesteal: '吸血',
     hit: '命中', atkSpeed: 'Atk Speed', castSpeed: 'Cast Speed', weightBonus: 'Capacidade de Carga',
     invSlots: '背包欄位', xpBoost: 'XP 加成', stunChance: 'Chance de Stun',
     stunResist: '暈眩抗性', blockRate: 'Taxa de Bloqueio', hpRegen: 'Regen HP/s',
@@ -722,7 +722,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
       const sellPrice = Math.floor((def.price || 10) * 0.4 * mult);
       actionsHtml += `<button data-tt-action="salvage" data-uid="${item.uid}"
         style="padding:5px 8px;background:linear-gradient(180deg,#4a2a1a,#200a0a);border:1px solid #b04a3a;
-        border-radius:4px;color:#f88870;font-size:11px;cursor:pointer;font-weight:600;">🔨 Desmontar</button>`;
+        border-radius:4px;color:#f88870;font-size:11px;cursor:pointer;font-weight:600;">🔨 分解</button>`;
       actionsHtml += `<button data-tt-action="sell" data-uid="${item.uid}"
         style="padding:5px 8px;background:linear-gradient(180deg,#4a4a1a,#20200a);border:1px solid #b0b03a;
         border-radius:4px;color:#f8f870;font-size:11px;cursor:pointer;font-weight:600;">💰 出售 (${sellPrice}g)</button>`;
@@ -1785,8 +1785,8 @@ export function updateInventoryUI(state, callbacks = {}) {
     const selSize = selectedSet.size || 0;
     actionBar.innerHTML = `
       <button class="inv-action-btn sell" id="btn-sell-selected" title="出售所選物品">💰 出售 (${selSize})</button>
-      <button class="inv-action-btn salvage" id="btn-salvage-selected" title="Desmontar equipamentos selecionados em cristais/materiais">🔨 Desmontar (${selSize})</button>
-      <button class="inv-action-btn select-junk" id="btn-select-junk" title="Selecionar todos os itens Comuns e Incomuns">🧹 Selecionar Lixo</button>
+      <button class="inv-action-btn salvage" id="btn-salvage-selected" title="將已選取裝備分解為水晶／材料">🔨 分解 (${selSize})</button>
+      <button class="inv-action-btn select-junk" id="btn-select-junk" title="選取所有一般與非凡品質物品">🧹 選取低階物品</button>
       ${selSize > 0 ? `<button class="inv-action-btn clear-sel" id="btn-clear-sel" title="清除目前選擇">❌ 清除 (${selSize})</button>` : ''}
     `;
 
@@ -1972,7 +1972,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
 
     if (cpDelta > 0) {
       impactClass = 'impact-upgrade';
-      impactLabel = `▲ UPGRADE RECOMENDADO (+${cpDelta.toLocaleString()} CP / +${cpPct}% 實際影響)`;
+      impactLabel = `▲ 推薦升級 (+${cpDelta.toLocaleString()} CP / +${cpPct}% 實際影響)`;
     } else if (cpDelta < 0) {
       impactClass = 'impact-downgrade';
       impactLabel = `▼ 戰力降低 (${cpDelta.toLocaleString()} CP / ${cpPct}% 實際影響)`;
@@ -1995,7 +1995,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
     <div class="detail-dock-header">
       <div class="detail-dock-title">
         <span>🔎</span>
-        <span>${isComparing ? '智慧裝備比較' : 'Detalhes do Item'}</span>
+        <span>${isComparing ? '智慧裝備比較' : '物品詳情'}</span>
         ${targetSlot ? `<span style="font-size:10px; color:#94a3b8; font-weight:normal;">[Slot: ${targetSlot}]</span>` : ''}
       </div>
       <button class="detail-dock-close-btn" id="dock-close-btn" title="關閉詳細資訊面板">✕</button>
@@ -2008,7 +2008,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
         <!-- Card 1: Equipado Atualmente -->
         <div class="detail-card current">
           <div class="detail-card-badge-row">
-            <span class="detail-card-role equipped">🛡️ Atual (Equipado)</span>
+            <span class="detail-card-role equipped">🛡️ 目前裝備</span>
             <span class="tier-badge">${(currentEquippedDef.grade || 'NG').toUpperCase()}</span>
           </div>
           <div class="detail-item-identity">
@@ -2020,7 +2020,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
                 ${(currentEquippedItem.enchant ? `+${currentEquippedItem.enchant} ` : '') + currentEquippedDef.name}
               </div>
               <div class="detail-item-submeta">
-                <span>${currentEquippedItem.rarity ? currentEquippedItem.rarity.toUpperCase() : 'COMUM'}</span>
+                <span>${currentEquippedItem.rarity ? currentEquippedItem.rarity.toUpperCase() : '一般'}</span>
                 <span>• 等級 ${currentEquippedDef.req?.level || currentEquippedDef.level || 1}</span>
               </div>
             </div>
@@ -2043,7 +2043,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
                 ${(item.enchant ? `+${item.enchant} ` : '') + def.name}
               </div>
               <div class="detail-item-submeta">
-                <span>${item.rarity ? item.rarity.toUpperCase() : 'COMUM'}</span>
+                <span>${item.rarity ? item.rarity.toUpperCase() : '一般'}</span>
                 <span>• 等級 ${def.req?.level || def.level || 1}</span>
               </div>
             </div>
@@ -2075,7 +2075,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
               ${(item.enchant ? `+${item.enchant} ` : '') + def.name}
             </div>
             <div class="detail-item-submeta">
-              <span>${item.rarity ? item.rarity.toUpperCase() : 'COMUM'}</span>
+              <span>${item.rarity ? item.rarity.toUpperCase() : '一般'}</span>
               <span>• Qtd: ${item.count || 1}</span>
               ${def.req?.level ? `<span>• 等級 ${def.req.level}</span>` : ''}
             </div>
@@ -2121,14 +2121,14 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
       ${hasCompatibleEnchantScroll ? `
         <button class="detail-action-btn enchant" id="dock-btn-enchant" style="background:linear-gradient(135deg, #0284c7, #2563eb); color:#fff; border:1px solid #38bdf8; font-weight:bold;">✨ Encantar</button>
       ` : ''}
-      <button class="detail-action-btn favorite ${isFav ? 'active' : ''}" id="dock-btn-favorite" title="${isFav ? 'Remover favorito' : 'Proteger contra venda/desmanche'}">
+      <button class="detail-action-btn favorite ${isFav ? 'active' : ''}" id="dock-btn-favorite" title="${isFav ? '移除收藏' : '保護，避免出售／分解'}">
         ${isFav ? '⭐ Favorito (Protegido)' : '☆ Favoritar'}
       </button>
       ${!isCurrentItemEquipped && isGear ? `
-        <button class="detail-action-btn salvage" id="dock-btn-salvage" title="Desmanchar em materiais">🔨 Desmanchar</button>
+        <button class="detail-action-btn salvage" id="dock-btn-salvage" title="分解為材料">🔨 分解</button>
       ` : ''}
       ${canCrystallize ? `
-        <button class="detail-action-btn crystallize" id="dock-btn-crystallize" title="Cristalizar em cristais elementares">💎 Cristalizar</button>
+        <button class="detail-action-btn crystallize" id="dock-btn-crystallize" title="結晶化為元素水晶">💎 結晶化</button>
       ` : ''}
       ${!isCurrentItemEquipped ? `
         <button class="detail-action-btn sell" id="dock-btn-sell" title="出售換取金幣">💰 出售</button>
@@ -2419,7 +2419,7 @@ export function openBatchSalvageModal(state, callbacks = {}, uids) {
 
   if (!overlay || !body) return;
 
-  if (title) title.innerHTML = `🔨 Desmanche em Lote (${preview.totalCount} equipamentos)`;
+  if (title) title.innerHTML = `🔨 批次分解（${preview.totalCount} 件裝備）`;
 
   let bodyHtml = '';
 
@@ -2435,7 +2435,7 @@ export function openBatchSalvageModal(state, callbacks = {}, uids) {
   const allItems = D()?.ALL_ITEMS || {};
   bodyHtml += `
     <div style="margin-bottom:12px;">
-      <div style="font-weight:bold; color:var(--gilt-bright); margin-bottom:6px;">Rendimento Estimado de Materiais:</div>
+      <div style="font-weight:bold; color:var(--gilt-bright); margin-bottom:6px;">預估可獲得材料：</div>
       <div class="preview-yield-pills">
         ${Object.entries(preview.yieldSummary).map(([matId, amt]) => `
           <div class="preview-yield-pill">
@@ -2516,7 +2516,7 @@ export function openBatchCrystallizeModal(state, callbacks = {}, uids) {
 
   if (!overlay || !body) return;
 
-  if (title) title.innerHTML = `💎 批次結晶化 (${preview.totalCount} equipamentos)`;
+  if (title) title.innerHTML = `💎 批次結晶化（${preview.totalCount} 件裝備）`;
 
   let bodyHtml = '';
 
@@ -3183,9 +3183,9 @@ export function updateCharacterUI(state) {
   const legendContainer = root.querySelector('#hero-cp-breakdown-legend');
   if (legendContainer) {
     legendContainer.innerHTML = `
-      <div class="l2-legend-item"><span class="l2-legend-dot" style="background:#f59e0b;"></span><span>Equipamentos: <strong>${equipPct}%</strong></span></div>
+      <div class="l2-legend-item"><span class="l2-legend-dot" style="background:#f59e0b;"></span><span>裝備：<strong>${equipPct}%</strong></span></div>
       <div class="l2-legend-item"><span class="l2-legend-dot" style="background:#38bdf8;"></span><span>Atributos: <strong>${attrsPct}%</strong></span></div>
-      <div class="l2-legend-item"><span class="l2-legend-dot" style="background:#c084fc;"></span><span>Habilidades: <strong>${skillsPct}%</strong></span></div>
+      <div class="l2-legend-item"><span class="l2-legend-dot" style="background:#c084fc;"></span><span>技能：<strong>${skillsPct}%</strong></span></div>
       <div class="l2-legend-item"><span class="l2-legend-dot" style="background:#34d399;"></span><span>Especiais: <strong>${specialsPct}%</strong></span></div>
     `;
   }
@@ -3310,7 +3310,7 @@ export function updateCharacterUI(state) {
     if (tattoos.length > 0) {
       tattoosHtml = tattoos.map(t => `<div class="l2-tatt-badge">🖋️ Tatuagem: +${t.plusVal} ${t.plusStat.toUpperCase()} / -${t.minusVal} ${t.minusStat.toUpperCase()}</div>`).join('');
     } else {
-      tattoosHtml = '<div class="l2-tatt-empty">Nenhuma tatuagem gravada. (Adquira Dyes e grave no Mestre da Forja)</div>';
+      tattoosHtml = '<div class="l2-tatt-empty">尚未刻印任何紋身。（取得染料後可在鍛造大師處刻印）</div>';
     }
 
     charStatsContainer.innerHTML = `
@@ -3507,7 +3507,7 @@ export function updateCharacterUI(state) {
         <div class="l2-milestone-bar" style="width: ${m.progressPct}%;"></div>
       </div>
       <div class="l2-milestone-footer">
-        <span>Progresso: <strong>${m.progressPct}%</strong></span>
+        <span>進度：<strong>${m.progressPct}%</strong></span>
         <span>Meta: <strong>${CombatPowerService.formatCombatPower(m.nextMilestone)}</strong></span>
       </div>
     `;
@@ -3756,7 +3756,7 @@ function renderLoadoutBar(state) {
         </div>
         <div class="loadout-header-actions">
           <button class="loadout-btn-action loadout-btn-auto" type="button" title="自動將已學習的最佳技能裝入可用欄位">⚡ Auto-Equipar</button>
-          <button class="loadout-btn-action loadout-btn-clear" type="button" title="Desequipa todas as habilidades do loadout">✕ 清除</button>
+          <button class="loadout-btn-action loadout-btn-clear" type="button" title="卸下配置中的所有技能">✕ 清除</button>
         </div>
       </div>
       <div class="loadout-slots">
@@ -3985,7 +3985,7 @@ export function updateSkillUI(state, callbacks = {}) {
       contentHtml = `
         <div class="skill-locked-panel">
           <div class="locked-icon-large">🌟</div>
-          <h4 class="locked-title">Habilidades Supremas &amp; Transcendentais</h4>
+          <h4 class="locked-title">終極與超凡技能</h4>
           <p class="locked-desc">
             O despertar transcendental é concedido aos guerreiros que alcançam o <strong>等級 80</strong> (Estágio 4 — Despertar Supremo) e <strong>等級 90</strong> (Estágio 5 — Mestre Supremo).
           </p>
@@ -3994,7 +3994,7 @@ export function updateSkillUI(state, callbacks = {}) {
               <div class="locked-progress-fill" style="width: ${pct}%;"></div>
             </div>
             <div class="locked-progress-labels">
-              <span>等級 Atual: <strong>Lv. ${state.level || 1}</strong></span>
+              <span>目前等級： <strong>Lv. ${state.level || 1}</strong></span>
               <span>Requisito: <strong>Lv. 80</strong></span>
             </div>
           </div>
@@ -4007,7 +4007,7 @@ export function updateSkillUI(state, callbacks = {}) {
           <div class="skill-category-block">
             <div class="skill-category-header">
               <span class="category-icon">🌟</span>
-              <h4 class="category-title">Habilidades Supremas Desbloqueadas</h4>
+              <h4 class="category-title">已解鎖終極技能</h4>
               <span class="category-count">${ultSkills.length}</span>
             </div>
             <div class="skill-grid-dense">
@@ -4300,8 +4300,8 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
   const hasRequiredBook = reqBookId ? (state.inventory?.some(i => (i.itemId === reqBookId || (reqBookId === 'book_4star' && i.itemId === 'spellbook_4star')) && (i.count || 1) > 0)) : true;
 
   const bookNames = {
-    'book_1star': 'Tomo 1★ (Comum)',
-    'book_2star': 'Tomo 2★ (Raro)',
+    'book_1star': '技能書 1★（一般）',
+    'book_2star': '技能書 2★（稀有）',
     'book_3star': '技能書 3★（史詩）',
     'book_4star': '技能書 4★（傳說）',
     'book_5star': 'Tomo 5★ (Transcendente)'
@@ -4521,7 +4521,7 @@ let _forgeWilbertTopic = 'main'; // 'main' | 'taxes'
 export const SHOP_CATEGORY_TREE = {
   weapons: {
     id: 'weapons',
-    name: 'Comprar Armas',
+    name: '購買武器',
     icon: '⚔️',
     dialoguePrompt: '你想為亞丁狩獵尋找哪種類型的武器？',
     subcategories: [
@@ -4537,7 +4537,7 @@ export const SHOP_CATEGORY_TREE = {
   },
   armors: {
     id: 'armors',
-    name: 'Comprar Armaduras',
+    name: '購買防具',
     icon: '🛡️',
     dialoguePrompt: '一套好防具往往決定榮耀或死亡。你正在找什麼？',
     subcategories: [
@@ -4571,7 +4571,7 @@ export const SHOP_CATEGORY_TREE = {
       { id: 'all', name: '全部消耗品', icon: '🧪' },
       { id: 'shots', name: 'SoulShots & SpiritShots', icon: '✨' },
       { id: 'potions', name: '治療、魔力與增益藥水', icon: '🍷' },
-      { id: 'scrolls', name: 'Pergaminhos de Encanto & Teleporte', icon: '📜' },
+      { id: 'scrolls', name: '強化與傳送卷軸', icon: '📜' },
       { id: 'books', name: 'Livros & Tomos Sagrados', icon: '📖' }
     ]
   },
@@ -4766,7 +4766,7 @@ function renderDialogueView(state, callbacks) {
       <button class="l2chat-option-btn" data-dialogue-cat="weapons">
         <span class="l2chat-bubble-icon">🗨️</span>
         <div style="flex:1;">
-          <div class="l2chat-option-text">Comprar Armas</div>
+          <div class="l2chat-option-text">購買武器</div>
           <div class="l2chat-option-hint">Arcos, Espadas, Cajados, Adagas, 鈍器s, 長槍s, Punhos</div>
         </div>
         <span style="color:#ffd877; font-size:12px;">➔</span>
@@ -4775,7 +4775,7 @@ function renderDialogueView(state, callbacks) {
       <button class="l2chat-option-btn" data-dialogue-cat="armors">
         <span class="l2chat-bubble-icon">🗨️</span>
         <div style="flex:1;">
-          <div class="l2chat-option-text">Comprar Armaduras</div>
+          <div class="l2chat-option-text">購買防具</div>
           <div class="l2chat-option-hint">重甲、輕甲、法袍、盾牌與防護部位</div>
         </div>
         <span style="color:#ffd877; font-size:12px;">➔</span>
@@ -4842,7 +4842,7 @@ function renderDialogueView(state, callbacks) {
     subHtml += `
       <button class="l2chat-option-btn l2chat-back-btn" data-dialogue-back="true">
         <span style="font-size:14px;">↩️</span>
-        <div class="l2chat-option-text" style="color:#ffd877;">Voltar ao Menu Principal</div>
+        <div class="l2chat-option-text" style="color:#ffd877;">返回主選單</div>
       </button>
     `;
 
@@ -5166,7 +5166,7 @@ function renderStoreBuyTab(state, callbacks) {
   if (_purchaseCart.length === 0) {
     purchaseListContainer.innerHTML = `
       <div style="padding:40px 10px; text-align:center; color:#64748b; font-size:11px; grid-column:1/-1;">
-        Clique nos itens da <strong>Shop List</strong> à esquerda para adicionar à lista de compra.
+        點擊左側 <strong>商店清單</strong> 中的物品，即可加入購買清單。
       </div>
     `;
   } else {
@@ -5188,7 +5188,7 @@ function renderStoreBuyTab(state, callbacks) {
             <span class="l2store-cart-qty">${cartItem.qty}</span>
             <button class="l2store-cart-btn" data-cart-plus="${cartItem.id}">+</button>
             <button class="l2store-cart-btn" data-cart-max="${cartItem.id}" title="購買可負擔的最大數量" style="width:auto; padding:0 4px; font-size:9px;">最大</button>
-            <button class="l2store-cart-btn remove" data-cart-remove="${cartItem.id}" title="Remover da lista">✕</button>
+            <button class="l2store-cart-btn remove" data-cart-remove="${cartItem.id}" title="從清單移除">✕</button>
           </div>
         </div>
       `;
@@ -5424,7 +5424,7 @@ function renderStoreRefundTab(state, callbacks) {
   if (buyback.length === 0) {
     itemsContainer.innerHTML = `
       <div style="padding:40px 10px; text-align:center; color:#64748b; font-size:11px; grid-column:1/-1;">
-        Nenhum item vendido recentemente para recompra.
+        目前沒有可回購的近期出售物品。
       </div>
     `;
   } else {
@@ -5433,7 +5433,7 @@ function renderStoreRefundTab(state, callbacks) {
       const def = allItems[item.itemId || item.id] || item;
       const gradeInfo = getItemGrade(def);
       return `
-        <div class="l2store-slot" data-buyback-idx="${idx}" title="${def.name}\nRecomprar por: ${entry.sellPrice.toLocaleString()}g">
+        <div class="l2store-slot" data-buyback-idx="${idx}" title="${def.name}\n回購價格： ${entry.sellPrice.toLocaleString()}g">
           <span class="l2store-slot-grade grade-${gradeInfo.code}">${gradeInfo.code.toUpperCase()}</span>
           ${getItemIcon(def)}
           ${item.count > 1 ? `<span class="l2store-slot-qty">${item.count}</span>` : ''}
@@ -5715,7 +5715,7 @@ export const SUBCATEGORIES_BY_CAT = {
     { id: 'earring', label: '👂 Brincos' },
     { id: 'potion', label: '🧪 藥水' },
     { id: 'shot', label: '⚡ Soulshots' },
-    { id: 'material', label: '🧱 Materiais' }
+    { id: 'material', label: '🧱 材料' }
   ],
   weapon: [
     { id: 'all', label: '⚔️ Todas' },
@@ -5753,11 +5753,11 @@ export const SUBCATEGORIES_BY_CAT = {
     { id: 'talisman', label: '🧿 護符' }
   ],
   consumable: [
-    { id: 'all', label: '🧪 Todos' },
+    { id: 'all', label: '🧪 全部' },
     { id: 'potion', label: '🧪 藥水' },
     { id: 'shot', label: '⚡ Soulshots' },
-    { id: 'scroll', label: '📜 Pergaminhos' },
-    { id: 'material', label: '🧱 Materiais' }
+    { id: 'scroll', label: '📜 卷軸' },
+    { id: 'material', label: '🧱 材料' }
   ]
 };
 
@@ -5880,7 +5880,7 @@ export function renderForgeDialogueView(state, callbacks = {}) {
         <span class="l2chat-bubble-icon" style="color:#f87171;">🗨️</span>
         <div style="flex:1;">
           <div class="l2chat-option-text" style="color:#fca5a5;">Revoke the Soul Crystal Effect from a weapon/armor</div>
-          <div class="l2chat-option-hint">Remover e purificar o efeito de Soul Crystal da arma</div>
+          <div class="l2chat-option-hint">移除並淨化武器上的靈魂水晶效果</div>
         </div>
         <span style="color:#fca5a5; font-size:12px;">➔</span>
       </button>
@@ -5916,7 +5916,7 @@ export function renderForgeDialogueView(state, callbacks = {}) {
         <span class="l2chat-bubble-icon">🗨️</span>
         <div style="flex:1;">
           <div class="l2chat-option-text">Síntese Imperial (Compounding)</div>
-          <div class="l2chat-option-hint">Altar arcano de fusão para elevar o Rank de equipamentos e artefatos</div>
+          <div class="l2chat-option-hint">使用奧術融合祭壇提升裝備與神器階級</div>
         </div>
         <span style="color:#ffd877; font-size:12px;">➔</span>
       </button>
@@ -5925,7 +5925,7 @@ export function renderForgeDialogueView(state, callbacks = {}) {
         <span class="l2chat-bubble-icon">🗨️</span>
         <div style="flex:1;">
           <div class="l2chat-option-text">Craft items (Criação Geral de Receitas)</div>
-          <div class="l2chat-option-hint">Forjar armas, armaduras, joias e consumíveis ancestrais</div>
+          <div class="l2chat-option-hint">鍛造武器、防具、飾品與古代消耗品</div>
         </div>
         <span style="color:#ffd877; font-size:12px;">➔</span>
       </button>
@@ -5934,7 +5934,7 @@ export function renderForgeDialogueView(state, callbacks = {}) {
         <span class="l2chat-bubble-icon" style="color:#6ee7b7;">⚗️</span>
         <div style="flex:1;">
           <div class="l2chat-option-text" style="color:#a7f3d0;">Bancada de Refino (Life Activities Refinery)</div>
-          <div class="l2chat-option-hint">Processar madeira, couros, minérios e ervas em materiais nobres de forja</div>
+          <div class="l2chat-option-hint">將木材、皮革、礦石與草藥加工為高階鍛造材料</div>
         </div>
         <span style="color:#6ee7b7; font-size:12px;">➔</span>
       </button>
@@ -5961,7 +5961,7 @@ export function renderForgeDialogueView(state, callbacks = {}) {
     if (npcNameEl) npcNameEl.textContent = 'Blacksmith Wilbert:';
     if (npcTextEl) {
       npcTextEl.innerHTML = `
-        Taxes? Hmph! The Lord of Aden Castle and Giran Castle enforce a reasonable tribute of 5% on trade and market transactions.<br><br>
+        稅金？哼！亞丁城與奇岩城的領主會對交易與市場買賣收取合理的 5% 稅金。<br><br>
         Thanks to our Black Anvil Guild treaty, the imperial forge operates independently. Every hero who swings an anvil here keeps their crafted spoils free from imperial excise!
       `;
     }
@@ -5969,7 +5969,7 @@ export function renderForgeDialogueView(state, callbacks = {}) {
     optionsEl.innerHTML = `
       <button class="l2chat-option-btn l2chat-back-btn" data-forge-action="back">
         <span style="font-size:14px;">↩️</span>
-        <div class="l2chat-option-text" style="color:#ffd877;">Voltar às Opções do Ferreiro</div>
+        <div class="l2chat-option-text" style="color:#ffd877;">返回鐵匠選項</div>
       </button>
     `;
   }
@@ -6063,7 +6063,7 @@ export function updateCraftUI(state, callbacks = {}) {
       marketBadge.style.background = 'rgba(239,68,68,0.15)';
       marketBadge.style.borderColor = '#ef4444';
       marketBadge.style.color = '#fca5a5';
-      marketBadge.innerHTML = `🔒 市場：需要鍛造等級 10 (Atual: Lv. ${forgeLvl})`;
+      marketBadge.innerHTML = `🔒 市場：需要鍛造等級 10 （目前：Lv. ${forgeLvl}）`;
     }
   }
 
@@ -6265,7 +6265,7 @@ export function updateCraftUI(state, callbacks = {}) {
   if (filtered.length === 0) {
     container.innerHTML = `
       <div style="grid-column: 1 / -1; padding: 40px; text-align: center; color: var(--text-muted); width:100%;">
-        <p style="font-size: 16px; margin-bottom: 8px;">🔍 Nenhuma receita encontrada para os filtros selecionados.</p>
+        <p style="font-size: 16px; margin-bottom: 8px;">🔍 找不到符合目前篩選條件的配方。</p>
         <p style="font-size: 13px;">Tente alterar a categoria ou o termo de busca digitado.</p>
       </div>
     `;
@@ -6304,8 +6304,8 @@ export function updateCraftUI(state, callbacks = {}) {
     const isForgeLvlOk = forgeLvl >= reqForgeLvl;
     const craftable = hasAllMats && isForgeLvlOk;
 
-    let buttonText = '🔨 Forjar Item';
-    if (!isForgeLvlOk) buttonText = `🔒 Requer Forja Lv.${reqForgeLvl}`;
+    let buttonText = '🔨 鍛造物品';
+    if (!isForgeLvlOk) buttonText = `🔒 需要鍛造 Lv.${reqForgeLvl}`;
     else if (!isLvlOk) buttonText = `⚠️ Requer Lv.${itemReqLevel} p/ Usar`;
 
     return `
@@ -6320,7 +6320,7 @@ export function updateCraftUI(state, callbacks = {}) {
               <span class="shop-grade-badge" style="background:${gradeInfo.color}; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:bold; color:#fff; flex-shrink:0;">${gradeInfo.label}</span>
             </div>
             <div class="l2-blueprint-meta">
-              <span>⚒️ Forja Lv.${reqForgeLvl}</span>
+              <span>⚒️ 鍛造 Lv.${reqForgeLvl}</span>
               <span>·</span>
               <span style="color:#ffd877; font-weight:bold;">🪙 ${baseAdena.toLocaleString()} 金幣</span>
             </div>
@@ -6332,7 +6332,7 @@ export function updateCraftUI(state, callbacks = {}) {
             <span class="l2-stat-pill">${statsSummary}</span>
           </div>
         ` : ''}
-        <div style="margin-bottom:4px; font-size:10px; color:#94a3b8; font-family:'Cinzel',serif; text-transform:uppercase; letter-spacing:0.05em;">📦 Materiais da Receita:</div>
+        <div style="margin-bottom:4px; font-size:10px; color:#94a3b8; font-family:'Cinzel',serif; text-transform:uppercase; letter-spacing:0.05em;">📦 配方材料：</div>
         <div class="l2-mat-matrix">${matsHtml}</div>
         <button class="l2-forge-action-btn ${craftable ? 'is-ready' : 'is-disabled'}" data-open-craft="${itemId}">
           ${buttonText}
@@ -6416,7 +6416,7 @@ export function openCraftModal(itemId, state, callbacks = {}) {
             <h3 style="margin:0; font-family:'Cinzel',serif; color:#f3c669; font-size:18px;">${def.name}</h3>
             <span style="background:${gradeInfo.color}; color:#fff; font-size:11px; font-weight:bold; padding:2px 8px; border-radius:4px;">${gradeInfo.label}</span>
           </div>
-          <div style="font-size:12px; color:#aaa; margin-top:2px;">Requer Forja Lv.${reqForgeLvl} · Slot: ${def.slot || 'Geral'}</div>
+          <div style="font-size:12px; color:#aaa; margin-top:2px;">需要鍛造 Lv.${reqForgeLvl} · 欄位：${def.slot || '一般'}</div>
         </div>
       </div>
 
@@ -6429,13 +6429,13 @@ export function openCraftModal(itemId, state, callbacks = {}) {
       ` : ''}
 
       <div style="margin-bottom:14px;">
-        <div style="font-size:12px; font-weight:bold; color:var(--text-muted); margin-bottom:6px;">📋 Materiais Necessários:</div>
+        <div style="font-size:12px; font-weight:bold; color:var(--text-muted); margin-bottom:6px;">📋 所需材料：</div>
         ${matsHtml}
       </div>
 
       <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(212,175,55,0.2); border-radius:8px; padding:12px; margin-bottom:16px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-          <span style="font-size:12px; color:var(--text-muted);">Qtd. a Forjar:</span>
+          <span style="font-size:12px; color:var(--text-muted);">鍛造數量：</span>
           <span style="font-size:14px; font-weight:bold; color:#fff;">🪙 費用： <strong style="color:var(--gilt);">${totalAdena.toLocaleString()} 金幣</strong></span>
         </div>
 
@@ -6451,7 +6451,7 @@ export function openCraftModal(itemId, state, callbacks = {}) {
 
       <div style="display:flex; gap:8px;">
         <button id="craft-modal-submit" ${!craftable ? 'disabled' : ''} style="flex:1; padding:12px; font-family:'Cinzel',serif; font-weight:bold; font-size:14px; background:${craftable ? 'linear-gradient(180deg,#d4a744,#8a641c)' : 'rgba(60,50,40,0.5)'}; border:1px solid ${craftable ? '#ffe699' : 'rgba(100,80,60,0.3)'}; color:${craftable ? '#000' : '#777'}; border-radius:6px; cursor:${craftable ? 'pointer' : 'not-allowed'}; box-shadow:${craftable ? '0 4px 12px rgba(212,175,55,0.3)' : 'none'};">
-          🔨 FORJAR ITEM ${currentQty > 1 ? `(${currentQty}x)` : ''}
+          🔨 鍛造物品 ${currentQty > 1 ? `(${currentQty}x)` : ''}
         </button>
       </div>
     `;
@@ -6604,7 +6604,7 @@ export function renderAlchemyUI(state) {
   if (inventoryItems.length === 0) {
     crucibleSelectHtml = `
       <div class="imp-crucible-box" style="text-align:center; color:#94a3b8; font-size:12px; padding:20px;">
-        📦 Nenhum equipamento desequipado na mochila para desintegrar no Cadinho.
+        📦 背包中沒有可投入熔爐分解的未裝備物品。
       </div>
     `;
   } else {
@@ -8902,7 +8902,7 @@ export function renderCompoundModal(container, state) {
         style="padding:10px; border-radius:8px; background:${isSel ? 'rgba(168,85,247,0.25)' : 'rgba(255,255,255,0.05)'}; border:1px solid ${isSel ? '#a855f7' : 'rgba(255,255,255,0.15)'}; cursor:pointer; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
         <div>
           <strong style="color:#f4d58a; font-size:13px;">${t.name || def?.name || 'Item'}</strong>
-          <div style="font-size:11px; color:#aaa;">等級 Atual: Lv.${t.compoundLevel || 1}</div>
+          <div style="font-size:11px; color:#aaa;">目前等級： Lv.${t.compoundLevel || 1}</div>
         </div>
         <span style="font-size:11px; color:#34d399;">Qtd: ${t.count || 1}x</span>
       </div>
