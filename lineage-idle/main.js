@@ -4267,7 +4267,7 @@ function openResetCertificationsModal(subId) {
     </div>
     <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:12px; font-size:11px; color:#d1d5db; line-height:1.4;">
       <p style="margin:0 0 6px 0;">確認後，此副職業已學習的所有認證將退還，讓你可以重新選擇等級 65、70、75、80 的技能。</p>
-      <p style="margin:0; color:${hasAdena ? '#fde047' : '#ef4444'}; font-weight:bold;">重置費用：1,000,000 金幣 (${(state.gold || 0).toLocaleString('zh-TW')} 目前金幣)</p>
+      <p style="margin:0; color:${hasAdena ? '#fde047' : '#ef4444'}; font-weight:bold;">重置費用：1,000,000 金幣（目前持有 ${(state.gold || 0).toLocaleString('zh-TW')} 金幣）</p>
     </div>
     <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:14px;">
       <button class="action-btn" onclick="window.closeCertificationModal()">取消</button>
@@ -4397,7 +4397,7 @@ function openAddSubclassModal() {
       <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px; display:flex; justify-content:space-between; align-items:center; gap:8px;">
         <div>
           <div style="font-weight:bold; color:#fde047; font-size:12px;">${cDef?.name || '未知職業'}</div>
-          <div style="font-size:10px; color:#a855f7; text-transform:uppercase;">定位：${({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[arch] || arch}</div>
+          <div style="font-size:10px; color:#a855f7; text-transform:uppercase;">定位：${({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[arch] || '戰士'}</div>
         </div>
         <button class="action-btn action-btn--primary" style="padding:6px 12px; font-size:11px;" onclick="window.confirmAddSubclass('${cId}')">
           新增 ⚔️
