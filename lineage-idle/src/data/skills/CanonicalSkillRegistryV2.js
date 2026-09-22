@@ -15293,7 +15293,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "assassin_servitor": {
         "id": "assassin_servitor",
-        "name": "Assassin Servitor",
+        "name": "刺客召喚獸",
         "slug": "assassin_servitor",
         "type": "active",
         "rawType": "Ativo",
@@ -15305,7 +15305,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Makes the servitor possessed with an ancient assassin's spirit.Max HP +20%Max MP",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Makes the servitor possessed with an ancient assassin's spirit.Max HP +20%Max MP +20%P. Atk. +20%M. Atk. +20%P. Def. +20%M. Def. +20%Atk. Spd. +15%Casting Spd. +15%Speed +10%Basic Critical Rate +50Basic Critical Rate +35%M. Skill Critical Rate +50M. Skill Critical Rate +35%Basic Critical Damage +40%M. Skill Critical Damage +40%Debuff/ Anomaly Resistance +40%",
+        "desc": "讓召喚獸獲得古代刺客之魂：最大 HP +20%、最大 MP +20%、P.Atk +20%、M.Atk +20%、P.Def +20%、M.Def +20%、攻速 +15%、施法速度 +15%、速度 +10%、基礎暴擊率 +50 與 +35%、魔法技能暴擊率 +50 與 +35%、基礎／魔法技能暴擊傷害 +40%、弱化／異常抗性 +40%。",
         "balance": {
             "mpCost": 70,
             "pwr": 2,
@@ -15324,7 +15324,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "summon_phantom_cubic": {
         "id": "summon_phantom_cubic",
-        "name": "Summon Phantom Cubic",
+        "name": "召喚幽靈魔方",
         "slug": "summon_phantom_cubic",
         "type": "active",
         "rawType": "Ativo",
@@ -15336,7 +15336,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summons Phantom Cubic.M. Atk. +150When using magic skills (attack/ anomaly/ debu",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "Summons Phantom Cubic.M. Atk. +150When using magic skills (attack/ anomaly/ debuff):Delivers an additional attack.The summoner's illusions attack the target.(Trigger cooldown: 15 sec.)",
+        "desc": "召喚幽靈魔方。M.Atk +150。使用攻擊／異常／弱化魔法時會追加攻擊，由召喚師的幻影攻擊目標；觸發冷卻 15 秒。",
         "balance": {
             "mpCost": 78,
             "pwr": 20,
@@ -15354,7 +15354,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "call_of_lightning": {
         "id": "call_of_lightning",
-        "name": "Call of Lightning",
+        "name": "雷電召喚",
         "slug": "call_of_lightning",
         "type": "buff",
         "rawType": "Buff",
@@ -15366,7 +15366,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Call of Lightning effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Call of Lightning",
+        "desc": "呼喚雷電之力。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -15382,7 +15382,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "vampiric_rage": {
         "id": "vampiric_rage",
-        "name": "Vampiric Rage",
+        "name": "吸血狂怒",
         "slug": "vampiric_rage",
         "type": "buff",
         "rawType": "Buff",
@@ -15394,7 +15394,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Vampiric Rage effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Vampiric Rage",
+        "desc": "獲得吸血狂怒效果。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -15413,7 +15413,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "lightning_storm": {
         "id": "lightning_storm",
-        "name": "Lightning Storm",
+        "name": "雷電風暴",
         "slug": "lightning_storm",
         "type": "active",
         "rawType": "Ativo",
@@ -15425,7 +15425,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the enemies thrice. Power 7500.Ignores Shield Defense.Ignores 15% of the",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "Attacks the enemies thrice. Power 7500.Ignores Shield Defense.Ignores 15% of the target's defense.After that, triggers an additional hit that deals P. damage. Power 7500. Applies Storm Swamp on enemies.Ignores Shield Defense.Ignores 15% of the target's defense.PvP: Attacks up to 6 targets.PvE: Attacks up to 6 targets.Storm SwampDuration: 5 sec.Rush skills cannot be used.",
+        "desc": "連續攻擊敵人 3 次，威力 7500，之後追加一次威力 7500 的物理攻擊並附加 Storm Swamp。無視盾牌防禦與目標 15% 防禦力。PvP／PvE 最多攻擊 6 個目標。Storm Swamp 持續 5 秒，禁止突進技能。",
         "balance": {
             "mpCost": 15,
             "pwr": 500,
@@ -15441,7 +15441,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "lightning_grip": {
         "id": "lightning_grip",
-        "name": "Lightning Grip",
+        "name": "雷電之握",
         "slug": "lightning_grip",
         "type": "buff",
         "rawType": "Buff",
@@ -15453,7 +15453,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Lightning Grip effect",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "Lightning Grip",
+        "desc": "以雷電力量束縛目標。",
         "balance": {
             "mpCost": 70,
             "pwr": 20,
@@ -15469,7 +15469,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "shillien_s_mass_stigma": {
         "id": "shillien_s_mass_stigma",
-        "name": "Shillien's Mass Stigma",
+        "name": "席琳群體烙印",
         "slug": "shillien_s_mass_stigma",
         "type": "buff",
         "rawType": "Buff",
@@ -15481,7 +15481,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Marks nearby enemies with Shillien's stigma.Melee Weapon Resistance -20%M. Def. ",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "Marks nearby enemies with Shillien's stigma.Melee Weapon Resistance -20%M. Def. -10%",
+        "desc": "對附近敵人施加席琳烙印，使近戰武器抗性 -20%、M.Def -10%。",
         "balance": {
             "mpCost": 45,
             "pwr": 2,
@@ -15500,7 +15500,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "shillien_s_stigma": {
         "id": "shillien_s_stigma",
-        "name": "Shillien's Stigma",
+        "name": "席琳烙印",
         "slug": "shillien_s_stigma",
         "type": "buff",
         "rawType": "Buff",
@@ -15512,7 +15512,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Marks the target with Shillien's stigma.Melee Weapon Resistance -20%M. Def. -10%",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "Marks the target with Shillien's stigma.Melee Weapon Resistance -20%M. Def. -10%",
+        "desc": "對目標施加席琳烙印，使近戰武器抗性 -20%、M.Def -10%。",
         "balance": {
             "mpCost": 15,
             "pwr": 2,
@@ -15531,7 +15531,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "rapid_recharge": {
         "id": "rapid_recharge",
-        "name": "Rapid Recharge",
+        "name": "快速充能",
         "slug": "rapid_recharge",
         "type": "buff",
         "rawType": "Buff",
@@ -15543,7 +15543,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers 263 MP.",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "Recovers 263 MP.",
+        "desc": "恢復 263 MP。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -15562,7 +15562,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "mighty_servitor": {
         "id": "mighty_servitor",
-        "name": "Mighty Servitor",
+        "name": "強力召喚獸",
         "slug": "mighty_servitor",
         "type": "active",
         "rawType": "Ativo",
@@ -15574,7 +15574,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "The effect is applied on servitors.P. Atk. +8%P. Def. +8%M. Def. +10%Atk. Spd. +",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "The effect is applied on servitors.P. Atk. +8%P. Def. +8%M. Def. +10%Atk. Spd. +10%",
+        "desc": "效果作用於召喚獸：P.Atk +8%、P.Def +8%、M.Def +10%、攻速 +10%。",
         "balance": {
             "mpCost": 30,
             "pwr": 1,
@@ -15592,7 +15592,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "summon_soulless": {
         "id": "summon_soulless",
-        "name": "Summon Soulless",
+        "name": "召喚無魂者",
         "slug": "summon_soulless",
         "type": "active",
         "rawType": "Ativo",
@@ -15604,7 +15604,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summons Soulless.",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "Summons Soulless.",
+        "desc": "召喚 Soulless。",
         "balance": {
             "mpCost": 70,
             "pwr": 20,
@@ -15622,7 +15622,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "summon_silhouette": {
         "id": "summon_silhouette",
-        "name": "Summon Silhouette",
+        "name": "召喚幻影",
         "slug": "summon_silhouette",
         "type": "active",
         "rawType": "Ativo",
@@ -15634,7 +15634,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summons Silhouette.",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Summons Silhouette.",
+        "desc": "召喚 Silhouette。",
         "balance": {
             "mpCost": 39,
             "pwr": 20,
@@ -15652,7 +15652,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "summon_shadow": {
         "id": "summon_shadow",
-        "name": "Summon Shadow",
+        "name": "召喚暗影",
         "slug": "summon_shadow",
         "type": "active",
         "rawType": "Ativo",
@@ -15664,7 +15664,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summons Shadow.",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Summons Shadow.",
+        "desc": "召喚 Shadow。",
         "balance": {
             "mpCost": 39,
             "pwr": 20,
@@ -15682,7 +15682,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "saint_s_burst_dark": {
         "id": "saint_s_burst_dark",
-        "name": "Saint's Burst: Dark",
+        "name": "聖者爆發：暗",
         "slug": "saint_s_burst_dark",
         "type": "buff",
         "rawType": "Buff",
@@ -15694,7 +15694,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Saint's Burst: Dark effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Saint's Burst: Dark",
+        "desc": "釋放黑暗之力的聖者爆發。",
         "balance": {
             "mpCost": 120,
             "pwr": 20,
@@ -15712,7 +15712,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "prophecy_of_wind": {
         "id": "prophecy_of_wind",
-        "name": "Prophecy of Wind",
+        "name": "風之預言",
         "slug": "prophecy_of_wind",
         "type": "buff",
         "rawType": "Buff",
@@ -15724,7 +15724,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "M. Skill Critical Rate +15%M. Skill Critical Damage +25%Speed +10%PvE damage bon",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "M. Skill Critical Rate +15%M. Skill Critical Damage +25%Speed +10%PvE damage bonus +20%Received Skill Critical Rate -6%Received Skill Critical Damage -6%Debuff/ Anomaly Resistance +10%",
+        "desc": "魔法技能暴擊率 +15%、暴擊傷害 +25%、速度 +10%、PvE 傷害 +20%、受到技能暴擊率 -6%、受到技能暴擊傷害 -6%、弱化／異常抗性 +10%。",
         "balance": {
             "mpCost": 72,
             "pwr": 2,
@@ -15742,7 +15742,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "nemesis": {
         "id": "nemesis",
-        "name": "Nemesis",
+        "name": "復仇女神",
         "slug": "nemesis",
         "type": "active",
         "rawType": "Ativo",
@@ -15754,7 +15754,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Brings punishment to enemies.Deals M. damage to the target. Power 195.Received H",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "Brings punishment to enemies.Deals M. damage to the target. Power 195.Received Healing -70%Duration: 10 sec.PvP: Attacks up to 6 targets.PvE: Attacks up to 6 targets.",
+        "desc": "懲罰敵人，對目標造成魔法傷害，威力 195。受到治療 -70%，持續 10 秒。PvP／PvE 最多攻擊 6 個目標。",
         "balance": {
             "mpCost": 91,
             "pwr": 195,
@@ -15772,7 +15772,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "shillien_s_power": {
         "id": "shillien_s_power",
-        "name": "Shillien's Power",
+        "name": "席琳之力",
         "slug": "shillien_s_power",
         "type": "buff",
         "rawType": "Buff",
@@ -15784,7 +15784,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Shillien's Power effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Shillien's Power",
+        "desc": "獲得席琳之力。",
         "balance": {
             "mpCost": 58,
             "pwr": 20,
@@ -15802,7 +15802,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "shillien_s_touch": {
         "id": "shillien_s_touch",
-        "name": "Shillien's Touch",
+        "name": "席琳之觸",
         "slug": "shillien_s_touch",
         "type": "buff",
         "rawType": "Buff",
@@ -15814,7 +15814,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Shillien's Touch effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Shillien's Touch",
+        "desc": "施展席琳之觸。",
         "balance": {
             "mpCost": 37,
             "pwr": 20,
@@ -15832,7 +15832,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "shillien_s_grail": {
         "id": "shillien_s_grail",
-        "name": "Shillien's Grail",
+        "name": "席琳聖杯",
         "slug": "shillien_s_grail",
         "type": "buff",
         "rawType": "Buff",
@@ -15844,7 +15844,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Shillien's Grail effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Shillien's Grail",
+        "desc": "獲得席琳聖杯的力量。",
         "balance": {
             "mpCost": 150,
             "pwr": 20,
@@ -15862,7 +15862,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "mass_wind_shackles": {
         "id": "mass_wind_shackles",
-        "name": "Mass Wind Shackles",
+        "name": "群體風之枷鎖",
         "slug": "mass_wind_shackles",
         "type": "buff",
         "rawType": "Buff",
@@ -15874,7 +15874,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Slows targets and nearby enemies down.Atk. Spd. -23%Casting Spd. -23%",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Slows targets and nearby enemies down.Atk. Spd. -23%Casting Spd. -23%",
+        "desc": "降低目標與附近敵人的速度：攻速 -23%、施法速度 -23%。",
         "balance": {
             "mpCost": 140,
             "pwr": 2,
@@ -15892,7 +15892,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "duress": {
         "id": "duress",
-        "name": "Duress",
+        "name": "脅迫",
         "slug": "duress",
         "type": "buff",
         "rawType": "Buff",
@@ -15904,7 +15904,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Inflicts Hold on the target and nearby enemies. P./ M. Atk. -30%.",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "Inflicts Hold on the target and nearby enemies. P./ M. Atk. -30%.",
+        "desc": "束縛目標與附近敵人，並使 P.Atk／M.Atk -30%。",
         "balance": {
             "mpCost": 150,
             "pwr": 3,
@@ -15922,7 +15922,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "mass_dryad_root": {
         "id": "mass_dryad_root",
-        "name": "Mass Dryad Root",
+        "name": "群體樹精之根",
         "slug": "mass_dryad_root",
         "type": "buff",
         "rawType": "Buff",
@@ -15934,7 +15934,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Inflicts Hold on the target and nearby enemies.",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "Inflicts Hold on the target and nearby enemies.",
+        "desc": "使目標與附近敵人陷入束縛。",
         "balance": {
             "mpCost": 140,
             "pwr": 20,
@@ -15952,7 +15952,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "parasite_rose": {
         "id": "parasite_rose",
-        "name": "Parasite Rose",
+        "name": "寄生玫瑰",
         "slug": "parasite_rose",
         "type": "active",
         "rawType": "Ativo",
@@ -15964,7 +15964,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Parasite Rose effect",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "Parasite Rose",
+        "desc": "施加寄生玫瑰效果。",
         "balance": {
             "mpCost": 100,
             "pwr": 20,
@@ -15983,7 +15983,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "enchanted_rose_s_assault": {
         "id": "enchanted_rose_s_assault",
-        "name": "Enchanted Rose's Assault",
+        "name": "魔法玫瑰突襲",
         "slug": "enchanted_rose_s_assault",
         "type": "active",
         "rawType": "Ativo",
@@ -15995,7 +15995,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Rushes to the target and attacks them.Deals M. damage to the target twice. Power",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "Rushes to the target and attacks them.Deals M. damage to the target twice. Power 151.Note!Consumes Spirit Ore (1 pc.).",
+        "desc": "突進至目標並連續造成兩次魔法傷害，威力 151。使用時消耗 1 個 Spirit Ore。",
         "balance": {
             "mpCost": 59,
             "pwr": 151,
@@ -16014,7 +16014,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "rose_attack": {
         "id": "rose_attack",
-        "name": "Rose Attack",
+        "name": "玫瑰攻擊",
         "slug": "rose_attack",
         "type": "active",
         "rawType": "Ativo",
@@ -16026,7 +16026,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Changing skill>The attack type is based on the distance to the target.Distance ",
         "canonicalCooldown": "0.5 sec.",
         "canonicalCooldownMs": 500,
-        "desc": "<Changing skill>The attack type is based on the distance to the target.Distance up to 250Fights with enchanted thorned vines.Deals M. damage. Power 126.Distance 250+Summons an enchanted dagger.Deals M. damage. Power 110.",
+        "desc": "依距離改變攻擊方式。距離 250 以內時以附魔荊棘藤攻擊，造成魔法傷害，威力 126；距離 250 以上時召喚附魔匕首，威力 110。",
         "balance": {
             "mpCost": 47,
             "pwr": 126,
@@ -16047,7 +16047,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "dark_disruption": {
         "id": "dark_disruption",
-        "name": "Dark Disruption",
+        "name": "黑暗擾亂",
         "slug": "dark_disruption",
         "type": "active",
         "rawType": "Ativo",
@@ -16059,7 +16059,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Dark Disruption effect",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "Dark Disruption",
+        "desc": "以黑暗力量擾亂敵人。",
         "balance": {
             "mpCost": 105,
             "pwr": 20,
@@ -16077,7 +16077,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "mass_purify": {
         "id": "mass_purify",
-        "name": "Mass Purify",
+        "name": "群體淨化",
         "slug": "mass_purify",
         "type": "active",
         "rawType": "Ativo",
@@ -16089,7 +16089,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Mass Purify effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Mass Purify",
+        "desc": "淨化附近盟友的負面狀態。",
         "balance": {
             "mpCost": 80,
             "pwr": 20,
@@ -16107,7 +16107,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "aroma_of_death": {
         "id": "aroma_of_death",
-        "name": "Aroma of Death",
+        "name": "死亡芳香",
         "slug": "aroma_of_death",
         "type": "active",
         "rawType": "Ativo",
@@ -16119,7 +16119,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Teleports to the target poisoning them with deadly fumes.Deals M. damage to the ",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "Teleports to the target poisoning them with deadly fumes.Deals M. damage to the target and nearby enemies. Power 237.Enemies with debuffs/ anomalies receive more damage.Debuff/ Anomaly Resistance -5%Duration: 7 sec.Applies Parasite Rose Lv. 3.Parasite Rose Lv. 3Duration: 7 sec.Max HP -30%Hold Resistance -15%Deals M. damage to the target and nearby enemies. Power 257.Enemies with debuffs/ anomalies receive more damage.Debuff/ Anomaly Resistance -5%Duration: 7 sec.PvP: Attacks up to 5 targets.PvE: Attacks up to 5 targets.",
+        "desc": "傳送至目標並以致命毒霧攻擊目標與附近敵人，威力 237。帶有弱化／異常狀態的敵人會受到更多傷害，弱化／異常抗性 -5%，持續 7 秒，並附加 Parasite Rose Lv.3：最大 HP -30%、束縛抗性 -15%。之後可再次造成威力 257 的魔法傷害。PvP／PvE 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 109,
             "pwr": 237,
@@ -16138,7 +16138,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "briar_vortex": {
         "id": "briar_vortex",
-        "name": "Briar Vortex",
+        "name": "荊棘漩渦",
         "slug": "briar_vortex",
         "type": "active",
         "rawType": "Ativo",
@@ -16150,7 +16150,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Changing skill>The attack type is based on the distance to the target.Distance ",
         "canonicalCooldown": "15 sec.",
         "canonicalCooldownMs": 15000,
-        "desc": "<Changing skill>The attack type is based on the distance to the target.Distance up to 250Prickly thorns turn into a lacerating storm.Deals M. damage to the target. Power 166.M. Def. -30%Duration: 4 sec.Distance 250+Prickly thorns pierce the enemy.Deals M. damage to the target. Power 156.PvP: Attacks up to 3 targets.PvE: Attacks up to 3 targets.",
+        "desc": "依距離改變攻擊方式。距離 250 以內時荊棘化為撕裂風暴，造成魔法傷害，威力 166，M.Def -30%，持續 4 秒；距離 250 以上時荊棘穿刺敵人，威力 156。PvP／PvE 最多攻擊 3 個目標。",
         "balance": {
             "mpCost": 60,
             "pwr": 166,
@@ -16169,7 +16169,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "vine_embrace": {
         "id": "vine_embrace",
-        "name": "Vine Embrace",
+        "name": "藤蔓纏抱",
         "slug": "vine_embrace",
         "type": "active",
         "rawType": "Ativo",
@@ -16181,7 +16181,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Hold/ changing skill>Damage is based on the distance to the target.With a certa",
         "canonicalCooldown": "15 sec.",
         "canonicalCooldownMs": 15000,
-        "desc": "<Hold/ changing skill>Damage is based on the distance to the target.With a certain chance, applies Hold to the target for 3 sec.Distance up to 250Deals M. damage to the target. Power 60.Distance 250+Deals M. damage to the target. Power 45.",
+        "desc": "束縛／距離變化技能。有一定機率使目標束縛 3 秒。距離 250 以內時造成魔法傷害，威力 60；距離 250 以上時威力 45。",
         "balance": {
             "mpCost": 61,
             "pwr": 60,
