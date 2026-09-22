@@ -24435,7 +24435,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "large_protection_of_light": {
         "id": "large_protection_of_light",
-        "name": "Large Protection of Light",
+        "name": "大型光之守護",
         "slug": "large_protection_of_light",
         "type": "active",
         "rawType": "Ativo",
@@ -24447,7 +24447,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Large Protection of Light effect",
         "canonicalCooldown": "1",
         "canonicalCooldownMs": 1000,
-        "desc": "Large Protection of Light",
+        "desc": "大型光之守護。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -24466,7 +24466,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "flying_leap": {
         "id": "flying_leap",
-        "name": "Flying Leap",
+        "name": "飛躍突擊",
         "slug": "flying_leap",
         "type": "active",
         "rawType": "Ativo",
@@ -24478,7 +24478,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Rush/ Knockdown skill>Encouraged by the power of light, leaps to the target.Att",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "<Rush/ Knockdown skill>Encouraged by the power of light, leaps to the target.Attacks the target and nearby enemies. Power 4514.With a certain chance, the enemies' P. Def. -30%. With a certain chance, knocks the enemies down.Ignores 10% of the target's defense.PvP: Attacks up to 6 targets.PvE: Attacks up to 6 targets.After learning the Divine Guardian skill:Grants Light points on using the skill on an enemy.Grants 50 Light points regardless of your combat power.",
+        "desc": "<突進／擊倒技能>受到光之力量鼓舞，飛躍至目標身邊。攻擊目標與附近敵人，威力 4514。有一定機率使敵人 P.Def -30%，並有一定機率將敵人擊倒。無視目標 10% 防禦力。PvP／PvE 最多攻擊 6 個目標。學習 Divine Guardian 後：對敵人使用技能時獲得光之點數；無論戰鬥力多少，固定獲得 50 點光之點數。",
         "balance": {
             "mpCost": 84,
             "pwr": 500,
@@ -24496,7 +24496,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "small_protection_of_light": {
         "id": "small_protection_of_light",
-        "name": "Small Protection of Light",
+        "name": "小型光之守護",
         "slug": "small_protection_of_light",
         "type": "active",
         "rawType": "Ativo",
@@ -24508,7 +24508,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Small Protection of Light effect",
         "canonicalCooldown": "2",
         "canonicalCooldownMs": 1000,
-        "desc": "Small Protection of Light",
+        "desc": "小型光之守護。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -24528,7 +24528,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "judgment": {
         "id": "judgment",
-        "name": "Judgment",
+        "name": "審判",
         "slug": "judgment",
         "type": "active",
         "rawType": "Ativo",
@@ -24540,7 +24540,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks enemies with the sword filled with the power of light.Deals damage twice",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Attacks enemies with the sword filled with the power of light.Deals damage twice. Power 8124.Ignores 20% of the target's defense.PvP: Attacks up to 6 targets.PvE: Attacks up to 6 targets.After leaning the Divine Guardian skill:Grants Light points on using the skill on an enemy.Combat power 1-500: Grants 600 Light points.Combat power 500-999: Grants 750 Light points.Combat power 1000-1499: Grants 850 Light points.Combat power 1500-1999: Grants 1550 Light points.Combat power 2000+: Grants 2300 Light points.",
+        "desc": "以灌注光之力量的劍攻擊敵人，連續造成 2 次傷害，威力 8124。無視目標 20% 防禦力。PvP／PvE 最多攻擊 6 個目標。學習 Divine Guardian 後：對敵人使用技能時獲得光之點數。戰鬥力 1～500：600 點；500～999：750 點；1000～1499：850 點；1500～1999：1550 點；2000 以上：2300 點。",
         "balance": {
             "mpCost": 116,
             "pwr": 500,
@@ -24558,7 +24558,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "protection_of_light": {
         "id": "protection_of_light",
-        "name": "Protection of Light",
+        "name": "光之守護",
         "slug": "protection_of_light",
         "type": "active",
         "rawType": "Ativo",
@@ -24570,7 +24570,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Protection of Light effect",
         "canonicalCooldown": "2",
         "canonicalCooldownMs": 1000,
-        "desc": "Protection of Light",
+        "desc": "光之守護。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -24589,7 +24589,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "noblesse_circlet": {
         "id": "noblesse_circlet",
-        "name": "Noblesse Circlet",
+        "name": "貴族頭冠",
         "slug": "noblesse_circlet",
         "type": "buff",
         "rawType": "Buff",
@@ -24601,7 +24601,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Noblesse Circlet effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Noblesse Circlet",
+        "desc": "貴族頭冠。",
         "balance": {
             "mpCost": 120,
             "pwr": 20,
@@ -24619,7 +24619,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "light_counter": {
         "id": "light_counter",
-        "name": "Light Counter",
+        "name": "光之反擊",
         "slug": "light_counter",
         "type": "buff",
         "rawType": "Buff",
@@ -24631,7 +24631,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Light Counter effect",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "Light Counter",
+        "desc": "光之反擊。",
         "balance": {
             "mpCost": 100,
             "pwr": 20,
@@ -24649,7 +24649,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "decoy": {
         "id": "decoy",
-        "name": "Decoy",
+        "name": "誘餌",
         "slug": "decoy",
         "type": "active",
         "rawType": "Ativo",
@@ -24661,7 +24661,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Decoy effect",
         "canonicalCooldown": "3 min.",
         "canonicalCooldownMs": 180000,
-        "desc": "Decoy",
+        "desc": "誘餌。",
         "balance": {
             "mpCost": 150,
             "pwr": 20,
@@ -24679,7 +24679,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "light_discharge": {
         "id": "light_discharge",
-        "name": "Light Discharge",
+        "name": "光能釋放",
         "slug": "light_discharge",
         "type": "active",
         "rawType": "Ativo",
@@ -24691,7 +24691,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "The skill effect is changed based on its target.Fires an accumulated light charg",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "The skill effect is changed based on its target.Fires an accumulated light charge.For enemies:Attacks the target and nearby enemies twice stunning them with a certain chance. Power 5632.Ignores 20% of the target's defense.PvP: Attacks up to 6 targets.PvE: Attacks up to 6 targets.For allies:Recovers HP based on your M. Atk. Power 1900. Affects up to 6 targets. After that, recovers HP over time.After learning the Divine Guardian skill:Grants Light points on using the skill on an enemy.Combat power 1-500: Grants 720 Light points.Combat power 500-999: Grants 900 Light points.Combat power 1000-1499: Grants 1050 Light points.Combat power 1500-1999: Grants 2050 Light points.Combat power 2000+: Grants 3000 Light points.",
+        "desc": "技能效果依目標類型改變，釋放累積的光能。對敵人：連續攻擊目標與附近敵人 2 次，並有一定機率使其暈眩，威力 5632。無視目標 20% 防禦力。PvP／PvE 最多攻擊 6 個目標。對盟友：依自身 M.Atk 恢復 HP，威力 1900，最多影響 6 個目標，之後持續恢復 HP。學習 Divine Guardian 後：對敵人使用技能時獲得光之點數。戰鬥力 1～500：720 點；500～999：900 點；1000～1499：1050 點；1500～1999：2050 點；2000 以上：3000 點。",
         "balance": {
             "mpCost": 103,
             "pwr": 500,
@@ -24709,7 +24709,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "divine_guardian": {
         "id": "divine_guardian",
-        "name": "Divine Guardian",
+        "name": "神聖守護者",
         "slug": "divine_guardian",
         "type": "active",
         "rawType": "Ativo",
@@ -24721,7 +24721,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summons Divine Guardian.Divine Guardian uses skills that match Divine Templar's ",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "Summons Divine Guardian.Divine Guardian uses skills that match Divine Templar's skills.Sacral Strike → Sacral StrikePurify → PurifyTo learn more about the twin skill, check the Divine Templar buff icon.Divine Guardian teleports to Divine Templar if they are too far away from each other.",
+        "desc": "召喚 Divine Guardian。Divine Guardian 會使用與 Divine Templar 對應的技能：Sacral Strike → Sacral Strike、Purify → Purify。更多雙生技能資訊可查看 Divine Templar 的增益圖示。若 Divine Guardian 與 Divine Templar 距離過遠，Divine Guardian 會傳送至 Divine Templar 身邊。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -24739,7 +24739,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "holy_circle": {
         "id": "holy_circle",
-        "name": "Holy Circle",
+        "name": "神聖法陣",
         "slug": "holy_circle",
         "type": "active",
         "rawType": "Ativo",
@@ -24751,7 +24751,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "On using the skill, its effect affects both enemies and allies.Creates a circle ",
         "canonicalCooldown": "3 min.",
         "canonicalCooldownMs": 180000,
-        "desc": "On using the skill, its effect affects both enemies and allies.Creates a circle of light.Enemies:Judgment of LightAttacks nearby enemies twice. Power 20,000.For 10 sec., the attacked targets' Debuff/ Anomaly Resistance -4%.Ignores 30% of the target's defense.PvP: Attacks up to 16 targets.PvE: Attacks up to 16 targets.Allies:Light ProtectionDuration: 10 sec.Buff:- Recovers 3000 HP every 2 sec.- Received damage -10%Affects up to 16 targets.After learning the Divine Guardian skill:Grants Light points on using the skill on an enemy.Grants 50,000 Light points regardless of your combat power.",
+        "desc": "使用技能時同時影響敵人與盟友，創造光之法陣。敵人：Judgment of Light，連續攻擊附近敵人 2 次，威力 20000；10 秒內使被攻擊目標的弱化／異常抗性 -4%；無視目標 30% 防禦力。PvP／PvE 最多攻擊 16 個目標。盟友：Light Protection，持續 10 秒；每 2 秒恢復 3000 HP、受到傷害 -10%，最多影響 16 個目標。學習 Divine Guardian 後：對敵人使用技能時獲得光之點數；無論戰鬥力多少，固定獲得 50000 點光之點數。",
         "balance": {
             "mpCost": 200,
             "pwr": 500,
@@ -24770,7 +24770,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "sword_blunt_mastery": {
         "id": "sword_blunt_mastery",
-        "name": "Sword/Blunt Weapon Mastery",
+        "name": "劍／鈍器精通",
         "slug": "sword_blunt_mastery",
         "type": "passive",
         "rawType": "Passive",
@@ -24782,7 +24782,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +15%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases P. Atk. when using a sword or blunt weapon.",
+        "desc": "使用劍或鈍器時提高 P.Atk。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -24809,7 +24809,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "dual_weapon_mastery": {
         "id": "dual_weapon_mastery",
-        "name": "Dual Weapon Mastery",
+        "name": "雙武器精通",
         "slug": "dual_weapon_mastery",
         "type": "passive",
         "rawType": "Passive",
@@ -24821,7 +24821,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +20%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases P. Atk. when using dual swords or dual daggers.",
+        "desc": "使用雙劍或雙匕首時提高 P.Atk。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -24840,7 +24840,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "bow_mastery": {
         "id": "bow_mastery",
-        "name": "Bow Mastery",
+        "name": "弓精通",
         "slug": "bow_mastery",
         "type": "passive",
         "rawType": "Passive",
@@ -24852,7 +24852,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +25%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases P. Atk. when using a bow.",
+        "desc": "使用弓時提高 P.Atk。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -24874,7 +24874,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "dagger_mastery": {
         "id": "dagger_mastery",
-        "name": "Dagger Mastery",
+        "name": "匕首精通",
         "slug": "dagger_mastery",
         "type": "passive",
         "rawType": "Passive",
@@ -24886,7 +24886,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +20%, Critical Rate +10",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases P. Atk. and critical chance when using a dagger.",
+        "desc": "使用匕首時提高 P.Atk 與暴擊率。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -24909,7 +24909,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "polearm_mastery": {
         "id": "polearm_mastery",
-        "name": "Polearm Mastery",
+        "name": "長柄武器精通",
         "slug": "polearm_mastery",
         "type": "passive",
         "rawType": "Passive",
@@ -24921,7 +24921,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +20%, Max targets +3",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases P. Atk. and attack count when using a spear or polearm.",
+        "desc": "使用長槍或長柄武器時提高 P.Atk 與攻擊目標數。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -24940,7 +24940,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "fist_mastery": {
         "id": "fist_mastery",
-        "name": "Fist Mastery",
+        "name": "拳套精通",
         "slug": "fist_mastery",
         "type": "passive",
         "rawType": "Passive",
@@ -24952,7 +24952,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +20%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases P. Atk. when using fist weapons.",
+        "desc": "使用拳套武器時提高 P.Atk。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -24971,7 +24971,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "two_handed_weapon_mastery": {
         "id": "two_handed_weapon_mastery",
-        "name": "Two-handed Weapon Mastery",
+        "name": "雙手武器精通",
         "slug": "two_handed_weapon_mastery",
         "type": "passive",
         "rawType": "Passive",
@@ -24983,7 +24983,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +25%, Critical Damage +15%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases P. Atk. and Critical Damage when using a two-handed weapon.",
+        "desc": "使用雙手武器時提高 P.Atk 與暴擊傷害。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25003,7 +25003,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "magic_mastery": {
         "id": "magic_mastery",
-        "name": "Magic Mastery",
+        "name": "魔法精通",
         "slug": "magic_mastery",
         "type": "passive",
         "rawType": "Passive",
@@ -25015,7 +25015,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "M. Atk. +20%, Magic Critical Rate +10",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases M. Atk. and Magic Critical Rate.",
+        "desc": "提高 M.Atk 與魔法暴擊率。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25038,7 +25038,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "heavy_armor_mastery": {
         "id": "heavy_armor_mastery",
-        "name": "Heavy Armor Mastery",
+        "name": "重甲精通",
         "slug": "heavy_armor_mastery",
         "type": "passive",
         "rawType": "Passive",
@@ -25050,7 +25050,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Def. +60, Received Critical Damage -10%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases P. Def. when equipped with heavy armor.",
+        "desc": "裝備重甲時提高 P.Def。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25076,7 +25076,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "light_armor_mastery": {
         "id": "light_armor_mastery",
-        "name": "Light Armor Mastery",
+        "name": "輕甲精通",
         "slug": "light_armor_mastery",
         "type": "passive",
         "rawType": "Passive",
@@ -25088,7 +25088,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Def. +40, Evasion +6, Atk. Spd +5%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases P. Def. and Evasion when equipped with light armor.",
+        "desc": "裝備輕甲時提高 P.Def 與迴避。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25117,7 +25117,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "robe_mastery": {
         "id": "robe_mastery",
-        "name": "Robe Mastery",
+        "name": "法袍精通",
         "slug": "robe_mastery",
         "type": "passive",
         "rawType": "Passive",
@@ -25129,7 +25129,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Def. +30, Cast. Spd +10%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases P. Def. and Cast. Spd. when equipped with a robe.",
+        "desc": "裝備法袍時提高 P.Def 與施法速度。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25152,7 +25152,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "shield_mastery": {
         "id": "shield_mastery",
-        "name": "Shield Mastery",
+        "name": "盾牌精通",
         "slug": "shield_mastery",
         "type": "passive",
         "rawType": "Passive",
@@ -25164,7 +25164,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Shield Def +100, Block Rate +20%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases Shield Defense and Shield Block Rate.",
+        "desc": "提高盾牌防禦力與盾牌格擋率。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25186,7 +25186,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "sigil_mastery": {
         "id": "sigil_mastery",
-        "name": "Sigil Mastery",
+        "name": "符印精通",
         "slug": "sigil_mastery",
         "type": "passive",
         "rawType": "Passive",
@@ -25198,7 +25198,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max MP +200, M. Atk. +10%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases Max MP and M. Atk. when equipped with a sigil.",
+        "desc": "裝備符印時提高最大 MP 與 M.Atk。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25218,7 +25218,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "anti_magic": {
         "id": "anti_magic",
-        "name": "Anti Magic",
+        "name": "抗魔",
         "slug": "anti_magic",
         "type": "passive",
         "rawType": "Passive",
@@ -25230,7 +25230,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "M. Def. +90",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases M. Def. and magic damage resistance.",
+        "desc": "提高 M.Def 與魔法傷害抗性。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25257,7 +25257,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "magic_resistance": {
         "id": "magic_resistance",
-        "name": "Magic Resistance",
+        "name": "魔法抗性",
         "slug": "magic_resistance",
         "type": "passive",
         "rawType": "Passive",
@@ -25269,7 +25269,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "M. Def. +50, Magic Resistance +10%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases resistance against magical attacks and anomalies.",
+        "desc": "提高對魔法攻擊與異常狀態的抗性。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25285,7 +25285,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "boost_hp": {
         "id": "boost_hp",
-        "name": "Boost HP",
+        "name": "HP 強化",
         "slug": "boost_hp",
         "type": "passive",
         "rawType": "Passive",
@@ -25297,7 +25297,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max HP +500",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Permanently increases Max HP.",
+        "desc": "永久提高最大 HP。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25319,7 +25319,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "boost_mana": {
         "id": "boost_mana",
-        "name": "Boost Mana",
+        "name": "MP 強化",
         "slug": "boost_mana",
         "type": "passive",
         "rawType": "Passive",
@@ -25331,7 +25331,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max MP +300",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Permanently increases Max MP.",
+        "desc": "永久提高最大 MP。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25347,7 +25347,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "fast_hp_recovery": {
         "id": "fast_hp_recovery",
-        "name": "Fast HP Recovery",
+        "name": "快速 HP 恢復",
         "slug": "fast_hp_recovery",
         "type": "passive",
         "rawType": "Passive",
@@ -25375,7 +25375,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "fast_mana_recovery": {
         "id": "fast_mana_recovery",
-        "name": "Fast Mana Recovery",
+        "name": "快速 MP 恢復",
         "slug": "fast_mana_recovery",
         "type": "passive",
         "rawType": "Passive",
@@ -25403,7 +25403,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "vital_force": {
         "id": "vital_force",
-        "name": "Vital Force",
+        "name": "生命之力",
         "slug": "vital_force",
         "type": "passive",
         "rawType": "Passive",
@@ -25415,7 +25415,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "HP/MP Recovery +30%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases HP and MP recovery rate while sitting or resting.",
+        "desc": "坐下或休息時提高 HP 與 MP 恢復率。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
