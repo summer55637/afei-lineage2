@@ -27,9 +27,9 @@ export class 貴族Service {
     const isLevelOk = level >= 76;
 
     let reason = '';
-    if (!is貴族 && !isLevelOk) reason = 'Requer Nível 76+ e Conclusão da 任務 de 貴族.';
-    else if (!is貴族) reason = 'Requer Conclusão da Saga de 貴族 (Possessor of a Precious Soul).';
-    else if (!isLevelOk) reason = 'Requer Nível 76+ para adentrar na Grand Olympiad.';
+    if (!is貴族 && !isLevelOk) reason = '需要等級 76+ 並完成貴族任務。';
+    else if (!is貴族) reason = '需要完成貴族傳奇（珍貴靈魂的擁有者）。';
+    else if (!isLevelOk) reason = '需要等級 76+ 才能參加大奧林匹亞。';
 
     return {
       is貴族,
@@ -69,7 +69,7 @@ export class 貴族Service {
       return { ok: false, reason: `在悲鳴沼澤淨化 30 個靈魂（${prog.part2Kills || 0}/30）。` };
     }
     if (step === 3 && !prog.barakielKilled) {
-      return { ok: false, reason: 'Derrote o Raid Boss Flame of Splendor Barakiel para recuperar o cajado da Deusa!' };
+      return { ok: false, reason: '擊敗團隊首領 Flame of Splendor Barakiel，取回女神權杖！' };
     }
 
     return { ok: true };
@@ -164,7 +164,7 @@ export class 貴族Service {
 
       if (callbacks.log) {
         callbacks.log('👑✨ **貴族神聖祝聖完成！**', 'rarity-legendary');
-        callbacks.log('Você completou a lendária saga *Possessor of a Precious Soul*, recebeu a **貴族 Tiara**, a bênção **Blessing of Noble** e obteve permissão para adentrar na **Grand Olympiad (Lv. 76+)**!', 'rarity-legendary');
+        callbacks.log('你完成了傳奇任務 *珍貴靈魂的擁有者*，獲得 **貴族頭冠**、**貴族祝福**，並取得參加 **大奧林匹亞（Lv.76+）** 的資格！', 'rarity-legendary');
       }
     }
 
