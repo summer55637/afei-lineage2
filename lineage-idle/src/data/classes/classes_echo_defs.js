@@ -41,7 +41,7 @@ const CLASSES_ECHO = {
       { name: "突進",                type: "Ativo",    rarity: "1★", effect: "衝向目標 + 傷害 120%",    cooldown: "15s",    desc: "快速衝向敵人。" },
       { name: "包紮",             type: "Ativo",    rarity: "1★", effect: "治癒 15% HP",                   cooldown: "30s",    desc: "進行緊急治療。" },
       { name: "戰士意志",      type: "Self-Buff",rarity: "1★", effect: "+10% ATK 並 +10% DEF 持續 15 分鐘",cooldown: "30 min", desc: "戰士堅定的意志。" },
-      { name: "HP 提升 Lv1",     type: "Passivo",  rarity: "1★", effect: "+5% 最大 HP",                    cooldown: "N/A",    desc: "強化體質。" },
+      { name: "生命值提升（等級1）",     type: "Passivo",  rarity: "1★", effect: "+5% 最大 HP",                    cooldown: "N/A",    desc: "強化體質。" },
       { name: "輕甲精通", type: "Passivo",  rarity: "1★", effect: "+8% DEF 裝備輕甲時",     cooldown: "N/A",    desc: "精通輕型防具。" }
     ]
   },
@@ -61,7 +61,7 @@ const CLASSES_ECHO = {
       { name: "劍／鈍器精通",   type: "Passivo",  rarity: "1★", effect: "+12% ATK 使用劍／鈍器時",           cooldown: "N/A",    desc: "精通劍與鈍器。" },
       { name: "長柄武器精通",       type: "Passivo",  rarity: "1★", effect: "+12% ATK 使用長柄武器時",                cooldown: "N/A",    desc: "精通長槍與長柄武器。" },
       { name: "重甲精通",   type: "Passivo",  rarity: "1★", effect: "+12% DEF 裝備重甲時",        cooldown: "N/A",    desc: "精通重型防具。" },
-      { name: "HP 提升 Lv2",       type: "Passivo",  rarity: "1★", effect: "+10% 最大 HP",                         cooldown: "N/A",    desc: "強化戰士體質。" },
+      { name: "生命值提升（等級2）",       type: "Passivo",  rarity: "1★", effect: "+10% 最大 HP",                         cooldown: "N/A",    desc: "強化戰士體質。" },
       { name: "負重上限",          type: "Passivo",  rarity: "1★", effect: "+15% 負重上限",            cooldown: "N/A",    desc: "經過鍛鍊的身體可承受更多負重。" }
     ]
   },
@@ -86,7 +86,7 @@ const CLASSES_ECHO = {
       { name: "雙武器精通",    type: "Passivo",  rarity: "2★", effect: "+18% ATK 使用雙持武器時",          cooldown: "N/A",    desc: "精通雙持武器。" },
       { name: "專注",                  type: "Passivo",  rarity: "1★", effect: "+8% 暴擊率",                      cooldown: "N/A",    desc: "集中攻擊敵人的要害。" },
       { name: "暴擊威力",         type: "Passivo",  rarity: "2★", effect: "+15% 暴擊傷害",                   cooldown: "N/A",    desc: "提高暴擊威力。" },
-      { name: "HP 強化",               type: "Passivo",  rarity: "1★", effect: "+12% 最大 HP",                        cooldown: "N/A",    desc: "強化角鬥士的 HP。" }
+      { name: "生命值強化",               type: "Passivo",  rarity: "1★", effect: "+12% 最大 HP",                        cooldown: "N/A",    desc: "強化角鬥士的 HP。" }
     ]
   },
 
@@ -132,7 +132,7 @@ const CLASSES_ECHO = {
       { name: "戰爭領主和諧",     type: "Self-Buff",rarity: "3★", effect: "+30% ATK, +25% HP 持續 25 分鐘",        cooldown: "60 min", desc: "戰爭領主的戰鬥和諧。" },
       { name: "生命之力",           type: "Passivo",  rarity: "1★", effect: "+10% HP 恢復",                       cooldown: "N/A",    desc: "強化生命恢復能力。" },
       { name: "專注",                 type: "Passivo",  rarity: "1★", effect: "+8% 暴擊率",                       cooldown: "N/A",    desc: "提升專注力。" },
-      { name: "HP 強化",              type: "Passivo",  rarity: "1★", effect: "+15% 最大 HP",                         cooldown: "N/A",    desc: "強化 HP。" }
+      { name: "生命值強化",              type: "Passivo",  rarity: "1★", effect: "+15% 最大 HP",                         cooldown: "N/A",    desc: "強化 HP。" }
     ]
   },
 
@@ -172,7 +172,7 @@ const CLASSES_ECHO = {
       { name: "重甲精通",   type: "Passivo",  rarity: "1★", effect: "+15% DEF 裝備重甲時",     cooldown: "N/A",    desc: "精通重型防具。" },
       { name: "盾牌精通",        type: "Passivo",  rarity: "1★", effect: "+15% 格擋率",                  cooldown: "N/A",    desc: "精通盾牌防禦。" },
       { name: "劍／鈍器精通",   type: "Passivo",  rarity: "1★", effect: "+10% ATK 劍／鈍器",            cooldown: "N/A",    desc: "精通劍類武器。" },
-      { name: "HP 提升 Lv2",       type: "Passivo",  rarity: "1★", effect: "+12% 最大 HP",                      cooldown: "N/A",    desc: "進一步強化體質。" },
+      { name: "生命值提升（等級2）",       type: "Passivo",  rarity: "1★", effect: "+12% 最大 HP",                      cooldown: "N/A",    desc: "進一步強化體質。" },
       { name: "箭矢偏轉",         type: "Passivo",  rarity: "1★", effect: "+10% 機率 閃避投射物",    cooldown: "N/A",    desc: "提高對投射物的閃避能力。" }
     ]
   },
@@ -197,7 +197,7 @@ const CLASSES_ECHO = {
       { name: "挑釁",               type: "Ativo",    rarity: "1★", effect: "嘲諷 + 高仇恨",             cooldown: "8s",     desc: "挑釁敵人並吸引其注意。" },
       { name: "聖騎士和諧",     type: "Self-Buff",rarity: "3★", effect: "+40% DEF, +30% HP, +20% 魔法防禦 25 分鐘",cooldown: "60 min",desc: "聖騎士的戰鬥和諧。" },
       { name: "神聖／黑暗抗性",      type: "Passivo",  rarity: "2★", effect: "+15% 抗性 神聖/黑暗",           cooldown: "N/A",    desc: "提高神聖與黑暗屬性抗性。" },
-      { name: "HP 強化",              type: "Passivo",  rarity: "2★", effect: "+18% 最大 HP",                     cooldown: "N/A",    desc: "擴充最大 HP。" }
+      { name: "生命值強化",              type: "Passivo",  rarity: "2★", effect: "+18% 最大 HP",                     cooldown: "N/A",    desc: "擴充最大 HP。" }
     ]
   },
 
@@ -239,7 +239,7 @@ const CLASSES_ECHO = {
       { name: "復仇種子",        type: "Ativo",    rarity: "2★", effect: "標記：對死亡 造成 500% 傷害",  cooldown: "120s",   desc: "種下復仇之力。" },
       { name: "黑暗復仇者和諧", type: "Self-Buff",rarity: "3★", effect: "+35% ATK, +30% DEF, +20% 吸取 25 分鐘",cooldown: "60 min",desc: "黑暗復仇者的戰鬥和諧。" },
       { name: "傷害反射",         type: "Passivo",  rarity: "2★", effect: "反射 8% 傷害 受到的",          cooldown: "N/A",    desc: "反射受到的部分傷害。" },
-      { name: "HP 強化",               type: "Passivo",  rarity: "2★", effect: "+16% 最大 HP",                       cooldown: "N/A",    desc: "強化 HP。" }
+      { name: "生命值強化",               type: "Passivo",  rarity: "2★", effect: "+16% 最大 HP",                       cooldown: "N/A",    desc: "強化 HP。" }
     ]
   },
 
@@ -391,7 +391,7 @@ const CLASSES_ECHO = {
       { name: "睡眠",             type: "Ativo",    rarity: "1★", effect: "使其睡眠 目標 8 秒 (取消 傷害)",cooldown: "30s",   desc: "以魔法使目標陷入睡眠。" },
       { name: "法師意志",       type: "Self-Buff",rarity: "1★", effect: "+10% 魔法攻擊, +10% 魔法防禦 15 分鐘", cooldown: "30 min", desc: "法師堅定的意志。" },
       { name: "法袍精通",      type: "Passivo",  rarity: "1★", effect: "裝備法袍時魔法防禦 +10%、施法速度 +8%",cooldown: "N/A",desc: "精通法袍裝備。" },
-      { name: "MP 提升",       type: "Passivo",  rarity: "1★", effect: "+8% 最大 MP",                   cooldown: "N/A",    desc: "提高魔力儲備。" }
+      { name: "魔力提升",       type: "Passivo",  rarity: "1★", effect: "+8% 最大 MP",                   cooldown: "N/A",    desc: "提高魔力儲備。" }
     ]
   },
 
@@ -410,7 +410,7 @@ const CLASSES_ECHO = {
       { name: "水之弱化",    type: "Ativo",    rarity: "2★", effect: "-20% 水抗性在目標 15 秒",     cooldown: "25s",    desc: "降低目標對水屬性的抗性。" },
       { name: "風之弱化",     type: "Ativo",    rarity: "2★", effect: "-20% 風抗性在目標 15 秒",      cooldown: "25s",    desc: "降低目標對風屬性的抗性。" },
       { name: "巫師和諧",      type: "Self-Buff",rarity: "2★", effect: "+25% 魔法攻擊, +15% 施法速度 20 分鐘", cooldown: "45 min", desc: "巫師的戰鬥和諧。" },
-      { name: "MP 強化",            type: "Passivo",  rarity: "1★", effect: "+12% 最大 MP",                       cooldown: "N/A",    desc: "進一步強化魔力儲備。" }
+      { name: "魔力強化",            type: "Passivo",  rarity: "1★", effect: "+12% 最大 MP",                       cooldown: "N/A",    desc: "進一步強化魔力儲備。" }
     ]
   },
 
@@ -676,7 +676,7 @@ const CLASSES_ECHO = {
       { name: "致命一擊",         type: "Ativo",    rarity: "1★", effect: "傷害 170% + 暴擊率 20%",    cooldown: "10s",    desc: "施展致命攻擊。" },
       { name: "強力射擊",          type: "Ativo",    rarity: "1★", effect: "遠距傷害 140%",          cooldown: "9s",     desc: "進行集中射擊。" },
       { name: "精靈之魂",        type: "Self-Buff",rarity: "1★", effect: "+10% 迴避, +10% 速度 持續 15 分鐘",cooldown: "30 min", desc: "獲得精靈之魂的力量。" },
-      { name: "HP 提升 Lv1",     type: "Passivo",  rarity: "1★", effect: "+5% 最大 HP",                     cooldown: "N/A",    desc: "強化精靈體質。" },
+      { name: "生命值提升（等級1）",     type: "Passivo",  rarity: "1★", effect: "+5% 最大 HP",                     cooldown: "N/A",    desc: "強化精靈體質。" },
       { name: "輕甲精通", type: "Passivo",  rarity: "1★", effect: "+8% DEF 裝備輕甲時",      cooldown: "N/A",    desc: "精通輕型防具。" }
     ]
   },
@@ -693,7 +693,7 @@ const CLASSES_ECHO = {
       { name: "重甲精通",   type: "Passivo",  rarity: "1★", effect: "+15% DEF 重甲",     cooldown: "N/A",    desc: "精通重型防具。" },
       { name: "盾牌精通",        type: "Passivo",  rarity: "1★", effect: "+15% 格擋率",              cooldown: "N/A",    desc: "精通盾牌防禦。" },
       { name: "劍／鈍器精通",   type: "Passivo",  rarity: "1★", effect: "+10% ATK 劍／鈍器",        cooldown: "N/A",    desc: "精通劍與鈍器。" },
-      { name: "HP 提升 Lv2",       type: "Passivo",  rarity: "1★", effect: "+10% 最大 HP",                  cooldown: "N/A",    desc: "進一步強化體質。" },
+      { name: "生命值提升（等級2）",       type: "Passivo",  rarity: "1★", effect: "+10% 最大 HP",                  cooldown: "N/A",    desc: "進一步強化體質。" },
       { name: "箭矢偏轉",         type: "Passivo",  rarity: "1★", effect: "+10% 閃避投射物",       cooldown: "N/A",    desc: "提高對投射物的閃避能力。" }
     ]
   },
@@ -715,7 +715,7 @@ const CLASSES_ECHO = {
       { name: "召喚生命晶體",     type: "Ativo",    rarity: "2★", effect: "晶體 會 治癒 5%/5 秒",           cooldown: "45s",    desc: "召喚具有生命恢復能力的晶體。" },
       { name: "召喚風暴晶體",    type: "Ativo",    rarity: "2★", effect: "晶體的傷害 雷電",        cooldown: "45s",    desc: "召喚風暴晶體協助戰鬥。" },
       { name: "聖殿騎士和諧",          type: "Self-Buff",rarity: "3★", effect: "+35% DEF, +25% HP, +15% 迴避 25 分鐘",cooldown: "60 min",desc: "聖殿騎士的戰鬥和諧。" },
-      { name: "HP 強化",              type: "Passivo",  rarity: "2★", effect: "+15% 最大 HP",                    cooldown: "N/A",    desc: "強化 HP。" },
+      { name: "生命值強化",              type: "Passivo",  rarity: "2★", effect: "+15% 最大 HP",                    cooldown: "N/A",    desc: "強化 HP。" },
       { name: "水屬性抗性",           type: "Passivo",  rarity: "1★", effect: "+10% 水抗性",              cooldown: "N/A",    desc: "提高水屬性抗性。" }
     ]
   },
@@ -761,7 +761,7 @@ const CLASSES_ECHO = {
       { name: "更新之歌",       type: "Self-Buff", rarity: "3★", effect: "+10% HP+MP 恢復 持續 20 分鐘",    cooldown: "50 min", desc: "吟唱更新之歌。" },
       { name: "劍歌者和諧",          type: "Self-Buff", rarity: "3★", effect: "+30% ATK, +20% DEF, +15% 速度 25 分鐘",cooldown: "60 min",desc: "劍歌者的戰鬥和諧。" },
       { name: "重甲精通",   type: "Passivo",  rarity: "1★", effect: "+12% DEF 重甲",        cooldown: "N/A",    desc: "精通重型防具。" },
-      { name: "HP 強化",              type: "Passivo",  rarity: "1★", effect: "+12% 最大 HP",                     cooldown: "N/A",    desc: "強化 HP。" }
+      { name: "生命值強化",              type: "Passivo",  rarity: "1★", effect: "+12% 最大 HP",                     cooldown: "N/A",    desc: "強化 HP。" }
     ]
   },
 
@@ -899,7 +899,7 @@ const CLASSES_ECHO = {
       { name: "自我治癒",     type: "Ativo",    rarity: "1★", effect: "治癒 20% HP",                 cooldown: "25s",    desc: "進行基礎自我治療。" },
       { name: "睡眠",         type: "Ativo",    rarity: "1★", effect: "使其睡眠 目標 8 秒",             cooldown: "30s",    desc: "以魔法使目標陷入睡眠。" },
       { name: "法袍精通",  type: "Passivo",  rarity: "1★", effect: "+10% 魔法防禦, +8% 施法速度",   cooldown: "N/A",    desc: "精通法袍裝備。" },
-      { name: "MP 提升",   type: "Passivo",  rarity: "1★", effect: "+8% 最大 MP",                   cooldown: "N/A",    desc: "提高魔力儲備。" }
+      { name: "魔力提升",   type: "Passivo",  rarity: "1★", effect: "+8% 最大 MP",                   cooldown: "N/A",    desc: "提高魔力儲備。" }
     ]
   },
 
@@ -914,7 +914,7 @@ const CLASSES_ECHO = {
       { name: "光環燃燒",          type: "Ativo",    rarity: "2★", effect: "範圍 火 180% 周圍",         cooldown: "14s",    desc: "以魔力燃燒周圍敵人。" },
       { name: "生命吸取",         type: "Ativo",    rarity: "2★", effect: "傷害 190% + 吸取 25% HP",       cooldown: "15s",    desc: "吸取目標生命力。" },
       { name: "精靈巫師和諧",   type: "Self-Buff",rarity: "2★", effect: "+25% 魔法攻擊, +15% 施法速度 20 分鐘",cooldown: "45 min",desc: "精靈巫師的戰鬥和諧。" },
-      { name: "MP 強化",         type: "Passivo",  rarity: "1★", effect: "+12% 最大 MP",                    cooldown: "N/A",    desc: "強化魔力儲備。" }
+      { name: "魔力強化",         type: "Passivo",  rarity: "1★", effect: "+12% 最大 MP",                    cooldown: "N/A",    desc: "強化魔力儲備。" }
     ]
   },
 
@@ -1068,7 +1068,7 @@ skills: [
 { name: "致命一擊", type: "Ativo", rarity: "1★", effect: "傷害 130% + 20% 暴擊 加成", cooldown: "10s", duration: null, note: "轉職後技能仍會保留" },
 { name: "強力射擊", type: "Ativo", rarity: "1★", effect: "遠距傷害 140%", cooldown: "10s", duration: null, note: "轉職後技能仍會保留" },
 { name: "包紮", type: "Ativo", rarity: "1★", effect: "恢復 15% HP", cooldown: "30s", duration: null, note: "轉職後技能仍會保留" },
-{ name: "HP 提升", type: "Passivo", rarity: "1★", effect: "+10% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+{ name: "生命值提升", type: "Passivo", rarity: "1★", effect: "+10% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
 { name: "輕甲精通", type: "Passivo", rarity: "1★", effect: "+8% DEF 裝備輕甲時", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
 { name: "黑暗之魂", type: "Self-Buff", rarity: "1★", effect: "+10% ATK 並 +8% 暴擊 持續 15 分鐘", cooldown: "30 min", duration: "15 min", note: "轉職後技能仍會保留" }
 ]
@@ -1108,7 +1108,7 @@ skills: [
 { name: "終極防禦", type: "Ativo", rarity: "3★", effect: "+80% DEF, 無法移動, 10 秒", cooldown: "120s", duration: "10s", note: "轉職後技能仍會保留" },
 { name: "挑釁", type: "Ativo", rarity: "1★", effect: "嘲諷 10 秒", cooldown: "15s", duration: "10s", note: "轉職後技能仍會保留" },
 { name: "召喚黑暗晶體", type: "Ativo", rarity: "2★", effect: "黑暗晶體每 6 秒造成 130% 傷害", cooldown: "45s", duration: "120s", note: "轉職後技能仍會保留" },
-{ name: "HP 強化", type: "Passivo", rarity: "1★", effect: "+15% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+{ name: "生命值強化", type: "Passivo", rarity: "1★", effect: "+15% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
 { name: "席琳騎士和諧", type: "Self-Buff", rarity: "3★", effect: "+35% DEF, +25% ATK, +20% 黑暗 傷害 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
 ]
 },
@@ -1155,7 +1155,7 @@ skills: [
       { name: "海妖之舞",         type: "Party-Buff", rarity: "3★", effect: "隊伍 MP 恢復 +20%", cooldown: "30s", duration: "120s", note: "轉職後技能仍會保留" },
       { name: "雙武器精通",    type: "Passivo",    rarity: "1★", effect: "裝備雙劍時 ATK +15%", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "重甲精通",    type: "Passivo",    rarity: "1★", effect: "+15% DEF 裝備重甲時", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
-      { name: "HP 強化",               type: "Passivo",    rarity: "1★", effect: "+15% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "生命值強化",               type: "Passivo",    rarity: "1★", effect: "+15% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "劍舞者和諧", type: "Self-Buff",  rarity: "3★", effect: "+30% ATK, +20% 攻擊速度, +15% 迴避 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
     ]
   },
@@ -1292,7 +1292,7 @@ skills: [
       { name: "冰箭",       type: "Ativo",   rarity: "1★", effect: "傷害 冰 140% + 緩速 15% 3 秒", cooldown: "10s", duration: "3s", note: "轉職後技能仍會保留" },
       { name: "睡眠",          type: "Ativo",   rarity: "1★", effect: "使目標睡眠 8 秒（受到傷害時解除）", cooldown: "25s", duration: "8s", note: "轉職後技能仍會保留" },
       { name: "法袍精通",   type: "Passivo", rarity: "1★", effect: "裝備法袍時魔法攻擊 +10%", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
-      { name: "MP 提升",    type: "Passivo", rarity: "1★", effect: "+10% 最大 MP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "魔力提升",    type: "Passivo", rarity: "1★", effect: "+10% 最大 MP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "黑暗法師意志", type: "Self-Buff", rarity: "1★", effect: "+10% 魔法攻擊 並 +8% 施法速度 持續 15 分鐘", cooldown: "30 min", duration: "15 min", note: "轉職後技能仍會保留" }
     ]
   },
@@ -1306,7 +1306,7 @@ skills: [
       { name: "龍捲",          type: "Ativo",   rarity: "1★", effect: "傷害 風 190%", cooldown: "10s", duration: null, note: "轉職後技能仍會保留" },
       { name: "火焰打擊",     type: "Ativo",   rarity: "2★", effect: "傷害 火 240%", cooldown: "14s", duration: null, note: "轉職後技能仍會保留" },
       { name: "生命吸取",       type: "Ativo",   rarity: "2★", effect: "傷害 黑暗 200% + 吸取 25%為 HP", cooldown: "14s", duration: null, note: "轉職後技能仍會保留" },
-      { name: "MP 強化",       type: "Passivo", rarity: "1★", effect: "+15% 最大 MP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "魔力強化",       type: "Passivo", rarity: "1★", effect: "+15% 最大 MP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "黑暗巫師和諧", type: "Self-Buff", rarity: "2★", effect: "+20% 魔法攻擊, +15% 施法速度 持續 20 分鐘", cooldown: "50 min", duration: "20 min", note: "轉職後技能仍會保留" }
     ]
   },
@@ -1452,13 +1452,13 @@ skills: [
   // ═══════════════════════════════════════════
   orcFighter: {
     name: '半獸人戰士', race: 'orc', archetype: 'fighter', stage: 0,
-    desc: '擁有強大力量與高 HP 的半獸人戰士。',
+    desc: '擁有強大力量與高生命值的半獸人戰士。',
     base: { atk: 14, def: 10, hp: 110, mp: 28, eva: 3, crit: 6, mdef: 4 },
     skills: [
       { name: "強力打擊",   type: "Ativo",   rarity: "1★", effect: "物理傷害 150%", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
       { name: "鐵拳",     type: "Ativo",   rarity: "1★", effect: "傷害 140% + 暈眩 1 秒", cooldown: "10s", duration: "1s", note: "轉職後技能仍會保留" },
       { name: "包紮",        type: "Ativo",   rarity: "1★", effect: "恢復 15% HP", cooldown: "30s", duration: null, note: "轉職後技能仍會保留" },
-      { name: "HP 提升",    type: "Passivo", rarity: "1★", effect: "+12% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "生命值提升",    type: "Passivo", rarity: "1★", effect: "+12% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "輕甲精通", type: "Passivo", rarity: "1★", effect: "+8% DEF 裝備輕甲時", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "半獸人之魂",     type: "Self-Buff", rarity: "1★", effect: "+12% ATK 和 +10% HP 持續 15 分鐘", cooldown: "30 min", duration: "15 min", note: "轉職後技能仍會保留" }
     ]
@@ -1497,7 +1497,7 @@ skills: [
       { name: "咆哮",             type: "Ativo",   rarity: "2★", effect: "降低 DEF 敵人 範圍 -20% 10 秒", cooldown: "25s", duration: "10s", note: "轉職後技能仍會保留" },
       { name: "燃燒劈砍",     type: "Ativo",   rarity: "2★", effect: "火屬性傷害 240% + 燃燒 5 秒", cooldown: "16s", duration: "5s", note: "轉職後技能仍會保留" },
       { name: "專注",            type: "Passivo", rarity: "1★", effect: "+10% 暴擊率", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
-      { name: "HP 強化",         type: "Passivo", rarity: "1★", effect: "+15% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "生命值強化",         type: "Passivo", rarity: "1★", effect: "+15% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "破壞者和諧", type: "Self-Buff", rarity: "3★", effect: "+35% ATK, +20% HP, +15% 攻擊速度 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
     ]
   },
@@ -1627,7 +1627,7 @@ skills: [
     skills: [
       { name: "龍息",              type: "Ativo",   rarity: "4★", effect: "火屬性傷害 範圍 550% + 燃燒 8 秒", cooldown: "60s", duration: "8s", note: "轉職後技能仍會保留" },
       { name: "超越衝鋒",          type: "Ativo",   rarity: "4★", effect: "衝鋒傷害 680% + 擊退 + 暈眩 4 秒", cooldown: "180s", duration: "4s", note: "轉職後技能仍會保留" },
-      { name: "BP 精通",                   type: "Passivo", rarity: "3★", effect: "產生戰鬥點數 攻擊時, +5% ATK 每 BP (最多 5)", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "戰鬥點數精通",                   type: "Passivo", rarity: "3★", effect: "產生戰鬥點數 攻擊時, +5% ATK 每 BP (最多 5)", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "先鋒之魂",              type: "Passivo", rarity: "3★", effect: "+25% ATK, +20% DEF, +15% HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "先鋒之軀",         type: "Passivo", rarity: "3★", effect: "+20% 最大 HP, +15% HP 恢復, +10% 移動速度", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "戰鬥大師：半獸人",        type: "Passivo", rarity: "4★", effect: "+12% 全屬性, +18% 對怪物 傷害", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
@@ -1647,7 +1647,7 @@ skills: [
       { name: "風之打擊",  type: "Ativo",   rarity: "1★", effect: "風屬性傷害 魔法 150%", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
       { name: "自我治癒",    type: "Ativo",   rarity: "1★", effect: "恢復 20% HP", cooldown: "15s", duration: null, note: "轉職後技能仍會保留" },
       { name: "法袍精通", type: "Passivo", rarity: "1★", effect: "+10% 魔法攻擊 裝備法袍時", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
-      { name: "MP 提升",  type: "Passivo", rarity: "1★", effect: "+10% 最大 MP", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
+      { name: "魔力提升",  type: "Passivo", rarity: "1★", effect: "+10% 最大 MP", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1663,7 +1663,7 @@ skills: [
       { name: "解毒",  type: "Ativo",     rarity: "1★", effect: "移除 中毒", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
       { name: "止血",   type: "Ativo",     rarity: "1★", effect: "移除 流血", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
       { name: "火焰打擊", type: "Ativo",     rarity: "1★", effect: "火屬性傷害 200%", cooldown: "12s", duration: null, note: "轉職後技能仍會保留" },
-      { name: "MP 強化",   type: "Passivo",   rarity: "1★", effect: "+15% 最大 MP", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
+      { name: "魔力強化",   type: "Passivo",   rarity: "1★", effect: "+15% 最大 MP", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1684,7 +1684,7 @@ skills: [
       { name: "沉默封印",       type: "Ativo",      rarity: "3★", effect: "沉默 目標 5 秒", cooldown: "30s", duration: "5s", note: "轉職後技能仍會保留" },
       { name: "緩速封印",          type: "Ativo",      rarity: "2★", effect: "緩速 目標 -40% 8 秒", cooldown: "18s", duration: "8s", note: "轉職後技能仍會保留" },
       { name: "挑釁",               type: "Ativo",      rarity: "1★", effect: "嘲諷 10 秒", cooldown: "15s", duration: "10s", note: "轉職後技能仍會保留" },
-      { name: "HP 強化",              type: "Passivo",    rarity: "1★", effect: "+15% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "生命值強化",              type: "Passivo",    rarity: "1★", effect: "+15% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "霸主和諧",    type: "Self-Buff",  rarity: "3★", effect: "+30% 魔法攻擊, +25% HP, +20% 魔法防禦 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
     ]
   },
@@ -1761,7 +1761,7 @@ skills: [
       { name: "強力打擊",   type: "Ativo",   rarity: "1★", effect: "物理傷害 150%", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
       { name: "搜刮",           type: "Ativo",   rarity: "1★", effect: "標記目標以獲得額外掉落", cooldown: "10s", duration: "30s", note: "轉職後技能仍會保留" },
       { name: "包紮",         type: "Ativo",   rarity: "1★", effect: "恢復 15% HP", cooldown: "30s", duration: null, note: "轉職後技能仍會保留" },
-      { name: "HP 提升",     type: "Passivo", rarity: "1★", effect: "+10% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "生命值提升",     type: "Passivo", rarity: "1★", effect: "+10% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "輕甲精通", type: "Passivo", rarity: "1★", effect: "+8% DEF 裝備輕甲時", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
     ]
   },
@@ -1796,7 +1796,7 @@ skills: [
       { name: "假死",        type: "Ativo",   rarity: "2★", effect: "裝死, 清除仇恨", cooldown: "60s", duration: "30s", note: "轉職後技能仍會保留" },
       { name: "暴擊威力",    type: "Passivo", rarity: "2★", effect: "+20% 暴擊威力", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "專注",             type: "Passivo", rarity: "1★", effect: "+10% 暴擊率", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
-      { name: "HP 強化",          type: "Passivo", rarity: "1★", effect: "+15% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "生命值強化",          type: "Passivo", rarity: "1★", effect: "+15% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "賞金獵人和諧", type: "Self-Buff", rarity: "3★", effect: "+30% ATK, +25% 暴擊, +20% 掉落加成 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
     ]
   },
@@ -1839,7 +1839,7 @@ skills: [
     desc: '精通強力魔像與高階製作的戰爭工匠。',
     base: { atk: 40, def: 35, hp: 340, mp: 65, eva: 6, crit: 8, mdef: 18 },
     skills: [
-      { name: "製作物品 Lv2-7",        type: "Ativo",   rarity: "2★", effect: "製作 物品 進階", cooldown: "5s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "製作物品（等級2～7）",        type: "Ativo",   rarity: "2★", effect: "製作 物品 進階", cooldown: "5s", duration: null, note: "轉職後技能仍會保留" },
       { name: "召喚攻城魔像",        type: "Ativo",   rarity: "2★", effect: "魔像 強力 (ATK 250%, HP 高)", cooldown: "60s", duration: "180s", note: "轉職後技能仍會保留" },
       { name: "召喚機械魔像",     type: "Ativo",   rarity: "2★", effect: "魔像 機械 (ATK 遠距 200%)", cooldown: "60s", duration: "180s", note: "轉職後技能仍會保留" },
       { name: "召喚野豬加農砲",    type: "Ativo",   rarity: "3★", effect: "火砲 範圍 (傷害 300%/10 秒)", cooldown: "90s", duration: "120s", note: "轉職後技能仍會保留" },
@@ -1895,7 +1895,7 @@ skills: [
       { name: "突進",                type: "Ativo",   rarity: "1★", effect: "突進 給目標 + 傷害 150%", cooldown: "12s", duration: null, note: "轉職後技能仍會保留" },
       { name: "三重突刺",       type: "Ativo",   rarity: "1★", effect: "傷害 180% (3 次命中)", cooldown: "12s", duration: null, note: "轉職後技能仍會保留" },
       { name: "重甲精通", type: "Passivo", rarity: "1★", effect: "+15% DEF 裝備重甲時", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
-      { name: "HP 強化",            type: "Passivo", rarity: "1★", effect: "+12% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
+      { name: "生命值強化",            type: "Passivo", rarity: "1★", effect: "+12% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1947,7 +1947,7 @@ skills: [
       { name: "強化靈魂打擊", type: "Ativo", rarity: "1★", effect: "傷害 靈魂 180%", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
       { name: "雙重突刺",         type: "Ativo", rarity: "1★", effect: "傷害 170% (2 次命中)", cooldown: "10s", duration: null, note: "轉職後技能仍會保留" },
       { name: "細劍精通",        type: "Passivo", rarity: "1★", effect: "裝備細劍時 ATK +12%", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
-      { name: "MP 強化",            type: "Passivo", rarity: "1★", effect: "+12% 最大 MP", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
+      { name: "魔力強化",            type: "Passivo", rarity: "1★", effect: "+12% 最大 MP", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1988,7 +1988,7 @@ skills: [
     skills: [
       { name: "快速射擊",         type: "Ativo",   rarity: "1★", effect: "傷害 170% 快速", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
       { name: "弩精通",   type: "Passivo", rarity: "1★", effect: "裝備弩時 ATK +12%", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
-      { name: "HP 強化",           type: "Passivo", rarity: "1★", effect: "+10% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
+      { name: "生命值強化",           type: "Passivo", rarity: "1★", effect: "+10% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -2090,7 +2090,7 @@ skills: [
     skills: [
       { name: "死亡尖刺",     type: "Ativo",   rarity: "1★", effect: "傷害 黑暗 160%", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
       { name: "靈魂吸取",      type: "Ativo",   rarity: "1★", effect: "傷害 140% + 吸取 20% HP", cooldown: "12s", duration: null, note: "轉職後技能仍會保留" },
-      { name: "DP 精通",      type: "Passivo", rarity: "1★", effect: "產生 死亡點數 攻擊時/擊殺", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
+      { name: "死亡點數精通",      type: "Passivo", rarity: "1★", effect: "產生 死亡點數 攻擊時/擊殺", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -2120,7 +2120,7 @@ skills: [
 
   deathKnight: {
     name: '死亡騎士', parent: 'deathMessenger', archetype: 'deathknight', stage: 3,
-    desc: '死亡騎士——運用 Death Points 發動絕對的黑暗毀滅。',
+    desc: '死亡騎士——運用死亡點數發動絕對的黑暗毀滅。',
     base: { atk: 105, def: 52, hp: 650, mp: 140, eva: 18, crit: 22, mdef: 38 },
     skills: [
       { name: "死亡風暴",                 type: "Ativo",   rarity: "3★", effect: "範圍傷害 黑暗 450% + 吸取 HP 範圍 20%", cooldown: "30s", duration: null, note: "轉職後技能仍會保留" },
@@ -2311,7 +2311,7 @@ skills: [
       { name: "神聖之光",         type: "Ativo",   rarity: "1★", effect: "神聖傷害 150%", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
       { name: "元素編織",    type: "Ativo",   rarity: "1★", effect: "傷害 元素 140%", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
       { name: "高等精靈精通",   type: "Passivo", rarity: "1★", effect: "+10% P.ATK 和 魔法攻擊", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
-      { name: "MP 提升",        type: "Passivo", rarity: "1★", effect: "+10% 最大 MP", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
+      { name: "魔力提升",        type: "Passivo", rarity: "1★", effect: "+10% 最大 MP", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
     ]
   },
 
