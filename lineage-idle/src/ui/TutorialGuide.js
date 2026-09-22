@@ -261,24 +261,24 @@ export const GUIDES_DATA = {
 
   craft: {
     id: 'craft',
-    title: '⚒️ Forja Imperial & Criação Universal',
-    subtitle: 'Explore todas as subabas da Forja: Crafting, Soul Crystals, Pushkin MW, Dyes, Elementos, Cintos e Life Stones.',
+    title: '⚒️ 亞丁帝國鍛造與通用製作',
+    subtitle: '探索鍛造系統的所有分頁：製作、靈魂水晶、Pushkin MW、染料、元素、腰帶與生命石。',
     icon: '⚒️',
     color: '#f59e0b',
     sections: [
       {
         heading: '⚒️ Crafting de 裝備',
         text: 'Crie armas, armaduras, capas, cintos e joias utilizando matérias-primas como Iron Ore, Oriharukon, Adamantite e Leather.',
-        tip: 'Subir seu Nível de Forja desbloqueia receitas de Graus mais elevados (Grade A e S).'
+        tip: '提升鍛造等級可以解鎖更高等級的配方（A 級與 S 級）。'
       },
       {
         heading: '🔮 Soul Crystals (SA)',
         text: 'Forje e engaste Soul Crystals (Red, Green, Blue) em armas para liberar Special Abilities (SA) como Health (+25% HP), Focus (+80 Crit) ou Acumen (+15% Cast).',
-        tip: 'Você pode fundir 2 Soul Crystals do mesmo nível para subir seu grau.'
+        tip: '你可以融合 2 顆相同等級的靈魂水晶來提升階級。'
       },
       {
         heading: '✨ Mestre Pushkin MW (Masterwork)',
-        text: 'Leve equipamentos comuns ao Mestre Pushkin para forjar a versão **Masterwork (MW)**, garantindo bônus adicionais de status e aura cintilante.',
+        text: '將一般裝備交給 Pushkin 大師，可鍛造成 **Masterwork（MW）** 版本，獲得額外屬性加成與閃耀特效。',
         tip: 'Itens Masterwork possuem multiplicadores superiores aos itens base!'
       },
       {
@@ -308,8 +308,8 @@ export const GUIDES_DATA = {
     sections: [
       {
         heading: '🍷 Elixires de Status Permanentes',
-        text: 'Combine essências e cristais para criar Elixires de STR, DEX, CON, INT, WIT e MEN. Cada elixir consumido aumenta permanentemente o atributo base do seu personagem.',
-        tip: 'Há um limite de elixires por nível. Elabore primeiro os atributos focados na sua classe principal!'
+        text: '組合精華與水晶可製作 STR、DEX、CON、INT、WIT、MEN 靈藥。每使用一瓶，都會永久提升角色的基礎屬性。',
+        tip: '每個等級可使用的靈藥數量有限，請優先強化主職業最重要的屬性！'
       }
     ]
   },
@@ -336,8 +336,8 @@ export const GUIDES_DATA = {
 
   expeditions: {
     id: 'expeditions',
-    title: '🏰 Expedições, Manor & Castelos de Aden',
-    subtitle: 'Plante sementes no Manor, conquiste Castelos e envie Expedições de Mercenários.',
+    title: '🏰 遠征、莊園與亞丁城堡',
+    subtitle: '在莊園播種、征服城堡，並派遣傭兵進行遠征。',
     icon: '🏰',
     color: '#8b5cf6',
     sections: [
@@ -347,13 +347,13 @@ export const GUIDES_DATA = {
         tip: 'O Manor é uma das formas mais baratas de conseguir minérios e tecidos raros!'
       },
       {
-        heading: '👑 Castelos (Gludio, Giran, Aden)',
-        text: 'Desafie os guardiões dos Castelos de Gludio, Giran e Aden. Conquistar um castelo garante **Impostos Diários em Adena** coletados de todo o servidor!',
-        tip: 'Colete seus impostos diariamente no painel do Castelo!'
+        heading: '👑 城堡（古魯丁、奇岩、亞丁）',
+        text: '挑戰古魯丁、奇岩與亞丁城堡的守衛。成功佔領城堡後，可從全伺服器獲得 **每日金幣稅收**！',
+        tip: '記得每天到城堡面板領取稅收！'
       },
       {
         heading: '⛵ Expedições de Mercenários',
-        text: 'Envie esquadrões de mercenários em missões temporizadas (1h, 4h, 8h). Eles retornarão com caixas de suprimentos, receitas e Adena.',
+        text: '派遣傭兵小隊執行定時任務（1 小時、4 小時、8 小時），他們會帶回補給箱、配方與金幣。',
         tip: 'Mantenha suas expedições sempre rodando em segundo plano!'
       }
     ]
@@ -362,13 +362,13 @@ export const GUIDES_DATA = {
   codex: {
     id: 'codex',
     title: '📜 Codex & Coleção de Itens',
-    subtitle: 'Complete coleções de equipamentos e Boss Dolls para desbloquear bônus na conta.',
+    subtitle: '完成裝備與首領娃娃收藏，可解鎖帳號加成。',
     icon: '📜',
     color: '#34d399',
     sections: [
       {
         heading: '📚 Coleções de 裝備',
-        text: 'Ao obter equipamentos e joias repetidas, registre-os no Codex. Completar um conjunto de coleção concede bônus permanentes como +P.Atk, +M.Atk, +HP ou +Def.',
+        text: '取得重複的裝備與飾品後，可登錄至圖鑑。完成一組收藏會獲得永久加成，例如 +P.Atk、+M.Atk、+HP 或 +Def。',
         tip: 'Mesmo itens de No-Grade concedem bônus valiosos quando a coleção é completada!'
       }
     ]
@@ -376,19 +376,19 @@ export const GUIDES_DATA = {
 
   dolls: {
     id: 'dolls',
-    title: '🎎 Boss Dolls & Sintetizador',
+    title: '🎎 首領娃娃與合成器',
     subtitle: 'Equipe colecionáveis de chefes lendários e faça fusões.',
     icon: '🎎',
     color: '#f43f5e',
     sections: [
       {
-        heading: '👑 Boss Dolls (Queen Ant, Baium, Zaken, Antharas)',
-        text: 'Dolls de Chefes concedem bônus massivos de atributos atipicamente altos. Você pode equipar Dolls no seu inventário.',
-        tip: 'Dolls de grau elevado concedem redução de dano e vampirismo de vida!'
+        heading: '👑 首領娃娃（蟻后、巴溫、札肯、安塔瑞斯）',
+        text: '首領娃娃能提供非常高的屬性加成，並可直接從背包中裝備。',
+        tip: '高階娃娃還能提供減傷與吸血效果！'
       },
       {
-        heading: '🔮 Sintetizador de Dolls',
-        text: 'Combine 3 Dolls idênticas do mesmo grau no Sintetizador para tentar evoluir para o próximo nível de raridade.',
+        heading: '🔮 娃娃合成器',
+        text: '將 3 個相同且同階級的娃娃放入合成器，可嘗試進化到下一個稀有度。',
         tip: 'Em caso de sucesso, a Doll ganha efeitos visuais brilhantes e atributos duplicados.'
       }
     ]
@@ -396,19 +396,19 @@ export const GUIDES_DATA = {
 
   quests: {
     id: 'quests',
-    title: '📜 任務, Bounties & Passe de Batalha',
+    title: '📜 任務、懸賞與戰鬥通行證',
     subtitle: 'Cumpra objetivos diários para ganhar Adena, SP e itens exclusivos.',
     icon: '📜',
     color: '#fbbf24',
     sections: [
       {
         heading: '🎯 任務 Diárias & Caçadas',
-        text: 'Derrote uma quantidade estipulada de monstros ou chefes diariamente para resgatar baús de suprimentos e cupons de teleporte.',
-        tip: 'Reivindique todas as recompensas diárias antes do reset da meia-noite!'
+        text: '每天擊敗指定數量的怪物或首領，可領取補給箱與傳送券。',
+        tip: '每日重置前記得領完所有每日獎勵！'
       },
       {
-        heading: '🎫 Passe de Batalha (Adena Pass)',
-        text: 'Acumule pontos de passe ao jogar para subir de nível no Passe. Desbloqueie recompensas gratuitas e aprimore para o Passe Premium para prêmios lendários.',
+        heading: '🎫 戰鬥通行證（Adena Pass）',
+        text: '遊玩時累積通行證點數即可提升等級，解鎖免費獎勵；升級為高級通行證後可獲得更稀有的獎勵。',
         tip: 'O Passe Premium concede pergaminhos de enchant abençoados!'
       }
     ]
@@ -417,18 +417,18 @@ export const GUIDES_DATA = {
   tower: {
     id: 'tower',
     title: '🏰 Torre da Insolência (Tower of Insolence)',
-    subtitle: 'Desafie os 100 andares da torre e varra recompensas diárias.',
+    subtitle: '挑戰傲慢之塔 100 層，並每天掃蕩已通關樓層的獎勵。',
     icon: '🏰',
     color: '#c084fc',
     sections: [
       {
         heading: '🧗 Escalada dos 100 Andares',
-        text: 'Enfrente guardiões e chefes em andares progressivamente mais difíceis. Cada andar superado concede recompensas únicas e desbloqueia o Sweep Diário.',
-        tip: 'Se falhar em um andar, fortaleça seus equipamentos na Forja antes de tentar novamente!'
+        text: '隨樓層上升，守衛與首領會越來越強。每通過一層都能獲得獨特獎勵，並逐步解鎖每日掃蕩。',
+        tip: '如果挑戰失敗，可以先到鍛造系統強化裝備再重新挑戰！'
       },
       {
         heading: '🧹 Varredura Diária (Sweep)',
-        text: 'Uma vez por dia, utilize o botão "Varredura Diária" para coletar instantaneamente as recompensas de todos os andares já superados!',
+        text: '每天可使用一次「每日掃蕩」，立即領取所有已通關樓層的獎勵！',
         tip: 'Quanto mais alto você subir na torre, maior será a quantidade diária de Adena e SP coletada!'
       }
     ]
@@ -501,25 +501,25 @@ export const GUIDES_DATA = {
 
   referral: {
     id: 'referral',
-    title: '👥 Contatos, Amigos, Mentoria & Indicação',
-    subtitle: 'Gerencie sua rede de contatos, vincule mentores, envie sussurros e receba recompensas épicas!',
+    title: '👥 聯絡人、好友、導師與推薦',
+    subtitle: '管理好友網路、綁定導師、傳送密語，並領取推薦獎勵！',
     icon: '👥',
     color: '#34d399',
     sections: [
       {
-        heading: '👥 Gerenciador de Contatos & Lista de Amigos',
+        heading: '👥 聯絡人與好友清單',
         text: 'O menu de Contatos permite gerenciar sua rede social completa dentro do Aden Arena:\n• **Adicionar Amigos (+ Adicionar):** Registre até 128 amigos pelo nome de personagem para acompanhar seu nível, classe e status (Online/Offline).\n• **Comunicação Direta:** Envie **Sussurros instantâneos (💬 Msg)** ou envie cartas via **Correio Expresso (✉️ Mail)**.\n• **Ações Rápidas de Grupo e 血盟:** Convide facilmente seus companheiros para seu **Grupo (Party)** de caça ou para o seu **血盟**.\n• **Lista de Bloqueados:** Bloqueie até 64 jogadores indesejados para manter seu foco e tranquilidade nas batalhas.',
-        tip: 'Acesse o menu a qualquer momento clicando no botão "👥 Contatos" na barra superior ou na aba "Glória & Sociedade"!'
+        tip: '你可以隨時點擊上方的「👥 聯絡人」按鈕，或從「榮耀與社交」分頁開啟此功能。'
       },
       {
-        heading: '🎓 Sistema de Mentoria (Iniciantes até o Nível 20)',
+        heading: '🎓 導師系統（等級 20 以下新手）',
         text: 'A mentoria fortalece os laços entre guerreiros veteranos e novatos:\n• **Sou Novato (Até Nv. 20):** Vincule um mentor experiente para receber imediatamente **+10% EXP permanente**, **1.000 Soulshots/Spiritshots No-Grade** e **10 Poções de Vida**!\n• **Marco de Evolução (Nível 40):** Ao atingir a 2ª Troca de Classe (Nv. 40), o Pupilo e o Mentor são recompensados com **50 Aden Coins (AC)** + **5x Pergaminhos Abençoados de Arma (Blessed Scrolls)**!\n• **Vínculo Rápido:** Selecione qualquer amigo na sua lista e clique em **"🎓 Tornar Mentor"** para vinculá-lo instantaneamente.',
-        tip: 'O vínculo de mentor deve ser realizado antes do Nível 20. Aproveite esse impulso inicial para acelerar sua jornada!'
+        tip: '導師綁定必須在等級 20 前完成，善用這項加成可以更快度過前期。'
       },
       {
-        heading: '🎁 Link Exclusivo, WhatsApp & Comunidade Discord',
+        heading: '🎁 專屬連結、WhatsApp 與 Discord 社群',
         text: 'Traga amigos para jogar no navegador e ganhem recompensas juntos:\n• **Link Exclusivo:** Copie seu link pessoal (`?ref=SeuNome`) ou use o botão de **Compartilhar no WhatsApp** com 1 clique.\n• **Resgate de Recompensas:** Use o botão **"Verificar & Resgatar Recompensas"** para coletar os prêmios conforme seus pupilos alcançam o Nível 40.\n• **Discord Oficial:** Junte-se à comunidade oficial para negociar itens, participar de eventos e tirar dúvidas!\n\n🔗 Link Oficial: **https://discord.gg/R7rwB5uCc**',
-        tip: 'Fique atento aos canais de avisos no Discord para resgatar Cupons de Presente com bônus exclusivos!'
+        tip: '記得留意 Discord 公告頻道，可能會有可兌換專屬加成的禮物序號！'
       }
     ]
   }
@@ -659,7 +659,7 @@ export function openTabGuideModal(guideKey) {
       <!-- Footer -->
       <div style="padding: 12px 20px; border-top: 1px solid rgba(212, 167, 68, 0.2); background: rgba(0, 0, 0, 0.4); border-radius: 0 0 14px 14px; display: flex; justify-content: space-between; align-items: center;">
         <span style="font-size: 11px; color: #888;">
-          ❓ Você pode reabrir este guia a qualquer momento no botão <strong>指南 da Aba</strong> ou no topo da tela.
+          ❓ 你可以隨時點擊分頁中的 <strong>指南</strong> 按鈕，或從畫面頂部重新開啟這份教學。
         </span>
         <button onclick="window.closeTabGuideModal()" style="padding: 8px 20px; font-family: 'Cinzel', serif; font-weight: bold; font-size: 12px; background: linear-gradient(180deg, #d4a744, #8a641c); border: 1px solid #ffe699; color: #000; border-radius: 6px; cursor: pointer; box-shadow: 0 2px 10px rgba(212, 167, 68, 0.3);">
           ENTENDI, CONTINUAR JOGO!
