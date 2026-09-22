@@ -9465,7 +9465,7 @@ export function uiOpenReferralModal(state, defaultTab) {
             <span style="font-size: 20px;">✨</span>
             <div>
               <div>已綁定導師： <strong style="color:#ffd877; font-size: 12px;">${referredBy}</strong></div>
-              <div style="font-size: 10px; color: #a7f3d0; margin-top: 2px;">目前加成：<strong>永久 +10% EXP</strong>，且已發放新手歡迎禮包。</div>
+              <div style="font-size: 10px; color: #a7f3d0; margin-top: 2px;">目前加成：<strong>永久 +10% 經驗值</strong>，且已發放新手歡迎禮包。</div>
             </div>
           </div>
         ` : ((s.level || 1) <= 20 ? `
@@ -9474,7 +9474,7 @@ export function uiOpenReferralModal(state, defaultTab) {
               🎯 綁定導師（等級 20 前可用）：
             </div>
             <div style="font-size: 10.5px; color: #94a3b8; margin-bottom: 8px; line-height: 1.4;">
-              綁定導師後，你會立即獲得 <strong style="color:#6ee7b7;">永久 +10% EXP</strong>、<strong>1,000 魂彈</strong> 與 <strong>10 瓶生命藥水</strong>！達到等級 40 時，雙方都可獲得 <strong>50 AC</strong> 與 <strong>5 張祝福卷軸</strong>。
+              綁定導師後，你會立即獲得 <strong style="color:#6ee7b7;">永久 +10% 經驗值</strong>、<strong>1,000 魂彈</strong> 與 <strong>10 瓶生命藥水</strong>！達到等級 40 時，雙方都可獲得 <strong>50 AC</strong> 與 <strong>5 張祝福卷軸</strong>。
             </div>
             <div style="display: flex; gap: 8px;">
               <input id="ref-friend-code-input" type="text" placeholder="輸入你的導師名稱..." style="flex: 1; background: #0b0d13; border: 1px solid #334155; border-radius: 4px; padding: 7px 10px; color: #fff; font-size: 11px;" />
