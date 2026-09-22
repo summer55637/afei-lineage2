@@ -1,5 +1,5 @@
 /**
- * WorldBossService.js — Sistema de Eventos Globais Programados & Incursões de World Boss
+ * WorldBossService.js — Sistema de Eventos Globais Programados & Incursões de 世界首領
  * 
  * Cronograma sincronizado com relógio UTC:
  * - Janelas a cada 3 horas (00:00, 03:00, 06:00, 09:00, 12:00, 15:00, 18:00, 21:00 UTC).
@@ -31,7 +31,7 @@ export const WORLD_BOSS_CATALOG = {
     adenCoinsReward: 25,
     icon: 'gradespecial/jewels/jewel_ring_queen_ant.png',
     bg: 'dungeon_wastelands',
-    lore: 'A rainha das formigas gigantes emergiu dos abismos dos Ermos de Gludio. Seus feromônios ácidos corroem as armaduras mais resistentes.',
+    lore: '巨蟻女王自古魯丁荒野深處現身，她的酸性費洛蒙能腐蝕最堅固的防具。',
     drops: [
       { itemId: 'jewel_ring_queen_ant', name: 'Ring of Queen Ant', chance: 0.35, isEpicJewel: true },
       { itemId: 'book_4star', name: 'Tomo Sagrado: 4★ (Divino)', chance: 0.20 },
@@ -41,7 +41,7 @@ export const WORLD_BOSS_CATALOG = {
   },
   zaken_world: {
     id: 'zaken_world',
-    name: 'Capitão Pirata Zaken ⚓',
+    name: '海賊船長札肯 ⚓',
     title: 'O Flagelo Imortal da Ilha do Diabo',
     lvl: 65,
     hp: 1850000,
@@ -57,7 +57,7 @@ export const WORLD_BOSS_CATALOG = {
     adenCoinsReward: 35,
     icon: 'gradespecial/jewels/jewel_earring_zaken.png',
     bg: 'pirates_ship',
-    lore: 'Amaldiçoado pela eternidade em seu galeão fantasma, Zaken drena a força vital de todos os mortais que ousam pisar em seus conveses.',
+    lore: '札肯被永恆詛咒困在幽靈船上，會吸取所有膽敢踏上甲板之人的生命力。',
     drops: [
       { itemId: 'jewel_earring_zaken', name: 'Zaken\'s Earring', chance: 0.35, isEpicJewel: true },
       { itemId: 'book_4star', name: 'Tomo Sagrado: 4★ (Divino)', chance: 0.30 },
@@ -83,7 +83,7 @@ export const WORLD_BOSS_CATALOG = {
     adenCoinsReward: 50,
     icon: 'gradespecial/jewels/jewel_ring_baium.png',
     bg: 'tower_peak',
-    lore: 'O imperador que desafiou os deuses ao erguer a Torre da Insolência. Seus punhos trovejantes e raios arcanos pulverizam exércitos inteiros.',
+    lore: '他是建造傲慢之塔、挑戰眾神的皇帝；雷霆之拳與秘法閃電足以摧毀整支軍隊。',
     drops: [
       { itemId: 'jewel_ring_baium', name: 'Ring of Baium', chance: 0.35, isEpicJewel: true },
       { itemId: 'book_4star', name: 'Tomo Sagrado: 4★ (Divino)', chance: 0.40 },
@@ -93,8 +93,8 @@ export const WORLD_BOSS_CATALOG = {
   },
   antharas_world: {
     id: 'antharas_world',
-    name: 'Dragão Antharas 🐉',
-    title: 'O Soberano Dragão da Terra',
+    name: '地龍安塔瑞斯 🐉',
+    title: '大地龍之王',
     lvl: 95,
     hp: 8500000,
     maxHp: 8500000,
@@ -109,7 +109,7 @@ export const WORLD_BOSS_CATALOG = {
     adenCoinsReward: 75,
     icon: 'gradespecial/jewels/jewel_earring_antharas.png',
     bg: 'antharas_lair',
-    lore: 'Cria colossal da Deusa Shilen. Quando Antharas desperta de seu sono milenar em Giran, a própria terra estremece e rochas colossais caem dos céus.',
+    lore: '席琳女神孕育的巨大龍族。安塔瑞斯在奇岩自千年沉睡中甦醒時，大地震動、巨石從天而降。',
     drops: [
       { itemId: 'jewel_earring_antharas', name: 'Earring of Antharas', chance: 0.35, isEpicJewel: true },
       { itemId: 'book_4star', name: 'Tomo Sagrado: 4★ (Divino)', chance: 0.60 },
@@ -119,8 +119,8 @@ export const WORLD_BOSS_CATALOG = {
   },
   valakas_world: {
     id: 'valakas_world',
-    name: 'Dragão Valakas 🌋',
-    title: 'O Senhor Supremo do Fogo & Vulcão',
+    name: '火龍巴拉卡斯 🌋',
+    title: '火焰與火山的至高支配者',
     lvl: 100,
     hp: 12500000,
     maxHp: 12500000,
@@ -135,7 +135,7 @@ export const WORLD_BOSS_CATALOG = {
     adenCoinsReward: 100,
     icon: 'gradespecial/jewels/jewel_necklace_valakas.png',
     bg: 'valakas_volcano',
-    lore: 'O mais temido dos dragões de Shilen, habitante das profundezas magmáticas da Forja dos Deuses. Seu sopro de chamas apaga civilizações.',
+    lore: '席琳龍族中最令人畏懼的存在，棲息於諸神熔爐的熔岩深處，烈焰吐息足以摧毀文明。',
     drops: [
       { itemId: 'jewel_necklace_valakas', name: 'Necklace of Valakas', chance: 0.35, isEpicJewel: true },
       { itemId: 'book_4star', name: 'Tomo Sagrado: 4★ (Divino)', chance: 0.75 },
@@ -151,7 +151,7 @@ const ACTIVE_DURATION_MS = 45 * 60 * 1000; // 45 minutos ativo
 
 export const WorldBossService = {
   /**
-   * Retorna o status do World Boss atual e cronograma
+   * Retorna o status do 世界首領 atual e cronograma
    */
   getStatus() {
     const now = Date.now();
@@ -190,7 +190,7 @@ export const WorldBossService = {
   },
 
   /**
-   * Engaja o combate de Incursão Global contra o World Boss
+   * Engaja o combate de Incursão Global contra o 世界首領
    */
   joinWorldBoss(state, callbacks = {}) {
     const { log = console.log, floatText = () => {}, renderStageMonster = () => {}, attackMonster = () => {}, save = () => {} } = callbacks;
@@ -198,13 +198,13 @@ export const WorldBossService = {
 
     const status = this.getStatus();
     if (!status.isActive) {
-      log(`⚠️ Nenhum World Boss ativo no momento. Próximo despertar em ${status.timeFormatted}.`, 'warning');
+      log(`⚠️ 目前沒有世界首領活動。下次甦醒：${status.timeFormatted}。`, 'warning');
       return { success: false, reason: 'not_active' };
     }
 
     const bossDef = status.currentBoss;
 
-    // Constrói monstro ativo de World Boss com mecânicas globais
+    // Constrói monstro ativo de 世界首領 com mecânicas globais
     state.activeMonster = {
       id: bossDef.id,
       name: bossDef.name,
@@ -227,7 +227,7 @@ export const WorldBossService = {
       adenCoinsReward: bossDef.adenCoinsReward
     };
 
-    log(`🚨 **[INCURSÃO GLOBAL]** Você entrou no covil de **${bossDef.name}**! Prepare-se para a batalha monumental!`, 'rarity-legendary');
+    log(`🚨 **[全球突襲]** 你已進入 **${bossDef.name}** 的巢穴！準備迎接大型戰鬥！`, 'rarity-legendary');
     floatText(`⚡ INCURSÃO: ${bossDef.name.toUpperCase()}!`, 'float-jackpot');
 
     renderStageMonster(state);
@@ -238,7 +238,7 @@ export const WorldBossService = {
   },
 
   /**
-   * Processa recompensas épicas após derrota do World Boss
+   * Processa recompensas épicas após derrota do 世界首領
    */
   processWorldBossDefeat(state, callbacks = {}) {
     const { log = console.log, floatText = () => {}, addToInventory = () => {} } = callbacks;
@@ -251,7 +251,7 @@ export const WorldBossService = {
     state.gold = (state.gold || 0) + gold;
     state.adenCoins = (state.adenCoins || 0) + ac;
 
-    log(`👑 **[VITÓRIA GLOBAL]** O terrível World Boss **${m.name}** foi derrotado! Você recebeu ${gold.toLocaleString()} Adena e ${ac} Aden Coins!`, 'rarity-legendary');
+    log(`👑 **[VITÓRIA GLOBAL]** O terrível 世界首領 **${m.name}** foi derrotado! Você recebeu ${gold.toLocaleString()} Adena e ${ac} Aden Coins!`, 'rarity-legendary');
     floatText('🏆 WORLD BOSS DERROTADO!', 'float-jackpot');
 
     // Distribuição de drops
