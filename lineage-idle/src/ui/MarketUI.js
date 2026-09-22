@@ -162,7 +162,7 @@ export function renderMarketTab(container, state, callbacks = {}) {
           </div>
 
           ${_activeMarketTab === 'buy' ? `
-            <button id="btn-world-trade-my-items" class="l2wt-my-items-btn" title="Gerenciar meus anúncios e lucros">
+            <button id="btn-world-trade-my-items" class="l2wt-my-items-btn" title="管理我的刊登與收益">
               📦 My items
             </button>
           ` : `
@@ -192,7 +192,7 @@ export function renderMarketTab(container, state, callbacks = {}) {
         <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
           <span style="font-size: 11px; color: #94a3b8; font-family: 'Inter', sans-serif; margin-right: 4px;">Moeda:</span>
           <button class="l2wt-cur-filter ${_currencyFilter === 'all' ? 'active' : ''}" data-cur="all" style="background: ${_currencyFilter === 'all' ? 'rgba(212,167,68,0.25)' : 'rgba(0,0,0,0.4)'}; color: ${_currencyFilter === 'all' ? '#ffd877' : '#94a3b8'}; border: 1px solid ${_currencyFilter === 'all' ? '#ffd877' : 'rgba(255,255,255,0.1)'}; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer;">🌐 Todas</button>
-          <button class="l2wt-cur-filter ${_currencyFilter === 'adena' ? 'active' : ''}" data-cur="adena" style="background: ${_currencyFilter === 'adena' ? 'rgba(234,179,8,0.25)' : 'rgba(0,0,0,0.4)'}; color: ${_currencyFilter === 'adena' ? '#fde047' : '#94a3b8'}; border: 1px solid ${_currencyFilter === 'adena' ? '#fde047' : 'rgba(255,255,255,0.1)'}; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer;">🪙 Adena</button>
+          <button class="l2wt-cur-filter ${_currencyFilter === 'adena' ? 'active' : ''}" data-cur="adena" style="background: ${_currencyFilter === 'adena' ? 'rgba(234,179,8,0.25)' : 'rgba(0,0,0,0.4)'}; color: ${_currencyFilter === 'adena' ? '#fde047' : '#94a3b8'}; border: 1px solid ${_currencyFilter === 'adena' ? '#fde047' : 'rgba(255,255,255,0.1)'}; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer;">🪙 金幣</button>
           <button class="l2wt-cur-filter ${_currencyFilter === 'adencoin' ? 'active' : ''}" data-cur="adencoin" style="background: ${_currencyFilter === 'adencoin' ? 'rgba(59,130,246,0.25)' : 'rgba(0,0,0,0.4)'}; color: ${_currencyFilter === 'adencoin' ? '#93c5fd' : '#94a3b8'}; border: 1px solid ${_currencyFilter === 'adencoin' ? '#93c5fd' : 'rgba(255,255,255,0.1)'}; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer;">👑 Aden Coin</button>
         </div>
 
@@ -265,7 +265,7 @@ function renderBuyTab(state) {
             <tr>
               <td colspan="4" style="text-align: center; padding: 48px 16px; color: #94a3b8; font-family: 'Cinzel', serif;">
                 <div style="font-size: 32px; margin-bottom: 8px;">🏛️</div>
-                <div style="font-size: 15px; color: #ffd877; margin-bottom: 4px; font-weight: bold;">Nenhum item anunciado nesta categoria</div>
+                <div style="font-size: 15px; color: #ffd877; margin-bottom: 4px; font-weight: bold;">此分類目前沒有刊登物品</div>
                 <div style="font-size: 11px; color: #64748b; font-family: 'Inter', sans-serif;">
                   市場中的所有物品都來自真實玩家。 Clique em <strong style="color: #67e8f9;">'My items'</strong> no topo para anunciar o seu!
                 </div>
@@ -332,7 +332,7 @@ function renderBuyTab(state) {
           }).join('')}
           <tr id="l2wt-empty-search-row" style="display: none;">
             <td colspan="4" style="text-align: center; padding: 30px 16px; color: #94a3b8; font-size: 12px; font-family: 'Cinzel', serif;">
-              🔍 Nenhum item encontrado para esta busca.
+              🔍 找不到符合搜尋條件的物品。
             </td>
           </tr>
         </tbody>
@@ -418,7 +418,7 @@ function renderSellTab(state) {
               <label style="font-size: 12px; color: #cbd5e1; display: block; margin-bottom: 4px;">Moeda de Venda:</label>
               <div style="display: flex; gap: 10px;">
                 <button class="market-set-currency ${_sellCurrency === 'adena' ? 'active' : ''}" data-cur="adena" style="flex: 1; padding: 8px; border-radius: 6px; background: ${_sellCurrency === 'adena' ? 'rgba(234,179,8,0.25)' : 'rgba(0,0,0,0.4)'}; border: 1px solid ${_sellCurrency === 'adena' ? '#fde047' : 'rgba(255,255,255,0.1)'}; color: ${_sellCurrency === 'adena' ? '#fde047' : '#aaa'}; font-weight: bold; cursor: pointer; font-size: 12px;">
-                  🪙 Adena
+                  🪙 金幣
                 </button>
                 <button class="market-set-currency ${_sellCurrency === 'adencoin' ? 'active' : ''}" data-cur="adencoin" style="flex: 1; padding: 8px; border-radius: 6px; background: ${_sellCurrency === 'adencoin' ? 'rgba(59,130,246,0.25)' : 'rgba(0,0,0,0.4)'}; border: 1px solid ${_sellCurrency === 'adencoin' ? '#93c5fd' : 'rgba(255,255,255,0.1)'}; color: ${_sellCurrency === 'adencoin' ? '#93c5fd' : '#aaa'}; font-weight: bold; cursor: pointer; font-size: 12px;">
                   👑 Aden Coin (AC)
@@ -447,15 +447,15 @@ function renderSellTab(state) {
                 </strong>
               </div>
               <div style="display: flex; justify-content: space-between; color: #94a3b8;">
-                <span>Taxa de Listagem (5% Adena):</span>
+                <span>刊登費（5% 金幣）：</span>
                 <span style="color: ${canPayFee ? '#4ade80' : '#ef4444'}; font-family: 'IBM Plex Mono', monospace;">
                   🪙 ${listingFee.toLocaleString()} ${!canPayFee ? '(餘額不足)' : ''}
                 </span>
               </div>
               <div style="display: flex; justify-content: space-between; color: #94a3b8;">
-                <span>Lucro Líquido Estimado (-3% Coroa):</span>
+                <span>預估淨收益（扣除 3% 王室稅）：</span>
                 <span style="color: #34d399; font-weight: bold; font-family: 'IBM Plex Mono', monospace;">
-                  ${_sellCurrency === 'adena' ? `🪙 ${Math.floor(totalPrice * 0.97).toLocaleString()} Adena` : `👑 ${totalPrice.toLocaleString()} AC`}
+                  ${_sellCurrency === 'adena' ? `🪙 ${Math.floor(totalPrice * 0.97).toLocaleString()} 金幣` : `👑 ${totalPrice.toLocaleString()} AC`}
                 </span>
               </div>
             </div>
@@ -465,7 +465,7 @@ function renderSellTab(state) {
 
         <!-- Submit Button -->
         <button id="btn-submit-listing" class="action-btn" ${!selectedItem || !canPayFee ? 'disabled' : ''} style="background: linear-gradient(135deg, #d97706, #f59e0b); color: #000; font-weight: bold; border: 1px solid #fde047; border-radius: 8px; padding: 10px; cursor: pointer; font-size: 13px; font-family: 'Cinzel', serif; box-shadow: 0 0 10px rgba(245,158,11,0.3);">
-          ✨ Publicar Anúncio no Mercado
+          ✨ 刊登到市場
         </button>
 
       </div>
@@ -495,7 +495,7 @@ function renderMySalesTab(state, salesData) {
             💰 Lucros de Vendas Pendentes
           </h4>
           <div style="margin-top: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; display: flex; gap: 14px;">
-            <span style="color:#ffd877;">🪙 ${pendingAdena.toLocaleString()} Adena</span>
+            <span style="color:#ffd877;">🪙 ${pendingAdena.toLocaleString()} 金幣</span>
             <span style="color:#60a5fa;">👑 ${pendingAc.toLocaleString()} AC</span>
           </div>
         </div>
@@ -504,7 +504,7 @@ function renderMySalesTab(state, salesData) {
             🎁 Coletar Lucros Agora
           </button>
         ` : `
-          <span style="color: #64748b; font-size: 12px;">Nenhum lucro pendente de resgate</span>
+          <span style="color: #64748b; font-size: 12px;">目前沒有待領取收益</span>
         `}
       </div>
 
@@ -516,8 +516,8 @@ function renderMySalesTab(state, salesData) {
 
         ${myListings.length === 0 ? `
           <div style="padding: 20px; text-align: center; color: #94a3b8; font-size: 12px;">
-            Você não possui nenhum anúncio ativo no mercado no momento.<br />
-            <button id="btn-my-sales-create" class="action-btn action-btn--primary" style="margin-top: 10px; padding: 6px 14px; font-size: 11px; cursor: pointer; font-family: 'Cinzel', serif;">🏷️ Criar um Anúncio Agora</button>
+            你目前沒有任何有效的市場刊登。<br />
+            <button id="btn-my-sales-create" class="action-btn action-btn--primary" style="margin-top: 10px; padding: 6px 14px; font-size: 11px; cursor: pointer; font-family: 'Cinzel', serif;">🏷️ 立即建立刊登</button>
           </div>
         ` : `
           <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px;">
@@ -532,7 +532,7 @@ function renderMySalesTab(state, salesData) {
                         ${l.item?.enchant > 0 ? `<span style="color:#60a5fa;">+${l.item.enchant}</span> ` : ''}${l.quantity}x ${l.item?.name}
                       </div>
                       <div style="font-size: 11px; color: ${isAdena ? '#fde047' : '#93c5fd'}; font-family: 'IBM Plex Mono', monospace;">
-                        ${isAdena ? '🪙' : '👑'} ${Number(l.totalPrice).toLocaleString()} ${isAdena ? 'Adena' : 'AC'}
+                        ${isAdena ? '🪙' : '👑'} ${Number(l.totalPrice).toLocaleString()} ${isAdena ? '金幣' : 'AC'}
                       </div>
                     </div>
                   </div>
@@ -549,7 +549,7 @@ function renderMySalesTab(state, salesData) {
       <!-- Histórico de Vendas Concluídas -->
       <div style="background: rgba(15,20,30,0.85); border: 1px solid rgba(212,167,68,0.3); border-radius: 10px; padding: 14px;">
         <h4 style="margin: 0 0 12px 0; color: #f4d58a; font-family: 'Cinzel', serif; font-size: 14px;">
-          📜 Histórico Recente de Vendas
+          📜 最近銷售紀錄
         </h4>
 
         ${history.length === 0 ? `
@@ -600,7 +600,7 @@ function attachMarketEvents(container, state, callbacks = {}) {
     btn.onclick = () => {
       const cat = btn.dataset.cat;
       if (cat === 'collection') {
-        showMarketToast('O sistema de Coleções estará disponível no próximo Chronicle!', 'info');
+        showMarketToast('收藏系統將於下一個編年史開放！', 'info');
         return;
       }
       _selectedCategory = cat;
@@ -686,7 +686,7 @@ function attachMarketEvents(container, state, callbacks = {}) {
       const playerName = state.name || state.charName || 'Hero of Aden';
       await MarketService.fetchRemoteListings();
       await MarketService.fetchPlayerSalesFromCloud(playerName);
-      if (callbacks.log) callbacks.log('Mercado de Giran sincronizado com o servidor global!', 'info');
+      if (callbacks.log) callbacks.log('奇岩市場已與全球伺服器同步！', 'info');
       renderMarketTab(container, state, callbacks);
     };
   }
