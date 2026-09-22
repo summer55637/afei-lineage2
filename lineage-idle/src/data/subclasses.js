@@ -28,7 +28,7 @@ export const MASTER_ABILITIES = {
   defence: { id: 'defence', name: '防禦觸發', icon: '🛡️', desc: '受到攻擊時有 2% 機率獲得 物理防禦／魔法防禦 +24%' },
   criticalChance: { id: 'criticalChance', name: '暴擊觸發', icon: '💥', desc: '攻擊時有 2% 機率獲得暴擊率 +32%' },
   barrier: { id: 'barrier', name: '屏障（天界護盾）', icon: '🌟', desc: '受到攻擊時有 2% 機率獲得無敵天界護盾' },
-  boostCp: { id: 'boostCp', name: '強化 CP', icon: '🛡️', desc: '最大 CP +20%、CP 恢復 +35%' },
+  boostCp: { id: 'boostCp', name: '強化戰鬥力', icon: '🛡️', desc: '最大戰鬥力 +20%、戰鬥力恢復 +35%' },
   divineProtection: { id: 'divineProtection', name: '神聖防護', icon: '✝️', desc: '神聖與黑暗抗性 +30' },
   resistCritical: { id: 'resistCritical', name: '暴擊抗性', icon: '🛑', desc: '受到暴擊傷害 -10%' },
   resistAttribute: { id: 'resistAttribute', name: '元素抗性', icon: '🔥', desc: '元素抗性（火／水／風／地）+20' },
@@ -54,7 +54,7 @@ export const DIVINE_TRANSFORMATIONS = {
     id: 'divineRogue',
     name: '變身：神聖刺客',
     icon: '🗡️',
-    desc: '神聖刺客擁有暈眩射擊、雙重射擊、敏捷（迴避 +4）與 CP 汲取。',
+    desc: '神聖刺客擁有暈眩射擊、雙重射擊、敏捷（迴避 +4）與戰鬥力汲取。',
     buffs: { critRateAdd: 40, evaAdd: 6 }
   },
   divineWizard: {
