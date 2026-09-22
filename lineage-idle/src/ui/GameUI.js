@@ -454,7 +454,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
     atk: 'P.ATK', def: 'P.DEF', matk: 'M.ATK', mdef: 'M.DEF', hp: '最大 HP', mp: '最大 MP',
     eva: '迴避', crit: '暴擊率', speed: '速度', lifesteal: '吸血',
     hit: '命中', atkSpeed: 'Atk Speed', castSpeed: 'Cast Speed', weightBonus: 'Capacidade de Carga',
-    invSlots: '背包欄位', xpBoost: 'XP 加成', stunChance: 'Chance de Stun',
+    invSlots: '背包欄位', xpBoost: 'XP 加成', stunChance: '暈眩機率',
     stunResist: '暈眩抗性', blockRate: '格擋率', hpRegen: 'HP 恢復/秒',
     mpRegen: 'Regen MP/s', critDmg: '暴擊傷害', aoeTargets: '範圍目標'
   };
@@ -2387,7 +2387,7 @@ export function openBatchSellModal(state, callbacks = {}, uids) {
     clearItemSelection(state);
     closeInventoryPreviewModal();
     if (callbacks.log) {
-      callbacks.log(`💰 Vendeu ${preview.totalCount} itens por ${preview.totalGold.toLocaleString()} 金幣!`, 'loot');
+      callbacks.log(`💰 已出售 ${preview.totalCount} 件物品，獲得 ${preview.totalGold.toLocaleString()} 金幣！`, 'loot');
     }
     updateInventoryUI(state, callbacks);
     if (callbacks.save) callbacks.save();
@@ -2473,7 +2473,7 @@ export function openBatchSalvageModal(state, callbacks = {}, uids) {
   body.innerHTML = bodyHtml;
   overlay.style.display = 'flex';
 
-  confirmBtn.textContent = `🔨 確認分解 (${preview.totalCount} itens)`;
+  confirmBtn.textContent = `🔨 確認分解（${preview.totalCount} 件）`;
   confirmBtn.onclick = () => {
     for (const uid of preview.uidsToSalvage) {
       removeFromInventory(state, uid);
@@ -2570,7 +2570,7 @@ export function openBatchCrystallizeModal(state, callbacks = {}, uids) {
   body.innerHTML = bodyHtml;
   overlay.style.display = 'flex';
 
-  confirmBtn.textContent = `💎 確認結晶化 (${preview.totalCount} itens)`;
+  confirmBtn.textContent = `💎 確認結晶化（${preview.totalCount} 件）`;
   confirmBtn.onclick = () => {
     for (const uid of preview.uidsToCrystallize) {
       removeFromInventory(state, uid);
@@ -5262,7 +5262,7 @@ function renderStoreBuyTab(state, callbacks) {
   if (weightText) weightText.textContent = `${(weightPct * 0.78).toFixed(2).replace('.', ',')}%`;
 
   if (confirmBtn) {
-    confirmBtn.textContent = totalCartCount > 0 ? `Buy (${totalCartCount})` : 'Buy';
+    confirmBtn.textContent = totalCartCount > 0 ? `購買（${totalCartCount}）` : '購買';
     confirmBtn.disabled = _purchaseCart.length === 0 || (state.gold || 0) < totalPrice;
     confirmBtn.onclick = () => {
       if (_purchaseCart.length === 0) return;
@@ -10032,7 +10032,7 @@ export function renderOlympiadTab(container, state) {
         num: 1,
         title: 'Parte 1: O Legado de Eva & Talien',
         npc: '👤 Talien (Giran)',
-        dialog: '"高貴的戰士，若要證明你的靈魂價值，請前往 Valley of Saints 從怪物身上找回 25 頁伊娃之詩。"',
+        dialog: '「高貴的戰士，若要證明你的靈魂價值，請前往聖者之谷，從怪物身上找回 25 頁伊娃之詩。」',
         desc: '與奇岩的 Talien 調查古代英雄傳承，並在聖者之谷找回 25 頁伊娃之詩。',
         progressText: `${prog.part1Kills || 0}/25 聖者之谷怪物`,
         travelBtn: (state.level || 1) >= 72
@@ -10047,7 +10047,7 @@ export function renderOlympiadTab(container, state) {
         num: 2,
         title: 'Parte 2: Ritual de Virgil em Rune',
         npc: '👤 Virgil (Rune Township)',
-        dialog: '「悲鳴沼澤的靈魂渴望解放。前往 Swamp of Screams 淨化 30 個墮落靈魂，完成精華祝聖。」',
+        dialog: '「悲鳴沼澤的靈魂渴望解放。前往悲鳴沼澤淨化 30 個墮落靈魂，完成精華祝聖。」',
         desc: '將神聖信件交給魯因城鎮的 Virgil，並在悲鳴沼澤淨化 30 個靈魂。',
         progressText: `${prog.part2Kills || 0}/30 悲鳴沼澤靈魂`,
         travelBtn: (state.level || 1) >= 74
@@ -10062,7 +10062,7 @@ export function renderOlympiadTab(container, state) {
         num: 3,
         title: 'Parte 3: O Julgamento de Barakiel',
         npc: '👤 Caradine (Goddard)',
-        dialog: '"女神神聖權杖落在 Wall of Argos 的 Flame of Splendor Barakiel 手中。擊敗他並取回權杖！"',
+        dialog: '「女神的神聖權杖落在阿爾戈斯之壁的光輝火焰巴拉基爾手中。擊敗他並取回權杖！」',
         desc: '協助 Wall of Argos 的 Caradine，並擊敗傳說 Raid Boss「Flame of Splendor Barakiel」，取回女神之杖。',
         progressText: prog.barakielKilled ? '✓ 已擊敗 Barakiel' : '擊敗 Raid Boss Barakiel',
         travelBtn: `<button onclick="window.startRaidBossAction('barakiel')" style="padding:4px 10px; font-size:10.5px; font-weight:bold; background:#7f1d1d; border:1px solid #f87171; color:#fca5a5; border-radius:4px; cursor:pointer; margin-top:4px;">⚔️ 挑戰 Barakiel 團隊首領</button>`,
@@ -10075,7 +10075,7 @@ export function renderOlympiadTab(container, state) {
         num: 4,
         title: '第 4 部分：伊娃女神祝聖',
         npc: '👑 Lady of the Lake（神聖方尖碑）',
-        dialog: '"你的靈魂純潔而勇敢。 獻上伊娃女神祝聖的法杖 e 接受永恆祝聖，成為亞丁貴族！"',
+        dialog: '「你的靈魂純潔而勇敢。獻上伊娃女神祝聖的法杖，並接受永恆祝聖，成為亞丁貴族！」',
         desc: '將神聖權杖交給 Lady of the Lake，獲得神聖祝福、貴族頭冠，並正式成為亞丁貴族！',
         progressText: nobStatus.isNoblesse ? '✓ 已完成貴族祝聖' : '交給 Lady of the Lake',
         travelBtn: '',
