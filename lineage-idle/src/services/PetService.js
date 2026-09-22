@@ -65,7 +65,7 @@ export const 寵物Service = {
 
     if (callbacks.log) {
       if (active) callbacks.log(`🐾 你召喚了 **${active.name}**（等級 ${active.level}）並肩作戰！`, 'gain');
-      else callbacks.log('🐾 Mascote recolhido para o descanso.', 'system');
+      else callbacks.log('🐾 寵物已收回休息。', 'system');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
