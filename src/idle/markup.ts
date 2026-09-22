@@ -320,7 +320,7 @@ export const IDLE_MARKUP = `
             <button class="tab-btn active subtab-pill-btn" data-tab="zones">⚔ 戰鬥與區域</button>
             <button class="tab-btn subtab-pill-btn" data-tab="raids">🐉 團隊首領與首領</button>
             <button class="tab-btn subtab-pill-btn" data-tab="tower">🏰 傲慢之塔</button>
-            <button class="tab-btn subtab-pill-btn" data-tab="colosseum">⚔ PvP 競技場</button>
+            <button class="tab-btn subtab-pill-btn" data-tab="colosseum">⚔ 玩家對戰競技場</button>
             <button class="tab-btn subtab-pill-btn" data-tab="expeditions">🏰 遠征</button>
             <button class="tab-btn subtab-pill-btn" data-tab="fishing">🎣 釣魚</button>
             <button class="tab-btn subtab-pill-btn" data-tab="hunting">🐾 野外狩獵</button>
@@ -1784,7 +1784,7 @@ export const IDLE_MARKUP = `
                 <button class="admin-preset-btn" data-rate-preset="aden">⚔️ 亞丁動態倍率（3x）</button>
                 <button class="admin-preset-btn" data-rate-preset="mid">🔥 中倍率（10x）</button>
                 <button class="admin-preset-btn" data-rate-preset="high">👑 高倍率（50x）</button>
-                <button class="admin-preset-btn" data-rate-preset="turbo">⚡ 極速 PvP（100x）</button>
+                <button class="admin-preset-btn" data-rate-preset="turbo">⚡ 極速玩家對戰（100×）</button>
                 <button class="admin-preset-btn danger" data-rate-preset="reset" style="margin-left:auto;">🔄 重設（1x）</button>
               </div>
             </div>
