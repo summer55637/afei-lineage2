@@ -1558,7 +1558,7 @@ function useItem(uid) {
     applyBuff('xpBoost', 0.30, 3600);
     applyBuff('goldBoost', 0.30, 3600);
     log(`🧪 使用 ${def.name}：經驗值 +30%、金幣 +30%，持續 1 小時！`, 'heal');
-    if (typeof floatText === 'function') floatText('🧪 活力：EXP +30%、金幣 +30%（1 小時）', 'float-crit');
+    if (typeof floatText === 'function') floatText('🧪 活力：經驗值 +30%、金幣 +30%（1 小時）', 'float-crit');
   } else if (def.type === 'inventory_expand' || item.itemId === 'pack_inventory_expand_30') {
     state.bonusInventorySlots = (state.bonusInventorySlots || 0) + 30;
     const totalSlots = getMaxInventorySlots(state);
@@ -1695,7 +1695,7 @@ window.executeRaceClassChange = (scrollUid, newRace, newClass) => {
   // 7. Save & Update UI
   updateAllUI();
   save();
-  log(`✨ 種族與職業已成功變更為 ${(raceObj.name || newRace).toUpperCase()} ${(clsObj?.name || newClass).toUpperCase()}！返還 ${refundedSp} SP，裝備已存回背包。`, 'rarity-legendary');
+  log(`✨ 種族與職業已成功變更為 ${(raceObj.name || newRace).toUpperCase()} ${(clsObj?.name || newClass).toUpperCase()}！返還 ${refundedSp} 技能點，裝備已存回背包。`, 'rarity-legendary');
 };
 
 window.onCharacterCreated = (data) => {
@@ -1735,8 +1735,8 @@ function checkLevelUp() {
         console.debug('Record referral level 40 error:', e);
       }
     }
-    log(`🎉 **恭喜升到 40 級！** 透過 [${state.referredBy}] 推薦連結加入的特殊獎勵已領取：**+50 AC** 與 **5 張祝福武器強化卷軸**！`, 'loot');
-    if (typeof floatText === 'function') floatText('🎁 推薦獎勵（50 AC）！', 'float-jackpot');
+    log(`🎉 **恭喜升到 40 級！** 透過 [${state.referredBy}] 推薦連結加入的特殊獎勵已領取：**+50 亞丁幣** 與 **5 張祝福武器強化卷軸**！`, 'loot');
+    if (typeof floatText === 'function') floatText('🎁 推薦獎勵（50 亞丁幣）！', 'float-jackpot');
     updateAllUI();
     save();
   }
@@ -2163,7 +2163,7 @@ function updateDetailedEquipStatsUI() {
   const eb = getTotalEquipBonuses(); const list = el('bonus-list');
   if (list) {
     list.innerHTML = '';
-    const labels = { atk: 'ATK', def: 'DEF', matk: 'MATK', mdef: 'MDEF', hp: 'HP', mp: 'MP', eva: 'EVA', crit: 'CRIT', speed: 'SPD', lifesteal: 'LIFE STEAL' };
+    const labels = { atk: '物理攻擊', def: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', mp: '魔力', eva: '迴避', crit: '暴擊', speed: '速度', lifesteal: '吸血' };
     for (const [k, label] of Object.entries(labels)) { if (eb[k]) { const div = mkEl('div'); div.innerHTML = `<span>${label}</span><span class="bonus-val">+${eb[k]}${k==='crit'?'%':''}</span>`; list.appendChild(div); } }
     if (!list.children.length) list.innerHTML = '<div style="color:var(--text-muted)">目前沒有裝備</div>';
   }
@@ -2528,7 +2528,7 @@ function renderShopPowerups(list) {
   const activeBuffs = Object.entries(state.buffs || {}).filter(([k,b]) => ['xpBoost','goldBoost','luckBoost','autoPotion'].includes(k) && b.until > Date.now());
   if (activeBuffs.length) {
     const hdr = mkEl('div'); hdr.className = 'shop-header'; hdr.innerHTML = '<h4>啟用中的增益效果</h4>'; list.appendChild(hdr);
-    for (const [k, b] of activeBuffs) { const remaining = Math.max(0, b.until - Date.now()); const names = { xpBoost: '📘 XP 加成', goldBoost: '🪙 金幣加成', luckBoost: '🍀 幸運加成', autoPotion: '🧪 自動藥水' }; const row = mkEl('div'); row.className = 'shop-item active-buff'; row.innerHTML = `<div class="item-info"><div class="item-name">${names[k] || k}</div><div class="item-desc">+${Math.round(b.amount*100)}% · ${fmtCountdown(remaining)}</div></div><div class="buff-pulse"></div>`; list.appendChild(row); }
+    for (const [k, b] of activeBuffs) { const remaining = Math.max(0, b.until - Date.now()); const names = { xpBoost: '📘 經驗值加成', goldBoost: '🪙 金幣加成', luckBoost: '🍀 幸運加成', autoPotion: '🧪 自動藥水' }; const row = mkEl('div'); row.className = 'shop-item active-buff'; row.innerHTML = `<div class="item-info"><div class="item-name">${names[k] || k}</div><div class="item-desc">+${Math.round(b.amount*100)}% · ${fmtCountdown(remaining)}</div></div><div class="buff-pulse"></div>`; list.appendChild(row); }
     const sep = mkEl('div'); sep.className = 'shop-header'; sep.innerHTML = '<h4>購買更多</h4>'; list.appendChild(sep);
   }
   for (const id of powerupIds) { const def = D().ALL_ITEMS[id]; if (def) list.appendChild(shopRow(def, id, def.price)); }
@@ -2761,7 +2761,7 @@ function checkOfflineProgress(lastTime) {
     state.gold = (state.gold || 0) + 250000;
     serviceAddToInventory(state, 'soulshot_ng', 1000);
     serviceAddToInventory(state, 'hp_potion_xl', 100);
-    log('👑 **[回歸禮讚]** 歡迎回到亞丁！獲得 2 小時 EXP +50% 祝福與帝國補給！', 'rarity-legendary');
+    log('👑 **[回歸禮讚]** 歡迎回到亞丁！獲得 2 小時經驗值 +50% 祝福與帝國補給！', 'rarity-legendary');
   }
 
   checkLevelUp();
@@ -3052,7 +3052,7 @@ function renderZoneInfoCard() {
     <div class="z-card-header">
       <div class="z-card-title">
         <h3>🗺️ ${z.name}</h3>
-        <span class="z-card-req">需求：Lv.${z.level}</span>
+        <span class="z-card-req">需求：等級 ${z.level}</span>
         <div style="margin-top:4px; font-size:11px; color:${curDiff.color || '#10b981'}; font-weight:bold;">
           ${curDiff.icon || '🟢'} 難度：<strong>${curDiff.name || '一般'}</strong>（${curDiff.xpMult || 1}x XP／金幣 · ${curDiff.dropMult || 1}x 掉落）
         </div>
@@ -3288,10 +3288,10 @@ function updateQuestsUI() {
       const isLocked = q.unlockLevel && currentLvl < q.unlockLevel;
       const rewardsText = [];
       if (q.reward.gold) rewardsText.push(`💰 +${q.reward.gold.toLocaleString()}g`);
-      if (q.reward.sp) rewardsText.push(`✦ +${q.reward.sp} SP`);
+      if (q.reward.sp) rewardsText.push(`✦ +${q.reward.sp} 技能點`);
       if (q.reward.craftPoints) rewardsText.push(`⚒️ +${q.reward.craftPoints} 鍛造點數`);
       if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} 神燈`);
-      if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} 通行證 XP`);
+      if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} 通行證經驗值`);
 
       if (isLocked) {
         return `
@@ -3398,9 +3398,9 @@ function updateQuestsUI() {
 
       const rewardsText = [];
       if (q.reward.gold) rewardsText.push(`💰 +${q.reward.gold.toLocaleString()}g`);
-      if (q.reward.sp) rewardsText.push(`✦ +${q.reward.sp} SP`);
+      if (q.reward.sp) rewardsText.push(`✦ +${q.reward.sp} 技能點`);
       if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} 魔法神燈`);
-      if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} 通行證 XP`);
+      if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} 通行證經驗值`);
 
       const btnLabel = isClaimed ? '✓ 已領取' : (isCompleted ? '🎁 領取' : '進行中');
       const btnDisabled = !isCompleted || isClaimed ? 'disabled' : '';
@@ -3463,7 +3463,7 @@ function renderBattlePassUI() {
   if (statusText) statusText.textContent = state.battlePass.unlockedPremium ? '👑 高級通行證已啟用' : '戰鬥通行證免費獎勵';
 
   const xpText = el('pass-xp-text');
-  if (xpText) xpText.textContent = `${currentXp.toLocaleString()} / ${nextReqXp.toLocaleString()} 通行證 XP`;
+  if (xpText) xpText.textContent = `${currentXp.toLocaleString()} / ${nextReqXp.toLocaleString()} 通行證經驗值`;
 
   const xpBar = el('pass-xp-bar');
   if (xpBar) xpBar.style.width = `${pct}%`;
@@ -4323,7 +4323,7 @@ function openDivineTransformationToggleModal() {
             <div style="font-weight:bold; color:#fde047; font-size:13px; display:flex; align-items:center; gap:6px;">
               <span>${dt.icon}</span>
               <span>${dt.name}</span>
-              ${isActive ? '<span style="font-size:10px; background:#ffd700; color:#000; font-weight:bold; padding:1px 6px; border-radius:4px;">ATIVA</span>' : ''}
+              ${isActive ? '<span style="font-size:10px; background:#ffd700; color:#000; font-weight:bold; padding:1px 6px; border-radius:4px;">啟用中</span>' : ''}
             </div>
             <div style="font-size:11px; color:#d1d5db; margin-top:2px;">${dt.desc}</div>
           </div>
@@ -5723,7 +5723,7 @@ export function attackMonster() {
       } else if (isHeal) {
         const healAmt = window.SkillScaling ? window.SkillScaling.getSkillHealAtLevel(stats.maxHp, skill.lvl, stats.matk) : Math.floor(stats.maxHp * (0.25 + skill.lvl * 0.05));
         state.hp = Math.min(stats.maxHp, state.hp + healAmt);
-        log(`✨ ${skill.def.name}！恢復 ${healAmt} HP`, 'heal');
+        log(`✨ ${skill.def.name}！恢復 ${healAmt} 生命值`, 'heal');
         floatText(`+${healAmt} 生命值`, 'sf-heal');
 
         // Dispara VFX Premium de Cura Sagrada (ancorado aos pés do herói)
@@ -6468,7 +6468,7 @@ function applyAdminLevelChange(targetLevel) {
 
   // 4. Log e feedback visual do nível
   playSfx('levelUp');
-  log(`⚡ [管理員] 等級已調整為 ${newLvl}！SP（+${cumulativeSp + 1000}）、HP/MP、史詩任務、狩獵地圖與技能已同步。`, 'rarity-legendary');
+  log(`⚡ [管理員] 等級已調整為 ${newLvl}！技能點（+${cumulativeSp + 1000}）、生命值／魔力、史詩任務、狩獵地圖與技能已同步。`, 'rarity-legendary');
   floatText(`⚡ 等級 ${newLvl}！`, 'float-jackpot');
 
   // 5. Atualiza todos os módulos visuais (Troca de classe, Árvore de Skills, Mapa, Subclasses, Raids, Missões)
@@ -6551,7 +6551,7 @@ function handleChatSubmit(inputStr) {
     const amt = parseInt(lower.replace('//sp ', '').trim());
     if (!isNaN(amt)) {
       state.sp += amt;
-      log(`✦ [管理員] 已增加 ${amt.toLocaleString()} SP！`, 'rarity-legendary');
+      log(`✦ [管理員] 已增加 ${amt.toLocaleString()} 技能點！`, 'rarity-legendary');
       updateSkillUI();
       updateAllUI();
       save(true, true);
@@ -6669,7 +6669,7 @@ function syncAdminRatesUI() {
   // Update header live summary
   const summaryEl = el('admin-live-rates-summary');
   if (summaryEl) {
-    summaryEl.textContent = `目前倍率：XP x${r.xp} · SP x${r.sp} · 金幣 x${r.adena} · 掉落 x${r.drop} · 搜刮 x${r.spoil} · 強化 x${r.enchant} · 魔法書 x${r.book}`;
+    summaryEl.textContent = `目前倍率：經驗值 x${r.xp} · 技能點 x${r.sp} · 金幣 x${r.adena} · 掉落 x${r.drop} · 搜刮 x${r.spoil} · 強化 x${r.enchant} · 魔法書 x${r.book}`;
   }
   
   // Update badges on rate cards
@@ -6802,7 +6802,7 @@ function addAdminXP(amount) {
   checkClassAdvancement();
   updateSkillUI();
   updateRaceClassUI();
-  log(`🌟 [管理員] 已增加 ${amt.toLocaleString()} XP！（目前等級：${state.level}）`, 'rarity-legendary');
+  log(`🌟 [管理員] 已增加 ${amt.toLocaleString()} 經驗值！（目前等級：${state.level}）`, 'rarity-legendary');
   floatText(`🌟 +${amt.toLocaleString()} 經驗值！`, 'float-jackpot');
   updateAllUI();
   save(true, true);
@@ -6825,7 +6825,7 @@ function addAdminSP(amount) {
   const amt = parseInt(amount) || 0;
   if (amt <= 0) return;
   state.sp = (state.sp || 0) + amt;
-  log(`✦ [管理員] 已增加 ${amt.toLocaleString()} SP！`, 'rarity-legendary');
+  log(`✦ [管理員] 已增加 ${amt.toLocaleString()} 技能點！`, 'rarity-legendary');
   floatText(`✦ +${amt.toLocaleString()} 技能點！`, 'float-jackpot');
   updateSkillUI();
   updateAllUI();
@@ -6838,7 +6838,7 @@ function addAdminAC(amount) {
   if (amt <= 0) return;
   state.adenCoins = (state.adenCoins || 0) + amt;
   log(`🪙 [管理員] 已增加 ${amt.toLocaleString()} 亞丁幣（AC）！`, 'rarity-legendary');
-  floatText(`🪙 +${amt.toLocaleString()} AC!`, 'float-gold');
+  floatText(`🪙 +${amt.toLocaleString()} 亞丁幣！`, 'float-gold');
   updateAllUI();
   save(true, true);
 }
@@ -10423,12 +10423,12 @@ export function init() {
           }
 
           state.referralRewardsClaimed = (state.referralRewardsClaimed || 0) + result.claimableRewards;
-          log(`🎉 **推薦獎勵已領取！** 你推薦的朋友已達等級 40！獲得 **+${totalAC} AC** 與 **${totalScrolls}x 祝福武器強化卷軸**！`, 'rarity-legendary');
-          if (typeof floatText === 'function') floatText(`🎁 推薦獎勵 +${totalAC} AC！`, 'float-jackpot');
+          log(`🎉 **推薦獎勵已領取！** 你推薦的朋友已達等級 40！獲得 **+${totalAC} 亞丁幣** 與 **${totalScrolls}x 祝福武器強化卷軸**！`, 'rarity-legendary');
+          if (typeof floatText === 'function') floatText(`🎁 推薦獎勵 +${totalAC} 亞丁幣！`, 'float-jackpot');
           updateAllUI();
           save();
         } else {
-          log('ℹ️ 目前沒有待領獎勵。當你推薦的朋友達到等級 40 後，可在這裡領取 50 AC 與 5 張祝福強化卷軸！', 'info');
+          log('ℹ️ 目前沒有待領獎勵。當你推薦的朋友達到等級 40 後，可在這裡領取 50 亞丁幣與 5 張祝福強化卷軸！', 'info');
           if (typeof floatText === 'function') floatText('沒有待領獎勵', 'float-normal');
         }
       } catch (err) {
@@ -11898,7 +11898,7 @@ export function init() {
               <div>防禦：<strong style="color:#60a5fa;">${boss.def}</strong></div>
               <div>魔防：<strong style="color:#c084fc;">${boss.mdef}</strong></div>
               <div>金幣：<strong style="color:#facc15;">${boss.goldReward.toLocaleString()}</strong></div>
-              <div>亞丁幣：<strong style="color:#ffd700;">+${boss.adenCoinsReward} AC</strong></div>
+              <div>亞丁幣：<strong style="color:#ffd700;">+${boss.adenCoinsReward}</strong></div>
             </div>
           </div>
         </div>
