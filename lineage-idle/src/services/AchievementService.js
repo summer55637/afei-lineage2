@@ -1,5 +1,5 @@
 /**
- * AchievementService.js — Sistema de Conquistas e Títulos Conquistáveis de Aden
+ * AchievementService.js — Sistema de 成就s e Títulos Conquistáveis de Aden
  * 
  * Rastreia marcos épicos do jogador e desbloqueia títulos honoríficos, auras e molduras visuais.
  */
@@ -14,23 +14,23 @@ export const ACHIEVEMENTS = [
     icon: '⚔️',
     target: 100,
     checkProgress: (state) => state.stats?.monstersKilled || state.monstersKilled || 0,
-    rewardText: 'Título: « Caçador Novato » + 25.000 Adena',
-    reward: { adena: 25000, titleId: 'title_novice_hunter', titleName: 'Caçador Novato', titleColor: '#86efac' }
+    rewardText: '稱號：「新手獵人」+ 25,000 金幣',
+    reward: { adena: 25000, titleId: 'title_novice_hunter', titleName: '新手獵人', titleColor: '#86efac' }
   },
   {
     id: 'ach_carnage',
     title: 'Carnificina em Aden',
-    desc: 'Derrote 2.500 monstros ao longo de sua jornada.',
+    desc: '在冒險旅途中擊敗 2,500 隻怪物。',
     icon: '💀',
     target: 2500,
     checkProgress: (state) => state.stats?.monstersKilled || state.monstersKilled || 0,
-    rewardText: 'Título: « Ceifador de Aden » + 250.000 Adena',
-    reward: { adena: 250000, titleId: 'title_ceifador', titleName: 'Ceifador de Aden', titleColor: '#ef4444' }
+    rewardText: '稱號：「亞丁收割者」+ 250,000 金幣',
+    reward: { adena: 250000, titleId: 'title_ceifador', titleName: '亞丁收割者', titleColor: '#ef4444' }
   },
   {
     id: 'ach_steel_master',
-    title: 'Mestre do Aço (+10)',
-    desc: 'Equipe ou possua uma arma com encantamento +10 ou superior.',
+    title: '鋼鐵大師（+10）',
+    desc: '裝備或持有一把強化 +10 以上的武器。',
     icon: '🔨',
     target: 1,
     checkProgress: (state) => {
@@ -38,13 +38,13 @@ export const ACHIEVEMENTS = [
       const hasPlus10 = inv.some(i => (i.enchant || i.enchantLevel || 0) >= 10);
       return hasPlus10 ? 1 : 0;
     },
-    rewardText: 'Título: « Mestre Forjador » + Moldura Bronze',
-    reward: { titleId: 'title_forjador', titleName: 'Mestre Forjador', titleColor: '#f59e0b', frameId: 'frame_bronze' }
+    rewardText: '稱號：「鍛造大師」+ 青銅邊框',
+    reward: { titleId: 'title_forjador', titleName: '鍛造大師', titleColor: '#f59e0b', frameId: 'frame_bronze' }
   },
   {
     id: 'ach_divine_blade',
-    title: 'Lâmina Celestial (+16)',
-    desc: 'Equipe ou possua uma arma lendária com encantamento +16 ou superior.',
+    title: '天界之刃（+16）',
+    desc: '裝備或持有一把強化 +16 以上的傳說武器。',
     icon: '✨',
     target: 1,
     checkProgress: (state) => {
@@ -52,8 +52,8 @@ export const ACHIEVEMENTS = [
       const hasPlus16 = inv.some(i => (i.enchant || i.enchantLevel || 0) >= 16);
       return hasPlus16 ? 1 : 0;
     },
-    rewardText: 'Título: « Lâmina Divina » + Moldura Dourada Real',
-    reward: { titleId: 'title_lamina_divina', titleName: 'Lâmina Divina', titleColor: '#ffd700', frameId: 'frame_gold' }
+    rewardText: '稱號：「神聖之刃」+ 皇家金色邊框',
+    reward: { titleId: 'title_lamina_divina', titleName: '神聖之刃', titleColor: '#ffd700', frameId: 'frame_gold' }
   },
   {
     id: 'ach_titan_slayer',
@@ -75,8 +75,8 @@ export const ACHIEVEMENTS = [
     icon: '🏰',
     target: 15,
     checkProgress: (state) => state.tower?.highestFloor || state.towerFloor || 1,
-    rewardText: 'Título: « Conquistador das Alturas » + Aura Abissal',
-    reward: { titleId: 'title_tower_sovereign', titleName: 'Conquistador das Alturas', titleColor: '#c084fc', auraId: 'aura_abyssal_shadow' }
+    rewardText: 'Título: « 成就dor das Alturas » + Aura Abissal',
+    reward: { titleId: 'title_tower_sovereign', titleName: '成就dor das Alturas', titleColor: '#c084fc', auraId: 'aura_abyssal_shadow' }
   },
   {
     id: 'ach_feudal_lord',
@@ -177,7 +177,7 @@ export const AchievementService = {
 
     const current = ach.checkProgress(state);
     if (current < ach.target) {
-      log(`Conquista ainda em andamento: ${ach.title} (${current}/${ach.target}).`, 'error');
+      log(`成就 ainda em andamento: ${ach.title} (${current}/${ach.target}).`, 'error');
       return { success: false, reason: 'incomplete' };
     }
 
@@ -200,7 +200,7 @@ export const AchievementService = {
           id: rew.titleId,
           name: rew.titleName,
           titleText: rew.titleName,
-          desc: `Conquistado na realização: ${ach.title}`,
+          desc: `成就do na realização: ${ach.title}`,
           color: rew.titleColor || '#ffd700',
           costAdena: 0
         };
@@ -220,7 +220,7 @@ export const AchievementService = {
       state.cosmetics.unlockedAuras.push(rew.auraId);
     }
 
-    log(`🏆 **[CONQUISTA CONCLUÍDA]** Você completou '${ach.title}'! Recompensa: ${ach.rewardText}!`, 'rarity-legendary');
+    log(`🏆 **[CONQUISTA CONCLUÍDA]** Você completou '${ach.title}'! 獎勵: ${ach.rewardText}!`, 'rarity-legendary');
     floatText('🏆 CONQUISTA CONCLUÍDA!', 'float-jackpot');
 
     onUpdate();
