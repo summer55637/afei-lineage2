@@ -491,11 +491,11 @@ export class WeaponResonanceService {
         name: '無共鳴',
         state: RESONANCE_STATES.LOCKED,
         requirements: [],
-        activationRule: 'Equipe armas complementares nos slots 1 e 2',
+        activationRule: '在武器欄位 1、2 裝備互補武器',
         passiveEffects: {},
         triggerEffects: [],
         cooldowns: {},
-        visual: { icon: '⚔️', color: '#64748b', badge: 'Bloqueado' },
+        visual: { icon: '⚔️', color: '#64748b', badge: '未解鎖' },
         description: '裝備具有協同效果的武器即可解鎖戰鬥共鳴。'
       };
     }
@@ -505,7 +505,7 @@ export class WeaponResonanceService {
       ...resonance,
       state: currentLifecycleState,
       requirements: resonance.requirements || [resonance.weap1, resonance.weap2].flat(),
-      activationRule: resonance.activationRule || `Equipar ${resonance.pairName}`,
+      activationRule: resonance.activationRule || `裝備 ${resonance.pairName}`,
       passiveEffects: resonance.passiveEffects || resonance.passives || {},
       triggerEffects: resonance.triggerEffects || [],
       cooldowns: resonance.cooldowns || {},
@@ -648,7 +648,7 @@ export class WeaponResonanceService {
         extraEffects.push('shadow_crit_bleed');
 
         if (callbacks.floatText) callbacks.floatText('🗡️ GOLPE FATAL + BLEED! (+25%)', 'float-jackpot');
-        if (callbacks.log) callbacks.log(`🗡️ Sombra Executora! Golpe de Adaga consumiu a Marca: ${finalDamage.toLocaleString()} DANO FATAL (+25%) e Sangramento aplicado!`, 'rarity-legendary');
+        if (callbacks.log) callbacks.log(`🗡️ 處決之影！匕首攻擊消耗印記：造成 ${finalDamage.toLocaleString()} 致命傷害（+25%），並附加流血！`, 'rarity-legendary');
       }
     }
 
@@ -672,7 +672,7 @@ export class WeaponResonanceService {
         extraEffects.push('vacuum_wave');
 
         if (callbacks.floatText) callbacks.floatText(`🌪️ 真空斬（+${stacks * 8}%）！`, 'float-jackpot');
-        if (callbacks.log) callbacks.log(`🌪️ Golpe Cortante liberado (${stacks} cargas): ${finalDamage.toLocaleString()} de Dano e Armadura desgastada (-10% P.Def)!`, 'rarity-rare');
+        if (callbacks.log) callbacks.log(`🌪️ 斬擊爆發（${stacks} 層）：造成 ${finalDamage.toLocaleString()} 傷害，並使護甲削弱（P.Def -10%）！`, 'rarity-rare');
       }
     }
 
