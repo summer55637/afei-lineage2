@@ -3320,7 +3320,7 @@ function updateQuestsUI() {
       const pct = Math.floor((progress / q.target) * 100);
       const cardClass = isClaimed ? 'quest-card completed' : (isCompleted ? 'quest-card can-claim' : 'quest-card');
 
-      const btnLabel = isClaimed ? '✓ Reclamado' : (isCompleted ? '🎁 Reclamar' : '進行中');
+      const btnLabel = isClaimed ? '✓ 已領取' : (isCompleted ? '🎁 領取' : '進行中');
       const btnDisabled = !isCompleted || isClaimed ? 'disabled' : '';
 
       return `
@@ -3402,7 +3402,7 @@ function updateQuestsUI() {
       if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} 魔法神燈`);
       if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} 通行證 XP`);
 
-      const btnLabel = isClaimed ? '✓ Reclamado' : (isCompleted ? '🎁 Reclamar' : '進行中');
+      const btnLabel = isClaimed ? '✓ 已領取' : (isCompleted ? '🎁 領取' : '進行中');
       const btnDisabled = !isCompleted || isClaimed ? 'disabled' : '';
 
       return `
@@ -3490,7 +3490,7 @@ function renderBattlePassUI() {
       const freeClaimed = Array.isArray(state.battlePass.claimedFree) && state.battlePass.claimedFree.includes(tier.level);
       const premClaimed = Array.isArray(state.battlePass.claimedPremium) && state.battlePass.claimedPremium.includes(tier.level);
 
-      const freeLabel = freeClaimed ? '✓' : (isUnlocked ? 'Reclamar' : 'Tranca');
+      const freeLabel = freeClaimed ? '✓' : (isUnlocked ? '領取' : '已鎖定');
       const premLabel = premClaimed ? '✓' : (isUnlocked && state.battlePass.unlockedPremium ? '領取' : (state.battlePass.unlockedPremium ? '已鎖定' : '👑 R$ 15'));
 
       const freeRewardStr = Object.entries(tier.free).map(([k, v]) => `${k === 'gold' ? '💰 ' + v : k === 'sp' ? '✦ ' + v : v}`).join(', ');
@@ -3579,7 +3579,7 @@ function updateTowerUI() {
 
   const nextDef = getTowerFloorDef(nextFloor);
   const recommendEl = el('tower-floor-recommend');
-  if (recommendEl) recommendEl.textContent = `Lv. Requerido: ${nextDef.reqLvl}`;
+  if (recommendEl) recommendEl.textContent = `需求等級：${nextDef.reqLvl}`;
 
   const detailsCard = el('tower-floor-details-card');
   if (detailsCard) {
@@ -3942,7 +3942,7 @@ function selectMasterAbilityModal() {
     { key: 'resistAttribute', name: '🔥 屬性抗性（+20 元素抗性）' }
   ];
 
-  const choice = prompt(`選擇你的大師技能（Lv.75）：\n\n${abilities.map((a, i) => `${i + 1}. ${a.name}`).join('\n')}\n\n請輸入選項編號：`);
+  const choice = prompt(`選擇你的大師技能（等級 75）：\n\n${abilities.map((a, i) => `${i + 1}. ${a.name}`).join('\n')}\n\n請輸入選項編號：`);
   if (!choice) return;
   const idx = parseInt(choice, 10) - 1;
   if (isNaN(idx) || idx < 0 || idx >= abilities.length) return;
@@ -3968,7 +3968,7 @@ function selectDivineTransformationModal() {
     { key: 'divineEnchanter', name: '📜 Divine Enchanter (Chant of Victory +10% Stats)' }
   ];
 
-  const choice = prompt(`選擇你的神聖變身（Lv.80）：\n\n${transList.map((t, i) => `${i + 1}. ${t.name}`).join('\n')}\n\n請輸入選項編號：`);
+  const choice = prompt(`選擇你的神聖變身（等級 80）：\n\n${transList.map((t, i) => `${i + 1}. ${t.name}`).join('\n')}\n\n請輸入選項編號：`);
   if (!choice) return;
   const idx = parseInt(choice, 10) - 1;
   if (isNaN(idx) || idx < 0 || idx >= transList.length) return;
@@ -4003,7 +4003,7 @@ export function renderSubclassesUI() {
       ? '🔒 已達副職業上限（3/3）'
       : (!isSeasonUnlocked
         ? '🔒 未開放：第 3 賽季（第三編年史－七封印）'
-        : (!isUnlocked ? '🔒 完成「命運的低語」任務（Lv.52）' : '➕ 新增副職業（無種族限制）'));
+        : (!isUnlocked ? '🔒 完成「命運的低語」任務（等級 52）' : '➕ 新增副職業（無種族限制）'));
     addBtn.onclick = () => {
       if (!isSeasonUnlocked) {
         log('副職業系統需要第 3 賽季（第三編年史－七封印）。', 'warning');
@@ -4099,7 +4099,7 @@ export function renderSubclassesUI() {
             <span style="color:#60a5fa; font-size:11px; background:rgba(96,165,250,0.15); padding:1px 6px; border-radius:4px;">等級 ${sub.level}/85</span>
             <span style="color:#a855f7; font-size:10px; background:rgba(168,85,247,0.15); padding:1px 5px; border-radius:4px; text-transform:uppercase;">${archetype}</span>
           </div>
-          <div style="font-size:10px; color:var(--text-muted); margin-top:2px;">名匠認證可於 Lv.65、70、75、80 取得。</div>
+          <div style="font-size:10px; color:var(--text-muted); margin-top:2px;">名匠認證可於等級 65、70、75、80 取得。</div>
         </div>
         <div style="display:flex; gap:6px;">
           <button class="inv-batch-btn" style="padding:4px 8px; font-size:10px;" onclick="window.openResetCertificationsModal('${sub.id}')" title="重新分配此副職業的認證">🔄 重置（1kk）</button>
@@ -4129,7 +4129,7 @@ export function renderSubclassesUI() {
     const activeTransStr = state.activeTransformation ? `<div style="margin-top:4px; color:#fde047; font-weight:bold;">👼 神聖變身已啟用：${state.activeTransformation.toUpperCase()}</div>` : '';
     
     if (certBonuses.totalCertCount === 0) {
-      summaryEl.innerHTML = `目前尚未學習任何認證。將副職業提升至 Lv.65、70、75、80 即可累積永久加成！`;
+      summaryEl.innerHTML = `目前尚未學習任何認證。將副職業提升至等級 65、70、75、80 即可累積永久加成！`;
     } else {
       const parts = [];
       if (certBonuses.pAtk) parts.push(`+${certBonuses.pAtk} 物理攻擊`);
@@ -4551,7 +4551,7 @@ export function switchSubclass(targetIndex) {
       }
 
       const clsObj = getClass(state.class);
-      log(`⚔️ 已切換至副職業 **${clsObj?.name || state.class}**（Lv.${state.level}）！`, 'rarity-rare');
+      log(`⚔️ 已切換至副職業 **${clsObj?.name || state.class}**（等級 ${state.level}）！`, 'rarity-rare');
     }
   }
 
@@ -5429,7 +5429,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
       state.dolls = state.dolls || [];
       const dollDef = BOSS_DOLLS[candidateDollId];
       state.dolls.push({ uid: 'doll_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4), dollId: candidateDollId, level: 1 });
-      log(`🧸 娃娃掉落！獲得 **${dollDef.name}** [Lv.1]！`, 'rarity-rare', 'loot');
+      log(`🧸 娃娃掉落！獲得 **${dollDef.name}** [等級 1]！`, 'rarity-rare', 'loot');
       floatText(`🧸 ${dollDef.name}!`, 'float-jackpot');
       if (typeof updateDollsUI === 'function') updateDollsUI();
     }
@@ -6788,7 +6788,7 @@ function populateAdminItemSelect(query = '') {
     const opt = mkEl('option');
     opt.value = id;
     const grade = getItemGrade(def.req?.level || 1);
-    opt.textContent = `${def.name} [${grade}]（${def.slot || '物品'} · Lv.${def.req?.level || 1}）`;
+    opt.textContent = `${def.name} [${grade}]（${def.slot || '物品'} · 等級 ${def.req?.level || 1}）`;
     sel.appendChild(opt);
   }
 }
@@ -6936,10 +6936,10 @@ function syncAdminSeasonAndCapUI() {
       seasonBadge.style.background = 'rgba(16,185,129,0.2)';
     } else {
       const titles = {
-        1: '編年史 I：覺醒（Lv.40）',
-        2: '編年史 II：血盟與城堡（Lv.75）',
-        3: '編年史 III：七封印（Lv.85）',
-        4: '編年史 IV：High Five（Lv.120）'
+        1: '編年史 I：覺醒（等級 40）',
+        2: '編年史 II：血盟與城堡（等級 75）',
+        3: '編年史 III：七封印（等級 85）',
+        4: '編年史 IV：High Five（等級 120）'
       };
       seasonBadge.textContent = `目前編年史：${titles[curSeason] || '階段 ' + curSeason}`;
       seasonBadge.style.color = '#38bdf8';
@@ -7073,7 +7073,7 @@ function setServerLevelCap(cap) {
   }
 
   log(`📢 [皇家敕令] 亞丁至尊領主已將伺服器最高等級上限設定為 **${nCap} 級**！`, 'rarity-legendary');
-  if (typeof floatText === 'function') floatText(`👑 伺服器等級上限：Lv.${nCap}！`, 'float-jackpot');
+  if (typeof floatText === 'function') floatText(`👑 伺服器等級上限：${nCap}！`, 'float-jackpot');
   
   // Sincroniza o stage da temporada com o cap escolhido
   const CAP_TO_SEASON = { 40: 1, 60: 1, 75: 2, 85: 3, 100: 3, 120: 4 };
@@ -7742,7 +7742,7 @@ function updateDollsUI() {
               <span style="font-size:26px;">${def.icon}</span>
               <div>
                 <h4 style="margin:0; font-family:'Cinzel',serif; color:${isUnlocked ? '#f4d58a' : '#aaa'}; font-size:14px; display:flex; align-items:center; gap:6px;">
-                  ${def.name} ${isUnlocked ? `<span style="font-size:10px; background:rgba(52,211,153,0.2); border:1px solid #34d399; color:#34d399; padding:1px 6px; border-radius:4px;">目前生效等級：Lv.${maxOwnedLvl}</span>` : '<span style="font-size:10px; background:rgba(239,68,68,0.2); border:1px solid #ef4444; color:#fca5a5; padding:1px 6px; border-radius:4px;">🔒 尚未解鎖</span>'}
+                  ${def.name} ${isUnlocked ? `<span style="font-size:10px; background:rgba(52,211,153,0.2); border:1px solid #34d399; color:#34d399; padding:1px 6px; border-radius:4px;">目前生效等級：${maxOwnedLvl}</span>` : '<span style="font-size:10px; background:rgba(239,68,68,0.2); border:1px solid #ef4444; color:#fca5a5; padding:1px 6px; border-radius:4px;">🔒 尚未解鎖</span>'}
                 </h4>
                 <p style="margin:2px 0 0 0; font-size:11px; color:#94a3b8;">${def.desc}</p>
               </div>
@@ -7784,7 +7784,7 @@ function synthesizeDolls() {
 
   const d1 = state.dolls[idx1], d2 = state.dolls[idx2];
   if (d1.dollId !== d2.dollId || d1.level !== d2.level) { log('兩隻娃娃必須是相同種類且相同等級！', 'system'); return; }
-  if (d1.level >= 5) { log('你的娃娃已達最高等級（Lv.5）！', 'system'); return; }
+  if (d1.level >= 5) { log('你的娃娃已達最高等級（等級 5）！', 'system'); return; }
 
   const rates = { 1: 0.70, 2: 0.55, 3: 0.40, 4: 0.25 };
   const chance = rates[d1.level] || 0.30;
@@ -8053,7 +8053,7 @@ export function openPanel(tabName) {
     const tabLabel = TAB_NAMES_MAP[targetTab] || targetTab;
     const msg = currentLvl < reqLvl 
       ? `🔒 分頁 [${tabLabel}] 將於等級 ${reqLvl} 解鎖！` 
-      : `🔒 分頁 [${tabLabel}] 受到目前季節等級上限限制（Lv. ${globalCap}）！`;
+      : `🔒 分頁 [${tabLabel}] 受到目前季節等級上限限制（等級 ${globalCap}）！`;
     if (typeof showToast === 'function') showToast(msg, 'warning');
     else if (typeof log === 'function') log(`❌ ${msg}`, 'system');
     return;
@@ -8302,7 +8302,7 @@ export function bindEvents() {
           const globalCap = Number(window.globalServerCap) || Number(state?.serverCap) || Number(state?.serverMaxLevel) || 40;
           const msg = (state.level || 1) < reqLvl
             ? `🔒 此分頁需要等級 ${reqLvl} 才能解鎖。`
-            : `🔒 此內容受目前季節限制（等級上限 Lv.${globalCap}）。`;
+            : `🔒 此內容受目前季節限制（等級上限 ${globalCap}）。`;
           if (typeof showToast === 'function') showToast(msg, 'warning');
           else log(`❌ ${msg}`, 'system');
           return;
@@ -8921,7 +8921,7 @@ function reincarnateHero() {
   const title = titles[Math.min(state.prestigeLevel - 1, titles.length - 1)];
 
   log(`✨ 古代轉生完成！聲望等級 ${state.prestigeLevel}（${title}），獲得 +${earnedShards} 個星界碎片！`, 'rarity-legendary');
-  floatText(`PRESTÍGIO Lv.${state.prestigeLevel}`, 'float-gold');
+  floatText(`聲望等級 ${state.prestigeLevel}`, 'float-gold');
 
   updateAllUI();
   save();
@@ -8942,9 +8942,9 @@ const MANOR_SEEDS = {
 
 const CASTLES_DEFS = {
   dion: { id: 'dion', name: '狄恩城堡', reqLevel: 30, taxPerHour: 5000, desc: '每小時 +5,000 金幣', enemyName: '狄恩守衛（Lv.30）' },
-  giran: { id: 'giran', name: '奇岩城堡', reqLevel: 50, taxPerHour: 15000, desc: '每小時 +15,000 金幣，商店折扣 5%', enemyName: '奇岩守衛（Lv.50）' },
+  giran: { id: 'giran', name: '奇岩城堡', reqLevel: 50, taxPerHour: 15000, desc: '每小時 +15,000 金幣，商店折扣 5%', enemyName: '奇岩守衛（等級 50）' },
   goddard: { id: 'goddard', name: '高達特城堡', reqLevel: 70, taxPerHour: 35000, desc: '每小時 +35,000 金幣，並獲得 +5% XP 加成', enemyName: '高達特守衛（Lv.70）' },
-  aden: { id: 'aden', name: '亞丁帝國城堡', reqLevel: 85, taxPerHour: 75000, desc: '每小時 +75,000 金幣，總傷害 +10%', enemyName: '亞丁帝國守衛（Lv.85）' }
+  aden: { id: 'aden', name: '亞丁帝國城堡', reqLevel: 85, taxPerHour: 75000, desc: '每小時 +75,000 金幣，總傷害 +10%', enemyName: '亞丁帝國守衛（等級 85）' }
 };
 
 const EXPEDITION_DESTINATIONS = {
@@ -9390,7 +9390,7 @@ function executeCompoundAction(targetUid, ingredientUid) {
   const cost = 100000 * Math.pow(2, Math.min(8, curLv - 1));
 
   if ((state.gold || 0) < cost) {
-    log(`⚠️ 金幣不足！Lv.${curLv} 合成費用為 ${cost.toLocaleString()}g。`, 'warning');
+    log(`⚠️ 金幣不足！等級 ${curLv} 合成費用為 ${cost.toLocaleString()}g。`, 'warning');
     return false;
   }
 
@@ -9419,7 +9419,7 @@ function executeCompoundAction(targetUid, ingredientUid) {
     target.statsMult = 1 + (nextLv - 1) * 0.15;
     
     log(`✨ 合成成功！**${target.name || '物品'}** 已提升至 **等級 ${nextLv}**！`, 'rarity-legendary');
-    floatText(`合成成功！Lv.${nextLv}`, 'float-gold');
+    floatText(`合成成功！等級 ${nextLv}`, 'float-gold');
   } else {
     log(`💥 合成失敗！**${target.name || '物品'}** 維持在等級 ${curLv}，材料已消耗。`, 'warning');
     floatText('合成失敗！', 'float-dmg');
@@ -10145,7 +10145,7 @@ export function init() {
             <div>
               <div style="font-family:'Cinzel',serif; font-weight:bold; color:#ffd877; font-size:14px;">
                 ${inst.name}
-                <span style="font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(212,167,68,0.2); margin-left:6px; color:#fde047;">Lv. ${inst.minLvl}+</span>
+                <span style="font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(212,167,68,0.2); margin-left:6px; color:#fde047;">等級 ${inst.minLvl}+</span>
               </div>
               <div style="font-size:11px; color:#cbd5e1; margin-top:2px;">Chefe: <strong style="color:#f87171;">${inst.bossName}</strong> (HP: ${inst.bossHp.toLocaleString()} · Atk: ${inst.bossAtk})</div>
               <div style="font-size:10px; color:#6ee7b7; margin-top:2px;">🎁 Recompensas: +${inst.rewards.xp.toLocaleString()} XP · +${inst.rewards.gold.toLocaleString()}g · +${inst.rewards.sp} SP · ${inst.rewards.guaranteedRewardText}</div>
@@ -10223,7 +10223,7 @@ export function init() {
               <span style="font-size:24px;">${prov.icon}</span>
               <div>
                 <div style="font-family:'Cinzel',serif; font-weight:bold; color:#ffd877; font-size:14px;">${prov.name}</div>
-                <div style="font-size:11px; color:#94a3b8;">Zona Recomendada: Lv. ${prov.minLvl} - ${prov.maxLvl}</div>
+                <div style="font-size:11px; color:#94a3b8;">建議區域等級：${prov.minLvl}～${prov.maxLvl}</div>
               </div>
             </div>
             <div style="display:flex; align-items:center; gap:6px;">
@@ -10604,7 +10604,7 @@ export function init() {
           <div style="background:rgba(0,0,0,0.35); padding:12px; border-radius:8px; border:1px solid rgba(212,175,55,0.2); margin-bottom:10px;">
             <h4 style="color:#fbbf24; margin:0 0 6px 0;">🛡️ 等級 20～40 — D 級與首位團隊首領</h4>
             <p style="margin:0 0 4px 0;">• <strong>區域：</strong>奇岩郊區、歐肯遺跡、遺忘墓穴、黑色城塞。</p>
-            <p style="margin:0 0 4px 0;">• <strong>團隊首領：</strong>挑戰<strong>蟻后 👑（Lv.40）</strong>，有機會獲得<em>蟻后戒指</em>與<em>蟻后娃娃</em>（圖鑑）。</p>
+            <p style="margin:0 0 4px 0;">• <strong>團隊首領：</strong>挑戰<strong>蟻后 👑（等級 40）</strong>，有機會獲得<em>蟻后戒指</em>與<em>蟻后娃娃</em>（圖鑑）。</p>
             <p style="margin:0 0 4px 0;">• <strong>七封印：</strong>蒐集怪物掉落的紅／綠／藍封印石，為陣營每週勝利累積貢獻。</p>
             <p style="margin:0; color:#34d399; font-weight:bold;">🏆 里程碑：等級 40 完成第二次轉職（解鎖 C 級與「覺醒」史詩任務）。</p>
           </div>
@@ -10612,16 +10612,16 @@ export function init() {
           <div style="background:rgba(0,0,0,0.35); padding:12px; border-radius:8px; border:1px solid rgba(212,175,55,0.2); margin-bottom:10px;">
             <h4 style="color:#fbbf24; margin:0 0 6px 0;">⚔️ 等級 40～75 — C／B／A 級、鍛造門檻與貴族</h4>
             <p style="margin:0 0 4px 0;">• <strong>區域：</strong>古魯丁城堡、狼山、虛空裂隙、翡翠樹林、冥界之門、聖者之谷、悲鳴沼澤。</p>
-            <p style="margin:0 0 4px 0;">• <strong>團隊首領：</strong>核心（Lv.50）、歐爾芬（Lv.55）、札肯（Lv.60）。</p>
+            <p style="margin:0 0 4px 0;">• <strong>團隊首領：</strong>核心（等級 50）、歐爾芬（等級 55）、札肯（等級 60）。</p>
             <p style="margin:0 0 4px 0;">• <strong>鍛造等級 10：</strong>鍛造達到等級 10 後，將解鎖<strong>全球市場</strong>，可自由交易物品。</p>
-            <p style="margin:0 0 4px 0;">• <strong>貴族任務（Lv.75）：</strong>完成 4 個階段，前往聖者之谷與悲鳴沼澤，並擊敗<strong>團隊首領巴拉基爾</strong>，即可正式成為貴族！</p>
+            <p style="margin:0 0 4px 0;">• <strong>貴族任務（等級 75）：</strong>完成 4 個階段，前往聖者之谷與悲鳴沼澤，並擊敗<strong>團隊首領巴拉基爾</strong>，即可正式成為貴族！</p>
             <p style="margin:0; color:#34d399; font-weight:bold;">🏆 里程碑：等級 76 完成第三次轉職（解鎖遠古史詩任務與 S 級）。</p>
           </div>
 
           <div style="background:rgba(0,0,0,0.35); padding:12px; border-radius:8px; border:1px solid rgba(212,175,55,0.2);">
             <h4 style="color:#fbbf24; margin:0 0 6px 0;">👑 等級 76～95+ — 後期內容、巨龍與超越（重置）</h4>
             <p style="margin:0 0 4px 0;">• <strong>區域：</strong>亞丁城、龍之谷、帝國陵墓、安塔瑞斯巢穴、諸神熔爐。</p>
-            <p style="margin:0 0 4px 0;">• <strong>史詩團隊首領：</strong>皇帝巴溫（Lv.75）、弗林泰沙（Lv.85）、安塔瑞斯（Lv.95）、巴拉卡斯（Lv.100）。</p>
+            <p style="margin:0 0 4px 0;">• <strong>史詩團隊首領：</strong>皇帝巴溫（等級 75）、弗林泰沙（等級 85）、安塔瑞斯（等級 95）、巴拉卡斯（等級 100）。</p>
             <p style="margin:0 0 4px 0;">• <strong>大奧林匹亞：</strong>貴族玩家每週末爭奪至高英雄稱號。</p>
             <p style="margin:0; color:#ffd700; font-weight:bold;">♾️ 重生／重置：達到等級 85 後可進行超越，重置回等級 1，並累積 +60 永久屬性點數！</p>
           </div>
@@ -10631,7 +10631,7 @@ export function init() {
           <h4 style="color:#fbbf24; margin-top:0;">🔨 帳號鍛造等級與循環經濟</h4>
           <p>• <strong>如何提升鍛造等級：</strong>拆解背包中的多餘裝備或製作配方，都可獲得<strong>鍛造 EXP</strong>。</p>
           <p>• <strong>為什麼鍛造很重要：</strong>更高的鍛造等級會提高製作名匠裝備（普希金）的機率、降低成本，並解鎖 A 級、S 級與至尊級配方。</p>
-          <p>• <strong>全球市場解鎖（Lv.10）：</strong>為降低機器人濫用並鼓勵正常遊玩，帳號鍛造等級需達 10 才能使用全球市場。</p>
+          <p>• <strong>全球市場解鎖（等級 10）：</strong>為降低機器人濫用並鼓勵正常遊玩，帳號鍛造等級需達 10 才能使用全球市場。</p>
           <p>• <strong>大量物品消耗機制：</strong>後期可在隱藏鐵匠處犧牲舊武器，凝聚遠古能量並打造至尊遺物。</p>
         `;
       } else if (tab === 'codex') {
