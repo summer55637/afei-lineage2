@@ -1,8 +1,8 @@
 /**
- * CharacterService.js — Gestão de Promoções de Classe, Herança e Subclasses do Lineage Idle.
+ * CharacterService.js — Gestão de Promoções de 職業, Herança e Subclasses do Lineage Idle.
  *
  * Responsável pela resolução de herança de classes (classSatisfies), verificação de elegibilidade
- * de promoção (1ª, 2ª e 3ª Troca de Classe - 3rd Job) e cerimônia de promoção com reembolso de SP.
+ * de promoção (1ª, 2ª e 3ª Troca de 職業 - 3rd Job) e cerimônia de promoção com reembolso de SP.
  */
 
 import { D } from '../core/GameConfig.js';
@@ -11,7 +11,7 @@ import { getClass } from '../engine/StatsEngine.js';
 import { getSkillCost } from '../engine/SkillEngine.js';
 import { resolveCanonicalClassId, resolveCanonicalDagClassId, getCanonicalCharacterClass } from '../data/classes/class_aliases.js';
 import { getAncestors, getDescendants, getLineage, getSuccessors, canAdvance, getClassEntity } from '../data/elemental/ClassLineage.js';
-import { HISTORICAL_CLASS_MAP } from '../data/elemental/HistoricalClasses.js';
+import { HISTORICAL_CLASS_MAP } from '../data/elemental/Historical職業s.js';
 import { CLASS_IDENTITIES } from '../data/elemental/ClassIdentity.js';
 import { CANONICAL_CLASS_REGISTRY } from '../data/classes/CanonicalClassRegistry.js';
 
@@ -114,7 +114,7 @@ export function validateAndFixCharacterClass(state) {
         state.race = normalizedKnownRace;
       }
     }
-    return state; // Classe validada com sucesso, NENHUM fallback executado
+    return state; // 職業 validada com sucesso, NENHUM fallback executado
   }
 
   // Fallback seguro de último recurso apenas para IDs completamente desconhecidos/corrompidos
@@ -259,16 +259,16 @@ export function checkClassAdvancement(state, callbacks = {}) {
 
   if (state.level >= 20 && currentStage === 0) {
     canAdvance = true;
-    advTitle = '⚡ 1ª Troca de Classe Disponível!';
-    advSub = `Atingiu o Nível ${state.level}! Escolha o caminho de evolução para a Ordem de ${currentClassDef?.name || state.class}.`;
+    advTitle = '⚡ 第一次轉職 Disponível!';
+    advSub = `達到等級 ${state.level}！請為 ${currentClassDef?.name || state.class} 選擇進階路線。`;
   } else if (state.level >= 40 && currentStage === 1) {
     canAdvance = true;
-    advTitle = '⚔️ 2ª Troca de Classe Disponível!';
-    advSub = `Atingiu o Nível ${state.level}! Escolha a sua Classe Épica de Especialista.`;
+    advTitle = '⚔️ 第二次轉職已開放！';
+    advSub = `達到等級 ${state.level}！請選擇你的史詩專精職業。`;
   } else if (state.level >= 76 && currentStage === 2) {
     canAdvance = true;
-    advTitle = '👑 3ª Troca de Classe Disponível (3rd Job)!';
-    advSub = `Atingiu o Nível ${state.level}! Torne-se um Mestre Sagrado da 3ª Transferência e alcance o poder dos Noblesses!`;
+    advTitle = '👑 第三次轉職已開放！';
+    advSub = `達到等級 ${state.level}！完成第三次轉職，成為神聖大師並取得貴族之力！`;
   }
 
   const el = callbacks.el || ((id) => (typeof document !== 'undefined' ? document.getElementById(id) : null));
@@ -287,7 +287,7 @@ export function checkClassAdvancement(state, callbacks = {}) {
   if (statsBtn) {
     if (canAdvance) {
       statsBtn.style.display = 'block';
-      statsBtn.textContent = currentStage === 0 ? '⚡ 1ª Troca de Classe' : currentStage === 1 ? '⚔️ 2ª Troca de Classe' : '👑 3ª Troca de Classe';
+      statsBtn.textContent = currentStage === 0 ? '⚡ 第一次轉職' : currentStage === 1 ? '⚔️ 第二次轉職' : '👑 第三次轉職';
       statsBtn.onclick = openModal;
     } else {
       statsBtn.style.display = 'none';
@@ -343,7 +343,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
 
   const newClassDef = getClass(newClassId) || getClass(resolveCanonicalClassId(newClassId));
   if (!newClassDef) {
-    if (callbacks.log) callbacks.log(`❌ Classe de destino inválida: ${newClassId}`, 'warning');
+    if (callbacks.log) callbacks.log(`❌ 目標職業無效：${newClassId}`, 'warning');
     return false;
   }
 
@@ -366,14 +366,14 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
     callbacks.allowAdminOverride;
 
   if (!isAuthorizedSuccessor) {
-    if (callbacks.log) callbacks.log(`❌ Transferência inválida: ${newClassId} não é uma evolução autorizada de ${currentClass} no grafo de linhagem.`, 'warning');
+    if (callbacks.log) callbacks.log(`❌ 無效轉職：${newClassId} 不是 ${currentClass} 血統路線中允許的進階職業。`, 'warning');
     return false;
   }
 
-  // 2. Validação de Nível de Requisito de Avanço
+  // 2. Validação de 等級 de Requisito de Avanço
   const reqLevel = Number(newClassDef.minLevel || (newClassDef.stage === 1 ? 20 : newClassDef.stage === 2 ? 40 : newClassDef.stage === 3 ? 76 : 1)) || 1;
   if (!callbacks.allowAdminOverride && state.level < reqLevel) {
-    if (callbacks.log) callbacks.log(`🔒 Nível insuficiente (${state.level}) para avançar para ${newClassDef.name || newClassId}. Requer nível ${reqLevel}.`, 'warning');
+    if (callbacks.log) callbacks.log(`🔒 等級 insuficiente (${state.level}) para avançar para ${newClassDef.name || newClassId}. Requer nível ${reqLevel}.`, 'warning');
     return false;
   }
 
@@ -388,7 +388,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
       resolveCanonicalDagClassId(e.sourceClassId, currentRace) === canonNew
     );
     if (!isLevelEligible && !isCanonicalChild) {
-      if (callbacks.log) callbacks.log(`🔒 Nível insuficiente (${state.level}) para avançar para ${newClassDef.name || newClassId}.`, 'warning');
+      if (callbacks.log) callbacks.log(`🔒 等級 insuficiente (${state.level}) para avançar para ${newClassDef.name || newClassId}.`, 'warning');
       return false;
     }
   }
@@ -515,7 +515,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
     state.selectedSkill = starterSkills[0] || Object.keys(state.skills)[0] || null;
   }
 
-  // Bônus Nobre de SP por conclusão da Cerimônia de Avanço de Classe
+  // Bônus Nobre de SP por conclusão da Cerimônia de Avanço de 職業
   const stage = Number(newClassDef.stage) || 1;
   const transferSpBonus = stage === 1 ? 35 : stage === 2 ? 80 : 200;
   state.sp = (state.sp || 0) + totalRefunded + transferSpBonus;
