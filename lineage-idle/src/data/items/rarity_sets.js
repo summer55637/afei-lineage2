@@ -11,10 +11,10 @@ export const RARITY = {
 };
 
 export const SLOT = {
-  weapon: 'Arma', armor: 'Armadura', helmet: 'Capacete', boots: 'Botas',
-  gloves: 'Luvas', ring: 'Anel', legs: 'Calça', shield: 'Escudo',
-  necklace: 'Colar', earring: 'Brinco', belt: 'Cinto', cloak: 'Manto',
-  sigil: 'Sigil', hair: 'Acessório', agathion: 'Agathion', consumable: 'Consumível', material: 'Material'
+  weapon: '武器', armor: '防具', helmet: '頭盔', boots: '靴子',
+  gloves: '手套', ring: '戒指', legs: '腿甲', shield: '盾牌',
+  necklace: '項鍊', earring: '耳環', belt: '腰帶', cloak: '披風',
+  sigil: '符印', hair: '頭飾', agathion: '阿加西翁', consumable: '消耗品', material: 'Material'
 };
 
 export const ARMOR_SETS = {
