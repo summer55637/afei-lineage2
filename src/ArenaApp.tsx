@@ -215,7 +215,7 @@ function MenuScreen({
               backgroundClip: "text",
             }}
           >
-            ADEN ARENA
+            亞丁競技場
           </h1>
           <p className="mx-auto mt-2 max-w-xl text-sm text-white/50">
             選擇你的鬥士，或使用放置模式中的現役角色進入 3D 戰場！
@@ -227,7 +227,7 @@ function MenuScreen({
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
                 <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-400/20 px-3 py-0.5 text-[11px] font-black uppercase text-amber-300 border border-amber-400/30">
-                  <span>★</span> Personagem Idle Conectado
+                  <span>★</span> 已連接放置角色
                 </div>
                 <h2 className="mt-2 font-display text-2xl font-black text-white">
                   {idleState.charName || idleState.heroName || "你的角色"} · 等級 {idleState.level || 1}
@@ -427,7 +427,7 @@ function MenuScreen({
                 onClick={() => onPlay(race, cls)}
                 className="mt-4 w-full rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 px-4 py-3 text-center font-display text-lg font-black tracking-wide text-[#2a1c00] shadow-lg shadow-amber-500/30 transition hover:brightness-110 active:scale-[0.98]"
               >
-                ENTER THE ARENA ▶
+                進入競技場 ▶
               </button>
             </div>
 
