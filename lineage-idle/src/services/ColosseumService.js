@@ -38,7 +38,7 @@ export class ColosseumService {
 
     if (customOpponent) {
       oppName = customOpponent.charName || customOpponent.name || '傳說挑戰者';
-      oppTitle = customOpponent.className ? `Lv. ${customOpponent.level || 80} ${customOpponent.className}` : 'Gladiador do Reino';
+      oppTitle = customOpponent.className ? `等級 ${customOpponent.level || 80} ${customOpponent.className}` : '王國角鬥士';
       oppIcon = customOpponent.isHero ? '👑' : '⚔️';
       
       const snap = customOpponent.statsSnapshot || {};
@@ -83,7 +83,7 @@ export class ColosseumService {
   static executeDuelTurn(state, hooks = {}) {
     const colState = this.ensureState(state);
     const duel = colState.activeDuel;
-    if (!duel) return { success: false, message: 'Nenhum duelo ativo.' };
+    if (!duel) return { success: false, message: '目前沒有進行中的決鬥。' };
 
     const pStats = state.stats || { atk: 2500, def: 2000 };
     const pDmg = Math.max(150, Math.floor((pStats.atk || 2000) * 1.6 - duel.pDef * 0.4));
