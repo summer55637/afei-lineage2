@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "whirlwind_dash",
-        "name": "Investida Redemoinho",
+        "name": "旋風突進",
         "classId": "ertheia_marauder",
         "race": "ertheia",
         "tier": "core_1",
@@ -15,7 +15,7 @@
           "Wind",
           "Physical"
         ],
-        "description": "Investida Redemoinho — Habilidade Especialista de ertheia_marauder."
+        "description": "旋風突進——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -168,7 +168,7 @@
     {
       "identity": {
         "id": "spirit_gale",
-        "name": "Rajada Espiritual",
+        "name": "靈魂烈風",
         "classId": "ertheia_marauder",
         "race": "ertheia",
         "tier": "core_2",
@@ -178,7 +178,7 @@
         "tags": [
           "Wind"
         ],
-        "description": "Rajada Espiritual — Habilidade Especialista de ertheia_marauder."
+        "description": "靈魂烈風——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -331,7 +331,7 @@
     {
       "identity": {
         "id": "twin_gust_slash",
-        "name": "Corte Duplo de Rajada",
+        "name": "雙重烈風斬",
         "classId": "ertheia_marauder",
         "race": "ertheia",
         "tier": "specialization",
@@ -342,7 +342,7 @@
           "Wind",
           "Physical"
         ],
-        "description": "Corte Duplo de Rajada — Habilidade Especialista de ertheia_marauder."
+        "description": "雙重烈風斬——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -495,7 +495,7 @@
     {
       "identity": {
         "id": "tempest_veil",
-        "name": "Véu da Tempestade",
+        "name": "暴風帷幕",
         "classId": "ertheia_marauder",
         "race": "ertheia",
         "tier": "elemental_specialization",
@@ -505,7 +505,7 @@
         "tags": [
           "Wind"
         ],
-        "description": "Véu da Tempestade — Habilidade Especialista de ertheia_marauder."
+        "description": "暴風帷幕——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -676,7 +676,7 @@
     {
       "identity": {
         "id": "tempest_breaker",
-        "name": "Tempest Breaker",
+        "name": "暴風粉碎",
         "classId": "ertheia_marauder",
         "race": "ertheia",
         "tier": "ultimate",
@@ -686,7 +686,7 @@
         "tags": [
           "Wind"
         ],
-        "description": "Tempest Breaker — Habilidade Ultimate (★★★★) de ertheia_marauder."
+        "description": "暴風粉碎——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -872,7 +872,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "TEMPEST BREAKER!",
+          "text": "暴風粉碎！",
           "style": "gold_banner",
           "banner": true
         }
@@ -893,7 +893,7 @@
     {
       "identity": {
         "id": "master_tempest_breaker",
-        "name": "Master: Tempest Breaker",
+        "name": "大師：暴風粉碎",
         "classId": "ertheia_marauder",
         "race": "ertheia",
         "tier": "master_ultimate",
@@ -903,7 +903,7 @@
         "tags": [
           "Wind"
         ],
-        "description": "Master: Tempest Breaker — Habilidade Master Ultimate (★★★★★) de ertheia_marauder."
+        "description": "大師：暴風粉碎——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1090,7 +1090,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: TEMPEST BREAKER!",
+          "text": "大師：暴風粉碎！",
           "style": "mythic_banner",
           "banner": true
         }
