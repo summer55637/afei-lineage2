@@ -436,7 +436,7 @@ export const GUIDES_DATA = {
 
   raids: {
     id: 'raids',
-    title: '🏰 每日地城與史詩 Raid Boss',
+    title: '🏰 每日地城與史詩團隊首領',
     subtitle: '挑戰亞丁最強大的敵人，利用 Break 機制取得傳說掉落。',
     icon: '🏰',
     color: '#ef4444',
@@ -488,7 +488,7 @@ export const GUIDES_DATA = {
     sections: [
       {
         heading: '🏰 血盟等級與被動技能',
-        text: '隨著成員捐獻金幣與 SP，血盟會從 Lv.1 提升至 Lv.5，為所有成員解鎖技能：\n• **Lv.1 Clan Imperium**：+10% 最大 HP\n• **Lv.2 Clan Might**：+8% P.Atk\n• **Lv.3 Clan Shield**：+10% P.Def\n• **Lv.4 Clan Empower**：+10% M.Atk、+12% M.Def\n• **Lv.5 Clan Vitality**：+20% MP 恢復、+5 速度',
+        text: '隨著成員捐獻金幣與 SP，血盟會從 Lv.1 提升至 Lv.5，為所有成員解鎖技能：\n• **Lv.1 血盟帝國**：+10% 最大 HP\n• **Lv.2 血盟力量**：+8% P.Atk\n• **Lv.3 血盟之盾**：+10% P.Def\n• **Lv.4 血盟增幅**：+10% M.Atk、+12% M.Def\n• **Lv.5 血盟活力**：+20% MP 恢復、+5 速度',
         tip: '加入活躍血盟，是大幅提升戰鬥力（CP）的重要方式之一！'
       },
       {
