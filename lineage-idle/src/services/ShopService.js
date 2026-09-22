@@ -96,7 +96,7 @@ export function buyMysticItem(state, itemId, rarity, callbacks = {}) {
 
   state.gold -= price;
   const rarityName = gData?.RARITY?.[rarity]?.name || rarity;
-  if (callbacks.log) callbacks.log(`✨ 神秘購買：${def.name} [${rarityName}]，花費 💰 ${price.toLocaleString()}g！`, 'rarity-' + rarity);
+  if (callbacks.log) callbacks.log(`✨ 神秘購買：${def.name} [${rarityName}]，花費 💰 ${price.toLocaleString()} 金幣！`, 'rarity-' + rarity);
 
   // Remove o item comprado do estoque místico atual
   if (Array.isArray(state.mysticShopInventory)) {
@@ -307,7 +307,7 @@ export function rerollMysticStock(state, rollStockFn, callbacks = {}) {
   }
 
   if (callbacks.log) {
-    callbacks.log(`🔮 神秘商人展示了新一批古代遺物！（-${MYSTIC_REROLL_COST.toLocaleString()}g）`, 'rarity-legendary');
+    callbacks.log(`🔮 神秘商人展示了新一批古代遺物！（-${MYSTIC_REROLL_COST.toLocaleString()} 金幣）`, 'rarity-legendary');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI(state);
