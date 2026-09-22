@@ -78,7 +78,7 @@ export class FortressService {
     // Confronto com os Defensores
     const dmg = Math.max(200, Math.floor((playerStats.atk || 2000) * 2.0 - siege.pDef * 0.5));
     siege.defenderHp = Math.max(0, siege.defenderHp - dmg);
-    hooks.log?.(`⚔️ 對要塞守軍造成 **${dmg.toLocaleString()}** 傷害！（剩餘 HP：${siege.defenderHp.toLocaleString()}）`, 'combat');
+    hooks.log?.(`⚔️ 對要塞守軍造成 **${dmg.toLocaleString()}** 傷害！（剩餘生命值：${siege.defenderHp.toLocaleString()}）`, 'combat');
 
     if (siege.defenderHp <= 0) {
       siege.isCompleted = true;
