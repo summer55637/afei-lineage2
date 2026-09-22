@@ -181,7 +181,7 @@ export const ExpeditionService = {
       const hours = (finalDuration / 3600000).toFixed(1);
       const squadCount = validSquadUids.length;
       const squadInfo = squadCount > 0 ? `已編入 ${squadCount} 名傭兵` : `單人遠征`;
-      const dirName = RISK_DIRECTIVES[directive]?.name || 'Equilibrada';
+      const dirName = RISK_DIRECTIVES[directive]?.name || '均衡';
       callbacks.log(`🧭 小隊已派往 **${dest.name}**，${squadInfo}【方針：${dirName}】！預計時間：${hours} 小時。`, 'loot');
       if (synergies.activePerks.length > 0) {
         callbacks.log(`⚡ 協同與特性：${synergies.activePerks.join(' | ')}`, 'system');
