@@ -3308,9 +3308,18 @@ export function updateCharacterUI(state) {
     const wpnUid = state.equipment?.weapon;
     const socket = (wpnUid && state.weaponSockets) ? state.weaponSockets[wpnUid] : null;
 
+    const tattooStatLabels = {
+      str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神',
+      atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦',
+      matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值',
+      mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度',
+      spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害',
+      hpRegen: '生命恢復', mpRegen: '魔力恢復'
+    };
+
     let tattoosHtml = '';
     if (tattoos.length > 0) {
-      tattoosHtml = tattoos.map(t => `<div class="l2-tatt-badge">🖋️ 刺青： +${t.plusVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[t.plusStat] || t.({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[plusStat] || plusStat.toUpperCase()} / -${t.minusVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[t.minusStat] || t.({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[minusStat] || minusStat.toUpperCase()}</div>`).join('');
+      tattoosHtml = tattoos.map(t => `<div class="l2-tatt-badge">🖋️ 刺青：+${t.plusVal} ${tattooStatLabels[t.plusStat] || t.plusStat?.toUpperCase() || ''} / -${t.minusVal} ${tattooStatLabels[t.minusStat] || t.minusStat?.toUpperCase() || ''}</div>`).join('');
     } else {
       tattoosHtml = '<div class="l2-tatt-empty">尚未刻印任何紋身。（取得染料後可在鍛造大師處刻印）</div>';
     }
