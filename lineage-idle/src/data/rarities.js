@@ -5,18 +5,18 @@
 export const RARITIES = {
   common: {
     id: 'common',
-    name: '普通',
+    name: '一般',
     color: '#9e9e9e',
     glowColor: 'rgba(158, 158, 158, 0.2)',
-    badge: '⚪ 普通',
+    badge: '⚪ 一般',
     multiplier: 1.0
   },
   uncommon: {
     id: 'uncommon',
-    name: '優良',
+    name: '非凡',
     color: '#4caf50',
     glowColor: 'rgba(76, 175, 80, 0.3)',
-    badge: '🟢 優良',
+    badge: '🟢 非凡',
     multiplier: 1.25
   },
   rare: {
