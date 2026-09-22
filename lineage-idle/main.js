@@ -8602,9 +8602,9 @@ export function bindEvents() {
         );
         if (!confirm1) return;
 
-        const confirm2 = prompt('若要確認刪除資料，請完整輸入「WIPE ZERO」：');
-        if (confirm2 !== 'WIPE ZERO') {
-          alert('操作已取消。輸入文字與「WIPE ZERO」不符。');
+        const confirm2 = prompt('若要確認刪除資料，請完整輸入「確認清空全部資料」：');
+        if (confirm2 !== '確認清空全部資料') {
+          alert('操作已取消。輸入文字與「確認清空全部資料」不符。');
           return;
         }
 
