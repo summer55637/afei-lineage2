@@ -58,7 +58,7 @@ export class FortressService {
     const fState = this.ensureState(state);
     const siege = fState.activeSiege;
     if (!siege || siege.isCompleted) {
-      return { success: false, message: 'Nenhum cerco de fortaleza ativo.' };
+      return { success: false, message: '目前沒有進行中的要塞攻城戰。' };
     }
 
     const playerStats = state.stats || { atk: 3000, matk: 3000 };
@@ -157,11 +157,11 @@ export class FortressService {
     const maxSlots = bracelet.slots;
 
     if (fState.equippedTalismans.includes(talismanId)) {
-      return { success: false, message: 'Este talismã já está equipado.' };
+      return { success: false, message: '此護符已經裝備。' };
     }
 
     if (fState.equippedTalismans.length >= maxSlots) {
-      return { success: false, message: `Seu bracelete só suporta ${maxSlots} talismã(s). Remova um antes de equipar.` };
+      return { success: false, message: `你的手環最多只能裝備 ${maxSlots} 個護符。請先卸下一個再裝備。` };
     }
 
     if (fState.epaulettes < def.costEpaulettes) {
