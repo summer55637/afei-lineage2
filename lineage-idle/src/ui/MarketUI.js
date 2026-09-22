@@ -193,7 +193,7 @@ export function renderMarketTab(container, state, callbacks = {}) {
           <span style="font-size: 11px; color: #94a3b8; font-family: 'Inter', sans-serif; margin-right: 4px;">貨幣：</span>
           <button class="l2wt-cur-filter ${_currencyFilter === 'all' ? 'active' : ''}" data-cur="all" style="background: ${_currencyFilter === 'all' ? 'rgba(212,167,68,0.25)' : 'rgba(0,0,0,0.4)'}; color: ${_currencyFilter === 'all' ? '#ffd877' : '#94a3b8'}; border: 1px solid ${_currencyFilter === 'all' ? '#ffd877' : 'rgba(255,255,255,0.1)'}; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer;">🌐 全部</button>
           <button class="l2wt-cur-filter ${_currencyFilter === 'adena' ? 'active' : ''}" data-cur="adena" style="background: ${_currencyFilter === 'adena' ? 'rgba(234,179,8,0.25)' : 'rgba(0,0,0,0.4)'}; color: ${_currencyFilter === 'adena' ? '#fde047' : '#94a3b8'}; border: 1px solid ${_currencyFilter === 'adena' ? '#fde047' : 'rgba(255,255,255,0.1)'}; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer;">🪙 金幣</button>
-          <button class="l2wt-cur-filter ${_currencyFilter === 'adencoin' ? 'active' : ''}" data-cur="adencoin" style="background: ${_currencyFilter === 'adencoin' ? 'rgba(59,130,246,0.25)' : 'rgba(0,0,0,0.4)'}; color: ${_currencyFilter === 'adencoin' ? '#93c5fd' : '#94a3b8'}; border: 1px solid ${_currencyFilter === 'adencoin' ? '#93c5fd' : 'rgba(255,255,255,0.1)'}; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer;">👑 Aden Coin</button>
+          <button class="l2wt-cur-filter ${_currencyFilter === 'adencoin' ? 'active' : ''}" data-cur="adencoin" style="background: ${_currencyFilter === 'adencoin' ? 'rgba(59,130,246,0.25)' : 'rgba(0,0,0,0.4)'}; color: ${_currencyFilter === 'adencoin' ? '#93c5fd' : '#94a3b8'}; border: 1px solid ${_currencyFilter === 'adencoin' ? '#93c5fd' : 'rgba(255,255,255,0.1)'}; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer;">👑 亞丁幣</button>
         </div>
 
         <div style="display: flex; align-items: center; gap: 8px; flex: 1; max-width: 420px; justify-content: flex-end;">
@@ -421,7 +421,7 @@ function renderSellTab(state) {
                   🪙 金幣
                 </button>
                 <button class="market-set-currency ${_sellCurrency === 'adencoin' ? 'active' : ''}" data-cur="adencoin" style="flex: 1; padding: 8px; border-radius: 6px; background: ${_sellCurrency === 'adencoin' ? 'rgba(59,130,246,0.25)' : 'rgba(0,0,0,0.4)'}; border: 1px solid ${_sellCurrency === 'adencoin' ? '#93c5fd' : 'rgba(255,255,255,0.1)'}; color: ${_sellCurrency === 'adencoin' ? '#93c5fd' : '#aaa'}; font-weight: bold; cursor: pointer; font-size: 12px;">
-                  👑 Aden Coin (AC)
+                  👑 亞丁幣 (AC)
                 </button>
               </div>
             </div>
