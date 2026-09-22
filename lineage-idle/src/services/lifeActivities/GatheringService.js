@@ -11,7 +11,7 @@ import {
 import { addToInventory } from '../InventoryService.js';
 import { LifeActivityCore } from './LifeActivityCore.js';
 import { RewardEngine } from './RewardEngine.js';
-import { resolveCanonicalResourceId } from './ResourceDictionary.js';
+import { resolveCanonicalResourceId, getCanonicalResourceDef } from './ResourceDictionary.js';
 
 export const GatheringService = {
   getGatheringState(state) {
@@ -474,15 +474,18 @@ export const GatheringService = {
     gState.isGathering = false;
     gState.targetedNodeId = null;
 
+    const primaryDisplayName = getCanonicalResourceDef(primaryMat)?.name || primaryMat;
+    const secondaryDisplayName = secMat ? (getCanonicalResourceDef(secMat)?.name || secMat) : null;
+
     if (callbacks.log) {
       const qualityPrefix = quality.tier === 'perfect' ? '🌸 **完美採集！**'
         : quality.tier === 'excellent' ? '✨ **優秀採集！**'
         : '✓ 採集完成：';
-      callbacks.log(`🌿 ${qualityPrefix} 採集 **${node.name}** [${quality.name}]！獲得 +${primaryQty}x ${primaryMat.toUpperCase()}${secMat && secQty > 0 ? ` 與 +${secQty}x ${secMat.toUpperCase()}` : ''}！（+${finalXp} 採集 XP）`, 'loot');
+      callbacks.log(`🌿 ${qualityPrefix} 採集 **${node.name}** [${quality.name}]！獲得 +${primaryQty}x ${primaryDisplayName}${secMat && secQty > 0 ? ` 與 +${secQty}x ${secondaryDisplayName}` : ''}！（+${finalXp} 採集 XP）`, 'loot');
     }
 
     if (callbacks.floatText) {
-      callbacks.floatText(`+${primaryQty}x ${primaryMat.toUpperCase()}`, 'float-gold');
+      callbacks.floatText(`+${primaryQty}x ${primaryDisplayName}`, 'float-gold');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
