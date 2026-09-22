@@ -8,7 +8,7 @@ export const DAILY_REWARDS_TABLE = [
   { day: 3, name: 'XL 治癒藥水', icon: '🧪', desc: '100 瓶 XL 生命藥水', rewardType: 'item', itemId: 'hp_potion_xl', count: 100, rarity: 'uncommon' },
   { day: 4, name: '武器強化卷軸', icon: '📜', desc: '3 張通用武器強化卷軸', rewardType: 'item', itemId: 'scroll_of_enchant_weapon', count: 3, rarity: 'rare' },
   { day: 5, name: '防具強化卷軸', icon: '🛡️', desc: '5 張通用防具強化卷軸', rewardType: 'item', itemId: 'scroll_of_enchant_armor', count: 5, rarity: 'rare' },
-  { day: 6, name: '神燈 Mágica de XP', icon: '🪔', desc: '1 個幸運魔法燈', rewardType: 'special', count: 1, rarity: 'rare' },
+  { day: 6, name: 'XP 魔法神燈', icon: '🪔', desc: '1 個幸運魔法燈', rewardType: 'special', count: 1, rarity: 'rare' },
   { day: 7, name: '⭐ 第一週祝福', icon: '🎁', desc: '5 張武器強化卷軸 + 100,000 金幣', isMilestone: true, rewardType: 'combo', itemId: 'scroll_of_enchant_weapon', count: 5, adena: 100000, rarity: 'epic' },
 
   { day: 8, name: '金幣寶藏', icon: '💰', desc: '150,000 金幣', rewardType: 'adena', count: 150000, rarity: 'common' },
