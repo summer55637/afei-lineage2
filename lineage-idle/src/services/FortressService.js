@@ -171,7 +171,7 @@ export class FortressService {
     fState.epaulettes -= def.costEpaulettes;
     fState.equippedTalismans.push(talismanId);
 
-    hooks.log?.(`✨ 護符 **${def.name}** equipado com sucesso no bracelete! (${fState.equippedTalismans.length}/${maxSlots})`, 'gain');
+    hooks.log?.(`✨ 護符 **${def.name}** 已成功裝備到手環！（${fState.equippedTalismans.length}/${maxSlots}）`, 'gain');
     hooks.onUpdate?.();
     return { success: true, talisman: def };
   }
