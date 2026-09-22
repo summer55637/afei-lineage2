@@ -3596,7 +3596,7 @@ export function renderZoneMap(state, callbacks = {}) {
               style="background:${activeBg}; border:${activeBorder}; color:${isLocked ? '#64748b' : (isSelected ? '#fff' : (d.color || '#fff'))}; padding: 5px 12px; border-radius: 6px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: ${isLocked ? 'not-allowed' : 'pointer'}; display: inline-flex; align-items: center; gap: 5px; box-shadow: ${isSelected ? `0 0 10px ${d.color || '#ffd877'}44` : 'none'}; transition: all 0.2s;"
               title="${isLocked ? `需要等級 ${d.minLvl || 1}+` : (d.desc || '')}">
         <span>${d.icon || '⚔️'}</span>
-        <span>${d.name || d.id}</span>
+        <span>${d.name || '未知難度'}</span>
         <span style="font-size: 10px; opacity: 0.85;">${isLocked ? `🔒（等級 ${d.minLvl || 1}）` : `（${d.xpMult || 1}×）`}</span>
       </button>
     `;
@@ -3614,7 +3614,7 @@ export function renderZoneMap(state, callbacks = {}) {
   container.appendChild(diffBar);
 
   const sagasData = SAGAS || [
-    { name: 'Interlude', unlocksAt: 1, zones: ['talking_island', 'elven_village', 'dark_elven_village', 'gludin', 'gludio'] }
+    { name: '間奏曲', unlocksAt: 1, zones: ['talking_island', 'elven_village', 'dark_elven_village', 'gludin', 'gludio'] }
   ];
 
   const sagaList = Array.isArray(sagasData) ? sagasData : Object.values(sagasData);
@@ -3641,7 +3641,7 @@ export function renderZoneMap(state, callbacks = {}) {
       const thumbStyle = bgUrl ? `style="background-image:url('${getAssetUrl(bgUrl)}')"` : '';
 
       const monsterCount = zDef.monsters?.length || zDef.monsterTypes?.length || 4;
-      const bossName = zDef.boss || zDef.bossName || '首領';
+      const bossName = zDef.boss ? (MONSTERS?.[zDef.boss]?.name || zDef.bossName || '未知首領') : (zDef.bossName || '首領');
       const cpText = (zoneProg?.minCp) ? ` · ⚔️ 戰鬥力 ${zoneProg.minCp.toLocaleString()}` : '';
 
       return `
@@ -6643,9 +6643,10 @@ export function renderAlchemyUI(state) {
 
     const optionsHtml = inventoryItems.map(item => {
       const def = getItemDef(item.itemId);
-      const rName = def?.name || item.itemId;
+      const rName = def?.name || '未知物品';
       const gCode = getItemGradeCode(def).toUpperCase();
-      return `<option value="${item.uid}" ${item.uid === selectedItem.uid ? 'selected' : ''}>[${gCode}] ${rName}（×${item.count || 1}）</option>`;
+      const gLabel = gCode === 'NG' ? '無級' : gCode;
+      return `<option value="${item.uid}" ${item.uid === selectedItem.uid ? 'selected' : ''}>[${gLabel}] ${rName}（×${item.count || 1}）</option>`;
     }).join('');
 
     crucibleSelectHtml = `
@@ -8576,14 +8577,14 @@ export function showDropLocatorModal(matId) {
       const monsterNames = (zDef.monsters || [])
         .map(mId => (monsters[mId]?.name || '未知怪物'))
         .filter(Boolean);
-      const bossName = zDef.boss ? (monsters[zDef.boss]?.name || zDef.boss) : null;
+      const bossName = zDef.boss ? (monsters[zDef.boss]?.name || '未知首領') : null;
 
       let monsterDisplay = monsterNames.slice(0, 3).join(', ');
       if (bossName) monsterDisplay += ` & ${bossName}`;
 
       sources.push({
         zoneKey,
-        zoneName: zDef.name || zoneKey,
+        zoneName: zDef.name || '未知區域',
         minLvl: zDef.level || 1,
         type: zDef.boss ? '掉落與首領' : '一般掉落',
         monster: monsterDisplay || '區域怪物'
