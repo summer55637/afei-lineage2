@@ -195,7 +195,7 @@ export class ColosseumService {
   static buyShopItem(state, itemId, hooks = {}) {
     const colState = this.ensureState(state);
     const item = COLOSSEUM_SHOP_CATALOG.find(i => i.id === itemId);
-    if (!item) return { success: false, message: 'Item não encontrado na Loja do 競技場.' };
+    if (!item) return { success: false, message: '競技場商店中找不到此物品。' };
 
     if (colState.badges < item.costBadges) {
       return { success: false, message: `Badges insuficientes. Requer ${item.costBadges} Colosseum Badges.` };
@@ -211,7 +211,7 @@ export class ColosseumService {
       count: 1
     });
 
-    hooks.log?.(`🛒 Você adquiriu **${item.name}** por **${item.costBadges} Badges**!`, 'gain');
+    hooks.log?.(`🛒 你以 **${item.costBadges} 枚徽章** 購買了 **${item.name}**！`, 'gain');
     hooks.onUpdate?.();
     return { success: true, item };
   }
