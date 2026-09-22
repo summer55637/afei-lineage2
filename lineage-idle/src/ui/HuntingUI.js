@@ -188,11 +188,11 @@ export function renderHuntingUI(state) {
         <h3 style="margin:0 0 4px 0; font-family:'Cinzel',serif; color:#fca5a5; font-size:18px;">
           ${prey?.name || '獵物屍體'}
         </h3>
-        <p style="margin:0 0 16px 0; font-size:12px; color:#aaa;">Presa abatida! Escolha o método de descarne no campo.</p>
+        <p style="margin:0 0 16px 0; font-size:12px; color:#aaa;">獵物已擊倒！選擇現場處理方式。</p>
         
         <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
           <button onclick="window.executeFieldButchering('pelt')" style="padding:12px 20px; font-family:'Cinzel',serif; font-size:13px; font-weight:bold; background:rgba(20,50,30,0.8); border:1px solid #34d399; color:#6ee7b7; border-radius:8px; cursor:pointer;">✂️ Esfolar Couro Intacto</button>
-          <button onclick="window.executeFieldButchering('trophy')" style="padding:12px 20px; font-family:'Cinzel',serif; font-size:13px; font-weight:bold; background:rgba(50,40,20,0.8); border:1px solid #fbbf24; color:#fde047; border-radius:8px; cursor:pointer;">🦴 Extrair Ossos & Troféus</button>
+          <button onclick="window.executeFieldButchering('trophy')" style="padding:12px 20px; font-family:'Cinzel',serif; font-size:13px; font-weight:bold; background:rgba(50,40,20,0.8); border:1px solid #fbbf24; color:#fde047; border-radius:8px; cursor:pointer;">🦴 取得骨頭與戰利品</button>
         </div>
       </div>
     `;
@@ -399,7 +399,7 @@ export function renderHuntingUI(state) {
       <!-- 狩獵區 -->
       <div style="margin-bottom:20px;">
         <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px; display:flex; align-items:center; gap:6px;">
-          🧭 Ermos & Acampamentos de Caça de Aden
+          🧭 亞丁荒野與狩獵營地
         </h4>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           ${zonesHtml}
@@ -411,7 +411,7 @@ export function renderHuntingUI(state) {
         <!-- Coluna Esquerda: Palco de Ação -->
         <div>
           <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#6ee7b7; font-size:15px;">
-            🎯 Pista de Rastreamento & Esfolação
+            🎯 追蹤與剝皮區
           </h4>
           ${stageHtml}
 
@@ -421,7 +421,7 @@ export function renderHuntingUI(state) {
               <div style="display:flex; align-items:center; gap:6px;">
                 <strong style="font-size:13px; color:#f4d58a;">🐾 自動狩獵 (AFK)</strong>
                 <span style="font-size:10px; background:${isAfkUnlocked ? 'rgba(52,211,153,0.2)' : 'rgba(239,68,68,0.2)'}; color:${isAfkUnlocked ? '#34d399' : '#fca5a5'}; padding:1px 6px; border-radius:4px; font-weight:bold;">
-                  ${isAfkUnlocked ? 'DESBLOQUEADO' : 'NV. 5 CAÇA REQUERIDO'}
+                  ${isAfkUnlocked ? '已解鎖' : '需要狩獵等級 5'}
                 </span>
               </div>
               <p style="margin:2px 0 0 0; font-size:10px; color:#aaa;">
@@ -451,7 +451,7 @@ export function renderHuntingUI(state) {
         <!-- Coluna Direita: Faca Atual & Durabilidade -->
         <div>
           <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px;">
-            🔪 Faca Empunhada & Manutenção
+            🔪 目前獵刀與維護
           </h4>
           <div style="background:rgba(18,22,32,0.85); border:1px solid rgba(212,167,68,0.3); border-radius:10px; padding:12px; margin-bottom:12px;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
@@ -471,7 +471,7 @@ export function renderHuntingUI(state) {
             <!-- Barra de Durabilidade -->
             <div style="margin-top:8px;">
               <div style="display:flex; justify-content:space-between; font-size:10px; color:#94a3b8; margin-bottom:4px;">
-                <span>Fio da Lâmina: <strong style="color:${durPct > 20 ? '#34d399' : '#ef4444'};">${knifeDurability} / ${maxKnifeDurability}</strong></span>
+                <span>刀刃鋒利度： <strong style="color:${durPct > 20 ? '#34d399' : '#ef4444'};">${knifeDurability} / ${maxKnifeDurability}</strong></span>
                 <span>${durPct}%</span>
               </div>
               <div style="width:100%; height:6px; background:rgba(0,0,0,0.6); border-radius:3px; overflow:hidden; border:1px solid rgba(212,167,68,0.2);">
@@ -482,7 +482,7 @@ export function renderHuntingUI(state) {
 
           <!-- Arsenal de Facas -->
           <h5 style="margin:12px 0 6px 0; font-family:'Cinzel',serif; color:#ffd877; font-size:13px;">
-            Oficina de Cutelaria (Coleção de Facas)
+            獵刀工坊（獵刀收藏）
           </h5>
           <div style="max-height:180px; overflow-y:auto; padding-right:4px;">
             ${knivesHtml}
@@ -495,7 +495,7 @@ export function renderHuntingUI(state) {
         <!-- Atrativos -->
         <div>
           <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px;">
-            🥩 Atrativos Silvestres (Iscas de Caça)
+            🥩 野外誘餌（狩獵用）
           </h4>
           <div style="max-height:220px; overflow-y:auto; padding-right:4px;">
             ${luresHtml}
@@ -505,7 +505,7 @@ export function renderHuntingUI(state) {
         <!-- Feira de Peles / Curtume -->
         <div>
           <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#6ee7b7; font-size:15px;">
-            💼 Mercado de Curtume (Troca de Peles por Materiais)
+            💼 製革市場（毛皮兌換材料）
           </h4>
           <div style="max-height:220px; overflow-y:auto; padding-right:4px;">
             ${curtumeHtml}
