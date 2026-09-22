@@ -151,7 +151,7 @@ export function claimDailyReward(state, helpers = {}) {
   }
 
   if (helpers.floatText) {
-    helpers.floatText(`🎁 Check-in Dia ${currentDay}!`, 'gilt');
+    helpers.floatText(`🎁 第 ${currentDay} 天簽到！`, 'gilt');
   }
 
   return { success: true, message: `第 ${currentDay} 天獎勵領取成功！`, reward };
