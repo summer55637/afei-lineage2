@@ -82,7 +82,7 @@ export const MiningService = {
   probeVein(state, callbacks = {}) {
     const mState = this.getMiningState(state);
     mState.veinProbed = true;
-    if (callbacks.log) callbacks.log("🔍 O eco metálico revela a estrutura interna da rocha...", 'system');
+    if (callbacks.log) callbacks.log("🔍 金屬回聲顯示出岩石內部結構……", 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -95,7 +95,7 @@ export const MiningService = {
 
     const targetMatId = branchItem ? 'branch' : (woodItem ? 'compressed_wood' : null);
     if (!targetMatId) {
-      if (callbacks.log) callbacks.log('⚠️ Você não possui Madeira (Branch ou Compressed Wood) para escorar a galeria!', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 你沒有木材（樹枝或壓縮木材）可用來支撐坑道！', 'warning');
       return false;
     }
 
@@ -116,7 +116,7 @@ export const MiningService = {
     }
 
     mState.galleryStability = Math.min(100, (mState.galleryStability ?? 100) + 35);
-    if (callbacks.log) callbacks.log('🪵 Você escorou as vigas da galeria! Estabilidade +35%.', 'system');
+    if (callbacks.log) callbacks.log('🪵 你已加固坑道樑柱！穩定度 +35%。', 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -129,7 +129,7 @@ export const MiningService = {
 
     const playerLvl = Number(state?.level) || 1;
     if (playerLvl < zone.minLevel) {
-      if (callbacks.log) callbacks.log(`⚠️ Nível insuficiente para descer nas galerias de ${zone.name}! Requer Nível ${zone.minLevel}.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 等級不足，無法進入 ${zone.name} 的礦坑！需要等級 ${zone.minLevel}。`, 'warning');
       return false;
     }
 
@@ -137,7 +137,7 @@ export const MiningService = {
     mState.isMining = false;
     mState.targetedNodeId = null;
 
-    if (callbacks.log) callbacks.log(`📍 Você desceu nas galerias minerais de **${zone.name}**.`, 'system');
+    if (callbacks.log) callbacks.log(`📍 你已進入 **${zone.name}** 的礦坑。`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -153,13 +153,13 @@ export const MiningService = {
 
     const available = mState.lampInventory[lampId] || 0;
     if (available <= 0) {
-      if (callbacks.log) callbacks.log('⚠️ Você não possui este lampião/lanterna em seu inventário!', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 你的背包中沒有這盞提燈／燈具！', 'warning');
       return false;
     }
 
     mState.activeLamp = lampId;
     const lampDef = LAMPS_CATALOG[lampId];
-    if (callbacks.log) callbacks.log(`🏮 Lâmpada acesa: **${lampDef?.name || lampId}**.`, 'system');
+    if (callbacks.log) callbacks.log(`🏮 已點亮：**${lampDef?.name || lampId}**。`, 'system');
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
@@ -198,12 +198,12 @@ export const MiningService = {
 
     const mState = this.getMiningState(state);
     if (mState.pickaxeDurability[pickaxeId] !== undefined) {
-      if (callbacks.log) callbacks.log(`⚠️ Você já adquiriu a ${pick.name}!`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 你已經擁有 ${pick.name}！`, 'warning');
       return false;
     }
 
     if (mState.skillLevel < pick.minMiningLevel) {
-      if (callbacks.log) callbacks.log(`⚠️ Nível de Mineração insuficiente! Requer Nível ${pick.minMiningLevel} de Mineração.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 採礦等級不足！需要採礦等級 ${pick.minMiningLevel}。`, 'warning');
       return false;
     }
 
@@ -228,7 +228,7 @@ export const MiningService = {
 
     const mState = this.getMiningState(state);
     if (mState.pickaxeDurability[pickaxeId] === undefined && pickaxeId !== 'pickaxe_none') {
-      if (callbacks.log) callbacks.log('⚠️ Você não possui esta picareta em sua coleção!', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 你的收藏中沒有這把十字鎬！', 'warning');
       return false;
     }
 
@@ -248,7 +248,7 @@ export const MiningService = {
 
     const currentDur = mState.pickaxeDurability[targetPickaxeId] ?? pick.durabilityMax;
     if (currentDur >= pick.durabilityMax) {
-      if (callbacks.log) callbacks.log(`⚠️ Sua ${pick.name} já está com a ponta forjada e afiada!`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 你的 ${pick.name} 已經鍛造並磨利完成！`, 'warning');
       return false;
     }
 
@@ -278,7 +278,7 @@ export const MiningService = {
     const tactic = MINING_TACTICS[tacticId] || MINING_TACTICS.standard;
     mState.selectedTactic = tactic.id;
     mState.activeTactic = tactic.id;
-    if (callbacks.log) callbacks.log(`⛏️ Técnica de escavação selecionada: **${tactic.name}** (${tactic.desc}).`, 'system');
+    if (callbacks.log) callbacks.log(`⛏️ 已選擇挖掘技巧：**${tactic.name}**（${tactic.desc}）。`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -333,7 +333,7 @@ export const MiningService = {
     const dur = mState.pickaxeDurability[activePickaxeId] ?? 0;
 
     if (dur <= 0) {
-      if (callbacks.log) callbacks.log(`⚠️ Sua ${pickDef?.name || 'Picareta'} perdeu a têmpera! Reforje-a antes de continuar escavando.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 你的 ${pickDef?.name || '十字鎬'} 已失去硬度！請重新鍛造後再繼續挖掘。`, 'warning');
       return { success: false, reason: 'broken_tool' };
     }
 
@@ -389,7 +389,7 @@ export const MiningService = {
 
     if (elapsed < needed) {
       const waitSec = ((needed - elapsed) / 1000).toFixed(1);
-      if (callbacks.log) callbacks.log(`⚠️ O veio ainda está sendo quebrado! Aguarde mais ${waitSec}s.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 礦脈仍在開採中！請再等待 ${waitSec} 秒。`, 'warning');
       return false;
     }
 
@@ -427,13 +427,13 @@ export const MiningService = {
     mState.galleryStability = Math.max(0, mState.galleryStability - stabilityLoss);
 
     if (mState.galleryStability <= 15) {
-      if (callbacks.log) callbacks.log('⚠️ DESABAMENTO PARCIAL NA MINA! Pedras caem do teto, você perdeu 50% dos minérios do veio.', 'error');
+      if (callbacks.log) callbacks.log('⚠️ 礦坑局部坍塌！落石造成你損失此礦脈 50% 的礦石。', 'error');
     }
 
     if (mState.veinHazard === 'gas_pocket' && tactic.id === 'heavy') {
       state.hp = Math.max(1, state.hp - Math.floor(state.maxHp * 0.10));
       mState.pickaxeDurability[activePickaxeId] = Math.max(0, mState.pickaxeDurability[activePickaxeId] - 2);
-      if (callbacks.log) callbacks.log('💥 EXPLOSÃO DE GÁS! Suas faíscas detonaram um bolsão de gás. -10% HP e dano extra na picareta!', 'error');
+      if (callbacks.log) callbacks.log('💥 瓦斯爆炸！火花引爆了氣囊。HP -10%，十字鎬額外損失耐久！', 'error');
     }
 
     const pickBonus = pickDef?.qualityBonus || 0.0;
@@ -452,7 +452,7 @@ export const MiningService = {
     if (mState.veinHazard === 'dense_crystal' && tactic.id === 'precision') {
       basePrimaryQty *= 2;
       baseSecQty *= 2;
-      if (callbacks.log) callbacks.log('✨ Extração cirúrgica de Veio Cristalino bem-sucedida! Rendimento DOBRADO.', 'system');
+      if (callbacks.log) callbacks.log('✨ 精準開採水晶礦脈成功！產量加倍。', 'system');
     }
 
     if (mState.galleryStability <= 15) {
@@ -487,10 +487,10 @@ export const MiningService = {
     mState.veinHazard = hazards[Math.floor(Math.random() * hazards.length)];
 
     if (callbacks.log) {
-      const qualityPrefix = quality.tier === 'perfect' ? '💎 **MINÉRIO IMACULADO!**'
-        : quality.tier === 'excellent' ? '✨ **MINÉRIO PURÍSSIMO!**'
-        : '✓ Extração concluída:';
-      callbacks.log(`⛏️ ${qualityPrefix} Extraiu **${node.name}** [${quality.name}]! Obteve +${primaryQty}x ${primaryMat.toUpperCase()}${secMat && secQty > 0 ? ` e +${secQty}x ${secMat.toUpperCase()}` : ''}! (+${finalXp} XP de Mineração)`, 'loot');
+      const qualityPrefix = quality.tier === 'perfect' ? '💎 **無瑕礦石！**'
+        : quality.tier === 'excellent' ? '✨ **極純礦石！**'
+        : '✓ 開採完成：';
+      callbacks.log(`⛏️ ${qualityPrefix} 開採 **${node.name}**【${quality.name}】！獲得 +${primaryQty}x ${primaryMat.toUpperCase()}${secMat && secQty > 0 ? `、+${secQty}x ${secMat.toUpperCase()}` : ''}！（+${finalXp} 採礦 XP）`, 'loot');
     }
 
     if (callbacks.floatText) {
@@ -505,7 +505,7 @@ export const MiningService = {
   toggleAutoMining(state, callbacks = {}) {
     const mState = this.getMiningState(state);
     if (mState.skillLevel < 5) {
-      if (callbacks.log) callbacks.log('⚠️ A Mineração Automática (AFK) é desbloqueada no Nível 5 de Mineração!', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 自動採礦（AFK）會在採礦等級 5 解鎖！', 'warning');
       return false;
     }
 
@@ -515,8 +515,8 @@ export const MiningService = {
     if (callbacks.log) {
       callbacks.log(
         mState.autoMining
-          ? '⛏️ **Mineração Automática (AFK) ATIVADA!** Seu anão/mineiro extrairá veios minerais continuamente.'
-          : '⏸️ **Mineração Automática (AFK) PAUSADA.**',
+          ? '⛏️ **自動採礦（AFK）已啟用！**你的礦工將持續開採礦脈。'
+          : '⏸️ **自動採礦（AFK）已暫停。**',
         'system'
       );
     }
@@ -534,7 +534,7 @@ export const MiningService = {
     const dur = mState.pickaxeDurability[activePickaxeId] ?? 0;
     if (dur <= 0) {
       mState.autoMining = false;
-      if (callbacks.log) callbacks.log('⚠️ Mineração AFK interrompida: Sua picareta quebrou!', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ AFK 採礦已中斷：你的十字鎬壞掉了！', 'warning');
       if (callbacks.updateAllUI) callbacks.updateAllUI();
       return;
     }
@@ -601,7 +601,7 @@ export const MiningService = {
     LifeActivityCore.addXp(state, 'mining', totalXp, callbacks);
 
     if (callbacks.log) {
-      callbacks.log(`💤 **Relatório de Mineração Offline (${clampedMinutes}m):** Extraiu ${actualMines} veios minerais em Aden! (+${totalXp} XP de Mineração)`, 'rarity-legendary');
+      callbacks.log(`💤 **離線採礦報告（${clampedMinutes} 分鐘）：**在亞丁開採了 ${actualMines} 個礦脈！（+${totalXp} 採礦 XP）`, 'rarity-legendary');
     }
 
     return { actualMines, matsGained, totalXp };
