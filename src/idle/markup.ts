@@ -1950,7 +1950,7 @@ export const IDLE_MARKUP = `
                 <button class="admin-btn" data-admin-cmd="setseason1">📜 編年史 1：覺醒（等級 40）</button>
                 <button class="admin-btn" data-admin-cmd="setseason2">🏰 編年史 2：血盟與城堡（等級 75）</button>
                 <button class="admin-btn" data-admin-cmd="setseason3">🏛️ 編年史 3：七封印（等級 85）</button>
-                <button class="admin-btn" data-admin-cmd="setseason4">🐉 編年史 4：High Five 與巨龍（等級 120）</button>
+                <button class="admin-btn" data-admin-cmd="setseason4">🐉 編年史 4：高五篇章與巨龍（等級 120）</button>
               </div>
               <div style="margin-top:10px;">
                 <button class="admin-btn primary" data-admin-cmd="unlockallseasons" style="width:100%; background:linear-gradient(135deg, #065f46, #047857); border-color:#34d399; color:#ecfdf5; font-size:12px; font-weight:bold; padding:9px 12px; cursor:pointer;">
@@ -2017,7 +2017,7 @@ export const IDLE_MARKUP = `
                       <option value="3">+3</option>
                       <option value="7">+7</option>
                       <option value="10">+10</option>
-                      <option value="16">+16（L2 經典）</option>
+                      <option value="16">+16（天堂 2 經典）</option>
                       <option value="20">+20</option>
                       <option value="30">+30（神級）</option>
                     </select>
@@ -2119,7 +2119,7 @@ export const IDLE_MARKUP = `
                 🔥 危險區：伺服器重置與 Firestore 雲端資料
               </h3>
               <p style="font-size: 11px; color: #fca5a5; line-height: 1.4; margin: 4px 0 10px 0;">
-                將 Cloud Firestore 中全部 17 個正式集合（帳號、角色、血盟、市場、排行榜）完全清除，並強制全體玩家回到角色建立流程。此操作僅限官方管理員（<code>duuh.alaminos@gmail.com</code>）。
+                將雲端資料庫中的全部 17 個正式集合（帳號、角色、血盟、市場、排行榜）完全清除，並強制全體玩家回到角色建立流程。此操作僅限官方管理員（<code>duuh.alaminos@gmail.com</code>）。
               </p>
               <button id="admin-wipe-database-btn" class="admin-preset-btn danger" style="background:rgba(220,38,38,0.4); border-color:#ef4444; color:#fee2e2; font-weight:bold; width:100%; padding:10px; font-size:12px; cursor:pointer;">
                 🔥 完整清空資料庫（伺服器歸零）
