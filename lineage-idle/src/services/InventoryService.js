@@ -368,7 +368,11 @@ export function addToInventory(state, itemId, amount = 1, rarity = null, foundat
         const price = Math.max(1, Math.floor((def.price || 10) * 0.4 * mult)) * amount;
         state.gold = (state.gold || 0) + price;
         if (callbacks.log) {
-          callbacks.log(`🪙 [自動出售] ${amount}x ${def.name}【${itemRarity.toUpperCase()}】售出，獲得 +${price.toLocaleString()}g`, 'loot');
+          const rarityLabel = {
+            common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩',
+            legendary: '傳說', mythic: '神話', s: 'S 級'
+          }[itemRarity] || itemRarity;
+          callbacks.log(`🪙 [自動出售] ${amount}x ${def.name}【${rarityLabel}】售出，獲得 +${price.toLocaleString()} 金幣`, 'loot');
         }
         return true;
       }
