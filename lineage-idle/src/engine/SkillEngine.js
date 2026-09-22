@@ -72,7 +72,7 @@ export function spendSP(state, skillId, callbacks = {}) {
 
   const cost = getSkillCost(skillId, lvl);
   if (state.sp < cost) {
-    if (callbacks.log) callbacks.log(`技能點不足（需要 ${cost} SP）。`, 'system');
+    if (callbacks.log) callbacks.log(`技能點不足（需要 ${cost} 技能點）。`, 'system');
     return false;
   }
 
@@ -152,7 +152,7 @@ export function resetSP(state, callbacks = {}) {
 
   state.sp += totalRefunded;
 
-  if (callbacks.log) callbacks.log(`🔄 技能已重置！返還 ${totalRefunded.toLocaleString()} SP。`, 'rarity-legendary');
+  if (callbacks.log) callbacks.log(`🔄 技能已重置！返還 ${totalRefunded.toLocaleString()} 技能點。`, 'rarity-legendary');
   if (callbacks.floatText) callbacks.floatText(`+${totalRefunded.toLocaleString()} SP`, 'float-jackpot');
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
