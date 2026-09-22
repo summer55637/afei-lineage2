@@ -1,4 +1,4 @@
-// FishingService.js — Motor Central de Pesca de Aden (Lineage II Style)
+// FishingService.js — Motor Central de 釣魚 de Aden (Lineage II Style)
 import { FISHING_ZONES, FISH_CATALOG, RODS_CATALOG, BAIT_CATALOG, FIGHT_PROFILES, getFishingXpForLevel } from '../data/fishing.js';
 import { FISHING_BALANCE, calculateCatchChance, rollFishRarity, calculateFishValue } from '../data/economy/fishingBalance.js';
 import { addToInventory, removeFromInventoryByItemId, getInventoryCount } from './InventoryService.js';
@@ -73,14 +73,14 @@ export const FishingService = {
 
     const playerLvl = Number(state?.level) || 1;
     if (playerLvl < zone.minLevel) {
-      if (callbacks.log) callbacks.log(`⚠️ Nível insuficiente para navegar até ${zone.name}! Requer Nível ${zone.minLevel}.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 等級不足，無法前往 ${zone.name}！需要等級 ${zone.minLevel}。`, 'warning');
       return false;
     }
 
     fState.activeZone = resolvedId;
     fState.isFishing = false;
 
-    if (callbacks.log) callbacks.log(`📍 Você se deslocou para **${zone.name}** com suas tralhas de pesca.`, 'system');
+    if (callbacks.log) callbacks.log(`📍 你帶著釣魚裝備前往 **${zone.name}**。`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -96,7 +96,7 @@ export const FishingService = {
 
     const available = fState.baitInventory[baitId] || 0;
     if (available <= 0) {
-      if (callbacks.log) callbacks.log(`⚠️ Você não possui esta isca em seu estoque de pescador.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 你的釣魚庫存中沒有這種魚餌。`, 'warning');
       return false;
     }
 
@@ -115,7 +115,7 @@ export const FishingService = {
     const totalCost = bait.buyPrice * count;
 
     if ((state.gold || 0) < totalCost) {
-      if (callbacks.log) callbacks.log(`⚠️ Adena insuficiente! Custo para ${count}x ${bait.name}: ${totalCost.toLocaleString()} Adena.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！購買 ${count}x ${bait.name} 需要 ${totalCost.toLocaleString()} 金幣。`, 'warning');
       return false;
     }
 
@@ -140,17 +140,17 @@ export const FishingService = {
 
     const fState = this.getFishingState(state);
     if (fState.rodDurability[rodId] !== undefined) {
-      if (callbacks.log) callbacks.log(`⚠️ Você já possui a ${rod.name}!`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 你已經擁有 ${rod.name}！`, 'warning');
       return false;
     }
 
     if (fState.skillLevel < rod.minFishingLevel) {
-      if (callbacks.log) callbacks.log(`⚠️ Habilidade de pesca insuficiente! Requer Pesca Nível ${rod.minFishingLevel}.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 釣魚等級不足！需要釣魚等級 ${rod.minFishingLevel}。`, 'warning');
       return false;
     }
 
     if ((state.gold || 0) < rod.buyPrice) {
-      if (callbacks.log) callbacks.log(`⚠️ Adena insuficiente para adquirir ${rod.name} (${rod.buyPrice.toLocaleString()} Adena).`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足，無法購買 ${rod.name}（${rod.buyPrice.toLocaleString()} 金幣）。`, 'warning');
       return false;
     }
 
@@ -167,7 +167,7 @@ export const FishingService = {
   equipRod(state, rodId, callbacks = {}) {
     const fState = this.getFishingState(state);
     if (fState.rodDurability[rodId] === undefined) {
-      if (callbacks.log) callbacks.log(`⚠️ Você não possui esta vara de pescar em seu inventário.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 你的背包中沒有這支釣竿。`, 'warning');
       return false;
     }
 
@@ -186,7 +186,7 @@ export const FishingService = {
     const currentDura = fState.rodDurability[rodId] || 0;
     const missing = rod.durability - currentDura;
     if (missing <= 0) {
-      if (callbacks.log) callbacks.log(`✨ A ${rod.name} já está com a durabilidade máxima intacta!`, 'system');
+      if (callbacks.log) callbacks.log(`✨ ${rod.name} 的耐久度已經是最大值！`, 'system');
       return false;
     }
 
@@ -194,7 +194,7 @@ export const FishingService = {
     const totalRepairCost = missing * costPerPoint;
 
     if ((state.gold || 0) < totalRepairCost) {
-      if (callbacks.log) callbacks.log(`⚠️ Adena insuficiente para restaurar a vara! Custo: ${totalRepairCost.toLocaleString()} Adena.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足，無法修理釣竿！費用：${totalRepairCost.toLocaleString()} 金幣。`, 'warning');
       return false;
     }
 
@@ -472,7 +472,7 @@ export const FishingService = {
       : fishDef.rarity === 'epic' ? 'rarity-epic'
       : fishDef.rarity === 'rare' ? 'rarity-rare' : 'loot';
 
-    log(`🎣 **CAPTURA GLORIOSA!** Pescou **${fishDef.name}** [${quality.name} · ${size.name}] (${finalWeight}kg)! (+${finalXp} XP de Pesca).`, rarityClass);
+    log(`🎣 **CAPTURA GLORIOSA!** Pescou **${fishDef.name}** [${quality.name} · ${size.name}] (${finalWeight}kg)! (+${finalXp} XP de 釣魚).`, rarityClass);
     if (floatText) floatText(`+1 ${fishDef.icon} ${fishDef.name}!`, 'float-crit');
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -492,7 +492,7 @@ export const FishingService = {
     const fState = this.getFishingState(state);
 
     if (fState.skillLevel < FISHING_BALANCE.AUTO_FISH_UNLOCK_LEVEL) {
-      if (callbacks.log) callbacks.log(`🔒 Pesca Automática requer Nível de Pesca ${FISHING_BALANCE.AUTO_FISH_UNLOCK_LEVEL}+! Continue pescando manualmente para aprimorar sua técnica.`, 'warning');
+      if (callbacks.log) callbacks.log(`🔒 釣魚 Automática requer Nível de 釣魚 ${FISHING_BALANCE.AUTO_FISH_UNLOCK_LEVEL}+! Continue pescando manualmente para aprimorar sua técnica.`, 'warning');
       return false;
     }
 
@@ -500,10 +500,10 @@ export const FishingService = {
     fState.lastAutoTick = Date.now();
 
     if (fState.autoFishing) {
-      if (callbacks.log) callbacks.log(`🤖 **Pesca Automática Ativada!** Seu personagem pescará em segundo plano enquanto houver iscas e durabilidade.`, 'gain');
-      if (callbacks.floatText) callbacks.floatText(`🎣 Pesca AFK Ativada!`, 'float-gold');
+      if (callbacks.log) callbacks.log(`🤖 **釣魚 Automática Ativada!** Seu personagem pescará em segundo plano enquanto houver iscas e durabilidade.`, 'gain');
+      if (callbacks.floatText) callbacks.floatText(`🎣 釣魚 AFK Ativada!`, 'float-gold');
     } else {
-      if (callbacks.log) callbacks.log(`🛑 Pesca Automática pausada.`, 'system');
+      if (callbacks.log) callbacks.log(`🛑 釣魚 Automática pausada.`, 'system');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -536,7 +536,7 @@ export const FishingService = {
           fState.activeBait = nextBait;
         } else {
           fState.autoFishing = false;
-          if (callbacks.log) callbacks.log(`⚠️ Suas iscas acabaram! A Pesca Automática foi interrompida.`, 'warning');
+          if (callbacks.log) callbacks.log(`⚠️ Suas iscas acabaram! A 釣魚 Automática foi interrompida.`, 'warning');
           break;
         }
       }
@@ -659,7 +659,7 @@ export const FishingService = {
     const reqRate = fish.exchangeRate || 5;
 
     if (ownedCount < reqRate) {
-      if (callbacks.log) callbacks.log(`⚠️ Quantidade insuficiente de ${fish.name}! Requer no mínimo ${reqRate}x peixes para realizar a troca com o Mestre de Pesca.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ Quantidade insuficiente de ${fish.name}! Requer no mínimo ${reqRate}x peixes para realizar a troca com o Mestre de 釣魚.`, 'warning');
       return { success: false, reason: 'insufficient_fish' };
     }
 
@@ -721,10 +721,10 @@ export const FishingService = {
       leveledUp = true;
 
       if (callbacks.log) {
-        callbacks.log(`🎉 **NÍVEL DE PESCA AUMENTOU!** Você alcançou o Nível **${fState.skillLevel}** em Pesca de Aden!`, 'rarity-legendary');
+        callbacks.log(`🎉 **NÍVEL DE PESCA AUMENTOU!** Você alcançou o Nível **${fState.skillLevel}** em 釣魚 de Aden!`, 'rarity-legendary');
       }
       if (callbacks.floatText) {
-        callbacks.floatText(`Pesca Nv. ${fState.skillLevel}!`, 'float-crit');
+        callbacks.floatText(`釣魚 Nv. ${fState.skillLevel}!`, 'float-crit');
       }
 
       nextXp = getFishingXpForLevel(fState.skillLevel + 1);
