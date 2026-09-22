@@ -356,7 +356,7 @@ export const IDLE_MARKUP = `
             <button class="tab-btn subtab-pill-btn" data-tab="rankings">🏆 世界排名</button>
             <button class="tab-btn subtab-pill-btn" data-tab="sevensigns">🏛 Sete Selos</button>
             <button class="tab-btn subtab-pill-btn" data-tab="fortress">⚔ Fortalezas</button>
-            <button class="tab-btn subtab-pill-btn" data-tab="enchant">✦ Encantamento</button>
+            <button class="tab-btn subtab-pill-btn" data-tab="enchant">✦ 強化</button>
             <button class="tab-btn subtab-pill-btn" data-tab="codex">📜 Codex</button>
             <button class="tab-btn subtab-pill-btn" id="pillar-contacts-btn" onclick="window.openContactsModal ? window.openContactsModal() : (window.openReferralModal && window.openReferralModal())" style="border-color:rgba(52,211,153,0.4); color:#6ee7b7; font-weight:bold;">👥 聯絡人與導師</button>
           </div>
@@ -557,7 +557,7 @@ export const IDLE_MARKUP = `
               <div class="l2-section-header">
                 <span class="l2-section-icon">🎯</span>
                 <h3>戰力成長與下一個里程碑</h3>
-                <span class="l2-section-tag">Metas de Aden</span>
+                <span class="l2-section-tag">亞丁目標</span>
               </div>
               <div id="char-next-milestone-card" class="l2-milestone-card"></div>
             </div>
@@ -641,7 +641,7 @@ export const IDLE_MARKUP = `
                 <span class="inv-pressure-bar-label" id="inv-capacity-pressure-label" style="font-size:10px; font-weight:bold; color:#cbd5e1; min-width:80px;">0% Normal</span>
               </div>
               <div class="l2inv-window-controls">
-                <button class="l2inv-win-btn forge-shortcut-btn" id="btn-inv-open-forge" title="Abrir Forja Imperial (Crafting de Armas &amp; Armaduras)" style="background:rgba(212,167,68,0.2); color:#ffd700; border:1px solid rgba(212,167,68,0.4); font-size:11px; padding:2px 8px; border-radius:4px; cursor:pointer; font-weight:bold;">⚒ Forja</button>
+                <button class="l2inv-win-btn forge-shortcut-btn" id="btn-inv-open-forge" title="開啟亞丁鍛造（武器與防具製作）" style="background:rgba(212,167,68,0.2); color:#ffd700; border:1px solid rgba(212,167,68,0.4); font-size:11px; padding:2px 8px; border-radius:4px; cursor:pointer; font-weight:bold;">⚒ 鍛造</button>
                 <button class="l2inv-win-btn" title="Ajuda">?</button>
                 <button class="l2inv-win-btn" title="性別">♂</button>
                 <button class="l2inv-win-btn" title="Minimizar">_</button>
@@ -925,7 +925,7 @@ export const IDLE_MARKUP = `
             <!-- Global Shop Header (Compact) -->
             <div class="shop-head" style="margin-bottom: 8px;">
               <div>
-                <h3 style="margin:0; font-family:'Cinzel',serif; color:var(--gilt-bright);">Guilda dos 市場res de Aden</h3>
+                <h3 style="margin:0; font-family:'Cinzel',serif; color:var(--gilt-bright);">亞丁商人公會</h3>
                 <p style="margin:2px 0 0 0; font-size:11px; color:var(--text-muted);">亞丁帝國武器、防具、消耗品與遺物交易</p>
               </div>
               <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
@@ -1000,7 +1000,7 @@ export const IDLE_MARKUP = `
 
                 <!-- Grade Filter Row: NG, D, C, B, A, S -->
                 <div class="l2store-grade-strip" id="shop-grade-strip">
-                  <button class="l2store-grade-btn active" data-shopgrade="all">Todos</button>
+                  <button class="l2store-grade-btn active" data-shopgrade="all">全部</button>
                   <button class="l2store-grade-btn grade-ng" data-shopgrade="ng">NG</button>
                   <button class="l2store-grade-btn grade-d" data-shopgrade="d">D</button>
                   <button class="l2store-grade-btn grade-c" data-shopgrade="c">C</button>
@@ -1109,7 +1109,7 @@ export const IDLE_MARKUP = `
                 <div class="l2chat-npc-speech">
                   <div class="l2chat-npc-name" id="forge-npc-name">Blacksmith Wilbert:</div>
                   <div class="l2chat-npc-text" id="forge-npc-text">
-                    Haha! Blacksmiths do so much more than just craft armor, spears, axes and the like. The town of Aden wouldn't even exist without our Black Anvil Guild.<br><br>
+                    哈哈！鐵匠可不只是打造盔甲、長矛和斧頭而已。沒有我們黑色鐵砧公會，亞丁城可不會有今天！<br><br>
                     Oh, by the way, it's only rumors, but... I've heard that golems which were used to banish humans from our lands were constructed by our guild too. Who else could have invented such outstanding technology?
                   </div>
                 </div>
@@ -1131,7 +1131,7 @@ export const IDLE_MARKUP = `
                   <button class="l2store-back-btn" id="forge-back-to-dialogue-btn" title="返回對話 com Wilbert">
                     ← 對話
                   </button>
-                  <span class="l2store-window-title" id="forge-window-title">Forja Imperial de Aden</span>
+                  <span class="l2store-window-title" id="forge-window-title">亞丁帝國鍛造</span>
                 </div>
 
                 <div class="l2store-header-right">
@@ -1175,7 +1175,7 @@ export const IDLE_MARKUP = `
               <div class="craft-filters-bar" id="craft-filters-bar" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; align-items:center;">
                 <input type="text" id="craft-search-input" placeholder="🔍 Buscar receita por nome ou grau..." style="flex:1; min-width:200px; padding:7px 12px; border-radius:6px; border:1px solid rgba(212,167,68,0.35); background:#0c0f16; color:#ece4d3; font-size:12px; font-family:'Cinzel',serif;" />
                 <div style="display:flex; gap:5px; flex-wrap:wrap;" id="craft-category-filters">
-                  <button class="inv-batch-btn active" data-craft-cat="all">🌟 Todos</button>
+                  <button class="inv-batch-btn active" data-craft-cat="all">🌟 全部</button>
                   <button class="inv-batch-btn" data-craft-cat="weapon">⚔ Armas</button>
                   <button class="inv-batch-btn" data-craft-cat="armor">🛡 Armaduras</button>
                   <button class="inv-batch-btn" data-craft-cat="jewel">💍 Joias</button>
@@ -1333,7 +1333,7 @@ export const IDLE_MARKUP = `
             <div class="quests-header-frame">
               <div class="quests-title-group">
                 <span class="quests-window-icon">🎯</span>
-                <span class="quests-window-title">Quadro de Missões &amp; Passe de 金幣</span>
+                <span class="quests-window-title">任務看板與金幣通行證</span>
               </div>
               <div class="quests-reset-info">
                 <span id="daily-quest-timer" class="reset-badge">⏰ 每日更新</span>
@@ -1639,7 +1639,7 @@ export const IDLE_MARKUP = `
         <!-- Guide Tabs -->
         <div style="display:flex; gap:8px; margin:14px 0; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:8px; flex-wrap:wrap;">
           <button class="inv-batch-btn active" id="guide-tab-btn-journey" onclick="window.switchGuideTab('journey')">🗺️ 等級旅程</button>
-          <button class="inv-batch-btn" id="guide-tab-btn-forge" onclick="window.switchGuideTab('forge')">🔨 Forja &amp; 市場</button>
+          <button class="inv-batch-btn" id="guide-tab-btn-forge" onclick="window.switchGuideTab('forge')">🔨 鍛造與市場</button>
           <button class="inv-batch-btn" id="guide-tab-btn-codex" onclick="window.switchGuideTab('codex')">🃏 Cartas &amp; Dolls</button>
           <button class="inv-batch-btn" id="guide-tab-btn-combat" onclick="window.switchGuideTab('combat')">⚔️ Movesets &amp; 4★</button>
           <button class="inv-batch-btn" id="guide-tab-btn-sevensigns" onclick="window.switchGuideTab('sevensigns')">🏛️ Sete Selos &amp; Noblesse</button>
@@ -1675,7 +1675,7 @@ export const IDLE_MARKUP = `
           <button id="close-symbol-modal-btn" class="modal-close-x" style="background:none; border:none; color:#94a3b8; font-size:18px; cursor:pointer;">✕</button>
         </div>
         <p style="font-size:12px; color:#cbd5e1; margin-bottom:14px; line-height:1.4;">
-          Grave até <strong>3 Símbolos Sagrados de Henna</strong> no seu herói para transferir atributos primários (STR, DEX, CON, INT, WIT, MEN). <em>Regra de Aden: nenhum atributo pode receber mais de +5 de bônus líquido.</em>
+          最多可在角色身上刻印 <strong>3 個神聖染料符號</strong>，用來調整主要屬性（STR、DEX、CON、INT、WIT、MEN）。<em>亞丁規則：任何單一屬性的淨加成不得超過 +5。</em>
         </p>
 
         <!-- Current Tattoos Slots -->
@@ -1701,14 +1701,14 @@ export const IDLE_MARKUP = `
           <button id="close-pet-modal-btn" class="modal-close-x" style="background:none; border:none; color:#94a3b8; font-size:18px; cursor:pointer;">✕</button>
         </div>
         <p style="font-size:12px; color:#cbd5e1; margin-bottom:14px; line-height:1.4;">
-          Adote e invoque companheiros leais para lutar ao seu lado! Os pets sobem de nível ao seu lado (Lv. 1 a 60), atacam nos turnos de batalha e concedem bônus passivos e habilidades de suporte exclusivas.
+          收服並召喚忠實夥伴與你並肩作戰！寵物會隨角色一起成長（Lv. 1～60），在戰鬥回合中攻擊，並提供被動加成與專屬支援技能。
         </p>
 
         <!-- Active Pet Overview -->
         <div id="pet-active-container" style="margin-bottom:16px;"></div>
 
         <!-- Available / Owned Pets List -->
-        <div style="font-family:'Cinzel',serif; font-size:13px; font-weight:bold; color:#93c5fd; margin-bottom:8px;">📜 Catálogo de Companheiros de Aden</div>
+        <div style="font-family:'Cinzel',serif; font-size:13px; font-weight:bold; color:#93c5fd; margin-bottom:8px;">📜 亞丁夥伴圖鑑</div>
         <div id="pet-list-container" style="display:flex; flex-direction:column; gap:10px; max-height:260px; overflow-y:auto; padding-right:4px;"></div>
       </div>
     </div>
@@ -1723,7 +1723,7 @@ export const IDLE_MARKUP = `
           <button id="close-instances-modal-btn" class="modal-close-x" style="background:none; border:none; color:#94a3b8; font-size:18px; cursor:pointer;">✕</button>
         </div>
         <p style="font-size:12px; color:#cbd5e1; margin-bottom:14px; line-height:1.4;">
-          Desafie chefes dimensionais em masmorras solo diárias. Cada fenda concede <strong>1 entrada diária gratuita</strong> com saltos acelerados de XP, grandes recompensas em 金幣, SP e itens de grau garantidos!
+          每天挑戰單人次元首領地城。每道裂隙提供 <strong>每日 1 次免費入場</strong>，可快速獲得 XP、大量金幣、SP，以及保證等級的裝備獎勵！
         </p>
 
         <div id="instances-list-container" style="display:flex; flex-direction:column; gap:10px; max-height:360px; overflow-y:auto; padding-right:4px;"></div>
@@ -1740,7 +1740,7 @@ export const IDLE_MARKUP = `
           <button id="close-manor-modal-btn" class="modal-close-x" style="background:none; border:none; color:#94a3b8; font-size:18px; cursor:pointer;">✕</button>
         </div>
         <p style="font-size:12px; color:#cbd5e1; margin-bottom:14px; line-height:1.4;">
-          Compre sementes nas províncias de Aden (Gludio, Dion, Giran). Ao caçar monstros na região, seu herói semeará e colherá colheitas agrícolas para trocar por <strong>Materiais Raros de Forja (Enria, Mithril Alloy, Varnish of Purity)</strong> no Castelo!
+          在亞丁各領地（古魯丁、狄恩、奇岩）購買種子。於當地狩獵怪物時，角色會播種並收成作物，可在城堡兌換 <strong>稀有鍛造材料（恩尼亞、米索莉合金、純化研磨劑）</strong>！
         </p>
 
         <div id="manor-provinces-list" style="display:flex; flex-direction:column; gap:12px; max-height:360px; overflow-y:auto; padding-right:4px;"></div>
@@ -1765,9 +1765,9 @@ export const IDLE_MARKUP = `
         <!-- Admin Navigation Tabs -->
         <nav class="admin-nav-tabs" style="display:flex; gap:4px; margin-bottom:12px; border-bottom:1px solid rgba(212,167,68,0.2); padding-bottom:6px; overflow-x:auto; -webkit-overflow-scrolling:touch;">
           <button class="admin-tab-btn active" data-admin-tab="rates">⚡ Rates do Servidor</button>
-          <button class="admin-tab-btn" data-admin-tab="cap">⏳ Cap &amp; Temporadas</button>
+          <button class="admin-tab-btn" data-admin-tab="cap">⏳ 等級上限與賽季</button>
           <button class="admin-tab-btn" data-admin-tab="spawner">🎁 Gerador de Itens</button>
-          <button class="admin-tab-btn" data-admin-tab="player">📊 Recursos &amp; Nível</button>
+          <button class="admin-tab-btn" data-admin-tab="player">📊 資源與等級</button>
           <button class="admin-tab-btn" data-admin-tab="cheats">⚔️ Cheats &amp; 戰鬥</button>
         </nav>
 
@@ -1808,7 +1808,7 @@ export const IDLE_MARKUP = `
                 </div>
                 <div class="rate-custom-row">
                   <input type="number" id="admin-rate-inp-xp" class="admin-num-input" placeholder="Multiplicador (ex: 15)" min="0.1" max="1000" step="0.5" />
-                  <button class="admin-apply-btn" data-rate-apply="xp">Aplicar</button>
+                  <button class="admin-apply-btn" data-rate-apply="xp">套用</button>
                 </div>
               </div>
 
@@ -1829,7 +1829,7 @@ export const IDLE_MARKUP = `
                 </div>
                 <div class="rate-custom-row">
                   <input type="number" id="admin-rate-inp-sp" class="admin-num-input" placeholder="Multiplicador (ex: 15)" min="0.1" max="1000" step="0.5" />
-                  <button class="admin-apply-btn" data-rate-apply="sp">Aplicar</button>
+                  <button class="admin-apply-btn" data-rate-apply="sp">套用</button>
                 </div>
               </div>
 
@@ -1849,8 +1849,8 @@ export const IDLE_MARKUP = `
                   <button class="rate-pill-btn" data-rate-set="adena:100">100x</button>
                 </div>
                 <div class="rate-custom-row">
-                  <input type="number" id="admin-rate-inp-adena" class="admin-num-input" placeholder="Multiplicador (ex: 20)" min="0.1" max="1000" step="0.5" />
-                  <button class="admin-apply-btn" data-rate-apply="adena">Aplicar</button>
+                  <input type="number" id="admin-rate-inp-adena" class="admin-num-input" placeholder="倍率（例如：20）" min="0.1" max="1000" step="0.5" />
+                  <button class="admin-apply-btn" data-rate-apply="adena">套用</button>
                 </div>
               </div>
 
@@ -1871,7 +1871,7 @@ export const IDLE_MARKUP = `
                 </div>
                 <div class="rate-custom-row">
                   <input type="number" id="admin-rate-inp-drop" class="admin-num-input" placeholder="Multiplicador (ex: 5)" min="0.1" max="1000" step="0.5" />
-                  <button class="admin-apply-btn" data-rate-apply="drop">Aplicar</button>
+                  <button class="admin-apply-btn" data-rate-apply="drop">套用</button>
                 </div>
               </div>
 
@@ -1891,14 +1891,14 @@ export const IDLE_MARKUP = `
                 </div>
                 <div class="rate-custom-row">
                   <input type="number" id="admin-rate-inp-spoil" class="admin-num-input" placeholder="Multiplicador (ex: 5)" min="0.1" max="1000" step="0.5" />
-                  <button class="admin-apply-btn" data-rate-apply="spoil">Aplicar</button>
+                  <button class="admin-apply-btn" data-rate-apply="spoil">套用</button>
                 </div>
               </div>
 
               <!-- 6. Enchant Success Rate -->
               <div class="admin-rate-card" data-rate-key="enchant">
                 <div class="rate-card-header">
-                  <span class="rate-title">✨ Rate de Encantamento (Enchant)</span>
+                  <span class="rate-title">✨ 強化成功率（Enchant）</span>
                   <span id="rate-val-enchant" class="rate-badge">x1.0</span>
                 </div>
                 <div class="rate-btn-row">
@@ -1910,7 +1910,7 @@ export const IDLE_MARKUP = `
                 </div>
                 <div class="rate-custom-row">
                   <input type="number" id="admin-rate-inp-enchant" class="admin-num-input" placeholder="Multiplicador (ex: 1.5)" min="0.1" max="10" step="0.1" />
-                  <button class="admin-apply-btn" data-rate-apply="enchant">Aplicar</button>
+                  <button class="admin-apply-btn" data-rate-apply="enchant">套用</button>
                 </div>
               </div>
 
@@ -1929,7 +1929,7 @@ export const IDLE_MARKUP = `
                 </div>
                 <div class="rate-custom-row">
                   <input type="number" id="admin-rate-inp-book" class="admin-num-input" placeholder="Multiplicador (ex: 5)" min="0.1" max="100" step="0.5" />
-                  <button class="admin-apply-btn" data-rate-apply="book">Aplicar</button>
+                  <button class="admin-apply-btn" data-rate-apply="book">套用</button>
                 </div>
               </div>
             </div>
@@ -1940,7 +1940,7 @@ export const IDLE_MARKUP = `
             <!-- Part A: 編年史s & Temporadas -->
             <div class="admin-section" style="background: rgba(15, 23, 42, 0.7); border: 1px solid #38bdf8; border-radius: 8px; padding: 14px; margin-bottom: 12px;">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                <h3 style="margin:0; color:#38bdf8; font-family:'Cinzel',serif; font-size:14px;">📜 Desbloqueio Oficial de 編年史s &amp; Temporadas</h3>
+                <h3 style="margin:0; color:#38bdf8; font-family:'Cinzel',serif; font-size:14px;">📜 正式編年史與賽季解鎖</h3>
                 <span id="admin-current-season-badge" style="font-size:11px; padding:3px 8px; border-radius:4px; background:rgba(56,189,248,0.2); border:1px solid #38bdf8; color:#38bdf8; font-weight:bold;">編年史 Ativa: 編年史 I (O Despertar)</span>
               </div>
               <p style="font-size:11px; color:#cbd5e1; margin-bottom:10px; line-height:1.4;">
@@ -1963,9 +1963,9 @@ export const IDLE_MARKUP = `
             <div class="admin-section" style="background: rgba(30, 20, 10, 0.6); border: 1px solid var(--border-gilt); border-radius: 8px; padding: 14px;">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
                 <h3 style="margin:0; color:#ffd877; font-family:'Cinzel',serif; font-size:14px;">⏳ Gestão de Cap de Servidor (Level Cap)</h3>
-                <span id="admin-current-cap-badge" style="font-size:11px; padding:3px 8px; border-radius:4px; background:rgba(212,167,68,0.2); border:1px solid var(--border-gilt); color:#ffd877; font-weight:bold;">Cap Atual: Nível 60</span>
+                <span id="admin-current-cap-badge" style="font-size:11px; padding:3px 8px; border-radius:4px; background:rgba(212,167,68,0.2); border:1px solid var(--border-gilt); color:#ffd877; font-weight:bold;">目前上限：等級 60</span>
               </div>
-              <p style="font-size:11px; color:#cbd5e1; margin-bottom:10px;">Defina o teto de nível máximo acessível para todos os jogadores do servidor:</p>
+              <p style="font-size:11px; color:#cbd5e1; margin-bottom:10px;">設定伺服器所有玩家可達到的最高等級上限：</p>
               <div class="admin-btn-group" style="display:flex; flex-wrap:wrap; gap:8px;">
                 <button class="admin-btn" data-admin-cmd="setcap40">Cap Lv. 40 (Prelúdio)</button>
                 <button class="admin-btn" data-admin-cmd="setcap60">Cap Lv. 60 (Fase 1)</button>
@@ -1999,12 +1999,12 @@ export const IDLE_MARKUP = `
                 <label for="admin-item-select" class="sr-only" style="display:none;">要產生的物品</label>
                 <select id="admin-item-select" name="adminItemSelect" class="admin-select" aria-label="要產生的物品" style="width:100%; margin-bottom:8px;"></select>
                 <div class="spawner-row">
-                  <label for="admin-item-qty">Qtd: <input type="number" id="admin-item-qty" name="adminItemQty" value="1" min="1" max="999" class="admin-num-input" aria-label="Quantidade" style="width:65px;" /></label>
+                  <label for="admin-item-qty">數量： <input type="number" id="admin-item-qty" name="adminItemQty" value="1" min="1" max="999" class="admin-num-input" aria-label="Quantidade" style="width:65px;" /></label>
                   <label for="admin-item-rarity">Raridade: 
-                    <select id="admin-item-rarity" name="adminItemRarity" class="admin-select" aria-label="Raridade do Item">
-                      <option value="common">Comum</option>
-                      <option value="uncommon">Incomum</option>
-                      <option value="rare">Raro</option>
+                    <select id="admin-item-rarity" name="adminItemRarity" class="admin-select" aria-label="物品稀有度">
+                      <option value="common">一般</option>
+                      <option value="uncommon">非凡</option>
+                      <option value="rare">稀有</option>
                       <option value="epic">史詩（紫色）</option>
                       <option value="legendary">傳說（金色）</option>
                       <option value="mythic">神話（紅色）</option>
@@ -2012,7 +2012,7 @@ export const IDLE_MARKUP = `
                     </select>
                   </label>
                   <label for="admin-item-enchant">Encanto: 
-                    <select id="admin-item-enchant" name="adminItemEnchant" class="admin-select" aria-label="Nível de Encanto">
+                    <select id="admin-item-enchant" name="adminItemEnchant" class="admin-select" aria-label="強化等級">
                       <option value="0">+0</option>
                       <option value="3">+3</option>
                       <option value="7">+7</option>
@@ -2025,7 +2025,7 @@ export const IDLE_MARKUP = `
                   <label for="admin-item-affix">Afixo: 
                     <select id="admin-item-affix" name="adminItemAffix" class="admin-select" aria-label="Afixo do Item">
                       <option value="roll">🎲 隨機稀有度</option>
-                      <option value="none">Nenhum Afixo</option>
+                      <option value="none">無詞綴</option>
                       <option value="crit_boost">✦ +% 暴擊</option>
                       <option value="eva_boost">✦ +% 迴避</option>
                       <option value="lifesteal_boost">✦ +% 吸血</option>
@@ -2107,7 +2107,7 @@ export const IDLE_MARKUP = `
                 <button class="admin-btn" data-admin-cmd="completequest">✅ 完成任務</button>
                 <button class="admin-btn" data-admin-cmd="maxcraft">⚒️ 最高等級製作</button>
                 <button class="admin-btn" data-admin-cmd="maxskills">📖 Max Skills</button>
-                <button class="admin-btn" data-admin-cmd="killmonster">⚡ Derrotar Monstro</button>
+                <button class="admin-btn" data-admin-cmd="killmonster">⚡ 擊敗怪物</button>
                 <button class="admin-btn" data-admin-cmd="autoequip">⚔️ Auto-Equipar</button>
                 <button class="admin-btn danger" data-admin-cmd="resetsave">🗑️ 重置進度</button>
               </div>
@@ -2172,7 +2172,7 @@ export const IDLE_MARKUP = `
     <div id="item-tooltip" class="item-tooltip"></div>
 
     <!-- Floating Return to Combat Button for Mobile -->
-    <button id="mobile-combat-fab" class="mobile-combat-fab" onclick="window.setMobileView && window.setMobileView('battle')" title="Voltar para a Arena de 戰鬥">
+    <button id="mobile-combat-fab" class="mobile-combat-fab" onclick="window.setMobileView && window.setMobileView('battle')" title="返回戰鬥競技場">
       <span class="mobile-combat-fab-icon">⚔️</span>
       <span class="mobile-combat-fab-text">戰鬥</span>
     </button>
