@@ -22,7 +22,7 @@ export const RESONANCE_DEFINITIONS = {
   shadow_stalker: {
     id: 'shadow_stalker',
     name: '暗影獵手',
-    pairName: 'Arco + Adaga',
+    pairName: '弓 + 匕首',
     icon: '🏹🗡️',
     color: '#a855f7',
     desc: '弓系技能會附加【暗影標記】。匕首攻擊造成 +25% 致命暴擊傷害並持續流血。暴擊有 15% 機率在 4 秒內無視 20% 物理防禦。',
@@ -38,7 +38,7 @@ export const RESONANCE_DEFINITIONS = {
     pairName: '弓 + 長槍',
     icon: '🏹🔱',
     color: '#0284c7',
-    desc: '弓箭命中會施加緩速（目標 Atk.Spd -15%，持續 5 秒）。對緩速目標使用長槍時觸發穿刺突擊（傷害 +20%、破勢傷害 +25%）。',
+    desc: '弓箭命中會施加緩速（目標攻擊速度 -15%，持續 5 秒）。對緩速目標使用長槍時觸發穿刺突擊（傷害 +20%、破勢傷害 +25%）。',
     weap1: 'bow',
     weap2: 'spear',
     passives: { staggerDmgPct: 15, atkSpd: 5 }
@@ -48,10 +48,10 @@ export const RESONANCE_DEFINITIONS = {
   arcane_ranger: {
     id: 'arcane_ranger',
     name: '奧術弓手',
-    pairName: 'Arco + Cajado',
+    pairName: '弓 + 法杖',
     icon: '🏹🔮',
     color: '#38bdf8',
-    desc: '灌注箭矢：弓箭造成混合傷害（元素魔法傷害 +15%），並獲得 Cast.Spd +12%、M.Crit +6%。',
+    desc: '灌注箭矢：弓箭造成混合傷害（元素魔法傷害 +15%），並獲得 施法速度 +12%、魔法暴擊率 +6%。',
     weap1: 'bow',
     weap2: 'staff',
     passives: { castSpd: 12, mCrit: 6, mAtkPct: 8 }
@@ -74,7 +74,7 @@ export const RESONANCE_DEFINITIONS = {
   wild_hunter: {
     id: 'wild_hunter',
     name: '野性獵手',
-    pairName: 'Arco + Garras/Punhos',
+    pairName: '弓 + 利爪／拳套',
     icon: '🏹🥊',
     color: '#10b981',
     desc: '掠食本能：弓箭會施加流血。對流血目標使用爪攻擊時，每次攻擊恢復角色最大 HP 的 1%。',
@@ -87,10 +87,10 @@ export const RESONANCE_DEFINITIONS = {
   agile_skirmisher: {
     id: 'agile_skirmisher',
     name: '敏捷斥候',
-    pairName: 'Arco + Espada 1H',
+    pairName: '弓 + 單手劍',
     icon: '🏹⚔️',
     color: '#34d399',
-    desc: '戰術機動：單體戰鬥期間永久獲得 Atk.Spd +12%、迴避 +10。',
+    desc: '戰術機動：單體戰鬥期間永久獲得攻擊速度 +12%、迴避 +10。',
     weap1: 'bow',
     weap2: 'sword',
     passives: { atkSpd: 12, eva: 10 }
@@ -100,10 +100,10 @@ export const RESONANCE_DEFINITIONS = {
   dragon_slayer: {
     id: 'dragon_slayer',
     name: '重裝射手',
-    pairName: 'Arco + Espada 2H',
+    pairName: '弓 + 雙手劍',
     icon: '🏹🗡️',
     color: '#b91c1c',
-    desc: '集中瞄準：弓箭使目標受到的暴擊傷害 +15%；雙手劍重擊可無視目標 20% P.Def。',
+    desc: '集中瞄準：弓箭使目標受到的暴擊傷害 +15%；雙手劍重擊可無視目標 20% 物理防禦。',
     weap1: 'bow',
     weap2: ['twohand', 'ancientsword'],
     passives: { critDmgPct: 15, pAtkPct: 8 }
@@ -113,10 +113,10 @@ export const RESONANCE_DEFINITIONS = {
   storm_ranger: {
     id: 'storm_ranger',
     name: '箭矢風暴',
-    pairName: 'Arco + Dual Swords',
+    pairName: '弓 + 雙劍',
     icon: '🏹⚔️',
     color: '#06b6d4',
-    desc: '快速連擊：弓箭與雙刀連續攻擊時獲得 Atk.Spd +15%、暴擊率 +6%。',
+    desc: '快速連擊：弓箭與雙刀連續攻擊時獲得 攻擊速度 +15%、暴擊率 +6%。',
     weap1: 'bow',
     weap2: 'dual',
     passives: { atkSpd: 15, critChance: 6 }
@@ -129,7 +129,7 @@ export const RESONANCE_DEFINITIONS = {
     pairName: '長槍 + 匕首',
     icon: '🔱🗡️',
     color: '#84cc16',
-    desc: '麻痺毒素：匕首可疊加毒素（每層 Atk.Spd -5%，最多 3 層）。長槍攻擊會引爆毒素並觸發出血突刺（每層傷害 +10%，最多 +30%）。',
+    desc: '麻痺毒素：匕首可疊加毒素（每層攻擊速度 -5%，最多 3 層）。長槍攻擊會引爆毒素並觸發出血突刺（每層傷害 +10%，最多 +30%）。',
     weap1: 'spear',
     weap2: 'dagger',
     passives: { atkSpd: 8, critChance: 6 }
@@ -142,8 +142,8 @@ export const RESONANCE_DEFINITIONS = {
     pairName: '長槍 + 單手劍',
     icon: '🔱⚔️',
     color: '#eab308',
-    desc: '方陣姿態：P.Def +20%。單手劍施加戰術破綻，使下一次長槍集中攻擊觸發穿刺突擊，傷害 +45%。',
-    description: '方陣姿態：P.Def +20%。單手劍施加戰術破綻，使下一次長槍集中攻擊觸發穿刺突擊，傷害 +45%。',
+    desc: '方陣姿態：物理防禦 +20%。單手劍施加戰術破綻，使下一次長槍集中攻擊觸發穿刺突擊，傷害 +45%。',
+    description: '方陣姿態：物理防禦 +20%。單手劍施加戰術破綻，使下一次長槍集中攻擊觸發穿刺突擊，傷害 +45%。',
     weap1: 'spear',
     weap2: 'sword',
     requirements: ['spear', 'sword'],
@@ -191,7 +191,7 @@ export const RESONANCE_DEFINITIONS = {
     pairName: '長槍 + 雙手劍',
     icon: '🔱🗡️',
     color: '#dc2626',
-    desc: '泰坦打擊：+12% 物理攻擊、+15% 姿態傷害。怪物進入 BREAK 期間，額外造成 +15% 集中傷害。',
+    desc: '泰坦打擊：+12% 物理攻擊、+15% 姿態傷害。怪物進入失衡狀態時，額外造成 +15% 集中傷害。',
     weap1: 'spear',
     weap2: ['twohand', 'ancientsword'],
     passives: { pAtkPct: 12, staggerDmgPct: 15 }
@@ -227,7 +227,7 @@ export const RESONANCE_DEFINITIONS = {
   shadow_duelist: {
     id: 'shadow_duelist',
     name: '暗影決鬥者',
-    pairName: 'Adaga + Espada 1H',
+    pairName: '匕首 + 單手劍',
     icon: '🗡️⚔️',
     color: '#ec4899',
     desc: '劍刃之舞：+15% 攻擊速度、+8% 暴擊率。匕首攻擊有 20% 機率突破怪物防守，使正在冷卻的技能減少 0.5 秒。',
@@ -253,7 +253,7 @@ export const RESONANCE_DEFINITIONS = {
   ghost_phantom: {
     id: 'ghost_phantom',
     name: '修羅幻影',
-    pairName: 'Adaga + Garras/Punhos',
+    pairName: '匕首 + 利爪／拳套',
     icon: '🗡️🥊',
     color: '#8b5cf6',
     desc: '暗影撕裂：爪類暴擊可擾亂怪物。對該目標的匕首攻擊會強化流血（+25% 集中流血傷害），並獲得 +12% 攻擊速度。',
@@ -266,7 +266,7 @@ export const RESONANCE_DEFINITIONS = {
   blade_dancer: {
     id: 'blade_dancer',
     name: '幻影舞者',
-    pairName: 'Adaga + Dual Swords',
+    pairName: '匕首 + 雙劍',
     icon: '🗡️⚔️',
     color: '#f43f5e',
     desc: '暗影之舞：對同一目標連續攻擊時，每次提高 +3% 暴擊傷害（最多 +15%）。另獲得 +10 迴避與 +8% 暴擊率。',
@@ -279,7 +279,7 @@ export const RESONANCE_DEFINITIONS = {
   avenging_paladin: {
     id: 'avenging_paladin',
     name: '復仇聖騎士',
-    pairName: 'Espada 2H + 1H/Escudo',
+    pairName: '雙手劍 + 單手劍／盾牌',
     icon: '🛡️⚔️',
     color: '#fbbf24',
     desc: '神聖制裁：盾牌攻擊準備制裁效果（+12% 物理防禦）。下一次雙手劍攻擊觸發正義打擊（+20% 集中傷害、+15% 姿態傷害）。',
@@ -332,7 +332,7 @@ export const RESONANCE_DEFINITIONS = {
   mystic_brawler: {
     id: 'mystic_brawler',
     name: '元素武僧',
-    pairName: 'Cajado + Garras/Punhos',
+    pairName: '法杖 + 利爪／拳套',
     icon: '🔮🥊',
     color: '#a855f7',
     desc: '神秘和諧：拳擊恢復 1% MP，並降低怪物 10% 魔法防禦。累積 5 層拳勁後，下一個攻擊魔法造成 +18% 集中傷害。',
@@ -345,7 +345,7 @@ export const RESONANCE_DEFINITIONS = {
   soul_monk: {
     id: 'soul_monk',
     name: '靈魂武僧',
-    pairName: 'Garras + Espada/Dual',
+    pairName: '利爪 + 劍／雙劍',
     icon: '🥊⚔️',
     color: '#14b8a6',
     desc: '戰士之魂：獲得中等生命吸取（+4% 吸血）與單體戰鬥永久 +12% 攻擊速度。',
@@ -358,7 +358,7 @@ export const RESONANCE_DEFINITIONS = {
   grand_archon: {
     id: 'grand_archon',
     name: '守護大法師',
-    pairName: 'Cajado + Escudo',
+    pairName: '法杖 + 盾牌',
     icon: '🔮🛡️',
     color: '#60a5fa',
     desc: '奧術壁壘：防護屏障可吸收來自怪物的 10% 傷害，並提供 +15% 施法速度。',
@@ -372,7 +372,7 @@ export const RESONANCE_DEFINITIONS = {
   blade_symphony: {
     id: 'blade_symphony',
     name: '劍刃交響曲',
-    pairName: 'Espada + Espada',
+    pairName: '劍 + 劍',
     icon: '⚔️⚔️',
     color: '#3b82f6',
     desc: '劍刃交響曲：對單一目標維持同步節奏，獲得 +12% 攻擊速度與 +8% 暴擊率。',
@@ -546,7 +546,7 @@ export class WeaponResonanceService {
     if (resonance.id === 'shadow_stalker') {
       if (reqWeapon === 'bow' || skillNameLower.includes('shot') || skillNameLower.includes('arrow') || skillNameLower.includes('snipe')) {
         monster._shadowMarkUntil = realNow + 8000;
-        if (callbacks.floatText) callbacks.floatText('🎯 MARCA DAS SOMBRAS!', 'float-epic');
+        if (callbacks.floatText) callbacks.floatText('🎯 暗影標記！', 'float-epic');
         if (callbacks.log) callbacks.log('🎯 暗影獵手：目標已標記！下一次匕首攻擊將造成 +25% 致命暴擊傷害並附加流血！', 'combat');
       }
     }
@@ -574,7 +574,7 @@ export class WeaponResonanceService {
       if (skillDef.requiredShield || skillNameLower.includes('shield') || skillNameLower.includes('stun')) {
         state.resonanceState.holyVengeanceUntil = realNow + 7000;
         if (callbacks.floatText) callbacks.floatText('🛡️ 神聖復仇！', 'float-jackpot');
-        if (callbacks.log) callbacks.log('🛡️ 神聖復仇已啟動！下一次雙手劍攻擊將無視目標 20% P.Def（+20% 傷害）！', 'rarity-legendary');
+        if (callbacks.log) callbacks.log('🛡️ 神聖復仇已啟動！下一次雙手劍攻擊將無視目標 20% 物理防禦（+20% 傷害）！', 'rarity-legendary');
       }
     }
 
@@ -600,7 +600,7 @@ export class WeaponResonanceService {
     if (resonance.id === 'viper_skirmisher' && (reqWeapon === 'dagger' || skillNameLower.includes('stab') || skillNameLower.includes('blow'))) {
       state.resonanceState.viperToxin = Math.min(3, (state.resonanceState.viperToxin || 0) + 1);
       const toks = state.resonanceState.viperToxin;
-      if (callbacks.floatText) callbacks.floatText(`🧪 TOXINA (${toks}/3)`, 'float-gold');
+      if (callbacks.floatText) callbacks.floatText(`🧪 毒素（${toks}/3）`, 'float-gold');
     }
 
     // 7. Monge Elemental: Punhos acumulam cargas arcanas
@@ -614,7 +614,7 @@ export class WeaponResonanceService {
         state.resonanceState.tacticalFracture = 'ARMED';
         state.resonanceState.state = 'ARMED';
         state.resonanceState.phalanxCleave = true;
-        if (callbacks.floatText) callbacks.floatText('⚔ TACTICAL FRACTURE (ARMED)', 'float-epic');
+        if (callbacks.floatText) callbacks.floatText('⚔ 戰術破甲（已準備）', 'float-epic');
         if (callbacks.log) callbacks.log('⚔ 戰術破甲已準備！下一次長槍攻擊將觸發戰術突刺，傷害 +45%！', 'combat');
       }
     }
@@ -647,7 +647,7 @@ export class WeaponResonanceService {
         monster._bleedDamage = Math.max(10, Math.floor(finalDamage * 0.08));
         extraEffects.push('shadow_crit_bleed');
 
-        if (callbacks.floatText) callbacks.floatText('🗡️ GOLPE FATAL + BLEED! (+25%)', 'float-jackpot');
+        if (callbacks.floatText) callbacks.floatText('🗡️ 致命打擊＋流血！（+25%）', 'float-jackpot');
         if (callbacks.log) callbacks.log(`🗡️ 處決之影！匕首攻擊消耗印記：造成 ${finalDamage.toLocaleString()} 致命傷害（+25%），並附加流血！`, 'rarity-legendary');
       }
     }
@@ -657,7 +657,7 @@ export class WeaponResonanceService {
       if (monster._slowUntil && monster._slowUntil > realNow) {
         finalDamage = Math.floor(finalDamage * 1.20); // +20% de dano perfurante
         extraEffects.push('dragon_pierce');
-        if (callbacks.floatText) callbacks.floatText('🔱 EMPALAMENTO (+20%)!', 'float-jackpot');
+        if (callbacks.floatText) callbacks.floatText('🔱 穿刺！（+20%）', 'float-jackpot');
       }
     }
 
@@ -696,7 +696,7 @@ export class WeaponResonanceService {
         state.resonanceState.state = 'ARMED';
         state.resonanceState.phalanxCleave = true;
         extraEffects.push('tactical_fracture_armed');
-        if (callbacks.floatText) callbacks.floatText('⚔ TACTICAL FRACTURE (ARMED)', 'float-epic');
+        if (callbacks.floatText) callbacks.floatText('⚔ 戰術破甲（已準備）', 'float-epic');
         if (callbacks.log) callbacks.log('⚔ 方陣指揮官：劍已啟動戰術破甲！下一次長槍攻擊將施展戰術突刺（+45%）！', 'combat');
       } else if (weaponTypeUsed === 'spear') {
         if (state.resonanceState.tacticalFracture === 'ARMED' || state.resonanceState.phalanxCleave) {
@@ -707,7 +707,7 @@ export class WeaponResonanceService {
           const CleaveDamage = Math.floor(BaseSpearDamage * 1.45);
           finalDamage = CleaveDamage;
           extraEffects.push('phalanx_cleave');
-          if (callbacks.floatText) callbacks.floatText('🔱 CLEAVE (+45%)', 'float-jackpot');
+          if (callbacks.floatText) callbacks.floatText('🔱 戰術突刺（+45%）', 'float-jackpot');
           if (callbacks.log) callbacks.log(`🔱 戰術破甲引爆！長槍突刺造成 ${CleaveDamage.toLocaleString()} 傷害（+45%）！`, 'rarity-legendary');
         }
       }
@@ -744,7 +744,7 @@ export class WeaponResonanceService {
       if (monster.isBreak || (monster.staggerCurrent && monster.staggerCurrent <= 0)) {
         finalDamage = Math.floor(finalDamage * 1.20);
         extraEffects.push('skull_crush');
-        if (callbacks.floatText) callbacks.floatText('🔨 ESMAGAMENTO (+20%)!', 'float-jackpot');
+        if (callbacks.floatText) callbacks.floatText('🔨 粉碎重擊！（+20%）', 'float-jackpot');
       }
     }
 
@@ -753,7 +753,7 @@ export class WeaponResonanceService {
       if (monster._inquisitorStunUntil && monster._inquisitorStunUntil > realNow) {
         finalDamage = Math.floor(finalDamage * 1.18);
         extraEffects.push('iron_execute');
-        if (callbacks.floatText) callbacks.floatText('🗡️ GOLPE PERFURANTE (+18%)!', 'float-jackpot');
+        if (callbacks.floatText) callbacks.floatText('🗡️ 穿透打擊！（+18%）', 'float-jackpot');
       }
     } else if (resonance.id === 'iron_inquisitor' && weaponTypeUsed === 'blunt') {
       monster._inquisitorStunUntil = realNow + 3000;
@@ -778,7 +778,7 @@ export class WeaponResonanceService {
         state.resonanceState.brawlerChi = 0;
         finalDamage = Math.floor(finalDamage * 1.18);
         extraEffects.push('chi_burst');
-        if (callbacks.floatText) callbacks.floatText('💥 DISPARO DE CHI (+18%)!', 'float-jackpot');
+        if (callbacks.floatText) callbacks.floatText('💥 氣勁爆發！（+18%）', 'float-jackpot');
       }
     }
 
