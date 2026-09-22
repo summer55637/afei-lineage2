@@ -823,14 +823,14 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
       ${gradeHtml}
     </div>
     <div style="color:${rarityColor};font-size:11px;font-weight:600;margin-bottom:2px;">${rarityName}</div>
-    <div style="color:#888;font-size:10px;text-transform:uppercase;margin-bottom:4px;">${def.slot ? def.slot.toUpperCase() : '物品'}${def.req?.level ? ` · 需求等級 ${def.req.level}` : ''}</div>
+    <div style="color:#888;font-size:10px;text-transform:uppercase;margin-bottom:4px;">${def.slot ? ({ weapon: '武器', weapon2: '副武器', shield: '盾牌', helmet: '頭盔', armor: '胸甲', chest: '胸甲', fullbody: '全身甲', legs: '腿甲', gloves: '手套', boots: '靴子', necklace: '項鍊', earring: '耳環', earring1: '耳環 1', earring2: '耳環 2', ring: '戒指', ring1: '戒指 1', ring2: '戒指 2', cloak: '披風', belt: '腰帶', hair: '頭飾', consumable: '消耗品', material: '材料', scroll: '卷軸', crystal: '水晶' })[def.slot] || def.slot : '物品'}${def.req?.level ? ` · 需求等級 ${def.req.level}` : ''}</div>
     ${heirloomHtml}
     ${penaltyWarningHtml}
     ${statsStr}
     ${affixesStr}
     ${setBonusStr}
     <div style="color:#777;font-size:10px;margin-top:4px;font-style:italic;">${escapeHTML(def.desc || '')}</div>
-    <div style="color:#aaa;font-size:10px;margin-top:4px;">💰 價值： <span style="color:#e8c870;font-weight:600;">${(def.price || 0).toLocaleString()}g</span></div>
+    <div style="color:#aaa;font-size:10px;margin-top:4px;">💰 價值： <span style="color:#e8c870;font-weight:600;">${(def.price || 0).toLocaleString()} 金幣</span></div>
     ${protectionBadge}
     ${actionsHtml}
   `;
@@ -2380,7 +2380,7 @@ export function openBatchSellModal(state, callbacks = {}, uids) {
   body.innerHTML = bodyHtml;
   overlay.style.display = 'flex';
 
-  confirmBtn.textContent = `💰 確認出售 (+${preview.totalGold.toLocaleString()}g)`;
+  confirmBtn.textContent = `💰 確認出售 (+${preview.totalGold.toLocaleString()} 金幣)`;
   confirmBtn.onclick = () => {
     for (const uid of preview.uidsToSell) {
       removeFromInventory(state, uid);
@@ -3310,7 +3310,7 @@ export function updateCharacterUI(state) {
 
     let tattoosHtml = '';
     if (tattoos.length > 0) {
-      tattoosHtml = tattoos.map(t => `<div class="l2-tatt-badge">🖋️ 刺青： +${t.plusVal} ${t.plusStat.toUpperCase()} / -${t.minusVal} ${t.minusStat.toUpperCase()}</div>`).join('');
+      tattoosHtml = tattoos.map(t => `<div class="l2-tatt-badge">🖋️ 刺青： +${t.plusVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[t.plusStat] || t.plusStat.toUpperCase()} / -${t.minusVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[t.minusStat] || t.minusStat.toUpperCase()}</div>`).join('');
     } else {
       tattoosHtml = '<div class="l2-tatt-empty">尚未刻印任何紋身。（取得染料後可在鍛造大師處刻印）</div>';
     }
@@ -3395,7 +3395,7 @@ export function updateCharacterUI(state) {
             ${tattoosHtml}
           </div>
           <div class="l2-mystic-sa">
-            ${socket ? `🔮 武器 SA： <strong style="color:#38bdf8;">${socket.effect.toUpperCase()} （階段 ${socket.stage}）</strong>` : '🔮 武器 SA： 尚未鑲嵌靈魂水晶。'}
+            ${socket ? `🔮 武器 SA： <strong style="color:#38bdf8;">${({ focus: '專注', acumen: '靈敏', health: '生命', empower: '魔力增幅', guidance: '導引' })[socket.effect] || socket.effect} （階段 ${socket.stage}）</strong>` : '🔮 武器 SA： 尚未鑲嵌靈魂水晶。'}
           </div>
         </div>
       </div>
@@ -3961,7 +3961,7 @@ export function updateSkillUI(state, callbacks = {}) {
                 <span class="legacy-passive-icon">✦</span>
                 <div class="legacy-passive-body">
                   <div class="legacy-passive-name">${p.name || p.originalSkill}</div>
-                  <div class="legacy-passive-effect">${p.desc || `+${((p.val || 0) * 100).toFixed(1)}% ${p.stat?.toUpperCase() || ''}`}</div>
+                  <div class="legacy-passive-effect">${p.desc || `+${((p.val || 0) * 100).toFixed(1)}% ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[p.stat] || p.stat?.toUpperCase() || ''}`}</div>
                 </div>
               </div>
             `).join('')}
@@ -4368,8 +4368,8 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
     : `<span class="si-icon">${siIconVal}</span>`;
 
   const elemClass = `element-${String(semantic.element || def.element || 'physical').toLowerCase()}`;
-  const elemTag = `<span class="skill-element-tag ${elemClass}" style="margin-left:4px;">${semantic.element || def.element || '物理'}</span>`;
-  const roleTag = `<span class="skill-role-tag" style="margin-left:4px;">${semantic.role || def.type || '技能'}</span>`;
+  const elemTag = `<span class="skill-element-tag ${elemClass}" style="margin-left:4px;">${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗', physical: '物理', none: '無屬性' })[String(semantic.element || def.element || 'physical').toLowerCase()] || semantic.element || def.element || '物理'}</span>`;
+  const roleTag = `<span class="skill-role-tag" style="margin-left:4px;">${({ physical: '物理', magic: '魔法', buff: '增益', debuff: '減益', heal: '治療', healing: '治療', control: '控制', passive: '被動', active: '主動', summon: '召喚', aoe: '範圍', utility: '輔助' })[String(semantic.role || def.type || '').toLowerCase()] || semantic.role || def.type || '技能'}</span>`;
 
   let loadoutSectionHtml = '';
   const isPassive = def.type === 'passive' || def.type === 'stat';
@@ -5182,7 +5182,7 @@ function renderStoreBuyTab(state, callbacks) {
             </div>
             <div style="min-width:0; flex:1;">
               <div class="l2store-cart-item-name" title="${cartItem.name}">${cartItem.name}</div>
-              <div class="l2store-cart-item-price">🪙 ${subtotal.toLocaleString()}（單價 ${cartItem.unitPrice.toLocaleString()}g）</div>
+              <div class="l2store-cart-item-price">🪙 ${subtotal.toLocaleString()}（單價 ${cartItem.unitPrice.toLocaleString()} 金幣）</div>
             </div>
           </div>
           <div class="l2store-cart-controls">
@@ -5332,7 +5332,7 @@ function renderStoreSellTab(state, callbacks) {
       const isLocked = selectedSet.has(item.uid);
 
       return `
-        <div class="l2store-slot ${isEquipped || isLocked ? 'locked' : ''}" data-sell-item="${item.uid}" title="${item.enchant > 0 ? `+${item.enchant} ` : ''}${def.name}\n出售價值： ${sellUnit.toLocaleString()}g">
+        <div class="l2store-slot ${isEquipped || isLocked ? 'locked' : ''}" data-sell-item="${item.uid}" title="${item.enchant > 0 ? `+${item.enchant} ` : ''}${def.name}\n出售價值： ${sellUnit.toLocaleString()} 金幣">
           <span class="l2store-slot-grade grade-${gradeInfo.code}">${gradeInfo.code.toUpperCase()}</span>
           ${getItemIcon(def)}
           ${count > 1 ? `<span class="l2store-slot-qty">${count}</span>` : ''}
@@ -5435,7 +5435,7 @@ function renderStoreRefundTab(state, callbacks) {
       const def = allItems[item.itemId || item.id] || item;
       const gradeInfo = getItemGrade(def);
       return `
-        <div class="l2store-slot" data-buyback-idx="${idx}" title="${def.name}\n回購價格： ${entry.sellPrice.toLocaleString()}g">
+        <div class="l2store-slot" data-buyback-idx="${idx}" title="${def.name}\n回購價格： ${entry.sellPrice.toLocaleString()} 金幣">
           <span class="l2store-slot-grade grade-${gradeInfo.code}">${gradeInfo.code.toUpperCase()}</span>
           ${getItemIcon(def)}
           ${item.count > 1 ? `<span class="l2store-slot-qty">${item.count}</span>` : ''}
@@ -7353,7 +7353,7 @@ export function renderExpeditionsUI(state) {
           ${!canClaim ? 'disabled' : ''}
           style="padding:8px 14px; font-weight:bold; font-size:11px; background:${canClaim ? 'linear-gradient(180deg,#fbbf24,#b45309)' : 'rgba(60,50,40,0.5)'}; border:1px solid ${canClaim ? '#fde047' : 'rgba(100,80,60,0.3)'}; color:${canClaim ? '#000' : '#777'}; border-radius:6px; cursor:${canClaim ? 'pointer' : 'not-allowed'};"
         >
-          🪙 稅收 (+${accumGold.toLocaleString()}g)
+          🪙 稅收 (+${accumGold.toLocaleString()} 金幣)
         </button>
       `;
     } else {
@@ -7401,7 +7401,7 @@ export function renderExpeditionsUI(state) {
             onclick="window.buyManorSeed('${sId}', 10)"
             style="padding:6px 12px; font-weight:bold; font-size:11px; background:rgba(212,167,68,0.2); border:1px solid rgba(212,167,68,0.4); color:#ffd877; border-radius:6px; cursor:pointer;"
           >
-            🛒 購買 10x 種子 (${(sDef.price * 10).toLocaleString()}g)
+            🛒 購買 10x 種子 (${(sDef.price * 10).toLocaleString()} 金幣)
           </button>
         </div>
 
@@ -8937,7 +8937,7 @@ export function renderCompoundModal(container, state) {
               <div style="font-size:12px; color:#fff; margin-bottom:4px;"><strong>${targetItem.name || '物品'}</strong></div>
               <div style="font-size:11px; color:#34d399;">等級 ${curLv} ➔ <strong style="color:#ffd877;">等級 ${curLv + 1}</strong> （+15% 屬性）</div>
               <div style="font-size:11px; color:#a855f7; margin-top:6px;">成功率： <strong>${rate}%</strong></div>
-              <div style="font-size:11px; color:#fbbf24; margin-top:2px;">金幣費用： <strong>${cost.toLocaleString()}g</strong></div>
+              <div style="font-size:11px; color:#fbbf24; margin-top:2px;">金幣費用： <strong>${cost.toLocaleString()} 金幣</strong></div>
             ` : '<div style="font-size:11px; color:#777;">請選擇基底物品。</div>'}
           </div>
 
@@ -10873,7 +10873,7 @@ export function openAugmentModal(state) {
         ${currentAug ? `
           <div style="margin-top:6px; background:#083344; border:1px solid #06b6d4; border-radius:6px; padding:8px; font-size:11.5px; color:#a5f3fc;">
             <div>✨ 目前附魔改造： <strong>${currentAug.lifeStoneName}</strong></div>
-            <div style="margin-top:2px;">屬性：<strong>${Object.entries(currentAug.stats || {}).map(([k,v]) => `+${v} ${k.toUpperCase()}`).join(', ')}</strong></div>
+            <div style="margin-top:2px;">屬性：<strong>${Object.entries(currentAug.stats || {}).map(([k,v]) => `+${v} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[k] || k.toUpperCase()}`).join(', ')}</strong></div>
             ${currentAug.itemSkill ? `<div style="color:#fde047; font-weight:bold; margin-top:2px;">技能： ${currentAug.itemSkill.name}</div>` : ''}
           </div>
         ` : `
@@ -11300,7 +11300,7 @@ export function renderColosseumTab(container, state) {
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
             <div>
               <h3 style="margin:0; color:#fca5a5; font-family:'Cinzel',serif; font-size:18px;">⚔️ 1v1 決鬥：${activeDuel.opponentName}</h3>
-              <div style="font-size:12px; color:#f87171;">${activeDuel.opponentTitle} | 賭注：${(activeDuel.bet * 2).toLocaleString()}g 正在競逐！</div>
+              <div style="font-size:12px; color:#f87171;">${activeDuel.opponentTitle} | 賭注：${(activeDuel.bet * 2).toLocaleString()} 金幣 正在競逐！</div>
             </div>
             <button
               onclick="window.executeDuelTurnAction()"
@@ -11352,7 +11352,7 @@ export function renderColosseumTab(container, state) {
               <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:12px; display:flex; justify-content:space-between; align-items:center;">
                 <div>
                   <div style="font-weight:bold; color:#fee2e2; font-size:13px;">${tier.name}</div>
-                  <div style="font-size:11px; color:#fca5a5;">賭注：${tier.label}（雙倍獎勵：${(tier.bet * 2).toLocaleString()}g）</div>
+                  <div style="font-size:11px; color:#fca5a5;">賭注：${tier.label}（雙倍獎勵：${(tier.bet * 2).toLocaleString()} 金幣）</div>
                 </div>
                 <button
                   onclick="window.startColosseumDuelAction('${tier.id}')"
