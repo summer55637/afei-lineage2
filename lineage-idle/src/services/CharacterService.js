@@ -527,9 +527,9 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
   if (callbacks.log) {
     callbacks.log(`🎉 恭喜！你已完成轉職儀式，現在成為 **${newClassDef.name}**！`, 'rarity-legendary');
     if (totalRefunded > 0) {
-      callbacks.log(`🔄 ${totalRefunded.toLocaleString()} SP investidos foram 100% reembolsados + ${transferSpBonus} SP de presente cerimonial!`, 'rarity-legendary');
+      callbacks.log(`🔄 已投入的 ${totalRefunded.toLocaleString()} SP 全數返還，另獲得 ${transferSpBonus} SP 轉職贈禮！`, 'rarity-legendary');
     } else {
-      callbacks.log(`✨ +${transferSpBonus} SP de presente cerimonial concedidos para suas novas habilidades!`, 'rarity-legendary');
+      callbacks.log(`✨ 獲得 +${transferSpBonus} SP 轉職贈禮，可用於新的技能！`, 'rarity-legendary');
     }
   }
   if (callbacks.floatText) {
