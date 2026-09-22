@@ -87,7 +87,7 @@ export function renderSeasonLockedPanel(paneEl, tabId) {
       </div>
 
       <div style="color: rgba(255, 255, 255, 0.5); font-size: 12px;">
-        Temporada Atual: <strong style="color: #60a5fa;">${currentSeason.title} (Cap Lv ${currentSeason.maxLevel})</strong>
+        目前季節：<strong style="color: #60a5fa;">${currentSeason.title}（等級上限 ${currentSeason.maxLevel}）</strong>
       </div>
     </div>
   `;
