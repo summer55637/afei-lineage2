@@ -12,6 +12,7 @@ import {
   MINING_TACTICS,
   getMiningZonesList
 } from '../data/mining.js';
+import { RESOURCE_DICTIONARY } from '../services/lifeActivities/ResourceDictionary.js';
 import { MiningService } from '../services/lifeActivities/MiningService.js';
 import { LIFE_ACTIVITY_LEVEL_TABLE } from '../services/lifeActivities/LifeActivityCore.js';
 
@@ -129,7 +130,7 @@ export function renderMiningUI(state) {
         <div>
           <div style="display:flex; align-items:center; gap:6px;">
             <strong style="font-size:12px; color:${isEquipped ? '#fbbf24' : '#f4d58a'};">${pDef.icon} ${pDef.name}</strong>
-            <span style="font-size:9px; background:rgba(0,0,0,0.5); padding:1px 5px; border-radius:3px; color:#aaa; font-weight:bold;">[${pDef.grade.toUpperCase()}]</span>
+            <span style="font-size:9px; background:rgba(0,0,0,0.5); padding:1px 5px; border-radius:3px; color:#aaa; font-weight:bold;">[${pDef.grade === 'none' ? '無級' : pDef.grade.toUpperCase()}]</span>
           </div>
           <div style="font-size:10px; color:#94a3b8; margin-top:2px;">
             耐久度： ${pDef.durabilityMax} | 純度加成： <strong style="color:#ffd877;">+${Math.round(pDef.qualityBonus * 100)}%</strong>
@@ -203,7 +204,7 @@ export function renderMiningUI(state) {
           </span>
         </h3>
         <p style="margin:0 0 12px 0; font-size:11px; color:#aaa;">
-          礦物： <strong style="color:#cbd5e1;">${node?.yields?.primary?.toUpperCase()}</strong> ${node?.yields?.secondary ? `+ <strong style="color:#94a3b8;">${node?.yields?.secondary?.toUpperCase()}</strong>` : ''}
+          礦物： <strong style="color:#cbd5e1;">${RESOURCE_DICTIONARY[node?.yields?.primary]?.name || node?.yields?.primary || '未知材料'}</strong> ${node?.yields?.secondary ? `+ <strong style="color:#94a3b8;">${RESOURCE_DICTIONARY[node?.yields?.secondary]?.name || node?.yields?.secondary}</strong>` : ''}
         </p>
 
         <!-- Barra de Progresso de Escavação -->
