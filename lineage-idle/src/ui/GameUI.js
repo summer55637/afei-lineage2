@@ -7105,7 +7105,7 @@ export function renderExpeditionsUI(state) {
               ${isBusy ? 'disabled' : ''}
               style="padding:2px 6px; font-size:9px; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.3); color:#fca5a5; border-radius:3px; cursor:${isBusy ? 'not-allowed' : 'pointer'};"
             >
-              Dispensar
+              解雇
             </button>
           </div>
         </div>
@@ -10119,7 +10119,7 @@ export function renderOlympiadTab(container, state) {
             <div style="display:flex; flex-direction:column; gap:4px; align-items:flex-end;">
               ${s.travelBtn}
               <button disabled style="padding:6px 12px; font-size:10.5px; background:#27272a; border:1px solid #3f3f46; color:#71717a; border-radius:6px; cursor:not-allowed;">
-                Progresso Pendente
+                進度未完成
               </button>
             </div>
           `;
