@@ -4400,7 +4400,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
               <label style="color:#cbd5e1; font-size:10px; display:block; margin-bottom:2px;">目標類型：</label>
               <select class="si-cond-select" data-slot="${curSlot}" data-field="bossTarget" style="width:100%; background:#1e293b; color:#f8fafc; border:1px solid #475569; border-radius:4px; padding:4px;">
                 <option value="any" ${cond.bossTarget === 'any' ? 'selected' : ''}>任何怪物</option>
-                <option value="boss_only" ${cond.bossTarget === 'boss_only' ? 'selected' : ''}>僅首領／Raid</option>
+                <option value="boss_only" ${cond.bossTarget === 'boss_only' ? 'selected' : ''}>僅首領／團隊首領</option>
                 <option value="normal_only" ${cond.bossTarget === 'normal_only' ? 'selected' : ''}>僅一般怪物</option>
               </select>
             </div>
@@ -9973,7 +9973,7 @@ export function renderOlympiadTab(container, state) {
           onmouseover="this.style.filter='brightness(1.15)'"
           onmouseout="this.style.filter='none'"
         >
-          ⚔️ ENFILEIRAR DUELO RANQUEADO (1v1)
+          ⚔️ 加入排名決鬥（1v1）
         </button>
       `;
     }
@@ -9990,7 +9990,7 @@ export function renderOlympiadTab(container, state) {
           <div style="background:rgba(0,0,0,0.5); border:1px solid #3b82f6; border-radius:8px; padding:12px; text-align:center;">
             <div style="font-size:11px; color:#93c5fd; text-transform:uppercase; font-weight:bold;">你的角色</div>
             <div style="font-family:'Cinzel',serif; font-size:16px; font-weight:bold; color:#fff; margin:4px 0;">${state.heroName || '你'}</div>
-            <div style="font-size:11px; color:#cbd5e1; margin-bottom:8px;">Lv.${olyStatus.level} • ${olyStatus.tierName}</div>
+            <div style="font-size:11px; color:#cbd5e1; margin-bottom:8px;">等級 ${olyStatus.level} • ${olyStatus.tierName}</div>
             <div style="font-size:11px; text-align:left; background:rgba(0,0,0,0.3); padding:8px; border-radius:6px; line-height:1.4;">
               <div>❤️ 最大 HP： <strong style="color:#ef4444;">${heroHpMax.toLocaleString()}</strong></div>
               <div>⚔️ P.Atk： <strong style="color:#f87171;">${heroAtk}</strong></div>
@@ -10008,7 +10008,7 @@ export function renderOlympiadTab(container, state) {
           <div style="background:rgba(0,0,0,0.5); border:1px solid #ef4444; border-radius:8px; padding:12px; text-align:center;">
             <div style="font-size:11px; color:#fca5a5; text-transform:uppercase; font-weight:bold;">競技場鬥士</div>
             <div style="font-family:'Cinzel',serif; font-size:16px; font-weight:bold; color:#f87171; margin:4px 0;">${gladiator.name}</div>
-            <div style="font-size:11px; color:#cbd5e1; margin-bottom:8px;">Lv.${gladiator.lvl} • ${gladiator.title}</div>
+            <div style="font-size:11px; color:#cbd5e1; margin-bottom:8px;">等級 ${gladiator.lvl} • ${gladiator.title}</div>
             <div style="font-size:11px; text-align:left; background:rgba(0,0,0,0.3); padding:8px; border-radius:6px; line-height:1.4;">
               <div>❤️ 最大 HP： <strong style="color:#ef4444;">${gladiator.hp.toLocaleString()}</strong></div>
               <div>⚔️ P.Atk： <strong style="color:#f87171;">${gladiator.atk}</strong></div>
@@ -10030,10 +10030,10 @@ export function renderOlympiadTab(container, state) {
     const steps = [
       {
         num: 1,
-        title: 'Parte 1: O Legado de Eva & Talien',
-        npc: '👤 Talien (Giran)',
+        title: '第 1 部分：伊娃與塔里安的遺產',
+        npc: '👤 塔里安（奇岩）',
         dialog: '「高貴的戰士，若要證明你的靈魂價值，請前往聖者之谷，從怪物身上找回 25 頁伊娃之詩。」',
-        desc: '與奇岩的 Talien 調查古代英雄傳承，並在聖者之谷找回 25 頁伊娃之詩。',
+        desc: '與奇岩的塔里安調查古代英雄傳承，並在聖者之谷找回 25 頁伊娃之詩。',
         progressText: `${prog.part1Kills || 0}/25 聖者之谷怪物`,
         travelBtn: (state.level || 1) >= 72
           ? `<button onclick="window.teleportToQuestZone('valleyOfSaints')" style="padding:4px 10px; font-size:10.5px; font-weight:bold; background:#1e3a8a; border:1px solid #60a5fa; color:#93c5fd; border-radius:4px; cursor:pointer; margin-top:4px;">🗺️ 前往聖者之谷</button>`
@@ -10041,14 +10041,14 @@ export function renderOlympiadTab(container, state) {
         isDone: nobStatus.isNoblesse || (state.noblesseStep || 1) > 1,
         isCurrent: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 1,
         canComplete: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 1 && (prog.part1Kills || 0) >= 25,
-        btnText: '💬 交給 Talien（奇岩）'
+        btnText: '💬 交給塔里安（奇岩）'
       },
       {
         num: 2,
-        title: 'Parte 2: Ritual de Virgil em Rune',
-        npc: '👤 Virgil (Rune Township)',
+        title: '第 2 部分：魯因的維吉爾儀式',
+        npc: '👤 維吉爾（魯因城鎮）',
         dialog: '「悲鳴沼澤的靈魂渴望解放。前往悲鳴沼澤淨化 30 個墮落靈魂，完成精華祝聖。」',
-        desc: '將神聖信件交給魯因城鎮的 Virgil，並在悲鳴沼澤淨化 30 個靈魂。',
+        desc: '將神聖信件交給魯因城鎮的維吉爾，並在悲鳴沼澤淨化 30 個靈魂。',
         progressText: `${prog.part2Kills || 0}/30 悲鳴沼澤靈魂`,
         travelBtn: (state.level || 1) >= 74
           ? `<button onclick="window.teleportToQuestZone('swampOfScreams')" style="padding:4px 10px; font-size:10.5px; font-weight:bold; background:#1e3a8a; border:1px solid #60a5fa; color:#93c5fd; border-radius:4px; cursor:pointer; margin-top:4px;">🗺️ 前往悲鳴沼澤</button>`
@@ -10056,12 +10056,12 @@ export function renderOlympiadTab(container, state) {
         isDone: nobStatus.isNoblesse || (state.noblesseStep || 1) > 2,
         isCurrent: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 2,
         canComplete: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 2 && (prog.part2Kills || 0) >= 30,
-        btnText: '💬 Falar com Virgil (Rune)'
+        btnText: '💬 與維吉爾對話（魯因）'
       },
       {
         num: 3,
         title: '第 3 部分：巴拉基爾的試煉',
-        npc: '👤 Caradine (Goddard)',
+        npc: '👤 卡拉丁（高達特）',
         dialog: '「女神的神聖權杖落在阿爾戈斯之壁的光輝火焰巴拉基爾手中。擊敗他並取回權杖！」',
         desc: '協助阿爾戈斯之壁的卡拉丁，並擊敗傳說團隊首領「光輝火焰巴拉基爾」，取回女神之杖。',
         progressText: prog.barakielKilled ? '✓ 已擊敗巴拉基爾' : '擊敗團隊首領巴拉基爾',
@@ -10069,20 +10069,20 @@ export function renderOlympiadTab(container, state) {
         isDone: nobStatus.isNoblesse || (state.noblesseStep || 1) > 3,
         isCurrent: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 3,
         canComplete: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 3 && Boolean(prog.barakielKilled),
-        btnText: '💬 將權杖交給 Caradine'
+        btnText: '💬 將權杖交給卡拉丁'
       },
       {
         num: 4,
         title: '第 4 部分：伊娃女神祝聖',
-        npc: '👑 Lady of the Lake（神聖方尖碑）',
+        npc: '👑 湖之女神（神聖方尖碑）',
         dialog: '「你的靈魂純潔而勇敢。獻上伊娃女神祝聖的法杖，並接受永恆祝聖，成為亞丁貴族！」',
-        desc: '將神聖權杖交給 Lady of the Lake，獲得神聖祝福、貴族頭冠，並正式成為亞丁貴族！',
-        progressText: nobStatus.isNoblesse ? '✓ 已完成貴族祝聖' : '交給 Lady of the Lake',
+        desc: '將神聖權杖交給湖之女神，獲得神聖祝福、貴族頭冠，並正式成為亞丁貴族！',
+        progressText: nobStatus.isNoblesse ? '✓ 已完成貴族祝聖' : '交給湖之女神',
         travelBtn: '',
         isDone: nobStatus.isNoblesse,
         isCurrent: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 4,
         canComplete: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 4,
-        btnText: '👑 與 Lady of the Lake 對話（祝聖）'
+        btnText: '👑 與湖之女神對話（祝聖）'
       }
     ];
 
