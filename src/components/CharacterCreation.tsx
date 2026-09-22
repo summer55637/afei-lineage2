@@ -122,8 +122,8 @@ const RACES_INFO: Record<string, {
     perks: ['💪 +100 最大生命值（HP）', '🛡️ 長時間戰鬥耐久', '🏝️ 從說話之島開始（等級 1）'],
     allowedClasses: [
       { id: 'orc_fighter', name: 'Guerreiro 半獸人 (Fighter)', desc: '使用雙手斧與狂暴之力作戰的破壞者。', icon: '🪓' },
-      { id: 'orc_mage', name: 'Xamã 半獸人 (Shaman)', desc: '使用戰鬥魔法與部族增益強化血量及耐力。', icon: '🔥' },
-      { id: 'orc_rider_0', name: '先鋒騎士 🐉', desc: 'Cavaleiro 半獸人 montado especialista em investidas e estocadas de lança.', icon: '🐉' }
+      { id: 'orc_mage', name: '半獸人薩滿', desc: '使用戰鬥魔法與部族增益強化血量及耐力。', icon: '🔥' },
+      { id: 'orc_rider_0', name: '先鋒騎士 🐉', desc: '擅長騎乘衝鋒與長槍突刺的半獸人騎士。', icon: '🐉' }
     ],
     image: {
       orc_fighter: { M: '/img/orcfighterM.png', F: '/img/orcfighterF.png' },
