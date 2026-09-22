@@ -94,7 +94,7 @@ export const InstanceService = {
     }
 
     if (callbacks.log) {
-      callbacks.log(`🏆 ${inst.name.toUpperCase()} 勝利！獲得：+${inst.rewards.xp.toLocaleString()} XP、+${inst.rewards.gold.toLocaleString()} 金幣、+${inst.rewards.sp} SP，以及 ${inst.rewards.guaranteedRewardText}！`, 'rarity-legendary');
+      callbacks.log(`🏆 ${inst.name.toUpperCase()} 勝利！獲得：+${inst.rewards.xp.toLocaleString()} 經驗值、+${inst.rewards.gold.toLocaleString()} 金幣、+${inst.rewards.sp} 技能點，以及 ${inst.rewards.guaranteedRewardText}！`, 'rarity-legendary');
     }
     if (callbacks.floatText) {
       callbacks.floatText('🏆 副本完成！', 'float-jackpot');
