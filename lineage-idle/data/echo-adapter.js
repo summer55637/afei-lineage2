@@ -159,7 +159,7 @@ function buildSkillEffectText(def, lvl) {
   // Buffs/Warcry
   if (def.effect === 'warcry' || type === 'buff') {
     const current = getSkillBuffAtLevel(currentLvl);
-    let text = `Buff: +${Math.round(current * 100)}% por 60s`;
+    let text = `增益：+${Math.round(current * 100)}%，持續 60 秒`;
     if (currentLvl < max) {
       const next = getSkillBuffAtLevel(currentLvl + 1);
       text += ` (Lv.${currentLvl + 1} → +${Math.round(next * 100)}%)`;
@@ -169,7 +169,7 @@ function buildSkillEffectText(def, lvl) {
 
   // Heals
   if (def.effect === 'heal' || type === 'heal') {
-    let text = `Cura: 25% + ${currentLvl * 5}% do HP máximo`;
+    let text = `治療：25% + ${currentLvl * 5}% 最大生命值`;
     if (currentLvl < max) {
       text += ` (Lv.${currentLvl + 1} → ${25 + (currentLvl + 1) * 5}%)`;
     }
@@ -178,7 +178,7 @@ function buildSkillEffectText(def, lvl) {
 
   // Skills de dano (active)
   const currentPwr = getSkillPwrAtLevel(def, currentLvl);
-  let text = `${effectBase} — Poder: ${currentPwr}`;
+  let text = `${effectBase} — 威力：${currentPwr}`;
   if (currentLvl < max) {
     const nextPwr = getSkillPwrAtLevel(def, currentLvl + 1);
     text += ` (Lv.${currentLvl + 1} → ${nextPwr})`;
@@ -851,7 +851,7 @@ function buildEchoAdapter() {
         effect: isBuff ? 'warcry' : (isHeal ? 'heal' : (isVampiric ? 'vampiric' : 'dmg')),
         info: s.identity?.description || rawName,
         desc: s.identity?.description || '',
-        effectText: `Multiplicador: ${dmgMult.toFixed(1)}x | Stagger: ${staggerDmg}`,
+        effectText: `倍率：${dmgMult.toFixed(1)}x｜失衡：${staggerDmg}`,
         icon,
         classReq: classId,
         reqLvl: unlockLvl,
