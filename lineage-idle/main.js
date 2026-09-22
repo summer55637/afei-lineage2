@@ -689,7 +689,7 @@ function openClassTransferModal(classInfo) {
 
       const statsStr = Object.entries(clsDef.base || {})
         .filter(([, v]) => v > 0)
-        .map(([k, v]) => `+${v} ${k.toUpperCase()}`)
+        .map(([k, v]) => `+${v} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[k] || k.toUpperCase()}`)
         .join(' · ');
 
       const archetypeIcons = {
@@ -1445,8 +1445,8 @@ function useItem(uid) {
   // ── Buff Potions ───────────────────────────────────────────────────────────
   else if (def.type === 'buff') {
     applyBuff(def.stat, def.amount, def.duration || 1800);
-    log(`⚡ 使用 ${def.name}：+${def.amount} ${def.stat.toUpperCase()}，持續 ${fmtDur(def.duration || 1800)}`, 'heal');
-    if (typeof floatText === 'function') floatText(`⚡ +${def.amount} ${def.stat.toUpperCase()}`, 'sf-heal');
+    log(`⚡ 使用 ${def.name}：+${def.amount} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[def.stat] || def.stat.toUpperCase()}，持續 ${fmtDur(def.duration || 1800)}`, 'heal');
+    if (typeof floatText === 'function') floatText(`⚡ +${def.amount} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[def.stat] || def.stat.toUpperCase()}`, 'sf-heal');
   }
   else if (item.itemId === 'attack_potion') {
     applyBuff('atk', 0.20, 1800); log(`⚡ 使用 ${def.name}：+20% 攻擊，持續 30 分鐘`, 'heal');
@@ -4097,7 +4097,7 @@ export function renderSubclassesUI() {
             <span>⚔️ 副職業 ${idx + 1}：</span>
             <span style="color:#fde047;">${subClassDef?.name || sub.classId}</span>
             <span style="color:#60a5fa; font-size:11px; background:rgba(96,165,250,0.15); padding:1px 6px; border-radius:4px;">等級 ${sub.level}/85</span>
-            <span style="color:#a855f7; font-size:10px; background:rgba(168,85,247,0.15); padding:1px 5px; border-radius:4px; text-transform:uppercase;">${archetype}</span>
+            <span style="color:#a855f7; font-size:10px; background:rgba(168,85,247,0.15); padding:1px 5px; border-radius:4px; text-transform:uppercase;">${({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[archetype] || archetype}</span>
           </div>
           <div style="font-size:10px; color:var(--text-muted); margin-top:2px;">名匠認證可於等級 65、70、75、80 取得。</div>
         </div>
@@ -4126,7 +4126,7 @@ export function renderSubclassesUI() {
   }
 
   if (summaryEl) {
-    const activeTransStr = state.activeTransformation ? `<div style="margin-top:4px; color:#fde047; font-weight:bold;">👼 神聖變身已啟用：${state.activeTransformation.toUpperCase()}</div>` : '';
+    const activeTransStr = state.activeTransformation ? `<div style="margin-top:4px; color:#fde047; font-weight:bold;">👼 神聖變身已啟用：${Object.values(DIVINE_TRANSFORMATIONS).find(d => d.id === state.activeTransformation)?.name || ({ divineWarrior: '神聖戰士', divineKnight: '神聖騎士', divineRogue: '神聖遊俠', divineWizard: '神聖巫師', divineSummoner: '神聖召喚師', divineHealer: '神聖治癒師', divineEnchanter: '神聖賦予師' })[state.activeTransformation] || state.activeTransformation}</div>` : '';
     
     if (certBonuses.totalCertCount === 0) {
       summaryEl.innerHTML = `目前尚未學習任何認證。將副職業提升至等級 65、70、75、80 即可累積永久加成！`;
@@ -4206,7 +4206,7 @@ function openCertificationModal(subId, milestoneKey) {
   body.innerHTML = `
     <div style="margin-bottom:14px;">
       <h3 style="margin:0; color:#fde047; font-family:'Cinzel',serif; font-size:16px;">📜 ${milestone.title}</h3>
-      <p style="margin:4px 0 0 0; font-size:11px; color:var(--text-muted);">副職業：<strong>${subClassDef?.name || sub.classId}</strong>（定位： <span style="text-transform:uppercase; color:#a855f7;">${archetype}</span>）</p>
+      <p style="margin:4px 0 0 0; font-size:11px; color:var(--text-muted);">副職業：<strong>${subClassDef?.name || sub.classId}</strong>（定位： <span style="text-transform:uppercase; color:#a855f7;">${({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[archetype] || archetype}</span>）</p>
     </div>
     <div style="display:flex; flex-direction:column; gap:8px; max-height:360px; overflow-y:auto; padding-right:4px;">
       ${optionsHtml}
@@ -4357,7 +4357,7 @@ function toggleDivineTransformation(transId) {
     log('👼 神聖變身已停用。', 'system');
   } else {
     state.activeTransformation = transId;
-    log(`👼 **神聖變身已啟用！** (+${transId.toUpperCase()})`, 'rarity-legendary');
+    log(`👼 **神聖變身已啟用！** （${Object.values(DIVINE_TRANSFORMATIONS).find(d => d.id === transId)?.name || transId}）`, 'rarity-legendary');
     floatText('神聖變身！', 'float-jackpot');
   }
 
@@ -4388,7 +4388,7 @@ function openAddSubclassModal() {
       <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px; display:flex; justify-content:space-between; align-items:center; gap:8px;">
         <div>
           <div style="font-weight:bold; color:#fde047; font-size:12px;">${cDef?.name || cId}</div>
-          <div style="font-size:10px; color:#a855f7; text-transform:uppercase;">定位：${arch}</div>
+          <div style="font-size:10px; color:#a855f7; text-transform:uppercase;">定位：${({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[arch] || arch}</div>
         </div>
         <button class="action-btn action-btn--primary" style="padding:6px 12px; font-size:11px;" onclick="window.confirmAddSubclass('${cId}')">
           Adicionar ⚔️
@@ -5409,7 +5409,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
     const dropChance = (cardDef.dropChance || (monster.isRaid ? 0.015 : (monster.boss ? 0.008 : 0.0005))) * levelGapPenalty;
     if (Math.random() < dropChance) {
       addToInventory(cardId, 1);
-      log(`🃏 稀有掉落！獲得 **${cardDef.name}** [${(cardDef.rarity || 'rare').toUpperCase()}]！`, 'rarity-' + (cardDef.rarity || 'rare'), 'loot');
+      log(`🃏 稀有掉落！獲得 **${cardDef.name}** [${D()?.RARITY?.[cardDef.rarity || 'rare']?.name || cardDef.rarity || '稀有'}]！`, 'rarity-' + (cardDef.rarity || 'rare'), 'loot');
       floatText(`🃏 怪物卡片！`, 'float-jackpot');
     }
   }
@@ -7511,7 +7511,7 @@ function renderMonsterCardsCodex(container, summaryEl) {
     const bonusLabel = Object.entries(cardDef.codexBonus || {})
       .map(([stat, val]) => {
         const multipliedVal = isAbsorbed ? Math.round(val * rankMult) : val;
-        return `+${typeof val === 'number' && val < 1 ? (val * 100).toFixed(0) + '%' : multipliedVal} ${stat.toUpperCase()}`;
+        return `+${typeof val === 'number' && val < 1 ? (val * 100).toFixed(0) + '%' : multipliedVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[stat] || stat.toUpperCase()}`;
       })
       .join(', ');
 
@@ -8998,7 +8998,7 @@ function exchangeManorCrop(seedId, rewardOption = 1) {
   state.manorCrops[seedId] -= cropsUsed;
 
   addToInventory(matKey, matAmount);
-  log(`🌾 已向莊園管理員交付 ${cropsUsed}x 收成，獲得 +${matAmount}x ${matKey.toUpperCase()}！`, 'rarity-legendary');
+  log(`🌾 已向莊園管理員交付 ${cropsUsed}x 收成，獲得 +${matAmount}x ${D()?.ALL_ITEMS?.[matKey]?.name || matKey}！`, 'rarity-legendary');
 
   updateAllUI();
   save();
@@ -9157,7 +9157,7 @@ function buySoulCrystal(color = 'red', stage = 1) {
   const key = `${color}_stage${stage}`;
   state.soulCrystals[key] = (state.soulCrystals[key] || 0) + 1;
 
-  log(`🔮 已購買 ${color.toUpperCase()} 靈魂水晶（階段 ${stage}）！`, 'rarity-legendary');
+  log(`🔮 已購買 ${({ red: '紅色', green: '綠色', blue: '藍色' })[color] || color} 靈魂水晶（階段 ${stage}）！`, 'rarity-legendary');
   updateAllUI();
   save();
   return true;
@@ -9195,8 +9195,8 @@ function socketSoulCrystalToWeapon(effect = 'focus', stage = 1) {
     stage: Math.min(13, Math.max(1, stage))
   };
 
-  log(`🔮 已將特殊能力靈魂水晶 [${effect.toUpperCase()} 階段 ${stage}] 鑲嵌到目前武器！`, 'rarity-legendary');
-  floatText(`特殊能力 ${effect.toUpperCase()} 已啟用`, 'float-gold');
+  log(`🔮 已將特殊能力靈魂水晶 [${({ focus: '專注', acumen: '靈敏', health: '生命', empower: '魔力增幅', guidance: '導引' })[effect] || effect} 階段 ${stage}] 鑲嵌到目前武器！`, 'rarity-legendary');
+  floatText(`特殊能力 ${({ focus: '專注', acumen: '靈敏', health: '生命', empower: '魔力增幅', guidance: '導引' })[effect] || effect} 已啟用`, 'float-gold');
 
   updateAllUI();
   save();
@@ -9257,7 +9257,7 @@ function applyTattoo(plusStat = 'str', minusStat = 'con', val = 4) {
     minusVal: val
   });
 
-  log(`🖋️ 刺青已套用：+${val} ${plusStat.toUpperCase()} / -${val} ${minusStat.toUpperCase()}！`, 'rarity-legendary');
+  log(`🖋️ 刺青已套用：+${val} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[plusStat] || plusStat.toUpperCase()} / -${val} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[minusStat] || minusStat.toUpperCase()}！`, 'rarity-legendary');
   updateAllUI();
   save();
   return true;
@@ -9266,7 +9266,7 @@ function applyTattoo(plusStat = 'str', minusStat = 'con', val = 4) {
 function removeTattoo(index) {
   if (!state.tattoos || !state.tattoos[index]) return false;
   const removed = state.tattoos.splice(index, 1);
-  log(`🖋️ 已移除刺青（+${removed[0]?.plusVal} ${removed[0]?.plusStat?.toUpperCase()}）。`, 'loot');
+  log(`🖋️ 已移除刺青（+${removed[0]?.plusVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[removed[0]?.plusStat] || removed[0]?.plusStat?.toUpperCase()}）。`, 'loot');
   updateAllUI();
   save();
   return true;
@@ -9309,8 +9309,8 @@ function insertAttributeStone(itemUid, elemType = 'fire') {
   item.elemental.type = elemType;
   item.elemental.val = Math.min(300, item.elemental.val + inc);
 
-  log(`🔥 元素鑲嵌成功！**${item.name || '物品'}** 獲得 +${inc} ${elemType.toUpperCase()} 屬性（總值：${item.elemental.val}）！`, 'rarity-legendary');
-  floatText(`屬性 ${elemType.toUpperCase()} +${inc}！`, 'float-gold');
+  log(`🔥 元素鑲嵌成功！**${item.name || '物品'}** 獲得 +${inc} ${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗' })[elemType] || elemType} 屬性（總值：${item.elemental.val}）！`, 'rarity-legendary');
+  floatText(`屬性 ${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗' })[elemType] || elemType} +${inc}！`, 'float-gold');
   updateAllUI(); save();
   return true;
 }
