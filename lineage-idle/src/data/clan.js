@@ -8,47 +8,47 @@
 export const CLAN_LEVEL_DATA = {
   1: {
     level: 1,
-    title: 'Clã Iniciante',
+    title: '初級血盟',
     reqCharLevel: 20,
     costAdena: 100000,
     costSp: 10000,
     reqItem: null,
     maxMembers: 15,
     unlockedSkills: ['clan_imperium'],
-    desc: 'Fundação do Clã. Desbloqueia o Brasão e a habilidade Clan Imperium (+HP/CP).'
+    desc: '血盟創立階段。解鎖盟徽與血盟帝國技能（+HP／CP）。'
   },
   2: {
     level: 2,
-    title: 'Clã Veterano',
+    title: '資深血盟',
     reqCharLevel: 40,
     costAdena: 500000,
     costSp: 50000,
     reqItem: null,
     maxMembers: 30,
     unlockedSkills: ['clan_might'],
-    desc: 'Aumenta a força militar. Desbloqueia a habilidade Clan Might (+P.Atk).'
+    desc: '提升軍事力量，解鎖血盟力量（+P.Atk）。'
   },
   3: {
     level: 3,
-    title: 'Clã de Cavaleiros',
+    title: '騎士血盟',
     reqCharLevel: 55,
     costAdena: 2000000,
     costSp: 200000,
     reqItem: { id: 'blood_mark', name: 'Marca de Sangue (Blood Mark)', count: 1 },
     maxMembers: 60,
     unlockedSkills: ['clan_shield'],
-    desc: 'Clã reconhecido pelos nobres. Desbloqueia a habilidade Clan Shield (+P.Def).'
+    desc: '受到貴族認可的血盟，解鎖血盟護盾（+P.Def）。'
   },
   4: {
     level: 4,
-    title: 'Aliança de Guerra',
+    title: '戰爭同盟',
     reqCharLevel: 70,
     costAdena: 10000000,
     costSp: 500000,
-    reqItem: { id: 'alliance_manifesto', name: 'Manifesto da Aliança', count: 1 },
+    reqItem: { id: 'alliance_manifesto', name: '同盟宣言', count: 1 },
     maxMembers: 100,
     unlockedSkills: ['clan_empower', 'clan_magic_barrier'],
-    desc: 'Poder arcano e bélico superior. Desbloqueia Clan Empower (+M.Atk) e Clan Magic Barrier (+M.Def).'
+    desc: '擁有更高階的魔法與軍事力量，解鎖血盟增幅（+M.Atk）與血盟魔法屏障（+M.Def）。'
   },
   5: {
     level: 5,
@@ -56,10 +56,10 @@ export const CLAN_LEVEL_DATA = {
     reqCharLevel: 76,
     costAdena: 25000000,
     costSp: 1500000,
-    reqItem: { id: 'seal_of_aspiration', name: 'Selo da Aspiração (Seal of Aspiration)', count: 1 },
+    reqItem: { id: 'seal_of_aspiration', name: '志向封印', count: 1 },
     maxMembers: 150,
     unlockedSkills: ['clan_vitality'],
-    desc: 'O ápice da nobreza. Desbloqueia Clan Vitality (+Regeneração/Speed) e autorização para declarar Cerco a Castelos (Castle Sieges)!'
+    desc: '血盟貴族的頂點。解鎖血盟活力（恢復／速度）並取得宣告城堡攻城戰的資格！'
   }
 };
 
@@ -69,7 +69,7 @@ export const CLAN_SKILLS = {
     name: 'Clan Imperium 🛡️',
     levelReq: 1,
     icon: 'gradespecial/scrolls/scroll_blessed_armor_s.png',
-    desc: 'Aumenta a constituição e fortitude dos membros em +10% Max HP e +15% Max CP.',
+    desc: '成員最大 HP +10%、最大 CP +15%。',
     stats: { hpPercent: 0.10, cpPercent: 0.15 }
   },
   clan_might: {
@@ -77,7 +77,7 @@ export const CLAN_SKILLS = {
     name: 'Clan Might ⚔️',
     levelReq: 2,
     icon: 'gradespecial/scrolls/scroll_enchant_weapon_a.png',
-    desc: 'Aumenta a força marcial em +8% P.Atk físico.',
+    desc: '物理 P.Atk +8%。',
     stats: { pAtkPercent: 0.08 }
   },
   clan_shield: {
@@ -85,7 +85,7 @@ export const CLAN_SKILLS = {
     name: 'Clan Shield 🛡️',
     levelReq: 3,
     icon: 'gradespecial/scrolls/scroll_enchant_armor_a.png',
-    desc: 'Reforça as armaduras e barreiras em +10% P.Def física.',
+    desc: '物理 P.Def +10%。',
     stats: { pDefPercent: 0.10 }
   },
   clan_empower: {
@@ -93,7 +93,7 @@ export const CLAN_SKILLS = {
     name: 'Clan Empower 🔮',
     levelReq: 4,
     icon: 'gradespecial/scrolls/scroll_enchant_weapon_s.png',
-    desc: 'Canaliza correntes místicas aumentando o poder mágico em +10% M.Atk.',
+    desc: '魔法 M.Atk +10%。',
     stats: { mAtkPercent: 0.10 }
   },
   clan_magic_barrier: {
@@ -101,7 +101,7 @@ export const CLAN_SKILLS = {
     name: 'Clan Magic Barrier 🌌',
     levelReq: 4,
     icon: 'gradespecial/scrolls/scroll_blessed_armor_s.png',
-    desc: 'Cria um véu protetor aumentando a defesa mágica em +12% M.Def.',
+    desc: '魔法 M.Def +12%。',
     stats: { mDefPercent: 0.12 }
   },
   clan_vitality: {
@@ -109,7 +109,7 @@ export const CLAN_SKILLS = {
     name: 'Clan Vitality 💚',
     levelReq: 5,
     icon: 'gradespecial/potions/potion_mana_xl.png',
-    desc: 'Vigor vital inesgotável: +20% na velocidade de regeneração de HP/MP e +5 de Velocidade de Movimento.',
+    desc: 'HP／MP 恢復速度 +20%，移動速度 +5。',
     stats: { regenPercent: 0.20, speedBonus: 5 }
   }
 };
