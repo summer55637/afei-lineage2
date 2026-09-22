@@ -2370,7 +2370,7 @@ skills: [
       { name: "神聖庇護",            type: "Ativo",   rarity: "3★", effect: "+60% 格擋率 + 反射 神聖 15 秒", cooldown: "60s", duration: "15s", note: "轉職後技能仍會保留" },
       { name: "天界懲戒",    type: "Ativo",   rarity: "2★", effect: "神聖傷害 280% + 沉默 3 秒", cooldown: "20s", duration: "3s", note: "轉職後技能仍會保留" },
       { name: "神聖鎖鏈",              type: "Ativo",   rarity: "2★", effect: "嘲諷 + 定身 目標 4 秒", cooldown: "22s", duration: "4s", note: "轉職後技能仍會保留" },
-      { name: "神聖聖騎士和諧（S2）", type: "Self-Buff", rarity: "3★", effect: "+35% 防禦力, +25% 攻擊力, +20% 魔法防禦 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
+      { name: "神聖聖騎士和諧（第二階段）", type: "Self-Buff", rarity: "3★", effect: "+35% 防禦力, +25% 攻擊力, +20% 魔法防禦 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
     ]
   },
   holyTemplar: {
@@ -2381,7 +2381,7 @@ skills: [
       { name: "神聖庇護",            type: "Ativo",   rarity: "3★", effect: "+60% 格擋率 + 反射 神聖 15 秒", cooldown: "60s", duration: "15s", note: "轉職後技能仍會保留" },
       { name: "天界懲戒",    type: "Ativo",   rarity: "2★", effect: "神聖傷害 280% + 沉默 3 秒", cooldown: "20s", duration: "3s", note: "轉職後技能仍會保留" },
       { name: "神聖鎖鏈",              type: "Ativo",   rarity: "2★", effect: "嘲諷 + 定身 目標 4 秒", cooldown: "22s", duration: "4s", note: "轉職後技能仍會保留" },
-      { name: "神聖聖騎士和諧（S2）", type: "Self-Buff", rarity: "3★", effect: "+35% 防禦力, +25% 攻擊力, +20% 魔法防禦 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
+      { name: "神聖聖騎士和諧（第二階段）", type: "Self-Buff", rarity: "3★", effect: "+35% 防禦力, +25% 攻擊力, +20% 魔法防禦 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -2423,7 +2423,7 @@ skills: [
       { name: "元素匯聚",  type: "Ativo",   rarity: "3★", effect: "範圍傷害 全-元素 340%", cooldown: "25s", duration: null, note: "轉職後技能仍會保留" },
       { name: "終極驅散",        type: "Ativo",   rarity: "3★", effect: "移除 所有 增益 目標的", cooldown: "60s", duration: null, note: "轉職後技能仍會保留" },
       { name: "元素精通",      type: "Passivo", rarity: "2★", effect: "+15% 全 元素傷害", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
-      { name: "元素編織者和諧（S2）", type: "Self-Buff", rarity: "3★", effect: "+35% 魔法攻擊, +25% 施法速度, +20% 元素傷害 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
+      { name: "元素編織者和諧（第二階段）", type: "Self-Buff", rarity: "3★", effect: "+35% 魔法攻擊, +25% 施法速度, +20% 元素傷害 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -2463,7 +2463,7 @@ skills: [
       { name: "水晶箭",       type: "Ativo",     rarity: "2★", effect: "神聖傷害 260%", cooldown: "14s", duration: null, note: "轉職後技能仍會保留" },
       { name: "創造之光",   type: "Self-Buff", rarity: "3★", effect: "+25% 魔法攻擊, +15% 治癒威力 持續 120 秒", cooldown: "120s", duration: "120s", note: "轉職後技能仍會保留" },
       { name: "璀璨光環",      type: "Party-Buff", rarity: "3★", effect: "+15% 全屬性 給隊伍 持續 300 秒", cooldown: "60s", duration: "300s", note: "轉職後技能仍會保留" },
-      { name: "光耀創造者和諧（S2）", type: "Self-Buff", rarity: "3★", effect: "+35% 魔法攻擊, +25% 治癒威力, +20% 魔法防禦 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
+      { name: "光耀創造者和諧（第二階段）", type: "Self-Buff", rarity: "3★", effect: "+35% 魔法攻擊, +25% 治癒威力, +20% 魔法防禦 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
     ]
   },
 
