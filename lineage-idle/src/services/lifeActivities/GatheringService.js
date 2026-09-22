@@ -112,7 +112,7 @@ export const GatheringService = {
 
     gState.activePouch = pouchId;
     const pouchDef = POUCHES_CATALOG[pouchId];
-    if (callbacks.log) callbacks.log(`🧺 Cesto ativo: **${pouchDef?.name || pouchId}**.`, 'system');
+    if (callbacks.log) callbacks.log(`🧺 已啟用採集籃：**${pouchDef?.name || pouchId}**。`, 'system');
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
