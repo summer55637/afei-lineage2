@@ -225,7 +225,7 @@ export function dissolveItem(state, uid, callbacks = {}) {
 
   const yieldData = getDissolveYield(inv, def);
   if ((state.gold || 0) < yieldData.fee) {
-    log(`⚠️ Adena insuficiente para o processo alquímico! Requer ${yieldData.fee.toLocaleString()}g.`, 'warning');
+    log(`⚠️ 金幣不足，無法進行煉金！需要 ${yieldData.fee.toLocaleString()}g。`, 'warning');
     return false;
   }
 
@@ -413,7 +413,7 @@ export function useChaosBossSummonStone(state, callbacks = {}) {
 
   const stoneCount = getInventoryCount(state, 'boss_summon_stone');
   if (stoneCount <= 0) {
-    log('⚠️ Você não possui nenhuma [Pedra de Convocação Abissal] na mochila! Fabrique-a na 鍊金術.', 'warning');
+    log('⚠️ 你的背包中沒有【深淵召喚石】！請先在煉金系統製作。', 'warning');
     return false;
   }
 
@@ -436,8 +436,8 @@ export function useChaosBossSummonStone(state, callbacks = {}) {
     { id: 'baium', name: '皇帝巴溫', level: 75, hp: 1200000, atk: 2200, def: 900, exp: 450000, sp: 120000, gold: 400000, icon: 'monsters/baium.png' },
     { id: 'barakiel', name: '光輝之炎 Barakiel', level: 80, hp: 1800000, atk: 2800, def: 1200, exp: 700000, sp: 200000, gold: 600000, icon: 'monsters/barakiel.png' },
     { id: 'frintezza', name: '王子 Frintezza 與 Halisha', level: 85, hp: 2500000, atk: 3600, def: 1500, exp: 1100000, sp: 320000, gold: 900000, icon: 'monsters/frintezza.png' },
-    { id: 'antharas', name: 'Dragão da 地 Antharas', level: 90, hp: 4000000, atk: 5000, def: 2000, exp: 2000000, sp: 600000, gold: 1500000, icon: 'monsters/antharas.png' },
-    { id: 'valakas', name: 'Dragão do 火 Valakas', level: 95, hp: 6000000, atk: 6800, def: 2600, exp: 3500000, sp: 1000000, gold: 2500000, icon: 'monsters/valakas.png' }
+    { id: 'antharas', name: '地龍 Antharas', level: 90, hp: 4000000, atk: 5000, def: 2000, exp: 2000000, sp: 600000, gold: 1500000, icon: 'monsters/antharas.png' },
+    { id: 'valakas', name: '火龍 Valakas', level: 95, hp: 6000000, atk: 6800, def: 2600, exp: 3500000, sp: 1000000, gold: 2500000, icon: 'monsters/valakas.png' }
   ];
 
   // Escala com o nível atual do jogador
@@ -477,7 +477,7 @@ export function useChaosBossSummonStone(state, callbacks = {}) {
   state.target = chaosBoss.id;
   state.isRaidActive = false; // Permite combate idle normal
 
-  log(`🌀 UMA FENDA DO CAOS SE ABRIU! Você invocou ${chaosBoss.name} no modo combate!`, 'rarity-legendary');
+  log(`🌀 混沌裂隙已開啟！你在戰鬥模式召喚了 ${chaosBoss.name}！`, 'rarity-legendary');
   floatText('🌀 CHAOS BOSS INVOCADO!', 'float-meteor');
 
   if (callbacks.renderStageMonster) {
@@ -498,7 +498,7 @@ export function processChaosBossLoot(state, monster, callbacks = {}) {
   const updateAllUI = callbacks.updateAllUI || (() => {});
   const save = callbacks.save || (() => {});
 
-  log(`👑 VITÓRIA HISTÓRICA! O Chefe do Caos ${monster.name} sucumbiu ao seu poder!`, 'rarity-legendary');
+  log(`👑 歷史性勝利！混沌首領 ${monster.name} 已敗於你的力量！`, 'rarity-legendary');
 
   const season = getSeasonForLevel(state.level || 1);
   const droplist = CHAOS_BOSS_DROPLIST_BY_SEASON[season] || CHAOS_BOSS_DROPLIST_BY_SEASON[1];
