@@ -197,7 +197,7 @@ export function renderGatheringUI(state) {
           ${node?.icon || '🌿'}
         </div>
         <h3 style="margin:0 0 4px 0; font-family:'Cinzel',serif; color:#6ee7b7; font-size:18px;">
-          ${node?.name || 'Flora Identificada'}
+          ${node?.name || '已辨識植物'}
           <span style="font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(52,211,153,0.2); border:1px solid #34d399; color:#a7f3d0; margin-left:6px;">
             ${activeTacticDef.icon} ${activeTacticDef.name}
           </span>
