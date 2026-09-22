@@ -451,12 +451,12 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
     'stunChance', 'stunResist', 'blockRate', 'hpRegen', 'mpRegen', 'critDmg', 'aoeTargets'
   ];
   const STAT_LABEL = {
-    atk: 'P.ATK', def: 'P.DEF', matk: 'M.ATK', mdef: 'M.DEF', hp: '最大 HP', mp: '最大 MP',
+    atk: '物理攻擊', def: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '最大生命值', mp: '最大魔力',
     eva: '迴避', crit: '暴擊率', speed: '速度', lifesteal: '吸血',
     hit: '命中', atkSpeed: '攻擊速度', castSpeed: '施法速度', weightBonus: '負重上限',
-    invSlots: '背包欄位', xpBoost: 'XP 加成', stunChance: '暈眩機率',
-    stunResist: '暈眩抗性', blockRate: '格擋率', hpRegen: 'HP 恢復/秒',
-    mpRegen: 'Regen MP/s', critDmg: '暴擊傷害', aoeTargets: '範圍目標'
+    invSlots: '背包欄位', xpBoost: '經驗值加成', stunChance: '暈眩機率',
+    stunResist: '暈眩抗性', blockRate: '格擋率', hpRegen: '生命值恢復／秒',
+    mpRegen: '魔力恢復／秒', critDmg: '暴擊傷害', aoeTargets: '範圍目標'
   };
 
   if (!state || typeof state !== 'object') {
@@ -613,14 +613,14 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
           const isReqActive = (equippedCount >= Number(reqP)) || (reqP === String(totalReq + 1) && hasShield && equippedCount >= totalReq);
           const color = isReqActive ? '#4ade80' : '#888888';
           const parts = [];
-          if (bObj.xpBoost) parts.push(`+${Math.round(bObj.xpBoost * 100)}% XP`);
+          if (bObj.xpBoost) parts.push(`+${Math.round(bObj.xpBoost * 100)}% 經驗值`);
           if (bObj.goldBoost || bObj.adenaBoost) parts.push(`+${Math.round((bObj.goldBoost || bObj.adenaBoost) * 100)}% 金幣`);
-          if (bObj.atk) parts.push(`+${bObj.atk} P.Atk`);
-          if (bObj.def) parts.push(`+${bObj.def} P.Def`);
-          if (bObj.matk) parts.push(`+${bObj.matk} M.Atk`);
-          if (bObj.mdef) parts.push(`+${bObj.mdef} M.Def`);
-          if (bObj.hp) parts.push(`+${bObj.hp} HP`);
-          if (bObj.mp) parts.push(`+${bObj.mp} MP`);
+          if (bObj.atk) parts.push(`+${bObj.atk} 物理攻擊`);
+          if (bObj.def) parts.push(`+${bObj.def} 物理防禦`);
+          if (bObj.matk) parts.push(`+${bObj.matk} 魔法攻擊`);
+          if (bObj.mdef) parts.push(`+${bObj.mdef} 魔法防禦`);
+          if (bObj.hp) parts.push(`+${bObj.hp} 生命值`);
+          if (bObj.mp) parts.push(`+${bObj.mp} 魔力`);
           if (bObj.eva) parts.push(`+${bObj.eva} Eva`);
           if (bObj.crit) parts.push(`+${bObj.crit}% Crit`);
           if (bObj.speed) parts.push(`+${bObj.speed} 速度`);
@@ -788,13 +788,13 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
 
   let heirloomSetBonusText = '';
   if (heirloomCount >= 12) {
-    heirloomSetBonusText = '<span style="color:#4ade80;">👑 君王套裝（12/12 完整）：</span> +60% XP/金幣, +20% Stats, +25% HP';
+    heirloomSetBonusText = '<span style="color:#4ade80;">👑 君王套裝（12/12 完整）：</span> +60% 經驗值／金幣、+20% 全屬性、+25% 生命值';
   } else if (heirloomCount >= 8) {
-    heirloomSetBonusText = '<span style="color:#4ade80;">👑 君王加成（8/12）：</span> +45% XP/金幣, +10% Stats';
+    heirloomSetBonusText = '<span style="color:#4ade80;">👑 君王加成（8/12）：</span> +45% 經驗值／金幣、+10% 全屬性';
   } else if (heirloomCount >= 5) {
-    heirloomSetBonusText = '<span style="color:#4ade80;">🛡️ 防具套裝（5/5）：</span> +25% XP/金幣, +60 Atk／Matk, +80 Def／Mdef';
+    heirloomSetBonusText = '<span style="color:#4ade80;">🛡️ 防具套裝（5/5）：</span> +25% 經驗值／金幣、+60 攻擊／魔攻、+80 防禦／魔防';
   } else {
-    heirloomSetBonusText = `<span style="color:#fde047;">👑 君王套裝:</span> ${heirloomCount}/12 已裝備 (裝備 5 件以上可獲得 XP／金幣加成)`;
+    heirloomSetBonusText = `<span style="color:#fde047;">👑 君王套裝:</span> ${heirloomCount}/12 已裝備 (裝備 5 件以上可獲得經驗值／金幣加成)`;
   }
 
   const heirloomHtml = isHeirloom
@@ -802,7 +802,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
       <div style="background:linear-gradient(135deg, rgba(255,215,0,0.18), rgba(168,85,247,0.18)); border:1px solid #ffd700; border-radius:6px; padding:8px 10px; margin:8px 0; box-shadow:0 0 12px rgba(255,215,0,0.25);">
         <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; font-weight:bold; color:#ffd700;">
           <span style="display:flex;align-items:center;gap:4px;">⚔️ <span>動態傳承物品</span></span>
-          <span style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,215,0,0.5); padding:1px 6px; border-radius:4px; font-size:10px; color:#fde047;">Lv. ${currentHeroLvl}/40</span>
+          <span style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,215,0,0.5); padding:1px 6px; border-radius:4px; font-size:10px; color:#fde047;">等級 ${currentHeroLvl}/40</span>
         </div>
         <div style="font-size:10px; color:#f8fafc; font-weight:600; margin-top:4px;">
           ${heirloomPhaseText}
@@ -823,7 +823,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
       ${gradeHtml}
     </div>
     <div style="color:${rarityColor};font-size:11px;font-weight:600;margin-bottom:2px;">${rarityName}</div>
-    <div style="color:#888;font-size:10px;text-transform:uppercase;margin-bottom:4px;">${def.slot ? def.slot.toUpperCase() : '物品'}${def.req?.level ? ` · 需求 Lv.${def.req.level}` : ''}</div>
+    <div style="color:#888;font-size:10px;text-transform:uppercase;margin-bottom:4px;">${def.slot ? def.slot.toUpperCase() : '物品'}${def.req?.level ? ` · 需求等級 ${def.req.level}` : ''}</div>
     ${heirloomHtml}
     ${penaltyWarningHtml}
     ${statsStr}
@@ -1863,12 +1863,12 @@ function getRarityColor(rarity) {
 function renderItemStatsTable(item, def) {
   const mult = (1 + (Number(item?.enchant) || 0) * 0.1);
   const rows = [
-    { label: 'P.Atk', val: def?.atk ? Math.floor(def.atk * mult) : 0 },
-    { label: 'M.Atk', val: def?.matk ? Math.floor(def.matk * mult) : 0 },
-    { label: 'P.Def', val: def?.def ? Math.floor(def.def * mult) : 0 },
-    { label: 'M.Def', val: def?.mdef ? Math.floor(def.mdef * mult) : 0 },
-    { label: 'HP', val: def?.hp ? Math.floor(def.hp * mult) : 0 },
-    { label: 'MP', val: def?.mp ? Math.floor(def.mp * mult) : 0 },
+    { label: '物理攻擊', val: def?.atk ? Math.floor(def.atk * mult) : 0 },
+    { label: '魔法攻擊', val: def?.matk ? Math.floor(def.matk * mult) : 0 },
+    { label: '物理防禦', val: def?.def ? Math.floor(def.def * mult) : 0 },
+    { label: '魔法防禦', val: def?.mdef ? Math.floor(def.mdef * mult) : 0 },
+    { label: '生命值', val: def?.hp ? Math.floor(def.hp * mult) : 0 },
+    { label: '魔力', val: def?.mp ? Math.floor(def.mp * mult) : 0 },
     { label: '暴擊', val: def?.crit || 0 },
   ].filter(r => r.val > 0);
 
@@ -1891,12 +1891,12 @@ function renderComparisonStatsTable(curItem, curDef, candItem, candDef) {
   const candMult = (1 + (Number(candItem?.enchant) || 0) * 0.1);
 
   const statsList = [
-    { label: 'P.Atk', cur: Math.floor((curDef?.atk || 0) * curMult), cand: Math.floor((candDef?.atk || 0) * candMult) },
-    { label: 'M.Atk', cur: Math.floor((curDef?.matk || 0) * curMult), cand: Math.floor((candDef?.matk || 0) * candMult) },
-    { label: 'P.Def', cur: Math.floor((curDef?.def || 0) * curMult), cand: Math.floor((candDef?.def || 0) * candMult) },
-    { label: 'M.Def', cur: Math.floor((curDef?.mdef || 0) * curMult), cand: Math.floor((candDef?.mdef || 0) * candMult) },
-    { label: 'HP', cur: Math.floor((curDef?.hp || 0) * curMult), cand: Math.floor((candDef?.hp || 0) * candMult) },
-    { label: 'MP', cur: Math.floor((curDef?.mp || 0) * curMult), cand: Math.floor((candDef?.mp || 0) * candMult) },
+    { label: '物理攻擊', cur: Math.floor((curDef?.atk || 0) * curMult), cand: Math.floor((candDef?.atk || 0) * candMult) },
+    { label: '魔法攻擊', cur: Math.floor((curDef?.matk || 0) * curMult), cand: Math.floor((candDef?.matk || 0) * candMult) },
+    { label: '物理防禦', cur: Math.floor((curDef?.def || 0) * curMult), cand: Math.floor((candDef?.def || 0) * candMult) },
+    { label: '魔法防禦', cur: Math.floor((curDef?.mdef || 0) * curMult), cand: Math.floor((candDef?.mdef || 0) * candMult) },
+    { label: '生命值', cur: Math.floor((curDef?.hp || 0) * curMult), cand: Math.floor((candDef?.hp || 0) * candMult) },
+    { label: '魔力', cur: Math.floor((curDef?.mp || 0) * curMult), cand: Math.floor((candDef?.mp || 0) * candMult) },
     { label: '暴擊', cur: curDef?.crit || 0, cand: candDef?.crit || 0 },
   ].filter(s => s.cur > 0 || s.cand > 0);
 
@@ -2247,11 +2247,11 @@ export function openAutoEquipPreviewModal(state, callbacks = {}) {
         </span>
       </div>
       <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; font-size:10px;">
-        <div>P.Atk（物理攻擊）： <strong style="color:${d.atkDelta >= 0 ? '#4ade80' : '#f87171'}">${d.atkDelta >= 0 ? '+' : ''}${d.atkDelta}</strong></div>
-        <div>M.Atk（魔法攻擊）： <strong style="color:${d.matkDelta >= 0 ? '#4ade80' : '#f87171'}">${d.matkDelta >= 0 ? '+' : ''}${d.matkDelta}</strong></div>
-        <div>P.Def（物理防禦）： <strong style="color:${d.defDelta >= 0 ? '#4ade80' : '#f87171'}">${d.defDelta >= 0 ? '+' : ''}${d.defDelta}</strong></div>
-        <div>M.Def（魔法防禦）： <strong style="color:${d.mdefDelta >= 0 ? '#4ade80' : '#f87171'}">${d.mdefDelta >= 0 ? '+' : ''}${d.mdefDelta}</strong></div>
-        <div>最大 HP： <strong style="color:${d.hpDelta >= 0 ? '#4ade80' : '#f87171'}">${d.hpDelta >= 0 ? '+' : ''}${d.hpDelta}</strong></div>
+        <div>物理攻擊： <strong style="color:${d.atkDelta >= 0 ? '#4ade80' : '#f87171'}">${d.atkDelta >= 0 ? '+' : ''}${d.atkDelta}</strong></div>
+        <div>魔法攻擊： <strong style="color:${d.matkDelta >= 0 ? '#4ade80' : '#f87171'}">${d.matkDelta >= 0 ? '+' : ''}${d.matkDelta}</strong></div>
+        <div>物理防禦： <strong style="color:${d.defDelta >= 0 ? '#4ade80' : '#f87171'}">${d.defDelta >= 0 ? '+' : ''}${d.defDelta}</strong></div>
+        <div>魔法防禦： <strong style="color:${d.mdefDelta >= 0 ? '#4ade80' : '#f87171'}">${d.mdefDelta >= 0 ? '+' : ''}${d.mdefDelta}</strong></div>
+        <div>最大生命值： <strong style="color:${d.hpDelta >= 0 ? '#4ade80' : '#f87171'}">${d.hpDelta >= 0 ? '+' : ''}${d.hpDelta}</strong></div>
         <div>暴擊: <strong style="color:${d.critDelta >= 0 ? '#4ade80' : '#f87171'}">${d.critDelta >= 0 ? '+' : ''}${d.critDelta}%</strong></div>
       </div>
     </div>
@@ -2849,7 +2849,7 @@ function ensureHeroStructure() {
       <div id="hero-level" class="stage-entity-level stage-hero-level">等級 1</div>
       <div id="hero-hp-bar" class="stage-hp-bar stage-hp-bar-hero">
         <div id="hero-hp-fill" class="stage-hp-fill stage-hp-fill-hero"></div>
-        <span id="hero-hp-text" class="stage-hp-text stage-hp-text-hero">HP: 0 / 0</span>
+        <span id="hero-hp-text" class="stage-hp-text stage-hp-text-hero">生命值：0 / 0</span>
       </div>
       <div id="hero-mp-bar" class="stage-mp-bar stage-mp-bar-hero">
         <div id="hero-mp-fill" class="stage-mp-fill stage-mp-fill-hero"></div>
@@ -2884,7 +2884,7 @@ function ensureMonsterStructure() {
       <div id="monster-level" class="stage-entity-level stage-monster-level">等級 1</div>
       <div id="monster-hp-bar" class="stage-hp-bar">
         <div id="monster-hp-fill" class="stage-hp-fill"></div>
-        <span id="monster-hp-text" class="stage-hp-text">HP: 0 / 0</span>
+        <span id="monster-hp-text" class="stage-hp-text">生命值：0 / 0</span>
       </div>
       <div id="monster-stagger-bar" class="stage-stagger-bar" style="display:none;">
         <div id="monster-stagger-fill" class="stage-stagger-fill"></div>
@@ -2933,10 +2933,10 @@ export function renderStageHero(state) {
   updateBar('hero-mp-bar', curMp, maxMp);
 
   const heroHpText = structure.card.querySelector('#hero-hp-text, .stage-hp-text-hero');
-  if (heroHpText) heroHpText.textContent = `HP: ${curHp} / ${maxHp}`;
+  if (heroHpText) heroHpText.textContent = `生命值：${curHp} / ${maxHp}`;
 
   const heroMpText = structure.card.querySelector('#hero-mp-text, .stage-mp-text-hero');
-  if (heroMpText) heroMpText.textContent = `MP: ${curMp} / ${maxMp}`;
+  if (heroMpText) heroMpText.textContent = `魔力：${curMp} / ${maxMp}`;
 
   const vitHpText = el('hero-vital-hp');
   if (vitHpText) vitHpText.textContent = `${curHp.toLocaleString()} / ${maxHp.toLocaleString()}`;
@@ -2977,7 +2977,7 @@ export function renderStageMonster(state) {
     updateBar('monster-hp-fill', 0, 1);
     updateBar('monster-hp-bar', 0, 1);
     const mHpText = structure.card.querySelector('#monster-hp-text, .stage-hp-text');
-    if (mHpText) mHpText.textContent = 'HP: 0';
+    if (mHpText) mHpText.textContent = '生命值：0';
     if (structure.staggerBar) structure.staggerBar.style.display = 'none';
     const emptyMiniNames = document.querySelectorAll('.mini-target-name');
     const emptyMiniFills = document.querySelectorAll('.mini-target-bar-fill');
@@ -3016,7 +3016,7 @@ export function renderStageMonster(state) {
   updateBar('monster-hp-bar', curHp, maxHp);
 
   const monsterHpText = structure.card.querySelector('#monster-hp-text, .stage-hp-text');
-  if (monsterHpText) monsterHpText.textContent = `HP: ${curHp} / ${maxHp}`;
+  if (monsterHpText) monsterHpText.textContent = `生命值：${curHp} / ${maxHp}`;
 
   const liveMiniNames = document.querySelectorAll('.mini-target-name');
   const liveMiniFills = document.querySelectorAll('.mini-target-bar-fill');
@@ -3291,12 +3291,12 @@ export function updateCharacterUI(state) {
     };
 
     primContainer.innerHTML = `
-      ${renderTablet('STR', '力量', baseAttrs.str || 40, state.primaryStats?.str || 40, setPrim.str || 0, tatStr, 'STR: 每點提高 P.Atk 0.5%，並強化物理技能成長')}
+      ${renderTablet('STR', '力量', baseAttrs.str || 40, state.primaryStats?.str || 40, setPrim.str || 0, tatStr, 'STR：每點提高物理攻擊 0.5%，並強化物理技能成長')}
       ${renderTablet('DEX', 'Destreza', baseAttrs.dex || 30, state.primaryStats?.dex || 30, setPrim.dex || 0, tatDex, 'DEX：提高攻擊速度、物理暴擊率與迴避')}
-      ${renderTablet('CON', 'Vigor', baseAttrs.con || 43, state.primaryStats?.con || 43, setPrim.con || 0, tatCon, 'CON: 每點提高最大 HP 1.0%，並提升生命恢復')}
-      ${renderTablet('INT', '魔法', baseAttrs.int || 21, state.primaryStats?.int || 21, setPrim.int || 0, tatInt, 'INT: 每點提高 M.Atk 0.5%，並提升法術傷害')}
+      ${renderTablet('CON', 'Vigor', baseAttrs.con || 43, state.primaryStats?.con || 43, setPrim.con || 0, tatCon, 'CON：每點提高最大生命值 1.0%，並提升生命恢復')}
+      ${renderTablet('INT', '魔法', baseAttrs.int || 21, state.primaryStats?.int || 21, setPrim.int || 0, tatInt, 'INT：每點提高魔法攻擊 0.5%，並提升法術傷害')}
       ${renderTablet('WIT', '靈巧', baseAttrs.wit || 11, state.primaryStats?.wit || 11, setPrim.wit || 0, tatWit, 'WIT：提高施法速度與魔法暴擊率')}
-      ${renderTablet('MEN', '精神', baseAttrs.men || 25, state.primaryStats?.men || 25, setPrim.men || 0, tatMen, 'MEN: 每點提高 M.Def 0.5%、最大 MP 0.2% 與抗性')}
+      ${renderTablet('MEN', '精神', baseAttrs.men || 25, state.primaryStats?.men || 25, setPrim.men || 0, tatMen, 'MEN：每點提高魔法防禦 0.5%、最大魔力 0.2% 與抗性')}
     `;
   }
 
@@ -3322,11 +3322,11 @@ export function updateCharacterUI(state) {
         </div>
         <div class="l2-pillar-rows">
           <div class="l2-matrix-row">
-            <span class="l2-row-lbl">⚔️ P.Atk（物理攻擊）</span>
+            <span class="l2-row-lbl">⚔️ 物理攻擊</span>
             <span class="l2-row-val val-patk">${(stats.atk || 0).toLocaleString()}</span>
           </div>
           <div class="l2-matrix-row">
-            <span class="l2-row-lbl">🔮 M.Atk（魔法攻擊）</span>
+            <span class="l2-row-lbl">🔮 魔法攻擊</span>
             <span class="l2-row-val val-matk">${(stats.matk || 0).toLocaleString()}</span>
           </div>
           <div class="l2-matrix-row">
@@ -3356,11 +3356,11 @@ export function updateCharacterUI(state) {
         </div>
         <div class="l2-pillar-rows">
           <div class="l2-matrix-row">
-            <span class="l2-row-lbl">🛡️ P.Def（物理防禦）</span>
+            <span class="l2-row-lbl">🛡️ 物理防禦</span>
             <span class="l2-row-val val-pdef">${(stats.def || 0).toLocaleString()}</span>
           </div>
           <div class="l2-matrix-row">
-            <span class="l2-row-lbl">✨ M.Def（魔法防禦）</span>
+            <span class="l2-row-lbl">✨ 魔法防禦</span>
             <span class="l2-row-val val-mdef">${(stats.mdef || 0).toLocaleString()}</span>
           </div>
           <div class="l2-matrix-row">
@@ -3376,7 +3376,7 @@ export function updateCharacterUI(state) {
             <span class="l2-row-val val-drain">${Math.round((stats.lifeDrain || 0) * 100)}%</span>
           </div>
           <div class="l2-matrix-row">
-            <span class="l2-row-lbl">🌿 HP 恢復</span>
+            <span class="l2-row-lbl">🌿 生命值恢復</span>
             <span class="l2-row-val val-regen">+${stats.regenHp ? Math.round(stats.regenHp * 100) : 1}% / 次</span>
           </div>
         </div>
@@ -3578,7 +3578,7 @@ export function renderZoneMap(state, callbacks = {}) {
               title="${isLocked ? `需要等級 ${d.minLvl || 1}+` : (d.desc || '')}">
         <span>${d.icon || '⚔️'}</span>
         <span>${d.name || d.id}</span>
-        <span style="font-size: 10px; opacity: 0.85;">${isLocked ? `🔒（Lv.${d.minLvl || 1}）` : `（${d.xpMult || 1}x）`}</span>
+        <span style="font-size: 10px; opacity: 0.85;">${isLocked ? `🔒（等級 ${d.minLvl || 1}）` : `（${d.xpMult || 1}x）`}</span>
       </button>
     `;
   }).filter(Boolean).join('');
@@ -3828,7 +3828,7 @@ function renderSkillCard(skill, state, activeLoadoutSlot = null) {
   } else if (isBookLocked) {
     costBadge = `<span class="skill-cost-badge cost-book">🔒 魔法書 ${skill.starRank || 4}★</span>`;
   } else {
-    costBadge = `<span class="skill-cost-badge ${canAfford ? 'cost-affordable' : 'cost-expensive'}">✦ ${cost.sp} SP</span>`;
+    costBadge = `<span class="skill-cost-badge ${canAfford ? 'cost-affordable' : 'cost-expensive'}">✦ ${cost.sp} 技能點</span>`;
   }
 
   const rawSkillPath = skill.iconPath || skill.icon || '';
@@ -4043,7 +4043,7 @@ export function updateSkillUI(state, callbacks = {}) {
           </div>
           <div class="skill-header-sub-row">
             <span class="skill-header-stage">${viewModel.header.stageTitle}</span>
-            <span class="skill-header-sp">✦ <strong>${(state.sp || 0).toLocaleString()}</strong> SP</span>
+            <span class="skill-header-sp">✦ <strong>${(state.sp || 0).toLocaleString()}</strong> 技能點</span>
           </div>
         </div>
       </div>
@@ -4304,7 +4304,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
     'book_2star': '技能書 2★（稀有）',
     'book_3star': '技能書 3★（史詩）',
     'book_4star': '技能書 4★（傳說）',
-    'book_5star': 'Tomo 5★ (Transcendente)'
+    'book_5star': '技能書 5★（超越）'
   };
   const bName = reqBookId ? (bookNames[reqBookId] || '魔法書') : '';
 
@@ -4317,14 +4317,14 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
       : { ok: true };
     const isWepMatch = wpnCheck.ok;
     const reqLabels = {
-      bow: 'Arco', dagger: 'Adaga', staff: 'Cajado', sword: 'Espada',
+      bow: '弓', dagger: '匕首', staff: '法杖', sword: '劍',
       dual: '雙刀', spear: '長槍', twohand: '雙手武器', fist: '拳套',
       ancientsword: '古代劍', blunt: '鈍器'
     };
     const reqDisplay = reqLabels[weaponReq.toLowerCase()] || weaponReq.toUpperCase();
     weaponReqBadge = `
       <div style="display:inline-flex; align-items:center; gap:4px; font-size:11px; padding:3px 8px; border-radius:4px; margin-bottom:6px; background:${isWepMatch ? 'rgba(16,185,129,0.15)' : 'rgba(239,68,68,0.15)'}; border:1px solid ${isWepMatch ? '#10b981' : '#ef4444'}; color:${isWepMatch ? '#6ee7b7' : '#fca5a5'}; font-weight:bold;">
-        ${isWepMatch ? '⚔️' : '⚠️'} Exige: ${reqDisplay} ${isWepMatch ? '(Equipada)' : '（未裝備）'}
+        ${isWepMatch ? '⚔️' : '⚠️'} 需要：${reqDisplay} ${isWepMatch ? '（已裝備）' : '（未裝備）'}
       </div>
     `;
   }
@@ -4349,12 +4349,12 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
   const isLocked = visibility === SKILL_VISIBILITY_STATES.LOCKED;
   const canLearn = !isLocked && canAfford && meetsReqs && lvlOk && (!requiresBookNow || hasRequiredBook);
 
-  let btnLabel = maxed ? '✦ MAXED' : `Invest ${cost.toLocaleString()} SP`;
+  let btnLabel = maxed ? '✦ 已達最高' : `投入 ${cost.toLocaleString()} 技能點`;
   if (isLocked) {
     const minLvl = Number(def.requiredLevel || def.reqLvl) || 1;
     btnLabel = `🔒 [已鎖定－等級 ${minLvl}]`;
   } else if (!maxed && requiresBookNow) {
-    btnLabel = hasRequiredBook ? `📖 Consumir ${bName} & Aprender (${cost.toLocaleString()} SP)` : `🔒 Falta ${bName}`;
+    btnLabel = hasRequiredBook ? `📖 消耗 ${bName} 並學習（${cost.toLocaleString()} 技能點）` : `🔒 缺少 ${bName}`;
   }
 
   const iconData = getSkillIcon(id, def);
@@ -4386,14 +4386,14 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
           <div style="font-size:11px; color:#94a3b8; margin-bottom:6px; font-weight:bold;">⚙️ 自動戰鬥條件：</div>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:11px;">
             <div>
-              <label style="color:#cbd5e1; font-size:10px; display:block; margin-bottom:2px;">HP 觸發條件：</label>
+              <label style="color:#cbd5e1; font-size:10px; display:block; margin-bottom:2px;">生命值觸發條件：</label>
               <select class="si-cond-select" data-slot="${curSlot}" data-field="hpTrigger" style="width:100%; background:#1e293b; color:#f8fafc; border:1px solid #475569; border-radius:4px; padding:4px;">
                 <option value="none" ${cond.hpTrigger === 'none' ? 'selected' : ''}>永遠（冷卻完成時）</option>
-                <option value="self_below_75" ${cond.hpTrigger === 'self_below_75' ? 'selected' : ''}>我的 HP < 75%</option>
-                <option value="self_below_50" ${cond.hpTrigger === 'self_below_50' ? 'selected' : ''}>我的 HP < 50%</option>
-                <option value="self_below_30" ${cond.hpTrigger === 'self_below_30' ? 'selected' : ''}>我的 HP < 30%（危急）</option>
-                <option value="target_below_30" ${cond.hpTrigger === 'target_below_30' ? 'selected' : ''}>敵人 HP < 30%（處決）</option>
-                <option value="target_below_50" ${cond.hpTrigger === 'target_below_50' ? 'selected' : ''}>敵人 HP < 50%</option>
+                <option value="self_below_75" ${cond.hpTrigger === 'self_below_75' ? 'selected' : ''}>我的生命值 < 75%</option>
+                <option value="self_below_50" ${cond.hpTrigger === 'self_below_50' ? 'selected' : ''}>我的生命值 < 50%</option>
+                <option value="self_below_30" ${cond.hpTrigger === 'self_below_30' ? 'selected' : ''}>我的生命值 < 30%（危急）</option>
+                <option value="target_below_30" ${cond.hpTrigger === 'target_below_30' ? 'selected' : ''}>敵人生命值 < 30%（處決）</option>
+                <option value="target_below_50" ${cond.hpTrigger === 'target_below_50' ? 'selected' : ''}>敵人生命值 < 50%</option>
               </select>
             </div>
             <div>
@@ -4437,13 +4437,13 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
     : '';
 
   panel.innerHTML = `
-    <div class="si-head">${siIconHtml}<div class="si-title"><h3>${def.name}</h3><div style="display:flex; align-items:center; gap:4px; margin-top:2px;"><p class="si-tier">${tier} · Lv.${lvl}/${max}</p>${elemTag}${roleTag}</div></div></div>
+    <div class="si-head">${siIconHtml}<div class="si-title"><h3>${def.name}</h3><div style="display:flex; align-items:center; gap:4px; margin-top:2px;"><p class="si-tier">${tier} · 等級 ${lvl}/${max}</p>${elemTag}${roleTag}</div></div></div>
     ${weaponReqBadge}
     ${star4BoxHtml}
     ${descHtml}<div class="si-effect">${effectText}</div>
     <div class="si-reqs"><span class="si-label">需求</span>${reqHtml}</div>
     <button class="si-btn" data-skillup="${id}" ${!canLearn ? 'disabled' : ''} style="${requiresBookNow && hasRequiredBook ? 'background:linear-gradient(180deg,#f59e0b,#b45309); color:#fff; font-weight:bold;' : ''}">${btnLabel}</button>
-    <p class="si-sp">可用 SP： <strong>${(state.sp || 0).toLocaleString()}</strong></p>
+    <p class="si-sp">可用技能點： <strong>${(state.sp || 0).toLocaleString()}</strong></p>
     ${loadoutSectionHtml}
     ${legacySectionHtml}
   `;
@@ -5122,13 +5122,13 @@ function renderStoreBuyTab(state, callbacks) {
       const isLvlOk = charLvl >= reqLvl;
       const price = isMystic ? Math.floor((def.price || 500) * (gData?.RARITY?.[rarity]?.mult || 1) * 2) : (def.price || 100);
       const stats = buildShopStatsSummary(def);
-      const tooltip = `${def.name} [${gradeInfo.label}]\n${stats ? stats + '\n' : ''}價格： ${price.toLocaleString()} 金幣${!isLvlOk ? `\n🔒 需要 Lv.${reqLvl}` : ''}`;
+      const tooltip = `${def.name} [${gradeInfo.label}]\n${stats ? stats + '\n' : ''}價格： ${price.toLocaleString()} 金幣${!isLvlOk ? `\n🔒 需要等級 ${reqLvl}` : ''}`;
 
       return `
         <div class="l2store-slot ${!isLvlOk ? 'locked' : ''}" data-add-cart="${def.id}" data-rarity="${rarity}" title="${tooltip}">
           <span class="l2store-slot-grade grade-${gradeInfo.code}">${gradeInfo.code.toUpperCase()}</span>
           ${getItemIcon(def)}
-          ${!isLvlOk ? `<div style="position:absolute; inset:0; background:rgba(0,0,0,0.65); display:flex; align-items:center; justify-content:center; font-size:9px; color:#f87171; font-weight:bold; font-family:'IBM Plex Mono',monospace;">Lv.${reqLvl}</div>` : ''}
+          ${!isLvlOk ? `<div style="position:absolute; inset:0; background:rgba(0,0,0,0.65); display:flex; align-items:center; justify-content:center; font-size:9px; color:#f87171; font-weight:bold; font-family:'IBM Plex Mono',monospace;">等級 ${reqLvl}</div>` : ''}
         </div>
       `;
     }).join('');
@@ -5469,7 +5469,7 @@ function renderStoreRefundTab(state, callbacks) {
   if (bottomAdena) bottomAdena.textContent = (state.gold || 0).toLocaleString();
   if (bottomPrice) bottomPrice.textContent = '0';
   if (confirmBtn) {
-    confirmBtn.textContent = 'Refund';
+    confirmBtn.textContent = '回購';
     confirmBtn.disabled = true;
   }
   if (cancelBtn) {
@@ -5488,22 +5488,22 @@ function renderStoreRefundTab(state, callbacks) {
 export function buildShopStatsSummary(def) {
   if (!def) return '';
   const parts = [];
-  if (def.atk != null && def.atk > 0) parts.push(`⚔️ ${def.atk} P.Atk`);
-  if (def.matk != null && def.matk > 0) parts.push(`🪄 ${def.matk} M.Atk`);
-  if (def.pAtk != null && def.pAtk > 0 && def.atk == null) parts.push(`⚔️ ${def.pAtk} P.Atk`);
-  if (def.mAtk != null && def.mAtk > 0 && def.matk == null) parts.push(`🪄 ${def.mAtk} M.Atk`);
-  if (def.def != null && def.def > 0) parts.push(`🛡️ ${def.def} P.Def`);
-  if (def.mdef != null && def.mdef > 0) parts.push(`🔮 ${def.mdef} M.Def`);
-  if (def.pDef != null && def.pDef > 0 && def.def == null) parts.push(`🛡️ ${def.pDef} P.Def`);
-  if (def.mDef != null && def.mDef > 0 && def.mdef == null) parts.push(`🔮 ${def.mDef} M.Def`);
-  if (def.critRate != null && def.critRate > 0) parts.push(`🎯 +${def.critRate} Crit`);
-  if (def.crit != null && def.crit > 0 && def.critRate == null) parts.push(`🎯 +${def.crit} Crit`);
-  if (def.hp != null && def.hp > 0) parts.push(`❤️ +${def.hp} HP`);
-  if (def.mp != null && def.mp > 0) parts.push(`💙 +${def.mp} MP`);
-  if (def.castSpeed != null && def.castSpeed > 0) parts.push(`⚡ +${def.castSpeed}% Cast`);
-  if (def.atkSpeed != null && def.atkSpeed > 0) parts.push(`💨 +${def.atkSpeed}% AtkSpd`);
+  if (def.atk != null && def.atk > 0) parts.push(`⚔️ ${def.atk} 物理攻擊`);
+  if (def.matk != null && def.matk > 0) parts.push(`🪄 ${def.matk} 魔法攻擊`);
+  if (def.pAtk != null && def.pAtk > 0 && def.atk == null) parts.push(`⚔️ ${def.pAtk} 物理攻擊`);
+  if (def.mAtk != null && def.mAtk > 0 && def.matk == null) parts.push(`🪄 ${def.mAtk} 魔法攻擊`);
+  if (def.def != null && def.def > 0) parts.push(`🛡️ ${def.def} 物理防禦`);
+  if (def.mdef != null && def.mdef > 0) parts.push(`🔮 ${def.mdef} 魔法防禦`);
+  if (def.pDef != null && def.pDef > 0 && def.def == null) parts.push(`🛡️ ${def.pDef} 物理防禦`);
+  if (def.mDef != null && def.mDef > 0 && def.mdef == null) parts.push(`🔮 ${def.mDef} 魔法防禦`);
+  if (def.critRate != null && def.critRate > 0) parts.push(`🎯 +${def.critRate} 暴擊`);
+  if (def.crit != null && def.crit > 0 && def.critRate == null) parts.push(`🎯 +${def.crit} 暴擊`);
+  if (def.hp != null && def.hp > 0) parts.push(`❤️ +${def.hp} 生命值`);
+  if (def.mp != null && def.mp > 0) parts.push(`💙 +${def.mp} 魔力`);
+  if (def.castSpeed != null && def.castSpeed > 0) parts.push(`⚡ +${def.castSpeed}% 施法速度`);
+  if (def.atkSpeed != null && def.atkSpeed > 0) parts.push(`💨 +${def.atkSpeed}% 攻擊速度`);
   if (def.effect) parts.push(`✨ ${def.effect}`);
-  if (def.healAmount) parts.push(`🧪 恢復 ${def.healAmount} HP`);
+  if (def.healAmount) parts.push(`🧪 恢復 ${def.healAmount} 生命值`);
   if (def.bonus) parts.push(`✨ ${def.bonus}`);
 
   return parts.join(' · ');
@@ -5553,25 +5553,25 @@ function buildShopComparisonDelta(def, state) {
     }
   };
 
-  formatDelta('P.Atk', '⚔', def.atk, eqDef.atk);
-  formatDelta('M.Atk', '✦', def.matk, eqDef.matk);
-  formatDelta('P.Def', '🛡', def.def, eqDef.def);
-  formatDelta('M.Def', '🔷', def.mdef, eqDef.mdef);
-  formatDelta('HP', '❤', def.hp, eqDef.hp);
-  formatDelta('MP', '💧', def.mp, eqDef.mp);
-  formatDelta('Crit', '💥', def.crit, eqDef.crit);
-  formatDelta('Speed', '⚡', def.speed, eqDef.speed);
+  formatDelta('物理攻擊', '⚔', def.atk, eqDef.atk);
+  formatDelta('魔法攻擊', '✦', def.matk, eqDef.matk);
+  formatDelta('物理防禦', '🛡', def.def, eqDef.def);
+  formatDelta('魔法防禦', '🔷', def.mdef, eqDef.mdef);
+  formatDelta('生命值', '❤', def.hp, eqDef.hp);
+  formatDelta('魔力', '💧', def.mp, eqDef.mp);
+  formatDelta('暴擊', '💥', def.crit, eqDef.crit);
+  formatDelta('速度', '⚡', def.speed, eqDef.speed);
 
   // Elemental comparison
   const newElem = def.element || def.elemType || null;
   const oldElem = eqDef.element || eqDef.elemType || null;
   if (newElem || oldElem) {
     if (newElem && !oldElem) {
-      diffs.push(`<span class="stat-delta stat-delta--up" title="Elemento">🔮 ${newElem} ↑</span>`);
+      diffs.push(`<span class="stat-delta stat-delta--up" title="元素">🔮 ${newElem} ↑</span>`);
     } else if (!newElem && oldElem) {
-      diffs.push(`<span class="stat-delta stat-delta--down" title="Elemento">🔮 無屬性 ↓</span>`);
+      diffs.push(`<span class="stat-delta stat-delta--down" title="元素">🔮 無屬性 ↓</span>`);
     } else if (newElem !== oldElem) {
-      diffs.push(`<span class="stat-delta stat-delta--same" title="Elemento">🔮 ${oldElem} ➔ ${newElem}</span>`);
+      diffs.push(`<span class="stat-delta stat-delta--same" title="元素">🔮 ${oldElem} ➔ ${newElem}</span>`);
     }
   }
 
@@ -6305,8 +6305,8 @@ export function updateCraftUI(state, callbacks = {}) {
     const craftable = hasAllMats && isForgeLvlOk;
 
     let buttonText = '🔨 鍛造物品';
-    if (!isForgeLvlOk) buttonText = `🔒 需要鍛造 Lv.${reqForgeLvl}`;
-    else if (!isLvlOk) buttonText = `⚠️ 需要 Lv.${itemReqLevel} 才能使用`;
+    if (!isForgeLvlOk) buttonText = `🔒 需要鍛造等級 ${reqForgeLvl}`;
+    else if (!isLvlOk) buttonText = `⚠️ 需要等級 ${itemReqLevel} 才能使用`;
 
     return `
       <div class="l2-blueprint-card ${craftable ? 'craftable' : ''}" data-open-craft="${itemId}">
@@ -6416,7 +6416,7 @@ export function openCraftModal(itemId, state, callbacks = {}) {
             <h3 style="margin:0; font-family:'Cinzel',serif; color:#f3c669; font-size:18px;">${def.name}</h3>
             <span style="background:${gradeInfo.color}; color:#fff; font-size:11px; font-weight:bold; padding:2px 8px; border-radius:4px;">${gradeInfo.label}</span>
           </div>
-          <div style="font-size:12px; color:#aaa; margin-top:2px;">需要鍛造 Lv.${reqForgeLvl} · 欄位：${def.slot || '一般'}</div>
+          <div style="font-size:12px; color:#aaa; margin-top:2px;">需要鍛造等級 ${reqForgeLvl} · 欄位：${def.slot || '一般'}</div>
         </div>
       </div>
 
@@ -7060,10 +7060,10 @@ export function renderExpeditionsUI(state) {
         ">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
             <span style="font-size:9px; background:${rarityDef.bgBadge}; color:${rarityDef.color}; padding:1px 5px; border-radius:3px; font-weight:bold;">
-              Nv. ${merc.level || 1}
+              等級 ${merc.level || 1}
             </span>
             <span style="font-size:10px; color:${isBusy ? '#fbbf24' : '#34d399'}; font-weight:bold;">
-              ${isBusy ? '🧭 EM MARCHA' : '✓ PRONTO'}
+              ${isBusy ? '🧭 執行任務中' : '✓ 待命'}
             </span>
           </div>
           <div style="display:flex; align-items:center; gap:6px; margin:4px 0;">
@@ -7079,7 +7079,7 @@ export function renderExpeditionsUI(state) {
           </div>
           <div style="display:flex; justify-content:space-between; align-items:center; font-size:9px; margin:3px 0;">
             <span style="color:${(merc.loyalty ?? 50) >= 80 ? '#34d399' : ((merc.loyalty ?? 50) >= 50 ? '#60a5fa' : '#f87171')}; font-weight:bold;">
-              🤝 Lealdade: ${merc.loyalty ?? 50}%
+              🤝 忠誠度： ${merc.loyalty ?? 50}%
             </span>
             ${merc.trait && MERCENARY_TRAITS[merc.trait] ? `
               <span style="color:${MERCENARY_TRAITS[merc.trait].color};" title="${MERCENARY_TRAITS[merc.trait].desc}">
@@ -7088,7 +7088,7 @@ export function renderExpeditionsUI(state) {
             ` : ''}
           </div>
           <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
-            <span style="font-size:9px; color:#888;">XP: ${merc.xp || 0}/${neededXp}</span>
+            <span style="font-size:9px; color:#888;">經驗值：${merc.xp || 0}/${neededXp}</span>
             <button
               onclick="window.dismissMercenary('${merc.uid}')"
               ${isBusy ? 'disabled' : ''}
@@ -7307,7 +7307,7 @@ export function renderExpeditionsUI(state) {
           <div style="flex:1; min-width:220px;">
             <div style="display:flex; align-items:center; gap:8px;">
               <h4 style="margin:0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px;">${dDef.name}</h4>
-              <span style="font-size:10px; background:rgba(0,0,0,0.5); padding:1px 6px; border-radius:4px; color:#ffd877; font-weight:bold;">Lv.${dDef.minLevel || 20}+</span>
+              <span style="font-size:10px; background:rgba(0,0,0,0.5); padding:1px 6px; border-radius:4px; color:#ffd877; font-weight:bold;">等級 ${dDef.minLevel || 20}+</span>
             </div>
             <p style="margin:4px 0 6px 0; font-size:11px; color:#aaa; line-height:1.3;">${dDef.desc}</p>
             <div style="font-size:10px; color:#fca5a5; margin-bottom:6px;">
@@ -7392,7 +7392,7 @@ export function renderExpeditionsUI(state) {
       <div style="background:rgba(18,22,34,0.85); border:1px solid rgba(212,167,68,0.25); border-radius:10px; padding:12px; margin-bottom:8px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
           <div>
-            <h4 style="margin:0; font-family:'Cinzel',serif; color:#f4d58a; font-size:14px;">🌾 ${sDef.name}（Lv.${sDef.level}）</h4>
+            <h4 style="margin:0; font-family:'Cinzel',serif; color:#f4d58a; font-size:14px;">🌾 ${sDef.name}（等級 ${sDef.level}）</h4>
             <div style="font-size:11px; color:#aaa;">累積收成： <strong style="color:#34d399;">${cropsCount}x 作物</strong></div>
           </div>
           <button
@@ -7619,11 +7619,11 @@ export function renderForgeSoulCrystals(container, state) {
             </div>
             <div style="font-size:11px; color:#94a3b8; margin-top:3px;">
               ${selectedWpn?.soulCrystal
-                ? `<span style="color:#34d399; font-weight:bold;">[已啟用 SA： ${selectedWpn.soulCrystal.name} (Lv.${selectedWpn.soulCrystal.level || 1})]</span> <span style="color:#a7f3d0;">${selectedWpn.soulCrystal.desc}</span>`
+                ? `<span style="color:#34d399; font-weight:bold;">[已啟用 SA： ${selectedWpn.soulCrystal.name} （等級 ${selectedWpn.soulCrystal.level || 1}）]</span> <span style="color:#a7f3d0;">${selectedWpn.soulCrystal.desc}</span>`
                 : '此武器尚未鑲嵌特殊能力。'}
             </div>
             <div style="font-size:10px; color:#cbd5e1; margin-top:4px;">
-              等級需求： <strong style="color:${isLvlReady ? '#34d399' : '#f87171'};">Lv.${gating.minLevel}+</strong> | 鑲嵌費用： <strong style="color:#fde047;">${gating.adenaCost.toLocaleString()} 金幣</strong>
+              等級需求： <strong style="color:${isLvlReady ? '#34d399' : '#f87171'};">等級 ${gating.minLevel}+</strong> | 鑲嵌費用： <strong style="color:#fde047;">${gating.adenaCost.toLocaleString()} 金幣</strong>
             </div>
           </div>
           ${selectedWpn?.soulCrystal ? `
@@ -7644,20 +7644,20 @@ export function renderForgeSoulCrystals(container, state) {
             <strong style="color:#fca5a5; font-size:12px; font-family:'Cinzel',serif;">🔴 紅寶石符文（Focus / Might）</strong>
             <div style="font-size:10px; color:#94a3b8; margin:3px 0 8px 0;">暴擊與物理攻擊。</div>
             <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('red', 'focus', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; margin-bottom:4px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌 Focus（+暴擊）</button>
-            <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('red', 'might', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌 Might（+P.Atk）</button>
+            <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('red', 'might', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌力量（+物理攻擊）</button>
           </div>
 
           <div style="background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.25); border-radius:6px; padding:10px;">
             <strong style="color:#86efac; font-size:12px; font-family:'Cinzel',serif;">🟢 綠寶石符文（Acumen / Health）</strong>
             <div style="font-size:10px; color:#94a3b8; margin:3px 0 8px 0;">施法速度與生命值。</div>
             <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('green', 'acumen', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; margin-bottom:4px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌 Acumen（+施法速度）</button>
-            <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('green', 'health', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌 Health（+最大 HP）</button>
+            <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('green', 'health', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌生命（+最大生命值）</button>
           </div>
 
           <div style="background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.25); border-radius:6px; padding:10px;">
             <strong style="color:#7dd3fc; font-size:12px; font-family:'Cinzel',serif;">🔵 藍寶石符文（Empower / Guidance）</strong>
             <div style="font-size:10px; color:#94a3b8; margin:3px 0 8px 0;">魔法攻擊與命中。</div>
-            <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('blue', 'empower', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; margin-bottom:4px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌 Empower（+M.Atk）</button>
+            <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('blue', 'empower', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; margin-bottom:4px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌魔力增幅（+魔法攻擊）</button>
             <button ${!isLvlReady || !selectedWpn ? 'disabled' : ''} onclick="window.applySAAction('blue', 'guidance', '${selectedWpn?.uid}')" class="inv-batch-btn" style="width:100%; padding:6px; font-size:11px; font-weight:700; ${!isLvlReady ? 'opacity:0.4; cursor:not-allowed;' : ''}">鑲嵌 Guidance（+命中）</button>
           </div>
         </div>
@@ -7936,7 +7936,7 @@ export function renderForgeElemental(container, state) {
             </div>
           </div>
           <div style="text-align:right;">
-            <div style="font-size:10px; color:#94a3b8;">需求：<strong style="color:${isLvlReady ? '#34d399' : '#f87171'};">Lv.${gating.minLevel}+</strong></div>
+            <div style="font-size:10px; color:#94a3b8;">需求：<strong style="color:${isLvlReady ? '#34d399' : '#f87171'};">等級 ${gating.minLevel}+</strong></div>
             <div style="font-size:10px; color:#cbd5e1;">費用： <strong style="color:#fde047;">${gating.stoneCost.toLocaleString()} 金幣</strong></div>
           </div>
         </div>
@@ -8331,7 +8331,7 @@ export function renderForgeLifestones(container, state) {
           </div>
 
           <div class="l2comp-status-text">
-            ${!selectedWeapon ? '加入要強化的物品。' : aug ? `附魔改造：+${aug.atkBonus || 0} P.Atk、+${aug.critBonus || 0} 暴擊 ${aug.skill ? `[${aug.skill.name}]` : ''}` : `${def?.name || selectedWeapon.itemId} 已準備進行生命石覺醒`}
+            ${!selectedWeapon ? '加入要強化的物品。' : aug ? `附魔改造：+${aug.atkBonus || 0} 物理攻擊、+${aug.critBonus || 0} 暴擊 ${aug.skill ? `[${aug.skill.name}]` : ''}` : `${def?.name || selectedWeapon.itemId} 已準備進行生命石覺醒`}
           </div>
         </div>
 
@@ -8602,7 +8602,7 @@ export function showDropLocatorModal(matId) {
         ${sources.length > 0 ? sources.map(s => `
           <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px; display:flex; justify-content:space-between; align-items:center; gap:8px;">
             <div style="flex:1;">
-              <div style="font-weight:bold; font-size:13px; color:#fff;">📍 ${s.zoneName} <span style="font-size:11px; color:#94a3b8;">（Lv.${s.minLvl}+）</span></div>
+              <div style="font-weight:bold; font-size:13px; color:#fff;">📍 ${s.zoneName} <span style="font-size:11px; color:#94a3b8;">（等級 ${s.minLvl}+）</span></div>
               <div style="font-size:11px; color:#aaa; margin-top:2px;">怪物： <strong style="color:#ffd877;">${s.monster}</strong></div>
             </div>
             <div style="display:flex; align-items:center; gap:6px;">
@@ -8902,7 +8902,7 @@ export function renderCompoundModal(container, state) {
         style="padding:10px; border-radius:8px; background:${isSel ? 'rgba(168,85,247,0.25)' : 'rgba(255,255,255,0.05)'}; border:1px solid ${isSel ? '#a855f7' : 'rgba(255,255,255,0.15)'}; cursor:pointer; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
         <div>
           <strong style="color:#f4d58a; font-size:13px;">${t.name || def?.name || '物品'}</strong>
-          <div style="font-size:11px; color:#aaa;">目前等級：Lv.${t.compoundLevel || 1}</div>
+          <div style="font-size:11px; color:#aaa;">目前等級：${t.compoundLevel || 1}</div>
         </div>
         <span style="font-size:11px; color:#34d399;">數量：${t.count || 1}x</span>
       </div>
@@ -8933,7 +8933,7 @@ export function renderCompoundModal(container, state) {
             <h4 style="margin:0 0 8px 0; font-size:13px; color:#f4d58a;">🔮 升級預覽</h4>
             ${targetItem ? `
               <div style="font-size:12px; color:#fff; margin-bottom:4px;"><strong>${targetItem.name || '物品'}</strong></div>
-              <div style="font-size:11px; color:#34d399;">Lv.${curLv} ➔ <strong style="color:#ffd877;">Lv.${curLv + 1}</strong> （+15% 屬性）</div>
+              <div style="font-size:11px; color:#34d399;">等級 ${curLv} ➔ <strong style="color:#ffd877;">等級 ${curLv + 1}</strong> （+15% 屬性）</div>
               <div style="font-size:11px; color:#a855f7; margin-top:6px;">成功率： <strong>${rate}%</strong></div>
               <div style="font-size:11px; color:#fbbf24; margin-top:2px;">金幣費用： <strong>${cost.toLocaleString()}g</strong></div>
             ` : '<div style="font-size:11px; color:#777;">請選擇基底物品。</div>'}
@@ -9796,7 +9796,7 @@ export function renderRaidsTab(container, state) {
     if (inCombat) {
       actionBtnHtml = `<button disabled style="width:100%; padding:10px; font-weight:bold; font-size:12px; background:linear-gradient(180deg,#16a34a,#15803d); border:1px solid #4ade80; color:#fff; border-radius:6px; cursor:default; animation:pulse 1.5s infinite;">⚔️ 戰鬥進行中</button>`;
     } else if (isLocked) {
-      actionBtnHtml = `<button disabled style="width:100%; padding:10px; font-weight:bold; font-size:12px; background:#27272a; border:1px solid #3f3f46; color:#71717a; border-radius:6px; cursor:not-allowed;">🔒 尚未解鎖（需要 Lv.${boss.reqLvl}）</button>`;
+      actionBtnHtml = `<button disabled style="width:100%; padding:10px; font-weight:bold; font-size:12px; background:#27272a; border:1px solid #3f3f46; color:#71717a; border-radius:6px; cursor:not-allowed;">🔒 尚未解鎖（需要等級 ${boss.reqLvl}）</button>`;
     } else if (!hasTickets) {
       actionBtnHtml = `<button disabled style="width:100%; padding:10px; font-weight:bold; font-size:12px; background:#450a0a; border:1px solid #7f1d1d; color:#fca5a5; border-radius:6px; cursor:not-allowed;">🎟️ 今日票券已用完</button>`;
     } else {
@@ -9845,16 +9845,16 @@ export function renderRaidsTab(container, state) {
               <span style="background:rgba(0,0,0,0.6); border:1px solid ${diffColor}; color:${diffColor}; font-size:10px; font-weight:bold; padding:2px 8px; border-radius:10px;">
                 ${diffBadge}
               </span>
-              <span style="font-size:10px; color:#cbd5e1;">需求 Lv.${boss.reqLvl}</span>
+              <span style="font-size:10px; color:#cbd5e1;">需求等級 ${boss.reqLvl}</span>
             </div>
           </div>
 
           <!-- Status do Boss -->
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:8px; margin-bottom:8px; font-size:11px;">
-            <div>❤️ HP： <strong style="color:#ef4444;">${boss.hp.toLocaleString()}</strong></div>
-            <div>⚔️ P.ATK： <strong style="color:#f87171;">${boss.atk}</strong></div>
-            <div>🛡️ P.DEF： <strong style="color:#60a5fa;">${boss.def}</strong></div>
-            <div>🔮 M.DEF： <strong style="color:#c084fc;">${boss.mdef}</strong></div>
+            <div>❤️ 生命值： <strong style="color:#ef4444;">${boss.hp.toLocaleString()}</strong></div>
+            <div>⚔️ 物理攻擊： <strong style="color:#f87171;">${boss.atk}</strong></div>
+            <div>🛡️ 物理防禦： <strong style="color:#60a5fa;">${boss.def}</strong></div>
+            <div>🔮 魔法防禦： <strong style="color:#c084fc;">${boss.mdef}</strong></div>
           </div>
 
           <!-- Descrição -->
@@ -9992,10 +9992,10 @@ export function renderOlympiadTab(container, state) {
             <div style="font-family:'Cinzel',serif; font-size:16px; font-weight:bold; color:#fff; margin:4px 0;">${state.heroName || '你'}</div>
             <div style="font-size:11px; color:#cbd5e1; margin-bottom:8px;">等級 ${olyStatus.level} • ${olyStatus.tierName}</div>
             <div style="font-size:11px; text-align:left; background:rgba(0,0,0,0.3); padding:8px; border-radius:6px; line-height:1.4;">
-              <div>❤️ 最大 HP： <strong style="color:#ef4444;">${heroHpMax.toLocaleString()}</strong></div>
-              <div>⚔️ P.Atk： <strong style="color:#f87171;">${heroAtk}</strong></div>
-              <div>🔮 M.Atk： <strong style="color:#c084fc;">${heroMatk}</strong></div>
-              <div>🛡️ P.Def： <strong style="color:#60a5fa;">${heroDef}</strong> | M.Def： <strong style="color:#818cf8;">${heroMdef}</strong></div>
+              <div>❤️ 最大生命值： <strong style="color:#ef4444;">${heroHpMax.toLocaleString()}</strong></div>
+              <div>⚔️ 物理攻擊： <strong style="color:#f87171;">${heroAtk}</strong></div>
+              <div>🔮 魔法攻擊： <strong style="color:#c084fc;">${heroMatk}</strong></div>
+              <div>🛡️ 物理防禦： <strong style="color:#60a5fa;">${heroDef}</strong> | 魔法防禦： <strong style="color:#818cf8;">${heroMdef}</strong></div>
             </div>
           </div>
 
@@ -10010,10 +10010,10 @@ export function renderOlympiadTab(container, state) {
             <div style="font-family:'Cinzel',serif; font-size:16px; font-weight:bold; color:#f87171; margin:4px 0;">${gladiator.name}</div>
             <div style="font-size:11px; color:#cbd5e1; margin-bottom:8px;">等級 ${gladiator.lvl} • ${gladiator.title}</div>
             <div style="font-size:11px; text-align:left; background:rgba(0,0,0,0.3); padding:8px; border-radius:6px; line-height:1.4;">
-              <div>❤️ 最大 HP： <strong style="color:#ef4444;">${gladiator.hp.toLocaleString()}</strong></div>
-              <div>⚔️ P.Atk： <strong style="color:#f87171;">${gladiator.atk}</strong></div>
-              <div>🛡️ P.Def： <strong style="color:#60a5fa;">${gladiator.def}</strong></div>
-              <div>🔮 M.Def： <strong style="color:#c084fc;">${gladiator.mdef}</strong></div>
+              <div>❤️ 最大生命值： <strong style="color:#ef4444;">${gladiator.hp.toLocaleString()}</strong></div>
+              <div>⚔️ 物理攻擊： <strong style="color:#f87171;">${gladiator.atk}</strong></div>
+              <div>🛡️ 物理防禦： <strong style="color:#60a5fa;">${gladiator.def}</strong></div>
+              <div>🔮 魔法防禦： <strong style="color:#c084fc;">${gladiator.mdef}</strong></div>
             </div>
           </div>
         </div>
@@ -10037,7 +10037,7 @@ export function renderOlympiadTab(container, state) {
         progressText: `${prog.part1Kills || 0}/25 聖者之谷怪物`,
         travelBtn: (state.level || 1) >= 72
           ? `<button onclick="window.teleportToQuestZone('valleyOfSaints')" style="padding:4px 10px; font-size:10.5px; font-weight:bold; background:#1e3a8a; border:1px solid #60a5fa; color:#93c5fd; border-radius:4px; cursor:pointer; margin-top:4px;">🗺️ 前往聖者之谷</button>`
-          : `<span style="display:inline-block; margin-top:4px; padding:3px 8px; font-size:10.5px; font-weight:bold; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.35); color:#fca5a5; border-radius:4px;">🔒 需要等級 72+（目前：Lv.${state.level || 1}）</span>`,
+          : `<span style="display:inline-block; margin-top:4px; padding:3px 8px; font-size:10.5px; font-weight:bold; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.35); color:#fca5a5; border-radius:4px;">🔒 需要等級 72+（目前：等級 ${state.level || 1}）</span>`,
         isDone: nobStatus.isNoblesse || (state.noblesseStep || 1) > 1,
         isCurrent: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 1,
         canComplete: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 1 && (prog.part1Kills || 0) >= 25,
@@ -10052,7 +10052,7 @@ export function renderOlympiadTab(container, state) {
         progressText: `${prog.part2Kills || 0}/30 悲鳴沼澤靈魂`,
         travelBtn: (state.level || 1) >= 74
           ? `<button onclick="window.teleportToQuestZone('swampOfScreams')" style="padding:4px 10px; font-size:10.5px; font-weight:bold; background:#1e3a8a; border:1px solid #60a5fa; color:#93c5fd; border-radius:4px; cursor:pointer; margin-top:4px;">🗺️ 前往悲鳴沼澤</button>`
-          : `<span style="display:inline-block; margin-top:4px; padding:3px 8px; font-size:10.5px; font-weight:bold; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.35); color:#fca5a5; border-radius:4px;">🔒 需要等級 74+（目前：Lv.${state.level || 1}）</span>`,
+          : `<span style="display:inline-block; margin-top:4px; padding:3px 8px; font-size:10.5px; font-weight:bold; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.35); color:#fca5a5; border-radius:4px;">🔒 需要等級 74+（目前：等級 ${state.level || 1}）</span>`,
         isDone: nobStatus.isNoblesse || (state.noblesseStep || 1) > 2,
         isCurrent: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 2,
         canComplete: !nobStatus.isNoblesse && (state.noblesseStep || 1) === 2 && (prog.part2Kills || 0) >= 30,
@@ -10134,7 +10134,7 @@ export function renderOlympiadTab(container, state) {
       <div style="background:rgba(15,23,42,0.6); border:1px solid rgba(255,215,0,0.25); border-radius:10px; padding:16px; margin-bottom:16px;">
         <div style="margin-bottom:14px;">
           <h3 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#fde047; font-size:17px;">📜 貴族傳奇：珍貴靈魂的擁有者</h3>
-          <p style="margin:0; font-size:12px; color:#cbd5e1;">進入 <strong>大奧林匹亞（Lv.76+）</strong> 的正式必要條件。完成 4 個篇章即可獲得 <strong>貴族頭冠</strong> 與永久貴族資格！</p>
+          <p style="margin:0; font-size:12px; color:#cbd5e1;">進入 <strong>大奧林匹亞（等級 76+）</strong> 的正式必要條件。完成 4 個篇章即可獲得 <strong>貴族頭冠</strong> 與永久貴族資格！</p>
         </div>
         ${stepsHtml}
       </div>
@@ -10223,7 +10223,7 @@ export function renderOlympiadTab(container, state) {
               onclick="window.buyOlympiadItemAction('${item.id}')"
               style="padding:6px 14px; font-weight:bold; font-size:11px; background:${canAfford ? 'linear-gradient(180deg,#0284c7,#0369a1)' : '#27272a'}; border:1px solid ${canAfford ? '#38bdf8' : '#3f3f46'}; color:${canAfford ? '#fff' : '#71717a'}; border-radius:6px; cursor:${canAfford ? 'pointer' : 'not-allowed'};"
             >
-              Comprar
+              購買
             </button>
           </div>
         </div>
@@ -10495,7 +10495,7 @@ export function renderClanTab(container, state) {
           onclick="window.buyCastleShopItemAction('${item.id}')"
           style="padding:6px 14px; font-size:11px; font-weight:bold; background:linear-gradient(180deg,#ca8a04,#a16207); border:1px solid #fde047; color:#fff; border-radius:6px; cursor:pointer;"
         >
-          Comprar
+          購買
         </button>
       </div>
     `).join('');
@@ -10516,7 +10516,7 @@ export function renderClanTab(container, state) {
           ${m.isPlayer ? '👑 ' : ''}${m.name} ${m.isPlayer ? '<span style="font-size:10px; background:rgba(234,179,8,0.25); color:#fde047; padding:1px 5px; border-radius:4px;">你</span>' : ''}
         </td>
         <td style="padding:10px 8px; color:#cbd5e1;">${m.rank}</td>
-        <td style="padding:10px 8px; color:#94a3b8;">Lv.${m.level}（${m.className}）</td>
+        <td style="padding:10px 8px; color:#94a3b8;">等級 ${m.level}（${m.className}）</td>
         <td style="padding:10px 8px; text-align:right; font-weight:bold; color:#a3e635;">${m.contribution.toLocaleString()}</td>
       </tr>
     `).join('');
@@ -10531,14 +10531,14 @@ export function renderClanTab(container, state) {
           <div style="font-size:11.5px; color:#94a3b8; display:flex; gap:16px; flex-wrap:wrap;">
             <span>🛡️ 血盟聲望： <strong style="color:#fde047;">${rep.toLocaleString()} CRP</strong></span>
             <span>💰 金幣總捐獻： <strong style="color:#a3e635;">${adenaDonated.toLocaleString()}</strong></span>
-            <span>✨ SP 總捐獻： <strong style="color:#38bdf8;">${spDonated.toLocaleString()}</strong></span>
+            <span>✨ 技能點總捐獻： <strong style="color:#38bdf8;">${spDonated.toLocaleString()}</strong></span>
           </div>
         </div>
         <button
           onclick="const n = prompt('新的血盟格言：', '${motto}'); if (n) window.createOrEditClanAction('${clan.name}', n);"
           style="padding:6px 14px; font-size:11px; font-weight:bold; background:linear-gradient(180deg,#ca8a04,#a16207); border:1px solid #fde047; color:#fff; border-radius:6px; cursor:pointer;"
         >
-          ✏️ Editar Lema
+          ✏️ 編輯格言
         </button>
       </div>
 
@@ -10548,38 +10548,38 @@ export function renderClanTab(container, state) {
           🤝 血盟基金與捐獻
         </div>
         <div style="font-size:11.5px; color:#94a3b8; margin-bottom:10px;">
-          捐獻金幣與 SP 可提升血盟聲望，並用於血盟會館升級與祝福。
+          捐獻金幣與技能點可提升血盟聲望，並用於血盟會館升級與祝福。
         </div>
         <div style="display:flex; gap:8px; flex-wrap:wrap;">
           <button
             onclick="window.donateToClanAction(50000, 0)"
             style="padding:6px 12px; font-size:11px; background:rgba(34,197,94,0.15); border:1px solid #22c55e; color:#4ade80; border-radius:6px; cursor:pointer;"
           >
-            💰 Doar 50.000 金幣 (+10 Rep)
+            💰 捐獻 50,000 金幣（+10 聲望）
           </button>
           <button
             onclick="window.donateToClanAction(250000, 0)"
             style="padding:6px 12px; font-size:11px; background:rgba(34,197,94,0.2); border:1px solid #22c55e; color:#4ade80; border-radius:6px; cursor:pointer;"
           >
-            💰 Doar 250.000 金幣 (+50 Rep)
+            💰 捐獻 250,000 金幣（+50 聲望）
           </button>
           <button
             onclick="window.donateToClanAction(1000000, 0)"
             style="padding:6px 12px; font-size:11px; background:rgba(34,197,94,0.3); border:1px solid #22c55e; color:#86efac; border-radius:6px; cursor:pointer; font-weight:bold;"
           >
-            💰 Doar 1.000.000 金幣 (+200 Rep)
+            💰 捐獻 1,000,000 金幣（+200 聲望）
           </button>
           <button
             onclick="window.donateToClanAction(0, 5000)"
             style="padding:6px 12px; font-size:11px; background:rgba(56,189,248,0.15); border:1px solid #38bdf8; color:#38bdf8; border-radius:6px; cursor:pointer;"
           >
-            ✨ Doar 5.000 SP (+50 Rep)
+            ✨ 捐獻 5,000 技能點（+50 聲望）
           </button>
           <button
             onclick="window.donateToClanAction(0, 20000)"
             style="padding:6px 12px; font-size:11px; background:rgba(56,189,248,0.25); border:1px solid #38bdf8; color:#7dd3fc; border-radius:6px; cursor:pointer; font-weight:bold;"
           >
-            ✨ Doar 20.000 SP (+200 Rep)
+            ✨ 捐獻 20,000 技能點（+200 聲望）
           </button>
         </div>
       </div>
@@ -10639,7 +10639,7 @@ export function renderClanTab(container, state) {
     subContentHtml = `
       <div style="background:rgba(0,0,0,0.3); border:1px solid rgba(234,179,8,0.2); border-radius:8px; padding:14px; margin-bottom:14px;">
         <div style="font-family:'Cinzel',serif; font-size:14px; font-weight:bold; color:#fde047; margin-bottom:4px;">
-          🏛️ 血盟會館（私人 Clan Hall）
+          🏛️ 血盟會館（私人血盟會館）
         </div>
         <div style="font-size:11.5px; color:#cbd5e1;">
           血盟成員可在會館引導古代祝福。 加成會套用到角色的所有活動！
@@ -10673,7 +10673,7 @@ export function renderClanTab(container, state) {
               onclick="window.upgradeClanAction()"
               style="padding:8px 16px; font-family:'Cinzel',serif; font-size:12px; font-weight:bold; background:linear-gradient(180deg,#16a34a,#15803d); border:1px solid #4ade80; color:#fff; border-radius:6px; cursor:pointer;"
             >
-              ⬆️ 提升血盟至等級 ${nextLvl.level} (${nextLvl.costAdena.toLocaleString()} 金幣 / ${nextLvl.costSp.toLocaleString()} SP)
+              ⬆️ 提升血盟至等級 ${nextLvl.level} (${nextLvl.costAdena.toLocaleString()} 金幣 / ${nextLvl.costSp.toLocaleString()} 技能點)
             </button>
           ` : `
             <span style="color:#fde047; font-weight:bold; font-size:12px;">👑 血盟已達最高等級</span>
@@ -10699,7 +10699,7 @@ export function renderClanTab(container, state) {
           onclick="window.setClanSubTab('hall')"
           style="padding:8px 14px; font-family:'Cinzel',serif; font-size:11.5px; font-weight:bold; background:${activeSubTab === 'hall' ? 'linear-gradient(180deg,#ca8a04,#a16207)' : 'rgba(0,0,0,0.4)'}; border:1px solid ${activeSubTab === 'hall' ? '#fde047' : 'rgba(255,255,255,0.1)'}; color:${activeSubTab === 'hall' ? '#fff' : '#cbd5e1'}; border-radius:6px; cursor:pointer;"
         >
-          🏛️ Clan Hall
+          🏛️ 血盟會館
         </button>
         <button
           onclick="window.setClanSubTab('castles')"
@@ -10786,8 +10786,8 @@ export function openSkillEnchantModal(skillId, skillName = '技能', state) {
       <!-- Custos -->
       <div style="background:#09090b; border:1px solid #27272a; border-radius:8px; padding:12px; margin-bottom:16px; font-size:11.5px; color:#cbd5e1;">
         <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
-          <span>SP 費用：</span>
-          <strong style="color:#60a5fa;">${costData.spCost.toLocaleString()} SP</strong>
+          <span>技能點費用：</span>
+          <strong style="color:#60a5fa;">${costData.spCost.toLocaleString()} 技能點</strong>
         </div>
         <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
           <span>金幣費用：</span>
@@ -10805,13 +10805,13 @@ export function openSkillEnchantModal(skillId, skillName = '技能', state) {
           onclick="window.enchantSkillAction('${skillId}', '${skillName}', '${window._selectedEnchantRoute || activeRoute}', false)"
           style="flex:1; padding:10px; font-size:11.5px; font-weight:bold; background:linear-gradient(180deg,#7e22ce,#6b21a8); border:1px solid #a855f7; color:#fff; border-radius:6px; cursor:pointer;"
         >
-          📜 Encantar Normal
+          📜 一般強化
         </button>
         <button
           onclick="window.enchantSkillAction('${skillId}', '${skillName}', '${window._selectedEnchantRoute || activeRoute}', true)"
           style="flex:1; padding:10px; font-size:11.5px; font-weight:bold; background:linear-gradient(180deg,#ca8a04,#a16207); border:1px solid #fde047; color:#fff; border-radius:6px; cursor:pointer;"
         >
-          🌟 Encanto Seguro (Mastery)
+          🌟 安全強化（精通）
         </button>
       </div>
     </div>
@@ -11063,7 +11063,7 @@ function renderSevenSignsBossesView(ss, state) {
               <div style="display:flex; justify-content:space-between; align-items:flex-start;">
                 <div>
                   <h3 style="margin:0; color:#fef08a; font-family:'Cinzel',serif; font-size:16px;">${boss.name}</h3>
-                  <div style="font-size:11px; color:#c084fc;">${boss.title}（Lv.${boss.level}）</div>
+                  <div style="font-size:11px; color:#c084fc;">${boss.title}（等級 ${boss.level}）</div>
                 </div>
                 <span style="font-size:11px; font-weight:bold; padding:2px 8px; border-radius:10px; background:rgba(168,85,247,0.2); color:#e9d5ff; border:1px solid #a855f7;">
                   擊敗次數： ${ss.bossDefeats?.[boss.id] || 0}
@@ -11139,7 +11139,7 @@ function renderSevenSignsMammonView(ss, state) {
                 onclick="window.buyMammonItemAction('${it.id}')"
                 style="padding:6px 12px; font-size:11px; font-weight:bold; background:#9333ea; border:1px solid #c084fc; color:#fff; border-radius:6px; cursor:pointer;"
               >
-                Comprar
+                購買
               </button>
             </div>
           `).join('')}
@@ -11209,7 +11209,7 @@ export function renderFortressTab(container, state) {
               return `
                 <div style="background:rgba(0,0,0,0.5); border:1px solid ${isOwned ? '#22c55e' : 'rgba(255,255,255,0.1)'}; border-radius:8px; padding:12px; display:flex; justify-content:space-between; align-items:center;">
                   <div>
-                    <div style="font-weight:bold; color:#fef08a; font-size:13px;">${fort.name}（Lv.${fort.level}）</div>
+                    <div style="font-weight:bold; color:#fef08a; font-size:13px;">${fort.name}（等級 ${fort.level}）</div>
                     <div style="font-size:11px; color:#9ca3af;">${fort.region} | 產量：+${fort.epauletteRate} 肩章/分鐘</div>
                     <div style="font-size:11px; color:#4ade80; font-weight:bold;">${fort.buff.label}</div>
                   </div>
@@ -11390,7 +11390,7 @@ export function renderColosseumTab(container, state) {
                     onclick="window.buyColosseumShopItemAction('${it.id}')"
                     style="padding:4px 8px; font-size:10px; font-weight:bold; background:#b45309; border:1px solid #f59e0b; color:#fff; border-radius:4px; cursor:pointer;"
                   >
-                    Comprar
+                    購買
                   </button>
                 </div>
               `).join('')}
@@ -11902,11 +11902,11 @@ export function openEnchantFlowModal(initialTargetUid = null, initialScrollUid =
             <!-- Stats Deltas -->
             <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; text-align:center; background:rgba(0,0,0,0.3); padding:8px; border-radius:6px; margin-bottom:10px; font-size:11px;">
               <div>
-                <div style="color:#94a3b8; font-size:10px;">P.Atk / M.Atk</div>
+                <div style="color:#94a3b8; font-size:10px;">物理攻擊／魔法攻擊</div>
                 <div style="color:#38bdf8; font-weight:bold;">${(d.atk || d.pAtk) > 0 ? '+' + (d.atk || d.pAtk) : ((d.matk || d.mAtk) > 0 ? '+' + (d.matk || d.mAtk) : '--')}</div>
               </div>
               <div>
-                <div style="color:#94a3b8; font-size:10px;">P.Def / M.Def</div>
+                <div style="color:#94a3b8; font-size:10px;">物理防禦／魔法防禦</div>
                 <div style="color:#38bdf8; font-weight:bold;">${(d.def || d.pDef) > 0 ? '+' + (d.def || d.pDef) : ((d.mdef || d.mDef) > 0 ? '+' + (d.mdef || d.mDef) : '--')}</div>
               </div>
               <div>
