@@ -21,7 +21,7 @@ export const ELEMENT_DEFINITIONS = {
     opposed: 'water',
     stoneId: 'fire_stone',
     desc: '對水屬性敵人傷害 +20%，對火屬性敵人傷害 -20%。',
-    dropZone: 'Forge of the Gods (Lv.70+)'
+    dropZone: '諸神熔爐（等級 70+）'
   },
   water: {
     key: 'water',
@@ -31,7 +31,7 @@ export const ELEMENT_DEFINITIONS = {
     opposed: 'fire',
     stoneId: 'water_stone',
     desc: '對火屬性敵人傷害 +20%，對水屬性敵人傷害 -20%。',
-    dropZone: 'Garden of Eva (Lv.45+)'
+    dropZone: '伊娃花園（等級 45+）'
   },
   wind: {
     key: 'wind',
@@ -41,7 +41,7 @@ export const ELEMENT_DEFINITIONS = {
     opposed: 'earth',
     stoneId: 'wind_stone',
     desc: '對地屬性敵人傷害 +20%，對風屬性敵人傷害 -20%。',
-    dropZone: 'Dragon Valley (Lv.55+)'
+    dropZone: '龍之谷（等級 55+）'
   },
   earth: {
     key: 'earth',
@@ -51,7 +51,7 @@ export const ELEMENT_DEFINITIONS = {
     opposed: 'wind',
     stoneId: 'earth_stone',
     desc: '對風屬性敵人傷害 +20%，對地屬性敵人傷害 -20%。',
-    dropZone: 'Mithril Mines (Lv.35+)'
+    dropZone: '密銀礦坑（等級 35+）'
   },
   holy: {
     key: 'holy',
@@ -61,7 +61,7 @@ export const ELEMENT_DEFINITIONS = {
     opposed: 'dark',
     stoneId: 'holy_stone',
     desc: '對不死族、墓穴與惡魔的傷害提高 30%。',
-    dropZone: 'Monastery of Silence (Lv.75+)'
+    dropZone: '寂靜修道院（等級 75+）'
   },
   dark: {
     key: 'dark',
@@ -71,7 +71,7 @@ export const ELEMENT_DEFINITIONS = {
     opposed: 'holy',
     stoneId: 'dark_stone',
     desc: '對神聖與天界生物的傷害提高 20%。',
-    dropZone: 'Imperial Tomb / Crypts (Lv.70+)'
+    dropZone: '帝國陵墓／地穴（等級 70+）'
   }
 };
 
@@ -139,7 +139,7 @@ export function getElementalGating(item) {
       maxCapWeapon: 0,
       maxCapArmor: 0,
       stoneCost: 0,
-      label: grade === 'd' ? 'Grau D (Incapaz de Conter Elementos)' : 'Sem Grau (Incapaz de Conter Elementos)'
+      label: grade === 'd' ? 'D 級（無法附加元素）' : '無品級（無法附加元素）'
     };
   }
 
@@ -429,12 +429,12 @@ export function calculatePlayerElementalDamage(state, monster, rawDamage = 100) 
     // Vantagem de Oposição canônica L2 (+20%)
     if (defElem.opposed === monElem) {
       elemMult += 0.20;
-      bonusText = `💥 元素克制（+20% ${activeElement.toUpperCase()} 對 ${monElem.toUpperCase()}）！`;
+      bonusText = `💥 元素克制（+20% ${defElem.name} 對 ${ELEMENT_DEFINITIONS[monElem]?.name || monElem}）！`;
     }
     // Especial Sagrado vs Dark / Undead / Demônios (+30%)
     else if (activeElement === 'holy' && (monElem === 'dark' || monster?.category === 'undead' || monster?.category === 'demon')) {
       elemMult += 0.30;
-      bonusText = `✨ EXPURGO SAGRADO (+30% vs MORTOS-VIVOS)!`;
+      bonusText = `✨ 神聖淨化（對不死族 +30%）！`;
     }
     // Penalidade se atacar mesmo elemento (-20%)
     else if (activeElement === monElem) {
