@@ -107,12 +107,12 @@ export function getClassTheme(canonicalClass, race) {
  */
 export function getStageTitle(stageNum) {
   switch (stageNum) {
-    case 0: return 'Estágio 0 — Base / Aprendiz';
-    case 1: return 'Estágio 1 — 1ª Transferência';
-    case 2: return 'Estágio 2 — Especialização';
-    case 3: return 'Estágio 3 — Maestria Arcana';
-    case 4: return 'Estágio 4 — Despertar Supremo';
-    case 5: return 'Estágio 5 — Mestre Supremo';
+    case 0: return '階段 0 — 基礎／學徒';
+    case 1: return '階段 1 — 第一次轉職';
+    case 2: return '階段 2 — 專精';
+    case 3: return '階段 3 — 奧術精通';
+    case 4: return '階段 4 — 至高覺醒';
+    case 5: return '階段 5 — 至高大師';
     default: return `階段 ${stageNum}`;
   }
 }
@@ -287,7 +287,7 @@ export function getSkillTreeViewModel(character, options = {}) {
       },
       cooldown: def.baseCd || def.gameplay?.cooldown || 5000,
       description: def.desc || def.info || def.identity?.description || def.name,
-      effectText: def.effectText || `Multiplicador: ${(def.pwr ? def.pwr / 10 : 1.4).toFixed(1)}x`,
+      effectText: def.effectText || `倍率：${(def.pwr ? def.pwr / 10 : 1.4).toFixed(1)}x`,
       classReq: def.classReq || def.identity?.classId || canonicalClass
     });
   }
