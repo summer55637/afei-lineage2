@@ -185,7 +185,7 @@ export class FortressService {
     if (idx === -1) return { success: false, message: '護符尚未裝備。' };
 
     fState.equippedTalismans.splice(idx, 1);
-    hooks.log?.(`護符 removido do bracelete.`, 'system');
+    hooks.log?.('護符已從手環卸下。', 'system');
     hooks.onUpdate?.();
     return { success: true };
   }
