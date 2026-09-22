@@ -1755,7 +1755,7 @@ export function sellItem(uid) {
 
   if (isHighValueItem(item)) {
     const rarityName = D().RARITY?.[item.rarity]?.name || item.rarity;
-    if (!confirm(`⚠️ 確定要出售這件高價值物品 "${def.name}" [${rarityName}]?`)) return;
+    if (!confirm(`⚠️ 確定要出售這件高價值物品「${def.name}」[${rarityName}]？`)) return;
   }
 
   const qty = item.count || 1;
@@ -1983,7 +1983,7 @@ function updateStatsUI() {
   const _acEl = el('top-ac-amount');
   if (_acEl) _acEl.textContent = `${(state.adenCoins || 0).toLocaleString()} 亞丁幣`;
   const gps = getGoldPerSec();
-  const gpsEl = el('gps-text'); if (gpsEl) gpsEl.textContent = gps > 0 ? `${gps.toFixed(1)}/s` : '—';
+  const gpsEl = el('gps-text'); if (gpsEl) gpsEl.textContent = gps > 0 ? `${gps.toFixed(1)}/秒` : '—';
   
   const _clEl = el('craft-level-stat'); if (_clEl) _clEl.textContent = state.craftLevel;
   const _rcEl = el('race-text'); if (_rcEl) _rcEl.textContent = (state.race && RACES?.[state.race]?.name) || state.race || '-';
@@ -2708,7 +2708,7 @@ function updateCombatControlsUI() {
   if (spdBtn) {
     const isFast = state.combatSpeed === 2;
     spdBtn.classList.toggle('active', isFast);
-    spdBtn.innerHTML = `<span>⏩ ${state.combatSpeed || 1}x</span>`;
+    spdBtn.innerHTML = `<span>⏩ ${state.combatSpeed || 1}×</span>`;
   }
 }
 
@@ -5383,7 +5383,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
         addToInventory(dropId, 1, drop.rarity || 'common');
         const rName = D()?.RARITY?.[drop.rarity || 'common']?.name || (drop.rarity || 'common');
         log(`✦ 獲得 **${def.name}** [${rName}]！`, 'rarity-' + (drop.rarity || 'common'), 'loot');
-        floatText(`✦ ${rName}!`, 'float-' + (drop.rarity || 'common'));
+        floatText(`✦ ${rName}！`, 'float-' + (drop.rarity || 'common'));
       } else {
         addToInventory(dropId, drop.amount || 1);
         log(`📦 獲得 **${drop.amount || 1}x ${def.name}**`, 'loot', 'loot');
@@ -5405,7 +5405,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
       if (bookDef) {
         addToInventory(droppedBookId, 1);
         log(`📖 魔法書掉落！從 ${monster.name} 獲得 **${bookDef.name}**！`, 'rarity-legendary', 'loot');
-        floatText(`📖 ${bookDef.name}!`, 'float-jackpot');
+        floatText(`📖 ${bookDef.name}！`, 'float-jackpot');
       }
     }
   }
@@ -5439,7 +5439,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
       const dollDef = BOSS_DOLLS[candidateDollId];
       state.dolls.push({ uid: 'doll_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4), dollId: candidateDollId, level: 1 });
       log(`🧸 娃娃掉落！獲得 **${dollDef.name}** [等級 1]！`, 'rarity-rare', 'loot');
-      floatText(`🧸 ${dollDef.name}!`, 'float-jackpot');
+      floatText(`🧸 ${dollDef.name}！`, 'float-jackpot');
       if (typeof updateDollsUI === 'function') updateDollsUI();
     }
   }
@@ -6636,7 +6636,7 @@ function setServerRate(key, val, silent = false) {
     };
     const title = labels[key] || key.toUpperCase();
     log(`⚡ [管理員] ${title} 已更新為 **x${num}**！效果立即生效。`, 'rarity-legendary');
-    if (typeof floatText === 'function') floatText(`⚡ ${title.toUpperCase()}: x${num}!`, 'float-jackpot');
+    if (typeof floatText === 'function') floatText(`⚡ ${title.toUpperCase()}：×${num}！`, 'float-jackpot');
   }
   try {
     if (typeof localStorage !== 'undefined') {
@@ -6684,7 +6684,7 @@ function syncAdminRatesUI() {
   // Update badges on rate cards
   ['xp', 'sp', 'adena', 'drop', 'spoil', 'enchant', 'book'].forEach(k => {
     const badge = el(`rate-val-${k}`);
-    if (badge) badge.textContent = `x${r[k]}`;
+    if (badge) badge.textContent = `×${r[k]}`;
     
     // Highlight matching pill buttons
     qsa(`[data-rate-set^="${k}:"]`).forEach(btn => {
@@ -11987,7 +11987,7 @@ export function init() {
 function tickUI() {
   const now = Date.now(); let buffChanged = false;
   for (const k of Object.keys(state.buffs || {})) { if (state.buffs[k].until < now) { delete state.buffs[k]; buffChanged = true; } }
-  const gpsEl = el('gps-text'); if (gpsEl) { gpsEl.textContent = getGoldPerSec() > 0 ? `${getGoldPerSec().toFixed(1)}/s` : '—'; }
+  const gpsEl = el('gps-text'); if (gpsEl) { gpsEl.textContent = getGoldPerSec() > 0 ? `${getGoldPerSec().toFixed(1)}/秒` : '—'; }
   safeUiUpdate('stats-tick', updateStatsUI);
   const mt = el('mystic-timer'); if (mt) { mt.textContent = fmtCountdown(D().getMysticRotation()[0]?.msLeft || 0); }
   if (buffChanged) { safeUiUpdate('shop-tick', updateShopUI); }
