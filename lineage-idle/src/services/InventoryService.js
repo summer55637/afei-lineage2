@@ -125,7 +125,7 @@ export function processAutoRecycleItem(item, def, state, callbacks = {}) {
     const goldGain = getSellValue(item);
     state.gold = (state.gold || 0) + goldGain;
     if (callbacks.log) {
-      callbacks.log(`🪙 [Auto-Venda AFK] ${def.name} vendido automaticamente por +${goldGain.toLocaleString()} Adena`, 'loot');
+      callbacks.log(`🪙 [離線自動出售] ${def.name} 已自動出售，獲得 +${goldGain.toLocaleString()} 金幣`, 'loot');
     }
     return true;
   } else {
