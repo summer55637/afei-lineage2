@@ -79,7 +79,7 @@ export const CASH_SHOP_CATALOG = {
           { id: 'cloak_heirloom_royal', name: '皇家披風＋冠軍腰帶＋翼冠＋神盾', count: 1, isHeirloom: true }
         ],
         consumables: [
-          { id: 'soulshot_c', name: '15,000x C 級魂彈（魂彈／魔靈彈）', count: 15000 },
+          { id: 'soulshot_c', name: '15,000× C 級魂彈（魂彈／魔靈彈）', count: 15000 },
           { id: 'hp_potion_xl', name: '200 瓶特大型生命藥水', count: 200 },
           { id: 'elixir_vigor_1h', name: '20 瓶活力靈藥（1 小時）', count: 20 },
           { id: 'pass_vip_teleport_30d', name: '貴賓傳送通行證（30 天）', count: 1 }
