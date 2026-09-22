@@ -797,11 +797,11 @@ function openClassTransferModal(classInfo) {
         <div style="font-weight:bold; color:#fde047; margin-bottom:4px; display:flex; align-items:center; gap:6px;">
           <span>✨</span> <span>最多選擇 2 個技能作為永久血統被動技能（效果 20%）。</span>
         </div>
-        <div style="font-size:11px; color:#94a3b8;">🔄 前一職業的主動技能會被清除，已投入的 SP 將 100% 返還。</div>
+        <div style="font-size:11px; color:#94a3b8;">🔄 前一職業的主動技能會被清除，已投入的技能點將 100% 返還。</div>
       </div>
       <div id="legacy-skills-grid" style="display:flex; flex-direction:column; gap:10px; margin-bottom:14px; min-height:140px; max-height:360px; overflow-y:auto; padding-right:4px;"></div>
       <div style="font-size:11px; color:#a1a1aa; text-align:center; margin-bottom:12px; line-height:1.4;">
-        📖 <em>提醒：第二職業（等級 40+）技能需要技能書（1★–4★）與 SP 才能解鎖。</em>
+        📖 <em>提醒：第二職業（等級 40+）技能需要技能書（1★–4★）與技能點才能解鎖。</em>
       </div>
       <div style="display:flex; gap:12px; justify-content:space-between; margin-top:6px;">
         <button id="legacy-back-btn" class="action-btn" style="flex:1; padding:10px; font-weight:bold;">⬅️ 返回</button>
@@ -829,12 +829,12 @@ function openClassTransferModal(classInfo) {
       const baseEffectVal = 0.15 + (lvl * 0.03);
       const passiveVal = +(baseEffectVal * 0.20).toFixed(4);
 
-      let statKey = 'P.ATK';
+      let statKey = '物理攻擊';
       const sName = (def.name || '').toLowerCase();
-      if (sName.includes('def') || sName.includes('shield') || sName.includes('aegis') || sName.includes('iron') || sName.includes('will') || sName.includes('armor')) statKey = 'P.DEF';
-      else if (sName.includes('magic') || sName.includes('mage') || sName.includes('mystic') || sName.includes('elem') || sName.includes('fire') || sName.includes('water') || sName.includes('wind') || sName.includes('mana')) statKey = 'M.ATK';
-      else if (sName.includes('crit') || sName.includes('fury') || sName.includes('stance') || sName.includes('focus')) statKey = 'CRIT';
-      else if (sName.includes('speed') || sName.includes('wind') || sName.includes('dash') || sName.includes('step') || sName.includes('haste') || sName.includes('agility')) statKey = 'SPEED';
+      if (sName.includes('def') || sName.includes('shield') || sName.includes('aegis') || sName.includes('iron') || sName.includes('will') || sName.includes('armor')) statKey = '物理防禦';
+      else if (sName.includes('magic') || sName.includes('mage') || sName.includes('mystic') || sName.includes('elem') || sName.includes('fire') || sName.includes('water') || sName.includes('wind') || sName.includes('mana')) statKey = '魔法攻擊';
+      else if (sName.includes('crit') || sName.includes('fury') || sName.includes('stance') || sName.includes('focus')) statKey = '暴擊';
+      else if (sName.includes('speed') || sName.includes('wind') || sName.includes('dash') || sName.includes('step') || sName.includes('haste') || sName.includes('agility')) statKey = '速度';
 
       const row = mkEl('div');
       row.className = 'legacy-skill-select-row';
@@ -857,8 +857,8 @@ function openClassTransferModal(classInfo) {
         <div style="display:flex; align-items:center; gap:12px;">
           <input type="checkbox" ${selected.has(s.id) ? 'checked' : ''} style="cursor:pointer; width:18px; height:18px; accent-color:#f5df93;" />
           <div>
-            <div style="font-weight:bold; color:#ffd877; font-size:13px; font-family:'Cinzel',serif;">${def.name || s.id} <span style="font-size:11px; color:#94a3b8; font-family:sans-serif; font-weight:normal;">(Nv. ${lvl})</span></div>
-            <div style="font-size:12px; color:#86efac; font-weight:600; margin-top:2px;">🧬 Passiva de Linhagem: +${(passiveVal * 100).toFixed(1)}% ${statKey}</div>
+            <div style="font-weight:bold; color:#ffd877; font-size:13px; font-family:'Cinzel',serif;">${def.name || s.id} <span style="font-size:11px; color:#94a3b8; font-family:sans-serif; font-weight:normal;">（等級 ${lvl}）</span></div>
+            <div style="font-size:12px; color:#86efac; font-weight:600; margin-top:2px;">🧬 血統被動：+${(passiveVal * 100).toFixed(1)}% ${statKey}</div>
           </div>
         </div>
         <span style="font-size:11px; font-weight:bold; color:${selected.has(s.id) ? '#fde047' : '#64748b'};">${selected.has(s.id) ? '✅ 已選擇' : '點擊選擇'}</span>
@@ -1427,8 +1427,8 @@ function useItem(uid) {
     state._lastHpPotTime = potNow;
     const healAmt = def.amount || def.healAmt || 100;
     state.hp = Math.min(state.maxHp, state.hp + healAmt);
-    log(`✨ 使用 ${def.name}：+${healAmt} HP`, 'heal');
-    if (typeof floatText === 'function') floatText(`+${healAmt} HP`, 'sf-heal');
+    log(`✨ 使用 ${def.name}：+${healAmt} 生命值`, 'heal');
+    if (typeof floatText === 'function') floatText(`+${healAmt} 生命值`, 'sf-heal');
   }
   // ── MP Potions ─────────────────────────────────────────────────────────────
   else if (def.type === 'mana' || item.itemId.startsWith('mp_potion')) {
@@ -1439,8 +1439,8 @@ function useItem(uid) {
     state._lastMpPotTime = potNow;
     const manaAmt = def.amount || def.healAmt || 80;
     state.mp = Math.min(state.maxMp, state.mp + manaAmt);
-    log(`💧 使用 ${def.name}：+${manaAmt} MP`, 'heal');
-    if (typeof floatText === 'function') floatText(`+${manaAmt} MP`, 'sf-heal');
+    log(`💧 使用 ${def.name}：+${manaAmt} 魔力`, 'heal');
+    if (typeof floatText === 'function') floatText(`+${manaAmt} 魔力`, 'sf-heal');
   }
   // ── Buff Potions ───────────────────────────────────────────────────────────
   else if (def.type === 'buff') {
@@ -1449,36 +1449,36 @@ function useItem(uid) {
     if (typeof floatText === 'function') floatText(`⚡ +${def.amount} ${def.stat.toUpperCase()}`, 'sf-heal');
   }
   else if (item.itemId === 'attack_potion') {
-    applyBuff('atk', 0.20, 1800); log(`⚡ 使用 ${def.name}：+20% ATK，持續 30 分鐘`, 'heal');
-    if (typeof floatText === 'function') floatText('⚡ +20% ATK (30m)', 'sf-heal');
+    applyBuff('atk', 0.20, 1800); log(`⚡ 使用 ${def.name}：+20% 攻擊，持續 30 分鐘`, 'heal');
+    if (typeof floatText === 'function') floatText('⚡ +20% 攻擊（30 分鐘）', 'sf-heal');
   }
   else if (item.itemId === 'defense_potion') {
-    applyBuff('def', 0.20, 1800); log(`🛡️ 使用 ${def.name}：+20% DEF，持續 30 分鐘`, 'heal');
-    if (typeof floatText === 'function') floatText('🛡️ +20% DEF (30m)', 'sf-heal');
+    applyBuff('def', 0.20, 1800); log(`🛡️ 使用 ${def.name}：+20% 防禦，持續 30 分鐘`, 'heal');
+    if (typeof floatText === 'function') floatText('🛡️ +20% 防禦（30 分鐘）', 'sf-heal');
   }
   else if (item.itemId === 'speed_potion') {
-    applyBuff('spd', 0.15, 1800); log(`💨 使用 ${def.name}：+15% SPD，持續 30 分鐘`, 'heal');
-    if (typeof floatText === 'function') floatText('💨 +15% SPD (30m)', 'sf-heal');
+    applyBuff('spd', 0.15, 1800); log(`💨 使用 ${def.name}：+15% 速度，持續 30 分鐘`, 'heal');
+    if (typeof floatText === 'function') floatText('💨 +15% 速度（30 分鐘）', 'sf-heal');
   }
   else if (item.itemId === 'potion_haste') {
     applyBuff('atkSpd', 0.15, 1800); applyBuff('spd', 0.15, 1800);
-    log(`⚡ 使用 ${def.name}：+15% 攻擊速度／SPD，持續 30 分鐘`, 'heal');
+    log(`⚡ 使用 ${def.name}：+15% 攻擊速度／移動速度，持續 30 分鐘`, 'heal');
     if (typeof floatText === 'function') floatText('⚡ 急速 +15%（30 分鐘）', 'sf-heal');
   }
   else if (item.itemId === 'aegis_draught') {
     applyBuff('def', 0.25, 3600); applyBuff('magicRes', 0.20, 3600);
-    log(`🛡️ 使用 ${def.name}：DEF +25%、魔法抗性 +20%，持續 1 小時`, 'heal');
-    if (typeof floatText === 'function') floatText('🛡️ AEGIS +25% DEF (1h)', 'sf-heal');
+    log(`🛡️ 使用 ${def.name}：防禦 +25%、魔法抗性 +20%，持續 1 小時`, 'heal');
+    if (typeof floatText === 'function') floatText('🛡️ 神盾：防禦 +25%（1 小時）', 'sf-heal');
   }
   else if (item.itemId === 'berserker_elixir') {
     applyBuff('atk', 0.30, 3600); applyBuff('critRate', 0.15, 3600);
-    log(`🔥 使用 ${def.name}：+30% ATK、+15% 暴擊率，持續 1 小時`, 'heal');
-    if (typeof floatText === 'function') floatText('🔥 BERSERKER +30% ATK (1h)', 'float-crit');
+    log(`🔥 使用 ${def.name}：+30% 攻擊、+15% 暴擊率，持續 1 小時`, 'heal');
+    if (typeof floatText === 'function') floatText('🔥 狂戰士：攻擊 +30%（1 小時）', 'float-crit');
   }
   else if (item.itemId === 'sages_tea') {
     applyBuff('mpRegen', 5, 3600);
     log(`🍵 使用 ${def.name}：每次回復 +5 MP，持續 1 小時`, 'heal');
-    if (typeof floatText === 'function') floatText('🍵 SAGES TEA: MP REGEN (1h)', 'sf-heal');
+    if (typeof floatText === 'function') floatText('🍵 賢者茶：魔力回復（1 小時）', 'sf-heal');
   }
   else if (item.itemId === 'antidote') {
     state.poisoned = false; state.bled = false;
@@ -1490,8 +1490,8 @@ function useItem(uid) {
   else if (def.type === 'xpBoost' || item.itemId === 'xp_boost_1h' || item.itemId === 'exp_boost_1h') {
     const pct = def.amount || 0.50; const dur = def.duration || 3600;
     applyBuff('xpBoost', pct, dur);
-    log(`📖 使用 ${def.name}：+${Math.round(pct*100)}% XP，持續 ${fmtDur(dur)}`, 'xp');
-    if (typeof floatText === 'function') floatText(`📖 +${Math.round(pct*100)}% XP (${fmtDur(dur)})`, 'float-jackpot');
+    log(`📖 使用 ${def.name}：+${Math.round(pct*100)}% 經驗值，持續 ${fmtDur(dur)}`, 'xp');
+    if (typeof floatText === 'function') floatText(`📖 +${Math.round(pct*100)}% 經驗值（${fmtDur(dur)}）`, 'float-jackpot');
   }
   else if (def.type === 'goldBoost' || item.itemId === 'gold_boost_1h' || item.itemId === 'gold_boost_4h') {
     const pct = def.amount || 0.50; const dur = def.duration || (item.itemId === 'gold_boost_4h' ? 14400 : 3600);
@@ -1505,40 +1505,40 @@ function useItem(uid) {
     log(`🍀 使用 ${def.name}：幸運 +${Math.round(pct*100)}%，持續 ${fmtDur(dur)}`, 'loot');
     if (typeof floatText === 'function') floatText(`🍀 幸運 +${Math.round(pct*100)}%（${fmtDur(dur)}）`, 'float-jackpot');
   }
-  else if (def.type === 'autoPotion') { applyBuff('autoPotion', 1, def.duration); log(`Used ${def.name}: auto-potion active for ${fmtDur(def.duration)}`, 'heal'); }
+  else if (def.type === 'autoPotion') { applyBuff('autoPotion', 1, def.duration); log(`使用 ${def.name}：自動藥水已啟用，持續 ${fmtDur(def.duration)}`, 'heal'); }
   // ── EXP Scroll ────────────────────────────────────────────────────────────
   else if (item.itemId === 'exp_scroll') {
     const xpGain = def.amount || (state.level * 2500);
     state.xp = (state.xp || 0) + xpGain;
-    log(`📜 使用 ${def.name}：+${xpGain.toLocaleString()} XP`, 'xp');
-    if (typeof floatText === 'function') floatText(`+${xpGain.toLocaleString()} XP`, 'float-jackpot');
+    log(`📜 使用 ${def.name}：+${xpGain.toLocaleString()} 經驗值`, 'xp');
+    if (typeof floatText === 'function') floatText(`+${xpGain.toLocaleString()} 經驗值`, 'float-jackpot');
     if (typeof checkLevelUp === 'function') checkLevelUp();
   }
   // ── Elixirs ───────────────────────────────────────────────────────────────
   else if (item.itemId === 'elixir_berserker') {
     applyBuff('atk', 0.15, 3600); applyBuff('atkSpd', 0.15, 3600);
-    log(`🧪 使用 ${def.name}：+15% P.Atk、+15% 攻擊速度，持續 1 小時`, 'heal');
-    if (typeof floatText === 'function') floatText('🧪 BERSERKER ELIXIR (1h)', 'float-crit');
+    log(`🧪 使用 ${def.name}：+15% 物理攻擊、+15% 攻擊速度，持續 1 小時`, 'heal');
+    if (typeof floatText === 'function') floatText('🧪 狂戰士靈藥（1 小時）', 'float-crit');
   }
   else if (item.itemId === 'elixir_arcanist') {
     applyBuff('matk', 0.20, 3600); applyBuff('mpRegen', 3, 3600);
-    log(`🧪 使用 ${def.name}：+20% M.Atk、提升 MP 回復，持續 1 小時`, 'heal');
-    if (typeof floatText === 'function') floatText('🧪 ARCANIST ELIXIR (1h)', 'sf-heal');
+    log(`🧪 使用 ${def.name}：+20% 魔法攻擊、提升魔力回復，持續 1 小時`, 'heal');
+    if (typeof floatText === 'function') floatText('🧪 奧術師靈藥（1 小時）', 'sf-heal');
   }
   else if (item.itemId === 'elixir_fortune') {
     applyBuff('goldBoost', 0.25, 3600); applyBuff('luckBoost', 0.25, 3600);
     log(`🧪 使用 ${def.name}：金幣 +25%、幸運 +25%，持續 1 小時`, 'loot');
-    if (typeof floatText === 'function') floatText('🧪 FORTUNE ELIXIR (1h)', 'float-jackpot');
+    if (typeof floatText === 'function') floatText('🧪 幸運靈藥（1 小時）', 'float-jackpot');
   }
   else if (item.itemId === 'elixir_titan') {
     applyBuff('maxHpBonus', 0.25, 3600); applyBuff('def', 0.25, 3600);
-    log(`🧪 使用 ${def.name}：+25% 最大 HP、+25% DEF，持續 1 小時`, 'heal');
-    if (typeof floatText === 'function') floatText('🧪 TITAN ELIXIR (1h)', 'sf-heal');
+    log(`🧪 使用 ${def.name}：+25% 最大生命值、+25% 防禦，持續 1 小時`, 'heal');
+    if (typeof floatText === 'function') floatText('🧪 泰坦靈藥（1 小時）', 'sf-heal');
   }
   else if (item.itemId === 'elixir_transcendence') {
     applyBuff('xpBoost', 0.20, 3600); applyBuff('spBoost', 0.20, 3600);
-    log(`🧪 使用 ${def.name}：+20% EXP、+20% SP，持續 1 小時`, 'xp');
-    if (typeof floatText === 'function') floatText('🧪 TRANSCENDENCE ELIXIR (1h)', 'float-jackpot');
+    log(`🧪 使用 ${def.name}：+20% 經驗值、+20% 技能點，持續 1 小時`, 'xp');
+    if (typeof floatText === 'function') floatText('🧪 超越靈藥（1 小時）', 'float-jackpot');
   } 
   else if (def.type === 'teleport') {
     state.hp = state.maxHp; state.mp = state.maxMp;
@@ -1552,12 +1552,12 @@ function useItem(uid) {
       stopCombat();
       setTimeout(startCombat, 300);
     }
-    log(`Used ${def.name}: returned to ${ZONES[town]?.name || town}, fully healed.`, 'heal');
+    log(`使用 ${def.name}：已返回 ${ZONES[town]?.name || town}，生命值與魔力完全恢復。`, 'heal');
     updateAllUI();
   } else if (def.type === 'elixir_vigor' || item.itemId === 'elixir_vigor_1h') {
     applyBuff('xpBoost', 0.30, 3600);
     applyBuff('goldBoost', 0.30, 3600);
-    log(`🧪 使用 ${def.name}：EXP +30%、金幣 +30%，持續 1 小時！`, 'heal');
+    log(`🧪 使用 ${def.name}：經驗值 +30%、金幣 +30%，持續 1 小時！`, 'heal');
     if (typeof floatText === 'function') floatText('🧪 活力：EXP +30%、金幣 +30%（1 小時）', 'float-crit');
   } else if (def.type === 'inventory_expand' || item.itemId === 'pack_inventory_expand_30') {
     state.bonusInventorySlots = (state.bonusInventorySlots || 0) + 30;
@@ -2614,7 +2614,7 @@ function toggleAutoPotion() {
   updateCombatControlsUI();
   const hpPct = Math.round((state.autoPotionSettings?.hpThreshold || 0.6) * 100);
   const mpPct = Math.round((state.autoPotionSettings?.mpThreshold || 0.4) * 100);
-  log(`自動藥水 ${state.autoPotionActive ? `ATIVADAS (Gatilhos: HP < ${hpPct}%, MP < ${mpPct}%)` : 'DESATIVADAS'}.`, 'system');
+  log(`自動藥水${state.autoPotionActive ? `已啟用（生命值 < ${hpPct}%、魔力 < ${mpPct}% 時觸發）` : '已停用'}。`, 'system');
   save();
 }
 
@@ -2692,7 +2692,7 @@ function updateCombatControlsUI() {
     const hpCount = getInventoryCount('hp_potion_s') + getInventoryCount('hp_potion_m') + getInventoryCount('hp_potion_l') + getInventoryCount('hp_potion_xl');
     const mpCount = getInventoryCount('mp_potion_s') + getInventoryCount('mp_potion_m') + getInventoryCount('mp_potion_l') + getInventoryCount('mp_potion_xl');
     const hpPct = Math.round((state.autoPotionSettings?.hpThreshold || 0.6) * 100);
-    apBtn.innerHTML = `<span>🧪 Auto-Pot</span> <span style="font-size:9px; color:${isApActive ? '#ffd877' : '#94a3b8'};">(${hpCount} HP / ${mpCount} MP)</span>`;
+    apBtn.innerHTML = `<span>🧪 自動藥水</span> <span style="font-size:9px; color:${isApActive ? '#ffd877' : '#94a3b8'};">(${hpCount} HP / ${mpCount} MP)</span>`;
     apBtn.title = `自動藥水：${isApActive ? '開啟' : '關閉'}（HP < ${hpPct}%）－點擊切換，或在巨集按鈕中設定 ⚙️`;
   }
   const spdBtn = el('speed-toggle-btn');
@@ -2799,33 +2799,33 @@ function checkOfflineProgress(lastTime) {
   if (rewardsEl && modalEl) {
     rewardsEl.innerHTML = `
       <div style="color:var(--rarity-epic); font-weight:bold; margin-bottom:8px;">🌙 離線自動狩獵效率：30%（線上為 100%）</div>
-      <div>⏱️ Tempo Ausente: <strong>${minutesOffline} minutos</strong></div>
-      <div>⚔️ Monstros Derrotados (30%): <strong>~${kills}</strong></div>
+      <div>⏱️ 離線時間：<strong>${minutesOffline} 分鐘</strong></div>
+      <div>⚔️ 擊敗怪物（30% 效率）：<strong>約 ${kills}</strong></div>
       <div>💰 獲得金幣： <strong style="color:var(--gilt-bright);">+${goldEarned.toLocaleString()}g</strong></div>
-      <div>📘 XP Ganho: <strong style="color:#60a5fa;">+${xpEarned.toLocaleString()} XP</strong></div>
-      <div>✨ SP Ganho: <strong style="color:#a855f7;">+${spEarned.toLocaleString()} SP</strong></div>
+      <div>📘 獲得經驗值：<strong style="color:#60a5fa;">+${xpEarned.toLocaleString()}</strong></div>
+      <div>✨ 獲得技能點：<strong style="color:#a855f7;">+${spEarned.toLocaleString()}</strong></div>
       ${fishOfflineResult && fishOfflineResult.totalCaught > 0 ? `
-        <div style="color:#38bdf8; margin-top:4px; font-weight:bold;">🎣 離線釣魚收益：<strong>+${fishOfflineResult.totalCaught} 條魚（+${fishOfflineResult.xpGained} 釣魚 XP）</strong></div>
+        <div style="color:#38bdf8; margin-top:4px; font-weight:bold;">🎣 離線釣魚收益：<strong>+${fishOfflineResult.totalCaught} 條魚（+${fishOfflineResult.xpGained} 釣魚經驗值）</strong></div>
       ` : ''}
       ${huntOfflineResult && huntOfflineResult.actualHunts > 0 ? `
-        <div style="color:#34d399; margin-top:4px; font-weight:bold;">🐾 毛皮與皮革（離線狩獵）：<strong>+${huntOfflineResult.actualHunts} 份獵物（+${huntOfflineResult.totalXp} 狩獵 XP）</strong></div>
+        <div style="color:#34d399; margin-top:4px; font-weight:bold;">🐾 毛皮與皮革（離線狩獵）：<strong>+${huntOfflineResult.actualHunts} 份獵物（+${huntOfflineResult.totalXp} 狩獵經驗值）</strong></div>
       ` : ''}
       ${gatherOfflineResult && gatherOfflineResult.actualHarvests > 0 ? `
-        <div style="color:#a3e635; margin-top:4px; font-weight:bold;">🌿 草藥與木材（離線採集）：<strong>+${gatherOfflineResult.actualHarvests} 次採集（+${gatherOfflineResult.totalXp} 採集 XP）</strong></div>
+        <div style="color:#a3e635; margin-top:4px; font-weight:bold;">🌿 草藥與木材（離線採集）：<strong>+${gatherOfflineResult.actualHarvests} 次採集（+${gatherOfflineResult.totalXp} 採集經驗值）</strong></div>
       ` : ''}
       ${mineOfflineResult && mineOfflineResult.actualMines > 0 ? `
-        <div style="color:#fbbf24; margin-top:4px; font-weight:bold;">⛏️ 礦石與寶石（離線採礦）：<strong>+${mineOfflineResult.actualMines} 次採掘（+${mineOfflineResult.totalXp} 採礦 XP）</strong></div>
+        <div style="color:#fbbf24; margin-top:4px; font-weight:bold;">⛏️ 礦石與寶石（離線採礦）：<strong>+${mineOfflineResult.actualMines} 次採掘（+${mineOfflineResult.totalXp} 採礦經驗值）</strong></div>
       ` : ''}
       ${isReturnPlayer ? `
         <div style="background:linear-gradient(135deg,rgba(234,179,8,0.2),rgba(0,0,0,0.5)); border:1px solid #fde047; border-radius:8px; padding:10px; margin-top:10px; text-align:center;">
           <div style="font-family:'Cinzel',serif; font-size:13px; font-weight:bold; color:#fde047; margin-bottom:4px;">
-            👑 TRIBUTO DO GUERREIRO RETORNADO!
+            👑 回歸勇士禮讚！
           </div>
           <div style="font-size:11.5px; color:#e2e8f0; margin-bottom:6px;">
             你已離線超過 24 小時！亞丁眾神賜予你回歸補給：
           </div>
           <div style="font-size:11px; color:#a3e635; font-weight:bold;">
-            ✨ EXP +50% 持續 2 小時 · 💰 +250,000 金幣 · ⚡ 1,000x 魂彈 · 🧪 100x XL 藥水
+            ✨ 經驗值 +50% 持續 2 小時 · 💰 +250,000 金幣 · ⚡ 1,000x 魂彈 · 🧪 100x XL 藥水
           </div>
         </div>
       ` : ''}
@@ -3563,7 +3563,7 @@ function updateTowerUI() {
       challengeBtn.textContent = '🏆 高塔 100% 完成';
       challengeBtn.disabled = true;
     } else {
-      challengeBtn.textContent = `⚔️ Desafiar Andar ${nextFloor}`;
+      challengeBtn.textContent = `⚔️ 挑戰第 ${nextFloor} 層`;
       challengeBtn.disabled = false;
       challengeBtn.onclick = () => challengeTowerFloor();
     }
@@ -3585,16 +3585,16 @@ function updateTowerUI() {
   if (detailsCard) {
     const rewardsStr = [];
     rewardsStr.push(`💰 +${nextDef.gold.toLocaleString()}g`);
-    rewardsStr.push(`✦ +${nextDef.sp} SP`);
+    rewardsStr.push(`✦ +${nextDef.sp} 技能點`);
     if (nextDef.rewardLamps > 0) rewardsStr.push(`🪔 +${nextDef.rewardLamps} 魔法神燈`);
     if (nextDef.rewardCrystals) rewardsStr.push(`✨ +3x ${D().ALL_ITEMS[nextDef.rewardCrystals]?.name || nextDef.rewardCrystals}`);
 
     detailsCard.innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:center;">
         <span style="font-weight:bold; font-size:13px; color:var(--gilt-bright);">${nextDef.name}</span>
-        <span style="font-size:11px; color:#fb7185;">HP: ${nextDef.hp.toLocaleString()} · ATK: ${nextDef.atk.toLocaleString()}</span>
+        <span style="font-size:11px; color:#fb7185;">生命值：${nextDef.hp.toLocaleString()} · 攻擊：${nextDef.atk.toLocaleString()}</span>
       </div>
-      <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Recompensas de Primeiro Abate: ${rewardsStr.join(' · ')}</div>
+      <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">首次擊殺獎勵：${rewardsStr.join(' · ')}</div>
     `;
   }
 
@@ -5289,13 +5289,13 @@ function processMonsterDefeat(monster, killingSkill = null) {
   state.stats.monstersKilled = (state.stats.monstersKilled || 0) + 1;
 
   if (overhitBonusPct > 0) {
-    log(`💥 **過量傷害！** 使用 **${killingSkill.def?.name || killingSkill.name}** 完成致命一擊！獲得 **+${overhitBonusPct}% EXP/SP** 額外獎勵！`, 'rarity-legendary', 'gold_xp');
+    log(`💥 **過量傷害！** 使用 **${killingSkill.def?.name || killingSkill.name}** 完成致命一擊！獲得 **+${overhitBonusPct}% 經驗值／技能點** 額外獎勵！`, 'rarity-legendary', 'gold_xp');
     if (typeof floatText === 'function') {
-      floatText(`💥 過量傷害！（+${overhitBonusPct}% EXP）`, 'float-jackpot');
+      floatText(`💥 過量傷害！（+${overhitBonusPct}% 經驗值）`, 'float-jackpot');
     }
   }
 
-  log(`擊敗 **${monster.name}**！獲得 **+${xpGain.toLocaleString()} XP**${spGain > 0 ? ` 與 **+${spGain} SP**` : ''}${gapMods.isTough ? '（🔥 高風險挑戰）' : ''}`, 'xp', 'gold_xp');
+  log(`擊敗 **${monster.name}**！獲得 **+${xpGain.toLocaleString()} 經驗值**${spGain > 0 ? ` 與 **+${spGain} 技能點**` : ''}${gapMods.isTough ? '（🔥 高風險挑戰）' : ''}`, 'xp', 'gold_xp');
 
   // Drenagem de Alma para Soul Crystals (Níveis 1 a 15 e Epic Bosses)
   try {
@@ -5724,7 +5724,7 @@ export function attackMonster() {
         const healAmt = window.SkillScaling ? window.SkillScaling.getSkillHealAtLevel(stats.maxHp, skill.lvl, stats.matk) : Math.floor(stats.maxHp * (0.25 + skill.lvl * 0.05));
         state.hp = Math.min(stats.maxHp, state.hp + healAmt);
         log(`✨ ${skill.def.name}！恢復 ${healAmt} HP`, 'heal');
-        floatText(`+${healAmt} HP`, 'sf-heal');
+        floatText(`+${healAmt} 生命值`, 'sf-heal');
 
         // Dispara VFX Premium de Cura Sagrada (ancorado aos pés do herói)
         const source = getHeroBasePoint();
@@ -6079,7 +6079,7 @@ export function attackMonster() {
     state.buffs = state.buffs || {};
     state.buffs['chance_critical'] = { amount: 35, until: realNowAttack + 10000 };
     log(`💥 **[副職業] 暴擊觸發！** +35 暴擊率、+10% 暴擊傷害，持續 10 秒！`, 'rarity-legendary');
-    if (typeof stageFloat === 'function') stageFloat('💥 CRITICAL!', 'sf-crit', 'left');
+    if (typeof stageFloat === 'function') stageFloat('💥 暴擊！', 'sf-crit', 'left');
     else if (typeof floatText === 'function') floatText('💥 CRITICAL!', 'float-jackpot');
   }
 
@@ -6257,16 +6257,16 @@ function monsterAttack(monster) {
 
       // Efeitos secundários de skills de monstros
       if (sk.effect === 'stun') {
-        stageFloat('💫 STUNNED', 'sf-crit', 'left');
+        stageFloat('💫 暈眩', 'sf-crit', 'left');
         log(`💫 **${monster.name}** 使用 [${skillName}] 使你暈眩！`, 'warning');
       } else if (sk.effect === 'root') {
         stageFloat('🌿 定身', 'sf-block', 'left');
         log(`🌿 **${monster.name}** 使用 [${skillName}] 使你定身！`, 'warning');
       } else if (sk.effect === 'bleed') {
-        stageFloat('🩸 SANGRANDO', 'sf-hurt', 'left');
+        stageFloat('🩸 流血', 'sf-hurt', 'left');
         log(`🩸 **${monster.name}** 使用 [${skillName}] 造成流血！`, 'warning');
       } else if (sk.effect === 'poison') {
-        stageFloat('🧪 ENVENENADO', 'sf-hurt', 'left');
+        stageFloat('🧪 中毒', 'sf-hurt', 'left');
         log(`🧪 **${monster.name}** 使用 [${skillName}] 造成中毒！`, 'warning');
       }
     }
@@ -6285,11 +6285,11 @@ function monsterAttack(monster) {
   }
   if (aiAttack.isCrit) {
     damage = Math.floor(damage * aiAttack.critMultiplier);
-    stageFloat('💥 CRITICAL!', 'sf-crit', 'left');
+    stageFloat('💥 暴擊！', 'sf-crit', 'left');
   }
   if (aiAttack.manaBurnAmt > 0 && state.mp > 0) {
     state.mp = Math.max(0, state.mp - aiAttack.manaBurnAmt);
-    log(`🔥 [Mana Burn] **${monster.name}** drenou ${aiAttack.manaBurnAmt} MP seu!`, 'warning');
+    log(`🔥 [魔力燃燒] **${monster.name}** 燃燒了你 ${aiAttack.manaBurnAmt} 點魔力！`, 'warning');
     stageFloat(`-${aiAttack.manaBurnAmt} MP`, 'sf-hurt', 'left');
   }
   if (aiAttack.appliedDebuff) {
@@ -7129,8 +7129,8 @@ function executeAdminCmd(cmd) {
     const stats = getStats(); 
     state.hp = stats.maxHp; 
     state.mp = stats.maxMp; 
-    log('❤️ [Admin] HP/MP Restaurados 100%!', 'rarity-legendary'); 
-    if (typeof floatText === 'function') floatText('❤️ HP/MP FULL!', 'float-jackpot');
+    log('❤️ [管理員] 生命值／魔力已恢復 100%！', 'rarity-legendary'); 
+    if (typeof floatText === 'function') floatText('❤️ 生命值／魔力全滿！', 'float-jackpot');
   }
   else if (cmd === 'unlocksagas') { adminUnlockSagas(); }
   else if (cmd === 'completequest') { adminCompleteQuest(); }
@@ -8582,18 +8582,18 @@ export function bindEvents() {
     if (adminWipeBtn) {
       adminWipeBtn.onclick = async () => {
         const confirm1 = confirm(
-          '🚨 ATENÇÃO CRÍTICA: Deseja realmente executar o WIPE GERAL do servidor?\n\n' +
+          '🚨 嚴重警告：確定要執行伺服器完整清除嗎？\n\n' +
           '此操作將刪除 Cloud Firestore 中全部 17 個正式資料集合：\n' +
-          '• Contas, Personagens, Nomes de Heróis\n' +
+          '• 帳號、角色、英雄名稱\n' +
           '• 血盟與血盟成員\n' +
           '• PvP 排行榜、奧林匹亞紀錄與市場\n' +
-          '• Presença, Amizades, Pedidos de Amizade, Mentorias e Bloqueios\n\n' +
+          '• 上線狀態、好友、好友邀請、導師與封鎖資料\n\n' +
           '所有玩家都會被登出，並從角色建立畫面重新開始。\n\n' +
-          'Pressione OK se você tem certeza absoluta.'
+          '如果你完全確定，請按「確定」。'
         );
         if (!confirm1) return;
 
-        const confirm2 = prompt('Para confirmar a destruição de dados, digite exatamente "WIPE ZERO":');
+        const confirm2 = prompt('若要確認刪除資料，請完整輸入「WIPE ZERO」：');
         if (confirm2 !== 'WIPE ZERO') {
           alert('操作已取消。輸入文字與「WIPE ZERO」不符。');
           return;
@@ -8606,16 +8606,16 @@ export function bindEvents() {
           const wipeFn = (typeof window !== 'undefined' && window.FirebaseBridge?.wipeEntireGameDatabase) || 
                          (typeof window !== 'undefined' && window.wipeEntireGameDatabase);
           if (typeof wipeFn !== 'function') {
-            throw new Error('Função wipeEntireGameDatabase não encontrada. Verifique se o módulo Firebase está inicializado.');
+            throw new Error('找不到 wipeEntireGameDatabase 函式，請確認 Firebase 模組已初始化。');
           }
 
           const result = await wipeFn();
           console.log('[Admin Wipe] Resultado da operação:', result);
 
           if (!result.success || (result.errors && result.errors.length > 0)) {
-            let errorMsg = `❌ O Firestore bloqueou a exclusão por falta de permissão!\n\n`;
+            let errorMsg = `❌ Firestore 因權限不足而阻擋刪除！\n\n`;
             errorMsg += `回傳錯誤（${result.errors.length}）：\n${result.errors.slice(0, 4).join('\n')}\n\n`;
-            errorMsg += `⚠️ MOTIVO: As Regras do Firestore (firestore.rules) ainda NÃO foram publicadas no Firebase Console!\n\n`;
+            errorMsg += `⚠️ 原因：Firestore 規則（firestore.rules）尚未發布到 Firebase Console！\n\n`;
             errorMsg += `👉 解決方式：\n1. 開啟 Firebase Console。\n2. 前往「Rules／規則」分頁（位於「Data／資料」旁）。\n3. 貼上 firestore.rules 內容並點擊「Publish／發布」。`;
             alert(errorMsg);
             adminWipeBtn.disabled = false;
@@ -8623,11 +8623,11 @@ export function bindEvents() {
             return;
           }
 
-          let msg = '✅ WIPE DO BANCO DE DADOS CONCLUÍDO COM SUCESSO!\n\nDocumentos deletados por coleção:\n';
+          let msg = '✅ 資料庫完整清除成功！\n\n各資料集合刪除文件數：\n';
           let totalDeleted = 0;
           for (const [col, count] of Object.entries(result.deletedCounts || {})) {
             if (count > 0) {
-              msg += `• ${col}: ${count} doc(s)\n`;
+              msg += `• ${col}：${count} 份文件\n`;
               totalDeleted += count;
             }
           }
@@ -9284,7 +9284,7 @@ function addSkillCharge() {
 function addKamaelSoul() {
   state.souls = Math.min(5, (state.souls || 0) + 1);
   log(`👻 已吸收卡麥爾靈魂：**${state.souls}/5**（技能傷害 +${state.souls * 5}%）！`, 'rarity-legendary');
-  floatText(`ALMA ABSORVIDA (${state.souls}/5)!`, 'float-gold');
+  floatText(`已吸收靈魂（${state.souls}/5）！`, 'float-gold');
   updateAllUI(); save();
   return true;
 }
@@ -9856,7 +9856,7 @@ export function init() {
                   <span style="font-size:14px;">${s.tattoo.icon || '✨'}</span>
                 </div>
                 <div style="font-weight:bold; font-size:13px; color:#86efac;">${s.tattoo.shortName || s.tattoo.name}</div>
-                <div style="font-size:10px; color:#cbd5e1; margin-top:2px;">Gravado em ${new Date(s.tattoo.engravedAt || Date.now()).toLocaleDateString()}</div>
+                <div style="font-size:10px; color:#cbd5e1; margin-top:2px;">刻印日期：${new Date(s.tattoo.engravedAt || Date.now()).toLocaleDateString()}</div>
               </div>
               <button class="action-btn action-btn--danger" onclick="window.removeDyeAction(${s.index})" style="padding:4px 8px; font-size:11px; margin-top:6px;">
                 🧹 移除（10k 金幣）
@@ -9868,7 +9868,7 @@ export function init() {
                 <div style="font-size:11px; font-weight:bold; color:#60a5fa;">✨ ${s.name}</div>
                 <div style="font-size:11px; color:#94a3b8; margin-top:4px;">可用空白欄位</div>
               </div>
-              <div style="font-size:10px; color:#cbd5e1;">Selecione uma Henna abaixo para gravar</div>
+              <div style="font-size:10px; color:#cbd5e1;">請從下方選擇染料進行刻印</div>
             `;
           }
           slotsContainer.appendChild(card);
@@ -9886,7 +9886,7 @@ export function init() {
           { key: 'men', label: 'MEN', color: '#38bdf8' }
         ];
         summaryContainer.innerHTML = `
-          <div style="font-weight:bold; color:#ffd877;">📊 Bônus Líquidos Ativos (Cap +5):</div>
+          <div style="font-weight:bold; color:#ffd877;">📊 目前生效的淨屬性加成（上限 +5）：</div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             ${statsList.map(st => {
               const val = net[st.key] || 0;
@@ -9937,10 +9937,10 @@ export function init() {
                         style="padding:6px 12px; font-size:11px; font-weight:bold;"
                         ${!hasReq || !canAfford ? 'disabled' : ''}
                         onclick="window.drawDyeAction(${nextEmptySlot}, '${dye.id}')">
-                  ✍️ Gravar (Slot ${nextEmptySlot + 1})
+                  ✍️ 刻印（欄位 ${nextEmptySlot + 1}）
                 </button>
               ` : `
-                <span style="font-size:10px; color:#94a3b8;">Sem slots vagos</span>
+                <span style="font-size:10px; color:#94a3b8;">沒有可用欄位</span>
               `}
             </div>
           `;
@@ -10005,12 +10005,12 @@ export function init() {
                 <span style="font-size:36px;">${def?.icon || '🐾'}</span>
                 <div>
                   <div style="font-family:'Cinzel',serif; font-weight:bold; color:#ffd877; font-size:16px;">${activePet.name}（等級 ${activePet.level}/60）</div>
-                  <div style="font-size:11px; color:#86efac; margin-top:2px;">✨ Bônus Ativo: ${bonus?.desc || ''} (+${Math.round((bonus?.val || 0) * 100)}%)</div>
+                  <div style="font-size:11px; color:#86efac; margin-top:2px;">✨ 生效加成：${bonus?.desc || ''} (+${Math.round((bonus?.val || 0) * 100)}%)</div>
                   <div style="font-size:11px; color:#93c5fd; margin-top:2px;">⚔️ 支援攻擊：${bonus?.atk || 0} 物理傷害</div>
                   <div style="width:160px; height:6px; background:rgba(0,0,0,0.6); border-radius:3px; margin-top:6px; overflow:hidden;">
                     <div style="width:${xpPct}%; height:100%; background:#eab308;"></div>
                   </div>
-                  <div style="font-size:9px; color:#94a3b8; margin-top:2px;">XP Pet: ${activePet.xp || 0} / ${reqXp} (${xpPct}%)</div>
+                  <div style="font-size:9px; color:#94a3b8; margin-top:2px;">寵物經驗值：${activePet.xp || 0} / ${reqXp}（${xpPct}%）</div>
                 </div>
               </div>
               <div style="display:flex; flex-direction:column; gap:6px;">
@@ -10018,7 +10018,7 @@ export function init() {
                   🍖 餵食（5k 金幣）
                 </button>
                 <button class="action-btn" onclick="window.summonPetAction('${activePet.id}')" style="padding:6px 12px; font-size:11px;">
-                  🛑 Recolher Mascote
+                  🛑 收回寵物
                 </button>
               </div>
             </div>
@@ -10026,7 +10026,7 @@ export function init() {
         } else {
           activeContainer.innerHTML = `
             <div style="padding:16px; text-align:center; background:rgba(0,0,0,0.4); border:1px dashed rgba(212,167,68,0.3); border-radius:8px; color:#94a3b8; font-size:12px;">
-              🐾 Nenhum mascote invocado no momento. Invoque um dos seus companheiros abaixo para lutar ao seu lado!
+              🐾 目前沒有召喚寵物。請從下方選擇一名夥伴召喚，與你並肩作戰！
             </div>
           `;
         }
@@ -10065,11 +10065,11 @@ export function init() {
             <div>
               ${owned ? `
                 <button class="action-btn ${isActive ? '' : 'action-btn--primary'}" style="padding:6px 12px; font-size:11px; font-weight:bold;" onclick="window.summonPetAction('${petDef.id}')">
-                  ${isActive ? '🛑 Recolher' : '⚔️ Invocar'}
+                  ${isActive ? '🛑 收回' : '⚔️ 召喚'}
                 </button>
               ` : `
                 <button class="action-btn ${canUnlock && canAfford ? 'action-btn--primary' : ''}" style="padding:6px 12px; font-size:11px; font-weight:bold;" ${!canUnlock || !canAfford ? 'disabled' : ''} onclick="window.adoptPetAction('${petDef.id}')">
-                  🐾 Adotar (${petDef.cost.toLocaleString()}g)
+                  🐾 領養（${petDef.cost.toLocaleString()} 金幣）
                 </button>
               `}
             </div>
@@ -11816,7 +11816,7 @@ export function init() {
           floatText(res.reason, 'float-warning');
           return;
         }
-        log(`⚡ 狩獵難度已調整為 **${res.difficulty.name}**（${res.difficulty.xpMult}x XP／金幣、${res.difficulty.dropMult}x 掉落）！`, 'rarity-epic');
+        log(`⚡ 狩獵難度已調整為 **${res.difficulty.name}**（${res.difficulty.xpMult}x 經驗值／金幣、${res.difficulty.dropMult}x 掉落）！`, 'rarity-epic');
         floatText(`⚡ ${res.difficulty.name.toUpperCase()} 模式！`, 'float-jackpot');
         state.activeMonster = null;
         pickRandomMonster();
@@ -11890,13 +11890,13 @@ export function init() {
                 <h3 style="margin:0; font-family:'Cinzel',serif; font-size:18px; color:#fca5a5;">${boss.name}</h3>
                 <div style="font-size:12px; color:#ffd877; font-weight:bold;">${boss.title}（等級 ${boss.lvl}）</div>
               </div>
-              <div style="font-size:13px; font-weight:bold; color:#ef4444;">HP: ${boss.hp.toLocaleString()}</div>
+              <div style="font-size:13px; font-weight:bold; color:#ef4444;">生命值：${boss.hp.toLocaleString()}</div>
             </div>
             <p style="margin:8px 0; font-size:12px; line-height:1.5; color:#94a3b8;">${boss.lore}</p>
             <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(110px, 1fr)); gap:6px; background:rgba(0,0,0,0.5); padding:8px; border-radius:6px; font-size:11px;">
-              <div>ATK: <strong style="color:#f87171;">${boss.atk}</strong></div>
-              <div>DEF: <strong style="color:#60a5fa;">${boss.def}</strong></div>
-              <div>M.DEF: <strong style="color:#c084fc;">${boss.mdef}</strong></div>
+              <div>攻擊：<strong style="color:#f87171;">${boss.atk}</strong></div>
+              <div>防禦：<strong style="color:#60a5fa;">${boss.def}</strong></div>
+              <div>魔防：<strong style="color:#c084fc;">${boss.mdef}</strong></div>
               <div>金幣：<strong style="color:#facc15;">${boss.goldReward.toLocaleString()}</strong></div>
               <div>亞丁幣：<strong style="color:#ffd700;">+${boss.adenCoinsReward} AC</strong></div>
             </div>
