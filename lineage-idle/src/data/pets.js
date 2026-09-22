@@ -7,7 +7,7 @@ export const PET_CATALOG = {
     icon: '🐺',
     unlockLvl: 15,
     cost: 50000,
-    desc: '專精物理戰鬥的兇猛巨狼，能施展致命撕咬並提供狼之狂怒（+P.Atk、+暴擊）。',
+    desc: '專精物理戰鬥的兇猛巨狼，能施展致命撕咬並提供狼之狂怒（+物理攻擊、+暴擊）。',
     baseAtk: 45,
     atkPerLvl: 4,
     buff: {
@@ -26,7 +26,7 @@ export const PET_CATALOG = {
     icon: '🦉',
     unlockLvl: 25,
     cost: 100000,
-    desc: '法師的神秘鳥類夥伴，會持續恢復 MP 並提供奧術智慧（+M.Atk）。',
+    desc: '法師的神秘鳥類夥伴，會持續恢復 MP 並提供奧術智慧（+魔法攻擊）。',
     baseAtk: 25,
     atkPerLvl: 2,
     buff: {
