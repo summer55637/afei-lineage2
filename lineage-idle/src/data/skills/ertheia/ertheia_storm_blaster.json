@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "gale_shot",
-        "name": "Disparo de Rajada",
+        "name": "烈風射擊",
         "classId": "ertheia_storm_blaster",
         "race": "ertheia",
         "tier": "core_1",
@@ -14,7 +14,7 @@
         "tags": [
           "Wind"
         ],
-        "description": "Disparo de Rajada — Habilidade Especialista de ertheia_storm_blaster."
+        "description": "烈風射擊——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -167,7 +167,7 @@
     {
       "identity": {
         "id": "cyclone_trap",
-        "name": "Armadilha Ciclone",
+        "name": "旋風陷阱",
         "classId": "ertheia_storm_blaster",
         "race": "ertheia",
         "tier": "core_2",
@@ -177,7 +177,7 @@
         "tags": [
           "Wind"
         ],
-        "description": "Armadilha Ciclone — Habilidade Especialista de ertheia_storm_blaster."
+        "description": "旋風陷阱——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -330,7 +330,7 @@
     {
       "identity": {
         "id": "sky_dance",
-        "name": "Dança dos Céus",
+        "name": "天空之舞",
         "classId": "ertheia_storm_blaster",
         "race": "ertheia",
         "tier": "specialization",
@@ -340,7 +340,7 @@
         "tags": [
           "Wind"
         ],
-        "description": "Dança dos Céus — Habilidade Especialista de ertheia_storm_blaster."
+        "description": "天空之舞——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -493,7 +493,7 @@
     {
       "identity": {
         "id": "tempest_barrage",
-        "name": "Rajada de Tempestade",
+        "name": "暴風彈幕",
         "classId": "ertheia_storm_blaster",
         "race": "ertheia",
         "tier": "elemental_specialization",
@@ -503,7 +503,7 @@
         "tags": [
           "Wind"
         ],
-        "description": "Rajada de Tempestade — Habilidade Especialista de ertheia_storm_blaster."
+        "description": "暴風彈幕——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -674,7 +674,7 @@
     {
       "identity": {
         "id": "cyclone_barrage",
-        "name": "Cyclone Barrage",
+        "name": "旋風彈幕",
         "classId": "ertheia_storm_blaster",
         "race": "ertheia",
         "tier": "ultimate",
@@ -684,7 +684,7 @@
         "tags": [
           "Wind"
         ],
-        "description": "Cyclone Barrage — Habilidade Ultimate (★★★★) de ertheia_storm_blaster."
+        "description": "旋風彈幕——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -870,7 +870,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "CYCLONE BARRAGE!",
+          "text": "旋風彈幕！",
           "style": "gold_banner",
           "banner": true
         }
@@ -891,7 +891,7 @@
     {
       "identity": {
         "id": "master_cyclone_barrage",
-        "name": "Master: Cyclone Barrage",
+        "name": "大師：旋風彈幕",
         "classId": "ertheia_storm_blaster",
         "race": "ertheia",
         "tier": "master_ultimate",
@@ -901,7 +901,7 @@
         "tags": [
           "Wind"
         ],
-        "description": "Master: Cyclone Barrage — Habilidade Master Ultimate (★★★★★) de ertheia_storm_blaster."
+        "description": "大師：旋風彈幕——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1088,7 +1088,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: CYCLONE BARRAGE!",
+          "text": "大師：旋風彈幕！",
           "style": "mythic_banner",
           "banner": true
         }
