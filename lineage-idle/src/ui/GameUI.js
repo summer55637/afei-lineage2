@@ -761,13 +761,13 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
   let heirloomPhaseText = '';
   let heirloomNextEvolution = '';
   if (currentHeroLvl <= 19) {
-    heirloomPhaseText = '✦ 階段 1（Lv.1～19）：比 No-Grade 高 +50%';
+    heirloomPhaseText = '✦ 階段 1（等級 1～19）：比無級別高 +50%';
     heirloomNextEvolution = '✦ 下一階段：等級 20（D 級 +50%）';
   } else if (currentHeroLvl <= 39) {
-    heirloomPhaseText = '✦ 階段 2（Lv.20～39）：比 D 級高 +50%';
+    heirloomPhaseText = '✦ 階段 2（等級 20～39）：比 D 級高 +50%';
     heirloomNextEvolution = '✦ 下一階段：等級 40（完整 C 級 +4 光效）';
   } else {
-    heirloomPhaseText = '✦ 階段 3（Lv.40+）：完整 C 級成熟型態（+4 光效）';
+    heirloomPhaseText = '✦ 階段 3（等級 40+）：完整 C 級成熟型態（+4 光效）';
     heirloomNextEvolution = '✦ 已達傳承最高等級！';
   }
 
@@ -3006,7 +3006,7 @@ export function renderStageMonster(state) {
     const arch = ARCHETYPE_INFO[archKey] || ARCHETYPE_INFO.berserker;
     const diff = MonsterAIEngine.getDifficulty(state);
     const diffText = (diff && diff.id !== 'normal') ? ` · <span style="color:${diff.color}; font-weight:700;">${diff.icon} ${diff.name}</span>` : '';
-    structure.level.innerHTML = `Lv.${mLvl} · <span style="color:${arch.color}; font-weight:bold;">${arch.icon} ${arch.label}</span>${diffText}`;
+    structure.level.innerHTML = `等級 ${mLvl} · <span style="color:${arch.color}; font-weight:bold;">${arch.icon} ${arch.label}</span>${diffText}`;
   }
 
   const curHp = Math.round(m.hp !== undefined ? m.hp : (m._maxHp || m.maxHp || 100));
@@ -3641,7 +3641,7 @@ export function renderZoneMap(state, callbacks = {}) {
               ${monsterCount} 種怪物 · 👑 ${bossName}
             </div>
             <button class="select-zone-btn" ${isLocked || isCurrent ? 'disabled' : ''}>
-              ${isCurrent ? '★ 目前在此狩獵' : isLvlLocked ? `🔒 需要 Lv.${reqLvl}` : isCpLocked ? `🔒 需要 ${(zoneProg?.minCp || 0).toLocaleString()} CP` : '在此區域狩獵'}
+              ${isCurrent ? '★ 目前在此狩獵' : isLvlLocked ? `🔒 需要等級 ${reqLvl}` : isCpLocked ? `🔒 需要 ${(zoneProg?.minCp || 0).toLocaleString()} CP` : '在此區域狩獵'}
             </button>
           </div>
         </div>
@@ -3994,8 +3994,8 @@ export function updateSkillUI(state, callbacks = {}) {
               <div class="locked-progress-fill" style="width: ${pct}%;"></div>
             </div>
             <div class="locked-progress-labels">
-              <span>目前等級： <strong>Lv.${state.level || 1}</strong></span>
-              <span>需求：<strong>Lv. 80</strong></span>
+              <span>目前等級： <strong>${state.level || 1}</strong></span>
+              <span>需求：<strong>等級 80</strong></span>
             </div>
           </div>
         </div>
@@ -4065,7 +4065,7 @@ export function updateSkillUI(state, callbacks = {}) {
           <span class="tab-icon">🌟</span>
           <span class="tab-label">終極</span>
           <span class="tab-count">(${viewModel.tabs[SKILL_TABS.ULTIMATE].count})</span>
-          ${!viewModel.tabs[SKILL_TABS.ULTIMATE].isUnlocked ? '<span class="tab-lock-pill">Lv.80</span>' : ''}
+          ${!viewModel.tabs[SKILL_TABS.ULTIMATE].isUnlocked ? '<span class="tab-lock-pill">等級 80</span>' : ''}
         </button>
       </div>
 
@@ -4352,7 +4352,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
   let btnLabel = maxed ? '✦ MAXED' : `Invest ${cost.toLocaleString()} SP`;
   if (isLocked) {
     const minLvl = Number(def.requiredLevel || def.reqLvl) || 1;
-    btnLabel = `🔒 [LOCKED — Lv. ${minLvl}]`;
+    btnLabel = `🔒 [已鎖定－等級 ${minLvl}]`;
   } else if (!maxed && requiresBookNow) {
     btnLabel = hasRequiredBook ? `📖 Consumir ${bName} & Aprender (${cost.toLocaleString()} SP)` : `🔒 Falta ${bName}`;
   }
@@ -4692,7 +4692,7 @@ export function updateImperialEconomyHeader(state) {
   const forgeEl = root.querySelector('#imp-res-forge');
   if (forgeEl) {
     const forgeLvl = state.accountForgeLevel || state.craftLevel || 1;
-    forgeEl.textContent = `Lv. ${forgeLvl}`;
+    forgeEl.textContent = `等級 ${forgeLvl}`;
   }
 
   const chargesEl = root.querySelector('#imp-res-charges');
@@ -6063,7 +6063,7 @@ export function updateCraftUI(state, callbacks = {}) {
       marketBadge.style.background = 'rgba(239,68,68,0.15)';
       marketBadge.style.borderColor = '#ef4444';
       marketBadge.style.color = '#fca5a5';
-      marketBadge.innerHTML = `🔒 市場：需要鍛造等級 10 （目前：Lv. ${forgeLvl}）`;
+      marketBadge.innerHTML = `🔒 市場：需要鍛造等級 10（目前：等級 ${forgeLvl}）`;
     }
   }
 
@@ -7152,7 +7152,7 @@ export function renderExpeditionsUI(state) {
             cursor:${isUnlocked && canAfford ? 'pointer' : 'not-allowed'};
           "
         >
-          ${!isUnlocked ? `🔒 Nv. ${dDef.minLevel}+` : `🧭 派遣（${(dDef.cost / 1000).toFixed(0)}k）`}
+          ${!isUnlocked ? `🔒 等級 ${dDef.minLevel}+` : `🧭 派遣（${(dDef.cost / 1000).toFixed(0)}k）`}
         </button>
       `;
     }
@@ -7195,7 +7195,7 @@ export function renderExpeditionsUI(state) {
                 box-shadow: ${isSelected ? '0 0 6px rgba(52,211,153,0.4)' : 'none'};
               "
             >
-              ${specDef.icon} ${merc.name} (Lv.${merc.level || 1}) ${isSelected ? '✓' : ''}
+              ${specDef.icon} ${merc.name}（等級 ${merc.level || 1}） ${isSelected ? '✓' : ''}
             </button>
           `;
         }
@@ -7362,7 +7362,7 @@ export function renderExpeditionsUI(state) {
           ${!canChallenge ? 'disabled' : ''}
           style="padding:8px 14px; font-family:'Cinzel',serif; font-weight:bold; font-size:11px; background:${canChallenge ? 'linear-gradient(180deg,#ef4444,#991b1b)' : 'rgba(60,50,40,0.5)'}; border:1px solid ${canChallenge ? '#fca5a5' : 'rgba(100,80,60,0.3)'}; color:${canChallenge ? '#fff' : '#777'}; border-radius:6px; cursor:${canChallenge ? 'pointer' : 'not-allowed'};"
         >
-          ${canChallenge ? '⚔️ 征服' : `🔒 Lv. ${cDef.reqLevel}+`}
+          ${canChallenge ? '⚔️ 征服' : `🔒 等級 ${cDef.reqLevel}+`}
         </button>
       `;
     }
@@ -7997,9 +7997,9 @@ export function renderForgeElemental(container, state) {
           <span class="l2-stat-pill">✨ 神聖 ↔ 黑暗 🌑（對不死族 +30%）</span>
         </div>
         <div style="font-size:10px; color:#94a3b8; margin-top:8px; display:flex; gap:12px; flex-wrap:wrap;">
-          <span>• <strong>C/B 級：</strong> Lv.40+（上限 +60）</span>
-          <span>• <strong>A 級：</strong> Lv.61+（上限 +150）</span>
-          <span>• <strong>S 級：</strong>Lv.76+（武器上限 +300／防具 +120）</span>
+          <span>• <strong>C/B 級：</strong> 等級 40+（上限 +60）</span>
+          <span>• <strong>A 級：</strong> 等級 61+（上限 +150）</span>
+          <span>• <strong>S 級：</strong>等級 76+（武器上限 +300／防具 +120）</span>
         </div>
       </div>
 
@@ -9916,7 +9916,7 @@ export function renderRaidsTab(container, state) {
           <div>
             <div style="font-family:'Cinzel',serif; font-weight:bold; color:#fde047; font-size:14px;">第一場團隊首領戰於等級 30 解鎖！</div>
             <div style="font-size:12px; color:#cbd5e1; margin-top:3px; line-height:1.4;">
-              世界 Raid 會在等級 20 的旅程中揭露。第一場大型戰鬥是對抗 <strong>蟻后（Queen Ant）</strong>，於 <strong>等級 30</strong> 開放。繼續在狩獵區提升角色並強化裝備，準備迎接挑戰！
+              世界團隊首領會在等級 20 的旅程中揭露。第一場大型戰鬥是對抗 <strong>蟻后</strong>，於 <strong>等級 30</strong> 開放。繼續在狩獵區提升角色並強化裝備，準備迎接挑戰！
             </div>
           </div>
         </div>
@@ -10259,7 +10259,7 @@ export function renderOlympiadTab(container, state) {
               <span>🏆 大奧林匹亞 與職業英雄</span>
             </h2>
             <p style="margin:0; font-size:12px; color:#cbd5e1; line-height:1.4;">
-              貴族專屬 1v1 排名決鬥（<strong>Lv.76+ 且 Noblesse</strong>）。爭奪 <strong>英雄</strong> 王冠、<strong>黃金光環</strong> 與 <strong>無限武器</strong>！
+              貴族專屬 1v1 排名決鬥（<strong>等級 76+ 且已取得貴族資格</strong>）。爭奪 <strong>英雄</strong> 王冠、<strong>黃金光環</strong> 與 <strong>無限武器</strong>！
             </p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
