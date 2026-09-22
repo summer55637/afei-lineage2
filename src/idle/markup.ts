@@ -1035,7 +1035,7 @@ export const IDLE_MARKUP = `
                 <div class="l2store-col l2store-right-col">
                   <div class="l2store-col-header">
                     <span id="shop-right-col-title">Purchase List</span>
-                    <button class="l2store-clear-cart-btn" id="shop-clear-cart-btn" title="Limpar lista">Limpar</button>
+                    <button class="l2store-clear-cart-btn" id="shop-clear-cart-btn" title="清空清單">清空</button>
                   </div>
                   <div class="l2store-grid-scroll" id="shop-purchase-list">
                     <!-- Itens no carrinho / selecionados para compra ou venda -->
@@ -1110,7 +1110,7 @@ export const IDLE_MARKUP = `
                   <div class="l2chat-npc-name" id="forge-npc-name">Blacksmith Wilbert:</div>
                   <div class="l2chat-npc-text" id="forge-npc-text">
                     哈哈！鐵匠可不只是打造盔甲、長矛和斧頭而已。沒有我們黑色鐵砧公會，亞丁城可不會有今天！<br><br>
-                    Oh, by the way, it's only rumors, but... I've heard that golems which were used to banish humans from our lands were constructed by our guild too. Who else could have invented such outstanding technology?
+                    對了，雖然只是傳聞……我聽說那些曾被用來驅逐人類的魔像，也是我們公會打造的。除了我們，還有誰能發明這種了不起的技術呢？
                   </div>
                 </div>
 
@@ -1255,7 +1255,7 @@ export const IDLE_MARKUP = `
                 <span class="z-badge" style="background:rgba(212,167,68,0.15); color:#f5df93; border:1px solid rgba(212,167,68,0.3); padding:2px 8px; border-radius:4px; font-size:11px;">開放世界</span>
               </div>
               <button class="action-btn" onclick="window.openInstancesModal()" style="padding:6px 14px; font-size:11px; background:linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); border:1px solid #818cf8; color:#e0e7ff; font-weight:bold; border-radius:6px; box-shadow:0 0 10px rgba(129,140,248,0.3); cursor:pointer; display:flex; align-items:center; gap:6px; transition:all 0.2s;" onmouseover="this.style.filter='brightness(1.15)'" onmouseout="this.style.filter='none'">
-                <span>🌀</span> <span>Menu Exclusivo: Kamaloka &amp; Pailaka</span>
+                <span>🌀</span> <span>專屬選單：Kamaloka 與 Pailaka</span>
               </button>
             </div>
 
@@ -1783,9 +1783,9 @@ export const IDLE_MARKUP = `
                 <button class="admin-preset-btn" data-rate-preset="classic">🛡️ 經典原始倍率（1x）</button>
                 <button class="admin-preset-btn" data-rate-preset="aden">⚔️ 亞丁動態倍率（3x）</button>
                 <button class="admin-preset-btn" data-rate-preset="mid">🔥 中倍率（10x）</button>
-                <button class="admin-preset-btn" data-rate-preset="high">👑 High-Rate (50x)</button>
-                <button class="admin-preset-btn" data-rate-preset="turbo">⚡ Turbo PvP (100x)</button>
-                <button class="admin-preset-btn danger" data-rate-preset="reset" style="margin-left:auto;">🔄 Resetar (1x)</button>
+                <button class="admin-preset-btn" data-rate-preset="high">👑 高倍率（50x）</button>
+                <button class="admin-preset-btn" data-rate-preset="turbo">⚡ 極速 PvP（100x）</button>
+                <button class="admin-preset-btn danger" data-rate-preset="reset" style="margin-left:auto;">🔄 重設（1x）</button>
               </div>
             </div>
 
@@ -1807,7 +1807,7 @@ export const IDLE_MARKUP = `
                   <button class="rate-pill-btn" data-rate-set="xp:100">100x</button>
                 </div>
                 <div class="rate-custom-row">
-                  <input type="number" id="admin-rate-inp-xp" class="admin-num-input" placeholder="Multiplicador (ex: 15)" min="0.1" max="1000" step="0.5" />
+                  <input type="number" id="admin-rate-inp-xp" class="admin-num-input" placeholder="倍率（例如：15）" min="0.1" max="1000" step="0.5" />
                   <button class="admin-apply-btn" data-rate-apply="xp">套用</button>
                 </div>
               </div>
@@ -1815,7 +1815,7 @@ export const IDLE_MARKUP = `
               <!-- 2. SP Rate -->
               <div class="admin-rate-card" data-rate-key="sp">
                 <div class="rate-card-header">
-                  <span class="rate-title">✦ Rate de Skill Points (SP)</span>
+                  <span class="rate-title">✦ 技能點數倍率（SP）</span>
                   <span id="rate-val-sp" class="rate-badge">x1.0</span>
                 </div>
                 <div class="rate-btn-row">
@@ -1828,7 +1828,7 @@ export const IDLE_MARKUP = `
                   <button class="rate-pill-btn" data-rate-set="sp:100">100x</button>
                 </div>
                 <div class="rate-custom-row">
-                  <input type="number" id="admin-rate-inp-sp" class="admin-num-input" placeholder="Multiplicador (ex: 15)" min="0.1" max="1000" step="0.5" />
+                  <input type="number" id="admin-rate-inp-sp" class="admin-num-input" placeholder="倍率（例如：15）" min="0.1" max="1000" step="0.5" />
                   <button class="admin-apply-btn" data-rate-apply="sp">套用</button>
                 </div>
               </div>
@@ -1870,7 +1870,7 @@ export const IDLE_MARKUP = `
                   <button class="rate-pill-btn" data-rate-set="drop:50">50x</button>
                 </div>
                 <div class="rate-custom-row">
-                  <input type="number" id="admin-rate-inp-drop" class="admin-num-input" placeholder="Multiplicador (ex: 5)" min="0.1" max="1000" step="0.5" />
+                  <input type="number" id="admin-rate-inp-drop" class="admin-num-input" placeholder="倍率（例如：5）" min="0.1" max="1000" step="0.5" />
                   <button class="admin-apply-btn" data-rate-apply="drop">套用</button>
                 </div>
               </div>
@@ -1890,7 +1890,7 @@ export const IDLE_MARKUP = `
                   <button class="rate-pill-btn" data-rate-set="spoil:20">20x</button>
                 </div>
                 <div class="rate-custom-row">
-                  <input type="number" id="admin-rate-inp-spoil" class="admin-num-input" placeholder="Multiplicador (ex: 5)" min="0.1" max="1000" step="0.5" />
+                  <input type="number" id="admin-rate-inp-spoil" class="admin-num-input" placeholder="倍率（例如：5）" min="0.1" max="1000" step="0.5" />
                   <button class="admin-apply-btn" data-rate-apply="spoil">套用</button>
                 </div>
               </div>
@@ -1902,14 +1902,14 @@ export const IDLE_MARKUP = `
                   <span id="rate-val-enchant" class="rate-badge">x1.0</span>
                 </div>
                 <div class="rate-btn-row">
-                  <button class="rate-pill-btn" data-rate-set="enchant:1">1.0x (Padrão)</button>
+                  <button class="rate-pill-btn" data-rate-set="enchant:1">1.0x（標準）</button>
                   <button class="rate-pill-btn" data-rate-set="enchant:1.2">1.2x (+20%)</button>
                   <button class="rate-pill-btn" data-rate-set="enchant:1.5">1.5x (+50%)</button>
                   <button class="rate-pill-btn" data-rate-set="enchant:2">2.0x (2x)</button>
-                  <button class="rate-pill-btn" data-rate-set="enchant:3">3.0x (Ultra)</button>
+                  <button class="rate-pill-btn" data-rate-set="enchant:3">3.0x（極高）</button>
                 </div>
                 <div class="rate-custom-row">
-                  <input type="number" id="admin-rate-inp-enchant" class="admin-num-input" placeholder="Multiplicador (ex: 1.5)" min="0.1" max="10" step="0.1" />
+                  <input type="number" id="admin-rate-inp-enchant" class="admin-num-input" placeholder="倍率（例如：1.5）" min="0.1" max="10" step="0.1" />
                   <button class="admin-apply-btn" data-rate-apply="enchant">套用</button>
                 </div>
               </div>
@@ -1917,7 +1917,7 @@ export const IDLE_MARKUP = `
               <!-- 7. Spellbooks Drop Rate -->
               <div class="admin-rate-card" data-rate-key="book">
                 <div class="rate-card-header">
-                  <span class="rate-title">📖 Rate de Drop de Grimórios (1★ a 4★)</span>
+                  <span class="rate-title">📖 技能書掉落倍率（1★～4★）</span>
                   <span id="rate-val-book" class="rate-badge">x1.0</span>
                 </div>
                 <div class="rate-btn-row">
@@ -1928,7 +1928,7 @@ export const IDLE_MARKUP = `
                   <button class="rate-pill-btn" data-rate-set="book:20">20x</button>
                 </div>
                 <div class="rate-custom-row">
-                  <input type="number" id="admin-rate-inp-book" class="admin-num-input" placeholder="Multiplicador (ex: 5)" min="0.1" max="100" step="0.5" />
+                  <input type="number" id="admin-rate-inp-book" class="admin-num-input" placeholder="倍率（例如：5）" min="0.1" max="100" step="0.5" />
                   <button class="admin-apply-btn" data-rate-apply="book">套用</button>
                 </div>
               </div>
@@ -2183,7 +2183,7 @@ export const IDLE_MARKUP = `
       <button class="mobile-nav-btn" data-tab="inventory"><span class="icon">🎒</span><span>背包</span></button>
       <button class="mobile-nav-btn" data-tab="hero"><span class="icon">👤</span><span>角色</span></button>
       <button class="mobile-nav-btn" data-tab="skills"><span class="icon">✦</span><span>Skills</span></button>
-      <button class="mobile-nav-btn" data-tab="codex"><span class="icon">📜</span><span>Codex</span></button>
+      <button class="mobile-nav-btn" data-tab="codex"><span class="icon">📜</span><span>圖鑑</span></button>
       <button class="mobile-nav-btn" data-tab="shop"><span class="icon">🛒</span><span>商店</span></button>
     </nav>
   </div>
