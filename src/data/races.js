@@ -6,7 +6,7 @@ export const RACES = {
   human: {
     id: "human",
     name: "Human",
-    desc: "Versáteis, equilibrados em combate e magia.",
+    desc: "多才多藝，在戰鬥與魔法之間取得良好平衡。",
     startZone: "talkingIsland",
     stats: { atk: 0, def: 0, eva: 0, matk: 0, mdef: 0, crit: 0, hp: 0, mp: 0 }
   },
@@ -20,28 +20,28 @@ export const RACES = {
   darkelf: {
     id: "darkelf",
     name: "Dark Elf",
-    desc: "Sombrios, dano crítico e magia negra devastadora.",
+    desc: "擅長致命暴擊與毀滅性的黑暗魔法。",
     startZone: "talkingIsland",
     stats: { atk: 2, def: -2, eva: 4, matk: 6, mdef: 2, crit: 4, hp: -3, mp: 3 }
   },
   orc: {
     id: "orc",
     name: "Orc",
-    desc: "Resistentes, força bruta e HP elevado.",
+    desc: "體魄強韌，擁有強大力量與較高生命值。",
     startZone: "talkingIsland",
     stats: { atk: 4, def: 6, eva: -4, matk: -2, mdef: -2, crit: 0, hp: 15, mp: -5 }
   },
   dwarf: {
     id: "dwarf",
     name: "Dwarf",
-    desc: "Mestres artesãos com bônus de loot e craft.",
+    desc: "精通工藝製作，並具有額外掉落與製作加成。",
     startZone: "talkingIsland",
     stats: { atk: 0, def: 4, eva: -2, matk: 0, mdef: 0, crit: 0, hp: 10, mp: 0, lootBonus: 15 }
   },
   kamael: {
     id: "kamael",
     name: "Kamael",
-    desc: "Ágeis e mortais, especialistas em alma e espada.",
+    desc: "身手敏捷且致命，精通靈魂之力與劍術。",
     startZone: "talkingIsland",
     stats: { atk: 6, def: -2, eva: 6, matk: 0, mdef: 0, crit: 4, hp: 0, mp: 0 }
   },
@@ -62,7 +62,7 @@ export const RACES = {
   ertheia: {
     id: "ertheia",
     name: "Ertheia",
-    desc: "Guerreiros do vento com alto potencial mágico.",
+    desc: "駕馭風之力的戰士，擁有優秀的魔法潛力。",
     startZone: "talkingIsland",
     stats: { atk: 2, def: 0, eva: 10, matk: 4, mdef: 0, crit: 2, hp: 0, mp: 5 }
   }
