@@ -34,7 +34,7 @@ export const CLAN_LEVEL_DATA = {
     reqCharLevel: 55,
     costAdena: 2000000,
     costSp: 200000,
-    reqItem: { id: 'blood_mark', name: 'Marca de Sangue (Blood Mark)', count: 1 },
+    reqItem: { id: 'blood_mark', name: '血之印記（Blood Mark）', count: 1 },
     maxMembers: 60,
     unlockedSkills: ['clan_shield'],
     desc: '受到貴族認可的血盟，解鎖血盟護盾（+P.Def）。'
@@ -52,7 +52,7 @@ export const CLAN_LEVEL_DATA = {
   },
   5: {
     level: 5,
-    title: 'Ordem Imperial do Reino',
+    title: '王國帝國騎士團',
     reqCharLevel: 76,
     costAdena: 25000000,
     costSp: 1500000,
@@ -66,7 +66,7 @@ export const CLAN_LEVEL_DATA = {
 export const CLAN_SKILLS = {
   clan_imperium: {
     id: 'clan_imperium',
-    name: 'Clan Imperium 🛡️',
+    name: '血盟帝國 🛡️',
     levelReq: 1,
     icon: 'gradespecial/scrolls/scroll_blessed_armor_s.png',
     desc: '成員最大 HP +10%、最大 CP +15%。',
@@ -74,7 +74,7 @@ export const CLAN_SKILLS = {
   },
   clan_might: {
     id: 'clan_might',
-    name: 'Clan Might ⚔️',
+    name: '血盟力量 ⚔️',
     levelReq: 2,
     icon: 'gradespecial/scrolls/scroll_enchant_weapon_a.png',
     desc: '物理 P.Atk +8%。',
@@ -82,7 +82,7 @@ export const CLAN_SKILLS = {
   },
   clan_shield: {
     id: 'clan_shield',
-    name: 'Clan Shield 🛡️',
+    name: '血盟護盾 🛡️',
     levelReq: 3,
     icon: 'gradespecial/scrolls/scroll_enchant_armor_a.png',
     desc: '物理 P.Def +10%。',
@@ -90,7 +90,7 @@ export const CLAN_SKILLS = {
   },
   clan_empower: {
     id: 'clan_empower',
-    name: 'Clan Empower 🔮',
+    name: '血盟增幅 🔮',
     levelReq: 4,
     icon: 'gradespecial/scrolls/scroll_enchant_weapon_s.png',
     desc: '魔法 M.Atk +10%。',
@@ -98,7 +98,7 @@ export const CLAN_SKILLS = {
   },
   clan_magic_barrier: {
     id: 'clan_magic_barrier',
-    name: 'Clan Magic Barrier 🌌',
+    name: '血盟魔法屏障 🌌',
     levelReq: 4,
     icon: 'gradespecial/scrolls/scroll_blessed_armor_s.png',
     desc: '魔法 M.Def +12%。',
@@ -106,7 +106,7 @@ export const CLAN_SKILLS = {
   },
   clan_vitality: {
     id: 'clan_vitality',
-    name: 'Clan Vitality 💚',
+    name: '血盟活力 💚',
     levelReq: 5,
     icon: 'gradespecial/potions/potion_mana_xl.png',
     desc: 'HP／MP 恢復速度 +20%，移動速度 +5。',
