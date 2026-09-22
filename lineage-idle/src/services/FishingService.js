@@ -128,7 +128,7 @@ export const FishingService = {
       fState.activeBait = baitId;
     }
 
-    if (callbacks.log) callbacks.log(`🛒 Comprou **${count}x ${bait.name}** por ${totalCost.toLocaleString()} Adena.`, 'gain');
+    if (callbacks.log) callbacks.log(`🛒 已購買 **${count}x ${bait.name}**，花費 ${totalCost.toLocaleString()} 金幣。`, 'gain');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -201,7 +201,7 @@ export const FishingService = {
     state.gold -= totalRepairCost;
     fState.rodDurability[rodId] = rod.durability;
 
-    if (callbacks.log) callbacks.log(`🔨 Ferreiro restaurou a **${rod.name}** (+${missing} durabilidade) por ${totalRepairCost.toLocaleString()} Adena.`, 'gain');
+    if (callbacks.log) callbacks.log(`🔨 鐵匠已修復 **${rod.name}**（+${missing} 耐久度），花費 ${totalRepairCost.toLocaleString()} 金幣。`, 'gain');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -225,14 +225,14 @@ export const FishingService = {
     const currentRodKey = fState.rod || 'rod_none';
     const currentDurability = fState.rodDurability[currentRodKey] ?? 0;
     if (currentRodKey !== 'rod_none' && currentDurability <= 0) {
-      if (callbacks.log) callbacks.log(`⚠️ Sua vara de pesca quebrou ou está com 0 de durabilidade! Conserte-a no ferreiro para lançar a linha.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 你的釣竿已損壞或耐久度為 0！請先找鐵匠修理後再拋竿。`, 'warning');
       return { success: false, reason: 'broken_tool' };
     }
 
     const zoneId = this.resolveZoneId(fState.activeZone) || 'zone_talking_island';
     const zone = FISHING_ZONES[zoneId];
     if (!zone) {
-      if (callbacks.log) callbacks.log(`⚠️ Selecione uma zona de pesca primeiro.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 請先選擇釣魚區。`, 'warning');
       return { success: false, reason: 'no_zone' };
     }
 
@@ -241,7 +241,7 @@ export const FishingService = {
       const baitCount = fState.baitInventory[zone.requiredBait] || 0;
       if (fState.activeBait !== zone.requiredBait || baitCount <= 0) {
         const requiredBaitDef = BAIT_CATALOG[zone.requiredBait];
-        if (callbacks.log) callbacks.log(`⚠️ As águas de ${zone.name} exigem **${requiredBaitDef ? requiredBaitDef.name : zone.requiredBait}**!`, 'warning');
+        if (callbacks.log) callbacks.log(`⚠️ ${zone.name} 水域需要 **${requiredBaitDef ? requiredBaitDef.name : zone.requiredBait}**！`, 'warning');
         return { success: false, reason: 'invalid_bait' };
       }
     }
@@ -271,7 +271,7 @@ export const FishingService = {
 
     const castDuration = zone.baseCatchTime || FISHING_BALANCE.MANUAL_CAST_TIME_MS;
 
-    if (callbacks.log) callbacks.log(`🌊 Linha lançada em **${zone.name}**... Aguarde a boia afundar!`, 'system');
+    if (callbacks.log) callbacks.log(`🌊 已在 **${zone.name}** 拋竿……等待浮標下沉！`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
 
     return { success: true, castTime: castDuration };
@@ -325,7 +325,7 @@ export const FishingService = {
     };
 
     if (callbacks.log) {
-      callbacks.log(`🌊🎣 **PEIXE FISGADO!** Um **${fishDef.name}** [${profile.name}] mordeu a isca! Equilibre a tensão e esgote a stamina!`, 'rarity-epic');
+      callbacks.log(`🌊🎣 **魚上鉤了！** 一隻 **${fishDef.name}** [${profile.name}] 咬餌！控制張力並耗盡牠的耐力！`, 'rarity-epic');
     }
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     return { success: true, fight: fState.activeFight };
@@ -341,7 +341,7 @@ export const FishingService = {
     fight.lineTension += Math.round(18 * (fight.profile.tensionRate || 1.0));
     fight.turns++;
 
-    return this._resolveFightTurn(state, fState, fight, 'Você recolheu a linha (+Controle, +Tensão).', callbacks);
+    return this._resolveFightTurn(state, fState, fight, '你收緊魚線（+控制、+張力）。', callbacks);
   },
 
   actionYield(state, callbacks = {}) {
@@ -354,7 +354,7 @@ export const FishingService = {
     fight.fishStamina = Math.min(fight.maxStamina, fight.fishStamina + Math.round(7 * (fight.profile.recoverRate || 1.0)));
     fight.turns++;
 
-    return this._resolveFightTurn(state, fState, fight, 'Você cedeu linha para aliviar o freio (-Tensão, Peixe recuperou fôlego).', callbacks);
+    return this._resolveFightTurn(state, fState, fight, '你放鬆魚線以降低壓力（-張力，魚恢復部分體力）。', callbacks);
   },
 
   actionForce(state, callbacks = {}) {
@@ -367,7 +367,7 @@ export const FishingService = {
     fight.lineTension += Math.round(42 * (fight.profile.tensionRate || 1.0));
     fight.turns++;
 
-    return this._resolveFightTurn(state, fState, fight, '⚡ PUXÃO FORTE! Dano massivo na stamina do peixe, mas a linha esticou ao limite!', callbacks);
+    return this._resolveFightTurn(state, fState, fight, '⚡ 強力拉竿！大幅削減魚的耐力，但魚線張力也逼近極限！', callbacks);
   },
 
   actionRest(state, callbacks = {}) {
@@ -379,7 +379,7 @@ export const FishingService = {
     fight.fishStamina = Math.min(fight.maxStamina, fight.fishStamina + 3);
     fight.turns++;
 
-    return this._resolveFightTurn(state, fState, fight, 'Você estabilizou a postura (-Tensão moderada).', callbacks);
+    return this._resolveFightTurn(state, fState, fight, '你穩定姿勢（降低中量張力）。', callbacks);
   },
 
   _resolveFightTurn(state, fState, fight, actionMsg, callbacks = {}) {
@@ -392,8 +392,8 @@ export const FishingService = {
     if (isBurst) {
       const burstTension = Math.round(16 * (profile.tensionRate || 1.0));
       fight.lineTension += burstTension;
-      log(`⚠️ O peixe deu uma arrancada violenta! (+${burstTension}% Tensão)`, 'warning');
-      if (floatText) floatText('ARRANCADA DO PEIXE!', 'float-damage');
+      log(`⚠️ 魚突然猛烈衝刺！（張力 +${burstTension}%）`, 'warning');
+      if (floatText) floatText('魚猛烈衝刺！', 'float-damage');
     } else {
       fight.playerControl = Math.max(0, fight.playerControl - 4);
     }
@@ -403,12 +403,12 @@ export const FishingService = {
       fight.status = 'line_broken';
       fState.isFishing = false;
       fState.activeFight = null;
-      log('💥 **A LINHA ARREBENTOU!** A tensão passou do limite suportado. O peixe escapou com o anzol!', 'error');
-      if (floatText) floatText('💥 LINHA ARREBENTOU!', 'float-damage');
+      log('💥 **魚線斷裂！** 張力超過承受上限，魚帶著魚鉤逃走了！', 'error');
+      if (floatText) floatText('💥 魚線斷裂！', 'float-damage');
       LifeActivityCore.consumeDurability(state, 'fishing', callbacks);
       if (callbacks.updateAllUI) callbacks.updateAllUI();
       if (callbacks.save) callbacks.save();
-      return { status: 'line_broken', message: 'A linha arrebentou!' };
+      return { status: 'line_broken', message: '魚線斷裂！' };
     }
 
     // 2. Checa fuga do peixe por perda de controle
@@ -416,11 +416,11 @@ export const FishingService = {
       fight.status = 'fish_escaped';
       fState.isFishing = false;
       fState.activeFight = null;
-      log('💨 **O PEIXE ESCAPOU!** Você perdeu o controle da carretilha e o peixe se desvencilhou.', 'warning');
-      if (floatText) floatText('💨 PEIXE ESCAPOU!', 'float-miss');
+      log('💨 **魚逃走了！** 你失去對捲線器的控制，魚成功脫逃。', 'warning');
+      if (floatText) floatText('💨 魚逃走了！', 'float-miss');
       if (callbacks.updateAllUI) callbacks.updateAllUI();
       if (callbacks.save) callbacks.save();
-      return { status: 'fish_escaped', message: 'O peixe escapou!' };
+      return { status: 'fish_escaped', message: '魚逃走了！' };
     }
 
     // 3. Checa captura com sucesso
@@ -492,7 +492,7 @@ export const FishingService = {
     const fState = this.getFishingState(state);
 
     if (fState.skillLevel < FISHING_BALANCE.AUTO_FISH_UNLOCK_LEVEL) {
-      if (callbacks.log) callbacks.log(`🔒 釣魚 Automática requer Nível de 釣魚 ${FISHING_BALANCE.AUTO_FISH_UNLOCK_LEVEL}+! Continue pescando manualmente para aprimorar sua técnica.`, 'warning');
+      if (callbacks.log) callbacks.log(`🔒 自動釣魚需要釣魚等級 ${FISHING_BALANCE.AUTO_FISH_UNLOCK_LEVEL} 以上！請先繼續手動釣魚提升技巧。`, 'warning');
       return false;
     }
 
@@ -500,10 +500,10 @@ export const FishingService = {
     fState.lastAutoTick = Date.now();
 
     if (fState.autoFishing) {
-      if (callbacks.log) callbacks.log(`🤖 **釣魚 Automática Ativada!** Seu personagem pescará em segundo plano enquanto houver iscas e durabilidade.`, 'gain');
+      if (callbacks.log) callbacks.log(`🤖 **自動釣魚已啟用！** 只要還有魚餌與耐久度，角色就會在背景持續釣魚。`, 'gain');
       if (callbacks.floatText) callbacks.floatText(`🎣 釣魚 AFK Ativada!`, 'float-gold');
     } else {
-      if (callbacks.log) callbacks.log(`🛑 釣魚 Automática pausada.`, 'system');
+      if (callbacks.log) callbacks.log(`🛑 自動釣魚已暫停。`, 'system');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -536,7 +536,7 @@ export const FishingService = {
           fState.activeBait = nextBait;
         } else {
           fState.autoFishing = false;
-          if (callbacks.log) callbacks.log(`⚠️ Suas iscas acabaram! A 釣魚 Automática foi interrompida.`, 'warning');
+          if (callbacks.log) callbacks.log(`⚠️ 魚餌已用完！自動釣魚已停止。`, 'warning');
           break;
         }
       }
@@ -659,7 +659,7 @@ export const FishingService = {
     const reqRate = fish.exchangeRate || 5;
 
     if (ownedCount < reqRate) {
-      if (callbacks.log) callbacks.log(`⚠️ Quantidade insuficiente de ${fish.name}! Requer no mínimo ${reqRate}x peixes para realizar a troca com o Mestre de 釣魚.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ ${fish.name} 數量不足！至少需要 ${reqRate}x 才能向釣魚大師進行兌換。`, 'warning');
       return { success: false, reason: 'insufficient_fish' };
     }
 
@@ -676,7 +676,7 @@ export const FishingService = {
     addToInventory(state, canonicalMatId, packages, 'common', false, callbacks, true);
 
     if (callbacks.log) {
-      callbacks.log(`📦 Entregou **${countToExchange}x ${fish.name}** e recebeu **${packages}x ${fish.materialName}** para sua Forja!`, 'rarity-legendary');
+      callbacks.log(`📦 已交付 **${countToExchange}x ${fish.name}**，獲得 **${packages}x ${fish.materialName}** 作為鍛造材料！`, 'rarity-legendary');
     }
     if (callbacks.floatText) {
       callbacks.floatText(`+${packages}x ${fish.materialName}!`, 'float-gold');
@@ -721,7 +721,7 @@ export const FishingService = {
       leveledUp = true;
 
       if (callbacks.log) {
-        callbacks.log(`🎉 **NÍVEL DE PESCA AUMENTOU!** Você alcançou o Nível **${fState.skillLevel}** em 釣魚 de Aden!`, 'rarity-legendary');
+        callbacks.log(`🎉 **釣魚等級提升！** 你的亞丁釣魚等級已達 **${fState.skillLevel}**！`, 'rarity-legendary');
       }
       if (callbacks.floatText) {
         callbacks.floatText(`釣魚 Nv. ${fState.skillLevel}!`, 'float-crit');
