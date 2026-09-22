@@ -180,11 +180,11 @@ export const ExpeditionService = {
     if (callbacks.log) {
       const hours = (finalDuration / 3600000).toFixed(1);
       const squadCount = validSquadUids.length;
-      const squadInfo = squadCount > 0 ? `com ${squadCount} mercenário(s) escalado(s)` : `em expedição solo`;
+      const squadInfo = squadCount > 0 ? `已編入 ${squadCount} 名傭兵` : `單人遠征`;
       const dirName = RISK_DIRECTIVES[directive]?.name || 'Equilibrada';
-      callbacks.log(`🧭 小隊 despachado para **${dest.name}** ${squadInfo} [Diretriz: ${dirName}]! Duração estimada: ${hours}h.`, 'loot');
+      callbacks.log(`🧭 小隊已派往 **${dest.name}**，${squadInfo}【方針：${dirName}】！預計時間：${hours} 小時。`, 'loot');
       if (synergies.activePerks.length > 0) {
-        callbacks.log(`⚡ Sinergias & Traços: ${synergies.activePerks.join(' | ')}`, 'system');
+        callbacks.log(`⚡ 協同與特性：${synergies.activePerks.join(' | ')}`, 'system');
       }
     }
 
@@ -202,7 +202,7 @@ export const ExpeditionService = {
     const expIdx = list.findIndex(e => e.id === expeditionId);
     if (expIdx < 0) {
       if (Array.isArray(state.claimedExpeditionIds) && state.claimedExpeditionIds.includes(expeditionId)) {
-        if (callbacks.log) callbacks.log('⚠️ As recompensas desta expedição já foram resgatadas!', 'warning');
+        if (callbacks.log) callbacks.log('⚠️ 此遠征的獎勵已經領取！', 'warning');
         return { success: false, reason: 'already_claimed' };
       }
       return { success: false, reason: 'not_found' };
@@ -210,7 +210,7 @@ export const ExpeditionService = {
 
     const exp = list[expIdx];
     if (exp.claimed) {
-      if (callbacks.log) callbacks.log('⚠️ As recompensas desta expedição já foram resgatadas!', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 此遠征的獎勵已經領取！', 'warning');
       return { success: false, reason: 'already_claimed' };
     }
 
@@ -221,7 +221,7 @@ export const ExpeditionService = {
     if (now - exp.startTime < exp.duration) {
       const remainingSec = Math.ceil((exp.startTime + exp.duration - now) / 1000);
       const mins = Math.ceil(remainingSec / 60);
-      if (callbacks.log) callbacks.log(`⚠️ Este esquadrão ainda está explorando! Retorno em aproximadamente ${mins} minutos.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 此小隊仍在探索中！約 ${mins} 分鐘後返回。`, 'warning');
       return { success: false, reason: 'in_progress' };
     }
 
@@ -316,12 +316,12 @@ export const ExpeditionService = {
     list.splice(expIdx, 1);
 
     if (callbacks.log) {
-      let msg = `🎁 **遠征 a ${dest.name} concluída com êxito!** Saque: +${goldEarned.toLocaleString()} Adena, +${shards} Cacos Astrais`;
+      let msg = `🎁 **前往 ${dest.name} 的遠征成功完成！** 戰利品：+${goldEarned.toLocaleString()} 金幣、+${shards} 星界碎片`;
       if (materialsRewarded.length > 0) {
         msg += ` e recursos vitais coletados`;
       }
       if (bonusChestAwarded) {
-        msg += `! 🗝️ **Baú Secreto arrombado pelo Ladino!** (+2 Pergaminhos de Encantamento)`;
+        msg += `！🗝️ **盜賊成功撬開秘密寶箱！**（+2 強化卷軸）`;
       }
       callbacks.log(msg, 'rarity-legendary');
     }
@@ -367,13 +367,13 @@ export const ExpeditionService = {
           MercenaryService.addMercenaryXp(state, mercUid, 300, callbacks);
         }
       }
-      if (callbacks.log) callbacks.log(`⚖️ Dilema Resolvido (${dilemma.name}): ${option.name}! 傭兵s ganharam bônus de EXP.`, 'system');
+      if (callbacks.log) callbacks.log(`⚖️ 事件抉擇完成（${dilemma.name}）：${option.name}！傭兵獲得 EXP 加成。`, 'system');
     } else if (option.result === 'force' || option.result === 'pick') {
       const bonusShards = option.result === 'pick' ? 5 : 2;
       state.astralShards = (state.astralShards || 0) + bonusShards;
       if (callbacks.log) callbacks.log(`⚖️ Dilema Resolvido (${dilemma.name}): ${option.name}! +${bonusShards} Cacos Astrais.`, 'loot');
     } else {
-      if (callbacks.log) callbacks.log(`⚖️ Dilema Resolvido (${dilemma.name}): A caravana prosseguiu com segurança.`, 'system');
+      if (callbacks.log) callbacks.log(`⚖️ 事件抉擇完成（${dilemma.name}）：商隊安全繼續前進。`, 'system');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
