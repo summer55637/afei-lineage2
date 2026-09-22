@@ -52,7 +52,7 @@ export class SevenSignsService {
     const invItem = inv.find(i => (i.id === stoneId || i.itemId === stoneId));
     const available = invItem ? (invItem.count || 1) : 0;
     if (available < count) {
-      return { success: false, message: `你沒有 ${count}x ${def.name}。` };
+      return { success: false, message: `你沒有 ${count}× ${def.name}。` };
     }
 
     // Deduz do inventário
@@ -74,7 +74,7 @@ export class SevenSignsService {
       ss.duskScore += aaGained;
     }
 
-    hooks.log?.(`🏛️ 你交付了 **${count}x ${def.name}**，獲得 **+${aaGained.toLocaleString()} 古代金幣**！`, 'gain');
+    hooks.log?.(`🏛️ 你交付了 **${count}× ${def.name}**，獲得 **+${aaGained.toLocaleString()} 古代金幣**！`, 'gain');
     hooks.onUpdate?.();
     return { success: true, aaGained, totalAA: ss.ancientAdena };
   }
