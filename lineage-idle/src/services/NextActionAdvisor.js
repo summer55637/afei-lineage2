@@ -32,14 +32,14 @@ export class NextActionAdvisor {
       return {
         priority: ADVISOR_PRIORITIES.MILESTONE,
         category: 'MILESTONE',
-        title: 'Boas-vindas a Aden',
+        title: '歡迎來到亞丁',
         description: '探索狩獵區並展開你的史詩旅程。',
         actionText: '⚔️ Explorar Zonas',
         actionTab: 'zones',
         actionType: 'NAVIGATE',
         currentCp: 0,
         icon: '⚔️',
-        badge: 'Jornada'
+        badge: '旅程'
       };
     }
 
@@ -65,7 +65,7 @@ export class NextActionAdvisor {
             actionPayload: proposal,
             currentCp,
             icon: '⬆️',
-            badge: 'Upgrade'
+            badge: '升級'
           };
         } else {
           return {
@@ -79,7 +79,7 @@ export class NextActionAdvisor {
             actionPayload: proposal,
             currentCp,
             icon: '⚡',
-            badge: 'P0 Auto-Equip'
+            badge: 'P0 自動裝備'
           };
         }
       }
@@ -116,7 +116,7 @@ export class NextActionAdvisor {
               return {
                 priority: ADVISOR_PRIORITIES.ENCHANT,
                 category: 'ENCHANT',
-                title: '✨ Oportunidade de Encantamento',
+                title: '✨ 強化機會',
                 description: `你有 ${scrollDef.name || '卷軸'} 可強化 ${eqDef.name}（+${currentEnc} → +${currentEnc + 1}）。`,
                 actionText: `✨ Encantar ${eqDef.name} (${chance}% Chance)`,
                 actionTab: 'inventory',
@@ -124,7 +124,7 @@ export class NextActionAdvisor {
                 actionPayload: { scrollUid: scrollItem.uid, targetUid: eqItem.uid },
                 currentCp,
                 icon: '✨',
-                badge: 'Refino'
+                badge: '精煉'
               };
             }
           }
@@ -169,7 +169,7 @@ export class NextActionAdvisor {
             actionPayload: { itemId: targetDef.id || rec.itemId },
             currentCp,
             icon: '⚒️',
-            badge: 'Forja'
+            badge: '鍛造'
           };
         }
       }
@@ -221,7 +221,7 @@ export class NextActionAdvisor {
       progressPercent: progressPct,
       targetName,
       icon: '🎯',
-      badge: 'Progresso'
+      badge: '進度'
     };
   }
 
