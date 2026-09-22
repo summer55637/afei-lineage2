@@ -377,7 +377,7 @@ export function craftElixir(state, recipeId, qty = 1, callbacks = {}) {
 
   if (recipe.isItem) {
     addToInventory(state, recipe.itemId || recipeId, count, 'rare', false, { log, updateAllUI, save }, true);
-    log(`🧪 鍊金：製作了 ${count}x [${recipe.name}] 並放入背包！`, 'loot');
+    log(`🧪 鍊金：製作了 ${count}×【${recipe.name}】並放入背包！`, 'loot');
   } else {
     if (!state.activeElixirs) state.activeElixirs = {};
     if (!state.buffs) state.buffs = {};
@@ -509,7 +509,7 @@ export function processChaosBossLoot(state, monster, callbacks = {}) {
     for (const drop of droplist.guaranteed) {
       addToInventory(state, drop.itemId, drop.count || 1, drop.rarity || 'rare', false, callbacks, true);
       const def = getItemDef(drop.itemId) || { name: drop.itemId };
-      log(`🎁 混沌保證掉落：獲得 ${drop.count || 1}x [${def.name}]！`, 'loot');
+      log(`🎁 混沌保證掉落：獲得 ${drop.count || 1}×【${def.name}】！`, 'loot');
     }
   }
 
