@@ -377,7 +377,7 @@ export function renderMiningUI(state) {
           <div style="margin-top:12px; background:rgba(24,20,18,0.85); border:1px solid rgba(245,158,11,0.25); border-radius:8px; padding:12px; display:flex; justify-content:space-between; align-items:center;">
             <div>
               <div style="display:flex; align-items:center; gap:6px;">
-                <strong style="font-size:13px; color:#f4d58a;">⛏️ 自動採礦 (AFK)</strong>
+                <strong style="font-size:13px; color:#f4d58a;">⛏️ 自動採礦（掛機）</strong>
                 <span style="font-size:10px; background:${isAfkUnlocked ? 'rgba(245,158,11,0.2)' : 'rgba(239,68,68,0.2)'}; color:${isAfkUnlocked ? '#fbbf24' : '#fca5a5'}; padding:1px 6px; border-radius:4px; font-weight:bold;">
                   ${isAfkUnlocked ? '已解鎖' : '需要採礦等級 5'}
                 </span>
