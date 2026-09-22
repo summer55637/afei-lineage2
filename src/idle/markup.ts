@@ -1155,7 +1155,7 @@ export const IDLE_MARKUP = `
                     </div>
                   </div>
                   <button onclick="window.openMarketTab ? window.openMarketTab() : (window.openPanel && window.openPanel('market'))" style="font-size:11px; font-weight:bold; padding:7px 14px; border-radius:6px; background:linear-gradient(180deg, #261f10 0%, #141008 100%); border:1px solid #d4a744; color:#fde047; cursor:pointer; font-family:'Cinzel',serif; display:flex; align-items:center; gap:6px; box-shadow:0 0 10px rgba(212,167,68,0.25);">
-                    🏛️ 市場 P2P ➔
+                    🏛️ 玩家交易市場 ➔
                   </button>
                 </div>
 
@@ -1304,7 +1304,7 @@ export const IDLE_MARKUP = `
                   亞丁魔法神燈
                 </h3>
                 <p style="margin: 0; font-size: 12px; color: var(--imp-text-muted, #94a3b8); max-width: 520px; line-height: 1.5;">
-                  角色在放置戰鬥中擊敗怪物時，魔法神燈會累積秘法能量。抽取魔法卡牌即可依等級獲得大量 EXP 與 SP！
+                  角色在放置戰鬥中擊敗怪物時，魔法神燈會累積秘法能量。抽取魔法卡牌即可依等級獲得大量經驗值與技能點！
                 </p>
               </div>
 
@@ -1756,7 +1756,7 @@ export const IDLE_MARKUP = `
               👑 GM 管理指揮中心
             </h2>
             <div id="admin-live-rates-summary" style="font-size:11px; color:#38bdf8; font-weight:600; margin-top:3px;">
-              目前倍率：XP x1.0 · SP x1.0 · 金幣 x1.0 · 掉落 x1.0 · 掃蕩 x1.0 · 強化 x1.0
+              目前倍率：經驗值 1.0 倍 · 技能點 1.0 倍 · 金幣 1.0 倍 · 掉落 1.0 倍 · 掃蕩 1.0 倍 · 強化 1.0 倍
             </div>
           </div>
           <button id="close-admin-modal-btn" class="modal-close-x">✕</button>
