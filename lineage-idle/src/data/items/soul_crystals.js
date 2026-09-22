@@ -26,7 +26,7 @@ for (const c of colors) {
       rarity: st === 15 ? 'sovereign' : st === 14 ? 'primordial' : st >= 10 ? 'legendary' : st >= 5 ? 'epic' : 'rare',
       price: st * 50000,
       icon: c.icon,
-      desc: `靈魂水晶 ${c.name} 等級 ${st}。吸收怪物靈魂可成長至階段 15，並可鑲嵌於武器上解鎖特殊能力（SA）！`
+      desc: `靈魂水晶 ${c.name} 等級 ${st}。吸收怪物靈魂可成長至階段 15，並可鑲嵌於武器上解鎖特殊能力！`
     };
   }
 }
