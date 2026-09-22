@@ -127,7 +127,7 @@ export const GatheringService = {
     const totalCost = pouch.buyPrice * count;
 
     if ((state.gold || 0) < totalCost) {
-      if (callbacks.log) callbacks.log(`⚠️ Ouro insuficiente! Requer ${totalCost.toLocaleString()} Adena para comprar ${count}x ${pouch.name}.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！購買 ${count}x ${pouch.name} 需要 ${totalCost.toLocaleString()} 金幣。`, 'warning');
       return false;
     }
 
@@ -139,7 +139,7 @@ export const GatheringService = {
       gState.activePouch = pouchId;
     }
 
-    if (callbacks.log) callbacks.log(`🎒 Comprou ${count}x **${pouch.name}** por ${totalCost.toLocaleString()} Adena.`, 'loot');
+    if (callbacks.log) callbacks.log(`🎒 已用 ${totalCost.toLocaleString()} 金幣購買 ${count}x **${pouch.name}**。`, 'loot');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -161,7 +161,7 @@ export const GatheringService = {
     }
 
     if ((state.gold || 0) < sickle.buyPrice) {
-      if (callbacks.log) callbacks.log(`⚠️ Ouro insuficiente! Requer ${sickle.buyPrice.toLocaleString()} Adena.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！需要 ${sickle.buyPrice.toLocaleString()} 金幣。`, 'warning');
       return false;
     }
 
@@ -169,7 +169,7 @@ export const GatheringService = {
     gState.sickleDurability[sickleId] = sickle.durabilityMax;
     gState.sickle = sickleId;
 
-    if (callbacks.log) callbacks.log(`🌾 Adquiriu e empunhou **${sickle.name}**!`, 'rarity-legendary');
+    if (callbacks.log) callbacks.log(`🌾 已取得並裝備 **${sickle.name}**！`, 'rarity-legendary');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -209,7 +209,7 @@ export const GatheringService = {
     const cost = Math.max(100, Math.floor(sickle.repairCost * missingPct));
 
     if ((state.gold || 0) < cost) {
-      if (callbacks.log) callbacks.log(`⚠️ Ouro insuficiente para amolar a foice! Requer ${cost.toLocaleString()} Adena.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！磨利鐮刀需要 ${cost.toLocaleString()} 金幣。`, 'warning');
       return false;
     }
 
@@ -220,7 +220,7 @@ export const GatheringService = {
     const actState = LifeActivityCore.getActivityState(state, 'gathering');
     actState.toolDurability = sickle.durabilityMax;
 
-    if (callbacks.log) callbacks.log(`✨ **${sickle.name}** foi amolada! Durabilidade restaurada (${sickle.durabilityMax}/${sickle.durabilityMax}).`, 'system');
+    if (callbacks.log) callbacks.log(`✨ **${sickle.name}** 已磨利！耐久度恢復（${sickle.durabilityMax}/${sickle.durabilityMax}）。`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -315,7 +315,7 @@ export const GatheringService = {
     const dur = gState.sickleDurability[activeSickleId] ?? 0;
 
     if (dur <= 0) {
-      if (callbacks.log) callbacks.log(`⚠️ Sua ${sickleDef?.name || 'Foice'} perdeu o corte! Amole-a antes de continuar a colheita.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 你的 ${sickleDef?.name || '鐮刀'} 已變鈍！請先磨利再繼續採集。`, 'warning');
       return { success: false, reason: 'broken_tool' };
     }
 
@@ -409,7 +409,7 @@ export const GatheringService = {
       gState.isGathering = false;
       gState.targetedNodeId = null;
       gState.autoGathering = false;
-      if (callbacks.log) callbacks.log(`💥 **FOICE CEGA!** Sua ${sickleDef?.name || 'foice'} perdeu completamente o corte. Amole-a para continuar.`, 'error');
+      if (callbacks.log) callbacks.log(`💥 **鐮刀已鈍！** 你的 ${sickleDef?.name || '鐮刀'} 已完全失去鋒利度，請先磨利再繼續。`, 'error');
       if (callbacks.updateAllUI) callbacks.updateAllUI();
       if (callbacks.save) callbacks.save();
       return false;
@@ -423,15 +423,15 @@ export const GatheringService = {
       if (gState.targetedNodeHazard === 'thorn' && gState.activeTactic === 'cleave') {
         const dmg = Math.floor((state.maxHp || 100) * 0.05);
         state.hp = Math.max(1, (state.hp || 100) - dmg);
-        if (callbacks.log) callbacks.log(`🩸 Os espinhos afiados perfuraram sua pele! (${dmg} dano)`, 'error');
+        if (callbacks.log) callbacks.log(`🩸 尖銳荊棘刺傷了你！（${dmg} 傷害）`, 'error');
       }
       if (gState.targetedNodeHazard === 'resin' && gState.activeTactic === 'cleave') {
         gState.sickleDurability[activeSickleId] = Math.max(0, gState.sickleDurability[activeSickleId] - 1);
-        if (callbacks.log) callbacks.log(`⚠️ A seiva pegajosa grudou na foice! (-1 Durabilidade)`, 'warning');
+        if (callbacks.log) callbacks.log(`⚠️ 黏稠樹液黏住鐮刀！（耐久度 -1）`, 'warning');
       }
       if (gState.targetedNodeHazard === 'toxin') {
         hazardPenalty = 0.25;
-        if (callbacks.log) callbacks.log(`🤢 Esporos venenosos cobriram a planta, reduzindo sua pureza!`, 'warning');
+        if (callbacks.log) callbacks.log(`🤢 有毒孢子覆蓋植物，純度下降！`, 'warning');
       }
     }
 
@@ -478,7 +478,7 @@ export const GatheringService = {
       const qualityPrefix = quality.tier === 'perfect' ? '🌸 **COLHEITA PERFEITA!**'
         : quality.tier === 'excellent' ? '✨ **COLHEITA EXCELENTE!**'
         : '✓ 採集完成：';
-      callbacks.log(`🌿 ${qualityPrefix} Extraiu **${node.name}** [${quality.name}]! Obteve +${primaryQty}x ${primaryMat.toUpperCase()}${secMat && secQty > 0 ? ` e +${secQty}x ${secMat.toUpperCase()}` : ''}! (+${finalXp} XP de Coleta)`, 'loot');
+      callbacks.log(`🌿 ${qualityPrefix} 採集 **${node.name}** [${quality.name}]！獲得 +${primaryQty}x ${primaryMat.toUpperCase()}${secMat && secQty > 0 ? ` 與 +${secQty}x ${secMat.toUpperCase()}` : ''}！（+${finalXp} 採集 XP）`, 'loot');
     }
 
     if (callbacks.floatText) {
@@ -522,7 +522,7 @@ export const GatheringService = {
     const dur = gState.sickleDurability[activeSickleId] ?? 0;
     if (dur <= 0) {
       gState.autoGathering = false;
-      if (callbacks.log) callbacks.log('⚠️ Coleta AFK interrompida: Sua foice perdeu o corte!', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 自動採集已中斷：你的鐮刀已經鈍化！', 'warning');
       if (callbacks.updateAllUI) callbacks.updateAllUI();
       return;
     }
