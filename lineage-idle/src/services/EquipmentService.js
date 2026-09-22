@@ -89,17 +89,17 @@ export function equipItem(state, uid, targetSlotOrCallbacks = null, maybeCallbac
 
   // Validate level
   if (def.req?.level && state.level < def.req.level) {
-    if (callbacks.log) callbacks.log(`Nível insuficiente para equipar ${def.name}. (Req: Lv.${def.req.level})`, 'system');
+    if (callbacks.log) callbacks.log(`等級不足，無法裝備 ${def.name}。（需求：Lv.${def.req.level}）`, 'system');
     return;
   }
   // Validate class / armor type
   const equipCheck = canEquipByType(state.class, def, callbacks.classSatisfies);
   if (!equipCheck.ok) {
-    if (callbacks.log) callbacks.log(`Não pode equipar ${def.name}: ${equipCheck.reason || 'Classe incompatível'}`, 'system');
+    if (callbacks.log) callbacks.log(`無法裝備 ${def.name}：${equipCheck.reason || '職業不相容'}`, 'system');
     return;
   }
   if (!ALL_EQUIP_SLOTS.includes(targetSlot)) {
-    if (callbacks.log) callbacks.log(`${def.name} não pode ser equipado.`, 'system');
+    if (callbacks.log) callbacks.log(`${def.name} 無法裝備。`, 'system');
     return;
   }
 
@@ -125,7 +125,7 @@ export function equipItem(state, uid, targetSlotOrCallbacks = null, maybeCallbac
   item.equipped = true;
   item.equippedSlot = targetSlot;
 
-  const slotLabel = targetSlot === 'weapon2' ? 'Arma Secundária (Slot 2)' : (targetSlot === 'weapon' ? 'Arma Primária (Slot 1)' : (targetSlot === 'chest' || targetSlot === 'armor' ? 'Armadura / Peito' : targetSlot));
+  const slotLabel = targetSlot === 'weapon2' ? '副武器（欄位 2）' : (targetSlot === 'weapon' ? '主武器（欄位 1）' : (targetSlot === 'chest' || targetSlot === 'armor' ? '防具／胸甲' : targetSlot));
   if (callbacks.log) callbacks.log(`Equipou ${def.name} [${slotLabel}]`, 'loot');
 
   const stats = getStats(state);
@@ -431,11 +431,11 @@ export function generateAutoEquipProposal(state) {
   const propMainDef = propMainItem ? (allItems[propMainItem.itemId] || propMainItem) : null;
   if (propMainDef && isTwoHandedWeapon(propMainDef)) {
     if (proposedEquip.shield) {
-      changes.push({ slot: 'shield', currentUid: proposedEquip.shield, proposedUid: null, currentItem: state.inventory.find(i => i.uid === proposedEquip.shield), proposedItem: null, reason: 'Desequipado (Arma de 2 Mãos)' });
+      changes.push({ slot: 'shield', currentUid: proposedEquip.shield, proposedUid: null, currentItem: state.inventory.find(i => i.uid === proposedEquip.shield), proposedItem: null, reason: '已卸下（雙手武器）' });
       proposedEquip.shield = null;
     }
     if (proposedEquip.weapon2) {
-      changes.push({ slot: 'weapon2', currentUid: proposedEquip.weapon2, proposedUid: null, currentItem: state.inventory.find(i => i.uid === proposedEquip.weapon2), proposedItem: null, reason: 'Desequipado (Arma de 2 Mãos)' });
+      changes.push({ slot: 'weapon2', currentUid: proposedEquip.weapon2, proposedUid: null, currentItem: state.inventory.find(i => i.uid === proposedEquip.weapon2), proposedItem: null, reason: '已卸下（雙手武器）' });
       proposedEquip.weapon2 = null;
     }
   }
@@ -478,7 +478,7 @@ export function generateAutoEquipProposal(state) {
  */
 export function commitAutoEquipProposal(state, proposal, callbacks = {}) {
   if (!state || !proposal || !proposal.proposedLoadout) {
-    return { success: false, appliedChanges: 0, reason: 'Proposta de Auto-Equip inválida.' };
+    return { success: false, appliedChanges: 0, reason: '自動裝備建議無效。' };
   }
 
   const allItems = D()?.ALL_ITEMS || {};
@@ -488,11 +488,11 @@ export function commitAutoEquipProposal(state, proposal, callbacks = {}) {
     if (uid) {
       const item = state.inventory?.find(i => i.uid === uid);
       if (!item) {
-        return { success: false, appliedChanges: 0, reason: `Item ${uid} não encontrado na mochila.` };
+        return { success: false, appliedChanges: 0, reason: `背包中找不到物品 ${uid}。` };
       }
       const def = allItems[item.itemId] || item;
       if (!isEquippableItem(def)) {
-        return { success: false, appliedChanges: 0, reason: `Item não-equipável detectado: ${def.name || item.itemId}` };
+        return { success: false, appliedChanges: 0, reason: `偵測到無法裝備的物品：${def.name || item.itemId}` };
       }
     }
   }
@@ -529,7 +529,7 @@ export function commitAutoEquipProposal(state, proposal, callbacks = {}) {
 
   const changesCount = proposal.changes?.length || 0;
   if (callbacks.log) {
-    callbacks.log(`⚡ Auto-Equip aplicado! (${changesCount} alteraç${changesCount === 1 ? 'ão' : 'ões'})`, 'rarity-legendary');
+    callbacks.log(`⚡ 自動裝備已套用！（${changesCount} 項變更）`, 'rarity-legendary');
   }
   if (callbacks.floatText) {
     callbacks.floatText('⚡ EQUIPADO!', 'float-jackpot');
