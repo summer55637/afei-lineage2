@@ -7546,7 +7546,7 @@ function renderMonsterCardsCodex(container, summaryEl) {
             </div>
             <div style="display:flex; gap:6px; align-items:center; margin-top:4px;">
               <span style="font-size:9px; padding:1px 6px; border-radius:4px; background:rgba(0,0,0,0.6); color:${rStyle.text}; text-transform:uppercase; font-weight:bold; border:1px solid ${rStyle.border};">
-                ${cardDef.rarity}
+                ${({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[rKey] || cardDef.rarity || '一般'}
               </span>
               <span style="font-size:10px; color:#94a3b8;">
                 掉落率：<strong>${dropPct}%</strong>
