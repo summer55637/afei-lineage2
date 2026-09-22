@@ -150,7 +150,7 @@ export function renderMarketTab(container, state, callbacks = {}) {
           </div>
           <div>
             <div class="l2wt-banner-title">World Trade</div>
-            <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px; font-family: 'Inter', sans-serif;">Comércio Global P2P · Sistema Oficial entre Jogadores Reais de Aden</p>
+            <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px; font-family: 'Inter', sans-serif;">全球 P2P 交易 · 亞丁真實玩家官方市場</p>
           </div>
         </div>
 
@@ -210,10 +210,10 @@ export function renderMarketTab(container, state, callbacks = {}) {
     html += `
       <div class="l2contacts-tabs-bar" style="background: #11141d; border-bottom: 1px solid rgba(212,167,68,0.2);">
         <button class="l2contacts-tab ${_activeMarketTab === 'my_sales' ? 'active' : ''} market-nav-btn" data-tab="my_sales">
-          📜 Meus Anúncios (${MarketService.getMyListings(state).length})
+          📜 我的刊登 (${MarketService.getMyListings(state).length})
         </button>
         <button class="l2contacts-tab ${_activeMarketTab === 'sell' ? 'active' : ''} market-nav-btn" data-tab="sell">
-          🏷️ Criar Anúncio (Vender)
+          🏷️ 建立刊登（出售）
         </button>
       </div>
     `;
@@ -267,7 +267,7 @@ function renderBuyTab(state) {
                 <div style="font-size: 32px; margin-bottom: 8px;">🏛️</div>
                 <div style="font-size: 15px; color: #ffd877; margin-bottom: 4px; font-weight: bold;">Nenhum item anunciado nesta categoria</div>
                 <div style="font-size: 11px; color: #64748b; font-family: 'Inter', sans-serif;">
-                  Todos os itens deste mercado vêm de jogadores reais. Clique em <strong style="color: #67e8f9;">'My items'</strong> no topo para anunciar o seu!
+                  市場中的所有物品都來自真實玩家。 Clique em <strong style="color: #67e8f9;">'My items'</strong> no topo para anunciar o seu!
                 </div>
               </td>
             </tr>
@@ -292,7 +292,7 @@ function renderBuyTab(state) {
                         ${enchantStr}${l.item.name}
                       </div>
                       <div style="font-size: 10px; color: #94a3b8; font-family: 'Inter', sans-serif; margin-top: 1px;">
-                        Vendedor: <span style="color: ${l.isPlayerListing ? '#34d399' : '#a78bfa'}; font-weight: 600;">${l.sellerName}</span>
+                        賣家: <span style="color: ${l.isPlayerListing ? '#34d399' : '#a78bfa'}; font-weight: 600;">${l.sellerName}</span>
                       </div>
                     </div>
                   </div>
@@ -319,7 +319,7 @@ function renderBuyTab(state) {
                 <td style="text-align: center;">
                   ${isOwnListing ? `
                     <button class="market-cancel-btn action-btn" data-id="${l.id}" style="background: rgba(239,68,68,0.2); border: 1px solid #ef4444; color: #fca5a5; padding: 4px 10px; border-radius: 4px; font-size: 11px; cursor: pointer; font-weight: bold;">
-                      ✕ Cancelar
+                      ✕ 取消
                     </button>
                   ` : `
                     <button class="l2wt-buy-btn market-buy-btn" data-id="${l.id}">
@@ -373,7 +373,7 @@ function renderSellTab(state) {
         </h4>
 
         ${inventory.length === 0 ? `
-          <p style="color: #94a3b8; font-size: 12px;">Sua mochila está vazia ou todos os itens estão equipados.</p>
+          <p style="color: #94a3b8; font-size: 12px;">你的背包是空的，或所有物品目前都已裝備。</p>
         ` : `
           <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 6px; max-height: 280px; overflow-y: auto; padding-right: 4px;">
             ${inventory.map(item => {
@@ -391,12 +391,12 @@ function renderSellTab(state) {
         `}
       </div>
 
-      <!-- Coluna Direita: Detalhes do Anúncio e Preço -->
+      <!-- Coluna Direita: Detalhes do Anúncio e 價格 -->
       <div style="background: rgba(15,20,30,0.85); border: 1px solid rgba(212,167,68,0.3); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px;">
         
         <div>
           <h4 style="margin: 0 0 10px 0; color: #f4d58a; font-family: 'Cinzel', serif; font-size: 14px;">
-            📝 2. Configurar Preço e Quantidade
+            📝 2. 設定價格與數量
           </h4>
 
           ${selectedItem ? `
@@ -408,7 +408,7 @@ function renderSellTab(state) {
                   ${selectedItem.enchant > 0 ? '+' + selectedItem.enchant + ' ' : ''}${selectedItem.name}
                 </div>
                 <div style="font-size: 11px; color: #94a3b8;">
-                  Disponível: ${maxQty} unidade(s)
+                  可用： ${maxQty} 個
                 </div>
               </div>
             </div>
@@ -429,11 +429,11 @@ function renderSellTab(state) {
             <!-- Quantity & Price Inputs -->
             <div style="display: flex; gap: 10px; margin-bottom: 10px;">
               <div style="flex: 1;">
-                <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 2px;">Quantidade:</label>
+                <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 2px;">數量:</label>
                 <input type="number" id="input-sell-qty" value="${_sellQuantity}" min="1" max="${maxQty}" style="width: 100%; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 6px 8px; color: #fff; font-size: 12px; font-family: 'IBM Plex Mono', monospace; box-sizing: border-box;" />
               </div>
               <div style="flex: 2;">
-                <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 2px;">Preço Unitário (${_sellCurrency === 'adena' ? '🪙' : '👑'}):</label>
+                <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 2px;">單價 (${_sellCurrency === 'adena' ? '🪙' : '👑'}):</label>
                 <input type="number" id="input-sell-price" value="${_sellPriceUnit}" min="1" style="width: 100%; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 6px 8px; color: #fff; font-size: 12px; font-family: 'IBM Plex Mono', monospace; box-sizing: border-box;" />
               </div>
             </div>
@@ -449,7 +449,7 @@ function renderSellTab(state) {
               <div style="display: flex; justify-content: space-between; color: #94a3b8;">
                 <span>Taxa de Listagem (5% Adena):</span>
                 <span style="color: ${canPayFee ? '#4ade80' : '#ef4444'}; font-family: 'IBM Plex Mono', monospace;">
-                  🪙 ${listingFee.toLocaleString()} ${!canPayFee ? '(Saldo insuficiente)' : ''}
+                  🪙 ${listingFee.toLocaleString()} ${!canPayFee ? '(餘額不足)' : ''}
                 </span>
               </div>
               <div style="display: flex; justify-content: space-between; color: #94a3b8;">
@@ -508,10 +508,10 @@ function renderMySalesTab(state, salesData) {
         `}
       </div>
 
-      <!-- Anúncios Ativos -->
+      <!-- 刊登 Ativos -->
       <div style="background: rgba(15,20,30,0.85); border: 1px solid rgba(212,167,68,0.3); border-radius: 10px; padding: 14px;">
         <h4 style="margin: 0 0 12px 0; color: #f4d58a; font-family: 'Cinzel', serif; font-size: 14px;">
-          📦 Meus Anúncios em Aberto (${myListings.length})
+          📦 我的刊登 em Aberto (${myListings.length})
         </h4>
 
         ${myListings.length === 0 ? `
@@ -537,7 +537,7 @@ function renderMySalesTab(state, salesData) {
                     </div>
                   </div>
                   <button class="market-cancel-btn action-btn" data-id="${l.id}" style="background: rgba(239,68,68,0.2); border: 1px solid #ef4444; color: #fca5a5; border-radius: 6px; padding: 6px 12px; font-size: 11px; cursor: pointer; font-weight: bold;">
-                    ✕ Cancelar
+                    ✕ 取消
                   </button>
                 </div>
               `;
@@ -700,7 +700,7 @@ function attachMarketEvents(container, state, callbacks = {}) {
     };
   }
 
-  // Comprar Anúncio
+  // 購買 Anúncio
   container.querySelectorAll('.market-buy-btn').forEach(btn => {
     btn.onclick = async () => {
       const listingId = btn.dataset.id;
@@ -720,7 +720,7 @@ function attachMarketEvents(container, state, callbacks = {}) {
     };
   });
 
-  // Cancelar Anúncio
+  // 取消 Anúncio
   container.querySelectorAll('.market-cancel-btn').forEach(btn => {
     btn.onclick = async () => {
       const listingId = btn.dataset.id;
@@ -778,7 +778,7 @@ function attachMarketEvents(container, state, callbacks = {}) {
     };
   });
 
-  // Inputs de Quantidade e Preço
+  // Inputs de 數量 e 價格
   const qtyInput = container.querySelector('#input-sell-qty');
   if (qtyInput) {
     qtyInput.onchange = (e) => {
