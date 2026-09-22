@@ -77,7 +77,7 @@ export const RESONANCE_DEFINITIONS = {
     pairName: '弓 + 利爪／拳套',
     icon: '🏹🥊',
     color: '#10b981',
-    desc: '掠食本能：弓箭會施加流血。對流血目標使用爪攻擊時，每次攻擊恢復角色最大 HP 的 1%。',
+    desc: '掠食本能：弓箭會施加流血。對流血目標使用爪攻擊時，每次攻擊恢復角色最大生命值的 1%。',
     weap1: 'bow',
     weap2: 'fist',
     passives: { atkSpd: 10, lifeDrain: 5 }
@@ -309,7 +309,7 @@ export const RESONANCE_DEFINITIONS = {
     pairName: '法杖 + 劍／刀刃',
     icon: '🔮🗡️',
     color: '#c084fc',
-    desc: '奧術之刃：施法可累積符文能量。刀刃攻擊造成混合傷害（+15% 集中傷害），恢復最大 MP 的 3%，並使魔法技能冷卻減少 1 秒。',
+    desc: '奧術之刃：施法可累積符文能量。刀刃攻擊造成混合傷害（+15% 集中傷害），恢復最大魔力的 3%，並使魔法技能冷卻減少 1 秒。',
     weap1: 'staff',
     weap2: ['sword', 'dagger', 'blunt'],
     passives: { castSpd: 12, mAtkPct: 8 }
@@ -335,7 +335,7 @@ export const RESONANCE_DEFINITIONS = {
     pairName: '法杖 + 利爪／拳套',
     icon: '🔮🥊',
     color: '#a855f7',
-    desc: '神秘和諧：拳擊恢復 1% MP，並降低怪物 10% 魔法防禦。累積 5 層拳勁後，下一個攻擊魔法造成 +18% 集中傷害。',
+    desc: '神秘和諧：拳擊恢復 1% 魔力，並降低怪物 10% 魔法防禦。累積 5 層拳勁後，下一個攻擊魔法造成 +18% 集中傷害。',
     weap1: 'staff',
     weap2: 'fist',
     passives: { atkSpd: 10, castSpd: 12 }
