@@ -296,7 +296,7 @@ export const RESONANCE_DEFINITIONS = {
     pairName: '雙手劍 + 鈍器',
     icon: '🗡️🔨',
     color: '#991b1b',
-    desc: '破甲：鈍器削弱目標防守（+25% 失衡傷害）。雙手劍對 BREAK 狀態怪物造成 +20% 重擊傷害。',
+    desc: '破甲：鈍器削弱目標防守（+25% 失衡傷害）。雙手劍對破甲狀態怪物造成 +20% 重擊傷害。',
     weap1: ['twohand', 'ancientsword'],
     weap2: 'blunt',
     passives: { staggerDmgPct: 25, pAtkPct: 10 }
@@ -588,7 +588,7 @@ export class WeaponResonanceService {
               state._cds[k] = Math.max(realNow, state._cds[k] - 1000);
             }
           }
-          if (callbacks.floatText) callbacks.floatText('⚡ 奧術加速（CD -1 秒）', 'float-jackpot');
+          if (callbacks.floatText) callbacks.floatText('⚡ 奧術加速（冷卻時間 -1 秒）', 'float-jackpot');
           if (callbacks.log) callbacks.log('⚡ 魔刃術士：奧術脈衝使法術冷卻時間縮短 1 秒！', 'rarity-legendary');
         } else {
           if (callbacks.floatText) callbacks.floatText('🔮 奧術之刃！', 'float-epic');
