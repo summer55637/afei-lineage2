@@ -421,7 +421,7 @@ const SKILL_TREE_LAYOUT = new Proxy({}, {
   getOwnPropertyDescriptor: (_, prop) => Reflect.getOwnPropertyDescriptor(window.EchoData?.SKILL_TREE_LAYOUT_ECHO || {}, prop)
 });
 
-const TIER_NAMES = ['Foundation', 'Discipline', 'Mastery', 'Ascendancy', 'Legend'];
+const TIER_NAMES = ['基礎', '修練', '精通', '昇華', '傳奇'];
 // ======================================================
 
 // --------------------------- STATE ---------------------------
@@ -693,17 +693,17 @@ function openClassTransferModal(classInfo) {
         .join(' · ');
 
       const archetypeIcons = {
-        fighter: '⚔️ Guerreiro',
+        fighter: '⚔️ 戰士',
         tank: '🛡️ 守護坦克',
-        mage: '🔮 Mago Elemental',
+        mage: '🔮 元素法師',
         healer: '✨ 牧師／治療',
         bard: '🎵 舞者／吟遊詩人',
-        assassin: '🗡️ Assassino Mortal',
-        archer: '🏹 Atirador',
+        assassin: '🗡️ 致命刺客',
+        archer: '🏹 射手',
         artisan: '⚒️ 工匠大師',
-        soulbreaker: '⚡ Soulbreaker'
+        soulbreaker: '⚡ 靈魂破壞者'
       };
-      const archLabel = archetypeIcons[clsDef.archetype] || clsDef.archetype || 'Especialista';
+      const archLabel = archetypeIcons[clsDef.archetype] || clsDef.archetype || '專家';
 
       const avatarHtml = (ART && typeof ART.heroSVG === 'function')
         ? ART.heroSVG({
@@ -1124,11 +1124,11 @@ function salvageItem(uid) {
   const rarityMult = item.rarity ? (D().RARITY?.[item.rarity]?.mult || 1) : 1;
 
   let matId = 'iron_ore';
-  if (grade === 'S Grade' || def.tier === 6) matId = 'crystal_s';
-  else if (grade === 'A Grade') matId = 'crystal_a';
-  else if (grade === 'B Grade') matId = 'crystal_b';
-  else if (grade === 'C Grade') matId = 'crystal_c';
-  else if (grade === 'D Grade') matId = 'crystal_d';
+  if (grade === 'S 級' || def.tier === 6) matId = 'crystal_s';
+  else if (grade === 'A 級') matId = 'crystal_a';
+  else if (grade === 'B 級') matId = 'crystal_b';
+  else if (grade === 'C 級') matId = 'crystal_c';
+  else if (grade === 'D 級') matId = 'crystal_d';
   else matId = (def.slot === 'weapon') ? 'iron_ore' : 'cloth';
 
   const amount = Math.max(1, Math.floor((reqLvl / 5 + 1) * rarityMult));
@@ -1265,11 +1265,11 @@ function salvageSelectedItems() {
     const rarityMult = item.rarity ? (D().RARITY?.[item.rarity]?.mult || 1) : 1;
 
     let matId = 'iron_ore';
-    if (grade === 'S Grade' || def.tier === 6) matId = 'crystal_s';
-    else if (grade === 'A Grade') matId = 'crystal_a';
-    else if (grade === 'B Grade') matId = 'crystal_b';
-    else if (grade === 'C Grade') matId = 'crystal_c';
-    else if (grade === 'D Grade') matId = 'crystal_d';
+    if (grade === 'S 級' || def.tier === 6) matId = 'crystal_s';
+    else if (grade === 'A 級') matId = 'crystal_a';
+    else if (grade === 'B 級') matId = 'crystal_b';
+    else if (grade === 'C 級') matId = 'crystal_c';
+    else if (grade === 'D 級') matId = 'crystal_d';
     else matId = (def.slot === 'weapon') ? 'iron_ore' : 'cloth';
 
     const amount = Math.max(1, Math.floor((reqLvl / 5 + 1) * rarityMult));
@@ -1612,7 +1612,7 @@ function useItem(uid) {
     if (typeof window !== 'undefined' && typeof window.onOpenRaceClassChangeModal === 'function') {
       window.onOpenRaceClassChangeModal({
         scrollUid: uid,
-        charName: state.charName || 'Aventureiro',
+        charName: state.charName || '冒險者',
         race: state.race || 'human',
         class: state.class || 'fighter'
       });
@@ -2058,7 +2058,7 @@ function updateStatsUI() {
         speed: ['⚡', `+${b.amount} SPD`],
         warcry: ['🗣', `+${(b.amount||0)*100}% ATK`],
         elixir_berserker: ['⚔️', '狂戰士靈藥（+15% 攻擊、+10 速度）'],
-        elixir_arcanist: ['🔮', 'Elixir Arcanista (+20% M.Atk, +50% MP)'],
+        elixir_arcanist: ['🔮', '奧術師靈藥（魔法攻擊 +20%、MP +50%）'],
         elixir_fortune: ['💰', '幸運靈藥（掉落 +25%、金幣 +30%）'],
         elixir_titan: ['🛡️', '泰坦靈藥（HP +25%、防禦 +20%）'],
         elixir_transcendence: ['✨', '超越靈藥（XP／SP +20%）']
@@ -2534,7 +2534,7 @@ function renderShopPowerups(list) {
   for (const id of powerupIds) { const def = D().ALL_ITEMS[id]; if (def) list.appendChild(shopRow(def, id, def.price)); }
 }
 function renderShopClass(list) {
-  const clsName = state.class ? (getClass(state.class)?.name || state.class) : 'Aventureiro';
+  const clsName = state.class ? (getClass(state.class)?.name || state.class) : '冒險者';
   const hdr = mkEl('div'); hdr.className = 'shop-header';
   hdr.innerHTML = `<h4>🎖️ ${clsName} 專屬裝備與階級晉升</h4><p>大師級裝備與職業徽章。</p>`;
   list.appendChild(hdr);
@@ -6005,10 +6005,10 @@ export function attackMonster() {
 
       if (isMageClass) {
         if (shotItem.itemId === 'blessed_spiritshot_universal') soulshotCritBonus = 5;
-        const label = isUniversal ? 'SPS Univ (+30%)' : 'SPS (+100%)';
+        const label = isUniversal ? '通用 SPS（+30%）' : 'SPS (+100%)';
         stageFloat(`✨ ${label}`, 'sf-crit', 'left');
       } else {
-        const label = isUniversal ? 'SS Univ (+30%)' : 'SS (+100%)';
+        const label = isUniversal ? '通用 SS（+30%）' : 'SS (+100%)';
         stageFloat(`⚡ ${label}`, 'sf-crit', 'left');
       }
       updateCombatControlsUI();
@@ -6587,8 +6587,8 @@ function handleChatSubmit(inputStr) {
   }
 
   // Normal Player Chat Message
-  const heroName = (RACES[state.race]?.name || 'Hero') + ' ' + (getClass(state.class)?.name || 'Adventurer');
-  log(`💬 [Global] ${heroName}: ${raw}`, 'system');
+  const heroName = (RACES[state.race]?.name || '英雄') + ' ' + (getClass(state.class)?.name || '冒險者');
+  log(`💬 [世界] ${heroName}: ${raw}`, 'system');
 }
 
 const RATE_PRESETS = {
@@ -6617,8 +6617,8 @@ function setServerRate(key, val, silent = false) {
   state.serverRates[key] = num;
   if (!silent) {
     const labels = {
-      xp: 'XP 倍率',
-      sp: 'SP 倍率',
+      xp: '經驗值倍率',
+      sp: '技能點倍率',
       adena: '金幣倍率',
       drop: '物品掉落倍率',
       spoil: '搜刮與製作倍率',
@@ -6762,7 +6762,7 @@ function populateAdminItemSelect(query = '') {
         def.type || '',
         def.weaponType || '',
         grade,
-        `grade ${grade}`,
+        `品級 ${grade}`,
         `等級 ${def.req?.level || 1}`
       ].join(' ').toLowerCase();
 
@@ -7977,29 +7977,29 @@ export const TAB_NAMES_MAP = {
   hero: '英雄',
   character: '角色',
   inventory: '背包',
-  skills: 'Skills',
-  astral: 'Maestria',
-  dolls: 'Dolls & Pets',
+  skills: '技能',
+  astral: '專精',
+  dolls: '娃娃與寵物',
   cosmetics: '外觀',
   quests: '任務',
   zones: '狩獵與區域',
   raids: '團隊首領與首領',
   tower: '傲慢之塔',
-  colosseum: 'Coliseu PvP',
+  colosseum: 'PvP 競技場',
   expeditions: '遠征',
   fishing: '釣魚',
   market: '奇岩市場',
   shop: '商人',
   craft: '帝國鍛造',
-  alchemy: 'Alquimia',
+  alchemy: '鍊金',
   warehouse: '私人倉庫',
   magiclamp: '魔法神燈',
   clan: '血盟與城堡',
   olympiad: '奧林匹亞',
   rankings: '世界排行榜',
   sevensigns: '七封印',
-  fortress: 'Fortalezas',
-  enchant: 'Encantamento',
+  fortress: '要塞',
+  enchant: '強化',
   codex: '圖鑑'
 };
 
@@ -8333,7 +8333,7 @@ export function bindEvents() {
       });
 
       // Update mobile title badges in top return bar
-      const badgeTitle = TAB_NAMES_MAP[state.mobileView] || (state.mobileView === 'hero' ? '英雄' : 'Menu');
+      const badgeTitle = TAB_NAMES_MAP[state.mobileView] || (state.mobileView === 'hero' ? '英雄' : '選單');
       qsa('.mobile-current-tab-badge, #mobile-tabs-current-badge').forEach(b => {
         b.textContent = badgeTitle;
       });
@@ -8913,10 +8913,10 @@ function reincarnateHero() {
   state.mp = state.maxMp || 50;
 
   const titles = [
-    'Aventureiro Renascido',
+    '轉生冒險者',
     '星座大師',
     '轉生之主',
-    'Deus Ancestral de Aden'
+    '亞丁遠古之神'
   ];
   const title = titles[Math.min(state.prestigeLevel - 1, titles.length - 1)];
 
