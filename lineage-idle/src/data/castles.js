@@ -151,7 +151,7 @@ export const CASTLE_SHOP_CATALOG = [
   },
   {
     id: 'giant_codex_castle_pack',
-    name: '3x Giant\'s Codex 禮包 📜',
+    name: '3x 巨人秘典禮包 📜',
     priceAdena: 3000000,
     priceAc: 0,
     reqCastle: true,
