@@ -1,239 +1,257 @@
 # ⚔️ Aden Arena — Lineage Idle RPG
 
-> **Lineage Idle RPG** completo rodando na web como Progressive Web App (PWA). Desenvolvido com **React 19**, **Vite**, **TypeScript**, **Tailwind CSS**, **Vanilla JS Game Engine** isolada no Shadow DOM e **Firebase Realtime Database** para sincronização em nuvem e mercado global multiplayer.
+> 一款完整運行於網頁上的 **Lineage Idle RPG**，並支援 Progressive Web App（PWA）。專案使用 **React 19**、**Vite**、**TypeScript**、**Tailwind CSS**，搭配隔離於 Shadow DOM 中的 **Vanilla JS 遊戲引擎**，以及 **Firebase Realtime Database**，提供雲端同步與多人全球市場功能。
 
 ---
 
-## 📑 Sumário
+## 📑 目錄
 
-1. [Visão Geral do Projeto](#-visão-geral-do-projeto)
-2. [Como Rodar Localmente](#-como-rodar-localmente)
-3. [Arquitetura: React vs Engine](#-arquitetura-react-vs-engine)
-4. [A Regra de Ouro da Interface (UI)](#-a-regra-de-ouro-da-interface-ui)
-5. [Guia Rápido: Onde Mexer em Cada Parte](#-guia-rápido-onde-mexer-em-cada-parte)
-6. [Estrutura Completa de Pastas](#-estrutura-completa-de-pastas)
-7. [Mecânicas Centrais do Jogo](#-mecânicas-centrais-do-jogo)
-8. [Comandos & Deploy](#-comandos--deploy)
-
----
-
-## 🎮 Visão Geral do Projeto
-
-O **Aden Arena** une a nostalgia e complexidade matemática do **Lineage II** com a dinâmica moderna dos RPGs ociosos (*Idle RPGs*):
-
-- **194 Classes & Subclasses** com árvores completas e canônicas.
-- **846 Habilidades Autênticas** com validação canônica de armas requeridas.
-- **Dual Arsenal System**: 2 slots de armas equipadas simultaneamente com acúmulo de atributos e ressonâncias únicas.
-- **Barra de Quebra de Postura (Stagger)**: Quebra de guarda de chefes com multiplicador de 2.0x de dano.
-- **Mercado Global Realtime**: Compra e venda de itens entre jogadores via Firebase.
-- **Save Automático à Prova de Falhas**: Persistência local (LocalStorage) + Nuvem (Firebase) com anti-duplicação e proteção transacional.
-- **3 Modos de Visualização**:
-  1. **Idle Game (Principal)**: Interface completa inspirada no client clássico de Lineage II.
-  2. **2D Pixel RPG**: Auto-battler retro em canvas HTML5 com spritesheets.
-  3. **3D Arena**: Sobrevivência e ação em Three.js.
+1. [專案概覽](#-專案概覽)
+2. [如何在本機執行](#-如何在本機執行)
+3. [架構：React vs Engine](#-架構react-vs-engine)
+4. [介面 UI 的黃金規則](#-介面-ui-的黃金規則)
+5. [快速指南：各功能要修改哪裡](#-快速指南各功能要修改哪裡)
+6. [完整資料夾結構](#-完整資料夾結構)
+7. [遊戲核心機制](#-遊戲核心機制)
+8. [指令與部署](#-指令與部署)
 
 ---
 
-## 🚀 Como Rodar Localmente
+## 🎮 專案概覽
 
-### Pré-requisitos
-- **Node.js**: Versão 18 ou superior (recomendado 20+ LTS).
-- **npm** ou **pnpm/yarn**.
+**Aden Arena** 將 **Lineage II** 經典的懷舊感與複雜數值系統，結合現代放置型 RPG（Idle RPG）的遊玩方式：
+
+- **194 種職業與轉職路線**，具備完整且符合原作設定的職業樹。
+- **846 個原作技能**，並驗證技能所需武器類型。
+- **雙武器系統（Dual Arsenal System）**：可同時裝備 2 個武器欄位，屬性可疊加並觸發特殊共鳴。
+- **姿態破壞條（Stagger）**：可打破 Boss 防禦姿態，並觸發 2.0 倍傷害倍率。
+- **全球即時市場**：透過 Firebase 讓玩家彼此買賣物品。
+- **高可靠自動存檔**：LocalStorage 本機存檔 + Firebase 雲端存檔，搭配防複製與交易保護。
+- **3 種遊戲顯示模式**：
+  1. **Idle Game（主要模式）**：完整介面，風格參考經典 Lineage II 客戶端。
+  2. **2D Pixel RPG**：以 HTML5 Canvas 製作的復古自動戰鬥模式，使用 spritesheet。
+  3. **3D Arena**：以 Three.js 製作的生存／動作模式。
+
+---
+
+## 🚀 如何在本機執行
+
+### 前置需求
+
+- **Node.js**：18 以上版本，建議使用 20+ LTS。
+- **npm**，或 **pnpm / yarn**。
 
 ```bash
-# 1. Clone o repositório
+# 1. Clone 專案
 git clone https://github.com/Triistan93/adenarena.git
 cd adenarena
 
-# 2. Instale as dependências
+# 2. 安裝相依套件
 npm install
 
-# 3. Inicie o servidor de desenvolvimento
+# 3. 啟動開發伺服器
 npm run dev
 ```
 
-Acesse no navegador: `http://localhost:5173`
+接著在瀏覽器開啟：
+
+`http://localhost:5173`
+
+建立正式版 Build：
 
 ```bash
-# Gerar build de produção
 npm run build
 ```
 
 ---
 
-## 🏛️ Arquitetura: React vs Engine
+## 🏛️ 架構：React vs Engine
 
-O projeto possui uma arquitetura híbrida de alto desempenho:
+本專案採用混合式高效能架構：
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────────┐
 │                       REACT APPLICATION                         │
-│   src/App.tsx · src/components/ · Autenticação · Modais         │
+│   src/App.tsx · src/components/ · 驗證系統 · Modal 視窗          │
 └───────────────────────────────┬─────────────────────────────────┘
-                                │ Monta via Shadow DOM
+                                │ 透過 Shadow DOM 掛載
                                 ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │                     VANILLA JS GAME ENGINE                      │
 │   lineage-idle/main.js · src/engine/ · src/services/ · 60 FPS   │
 └───────────────────────────────┬─────────────────────────────────┘
-                                │ Realtime Sync
+                                │ 即時同步
                                 ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │                    FIREBASE CLOUD DATABASE                      │
-│   Mercado Global P2P · Cloud Saves · Rankings Multiplayer       │
+│   全球 P2P 市場 · 雲端存檔 · 多人排行榜                          │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## ⚠️ A Regra de Ouro da Interface (UI)
+## ⚠️ 介面 UI 的黃金規則
 
 > [!IMPORTANT]
-> **A INTERFACE DO JOGO É 100% DEFINIDA EM `src/idle/markup.ts`!**
-> 
-> Quando o jogo roda, o HTML da interface principal é carregado exclusivamente a partir de:
+> **遊戲主介面 100% 定義於 `src/idle/markup.ts`！**
+>
+> 遊戲執行時，主要介面的 HTML 只會從以下檔案載入：
+>
 > 👉 `src/idle/markup.ts`
-> 
-> Qualquer novo botão, aba, modal ou slot de equipamento deve ser adicionado diretamente em **`src/idle/markup.ts`**. O antigo arquivo estático solto na pasta da engine foi movido para `legado/` para evitar alterações no lugar errado.
+>
+> 任何新的按鈕、分頁、Modal 視窗或裝備欄位，都應直接新增到 **`src/idle/markup.ts`**。
+>
+> 舊版靜態 HTML 已移至 `legado/`，避免誤改到不再使用的舊檔案。
 
 ---
 
-## 📍 Guia Rápido: Onde Mexer em Cada Parte
+## 📍 快速指南：各功能要修改哪裡
 
-| O que você quer alterar? | Arquivo Principal | Arquivos Secundários |
+| 想修改的內容 | 主要檔案 | 次要檔案 |
 |---|---|---|
-| **Estrutura HTML do Jogo** | `src/idle/markup.ts` | `src/idle/IdleGame.tsx` |
-| **Estilos Globais e Tema** | `lineage-idle/style.css` | `lineage-idle/src/ui/GameUI.css` |
-| **Combate & Ciclo de Ataque** | `lineage-idle/src/engine/CombatEngine.js` | `lineage-idle/main.js` |
-| **Stagger / Quebra de Postura** | `lineage-idle/src/engine/StaggerEngine.js` | `lineage-idle/src/ui/GameUI.js` |
-| **Dual Arsenal (2 Slots de Armas)** | `lineage-idle/src/services/EquipmentService.js` | `lineage-idle/src/engine/StatsEngine.js` |
-| **Ressonância de Armas** | `lineage-idle/src/services/WeaponResonanceService.js` | `lineage-idle/src/ui/GameUI.js` |
-| **Habilidades & Validação de Armas** | `lineage-idle/src/engine/SkillEngine.js` | `lineage-idle/data/echo-adapter.js` |
-| **Mudança de Classe (Lv 20, 40, 76)** | `lineage-idle/main.js` (`openClassTransferModal`) | `lineage-idle/src/services/CharacterService.js` |
-| **Criação de Personagem** | `src/components/CharacterCreation.tsx` | `lineage-idle/src/data/races.js` |
-| **Inventário & Equipamentos** | `lineage-idle/src/services/InventoryService.js` | `lineage-idle/src/services/EquipmentService.js` |
-| **Cálculo de Atributos (Stats)** | `lineage-idle/src/engine/StatsEngine.js` | `lineage-idle/src/engine/BalanceEngine.js` |
-| **Monstros & Spawns** | `lineage-idle/src/data/monsters.js` | `lineage-idle/src/data/raids.js` |
-| **Zonas & Mapas** | `lineage-idle/src/data/zones.js` | `lineage-idle/art.js` |
-| **Mercado Global & Firebase** | `src/firebase.ts` | `lineage-idle/src/services/MarketService.js` |
-| **Sistema de Save** | `lineage-idle/main.js` (`saveGameState`) | `lineage-idle/src/engine/SecurityEngine.js` |
-| **Imagens de Classes & Monstros** | `lineage-idle/art.js` | `public/img/` |
-| **Modo 2D Pixel** | `src/pixel2d/Aden2DGame.tsx` | `public/assets/2d/` |
+| **遊戲 HTML 結構** | `src/idle/markup.ts` | `src/idle/IdleGame.tsx` |
+| **全域樣式與主題** | `lineage-idle/style.css` | `lineage-idle/src/ui/GameUI.css` |
+| **戰鬥與攻擊循環** | `lineage-idle/src/engine/CombatEngine.js` | `lineage-idle/main.js` |
+| **Stagger／姿態破壞** | `lineage-idle/src/engine/StaggerEngine.js` | `lineage-idle/src/ui/GameUI.js` |
+| **Dual Arsenal（雙武器欄）** | `lineage-idle/src/services/EquipmentService.js` | `lineage-idle/src/engine/StatsEngine.js` |
+| **武器共鳴** | `lineage-idle/src/services/WeaponResonanceService.js` | `lineage-idle/src/ui/GameUI.js` |
+| **技能與武器需求驗證** | `lineage-idle/src/engine/SkillEngine.js` | `lineage-idle/data/echo-adapter.js` |
+| **轉職（Lv 20、40、76）** | `lineage-idle/main.js`（`openClassTransferModal`） | `lineage-idle/src/services/CharacterService.js` |
+| **角色建立** | `src/components/CharacterCreation.tsx` | `lineage-idle/src/data/races.js` |
+| **背包與裝備** | `lineage-idle/src/services/InventoryService.js` | `lineage-idle/src/services/EquipmentService.js` |
+| **能力值計算（Stats）** | `lineage-idle/src/engine/StatsEngine.js` | `lineage-idle/src/engine/BalanceEngine.js` |
+| **怪物與 Spawn** | `lineage-idle/src/data/monsters.js` | `lineage-idle/src/data/raids.js` |
+| **區域與地圖** | `lineage-idle/src/data/zones.js` | `lineage-idle/art.js` |
+| **全球市場與 Firebase** | `src/firebase.ts` | `lineage-idle/src/services/MarketService.js` |
+| **存檔系統** | `lineage-idle/main.js`（`saveGameState`） | `lineage-idle/src/engine/SecurityEngine.js` |
+| **職業與怪物圖片** | `lineage-idle/art.js` | `public/img/` |
+| **2D Pixel 模式** | `src/pixel2d/Aden2DGame.tsx` | `public/assets/2d/` |
 
 ---
 
-## 📁 Estrutura Completa de Pastas
+## 📁 完整資料夾結構
 
-### 1. Visão Geral dos Diretórios Principais
+### 1. 主要目錄總覽
 
 ```text
 adenarena/
-├── public/          # Assets estáticos servidos pelo Vite (imagens, sprites, ícones)
-├── src/             # Frontend React (modais, auth, markup e modos 2D/3D)
-├── lineage-idle/    # Engine completa do jogo (combate, stats, lógica e dados)
-├── legado/          # Arquivos históricos e mockups antigos (apenas consulta)
-├── api/             # Webhooks serverless (Vercel)
-└── dist/            # Build compilado final de produção
+├── public/          # Vite 提供的靜態資源（圖片、sprites、圖示）
+├── src/             # React 前端（Modal、登入、Markup、2D／3D 模式）
+├── lineage-idle/    # 完整遊戲引擎（戰鬥、能力值、邏輯、資料）
+├── legado/          # 歷史檔案與舊版 mockup（僅供參考）
+├── api/             # Serverless Webhooks（Vercel）
+└── dist/            # 正式版 Build 輸出
 ```
 
 ---
 
-### 2. Detalhamento: `src/` (Camada React)
+### 2. `src/` 詳細說明（React 層）
 
-| Caminho | Descrição |
+| 路徑 | 說明 |
 |---|---|
-| `src/App.tsx` | Ponto de entrada React, roteamento de telas e seletor de modos (Idle, 2D, 3D). |
-| `src/firebase.ts` | Conexão com Firebase Authentication e Realtime Database (Mercado e Saves). |
-| `src/components/` | Telas React: `LoginScreen.tsx`, `AuthModal.tsx` e `CharacterCreation.tsx`. |
-| `src/idle/markup.ts` | **Arquivo-chave de UI**: contém o HTML completo da interface injetada no Shadow DOM. |
-| `src/idle/IdleGame.tsx` | Componente bridge que inicializa e gerencia a Engine dentro do Shadow DOM. |
-| `src/pixel2d/Aden2DGame.tsx` | Auto-battler 2D retro renderizado em HTML5 Canvas compartilhando o estado do jogo. |
-| `src/game/` | Modo 3D Arena em Three.js (`Game.ts`, `models.ts`). |
+| `src/App.tsx` | React 入口，負責畫面路由與模式選擇（Idle、2D、3D）。 |
+| `src/firebase.ts` | Firebase Authentication 與 Realtime Database 連線，供市場與存檔使用。 |
+| `src/components/` | React 畫面：`LoginScreen.tsx`、`AuthModal.tsx`、`CharacterCreation.tsx`。 |
+| `src/idle/markup.ts` | **UI 核心檔案**：包含注入 Shadow DOM 的完整主介面 HTML。 |
+| `src/idle/IdleGame.tsx` | Bridge 元件，用來初始化並管理 Shadow DOM 內的遊戲引擎。 |
+| `src/pixel2d/Aden2DGame.tsx` | 使用 HTML5 Canvas 製作的 2D 復古自動戰鬥模式，並與遊戲狀態共用資料。 |
+| `src/game/` | Three.js 3D Arena 模式（`Game.ts`、`models.ts`）。 |
 
 ---
 
-### 3. Detalhamento: `lineage-idle/` (Game Engine)
+### 3. `lineage-idle/` 詳細說明（遊戲引擎）
 
-| Subpasta / Arquivo | Função no Jogo |
+| 子資料夾／檔案 | 遊戲中的功能 |
 |---|---|
-| `main.js` | Core principal da engine, loop de jogo, eventos de clique e save. |
-| `art.js` | Sistema de renderização de avatares (`heroSVG`) e ilustrações de monstros (`monsterSVG`). |
-| `style.css` | Folha de estilos visual oficial com tema clássico de Lineage II. |
-| `src/engine/` | Motores matemáticos: `CombatEngine`, `StatsEngine`, `SkillEngine`, `StaggerEngine`, `LevelEngine`. |
-| `src/services/` | Serviços: `EquipmentService` (Dual Arsenal), `WeaponResonanceService`, `InventoryService`, `MarketService`, `CraftService`, `DyeService`, `PetService`. |
-| `src/data/` | Tabelas de monstros (`monsters.js`), raids épicos (`raids.js`), zonas (`zones.js`) e itens (`items/`). |
-| `data/echo-adapter.js` | Gerador canônico de todas as **846 habilidades** e **194 árvores de classes**. |
+| `main.js` | 遊戲引擎核心、遊戲 Loop、點擊事件與存檔。 |
+| `art.js` | 角色 Avatar（`heroSVG`）與怪物圖像（`monsterSVG`）渲染系統。 |
+| `style.css` | 官方主要樣式表，採用經典 Lineage II 風格。 |
+| `src/engine/` | 數值引擎：`CombatEngine`、`StatsEngine`、`SkillEngine`、`StaggerEngine`、`LevelEngine`。 |
+| `src/services/` | 服務層：`EquipmentService`、`WeaponResonanceService`、`InventoryService`、`MarketService`、`CraftService`、`DyeService`、`PetService`。 |
+| `src/data/` | 怪物（`monsters.js`）、Raid（`raids.js`）、區域（`zones.js`）與物品資料（`items/`）。 |
+| `data/echo-adapter.js` | 產生全部 **846 個技能**與 **194 條職業樹**的資料來源。 |
 
 ---
 
-### 4. Detalhamento: `public/` (Assets & Ilustrações)
+### 4. `public/` 詳細說明（資源與圖片）
 
-| Pasta | Conteúdo |
+| 資料夾 | 內容 |
 |---|---|
-| `public/img/` | **119 ilustrações de monstros** (`mon_*.jpg`) e **36 artes de classes** (M e F) em alta resolução. |
-| `public/assets/2d/` | Spritesheets de personagens (Knight, Rogue, etc.) e cenários de batalha para o modo 2D. |
-| `public/assets/skills/` | Ícones oficiais de habilidades e magias. |
+| `public/img/` | **119 張怪物圖片**（`mon_*.jpg`）與 **36 張男女職業高解析度圖片**。 |
+| `public/assets/2d/` | 角色 spritesheet（Knight、Rogue 等）與 2D 戰鬥場景。 |
+| `public/assets/skills/` | 技能與魔法圖示。 |
 
 ---
 
-### 5. Detalhamento: `legado/` (Apenas Consulta)
+### 5. `legado/` 詳細說明（僅供參考）
 
-| Pasta / Arquivo | O que é |
+| 資料夾／檔案 | 說明 |
 |---|---|
-| `legado/lineage-idle/index.html` | Antigo mockup HTML estático do cliente standalone (substituído por `src/idle/markup.ts`). |
-| `legado/lineage-idle/public/` | Cópia antiga de assets da época anterior ao Vite. |
-| `legado/scripts/` | Scripts de sincronização de ícones pré-modularização (`sync-icons.js`, `validate-icons.js`). |
-| `legado/scratch/` | ~90 scripts de auditoria, testes e migração criados durante o desenvolvimento. |
+| `legado/lineage-idle/index.html` | 舊版 standalone 靜態 HTML mockup，現已由 `src/idle/markup.ts` 取代。 |
+| `legado/lineage-idle/public/` | Vite 重構前的舊資源副本。 |
+| `legado/scripts/` | 模組化前使用的圖示同步腳本（`sync-icons.js`、`validate-icons.js`）。 |
+| `legado/scratch/` | 約 90 個開發期間使用的稽核、測試與資料遷移腳本。 |
 
 ---
 
-## ⚔️ Mecânicas Centrais do Jogo
+## ⚔️ 遊戲核心機制
 
-### 1. Dual Arsenal & Ressonância de Armas
-- O jogador possui dois slots de armas ativos simultâneos: **Arma 1 (`weapon`)** e **Arma 2 (`weapon2`)**.
-- Ambos acumulam atributos (P.Atk, M.Atk), cristais de Soul Crystal (SA), encantamentos (+1 a +16) e augmentations.
-- Combinações de pares geram **Ressonâncias Ativas** (ex: *Arco + Adaga = Caçador das Sombras*, *Dual + Lança = Senhor da Tempestade*).
-- O motor de habilidades (`SkillEngine.js`) valida os requisitos de arma contra qualquer um dos dois slots equipados.
+### 1. Dual Arsenal 與武器共鳴
 
-### 2. Barra de Quebra de Postura (Stagger)
-- Chefes, Elites e Raids possuem uma barra amarela de postura abaixo do HP.
-- Golpes físicos, acertos críticos e magias de impacto reduzem a postura até zero, ativando o estado de **BREAK**:
-  - O monstro fica paralisado e impedido de contra-atacar por 5 segundos.
-  - Recebe **2.0x de dano crítico com vulnerabilidade total**.
+- 玩家可同時使用兩個武器欄：**武器 1（`weapon`）**與 **武器 2（`weapon2`）**。
+- 兩把武器都會累加屬性（P.Atk、M.Atk）、Soul Crystal（SA）、強化值（+1 ～ +16）以及 Augmentation。
+- 特定武器搭配會觸發**武器共鳴**，例如：
+  - 弓 + 匕首 = 影之獵人
+  - 雙刀 + 長槍 = 風暴領主
+- 技能引擎（`SkillEngine.js`）會檢查兩個已裝備武器欄，只要任一武器符合技能需求即可使用。
 
-### 3. Mudança de Classe & Consagração de Linhagem (Lv. 20, 40, 76)
-- Ao atingir os níveis-chave, o modal de avanço de classe é aberto com as ilustrações completas de cada caminho.
-- O jogador pode consagrar até **2 habilidades da classe anterior** para se tornarem passivas permanentes, recebendo 100% de reembolso do SP investido para iniciar a nova jornada.
+### 2. 姿態破壞條（Stagger）
 
-### 4. Mercado Global Realtime
-- Venda e compra de itens entre jogadores em Adena ou Moedas de Ouro.
-- Trava de compra com confirmação transacional atômica no Firebase, impedindo duplicação de itens.
-- Vendas concluídas offline são automaticamente creditadas ao logar.
+- Boss、Elite 與 Raid 怪物，在 HP 下方會顯示黃色姿態條。
+- 物理攻擊、暴擊與衝擊型魔法會降低姿態值。
+- 姿態值降到 0 時會觸發 **BREAK**：
+  - 怪物會被暫時控制，5 秒內無法反擊。
+  - 期間受到 **2.0 倍傷害**。
+
+### 3. 轉職與血統傳承（Lv. 20、40、76）
+
+- 達到指定等級時，會開啟轉職 Modal，顯示各條完整職業路線與圖片。
+- 玩家最多可保留前一職業的 **2 個技能**，使其成為永久被動能力。
+- 已投入的 SP 會 100% 返還，供新職業重新配置。
+
+### 4. 全球即時市場
+
+- 玩家可以使用 Adena 或 Gold Coins 彼此買賣物品。
+- 購買流程使用 Firebase 原子交易鎖，避免物品重複取得。
+- 玩家離線期間完成的交易，會在下次登入時自動入帳。
 
 ---
 
-## 🛠️ Comandos & Deploy
+## 🛠️ 指令與部署
 
 ```bash
-# Iniciar servidor local
+# 啟動本機開發伺服器
 npm run dev
 
-# Validar TypeScript e gerar build
+# 驗證 TypeScript 並建立正式版 Build
 npm run build
 
-# Testar build localmente
+# 在本機預覽正式版 Build
 npm run preview
 ```
 
-### Deploy Automático (CI/CD)
-O repositório está integrado com a **Vercel**. Todo commit enviado para a branch `main` gera um deploy automático em produção:
+### 自動部署（CI/CD）
+
+此專案已整合 **Vercel**。
+
+每次將 commit 推送到 `main` 分支後，都會自動觸發正式環境部署：
 
 ```bash
 git add .
-git commit -m "feat: sua alteracao aqui"
+git commit -m "feat: 你的修改內容"
 git push origin main
 ```
 
 ---
 
-⚔️ *Que a bênção de Einhasad e a fúria de Gran Kain guiem seu código em Aden!*
+⚔️ *願殷海薩的祝福與格蘭肯的怒火，指引你在亞丁世界中的每一行程式碼！*
