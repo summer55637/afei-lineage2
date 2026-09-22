@@ -1706,7 +1706,7 @@ window.onCharacterCreated = (data) => {
   if (typeof window !== 'undefined' && typeof window.saveCloudNow === 'function') {
     window.saveCloudNow(state, true);
   }
-  log(`🎉 角色建立成功： ${data.charName || state.charName} (${data.race} - ${data.className})! 已裝備初始無等級套裝！`, 'rarity-legendary');
+  log(`🎉 角色建立成功：${data.charName || state.charName}（${RACES?.[data.race]?.name || data.race} · ${getClass(data.className)?.name || data.className}）！已裝備初始無等級套裝！`, 'rarity-legendary');
 };
 
 // --------------------------- LEVEL UP wrapper ---------------------------
@@ -2427,7 +2427,7 @@ function showSkillTooltip(skillId, e) {
     ? `<span class="tt-star-pill">${def.starRank || (def.tier === 5 ? 5 : 4)}★</span>`
     : '';
   const cdText = (def.baseCd || def.gameplay?.cooldown)
-    ? `<span class="tt-cd-badge">⏱️ ${((def.baseCd || def.gameplay?.cooldown) / 1000).toFixed(1)}s</span>`
+    ? `<span class="tt-cd-badge">⏱️ ${((def.baseCd || def.gameplay?.cooldown) / 1000).toFixed(1)} 秒</span>`
     : '';
 
   tt.innerHTML = `
@@ -2493,10 +2493,10 @@ function shopRow(def, id, price, extra = '') {
   if (isStackable && !lockLvl && !lockCls) {
     buyActionHtml = `
       <div class="shop-bulk-actions">
-        <button class="item-action" data-buy="${id}" data-qty="1" ${state.gold < price ? 'disabled' : ''}>1× (${price} 金幣)</button>
-        <button class="item-action" data-buy="${id}" data-qty="10" ${state.gold < price * 10 ? 'disabled' : ''}>10× (${(price * 10).toLocaleString()} 金幣)</button>
-        <button class="item-action" data-buy="${id}" data-qty="100" ${state.gold < price * 100 ? 'disabled' : ''}>100× (${(price * 100).toLocaleString()} 金幣)</button>
-        <button class="item-action" data-buy="${id}" data-qty="1000" ${state.gold < price * 1000 ? 'disabled' : ''}>1000× (${(price * 1000).toLocaleString()} 金幣)</button>
+        <button class="item-action" data-buy="${id}" data-qty="1" ${state.gold < price ? 'disabled' : ''}>1×（${price} 金幣）</button>
+        <button class="item-action" data-buy="${id}" data-qty="10" ${state.gold < price * 10 ? 'disabled' : ''}>10×（${(price * 10).toLocaleString()} 金幣）</button>
+        <button class="item-action" data-buy="${id}" data-qty="100" ${state.gold < price * 100 ? 'disabled' : ''}>100×（${(price * 100).toLocaleString()} 金幣）</button>
+        <button class="item-action" data-buy="${id}" data-qty="1000" ${state.gold < price * 1000 ? 'disabled' : ''}>1000×（${(price * 1000).toLocaleString()} 金幣）</button>
       </div>
     `;
   } else {
@@ -5902,7 +5902,7 @@ export function attackMonster() {
           }
         }
 
-        log(`💥 ${skill.def.name}！造成 ${sDmg} ${type} 傷害`, 'rarity-epic');
+        log(`💥 ${skill.def.name}！造成 ${sDmg} ${type === 'magic' ? '魔法' : '物理'}傷害`, 'rarity-epic');
         if (skill.def.effect === 'stun' && !killedBySkill) {
            monster._stunnedUntil = realNow + 3500;
            log(`💫 ${monster.name} 被暈眩了！`, 'rarity-rare');
@@ -6797,7 +6797,7 @@ function populateAdminItemSelect(query = '') {
     const opt = mkEl('option');
     opt.value = id;
     const grade = getItemGrade(def.req?.level || 1);
-    opt.textContent = `${def.name} [${grade}]（${def.slot || '物品'} · 等級 ${def.req?.level || 1}）`;
+    opt.textContent = `${def.name} [${grade}]（${({ weapon: '武器', weapon2: '副武器', shield: '盾牌', helmet: '頭盔', armor: '胸甲', chest: '胸甲', fullbody: '全身甲', legs: '褲子', gloves: '手套', boots: '靴子', cloak: '披風', belt: '腰帶', necklace: '項鍊', earring: '耳環', earring1: '耳環 1', earring2: '耳環 2', ring: '戒指', ring1: '戒指 1', ring2: '戒指 2', hair: '頭飾', consumable: '消耗品', material: '材料', scroll: '卷軸', crystal: '水晶' })[def.slot] || '物品'} · 等級 ${def.req?.level || 1}）`;
     sel.appendChild(opt);
   }
 }
