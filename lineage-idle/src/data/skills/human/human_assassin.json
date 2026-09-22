@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "shadow_clone",
-        "name": "Clone de Sombra",
+        "name": "暗影分身",
         "classId": "human_assassin",
         "race": "human",
         "tier": "core_1",
@@ -14,7 +14,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Clone de Sombra — Habilidade Especialista de human_assassin."
+        "description": "暗影分身——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -166,7 +166,7 @@
     {
       "identity": {
         "id": "gloom_strike",
-        "name": "Golpe Sombrio",
+        "name": "幽暗打擊",
         "classId": "human_assassin",
         "race": "human",
         "tier": "core_2",
@@ -177,7 +177,7 @@
           "Dark",
           "Physical"
         ],
-        "description": "Golpe Sombrio — Habilidade Especialista de human_assassin."
+        "description": "幽暗打擊——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -329,7 +329,7 @@
     {
       "identity": {
         "id": "veil_step",
-        "name": "Passo do Véu",
+        "name": "帷幕步伐",
         "classId": "human_assassin",
         "race": "human",
         "tier": "specialization",
@@ -339,7 +339,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Passo do Véu — Habilidade Especialista de human_assassin."
+        "description": "帷幕步伐——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -491,7 +491,7 @@
     {
       "identity": {
         "id": "night_execution",
-        "name": "Execução Noturna",
+        "name": "夜襲處決",
         "classId": "human_assassin",
         "race": "human",
         "tier": "elemental_specialization",
@@ -502,7 +502,7 @@
           "Dark",
           "Physical"
         ],
-        "description": "Execução Noturna — Habilidade Especialista de human_assassin."
+        "description": "夜襲處決——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -672,7 +672,7 @@
     {
       "identity": {
         "id": "nightfall_execution",
-        "name": "Nightfall Execution",
+        "name": "暮夜處決",
         "classId": "human_assassin",
         "race": "human",
         "tier": "ultimate",
@@ -682,7 +682,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Nightfall Execution — Habilidade Ultimate (★★★★) de human_assassin."
+        "description": "暮夜處決——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -867,7 +867,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "NIGHTFALL EXECUTION!",
+          "text": "暮夜處決！",
           "style": "gold_banner",
           "banner": true
         }
@@ -888,7 +888,7 @@
     {
       "identity": {
         "id": "master_nightfall_execution",
-        "name": "Master: Nightfall Execution",
+        "name": "大師：暮夜處決",
         "classId": "human_assassin",
         "race": "human",
         "tier": "master_ultimate",
@@ -898,7 +898,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Master: Nightfall Execution — Habilidade Master Ultimate (★★★★★) de human_assassin."
+        "description": "大師：暮夜處決——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1084,7 +1084,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: NIGHTFALL EXECUTION!",
+          "text": "大師：暮夜處決！",
           "style": "mythic_banner",
           "banner": true
         }
