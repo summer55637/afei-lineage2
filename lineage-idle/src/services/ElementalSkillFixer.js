@@ -56,7 +56,7 @@ export function applySkillFix(character, options = {}) {
         rolledBack: false,
         status: 'BLOCKED',
         reason: 'CONTRACT_INVALID',
-        message: 'Underlying Game Data Contract 3.2.1 is invalid or corrupted. Fix execution is blocked.'
+        message: '底層遊戲資料合約 3.2.1 無效或已損壞，已阻止修復程序執行。'
       };
     }
   }
@@ -71,7 +71,7 @@ export function applySkillFix(character, options = {}) {
       fixed: false,
       rolledBack: false,
       status: 'VALID',
-      message: 'Character skills are already valid. No fix required.',
+      message: '角色技能資料已有效，不需要修復。',
       preAudit,
       postAudit: preAudit,
       diff: preAudit.diff
@@ -86,7 +86,7 @@ export function applySkillFix(character, options = {}) {
       rolledBack: false,
       status: 'BLOCKED',
       reason: preAudit.safety.blockedReason || 'SAFETY_BLOCK',
-      message: `Correction blocked by safety policy: ${preAudit.safety.blockedReason}`,
+      message: `修正程序已被安全規則阻止：${preAudit.safety.blockedReason}`,
       preAudit,
       diff: preAudit.diff
     };
@@ -145,7 +145,7 @@ export function applySkillFix(character, options = {}) {
         rolledBack: true,
         status: 'ROLLBACK_TRIGGERED',
         reason: 'RE_AUDIT_FAILED',
-        message: 'Post-fix re-audit detected remaining violations. Atomic rollback executed.',
+        message: '修復後重新稽核仍發現違規項目，已執行完整回滾。',
         preAudit,
         postAudit,
         diff: preAudit.diff
@@ -158,7 +158,7 @@ export function applySkillFix(character, options = {}) {
       fixed: true,
       rolledBack: false,
       status: 'SUCCESS',
-      message: 'Character skills repaired atomically and certified by post-fix re-audit.',
+      message: '角色技能已完成原子式修復，並通過修復後重新稽核。',
       preAudit,
       postAudit,
       diff: preAudit.diff
@@ -172,7 +172,7 @@ export function applySkillFix(character, options = {}) {
       rolledBack: true,
       status: 'ROLLBACK_TRIGGERED',
       reason: 'EXCEPTION_THROWN',
-      message: `Unexpected exception during fix application: ${err.message}. Atomic rollback executed.`,
+      message: `套用修復時發生未預期錯誤：${err.message}。已執行完整回滾。`,
       error: err.message
     };
   }
