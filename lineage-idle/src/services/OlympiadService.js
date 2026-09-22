@@ -41,7 +41,7 @@ export class 奧林匹亞Service {
 
     let tierName = '🛡️ Nobre Desafiante';
     if (isHero) tierName = '👑 GRAND OLYMPIAD HERO';
-    else if (points >= 1500) tierName = '⭐ Mestre da Arena';
+    else if (points >= 1500) tierName = '⭐ 競技場大師';
     else if (points >= 1300) tierName = '⚔️ Gladiador de Elite';
     else if (points >= 1150) tierName = '🛡️ Combatente Veterano';
 
@@ -240,7 +240,7 @@ export class 奧林匹亞Service {
       state.olympiadLosses = (state.olympiadLosses ?? 0) + 1;
 
       if (callbacks.log) {
-        callbacks.log(`💀 **DERROTA NA ARENA.** ${gladiator.name} venceu o duelo. (-${pointsLost} Pontos, +${tokensGained} Tokens de consolação)`, 'system');
+        callbacks.log(`💀 **競技場敗北。** ${gladiator.name} 贏得決鬥。（-${pointsLost} 積分，+${tokensGained} 安慰代幣）`, 'system');
       }
 
       if (callbacks.onUpdate) callbacks.onUpdate();
@@ -267,7 +267,7 @@ export class 奧林匹亞Service {
     if (!state) return false;
     const points = state.olympiadPoints ?? 1000;
     if (points < 1500) {
-      if (callbacks.log) callbacks.log('❌ Requer pelo menos 1.500 奧林匹亞積分 para ser coroado Herói!', 'system');
+      if (callbacks.log) callbacks.log('❌ 至少需要 1,500 奧林匹亞積分才能加冕為英雄！', 'system');
       return false;
     }
 
@@ -294,8 +294,8 @@ export class 奧林匹亞Service {
     });
 
     if (callbacks.log) {
-      callbacks.log('👑🌟 **COROAÇÃO DE HERÓI SUPREMO DE ADEN!** 🌟👑', 'rarity-legendary');
-      callbacks.log(`Você recebeu a **Aura Dourada Cintilante**, as 4 **Habilidades Heroicas** e a **${weaponDef.name}**!`, 'rarity-legendary');
+      callbacks.log('👑🌟 **亞丁至尊英雄加冕！** 🌟👑', 'rarity-legendary');
+      callbacks.log(`你獲得了 **閃耀金色光環**、4 項 **英雄技能** 與 **${weaponDef.name}**！`, 'rarity-legendary');
     }
 
     if (callbacks.onUpdate) callbacks.onUpdate();
@@ -313,13 +313,13 @@ export class 奧林匹亞Service {
     if (!state || !itemId) return false;
     const item = OLYMPIAD_SHOP_CATALOG.find(i => i.id === itemId);
     if (!item) {
-      if (callbacks.log) callbacks.log('❌ Item de Olimpíada não encontrado!', 'system');
+      if (callbacks.log) callbacks.log('❌ 找不到奧林匹亞物品！', 'system');
       return false;
     }
 
     const currentTokens = state.olympiadTokens ?? 0;
     if (currentTokens < item.priceTokens) {
-      if (callbacks.log) callbacks.log(`❌ 奧林匹亞 Tokens insuficientes! Necessário: ${item.priceTokens} (Você tem: ${currentTokens})`, 'system');
+      if (callbacks.log) callbacks.log(`❌ 奧林匹亞代幣不足！需要：${item.priceTokens}（目前擁有：${currentTokens}）`, 'system');
       return false;
     }
 
@@ -335,7 +335,7 @@ export class 奧林匹亞Service {
     });
 
     if (callbacks.log) {
-      callbacks.log(`🛍️ **Compra Concluída:** Você adquiriu **${item.name}** por ${item.priceTokens} Tokens de Olimpíada!`, 'rarity-epic');
+      callbacks.log(`🛍️ **購買完成：**你以 ${item.priceTokens} 奧林匹亞代幣購買了 **${item.name}**！`, 'rarity-epic');
     }
 
     if (callbacks.onUpdate) callbacks.onUpdate();
