@@ -90,14 +90,14 @@ export const ITEM_SKILLS = [
     id: 'item_skill_active_might',
     name: '物品技能：主動力量 ⚔️',
     type: 'active',
-    desc: '暫時提升物理 P.Atk 15%。',
+    desc: '暫時提升物理攻擊 15%。',
     stats: { pAtkPercent: 0.15 }
   },
   {
     id: 'item_skill_active_shield',
     name: '物品技能：主動護盾 🛡️',
     type: 'active',
-    desc: '暫時提升物理 P.Def 15%。',
+    desc: '暫時提升物理防禦 15%。',
     stats: { pDefPercent: 0.15 }
   },
   {
