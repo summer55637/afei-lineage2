@@ -3,7 +3,7 @@
 export const MERCENARY_RARITIES = {
   common: {
     id: 'common',
-    name: 'Comum',
+    name: '普通',
     color: '#94a3b8',
     bgBadge: 'rgba(148, 163, 184, 0.15)',
     border: 'rgba(148, 163, 184, 0.4)',
@@ -13,7 +13,7 @@ export const MERCENARY_RARITIES = {
   },
   uncommon: {
     id: 'uncommon',
-    name: 'Incomum',
+    name: '優良',
     color: '#22c55e',
     bgBadge: 'rgba(34, 197, 94, 0.15)',
     border: 'rgba(34, 197, 94, 0.4)',
@@ -23,7 +23,7 @@ export const MERCENARY_RARITIES = {
   },
   rare: {
     id: 'rare',
-    name: 'Raro',
+    name: '稀有',
     color: '#3b82f6',
     bgBadge: 'rgba(59, 130, 246, 0.15)',
     border: 'rgba(59, 130, 246, 0.4)',
@@ -33,7 +33,7 @@ export const MERCENARY_RARITIES = {
   },
   epic: {
     id: 'epic',
-    name: 'Épico',
+    name: '史詩',
     color: '#a855f7',
     bgBadge: 'rgba(168, 85, 247, 0.15)',
     border: 'rgba(168, 85, 247, 0.4)',
@@ -43,7 +43,7 @@ export const MERCENARY_RARITIES = {
   },
   legendary: {
     id: 'legendary',
-    name: 'Lendário',
+    name: '傳說',
     color: '#f59e0b',
     bgBadge: 'rgba(245, 158, 11, 0.2)',
     border: 'rgba(245, 158, 11, 0.5)',
@@ -56,51 +56,51 @@ export const MERCENARY_RARITIES = {
 export const MERCENARY_TRAITS = {
   veteran: {
     id: 'veteran',
-    name: 'Veterano',
+    name: '老兵',
     icon: '🎖️',
-    desc: '+10% Poder geral nas expedições',
+    desc: '遠征總戰力 +10%',
     powerBonusPct: 0.10,
     color: '#eab308'
   },
   greedy: {
     id: 'greedy',
-    name: 'Ganancioso',
+    name: '貪婪',
     icon: '💰',
-    desc: '+20% Ouro saqueado, -5% XP ganha',
+    desc: '掠奪金幣 +20%、獲得 XP -5%',
     goldBonusPct: 0.20,
     xpBonusPct: -0.05,
     color: '#f59e0b'
   },
   cautious: {
     id: 'cautious',
-    name: 'Cauteloso',
+    name: '謹慎',
     icon: '🛡️',
-    desc: '-25% Dano sofrido em perigos, +10% duração',
+    desc: '危險事件受到傷害 -25%、遠征時間 +10%',
     hazardDamageReduction: 0.25,
     durationMult: 1.10,
     color: '#3b82f6'
   },
   disciplined: {
     id: 'disciplined',
-    name: 'Disciplinado',
+    name: '自律',
     icon: '📜',
-    desc: '+15% XP de expedição para o mercenário',
+    desc: '傭兵遠征 XP +15%',
     xpBonusPct: 0.15,
     color: '#8b5cf6'
   },
   lucky: {
     id: 'lucky',
-    name: 'Sortudo',
+    name: '幸運',
     icon: '🍀',
-    desc: '+15% Chance de baú bônus e relíquias raras',
+    desc: '額外寶箱與稀有遺物機率 +15%',
     bonusChestChance: 0.15,
     color: '#22c55e'
   },
   agile: {
     id: 'agile',
-    name: 'Ágil',
+    name: '敏捷',
     icon: '⚡',
-    desc: '-15% Tempo de marcha da expedição',
+    desc: '遠征行軍時間 -15%',
     speedReduction: 0.15,
     color: '#06b6d4'
   }
@@ -109,10 +109,10 @@ export const MERCENARY_TRAITS = {
 export const MERCENARY_SPECIALIZATIONS = {
   guardian: {
     id: 'guardian',
-    name: 'Guardião',
+    name: '守護者',
     icon: '🛡️',
     role: 'Tanque & Defesa',
-    desc: 'Ergue o baluarte para proteger a caravana. Mitiga perigos e emboscadas.',
+    desc: '建立防線保護隊伍，減輕危險與伏擊造成的損失。',
     synergyName: 'Escudo Inabalável',
     synergyDesc: '-35% Dano de emboscadas e perigos (+10% Adena protegida)',
     hazardMitigation: 0.35,
@@ -120,21 +120,21 @@ export const MERCENARY_SPECIALIZATIONS = {
   },
   tracker: {
     id: 'tracker',
-    name: 'Rastreador',
+    name: '追蹤者',
     icon: '🏹',
     role: 'Batedor & Navegador',
-    desc: 'Domina trilhas secretas pelos ermos de Aden. Encurta a marcha e encontra atalhos.',
-    synergyName: 'Passo Ágil',
+    desc: '熟悉亞丁荒野的秘密路線，可縮短行軍時間並發現捷徑。',
+    synergyName: 'Passo 敏捷',
     synergyDesc: '-20% Duração da expedição (+20% nós de recursos extras)',
     speedReduction: 0.20,
     extraResourceChance: 0.20
   },
   thief: {
     id: 'thief',
-    name: 'Ladino',
+    name: '盜賊',
     icon: '🗡️',
     role: 'Infiltrador & Gatuno',
-    desc: 'Especialista em desarmar armadilhas antigas e arrombar arcas de tesouro.',
+    desc: '擅長解除古代陷阱與撬開寶箱。',
     synergyName: 'Mãos de Seda',
     synergyDesc: '+35% Chance de Baú Bônus (-40% dano de armadilhas)',
     bonusChestChance: 0.35,
@@ -142,10 +142,10 @@ export const MERCENARY_SPECIALIZATIONS = {
   },
   mage: {
     id: 'mage',
-    name: 'Mago Arcano',
+    name: '秘法法師',
     icon: '🔮',
     role: 'Dano Arcano & Elemental',
-    desc: 'Canaliza correntes arcanas para dispersar barreiras mágicas e demônios.',
+    desc: '操控秘法力量，驅散魔法屏障與惡魔。',
     synergyName: 'Sifão Astral',
     synergyDesc: '+50% Cacos Astrais (+25% chance de câmara secreta)',
     extraShardsPct: 0.50,
@@ -153,10 +153,10 @@ export const MERCENARY_SPECIALIZATIONS = {
   },
   healer: {
     id: 'healer',
-    name: 'Curandeiro',
+    name: '治療者',
     icon: '✨',
     role: 'Luz Sagrada & Suporte',
-    desc: 'Purifica ferimentos de batalha, sustenta a moral e expurga maldições.',
+    desc: '治療戰傷、維持士氣並驅散詛咒。',
     synergyName: 'Bênção de Eva',
     synergyDesc: '+30% XP para o esquadrão (-25% dano residual da caravana)',
     extraXpPct: 0.30,
@@ -168,8 +168,8 @@ export const MERCENARY_TEMPLATES = [
   // Guardiões
   {
     id: 'merc_tarkin',
-    name: 'Tarkin de Gludio',
-    title: 'O Baluarte de Ferro',
+    name: '古魯丁塔金',
+    title: '鋼鐵堡壘',
     icon: '🛡️',
     spec: 'guardian',
     rarity: 'common',
@@ -178,8 +178,8 @@ export const MERCENARY_TEMPLATES = [
   },
   {
     id: 'merc_darius',
-    name: 'Comandante Darius',
-    title: 'Sentinela do Forte',
+    name: '指揮官達里烏斯',
+    title: '要塞哨兵',
     icon: '⚔️',
     spec: 'guardian',
     rarity: 'uncommon',
@@ -188,8 +188,8 @@ export const MERCENARY_TEMPLATES = [
   },
   {
     id: 'merc_brann',
-    name: 'Brann Escudo-de-Carvalho',
-    title: 'Paladino dos Ermos',
+    name: '橡木盾布蘭',
+    title: '荒野聖騎士',
     icon: '🛡️',
     spec: 'guardian',
     rarity: 'rare',
@@ -198,8 +198,8 @@ export const MERCENARY_TEMPLATES = [
   },
   {
     id: 'merc_valerius',
-    name: 'Lorde Valerius',
-    title: 'General de Ferro de Dion',
+    name: '瓦勒里斯領主',
+    title: '狄恩鋼鐵將軍',
     icon: '🏰',
     spec: 'guardian',
     rarity: 'epic',
@@ -207,11 +207,11 @@ export const MERCENARY_TEMPLATES = [
     quote: 'Marchamos como uma fortaleza intransponível!'
   },
 
-  // Rastreadores
+  // 追蹤者es
   {
     id: 'merc_lyra',
-    name: 'Lyra da Floresta',
-    title: 'Batedora Silvestre',
+    name: '森林萊拉',
+    title: '荒野斥候',
     icon: '🏹',
     spec: 'tracker',
     rarity: 'common',
@@ -220,8 +220,8 @@ export const MERCENARY_TEMPLATES = [
   },
   {
     id: 'merc_kestrel',
-    name: 'Kestrel Olho-de-Falcão',
-    title: 'Atirador de Emboscada',
+    name: '鷹眼凱斯特爾',
+    title: '伏擊射手',
     icon: '🦅',
     spec: 'tracker',
     rarity: 'uncommon',
@@ -230,8 +230,8 @@ export const MERCENARY_TEMPLATES = [
   },
   {
     id: 'merc_sylas',
-    name: 'Sylas Andarilho do Vento',
-    title: 'Guia das Catacumbas',
+    name: '風行者賽拉斯',
+    title: '地下墓穴嚮導',
     icon: '🧭',
     spec: 'tracker',
     rarity: 'rare',
@@ -240,8 +240,8 @@ export const MERCENARY_TEMPLATES = [
   },
   {
     id: 'merc_artemis',
-    name: 'Artemis da Lua Cheia',
-    title: 'Rainha Batedora Élfica',
+    name: '滿月阿爾忒彌斯',
+    title: '精靈斥候女王',
     icon: '🌙',
     spec: 'tracker',
     rarity: 'epic',
@@ -252,8 +252,8 @@ export const MERCENARY_TEMPLATES = [
   // Ladrões / Infiltradores
   {
     id: 'merc_corvus',
-    name: 'Corvus Pé-de-Vento',
-    title: 'Batedor de Carteiras',
+    name: '疾風科爾沃斯',
+    title: '扒手',
     icon: '🗡️',
     spec: 'thief',
     rarity: 'common',
@@ -262,8 +262,8 @@ export const MERCENARY_TEMPLATES = [
   },
   {
     id: 'merc_jarek',
-    name: 'Jarek Mãos-de-Seda',
-    title: 'Desarmador de Fechaduras',
+    name: '巧手賈雷克',
+    title: '開鎖專家',
     icon: '🗝️',
     spec: 'thief',
     rarity: 'uncommon',
@@ -272,8 +272,8 @@ export const MERCENARY_TEMPLATES = [
   },
   {
     id: 'merc_shani',
-    name: 'Shani a Sombra de Giran',
-    title: 'Assassina Renegada',
+    name: '奇岩之影莎妮',
+    title: '叛逃刺客',
     icon: '👥',
     spec: 'thief',
     rarity: 'rare',
@@ -282,8 +282,8 @@ export const MERCENARY_TEMPLATES = [
   },
   {
     id: 'merc_raven',
-    name: 'Corvo Noturno',
-    title: 'Mestre da Guilda dos Ladrões',
+    name: '夜鴉',
+    title: '盜賊公會大師',
     icon: '👑',
     spec: 'thief',
     rarity: 'legendary',
@@ -294,8 +294,8 @@ export const MERCENARY_TEMPLATES = [
   // Magos Arcanos
   {
     id: 'merc_elena',
-    name: 'Elena Chamas-Vivas',
-    title: 'Iniciada Arcana',
+    name: '活焰艾蓮娜',
+    title: '秘法學徒',
     icon: '🔥',
     spec: 'mage',
     rarity: 'common',
@@ -304,8 +304,8 @@ export const MERCENARY_TEMPLATES = [
   },
   {
     id: 'merc_morgrim',
-    name: 'Morgrim o Telúrico',
-    title: 'Invocador das Profundezas',
+    name: '大地莫格林',
+    title: '深淵召喚師',
     icon: '⚡',
     spec: 'mage',
     rarity: 'uncommon',
@@ -314,8 +314,8 @@ export const MERCENARY_TEMPLATES = [
   },
   {
     id: 'merc_selene',
-    name: 'Mestra Selene',
-    title: 'Feiticeira das Sombras',
+    name: '瑟琳大師',
+    title: '暗影女巫',
     icon: '🔮',
     spec: 'mage',
     rarity: 'rare',
@@ -324,8 +324,8 @@ export const MERCENARY_TEMPLATES = [
   },
   {
     id: 'merc_azrael',
-    name: 'Azrael o Tecelão Astral',
-    title: 'Arquimago de Marfim',
+    name: '星界編織者阿茲瑞爾',
+    title: '象牙塔大法師',
     icon: '🌌',
     spec: 'mage',
     rarity: 'legendary',
@@ -333,11 +333,11 @@ export const MERCENARY_TEMPLATES = [
     quote: 'O cosmos se curva diante da sabedoria ancestral da Torre de Marfim!'
   },
 
-  // Curandeiros / Suporte
+  // 治療者s / Suporte
   {
     id: 'merc_vanya',
-    name: 'Vanya a Devota',
-    title: 'Acólita de Eva',
+    name: '虔誠者凡雅',
+    title: '伊娃侍從',
     icon: '✨',
     spec: 'healer',
     rarity: 'common',
@@ -346,8 +346,8 @@ export const MERCENARY_TEMPLATES = [
   },
   {
     id: 'merc_celestine',
-    name: 'Irmã Celestine',
-    title: 'Sacerdotisa da Alvorada',
+    name: '修女瑟蕾絲汀',
+    title: '黎明祭司',
     icon: '🕊️',
     spec: 'healer',
     rarity: 'uncommon',
@@ -356,8 +356,8 @@ export const MERCENARY_TEMPLATES = [
   },
   {
     id: 'merc_thalor',
-    name: 'Thalor Punho-da-Luz',
-    title: 'Monge Exorcista',
+    name: '光拳塔洛爾',
+    title: '驅魔武僧',
     icon: '☀️',
     spec: 'healer',
     rarity: 'rare',
@@ -366,8 +366,8 @@ export const MERCENARY_TEMPLATES = [
   },
   {
     id: 'merc_isolde',
-    name: 'Matriarca Isolde',
-    title: 'Santa Viva de Aden',
+    name: '女族長伊索德',
+    title: '亞丁活聖女',
     icon: '👑',
     spec: 'healer',
     rarity: 'epic',
