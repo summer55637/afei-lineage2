@@ -30,28 +30,28 @@ export class SkillSystemV2Validator {
       if (cls.stageName && stageCounts[cls.stageName] !== undefined) {
         stageCounts[cls.stageName]++;
       } else {
-        errors.push(`Class ${cId} has invalid stageName: ${cls.stageName}`);
+        errors.push(`職業 ${cId} 的 stageName 無效：${cls.stageName}`);
       }
 
       // Check parent DAG edge
       if (cls.parentClass && !CANONICAL_CLASS_REGISTRY_V2[cls.parentClass]) {
-        errors.push(`Class ${cId} references missing parentClass: ${cls.parentClass}`);
+        errors.push(`職業 ${cId} 參照了不存在的 parentClass：${cls.parentClass}`);
       }
 
       // Verify skills belong to V2 registry
       if (!Array.isArray(cls.skillIds) || cls.skillIds.length === 0) {
-        errors.push(`Class ${cId} has no skills registered`);
+        errors.push(`職業 ${cId} 尚未登錄任何技能`);
       } else {
         for (const sId of cls.skillIds) {
           if (!CANONICAL_SKILL_REGISTRY_V2[sId]) {
-            errors.push(`Class ${cId} references unregistered skillId: ${sId}`);
+            errors.push(`職業 ${cId} 參照了未登錄的 skillId：${sId}`);
           }
         }
       }
     }
 
     if (lineages.size < 46) {
-      errors.push(`Expected 46 lineages, found ${lineages.size}`);
+      errors.push(`預期應有 46 條職業進階線，實際找到 ${lineages.size} 條`);
     }
 
     // 2. Audit Skills: 0 Silent Gaps
@@ -62,42 +62,42 @@ export class SkillSystemV2Validator {
 
     for (const [sId, s] of Object.entries(CANONICAL_SKILL_REGISTRY_V2)) {
       if (!s.id || s.id !== sId) {
-        errors.push(`Skill key mismatch: key=${sId}, id=${s.id}`);
+        errors.push(`技能鍵值不一致：key=${sId}，id=${s.id}`);
       }
-      if (!s.name) errors.push(`Skill ${sId} is missing name`);
-      if (!s.type) errors.push(`Skill ${sId} is missing type`);
+      if (!s.name) errors.push(`技能 ${sId} 缺少名稱`);
+      if (!s.type) errors.push(`技能 ${sId} 缺少類型`);
       typeDistribution[s.type] = (typeDistribution[s.type] || 0) + 1;
 
       // Icon Gap Classification
       if (s.iconGap === undefined || s.iconGap === null) {
-        errors.push(`Skill ${sId} has silent icon gap (iconGap boolean undefined)`);
+        errors.push(`技能 ${sId} 存在未標記的圖示缺口（iconGap 尚未定義）`);
       } else if (s.iconGap === true) {
         iconGaps++;
         if (!s.iconGapReason) {
-          errors.push(`Skill ${sId} is flagged with iconGap=true but missing iconGapReason`);
+          errors.push(`技能 ${sId} 已標記 iconGap=true，但缺少 iconGapReason`);
         }
       }
 
       // VFX Gap Classification
       if (s.vfxGap === undefined || s.vfxGap === null) {
-        errors.push(`Skill ${sId} has silent VFX gap (vfxGap boolean undefined)`);
+        errors.push(`技能 ${sId} 存在未標記的 VFX 缺口（vfxGap 尚未定義）`);
       } else if (s.vfxGap === true) {
         vfxGaps++;
       }
 
       // SFX Gap Classification
       if (s.sfxGap === undefined || s.sfxGap === null) {
-        errors.push(`Skill ${sId} has silent SFX gap (sfxGap boolean undefined)`);
+        errors.push(`技能 ${sId} 存在未標記的 SFX 缺口（sfxGap 尚未定義）`);
       } else if (s.sfxGap === true) {
         sfxGaps++;
       }
 
       // Balance & Cooldown presence
       if (!s.balance || typeof s.balance.pwr !== 'number' || typeof s.balance.mpCost !== 'number') {
-        errors.push(`Skill ${sId} is missing valid balance profile`);
+        errors.push(`技能 ${sId} 缺少有效的平衡設定檔`);
       }
       if (!s.canonicalCooldownMs) {
-        warnings.push(`Skill ${sId} has missing or 0 canonicalCooldownMs`);
+        warnings.push(`技能 ${sId} 的 canonicalCooldownMs 缺失或為 0`);
       }
     }
 
@@ -143,7 +143,7 @@ export class SkillSystemV2Validator {
       if (calculated !== item.spRefunded) {
         return {
           valid: false,
-          error: `SP refund mismatch for ${item.oldSkillId}: expected ${calculated}, got ${item.spRefunded}`
+          error: `技能 ${item.oldSkillId} 的 SP 退還值不符：預期 ${calculated}，實際為 ${item.spRefunded}`
         };
       }
       expectedRefund += item.spRefunded;
