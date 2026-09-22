@@ -11328,7 +11328,7 @@ export function renderColosseumTab(container, state) {
               onclick="window.executeSurvivalTurnAction()"
               style="padding:10px 24px; font-size:13px; font-weight:bold; background:#d97706; border:1px solid #f59e0b; color:#fff; border-radius:8px; cursor:pointer;"
             >
-              ⚔️ Atacar Onda do Coliseu!
+              ⚔️ 攻擊競技場波次！
             </button>
           </div>
           <div style="margin-top:12px; background:rgba(0,0,0,0.6); border:1px solid #f59e0b; border-radius:8px; height:18px; position:relative; overflow:hidden;">
