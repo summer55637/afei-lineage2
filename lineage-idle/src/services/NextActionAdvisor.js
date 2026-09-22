@@ -210,8 +210,8 @@ export class NextActionAdvisor {
       category: 'MILESTONE',
       title: `🎯 下一個里程碑：${targetName}`,
       description: cpRemaining > 0
-        ? `距離安全達成此戰力里程碑還差 ${cpRemaining.toLocaleString()} CP（完成 ${progressPct}%）。`
-        : `你已達到建議戰力（${currentCp.toLocaleString()} CP）！可以前往下一個挑戰。`,
+        ? `距離安全達成此戰力里程碑還差 ${cpRemaining.toLocaleString()} 戰鬥力（完成 ${progressPct}%）。`
+        : `你已達到建議戰力（${currentCp.toLocaleString()} 戰鬥力）！可以前往下一個挑戰。`,
       actionText: cpRemaining > 0 ? '⚔️ 狩獵與升級' : '🏆 挑戰內容',
       actionTab,
       actionType: 'NAVIGATE',
