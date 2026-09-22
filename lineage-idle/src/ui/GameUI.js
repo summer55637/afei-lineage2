@@ -387,7 +387,7 @@ export function formatItemDisplayName(item, def) {
 
   const enchant = Number(itemObj.enchant) || 0;
   const enchantStr = enchant > 0 ? `+${enchant} ` : '';
-  const foundationStr = itemObj.foundation ? ' Foundation' : '';
+  const foundationStr = itemObj.foundation ? ' [基底]' : '';
   const rarity = itemObj.rarity;
   let rarityStr = '';
   if (rarity && rarity !== 'common' && gData?.RARITY && gData.RARITY[rarity]) {
@@ -425,7 +425,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
   const displayName = formatItemDisplayName(item, def);
   const rarity = item.rarity || 'common';
   const rarityDef = gData?.RARITY?.[rarity] || {};
-  const rarityName = rarityDef.name || rarity;
+  const rarityName = rarityDef.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(rarity).toLowerCase()] || '一般';
   const rarityColor = rarityDef.color || '#c8a84e';
   const mult = rarityDef.mult || 1;
 
@@ -1659,7 +1659,7 @@ export function updateInventoryUI(state, callbacks = {}) {
     const isSelected = selectedSet.has(item.uid);
     const isInspected = window._inspectedItemUid === item.uid;
     const qty = (item.count || 1) > 1 ? `<span class="qty">${item.count}</span>` : '';
-    const equippedTag = item.equipped ? `<span class="equipped-badge">E</span>` : '';
+    const equippedTag = item.equipped ? `<span class="equipped-badge">裝</span>` : '';
     const check = `<span class="inv-check">${isSelected ? '✓' : ''}</span>`;
     const favTag = (item.isFavorite || item.favorite) ? `<span class="fav-badge" style="position:absolute; top:2px; left:2px; font-size:9px; z-index:5;">⭐</span>` : '';
 
@@ -2022,7 +2022,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
                 ${(currentEquippedItem.enchant ? `+${currentEquippedItem.enchant} ` : '') + currentEquippedDef.name}
               </div>
               <div class="detail-item-submeta">
-                <span>${currentEquippedItem.rarity ? (D()?.RARITY?.[currentEquippedItem.rarity]?.name || currentEquippedItem.rarity) : '一般'}</span>
+                <span>${currentEquippedItem.rarity ? (D()?.RARITY?.[currentEquippedItem.rarity]?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(currentEquippedItem.rarity).toLowerCase()] || '一般') : '一般'}</span>
                 <span>• 等級 ${currentEquippedDef.req?.level || currentEquippedDef.level || 1}</span>
               </div>
             </div>
@@ -2045,7 +2045,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
                 ${(item.enchant ? `+${item.enchant} ` : '') + def.name}
               </div>
               <div class="detail-item-submeta">
-                <span>${item.rarity ? (D()?.RARITY?.[item.rarity]?.name || item.rarity) : '一般'}</span>
+                <span>${item.rarity ? (D()?.RARITY?.[item.rarity]?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(item.rarity).toLowerCase()] || '一般') : '一般'}</span>
                 <span>• 等級 ${def.req?.level || def.level || 1}</span>
               </div>
             </div>
@@ -2077,7 +2077,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
               ${(item.enchant ? `+${item.enchant} ` : '') + def.name}
             </div>
             <div class="detail-item-submeta">
-              <span>${item.rarity ? (D()?.RARITY?.[item.rarity]?.name || item.rarity) : '一般'}</span>
+              <span>${item.rarity ? (D()?.RARITY?.[item.rarity]?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(item.rarity).toLowerCase()] || '一般') : '一般'}</span>
               <span>• 數量：${item.count || 1}</span>
               ${def.req?.level ? `<span>• 等級 ${def.req.level}</span>` : ''}
             </div>
@@ -3101,10 +3101,10 @@ export function updateCharacterUI(state) {
 
   const clsObj = getClass(cls);
   const gData = typeof window !== 'undefined' ? (window.EchoData || window.GameData) : null;
-  const raceDef = (typeof RACES !== 'undefined' && RACES[race]) || (gData && gData.RACES_ECHO && gData.RACES_ECHO[race]) || { name: race.toUpperCase() };
+  const raceDef = (typeof RACES !== 'undefined' && RACES[race]) || (gData && gData.RACES_ECHO && gData.RACES_ECHO[race]) || { name: '未知種族' };
 
-  const raceName = raceDef.name || race.toUpperCase();
-  const className = clsObj ? clsObj.name : ((gData && gData.CLASSES_ECHO && gData.CLASSES_ECHO[cls])?.name || cls.toUpperCase());
+  const raceName = raceDef.name || '未知種族';
+  const className = clsObj ? clsObj.name : ((gData && gData.CLASSES_ECHO && gData.CLASSES_ECHO[cls])?.name || '未知職業');
 
   // 1. Nome do Herói
   const portraitName = root.querySelector('#portrait-name, .portrait-name');
@@ -4332,7 +4332,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
       dual: '雙刀', spear: '長槍', twohand: '雙手武器', fist: '拳套',
       ancientsword: '古代劍', blunt: '鈍器'
     };
-    const reqDisplay = reqLabels[weaponReq.toLowerCase()] || weaponReq.toUpperCase();
+    const reqDisplay = reqLabels[weaponReq.toLowerCase()] || '指定武器';
     weaponReqBadge = `
       <div style="display:inline-flex; align-items:center; gap:4px; font-size:11px; padding:3px 8px; border-radius:4px; margin-bottom:6px; background:${isWepMatch ? 'rgba(16,185,129,0.15)' : 'rgba(239,68,68,0.15)'}; border:1px solid ${isWepMatch ? '#10b981' : '#ef4444'}; color:${isWepMatch ? '#6ee7b7' : '#fca5a5'}; font-weight:bold;">
         ${isWepMatch ? '⚔️' : '⚠️'} 需要：${reqDisplay} ${isWepMatch ? '（已裝備）' : '（未裝備）'}
@@ -6754,28 +6754,28 @@ export function renderAlchemyUI(state) {
             class="imp-forge-subtab-btn"
             style="color:#e2e8f0; border-color:rgba(148,163,184,0.4);"
           >
-            🔥 No-Grade
+            🔥 無級
           </button>
           <button
             onclick="if (window.dissolveItemsByFilter) window.dissolveItemsByFilter('d');"
             class="imp-forge-subtab-btn"
             style="color:#93c5fd; border-color:rgba(59,130,246,0.4);"
           >
-            🔥 D-Grade
+            🔥 D 級
           </button>
           <button
             onclick="if (window.dissolveItemsByFilter) window.dissolveItemsByFilter('c');"
             class="imp-forge-subtab-btn"
             style="color:#86efac; border-color:rgba(34,197,94,0.4);"
           >
-            🔥 C-Grade
+            🔥 C 級
           </button>
           <button
             onclick="if (window.dissolveItemsByFilter) window.dissolveItemsByFilter('b');"
             class="imp-forge-subtab-btn"
             style="color:#d8b4fe; border-color:rgba(168,85,247,0.4);"
           >
-            🔥 B-Grade
+            🔥 B 級
           </button>
           <button
             onclick="if (window.dissolveAllJunkAction) window.dissolveAllJunkAction();"
@@ -7690,7 +7690,7 @@ export function renderForgeMasterwork(container, state) {
         <div style="display:flex; align-items:center; gap:10px;">
           <div class="l2-blueprint-socket" style="width:38px; height:38px; min-width:38px;">${getItemIcon(def)}</div>
           <div>
-            <strong style="color:#ffd877; font-family:'Cinzel',serif; font-size:13px;">🔒 ${item.name || item.itemId}</strong>
+            <strong style="color:#ffd877; font-family:'Cinzel',serif; font-size:13px;">🔒 ${item.name || def.name || '未知物品'}</strong>
             <div style="font-size:10px; color:#94a3b8;">鐵匠費用：25,000 金幣</div>
           </div>
         </div>
@@ -7708,7 +7708,7 @@ export function renderForgeMasterwork(container, state) {
         <div style="display:flex; align-items:center; gap:10px;">
           <div class="l2-blueprint-socket" style="width:38px; height:38px; min-width:38px; border-color:#c084fc;">${getItemIcon(def)}</div>
           <div>
-            <strong style="color:#d8b4fe; font-family:'Cinzel',serif; font-size:13px;">✨ ${item.name || item.itemId}（古代靈魂）</strong>
+            <strong style="color:#d8b4fe; font-family:'Cinzel',serif; font-size:13px;">✨ ${item.name || def.name || '未知物品'}（古代靈魂）</strong>
             <div style="font-size:10px; color:#94a3b8;">精工費用：100,000 金幣</div>
           </div>
         </div>
