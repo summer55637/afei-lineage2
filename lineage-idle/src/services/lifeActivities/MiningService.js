@@ -174,7 +174,7 @@ export const MiningService = {
     const totalCost = lamp.buyPrice * count;
 
     if ((state.gold || 0) < totalCost) {
-      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！購買 ${count}x ${lamp.name} 需要 ${totalCost.toLocaleString()} 金幣。`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！購買 ${count}× ${lamp.name} 需要 ${totalCost.toLocaleString()} 金幣。`, 'warning');
       return false;
     }
 
@@ -186,7 +186,7 @@ export const MiningService = {
       mState.activeLamp = lampId;
     }
 
-    if (callbacks.log) callbacks.log(`🎒 已用 ${totalCost.toLocaleString()} 金幣購買 ${count}x **${lamp.name}**。`, 'loot');
+    if (callbacks.log) callbacks.log(`🎒 已用 ${totalCost.toLocaleString()} 金幣購買 ${count}× **${lamp.name}**。`, 'loot');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -433,7 +433,7 @@ export const MiningService = {
     if (mState.veinHazard === 'gas_pocket' && tactic.id === 'heavy') {
       state.hp = Math.max(1, state.hp - Math.floor(state.maxHp * 0.10));
       mState.pickaxeDurability[activePickaxeId] = Math.max(0, mState.pickaxeDurability[activePickaxeId] - 2);
-      if (callbacks.log) callbacks.log('💥 瓦斯爆炸！火花引爆了氣囊。HP -10%，十字鎬額外損失耐久！', 'error');
+      if (callbacks.log) callbacks.log('💥 瓦斯爆炸！火花引爆了氣囊。生命值 -10%，十字鎬額外損失耐久！', 'error');
     }
 
     const pickBonus = pickDef?.qualityBonus || 0.0;
@@ -493,11 +493,11 @@ export const MiningService = {
       const qualityPrefix = quality.tier === 'perfect' ? '💎 **無瑕礦石！**'
         : quality.tier === 'excellent' ? '✨ **極純礦石！**'
         : '✓ 開採完成：';
-      callbacks.log(`⛏️ ${qualityPrefix} 開採 **${node.name}**【${quality.name}】！獲得 +${primaryQty}x ${primaryDisplayName}${secMat && secQty > 0 ? `、+${secQty}x ${secondaryDisplayName}` : ''}！（+${finalXp} 採礦 XP）`, 'loot');
+      callbacks.log(`⛏️ ${qualityPrefix} 開採 **${node.name}**【${quality.name}】！獲得 +${primaryQty}× ${primaryDisplayName}${secMat && secQty > 0 ? `、+${secQty}× ${secondaryDisplayName}` : ''}！（+${finalXp} 採礦經驗值）`, 'loot');
     }
 
     if (callbacks.floatText) {
-      callbacks.floatText(`+${primaryQty}x ${primaryDisplayName}`, 'float-gold');
+      callbacks.floatText(`+${primaryQty}× ${primaryDisplayName}`, 'float-gold');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -604,7 +604,7 @@ export const MiningService = {
     LifeActivityCore.addXp(state, 'mining', totalXp, callbacks);
 
     if (callbacks.log) {
-      callbacks.log(`💤 **離線採礦報告（${clampedMinutes} 分鐘）：**在亞丁開採了 ${actualMines} 個礦脈！（+${totalXp} 採礦 XP）`, 'rarity-legendary');
+      callbacks.log(`💤 **離線採礦報告（${clampedMinutes} 分鐘）：**在亞丁開採了 ${actualMines} 個礦脈！（+${totalXp} 採礦經驗值）`, 'rarity-legendary');
     }
 
     return { actualMines, matsGained, totalXp };
