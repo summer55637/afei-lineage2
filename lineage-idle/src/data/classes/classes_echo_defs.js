@@ -2266,7 +2266,7 @@ skills: [
     skills: [
       { name: "爆發射擊",         type: "Ativo",   rarity: "1★", effect: "傷害 200% (3 射擊 快速)", cooldown: "10s", duration: null, note: "轉職後技能仍會保留" },
       { name: "穿透射擊",      type: "Ativo",   rarity: "2★", effect: "傷害 220% + 穿透 目標 於 直線", cooldown: "14s", duration: null, note: "轉職後技能仍會保留" },
-      { name: "迴避射擊",       type: "Ativo",   rarity: "1★", effect: "傷害 170% + 迴避 給 trás", cooldown: "12s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "迴避射擊",       type: "Ativo",   rarity: "1★", effect: "傷害 170% + 向後迴避", cooldown: "12s", duration: null, note: "轉職後技能仍會保留" },
       { name: "風行者",        type: "Passivo", rarity: "1★", effect: "+15% 移動速度", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
     ]
   },
