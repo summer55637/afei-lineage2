@@ -49,7 +49,7 @@ export const RAID_BOSSES = {
       { itemId: 'jewel_ring_queen_ant', name: '巨蟻女王戒指', chance: 0.25, isEpicJewel: true },
       { itemId: 'scroll_blessed_armor', name: '祝福的防具強化卷軸', chance: 0.40 },
       { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.25 },
-      { itemId: 'adena_coins', count: 10, name: '10x 亞丁幣（AC）', chance: 0.50 }
+      { itemId: 'adena_coins', count: 10, name: '10 枚亞丁幣', chance: 0.50 }
     ]
   },
 
@@ -87,7 +87,7 @@ export const RAID_BOSSES = {
       { itemId: 'jewel_ring_core', name: '核心戒指', chance: 0.25, isEpicJewel: true },
       { itemId: 'scroll_blessed_armor', name: '祝福的防具強化卷軸', chance: 0.45 },
       { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.30 },
-      { itemId: 'adena_coins', count: 15, name: '15x 亞丁幣（AC）', chance: 0.50 }
+      { itemId: 'adena_coins', count: 15, name: '15 枚亞丁幣', chance: 0.50 }
     ]
   },
 
@@ -125,7 +125,7 @@ export const RAID_BOSSES = {
       { itemId: 'jewel_earring_orfen', name: '奧爾芬耳環', chance: 0.25, isEpicJewel: true },
       { itemId: 'scroll_blessed_armor', name: '祝福的防具強化卷軸', chance: 0.50 },
       { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.35 },
-      { itemId: 'adena_coins', count: 20, name: '20x 亞丁幣（AC）', chance: 0.50 }
+      { itemId: 'adena_coins', count: 20, name: '20 枚亞丁幣', chance: 0.50 }
     ]
   },
 
@@ -163,7 +163,7 @@ export const RAID_BOSSES = {
       { itemId: 'jewel_earring_of_zaken', name: '札肯耳環', chance: 0.25, isEpicJewel: true },
       { itemId: 'armor_zaken_cloack', name: '札肯海賊披風', chance: 0.30 },
       { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.40 },
-      { itemId: 'adena_coins', count: 25, name: '25x 亞丁幣（AC）', chance: 0.50 }
+      { itemId: 'adena_coins', count: 25, name: '25 枚亞丁幣', chance: 0.50 }
     ]
   },
 
@@ -201,7 +201,7 @@ export const RAID_BOSSES = {
       { itemId: 'jewel_ring_of_baium', name: '巴溫戒指', chance: 0.25, isEpicJewel: true },
       { itemId: 'weapon_samurai_longsword', name: '武士長劍 +5', chance: 0.35 },
       { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.50 },
-      { itemId: 'adena_coins', count: 50, name: '50x 亞丁幣（AC）', chance: 0.50 }
+      { itemId: 'adena_coins', count: 50, name: '50 枚亞丁幣', chance: 0.50 }
     ]
   },
 
@@ -239,7 +239,7 @@ export const RAID_BOSSES = {
       { itemId: 'jewel_necklace_of_frintezza', name: '弗林特沙項鍊', chance: 0.25, isEpicJewel: true },
       { itemId: 'weapon_frost_lord_sword', name: '霜之領主劍（第 6 階巔峰）', chance: 0.20 },
       { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.55 },
-      { itemId: 'adena_coins', count: 75, name: '75x 亞丁幣（AC）', chance: 0.50 }
+      { itemId: 'adena_coins', count: 75, name: '75 枚亞丁幣', chance: 0.50 }
     ]
   },
 
@@ -277,7 +277,7 @@ export const RAID_BOSSES = {
       { itemId: 'jewel_earring_of_antharas', name: '安塔瑞斯耳環', chance: 0.25, isEpicJewel: true },
       { itemId: 'weapon_frost_lord_two_hand_sword', name: '霜之領主巨劍（第 6 階巔峰）', chance: 0.25 },
       { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.60 },
-      { itemId: 'adena_coins', count: 100, name: '100x 亞丁幣（AC）', chance: 0.50 }
+      { itemId: 'adena_coins', count: 100, name: '100 枚亞丁幣', chance: 0.50 }
     ]
   },
 
@@ -318,7 +318,7 @@ export const RAID_BOSSES = {
       { itemId: 'armor_valakas_cloack', name: '巴拉卡斯龍披風', chance: 0.35 },
       { itemId: 'valakas_mask', name: '巴拉卡斯烈焰面具', chance: 0.40 },
       { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.75 },
-      { itemId: 'adena_coins', count: 150, name: '150x 亞丁幣（AC）', chance: 0.60 }
+      { itemId: 'adena_coins', count: 150, name: '150 枚亞丁幣', chance: 0.60 }
     ]
   },
 
@@ -357,7 +357,7 @@ export const RAID_BOSSES = {
       { itemId: 'staff_goddess_rain_song', name: '女神法杖：雨之歌', chance: 1.0 },
       { itemId: 'scroll_blessed_universal', name: '祝福的通用強化卷軸', chance: 1.0 },
       { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.50 },
-      { itemId: 'adena_coins', count: 30, name: '30x 亞丁幣（AC）', chance: 0.50 }
+      { itemId: 'adena_coins', count: 30, name: '30 枚亞丁幣', chance: 0.50 }
     ]
   }
 };
