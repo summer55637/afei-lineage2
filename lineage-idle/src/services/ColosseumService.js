@@ -27,7 +27,7 @@ export class ColosseumService {
     const tier = DUEL_BET_TIERS.find(t => t.id === tierId) || DUEL_BET_TIERS[0];
 
     if ((state.gold || 0) < tier.bet) {
-      return { success: false, message: `金幣不足，無法支付 ${tier.bet.toLocaleString()}g 的賭注。` };
+      return { success: false, message: `金幣不足，無法支付 ${tier.bet.toLocaleString()} 金幣 的賭注。` };
     }
 
     // Deduz a aposta
@@ -72,7 +72,7 @@ export class ColosseumService {
       turn: 1
     };
 
-    hooks.log?.(`⚔️ 已在奇岩競技場與 **${oppName}** 開始決鬥！賭注：${tier.bet.toLocaleString()}g`, 'warning');
+    hooks.log?.(`⚔️ 已在奇岩競技場與 **${oppName}** 開始決鬥！賭注：${tier.bet.toLocaleString()} 金幣`, 'warning');
     hooks.onUpdate?.();
     return { success: true, duel: colState.activeDuel };
   }
@@ -98,7 +98,7 @@ export class ColosseumService {
       colState.badges += 10;
       colState.duelWins++;
 
-      hooks.log?.(`🏆 決鬥勝利！你擊敗 **${duel.opponentName}**！獎勵：+${winGold.toLocaleString()}g 與 +10 競技場徽章！`, 'victory');
+      hooks.log?.(`🏆 決鬥勝利！你擊敗 **${duel.opponentName}**！獎勵：+${winGold.toLocaleString()} 金幣 與 +10 競技場徽章！`, 'victory');
       colState.activeDuel = null;
       hooks.onUpdate?.();
       return { success: true, isVictory: true, goldWon: winGold };
