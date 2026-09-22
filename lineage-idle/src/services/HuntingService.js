@@ -122,7 +122,7 @@ export const HuntingService = {
 
     hState.activeLure = lureId;
     const lureDef = LURES_CATALOG[lureId];
-    if (callbacks.log) callbacks.log(`🥩 已選擇誘餌：**${lureDef?.name || lureId}**。`, 'system');
+    if (callbacks.log) callbacks.log(`🥩 已選擇誘餌：**${lureDef?.name || '未知誘餌'}**。`, 'system');
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
@@ -550,7 +550,7 @@ export const HuntingService = {
   toggleAutoHunting(state, callbacks = {}) {
     const hState = this.getHuntingState(state);
     if (hState.skillLevel < 5) {
-      if (callbacks.log) callbacks.log('⚠️ 自動狩獵（AFK）模式會在狩獵等級 5 解鎖！', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 離線自動狩獵模式會在狩獵等級 5 解鎖！', 'warning');
       return false;
     }
 
