@@ -196,7 +196,7 @@ export const HuntingService = {
     }
 
     hState.knife = knifeId;
-    if (callbacks.log) callbacks.log(`🔪 獵刀 empunhada: **${knife.name}**.`, 'system');
+    if (callbacks.log) callbacks.log(`🔪 已裝備獵刀：**${knife.name}**。`, 'system');
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
