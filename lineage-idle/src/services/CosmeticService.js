@@ -18,7 +18,7 @@ export const AURAS_CATALOG = {
   },
   aura_hero_golden: {
     id: 'aura_hero_golden',
-    name: '光環 Dourada do Herói',
+    name: '英雄金色光環',
     desc: 'O resplendor canônico dourado dos campeões das Olimpíadas de Aden.',
     cssClass: 'hero-aura-golden',
     icon: '👑',
@@ -82,7 +82,7 @@ export const ITEM_FRAMES_CATALOG = {
   frame_default: {
     id: 'frame_default',
     name: '邊框 預設',
-    desc: '邊框 de ferro rústico de Aden.',
+    desc: '亞丁樸實鐵製邊框。',
     cssClass: 'cosmetic-frame-default',
     icon: '🔲',
     costAdena: 0
@@ -97,7 +97,7 @@ export const ITEM_FRAMES_CATALOG = {
   },
   frame_silver: {
     id: 'frame_silver',
-    name: '邊框 Prata Épica',
+    name: '史詩銀色邊框',
     desc: 'Filetes prateados nobres com runas místicas gravadas.',
     cssClass: 'cosmetic-frame-silver',
     icon: '🥈',
@@ -113,7 +113,7 @@ export const ITEM_FRAMES_CATALOG = {
   },
   frame_obsidian: {
     id: 'frame_obsidian',
-    name: '邊框 Obsidiana Mística',
+    name: '神秘黑曜石邊框',
     desc: 'Pedra vulcânica negra banhada em éter arcano violeta.',
     cssClass: 'cosmetic-frame-obsidian',
     icon: '🔮',
