@@ -4,11 +4,11 @@
 
 export const DAILY_REWARDS_TABLE = [
   { day: 1, name: 'Bolsa de Adena', icon: '💰', desc: '50.000 Adena', rewardType: 'adena', count: 50000, rarity: 'common' },
-  { day: 2, name: 'Soulshots de Batalha', icon: '⚡', desc: '1.000x Soulshot No-Grade', rewardType: 'item', itemId: 'soulshot_ng', count: 1000, rarity: 'common' },
+  { day: 2, name: '戰鬥魂彈', icon: '⚡', desc: '1.000x Soulshot No-Grade', rewardType: 'item', itemId: 'soulshot_ng', count: 1000, rarity: 'common' },
   { day: 3, name: 'Poções de Cura XL', icon: '🧪', desc: '100x Poções de Vida XL', rewardType: 'item', itemId: 'hp_potion_xl', count: 100, rarity: 'uncommon' },
   { day: 4, name: 'Pergaminho de Arma', icon: '📜', desc: '3x Scroll: Enchant Weapon (Universal)', rewardType: 'item', itemId: 'scroll_of_enchant_weapon', count: 3, rarity: 'rare' },
   { day: 5, name: 'Pergaminho de Armadura', icon: '🛡️', desc: '5x Scroll: Enchant Armor (Universal)', rewardType: 'item', itemId: 'scroll_of_enchant_armor', count: 5, rarity: 'rare' },
-  { day: 6, name: 'Lâmpada Mágica de XP', icon: '🪔', desc: '1x Magic Lamp da Sorte', rewardType: 'special', count: 1, rarity: 'rare' },
+  { day: 6, name: '神燈 Mágica de XP', icon: '🪔', desc: '1x Magic Lamp da Sorte', rewardType: 'special', count: 1, rarity: 'rare' },
   { day: 7, name: '⭐ Bênção da 1ª Semana', icon: '🎁', desc: '5x Scroll Weapon + 100.000 Adena', isMilestone: true, rewardType: 'combo', itemId: 'scroll_of_enchant_weapon', count: 5, adena: 100000, rarity: 'epic' },
 
   { day: 8, name: 'Tesouro de Adena', icon: '💰', desc: '150.000 Adena', rewardType: 'adena', count: 150000, rarity: 'common' },
@@ -95,13 +95,13 @@ export function claimDailyReward(state, helpers = {}) {
   const today = getTodayDateString();
 
   if (dr.lastClaimDate === today) {
-    return { success: false, message: 'Você já resgatou a recompensa diária de hoje. Volte amanhã!' };
+    return { success: false, message: '你今天已經領取每日獎勵，明天再回來！' };
   }
 
   const currentDay = Math.max(1, Math.min(28, dr.currentDay || 1));
   const reward = DAILY_REWARDS_TABLE[currentDay - 1];
   if (!reward) {
-    return { success: false, message: 'Recompensa diária não encontrada.' };
+    return { success: false, message: '找不到每日獎勵。' };
   }
 
   // Entrega as recompensas
@@ -115,7 +115,7 @@ export function claimDailyReward(state, helpers = {}) {
     state.sp = (state.sp || 0) + spGain;
   }
 
-  if (reward.lamps || (reward.rewardType === 'special' && reward.name.includes('Lâmpada'))) {
+  if (reward.lamps || (reward.rewardType === 'special' && reward.name.includes('神燈'))) {
     const lamps = reward.lamps || reward.count || 1;
     state.magicLamps = (state.magicLamps || 0) + lamps;
   }
@@ -147,12 +147,12 @@ export function claimDailyReward(state, helpers = {}) {
   }
 
   if (helpers.log) {
-    helpers.log(`🎁 [Check-in Diário] Dia ${currentDay} resgatado: ${reward.name} (${reward.desc})! Sequência atual: 🔥 ${dr.streak} dias!`, 'rarity-legendary');
+    helpers.log(`🎁 [每日簽到] 已領取第 ${currentDay} 天：${reward.name}（${reward.desc}）！目前連續簽到：🔥 ${dr.streak} 天！`, 'rarity-legendary');
   }
 
   if (helpers.floatText) {
     helpers.floatText(`🎁 Check-in Dia ${currentDay}!`, 'gilt');
   }
 
-  return { success: true, message: `Recompensa do Dia ${currentDay} resgatada com sucesso!`, reward };
+  return { success: true, message: `第 ${currentDay} 天獎勵領取成功！`, reward };
 }
