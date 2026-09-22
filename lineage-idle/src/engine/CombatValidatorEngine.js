@@ -215,7 +215,7 @@ export class CombatValidatorEngine {
    * @returns {{ canCast: boolean, error?: string }}
    */
   static validateSkillCast(characterState, equippedWeapon, skillDef) {
-    if (!skillDef) return { canCast: false, error: 'Habilidade não encontrada.' };
+    if (!skillDef) return { canCast: false, error: '找不到此技能。' };
 
     const skillId = skillDef.id || skillDef.name;
     const is4Star = skillDef.rarity === '4★' || skillDef.isUltimate || (skillDef.tier && skillDef.tier >= 4);
@@ -226,7 +226,7 @@ export class CombatValidatorEngine {
       if (!learned) {
         return {
           canCast: false,
-          error: `Habilidade Suprema [${skillDef.name}] ainda não foi aprendida. Consuma o Tomo Arcano 4★ para desbloqueá-la!`
+          error: `終極技能【${skillDef.name}】尚未學會。請消耗 4★ 奧術魔法書解鎖！`
         };
       }
     }
@@ -241,7 +241,7 @@ export class CombatValidatorEngine {
     const currentMp = characterState.mp || characterState.stats?.mp || 100;
     const costMp = skillDef.mpCost || skillDef.manaCost || 10;
     if (currentMp < costMp) {
-      return { canCast: false, error: 'MP insuficiente para canalizar a técnica.' };
+      return { canCast: false, error: 'MP 不足，無法施放此技能。' };
     }
 
     return { canCast: true };
