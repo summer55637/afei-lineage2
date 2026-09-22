@@ -823,7 +823,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
       ${gradeHtml}
     </div>
     <div style="color:${rarityColor};font-size:11px;font-weight:600;margin-bottom:2px;">${rarityName}</div>
-    <div style="color:#888;font-size:10px;text-transform:uppercase;margin-bottom:4px;">${def.slot ? ({ weapon: '武器', weapon2: '副武器', shield: '盾牌', helmet: '頭盔', armor: '胸甲', chest: '胸甲', fullbody: '全身甲', legs: '腿甲', gloves: '手套', boots: '靴子', necklace: '項鍊', earring: '耳環', earring1: '耳環 1', earring2: '耳環 2', ring: '戒指', ring1: '戒指 1', ring2: '戒指 2', cloak: '披風', belt: '腰帶', hair: '頭飾', consumable: '消耗品', material: '材料', scroll: '卷軸', crystal: '水晶' })[def.slot] || def.slot : '物品'}${def.req?.level ? ` · 需求等級 ${def.req.level}` : ''}</div>
+    <div style="color:#888;font-size:10px;text-transform:uppercase;margin-bottom:4px;">${def.slot ? ({ weapon: '武器', weapon2: '副武器', shield: '盾牌', helmet: '頭盔', armor: '胸甲', chest: '胸甲', fullbody: '全身甲', legs: '褲子', gloves: '手套', boots: '靴子', necklace: '項鍊', earring: '耳環', earring1: '耳環 1', earring2: '耳環 2', ring: '戒指', ring1: '戒指 1', ring2: '戒指 2', cloak: '披風', belt: '腰帶', hair: '頭飾', consumable: '消耗品', material: '材料', scroll: '卷軸', crystal: '水晶' })[def.slot] || def.slot : '物品'}${def.req?.level ? ` · 需求等級 ${def.req.level}` : ''}</div>
     ${heirloomHtml}
     ${penaltyWarningHtml}
     ${statsStr}
@@ -1946,7 +1946,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
 
   const isGear = isEquipmentItem(def);
   const targetSlot = isGear ? resolveEquipSlot(def.slot, state?.equipment || {}) : null;
-  const detailSlotLabels = { weapon: '主武器', weapon2: '副武器', shield: '盾牌／符印', helmet: '頭盔', armor: '胸甲', chest: '胸甲', fullbody: '全身甲', legs: '腿甲', gloves: '手套', boots: '靴子', necklace: '項鍊', earring1: '耳環 1', earring2: '耳環 2', ring1: '戒指 1', ring2: '戒指 2', cloak: '披風', belt: '腰帶', hair: '頭飾' };
+  const detailSlotLabels = { weapon: '主武器', weapon2: '副武器', shield: '盾牌／符印', helmet: '頭盔', armor: '胸甲', chest: '胸甲', fullbody: '全身甲', legs: '褲子', gloves: '手套', boots: '靴子', necklace: '項鍊', earring1: '耳環 1', earring2: '耳環 2', ring1: '戒指 1', ring2: '戒指 2', cloak: '披風', belt: '腰帶', hair: '頭飾' };
   const targetSlotLabel = targetSlot ? (detailSlotLabels[targetSlot] || targetSlot) : '';
   const currentEquippedUid = (isGear && targetSlot) ? state?.equipment?.[targetSlot] : null;
   const currentEquippedItem = currentEquippedUid ? (state?.inventory || []).find(i => i.uid === currentEquippedUid) : null;
@@ -3411,7 +3411,7 @@ export function updateCharacterUI(state) {
       shield: { label: '盾牌／符印', icon: '🛡️' },
       helmet: { label: '頭盔', icon: '🪖' },
       armor: { label: '胸甲', icon: '🛡️' },
-      legs: { label: '腿甲', icon: '👖' },
+      legs: { label: '褲子', icon: '👖' },
       gloves: { label: '手套', icon: '🧤' },
       boots: { label: '靴子', icon: '👢' },
       necklace: { label: '項鍊', icon: '📿' },
@@ -3588,7 +3588,7 @@ export function renderZoneMap(state, callbacks = {}) {
   diffBar.innerHTML = `
     <div style="display: flex; align-items: center; gap: 10px;">
       <span style="font-family: 'Cinzel', serif; font-size: 12px; font-weight: 800; color: #ffd877; letter-spacing: 0.05em;">⚡ 狩獵難度：</span>
-      <span style="font-size: 11px; color: ${currentDiff.color || '#10b981'}; font-weight: bold;">${currentDiff.icon || '🟢'} ${currentDiff.name || '普通'}（${currentDiff.xpMult || 1}x 經驗/金幣，${currentDiff.dropMult || 1}x 掉落）</span>
+      <span style="font-size: 11px; color: ${currentDiff.color || '#10b981'}; font-weight: bold;">${currentDiff.icon || '🟢'} ${currentDiff.name || '一般'}（${currentDiff.xpMult || 1}x 經驗/金幣，${currentDiff.dropMult || 1}x 掉落）</span>
     </div>
     <div style="display: flex; gap: 6px; flex-wrap: wrap;">
       ${diffButtonsHtml}
@@ -5349,9 +5349,9 @@ function renderStoreSellTab(state, callbacks) {
       <div style="grid-column:1/-1; display:flex; flex-direction:column; gap:10px; padding:8px;">
         <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:6px; padding:10px;">
           <h5 style="margin:0 0 4px 0; color:#fca5a5; font-family:'Cinzel',serif;">🧹 垃圾出售</h5>
-          <p style="margin:0 0 8px 0; font-size:11px; color:#cbd5e1;">立即以 50% 金幣價值出售背包中所有未鎖定的普通物品。</p>
+          <p style="margin:0 0 8px 0; font-size:11px; color:#cbd5e1;">立即以 50% 金幣價值出售背包中所有未鎖定的一般物品。</p>
           <button class="l2store-action-btn primary" data-sell-junk="true" style="width:100%; background:linear-gradient(180deg,#ef4444,#991b1b); border-color:#f87171; color:#fff;">
-            🧹 出售全部普通物品
+            🧹 出售全部一般物品
           </button>
         </div>
 
@@ -5749,7 +5749,7 @@ export const SUBCATEGORIES_BY_CAT = {
   ],
   relic: [
     { id: 'all', label: '🌟 全部' },
-    { id: 'agathion', label: '🧚 阿加西翁' },
+    { id: 'agathion', label: '🧚 阿加希翁' },
     { id: 'cloak', label: '🧥 披風' },
     { id: 'belt', label: '🎗️ 腰帶' },
     { id: 'talisman', label: '🧿 護符' }
