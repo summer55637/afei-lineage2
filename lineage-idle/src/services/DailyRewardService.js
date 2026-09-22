@@ -5,7 +5,7 @@
 export const DAILY_REWARDS_TABLE = [
   { day: 1, name: '金幣袋', icon: '💰', desc: '50,000 金幣', rewardType: 'adena', count: 50000, rarity: 'common' },
   { day: 2, name: '戰鬥魂彈', icon: '⚡', desc: '1,000 個無級別魂彈', rewardType: 'item', itemId: 'soulshot_ng', count: 1000, rarity: 'common' },
-  { day: 3, name: 'XL 治癒藥水', icon: '🧪', desc: '100 瓶 XL 生命藥水', rewardType: 'item', itemId: 'hp_potion_xl', count: 100, rarity: 'uncommon' },
+  { day: 3, name: '生命藥水（特大）', icon: '🧪', desc: '100 瓶生命藥水（特大）', rewardType: 'item', itemId: 'hp_potion_xl', count: 100, rarity: 'uncommon' },
   { day: 4, name: '武器強化卷軸', icon: '📜', desc: '3 張通用武器強化卷軸', rewardType: 'item', itemId: 'scroll_of_enchant_weapon', count: 3, rarity: 'rare' },
   { day: 5, name: '防具強化卷軸', icon: '🛡️', desc: '5 張通用防具強化卷軸', rewardType: 'item', itemId: 'scroll_of_enchant_armor', count: 5, rarity: 'rare' },
   { day: 6, name: 'XP 魔法神燈', icon: '🪔', desc: '1 個幸運魔法燈', rewardType: 'special', count: 1, rarity: 'rare' },
