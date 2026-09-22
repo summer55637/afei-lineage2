@@ -291,7 +291,7 @@ export const PICKAXES_CATALOG = {
     repairCost: 60000,
     buyPrice: 750000,
     qualityBonus: 0.80,
-    desc: '受 Maphr 祝福的傑作，可鑽穿精金巨塊（純度 +80%）。'
+    desc: '受瑪芙爾祝福的傑作，可鑽穿精金巨塊（純度 +80%）。'
   }
 };
 
