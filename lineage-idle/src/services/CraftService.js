@@ -157,7 +157,7 @@ export function craftItem(state, recipeId, qty = 1, callbacks = {}) {
   const countToCraft = Math.max(1, parseInt(qty, 10) || 1);
   const maxPossible = calculateMaxCraftableQty(state, recipeId);
   if (maxPossible < countToCraft) {
-    if (callbacks.log) callbacks.log('材料 ou Adena insuficientes para esta quantidade.', 'system');
+    if (callbacks.log) callbacks.log('製作此數量所需材料或金幣不足。', 'system');
     return false;
   }
 
@@ -289,7 +289,7 @@ export const SA_DEFINITIONS = {
   green: {
     acumen: { name: '靈敏', desc: '魔法施法速度', stat: 'castSpd', baseVal: 0.15 },
     haste: { name: '加速', desc: '物理攻擊速度', stat: 'atkSpd', baseVal: 0.10 },
-    health: { name: '生命', desc: 'Vida 最大ima (Max HP)', stat: 'hpPct', baseVal: 0.25 }
+    health: { name: '生命', desc: '最大生命值（最大 HP）', stat: 'hpPct', baseVal: 0.25 }
   },
   blue: {
     empower: { name: '魔力強化', desc: '魔法攻擊力（M.Atk）', stat: 'matkPct', baseVal: 0.20 },
@@ -417,7 +417,7 @@ export function applySoulCrystal(state, weaponUid, color = 'red', saKey = 'focus
   };
 
   if (callbacks.log) {
-    callbacks.log(`🔮 SPECIAL ABILITY CONCEDIDA (Lv.${crystalLevel}): ${def.name} recebeu [SA: ${saBonus.name}]! (${item.soulCrystal.desc})`, 'rarity-legendary');
+    callbacks.log(`🔮 已賦予特殊能力（Lv.${crystalLevel}）：${def.name} 獲得 [SA：${saBonus.name}]！（${item.soulCrystal.desc}）`, 'rarity-legendary');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -436,7 +436,7 @@ export function unsealItem(state, itemUid, callbacks = {}) {
 
   const unsealCost = 25000;
   if ((state.gold || 0) < unsealCost) {
-    if (callbacks.log) callbacks.log(`Ferreiro Pushkin requer ${unsealCost.toLocaleString()} Adena para quebrar o selo ancestral.`, 'system');
+    if (callbacks.log) callbacks.log(`普希金鐵匠需要 ${unsealCost.toLocaleString()} 金幣才能解除古代封印。`, 'system');
     return false;
   }
 
@@ -458,13 +458,13 @@ export function unsealItem(state, itemUid, callbacks = {}) {
 export function polishMasterwork(state, itemUid, callbacks = {}) {
   const item = (state.inventory || []).find(i => i.uid === itemUid || i.id === itemUid);
   if (!item || !item.foundation) {
-    if (callbacks.log) callbacks.log('Apenas itens Foundation com Alma Ancestral podem ser polidos para Masterwork!', 'system');
+    if (callbacks.log) callbacks.log('只有具有遠古之魂的 Foundation 裝備才能精製為名匠裝備！', 'system');
     return false;
   }
 
   const mwCost = 100000;
   if ((state.gold || 0) < mwCost) {
-    if (callbacks.log) callbacks.log(`Requer ${mwCost.toLocaleString()} Adena para o polimento Masterwork.`, 'system');
+    if (callbacks.log) callbacks.log(`名匠精製需要 ${mwCost.toLocaleString()} 金幣。`, 'system');
     return false;
   }
 
@@ -481,7 +481,7 @@ export function polishMasterwork(state, itemUid, callbacks = {}) {
   const def = gData?.ALL_ITEMS?.[item.itemId || item.id] || item;
 
   if (callbacks.log) {
-    callbacks.log(`👑 MASTERWORK ATIVADO! ${def.name} tornou-se uma Obra-Prima Imperial (+5% Cast, +4% Atk Spd, +250 HP)!`, 'rarity-legendary');
+    callbacks.log(`👑 名匠裝備啟用！${def.name} 已成為帝國傑作（+5% 施法速度、+4% 攻擊速度、+250 HP）！`, 'rarity-legendary');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -511,7 +511,7 @@ export function swapWeaponSameGrade(state, weaponUid, targetWeaponId, callbacks 
 
   const swapFee = 150000;
   if ((state.gold || 0) < swapFee) {
-    if (callbacks.log) callbacks.log(`Ferreiro Pushkin cobra ${swapFee.toLocaleString()} Adena pela troca de armas.`, 'system');
+    if (callbacks.log) callbacks.log(`普希金鐵匠收取 ${swapFee.toLocaleString()} 金幣作為武器交換費。`, 'system');
     return false;
   }
 
@@ -605,7 +605,7 @@ export function upgradeDyeSymbol(state, slotIdx = 0, callbacks = {}) {
   const upgradeCost = costs[current.stage] || 100000;
 
   if ((state.gold || 0) < upgradeCost) {
-    if (callbacks.log) callbacks.log(`Adena insuficiente! Requer ${upgradeCost.toLocaleString()} Adena para evoluir a tatuagem.`, 'system');
+    if (callbacks.log) callbacks.log(`金幣不足！升級刺青需要 ${upgradeCost.toLocaleString()} 金幣。`, 'system');
     return false;
   }
 
@@ -770,7 +770,7 @@ export function getLifeStoneDropSources() {
   return [
     { grade: 'common', name: '一般生命石', source: '狩獵怪物（1% 光效、2% 技能）' },
     { grade: 'mid', name: '中級生命石', source: '冠軍怪物（5% 光效、5% 技能）' },
-    { grade: 'high', name: '高級生命石', source: 'Chefes de Dungeon & Masmorras (15% Glow, 12% Skill)' },
+    { grade: 'high', name: '高級生命石', source: '地城與副本首領（15% 光效、12% 技能）' },
     { grade: 'top', name: '頂級生命石', source: 'Raid Bosses & Epic Bosses (40% Glow, 25% Skill)' }
   ];
 }
@@ -821,7 +821,7 @@ export function removeAugment(state, weaponUid, callbacks = {}) {
   if (!item || !item.augmentation) return false;
 
   item.augmentation = null;
-  if (callbacks.log) callbacks.log('Augmentation removido com sucesso.', 'system');
+  if (callbacks.log) callbacks.log('精煉效果已成功移除。', 'system');
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save();
@@ -903,7 +903,7 @@ export function chargeRandomCraftWithItem(state, itemUid, callbacks = {}) {
 export function chargeRandomCraftWithAdena(state, callbacks = {}) {
   const feeAdena = RANDOM_CRAFT_ADENA_CHARGE_COST;
   if ((state.gold || 0) < feeAdena) {
-    if (callbacks.log) callbacks.log(`Requer ${feeAdena.toLocaleString()} Adena para carregar +${RANDOM_CRAFT_ADENA_CHARGE_POINTS} pontos.`, 'system');
+    if (callbacks.log) callbacks.log(`增加 ${RANDOM_CRAFT_ADENA_CHARGE_POINTS} 點隨機製作充能需要 ${feeAdena.toLocaleString()} 金幣。`, 'system');
     return false;
   }
 
@@ -937,7 +937,7 @@ export function chargeRandomCraft(state, pointsToAdd = 20, callbacks = {}) {
 export function refreshRandomCraftSlots(state, callbacks = {}) {
   const feeAdena = RANDOM_CRAFT_REROLL_COST;
   if ((state.gold || 0) < feeAdena) {
-    if (callbacks.log) callbacks.log(`Requer ${feeAdena.toLocaleString()} Adena para atualizar os 5 slots da Roleta.`, 'system');
+    if (callbacks.log) callbacks.log(`刷新輪盤 5 個欄位需要 ${feeAdena.toLocaleString()} 金幣。`, 'system');
     return false;
   }
 
@@ -946,7 +946,7 @@ export function refreshRandomCraftSlots(state, callbacks = {}) {
   rc.slots = rollCanonicalRandomCraftSlots();
   syncRandomCraftLegacy(state);
 
-  if (callbacks.log) callbacks.log('🎰 Roleta Imperial Random Craft atualizada com 5 novos itens!', 'system');
+  if (callbacks.log) callbacks.log('🎰 帝國隨機製作輪盤已更新 5 件新物品！', 'system');
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save();
   return true;
