@@ -17,8 +17,8 @@ import { RAID_BOSS_BALANCE } from './balance/bossBalance.js';
 export const RAID_BOSSES = {
   queen_ant: {
     id: 'queen_ant',
-    name: 'Queen Ant 👑',
-    title: 'Rainha dos Ermos de Gludio',
+    name: '巨蟻女王 👑',
+    title: '古魯丁荒野女王',
     lvl: 40,
     hp: 35000,
     atk: 220,
@@ -34,29 +34,29 @@ export const RAID_BOSSES = {
     reqLvl: 30,
     icon: 'gradespecial/jewels/jewel_ring_queen_ant.png',
     bg: 'dungeon_wastelands',
-    desc: 'Rainha das Formigas Gigantes. Enxames de operárias a curam enquanto ela espalha veneno ácido corrosivo.',
+    desc: '巨型螞蟻女王。工蟻群會為她療傷，同時她會散布腐蝕性酸毒。',
     fatalSkill: {
-      name: 'Erupção de Feromônio Ácido',
+      name: '酸性費洛蒙爆發',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: 'Nuvem de Veneno Corrosivo', triggerHp: 0.75, damagePercent: 0.15, text: '⚠️ Queen Ant liberou Nuvem de Veneno Ácido!' },
-      { name: 'Chamado das Formigas Nutrizes', triggerHp: 0.35, healPercent: 0.20, text: '✨ Formigas Nutrizes curaram a Rainha em +20% HP!' }
+      { name: '腐蝕毒雲', triggerHp: 0.75, damagePercent: 0.15, text: '⚠️ 巨蟻女王釋放了酸性毒雲！' },
+      { name: '護理蟻召喚', triggerHp: 0.35, healPercent: 0.20, text: '✨ 護理蟻為女王恢復了 20% HP！' }
     ],
     drops: [
-      { itemId: 'jewel_ring_queen_ant', name: 'Ring of Queen Ant', chance: 0.25, isEpicJewel: true },
-      { itemId: 'scroll_blessed_armor', name: 'Blessed Scroll: Enchant Armor', chance: 0.40 },
-      { itemId: 'scroll_blessed_weapon', name: 'Blessed Scroll: Enchant Weapon', chance: 0.25 },
-      { itemId: 'adena_coins', count: 10, name: '10x Aden Coins (AC)', chance: 0.50 }
+      { itemId: 'jewel_ring_queen_ant', name: '巨蟻女王戒指', chance: 0.25, isEpicJewel: true },
+      { itemId: 'scroll_blessed_armor', name: '祝福的防具強化卷軸', chance: 0.40 },
+      { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.25 },
+      { itemId: 'adena_coins', count: 10, name: '10x 亞丁幣（AC）', chance: 0.50 }
     ]
   },
 
   core: {
     id: 'core',
-    name: 'Core da Torre Cruma 🔮',
-    title: 'Núcleo Arcano da Civilização Antiga',
+    name: '克魯瑪高塔核心 🔮',
+    title: '古代文明秘法核心',
     lvl: 50,
     hp: 65000,
     atk: 340,
@@ -72,29 +72,29 @@ export const RAID_BOSSES = {
     reqLvl: 45,
     icon: 'gradespecial/jewels/jewel_ring_core.png',
     bg: 'dungeon_cruma',
-    desc: 'O núcleo consciente deixado pelos Titãs no coração da Torre Cruma. Dispara rajadas de plasma e barreira refletiva.',
+    desc: '泰坦留在克魯瑪高塔核心的自我意識裝置，會發射電漿射線並啟動反射屏障。',
     fatalSkill: {
-      name: 'Cataclismo Quântico de Plasma',
+      name: '量子電漿浩劫',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: 'Barreira Eletromagnética', triggerHp: 0.60, damagePercent: 0.20, text: '⚡ Core ativou Barreira Refletiva causando choque em área!' },
-      { name: 'Sobrecarga de Plasma', triggerHp: 0.25, damagePercent: 0.30, text: '💥 Sobrecarga de Plasma de Alta Voltagem disparada!' }
+      { name: '電磁屏障', triggerHp: 0.60, damagePercent: 0.20, text: '⚡ 核心啟動反射屏障，造成範圍電擊！' },
+      { name: '電漿超載', triggerHp: 0.25, damagePercent: 0.30, text: '💥 電漿超載 de Alta Voltagem disparada!' }
     ],
     drops: [
-      { itemId: 'jewel_ring_core', name: 'Ring of Core', chance: 0.25, isEpicJewel: true },
-      { itemId: 'scroll_blessed_armor', name: 'Blessed Scroll: Enchant Armor', chance: 0.45 },
-      { itemId: 'scroll_blessed_weapon', name: 'Blessed Scroll: Enchant Weapon', chance: 0.30 },
-      { itemId: 'adena_coins', count: 15, name: '15x Aden Coins (AC)', chance: 0.50 }
+      { itemId: 'jewel_ring_core', name: '核心戒指', chance: 0.25, isEpicJewel: true },
+      { itemId: 'scroll_blessed_armor', name: '祝福的防具強化卷軸', chance: 0.45 },
+      { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.30 },
+      { itemId: 'adena_coins', count: 15, name: '15x 亞丁幣（AC）', chance: 0.50 }
     ]
   },
 
   orfen: {
     id: 'orfen',
-    name: 'Orfen das Sombras 🕷️',
-    title: 'Senhora do Mar de Esporos',
+    name: '暗影奧爾芬 🕷️',
+    title: '孢子之海女王',
     lvl: 55,
     hp: 95000,
     atk: 420,
@@ -110,29 +110,29 @@ export const RAID_BOSSES = {
     reqLvl: 50,
     icon: 'gradespecial/jewels/jewel_earring_orfen.png',
     bg: 'dungeon_sea_of_spores',
-    desc: 'Aracnídea gigante mutante que controla os fungos e esporos venenosos. Teletransporta-se para o ninho ao sofrer dano.',
+    desc: '能操控真菌與毒孢子的巨大變異蛛形生物，受傷後會瞬移回巢穴。',
     fatalSkill: {
-      name: 'Esporo Mortal Devorador de Almas',
+      name: '噬魂致命孢子',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: 'Névoa Alucinógena de Esporos', triggerHp: 0.70, damagePercent: 0.18, text: '🌫️ Orfen cobriu a arena com Névoa Venenosa de Esporos!' },
-      { name: 'Teletransporte para o Ninho', triggerHp: 0.30, healPercent: 0.15, text: '🕷️ Orfen recuou para as sombras e regenerou +15% de HP!' }
+      { name: '幻覺孢子霧', triggerHp: 0.70, damagePercent: 0.18, text: '🌫️ 奧爾芬以劇毒孢子霧籠罩競技場！' },
+      { name: '瞬移回巢', triggerHp: 0.30, healPercent: 0.15, text: '🕷️ 奧爾芬退入暗影並恢復 15% HP！' }
     ],
     drops: [
-      { itemId: 'jewel_earring_orfen', name: 'Earring of Orfen', chance: 0.25, isEpicJewel: true },
-      { itemId: 'scroll_blessed_armor', name: 'Blessed Scroll: Enchant Armor', chance: 0.50 },
-      { itemId: 'scroll_blessed_weapon', name: 'Blessed Scroll: Enchant Weapon', chance: 0.35 },
-      { itemId: 'adena_coins', count: 20, name: '20x Aden Coins (AC)', chance: 0.50 }
+      { itemId: 'jewel_earring_orfen', name: '奧爾芬耳環', chance: 0.25, isEpicJewel: true },
+      { itemId: 'scroll_blessed_armor', name: '祝福的防具強化卷軸', chance: 0.50 },
+      { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.35 },
+      { itemId: 'adena_coins', count: 20, name: '20x 亞丁幣（AC）', chance: 0.50 }
     ]
   },
 
   zaken: {
     id: 'zaken',
-    name: 'Capitão Zaken 🏴‍☠️',
-    title: 'Senhor Imortal da Ilha do Diabo',
+    name: '海賊船長札肯 🏴‍☠️',
+    title: '惡魔島不死領主',
     lvl: 60,
     hp: 140000,
     atk: 520,
@@ -148,29 +148,29 @@ export const RAID_BOSSES = {
     reqLvl: 55,
     icon: 'gradespecial/jewels/jewel_earring_of_zaken.png',
     bg: 'dungeon_devils_isle',
-    desc: 'Capitão pirata amaldiçoado com vampirismo eterno no interior do Galeão Fantasma da Ilha do Diabo.',
+    desc: '遭受永恆吸血詛咒的海賊船長，被困在惡魔島幽靈船內。',
     fatalSkill: {
-      name: 'Valsa Sangrenta das Trevas Eternas',
+      name: '永恆黑暗血之華爾滋',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: 'Passo das Sombras', triggerHp: 0.65, damagePercent: 0.22, text: '🌑 Zaken se desmaterializou nas sombras e atacou pelas costas!' },
-      { name: 'Banquete de Sangue Vampírico', triggerHp: 0.30, healPercent: 0.20, damagePercent: 0.15, text: '🩸 Banquete de Sangue: Zaken drenou sua vida e recuperou +20% HP!' }
+      { name: '暗影步伐', triggerHp: 0.65, damagePercent: 0.22, text: '🌑 札肯融入暗影並從背後發動攻擊！' },
+      { name: '吸血盛宴', triggerHp: 0.30, healPercent: 0.20, damagePercent: 0.15, text: '🩸 吸血盛宴：札肯吸取你的生命並恢復 20% HP！' }
     ],
     drops: [
-      { itemId: 'jewel_earring_of_zaken', name: 'Earring of Zaken', chance: 0.25, isEpicJewel: true },
-      { itemId: 'armor_zaken_cloack', name: 'Capa Pirata de Zaken', chance: 0.30 },
-      { itemId: 'scroll_blessed_weapon', name: 'Blessed Scroll: Enchant Weapon', chance: 0.40 },
-      { itemId: 'adena_coins', count: 25, name: '25x Aden Coins (AC)', chance: 0.50 }
+      { itemId: 'jewel_earring_of_zaken', name: '札肯耳環', chance: 0.25, isEpicJewel: true },
+      { itemId: 'armor_zaken_cloack', name: '札肯海賊披風', chance: 0.30 },
+      { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.40 },
+      { itemId: 'adena_coins', count: 25, name: '25x 亞丁幣（AC）', chance: 0.50 }
     ]
   },
 
   baium: {
     id: 'baium',
-    name: 'Imperador Baium ⚡',
-    title: 'Soberano da Torre da Insolência',
+    name: '皇帝巴溫 ⚡',
+    title: '傲慢之塔支配者',
     lvl: 75,
     hp: 260000,
     atk: 750,
@@ -186,29 +186,29 @@ export const RAID_BOSSES = {
     reqLvl: 70,
     icon: 'gradespecial/jewels/jewel_ring_of_baium.png',
     bg: 'dungeon_tower_of_insolence',
-    desc: 'O antigo Imperador de Elmore-Aden petrificado pelos deuses no 14º andar da Torre da Insolência.',
+    desc: '古代艾爾摩－亞丁皇帝，被眾神石化於傲慢之塔第 14 層。',
     fatalSkill: {
-      name: 'Juízo do Titã Imperial',
+      name: '帝國泰坦審判',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: 'Punho Esmagador dos Trovões', triggerHp: 0.70, damagePercent: 0.25, text: '⚡ Baium desferiu o Punho Esmagador dos Trovões!' },
-      { name: 'Fúria da Divindade Aprisionada', triggerHp: 0.30, damagePercent: 0.35, text: '🌩️ Fúria Imperial: Baium aumentou seu poder de ataque massivamente!' }
+      { name: '雷霆粉碎拳', triggerHp: 0.70, damagePercent: 0.25, text: '⚡ Baium desferiu o 雷霆粉碎拳!' },
+      { name: '被囚神性的狂怒', triggerHp: 0.30, damagePercent: 0.35, text: '🌩️ 帝國狂怒：巴溫大幅提升攻擊力！' }
     ],
     drops: [
-      { itemId: 'jewel_ring_of_baium', name: 'Ring of Baium', chance: 0.25, isEpicJewel: true },
-      { itemId: 'weapon_samurai_longsword', name: 'Samurai Longsword +5', chance: 0.35 },
-      { itemId: 'scroll_blessed_weapon', name: 'Blessed Scroll: Enchant Weapon', chance: 0.50 },
-      { itemId: 'adena_coins', count: 50, name: '50x Aden Coins (AC)', chance: 0.50 }
+      { itemId: 'jewel_ring_of_baium', name: '巴溫戒指', chance: 0.25, isEpicJewel: true },
+      { itemId: 'weapon_samurai_longsword', name: '武士長劍 +5', chance: 0.35 },
+      { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.50 },
+      { itemId: 'adena_coins', count: 50, name: '50x 亞丁幣（AC）', chance: 0.50 }
     ]
   },
 
   frintezza: {
     id: 'frintezza',
-    name: 'Príncipe Frintezza & Halisha 🎻',
-    title: 'Maestro do Sepulcro Imperial',
+    name: '王子弗林特沙與哈利夏 🎻',
+    title: '帝國陵墓指揮者',
     lvl: 85,
     hp: 420000,
     atk: 1050,
@@ -224,29 +224,29 @@ export const RAID_BOSSES = {
     reqLvl: 80,
     icon: 'gradespecial/jewels/jewel_necklace_of_frintezza.png',
     bg: 'dungeon_imperial_tomb',
-    desc: 'Príncipe amaldiçoado tocando seu órgão sombrio enquanto seu campeão demoníaco Scarlet van Halisha massacra invasores.',
+    desc: '受詛咒的王子彈奏黑暗管風琴，同時惡魔冠軍史卡雷特・凡・哈利夏屠殺入侵者。',
     fatalSkill: {
-      name: 'Sinfonia Apocalíptica de Halisha',
+      name: '哈利夏末日交響曲',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: 'Réquiem da Hipnose', triggerHp: 0.65, damagePercent: 0.25, text: '🎼 A melodia de Frintezza confunde seus sentidos e drena suas forças!' },
-      { name: 'Transformação Demoníaca de Halisha', triggerHp: 0.25, damagePercent: 0.40, text: '👹 Scarlet van Halisha assume sua Forma de Demônio Alado!' }
+      { name: '催眠安魂曲', triggerHp: 0.65, damagePercent: 0.25, text: '🎼 弗林特沙的旋律擾亂你的感官並削弱力量！' },
+      { name: '哈利夏惡魔變身', triggerHp: 0.25, damagePercent: 0.40, text: '👹 史卡雷特・凡・哈利夏化身為翼魔形態！' }
     ],
     drops: [
-      { itemId: 'jewel_necklace_of_frintezza', name: 'Necklace of Frintezza', chance: 0.25, isEpicJewel: true },
-      { itemId: 'weapon_frost_lord_sword', name: 'Frost Lord Sword (Tier 6 Apex)', chance: 0.20 },
-      { itemId: 'scroll_blessed_weapon', name: 'Blessed Scroll: Enchant Weapon', chance: 0.55 },
-      { itemId: 'adena_coins', count: 75, name: '75x Aden Coins (AC)', chance: 0.50 }
+      { itemId: 'jewel_necklace_of_frintezza', name: '弗林特沙項鍊', chance: 0.25, isEpicJewel: true },
+      { itemId: 'weapon_frost_lord_sword', name: '霜之領主劍（第 6 階巔峰）', chance: 0.20 },
+      { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.55 },
+      { itemId: 'adena_coins', count: 75, name: '75x 亞丁幣（AC）', chance: 0.50 }
     ]
   },
 
   antharas: {
     id: 'antharas',
-    name: 'Dragão da Terra Antharas 🐉',
-    title: 'Senhor dos Abismos Subterrâneos',
+    name: '地龍安塔瑞斯 🐉',
+    title: '地下深淵之王',
     lvl: 95,
     hp: 750000,
     atk: 1450,
@@ -262,29 +262,29 @@ export const RAID_BOSSES = {
     reqLvl: 85,
     icon: 'gradespecial/jewels/jewel_earring_of_antharas.png',
     bg: 'dungeon_antharas_lair',
-    desc: 'O terrível Dragão da Terra guardião das profundezas de Giran. Seus tremores abalam montanhas e petrificam exércitos.',
+    desc: '守護奇岩地底深處的恐怖地龍，牠的震動能撼動山脈並石化軍隊。',
     fatalSkill: {
-      name: 'Colapso Geológico Ancestral',
+      name: '古代地質崩壞',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: 'Terremoto Fóssil', triggerHp: 0.70, damagePercent: 0.30, text: '🌋 Terremoto Fóssil: O chão estremece causando dano maciço!' },
-      { name: 'Rugido do Pavor Ancestral', triggerHp: 0.35, damagePercent: 0.40, text: '🐉 Rugido Aterrorizante de Antharas rompe as barreiras de defesa!' }
+      { name: '化石地震', triggerHp: 0.70, damagePercent: 0.30, text: '🌋 化石地震: O chão estremece causando dano maciço!' },
+      { name: '古代恐懼咆哮', triggerHp: 0.35, damagePercent: 0.40, text: '🐉 安塔瑞斯的恐怖咆哮撕裂防禦屏障！' }
     ],
     drops: [
-      { itemId: 'jewel_earring_of_antharas', name: 'Earring of Antharas', chance: 0.25, isEpicJewel: true },
-      { itemId: 'weapon_frost_lord_two_hand_sword', name: 'Frost Lord Greatsword (Tier 6 Apex)', chance: 0.25 },
-      { itemId: 'scroll_blessed_weapon', name: 'Blessed Scroll: Enchant Weapon', chance: 0.60 },
-      { itemId: 'adena_coins', count: 100, name: '100x Aden Coins (AC)', chance: 0.50 }
+      { itemId: 'jewel_earring_of_antharas', name: '安塔瑞斯耳環', chance: 0.25, isEpicJewel: true },
+      { itemId: 'weapon_frost_lord_two_hand_sword', name: '霜之領主巨劍（第 6 階巔峰）', chance: 0.25 },
+      { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.60 },
+      { itemId: 'adena_coins', count: 100, name: '100x 亞丁幣（AC）', chance: 0.50 }
     ]
   },
 
   valakas: {
     id: 'valakas',
-    name: 'Dragão do Fogo Valakas 🔥',
-    title: 'Senhor Supremo do Vulcão Forja dos Deuses',
+    name: '火龍巴拉卡斯 🔥',
+    title: '諸神熔爐火山至高領主',
     lvl: 100,
     hp: 1250000,
     atk: 1950,
@@ -300,32 +300,32 @@ export const RAID_BOSSES = {
     reqLvl: 90,
     icon: 'gradespecial/jewels/jewel_necklace_of_valakas.png',
     bg: 'dungeon_valakas_volcano',
-    desc: 'A criatura mais poderosa de Aden. Habita a caldeira de lava da Forja dos Deuses, incinerando quem ousa desafi-lo.',
+    desc: '亞丁最強大的生物，棲息於諸神熔爐的熔岩火口，焚盡所有膽敢挑戰牠的人。',
     fatalSkill: {
-      name: 'Extinção Solar do Dragão Flamejante',
+      name: '烈焰龍之太陽滅絕',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: 'Chuva de Meteoros Incandescentes', triggerHp: 0.75, damagePercent: 0.30, text: '☄️ Chuva de Meteoros de Valakas incinera toda a arena!' },
-      { name: 'Sopro Infernal do Vulcão', triggerHp: 0.40, damagePercent: 0.45, text: '🔥 Sopro de Chamas Eternas atinge em cheio com poder colossal!' },
-      { name: 'Aura da Caldeira Ardente', triggerHp: 0.15, damagePercent: 0.50, text: '🌋 Valakas entra em Fúria Vulcânica Máxima!' }
+      { name: '熾熱隕石雨', triggerHp: 0.75, damagePercent: 0.30, text: '☄️ 巴拉卡斯的隕石雨焚燒整座競技場！' },
+      { name: '火山地獄吐息', triggerHp: 0.40, damagePercent: 0.45, text: '🔥 永恆烈焰吐息以龐大力量正面命中！' },
+      { name: '熾熱火口光環', triggerHp: 0.15, damagePercent: 0.50, text: '🌋 巴拉卡斯進入極限火山狂怒！' }
     ],
     drops: [
-      { itemId: 'jewel_necklace_of_valakas', name: 'Necklace of Valakas', chance: 0.25, isEpicJewel: true },
-      { itemId: 'jewel_ring_of_valakas', name: 'Ring of Valakas', chance: 0.25, isEpicJewel: true },
-      { itemId: 'armor_valakas_cloack', name: 'Valakas Dragon Cloak', chance: 0.35 },
-      { itemId: 'valakas_mask', name: 'Máscara Flamejante de Valakas', chance: 0.40 },
-      { itemId: 'scroll_blessed_weapon', name: 'Blessed Scroll: Enchant Weapon', chance: 0.75 },
-      { itemId: 'adena_coins', count: 150, name: '150x Aden Coins (AC)', chance: 0.60 }
+      { itemId: 'jewel_necklace_of_valakas', name: '巴拉卡斯項鍊', chance: 0.25, isEpicJewel: true },
+      { itemId: 'jewel_ring_of_valakas', name: '巴拉卡斯戒指', chance: 0.25, isEpicJewel: true },
+      { itemId: 'armor_valakas_cloack', name: '巴拉卡斯龍披風', chance: 0.35 },
+      { itemId: 'valakas_mask', name: '巴拉卡斯烈焰面具', chance: 0.40 },
+      { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.75 },
+      { itemId: 'adena_coins', count: 150, name: '150x 亞丁幣（AC）', chance: 0.60 }
     ]
   },
 
   barakiel: {
     id: 'barakiel',
-    name: 'Flame of Splendor Barakiel 🔥',
-    title: 'Guardião do Cajado da Deusa (Noblesse Quest)',
+    name: '光輝火焰巴拉基艾爾 🔥',
+    title: '女神法杖守護者（貴族任務）',
     lvl: 75,
     hp: 180000,
     atk: 520,
@@ -342,22 +342,22 @@ export const RAID_BOSSES = {
     reqLvl: 75,
     icon: 'gradespecial/scrolls/scroll_enchant_weapon_s.png',
     bg: 'dungeon_goddard',
-    desc: 'Lorde flamejante de Wall of Argos. Derrotá-lo é o teste definitivo da Parte 3 da Quest de Noblesse para obter o Cajado da Deusa.',
+    desc: '阿爾戈斯之壁的烈焰領主。擊敗他是貴族任務第 3 部分的最終試煉，可取得女神法杖。',
     fatalSkill: {
-      name: 'Chamas da Glória Nobre',
+      name: '貴族榮耀之火',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: 'Explosão de Chamas Solares', triggerHp: 0.60, damagePercent: 0.20, text: '🔥 Barakiel conjurou Explosão de Chamas Solares!' },
-      { name: 'Barreira de Fogo Puro', triggerHp: 0.25, healPercent: 0.15, text: '🛡️ Barakiel invocou a Barreira de Fogo Puro!' }
+      { name: '太陽烈焰爆發', triggerHp: 0.60, damagePercent: 0.20, text: '🔥 Barakiel conjurou 太陽烈焰爆發!' },
+      { name: '純淨火焰屏障', triggerHp: 0.25, healPercent: 0.15, text: '🛡️ Barakiel invocou a 純淨火焰屏障!' }
     ],
     drops: [
       { itemId: 'staff_goddess_rain_song', name: 'Staff of Goddess: Rain Song', chance: 1.0 },
-      { itemId: 'scroll_blessed_universal', name: 'Pergaminho Abençoado Universal', chance: 1.0 },
-      { itemId: 'scroll_blessed_weapon', name: 'Pergaminho Abençoado de Arma', chance: 0.50 },
-      { itemId: 'adena_coins', count: 30, name: '30x Aden Coins (AC)', chance: 0.50 }
+      { itemId: 'scroll_blessed_universal', name: '祝福的通用強化卷軸', chance: 1.0 },
+      { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.50 },
+      { itemId: 'adena_coins', count: 30, name: '30x 亞丁幣（AC）', chance: 0.50 }
     ]
   }
 };
