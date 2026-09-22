@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "voltaic_edge",
-        "name": "Fio Voltaico",
+        "name": "雷電之刃",
         "classId": "dark_elf_death_knight",
         "race": "dark_elf",
         "tier": "core_1",
@@ -15,7 +15,7 @@
           "Lightning",
           "Dark"
         ],
-        "description": "Fio Voltaico — Habilidade Especialista de dark_elf_death_knight."
+        "description": "雷電之刃——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -167,7 +167,7 @@
     {
       "identity": {
         "id": "storm_judgment",
-        "name": "Julgamento da Tempestade",
+        "name": "暴風審判",
         "classId": "dark_elf_death_knight",
         "race": "dark_elf",
         "tier": "core_2",
@@ -178,7 +178,7 @@
           "Lightning",
           "Dark"
         ],
-        "description": "Julgamento da Tempestade — Habilidade Especialista de dark_elf_death_knight."
+        "description": "暴風審判——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -330,7 +330,7 @@
     {
       "identity": {
         "id": "thunder_veil",
-        "name": "Véu de Trovão",
+        "name": "雷霆帷幕",
         "classId": "dark_elf_death_knight",
         "race": "dark_elf",
         "tier": "specialization",
@@ -341,7 +341,7 @@
           "Lightning",
           "Dark"
         ],
-        "description": "Véu de Trovão — Habilidade Especialista de dark_elf_death_knight."
+        "description": "雷霆帷幕——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -493,7 +493,7 @@
     {
       "identity": {
         "id": "shocking_grasp",
-        "name": "Garra Eletrizante",
+        "name": "電擊之爪",
         "classId": "dark_elf_death_knight",
         "race": "dark_elf",
         "tier": "elemental_specialization",
@@ -504,7 +504,7 @@
           "Lightning",
           "Dark"
         ],
-        "description": "Garra Eletrizante — Habilidade Especialista de dark_elf_death_knight."
+        "description": "電擊之爪——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -674,7 +674,7 @@
     {
       "identity": {
         "id": "voltaic_requiem",
-        "name": "Voltaic Requiem",
+        "name": "雷電安魂曲",
         "classId": "dark_elf_death_knight",
         "race": "dark_elf",
         "tier": "ultimate",
@@ -684,7 +684,7 @@
         "tags": [
           "Lightning"
         ],
-        "description": "Voltaic Requiem — Habilidade Ultimate (★★★★) de dark_elf_death_knight."
+        "description": "雷電安魂曲——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -869,7 +869,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "VOLTAIC REQUIEM!",
+          "text": "雷電安魂曲！",
           "style": "gold_banner",
           "banner": true
         }
@@ -890,7 +890,7 @@
     {
       "identity": {
         "id": "master_voltaic_requiem",
-        "name": "Master: Voltaic Requiem",
+        "name": "大師：雷電安魂曲",
         "classId": "dark_elf_death_knight",
         "race": "dark_elf",
         "tier": "master_ultimate",
@@ -900,7 +900,7 @@
         "tags": [
           "Lightning"
         ],
-        "description": "Master: Voltaic Requiem — Habilidade Master Ultimate (★★★★★) de dark_elf_death_knight."
+        "description": "大師：雷電安魂曲——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1086,7 +1086,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: VOLTAIC REQUIEM!",
+          "text": "大師：雷電安魂曲！",
           "style": "mythic_banner",
           "banner": true
         }
