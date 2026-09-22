@@ -3708,7 +3708,7 @@ function renderLoadoutBar(state) {
     const skillId = loadout[slotName];
     const def = skillId ? SKILL_DEFS[skillId] : null;
     const unlockLvl = getSlotUnlockLevel(slotName);
-    const slotLabel = SKILL_LOADOUT_SLOT_LABELS[slotName] || slotName;
+    const slotLabel = SKILL_LOADOUT_SLOT_LABELS[slotName] || '其他欄位';
     const slotIcon = SKILL_LOADOUT_SLOT_ICONS[slotName] || '⚔️';
 
     if (!isUnlocked) {
@@ -4169,7 +4169,7 @@ export function updateSkillUI(state, callbacks = {}) {
           updateSkillUI(state, callbacks);
           updateSkillInfoPanel(state, callbacks);
           if (typeof window !== 'undefined' && typeof window.floatText === 'function') {
-            const slotLabel = SKILL_LOADOUT_SLOT_LABELS[slotName] || slotName;
+            const slotLabel = SKILL_LOADOUT_SLOT_LABELS[slotName] || '其他欄位';
             window.floatText(`已裝備至［${slotLabel}］！`, 'sf-heal');
           }
         } else if (typeof window !== 'undefined' && typeof window.floatText === 'function') {
@@ -4487,7 +4487,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
         updateSkillUI(state, callbacks);
         updateSkillInfoPanel(state, callbacks);
         if (typeof window !== 'undefined' && typeof window.floatText === 'function') {
-          const slotLabel = SKILL_LOADOUT_SLOT_LABELS[targetSlot] || targetSlot;
+          const slotLabel = SKILL_LOADOUT_SLOT_LABELS[targetSlot] || '其他欄位';
           window.floatText(`已裝備至［${slotLabel}］！`, 'sf-heal');
         }
       } else if (typeof window !== 'undefined' && typeof window.floatText === 'function') {
@@ -10160,7 +10160,7 @@ export function renderOlympiadTab(container, state) {
           <p style="font-size:11px; color:#cbd5e1; line-height:1.35; margin:0 0 8px 0;">${w.desc}</p>
         </div>
         <div style="font-size:10px; color:#93c5fd; background:rgba(0,0,0,0.4); padding:4px 8px; border-radius:4px;">
-          需求：Lv.76+ 且目前為英雄狀態
+          需求：等級 76+ 且目前為英雄狀態
         </div>
       </div>
     `).join('');
