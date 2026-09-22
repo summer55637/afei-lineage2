@@ -1477,7 +1477,7 @@ function useItem(uid) {
   }
   else if (item.itemId === 'sages_tea') {
     applyBuff('mpRegen', 5, 3600);
-    log(`🍵 使用 ${def.name}：每次回復 +5 MP，持續 1 小時`, 'heal');
+    log(`🍵 使用 ${def.name}：每次回復 +5 魔力，持續 1 小時`, 'heal');
     if (typeof floatText === 'function') floatText('🍵 賢者茶：魔力回復（1 小時）', 'sf-heal');
   }
   else if (item.itemId === 'antidote') {
@@ -2692,7 +2692,7 @@ function updateCombatControlsUI() {
     const hpCount = getInventoryCount('hp_potion_s') + getInventoryCount('hp_potion_m') + getInventoryCount('hp_potion_l') + getInventoryCount('hp_potion_xl');
     const mpCount = getInventoryCount('mp_potion_s') + getInventoryCount('mp_potion_m') + getInventoryCount('mp_potion_l') + getInventoryCount('mp_potion_xl');
     const hpPct = Math.round((state.autoPotionSettings?.hpThreshold || 0.6) * 100);
-    apBtn.innerHTML = `<span>🧪 自動藥水</span> <span style="font-size:9px; color:${isApActive ? '#ffd877' : '#94a3b8'};">(${hpCount} HP / ${mpCount} MP)</span>`;
+    apBtn.innerHTML = `<span>🧪 自動藥水</span> <span style="font-size:9px; color:${isApActive ? '#ffd877' : '#94a3b8'};">（生命藥水 ${hpCount}／魔力藥水 ${mpCount}）</span>`;
     apBtn.title = `自動藥水：${isApActive ? '開啟' : '關閉'}（HP < ${hpPct}%）－點擊切換，或在巨集按鈕中設定 ⚙️`;
   }
   const spdBtn = el('speed-toggle-btn');
@@ -5224,7 +5224,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
     const killHeal = Math.floor(state.maxHp * (procBonuses.on_kill_heal / 100));
     if (killHeal > 0) {
       state.hp = Math.min(state.maxHp, state.hp + killHeal);
-      log(`🩸 處決！擊敗 ${monster.name} 後恢復 ${killHeal} HP`, 'heal');
+      log(`🩸 處決！擊敗 ${monster.name} 後恢復 ${killHeal} 生命值`, 'heal');
       floatText(`+${killHeal} 生命值`, 'sf-heal');
     }
   }
@@ -5818,7 +5818,7 @@ export function attackMonster() {
           if (vHeal > 0) {
             state.hp = Math.min(stats.maxHp || state.maxHp, state.hp + vHeal);
             if (typeof floatText === 'function') floatText(`+${vHeal} 生命值`, 'sf-heal');
-            log(`🦇 吸血！吸收 ${vHeal} HP`, 'heal');
+            log(`🦇 吸血！吸收 ${vHeal} 生命值`, 'heal');
           }
         }
         const skinReaction = state.activeSkin === 'skin_weapon_frost_lord' ? 'is-frozen' : (state.activeSkin === 'skin_weapon_infernal_dragon' ? 'is-ignited' : (state.activeSkin === 'skin_weapon_celestial_holy' ? 'is-consecrated' : null));
@@ -6365,7 +6365,7 @@ function monsterAttack(monster) {
     if (aiAttack.vampiricHeal > 0) {
       const vHeal = Math.max(1, Math.floor(damage * aiAttack.vampiricHeal));
       monster.hp = Math.min(monster._maxHp, monster.hp + vHeal);
-      log(`🦇 [吸血] **${monster.name}** 從你身上吸收了 ${vHeal} HP！`, 'warning');
+      log(`🦇 [吸血] **${monster.name}** 從你身上吸收了 ${vHeal} 生命值！`, 'warning');
       stageFloat(`+${vHeal} 生命值`, 'sf-heal', 'right');
     }
   }
@@ -7414,7 +7414,7 @@ function updateCodexUI() {
 
   if (summaryEl) {
     const b = getCodexBonuses();
-    summaryEl.innerHTML = `<span style="color:var(--gilt-bright); font-weight:bold;">已完成收藏：${completedSets}/${totalSets}</span> · 總加成：+${b.atk} 攻擊、+${b.def} 防禦、+${b.matk} 魔法攻擊、+${b.hp} HP`;
+    summaryEl.innerHTML = `<span style="color:var(--gilt-bright); font-weight:bold;">已完成收藏：${completedSets}/${totalSets}</span> · 總加成：+${b.atk} 攻擊、+${b.def} 防禦、+${b.matk} 魔法攻擊、+${b.hp} 生命值`;
   }
 }
 
@@ -9185,7 +9185,7 @@ function fuseSoulCrystals(color = 'red', stage = 1) {
 function socketSoulCrystalToWeapon(effect = 'focus', stage = 1) {
   const wpnUid = state.equipment?.weapon;
   if (!wpnUid) {
-    log('⚠️ 請先裝備武器，再鑲嵌 SA 靈魂水晶！', 'warning');
+    log('⚠️ 請先裝備武器，再鑲嵌特殊能力靈魂水晶！', 'warning');
     return false;
   }
 
@@ -9195,8 +9195,8 @@ function socketSoulCrystalToWeapon(effect = 'focus', stage = 1) {
     stage: Math.min(13, Math.max(1, stage))
   };
 
-  log(`🔮 已將 SA 靈魂水晶 [${effect.toUpperCase()} 階段 ${stage}] 鑲嵌到目前武器！`, 'rarity-legendary');
-  floatText(`SA ${effect.toUpperCase()} 已啟用`, 'float-gold');
+  log(`🔮 已將特殊能力靈魂水晶 [${effect.toUpperCase()} 階段 ${stage}] 鑲嵌到目前武器！`, 'rarity-legendary');
+  floatText(`特殊能力 ${effect.toUpperCase()} 已啟用`, 'float-gold');
 
   updateAllUI();
   save();
@@ -11109,7 +11109,7 @@ export function init() {
                     <span style="font-size:12px; font-weight:bold; color:#ffd877; width:20px; text-align:center;">#${idx + 1}</span>
                     <div>
                       <div style="font-weight:bold; font-size:13px; color:#f8fafc; font-family:'Cinzel',serif;">${sk.def.name} <span style="font-size:11px; color:#86efac;">（等級 ${sk.lvl}）</span></div>
-                      <div style="font-size:10px; color:#94a3b8;">冷卻：${cdSec} 秒 | MP：${mpCost} | 階級：${sk.def.tier || 1}</div>
+                      <div style="font-size:10px; color:#94a3b8;">冷卻：${cdSec} 秒 | 魔力：${mpCost} | 階級：${sk.def.tier || 1}</div>
                     </div>
                   </div>
 
