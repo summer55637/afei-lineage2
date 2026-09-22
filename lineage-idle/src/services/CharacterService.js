@@ -259,7 +259,7 @@ export function checkClassAdvancement(state, callbacks = {}) {
 
   if (state.level >= 20 && currentStage === 0) {
     canAdvance = true;
-    advTitle = '⚡ 第一次轉職 Disponível!';
+    advTitle = '⚡ 第一次轉職已開放！';
     advSub = `達到等級 ${state.level}！請為 ${currentClassDef?.name || state.class} 選擇進階路線。`;
   } else if (state.level >= 40 && currentStage === 1) {
     canAdvance = true;
