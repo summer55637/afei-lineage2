@@ -835,11 +835,11 @@ export const IDLE_MARKUP = `
                   <div style="display:flex; align-items:center; justify-content:space-between; gap:6px; flex-wrap:wrap;">
                     <div class="l2inv-rarity-pills" style="display:flex; gap:3px;">
                       <button class="rarity-filter-btn active" data-rarity="all">全部</button>
-                      <button class="rarity-filter-btn r-common" data-rarity="common">C</button>
-                      <button class="rarity-filter-btn r-uncommon" data-rarity="uncommon">I</button>
-                      <button class="rarity-filter-btn r-rare" data-rarity="rare">R</button>
-                      <button class="rarity-filter-btn r-epic" data-rarity="epic">É</button>
-                      <button class="rarity-filter-btn r-legendary" data-rarity="legendary">L</button>
+                      <button class="rarity-filter-btn r-common" data-rarity="common">普</button>
+                      <button class="rarity-filter-btn r-uncommon" data-rarity="uncommon">非</button>
+                      <button class="rarity-filter-btn r-rare" data-rarity="rare">稀</button>
+                      <button class="rarity-filter-btn r-epic" data-rarity="epic">史</button>
+                      <button class="rarity-filter-btn r-legendary" data-rarity="legendary">傳</button>
                     </div>
                     <div class="l2inv-batch-pills" style="display:flex; gap:3px;">
                       <button id="select-commons-btn" class="l2inv-pill-btn" title="選擇一般品質">✓ 一般</button>
