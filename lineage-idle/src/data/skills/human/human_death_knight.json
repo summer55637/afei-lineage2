@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "cinderblade",
-        "name": "Lâmina de Cinzas",
+        "name": "灰燼之刃",
         "classId": "human_death_knight",
         "race": "human",
         "tier": "core_1",
@@ -15,7 +15,7 @@
           "Fire",
           "Dark"
         ],
-        "description": "Lâmina de Cinzas — Habilidade Especialista de human_death_knight."
+        "description": "灰燼之刃——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -167,7 +167,7 @@
     {
       "identity": {
         "id": "hellfire_grasp",
-        "name": "Garra Infernal",
+        "name": "地獄火之爪",
         "classId": "human_death_knight",
         "race": "human",
         "tier": "core_2",
@@ -178,7 +178,7 @@
           "Fire",
           "Dark"
         ],
-        "description": "Garra Infernal — Habilidade Especialista de human_death_knight."
+        "description": "地獄火之爪——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -330,7 +330,7 @@
     {
       "identity": {
         "id": "ashen_shroud",
-        "name": "Véu de Cinzas",
+        "name": "灰燼帷幕",
         "classId": "human_death_knight",
         "race": "human",
         "tier": "specialization",
@@ -340,7 +340,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Véu de Cinzas — Habilidade Especialista de human_death_knight."
+        "description": "灰燼帷幕——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -492,7 +492,7 @@
     {
       "identity": {
         "id": "infernal_judgment",
-        "name": "Julgamento Infernal",
+        "name": "煉獄審判",
         "classId": "human_death_knight",
         "race": "human",
         "tier": "elemental_specialization",
@@ -503,7 +503,7 @@
           "Fire",
           "Dark"
         ],
-        "description": "Julgamento Infernal — Habilidade Especialista de human_death_knight."
+        "description": "煉獄審判——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -673,7 +673,7 @@
     {
       "identity": {
         "id": "infernal_apocalypse",
-        "name": "Infernal Apocalypse",
+        "name": "煉獄末日",
         "classId": "human_death_knight",
         "race": "human",
         "tier": "ultimate",
@@ -683,7 +683,7 @@
         "tags": [
           "Fire"
         ],
-        "description": "Infernal Apocalypse — Habilidade Ultimate (★★★★) de human_death_knight."
+        "description": "煉獄末日——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -868,7 +868,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "INFERNAL APOCALYPSE!",
+          "text": "煉獄末日！",
           "style": "gold_banner",
           "banner": true
         }
@@ -889,7 +889,7 @@
     {
       "identity": {
         "id": "master_infernal_apocalypse",
-        "name": "Master: Infernal Apocalypse",
+        "name": "大師：煉獄末日",
         "classId": "human_death_knight",
         "race": "human",
         "tier": "master_ultimate",
@@ -899,7 +899,7 @@
         "tags": [
           "Fire"
         ],
-        "description": "Master: Infernal Apocalypse — Habilidade Master Ultimate (★★★★★) de human_death_knight."
+        "description": "大師：煉獄末日——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1085,7 +1085,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: INFERNAL APOCALYPSE!",
+          "text": "大師：煉獄末日！",
           "style": "mythic_banner",
           "banner": true
         }
