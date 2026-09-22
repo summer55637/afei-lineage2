@@ -233,7 +233,7 @@ export const MiningService = {
     }
 
     mState.pickaxe = pickaxeId;
-    if (callbacks.log) callbacks.log(`⛏️ Picareta empunhada: **${pick.name}**.`, 'system');
+    if (callbacks.log) callbacks.log(`⛏️ 已裝備十字鎬：**${pick.name}**。`, 'system');
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
