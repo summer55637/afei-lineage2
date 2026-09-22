@@ -1416,7 +1416,7 @@ function useItem(uid) {
       existing.amount = Math.max(existing.amount, amt);
     } else { state.buffs[key] = { amount: amt, until: newUntil }; }
   };
-  const fmtDur = (s) => s >= 3600 ? `${(s/3600).toFixed(s%3600?1:0)}h` : s >= 60 ? `${Math.round(s/60)}m` : `${s}s`;
+  const fmtDur = (s) => s >= 3600 ? `${(s/3600).toFixed(s%3600?1:0)} 小時` : s >= 60 ? `${Math.round(s/60)} 分鐘` : `${s} 秒`;
   
   // ── HP Potions ─────────────────────────────────────────────────────────────
   if (def.type === 'heal' || item.itemId.startsWith('hp_potion')) {
@@ -2503,7 +2503,7 @@ function shopRow(def, id, price, extra = '') {
     buyActionHtml = `<button class="item-action" data-buy="${id}" data-qty="1" ${(!canAfford || lockLvl || lockCls) ? 'disabled' : ''}>${price.toLocaleString()} 金幣</button>`;
   }
 
-  row.innerHTML = `<div class="item-info"><div class="item-name">${def.name}${def.tier ? ' <span class="tier-tag">T'+def.tier+'</span>' : ''}</div><div class="item-desc">${def.desc || ''}</div>${statsLine ? `<div class="item-stats">${statsLine}</div>` : ''}${lockReason ? `<div class="lock-reason">🔒 ${lockReason}</div>` : ''}</div>${buyActionHtml}${extra}`;
+  row.innerHTML = `<div class="item-info"><div class="item-name">${def.name}${def.tier ? ' <span class="tier-tag">第 '+def.tier+' 階</span>' : ''}</div><div class="item-desc">${def.desc || ''}</div>${statsLine ? `<div class="item-stats">${statsLine}</div>` : ''}${lockReason ? `<div class="lock-reason">🔒 ${lockReason}</div>` : ''}</div>${buyActionHtml}${extra}`;
   return row;
 }
 
@@ -2834,7 +2834,7 @@ function checkOfflineProgress(lastTime) {
             你已離線超過 24 小時！亞丁眾神賜予你回歸補給：
           </div>
           <div style="font-size:11px; color:#a3e635; font-weight:bold;">
-            ✨ 經驗值 +50% 持續 2 小時 · 💰 +250,000 金幣 · ⚡ 1,000x 魂彈 · 🧪 100x XL 藥水
+            ✨ 經驗值 +50% 持續 2 小時 · 💰 +250,000 金幣 · ⚡ 1,000× 魂彈 · 🧪 100× XL 藥水
           </div>
         </div>
       ` : ''}
