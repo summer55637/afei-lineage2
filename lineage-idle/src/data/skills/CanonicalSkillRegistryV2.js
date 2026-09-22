@@ -25433,7 +25433,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "quick_step": {
         "id": "quick_step",
-        "name": "Quick Step",
+        "name": "迅捷步伐",
         "slug": "quick_step",
         "type": "passive",
         "rawType": "Passive",
@@ -25445,7 +25445,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Speed +15",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases Movement Speed.",
+        "desc": "提高移動速度。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25470,7 +25470,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "long_shot": {
         "id": "long_shot",
-        "name": "Long Shot",
+        "name": "遠距射擊",
         "slug": "long_shot",
         "type": "passive",
         "rawType": "Passive",
@@ -25482,7 +25482,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Bow Range +200",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases shooting range of bows and crossbows.",
+        "desc": "提高弓與弩的射程。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25504,7 +25504,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "critical_power": {
         "id": "critical_power",
-        "name": "Critical Power",
+        "name": "暴擊威力",
         "slug": "critical_power",
         "type": "passive",
         "rawType": "Passive",
@@ -25516,7 +25516,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Critical Damage +25%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases P. Skill and basic Critical Damage.",
+        "desc": "提高物理技能與基礎攻擊的暴擊傷害。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25548,7 +25548,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "critical_chance": {
         "id": "critical_chance",
-        "name": "Critical Chance",
+        "name": "暴擊機率",
         "slug": "critical_chance",
         "type": "passive",
         "rawType": "Passive",
@@ -25560,7 +25560,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Critical Rate +30",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases Critical Rate for basic and physical skill attacks.",
+        "desc": "提高基礎攻擊與物理技能攻擊的暴擊率。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25580,7 +25580,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "boost_attack_speed": {
         "id": "boost_attack_speed",
-        "name": "Boost Attack Speed",
+        "name": "攻擊速度強化",
         "slug": "boost_attack_speed",
         "type": "passive",
         "rawType": "Passive",
@@ -25592,7 +25592,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Atk. Spd. +10%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Permanently increases Atk. Spd.",
+        "desc": "永久提高攻速。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25613,7 +25613,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "focus_mind": {
         "id": "focus_mind",
-        "name": "Focus Mind",
+        "name": "精神集中",
         "slug": "focus_mind",
         "type": "passive",
         "rawType": "Passive",
@@ -25625,7 +25625,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "MP Recovery +10 per tick",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Recovers MP continuously during combat.",
+        "desc": "戰鬥中持續恢復 MP。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25654,7 +25654,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "spellcraft": {
         "id": "spellcraft",
-        "name": "Spellcraft",
+        "name": "法術工藝",
         "slug": "spellcraft",
         "type": "passive",
         "rawType": "Passive",
@@ -25666,7 +25666,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "M. Critical Damage +20%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases Magic Critical Damage and reduces cooldowns.",
+        "desc": "提高魔法暴擊傷害並縮短冷卻時間。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25690,7 +25690,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "fast_spell_casting": {
         "id": "fast_spell_casting",
-        "name": "Fast Spell Casting",
+        "name": "快速施法",
         "slug": "fast_spell_casting",
         "type": "passive",
         "rawType": "Passive",
@@ -25702,7 +25702,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Cast. Spd. +15%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Permanently increases Casting Speed.",
+        "desc": "永久提高施法速度。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25728,7 +25728,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "higher_mana_gain": {
         "id": "higher_mana_gain",
-        "name": "Higher Mana Gain",
+        "name": "高效魔力恢復",
         "slug": "higher_mana_gain",
         "type": "passive",
         "rawType": "Passive",
@@ -25740,7 +25740,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "MP Gain +20%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases MP gained from potions and recovery spells.",
+        "desc": "提高從藥水與恢復魔法獲得的 MP。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25766,7 +25766,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "master_of_combat": {
         "id": "master_of_combat",
-        "name": "Master of Combat",
+        "name": "戰鬥大師",
         "slug": "master_of_combat",
         "type": "passive",
         "rawType": "Passive",
@@ -25778,7 +25778,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +150, Max HP +1000, Max CP +1500",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Transcendent combat mastery. Increases P. Atk. and Max CP/HP.",
+        "desc": "超越級戰鬥精通，提高 P.Atk 與最大 CP／HP。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25812,7 +25812,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "eye_of_slayer": {
         "id": "eye_of_slayer",
-        "name": "Eye of Slayer",
+        "name": "屠戮之眼",
         "slug": "eye_of_slayer",
         "type": "passive",
         "rawType": "Passive",
@@ -25824,7 +25824,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Damage to Beasts +15%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases damage dealt to Beasts and Monsters.",
+        "desc": "提高對野獸與怪物造成的傷害。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25845,7 +25845,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "eye_of_hunter": {
         "id": "eye_of_hunter",
-        "name": "Eye of Hunter",
+        "name": "獵人之眼",
         "slug": "eye_of_hunter",
         "type": "passive",
         "rawType": "Passive",
@@ -25857,7 +25857,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Damage to Insects +15%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases damage dealt to Insects and Plants.",
+        "desc": "提高對昆蟲與植物造成的傷害。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25873,7 +25873,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "boost_evasion": {
         "id": "boost_evasion",
-        "name": "Boost Evasion",
+        "name": "迴避強化",
         "slug": "boost_evasion",
         "type": "passive",
         "rawType": "Passive",
@@ -25885,7 +25885,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Evasion +6",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Permanently increases Physical Evasion.",
+        "desc": "永久提高物理迴避。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25909,7 +25909,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "boost_morale": {
         "id": "boost_morale",
-        "name": "Boost Morale",
+        "name": "士氣強化",
         "slug": "boost_morale",
         "type": "passive",
         "rawType": "Passive",
@@ -25921,7 +25921,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Anomaly Resistance +20%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "Increases resistance to hold, sleep, and mental anomalies.",
+        "desc": "提高對束縛、睡眠與精神異常狀態的抗性。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25937,7 +25937,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "legendary_archer_master": {
         "id": "legendary_archer_master",
-        "name": "Legendary Archer: Master",
+        "name": "傳說弓手：大師",
         "slug": "legendary_archer_master",
         "type": "buff",
         "rawType": "Buff",
@@ -25947,7 +25947,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Transforms into a Legendary Archer Master. Max HP +10%, P. Atk. +20%, P. Skill Critical Rate +30%, P. Skill Critical Damage +30%, PvE Damage +10%, Melee Resistance +10%. Triggers Carpet Bombing & Tactical Error.",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "Transforms into a Legendary Archer Master. Max HP +10%, P. Atk. +20%, P. Skill Critical Rate +30%, P. Skill Critical Damage +30%, PvE Damage +10%, Melee Resistance +10%. Enables Legendary Shot and triggers Carpet Bombing (AoE Power 15,000) and Tactical Error.",
+        "desc": "變身為傳說弓手大師。最大 HP +10%、P.Atk +20%、物理技能暴擊率 +30%、物理技能暴擊傷害 +30%、PvE 傷害 +10%、近戰抗性 +10%。可使用 Legendary Shot，並觸發 Carpet Bombing（範圍威力 15000）與 Tactical Error。",
         "balance": {
             "mpCost": 250,
             "pwr": 1,
@@ -25970,7 +25970,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "indestructible_blade_master": {
         "id": "indestructible_blade_master",
-        "name": "Indestructible Blade: Master",
+        "name": "不滅之刃：大師",
         "slug": "indestructible_blade_master",
         "type": "active",
         "rawType": "Physical Skills",
@@ -25980,7 +25980,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Master ultimate strike with dual swords. Ignores defense and deals colossal critical damage.",
         "canonicalCooldown": "30s",
         "canonicalCooldownMs": 30000,
-        "desc": "Unleashes the supreme power of indestructible dual blades. Attacks enemies in front with overwhelming force, ignoring 30% of target defense.",
+        "desc": "釋放不滅雙刃的至高力量，以壓倒性威力攻擊前方敵人，無視目標 30% 防禦力。",
         "balance": {
             "mpCost": 180,
             "pwr": 250,
@@ -26000,7 +26000,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "titan_champion_master": {
         "id": "titan_champion_master",
-        "name": "Titan Champion: Master",
+        "name": "泰坦勇士：大師",
         "slug": "titan_champion_master",
         "type": "buff",
         "rawType": "Buff",
@@ -26010,7 +26010,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Master stance of the Titan Champion. Max HP +40%, P. Atk. +50%, Critical Damage +35%.",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "Awakens the ancient titan fury. Grants immense durability and unstoppable destruction when below 60% HP.",
+        "desc": "喚醒遠古泰坦之怒。HP 低於 60% 時獲得強大耐久力與無可阻擋的破壞力。",
         "balance": {
             "mpCost": 200,
             "pwr": 1,
@@ -26030,7 +26030,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "overwhelming_power_master": {
         "id": "overwhelming_power_master",
-        "name": "Overwhelming Power: Master",
+        "name": "壓倒性力量：大師",
         "slug": "overwhelming_power_master",
         "type": "buff",
         "rawType": "Buff",
@@ -26040,7 +26040,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Master destructive surge. P. Atk. +40%, P. Skill Power +25%.",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "Channels overwhelming primal power to smash through any defense.",
+        "desc": "引導壓倒性的原始力量，粉碎任何防禦。",
         "balance": {
             "mpCost": 180,
             "pwr": 1,
@@ -26060,7 +26060,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "cacophony_of_war_master": {
         "id": "cacophony_of_war_master",
-        "name": "Cacophony of War: Master",
+        "name": "戰爭狂響：大師",
         "slug": "cacophony_of_war_master",
         "type": "buff",
         "rawType": "Buff",
@@ -26070,7 +26070,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Supreme battle chant. P. Atk. +35%, Atk. Spd. +25%, P. Critical Damage +30%.",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "Unleashes a deafening war song that inspires allies and terrifies all foes.",
+        "desc": "釋放震耳欲聾的戰歌，激勵盟友並使所有敵人陷入恐懼。",
         "balance": {
             "mpCost": 220,
             "pwr": 1,
@@ -26090,7 +26090,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "mystic_meteor_master": {
         "id": "mystic_meteor_master",
-        "name": "Mystic Meteor: Master",
+        "name": "秘法隕星：大師",
         "slug": "mystic_meteor_master",
         "type": "active",
         "rawType": "Magic Skills",
@@ -26100,7 +26100,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Supreme celestial meteor. Falls from the stratosphere dealing catastrophic AoE damage.",
         "canonicalCooldown": "30s",
         "canonicalCooldownMs": 30000,
-        "desc": "Summons a colossal burning star from orbit that decimates the battlefield and leaves burning ground for 10 seconds.",
+        "desc": "從高空召喚巨大的燃燒星體摧毀戰場，並留下持續 10 秒的燃燒地面。",
         "balance": {
             "mpCost": 260,
             "pwr": 300,
@@ -26121,7 +26121,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "ultimate_death_knight_master": {
         "id": "ultimate_death_knight_master",
-        "name": "Ultimate Death Knight: Master",
+        "name": "終極死亡騎士：大師",
         "slug": "ultimate_death_knight_master",
         "type": "buff",
         "rawType": "Buff",
@@ -26131,7 +26131,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Transcends into the Sovereign of Death. All attacks gain vampiric drain and hellfire burst.",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "Awakens the true lord of the abyss. Converts 20% of damage dealt into HP and ignites enemies with black flames.",
+        "desc": "喚醒真正的深淵領主。將造成傷害的 20% 轉為 HP，並以黑色火焰點燃敵人。",
         "balance": {
             "mpCost": 240,
             "pwr": 1,
@@ -26151,7 +26151,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "holy_circle_master": {
         "id": "holy_circle_master",
-        "name": "Holy Circle: Master",
+        "name": "神聖法陣：大師",
         "slug": "holy_circle_master",
         "type": "active",
         "rawType": "Physical Skills",
@@ -26161,7 +26161,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Supreme holy barrier and consecrated ground. Deals holy damage and grants invulnerability.",
         "canonicalCooldown": "45s",
         "canonicalCooldownMs": 45000,
-        "desc": "Consecrates the ground around the paladin, blinding enemies and creating an impenetrable holy perimeter.",
+        "desc": "聖化聖騎士周圍的地面，使敵人失明並形成難以突破的神聖防線。",
         "balance": {
             "mpCost": 200,
             "pwr": 220,
@@ -26181,7 +26181,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "condemnation_master": {
         "id": "condemnation_master",
-        "name": "Condemnation: Master",
+        "name": "天譴：大師",
         "slug": "condemnation_master",
         "type": "active",
         "rawType": "Physical Skills",
@@ -26191,7 +26191,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Damns the souls of all nearby enemies with abyssal chains.",
         "canonicalCooldown": "40s",
         "canonicalCooldownMs": 40000,
-        "desc": "Strikes down with the black judgment blade, locking target movements and draining vitality.",
+        "desc": "以黑暗審判之刃重擊敵人，封鎖目標移動並汲取其生命力。",
         "balance": {
             "mpCost": 200,
             "pwr": 240,
@@ -26211,7 +26211,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "sephiroth_master": {
         "id": "sephiroth_master",
-        "name": "Sephiroth: Master",
+        "name": "賽菲羅斯：大師",
         "slug": "sephiroth_master",
         "type": "active",
         "rawType": "Magic Skills",
@@ -26221,7 +26221,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Divine inquisitor strike. Deals pure sacred damage that ignores attribute defenses.",
         "canonicalCooldown": "30s",
         "canonicalCooldownMs": 30000,
-        "desc": "Calls forth the holy light of the tree of life to smite opponents with unmitigated divine radiance.",
+        "desc": "召喚生命之樹的神聖光芒，以無法減免的神聖光輝懲擊敵人。",
         "balance": {
             "mpCost": 220,
             "pwr": 260,
@@ -26241,7 +26241,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "time_distortion_master": {
         "id": "time_distortion_master",
-        "name": "Time Distortion: Master",
+        "name": "時間扭曲：大師",
         "slug": "time_distortion_master",
         "type": "active",
         "rawType": "Special skills - Active",
@@ -26251,7 +26251,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Distorts the fabric of spacetime. Freezes enemy actions and resets caster cooldowns.",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "Bends spacetime around the soul hound, slowing enemies by 80% while enabling instant teleportation strikes.",
+        "desc": "扭曲靈魂獵犬周圍的時空，使敵人減速 80%，同時可施展瞬間傳送打擊。",
         "balance": {
             "mpCost": 250,
             "pwr": 240,
@@ -26271,7 +26271,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "shelter_master": {
         "id": "shelter_master",
-        "name": "Shelter: Master",
+        "name": "庇護：大師",
         "slug": "shelter_master",
         "type": "buff",
         "rawType": "Buff",
@@ -26281,7 +26281,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Absolute divine sanctuary. Complete immunity to damage and debuffs for 10 seconds.",
         "canonicalCooldown": "3 min.",
         "canonicalCooldownMs": 180000,
-        "desc": "Envelops the saint in an unbreakable divine barrier while healing all party members to full HP.",
+        "desc": "以無法破壞的神聖屏障包覆聖者，同時將所有隊伍成員 HP 恢復至滿。",
         "balance": {
             "mpCost": 300,
             "pwr": 1,
@@ -26302,7 +26302,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "exclusion_master": {
         "id": "exclusion_master",
-        "name": "Exclusion: Master",
+        "name": "排除：大師",
         "slug": "exclusion_master",
         "type": "buff",
         "rawType": "Debuff/ Anomaly skill",
@@ -26312,7 +26312,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Banishes the target to an alternate dimension, removing them from combat for 15 seconds.",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "Excludes target enemy from the battlefield into an isolated void pocket.",
+        "desc": "將目標敵人排除出戰場，送入隔離的虛空空間。",
         "balance": {
             "mpCost": 250,
             "pwr": 1,
@@ -26332,7 +26332,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "dark_disruption_master": {
         "id": "dark_disruption_master",
-        "name": "Dark Disruption: Master",
+        "name": "黑暗擾亂：大師",
         "slug": "dark_disruption_master",
         "type": "buff",
         "rawType": "Debuff/ Anomaly skill",
@@ -26342,7 +26342,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Mass dark curse. Corrupts all enemy buffs and slashes P. Def and M. Def by 40%.",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "Shillien mass disruption that nullifies enemy defensive enchantments and cripples defense.",
+        "desc": "施放席琳的大範圍擾亂，消除敵人的防禦型增益並大幅削弱防禦。",
         "balance": {
             "mpCost": 240,
             "pwr": 1,
@@ -26362,7 +26362,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "paagrios_touch_master": {
         "id": "paagrios_touch_master",
-        "name": "Pa'agrio's Touch: Master",
+        "name": "帕格立歐之觸：大師",
         "slug": "paagrios_touch_master",
         "type": "buff",
         "rawType": "Recovery Skills",
@@ -26372,7 +26372,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Restores 100% HP and CP and grants Pa'agrio's divine flame protection.",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "Calls the supreme blessing of the god of fire, cleansing all debuffs and restoring maximum health and combat points.",
+        "desc": "呼喚火神的至高祝福，移除所有弱化效果，並將生命值與戰鬥點數恢復至最大。",
         "balance": {
             "mpCost": 280,
             "pwr": 1,
@@ -26392,7 +26392,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "leopold_master": {
         "id": "leopold_master",
-        "name": "Leopold: Master",
+        "name": "雷奧波德：大師",
         "slug": "leopold_master",
         "type": "active",
         "rawType": "Physical Skills",
@@ -26402,7 +26402,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Fires the colossal Leopold siege cannon, obliterating everything in a massive forward radius.",
         "canonicalCooldown": "45s",
         "canonicalCooldownMs": 45000,
-        "desc": "Deploys the ultimate dwarven siege artillery. Fires high-explosive shells dealing 35,000 power to all enemies.",
+        "desc": "部署終極矮人攻城火砲，發射高爆砲彈，對所有敵人造成威力 35000 的傷害。",
         "balance": {
             "mpCost": 250,
             "pwr": 350,
