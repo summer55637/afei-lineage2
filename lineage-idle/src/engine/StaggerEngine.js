@@ -60,7 +60,7 @@ export class StaggerEngine {
       monster.isBreak = false;
       monster.breakUntil = 0;
       monster.staggerCurrent = monster.staggerMax;
-      if (callbacks.log) callbacks.log(`🛡️ ${monster.name} recuperou sua postura e postura defensiva!`, 'system');
+      if (callbacks.log) callbacks.log(`🛡️ ${monster.name} 已恢復姿態與防禦架勢！`, 'system');
     }
 
     // Cálculo do Dano de Postura baseado no tipo de arma e natureza do golpe
@@ -90,16 +90,16 @@ export class StaggerEngine {
           window.globalVFXOrchestrator.clearTelegraphs();
         }
 
-        if (callbacks.floatText) callbacks.floatText('🚨 FATAL INTERROMPIDO! (8s BREAK)', 'float-jackpot');
-        if (callbacks.log) callbacks.log(`🚨 GOLPE FATAL INTERROMPIDO! 💥 A postura de **${monster.name}** colapsou durante a canalização! VULNERABILIDADE ESTENDIDA PARA 8 SEGUNDOS (200% DANO)!`, 'rarity-legendary');
+        if (callbacks.floatText) callbacks.floatText('🚨 致命技能已打斷！（8 秒失衡）', 'float-jackpot');
+        if (callbacks.log) callbacks.log(`🚨 致命技能已打斷！💥 **${monster.name}** 在引導期間姿態崩潰！脆弱時間延長至 8 秒（受到 200% 傷害）！`, 'rarity-legendary');
 
         return { didBreak: true, isBreak: true, mult: 2.0, interruptedFatal: true };
       }
 
       monster.breakUntil = now + 5000; // 5 segundos de vulnerabilidade padrão
 
-      if (callbacks.floatText) callbacks.floatText('💥 BREAK! (2.0x DANO)', 'float-jackpot');
-      if (callbacks.log) callbacks.log(`🚨 QUEBRA DE POSTURA! 💥 ${monster.name} está VULNERÁVEL por 5s! Todos os ataques causam 200% de DANO!`, 'rarity-legendary');
+      if (callbacks.floatText) callbacks.floatText('💥 失衡！（2.0 倍傷害）', 'float-jackpot');
+      if (callbacks.log) callbacks.log(`🚨 姿態崩潰！💥 ${monster.name} 進入 5 秒脆弱狀態！所有攻擊造成 200% 傷害！`, 'rarity-legendary');
 
       return { didBreak: true, isBreak: true, mult: 2.0, interruptedFatal: false };
     }
