@@ -340,7 +340,7 @@ export function applySoulCrystalToWeapon(state, weaponUid, color = 'red', saKey 
   };
 
   if (callbacks.log) {
-    callbacks.log(`🔮 已賦予特殊能力（Lv.${crystalLevel}）：${item.name || def.name} 獲得 [SA：${saBonus.name}]！（${item.soulCrystal.desc}）`, 'rarity-legendary');
+    callbacks.log(`🔮 已賦予特殊能力（等級 ${crystalLevel}）：${item.name || def.name} 獲得【特殊能力：${saBonus.name}】！（${item.soulCrystal.desc}）`, 'rarity-legendary');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
