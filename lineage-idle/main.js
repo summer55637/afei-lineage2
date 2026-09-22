@@ -2048,15 +2048,15 @@ function updateStatsUI() {
 
     const items = Object.entries(state.buffs || {}).filter(([,b]) => b && typeof b.until === 'number' && b.until > now).map(([k,b]) => {
       const map = {
-        xpBoost: ['📘', `+${Math.round((b.amount||0)*100)}% XP`],
-        goldBoost: ['🪙', `+${Math.round((b.amount||0)*100)}% G`],
-        luckBoost: ['🍀', `+${Math.round((b.amount||0)*100)}% L`],
-        autoPotion: ['🧪', 'Auto-Heal'],
-        atk: ['⚔', `+${b.amount} ATK`],
-        def: ['🛡', `+${b.amount} DEF`],
+        xpBoost: ['📘', `+${Math.round((b.amount||0)*100)}% 經驗值`],
+        goldBoost: ['🪙', `+${Math.round((b.amount||0)*100)}% 金幣`],
+        luckBoost: ['🍀', `+${Math.round((b.amount||0)*100)}% 幸運`],
+        autoPotion: ['🧪', '自動治療'],
+        atk: ['⚔', `+${b.amount} 物理攻擊`],
+        def: ['🛡', `+${b.amount} 物理防禦`],
         matk: ['✦', `+${b.amount} 魔法攻擊`],
-        speed: ['⚡', `+${b.amount} SPD`],
-        warcry: ['🗣', `+${(b.amount||0)*100}% ATK`],
+        speed: ['⚡', `+${b.amount} 速度`],
+        warcry: ['🗣', `+${(b.amount||0)*100}% 物理攻擊`],
         elixir_berserker: ['⚔️', '狂戰士靈藥（+15% 攻擊、+10 速度）'],
         elixir_arcanist: ['🔮', '奧術師靈藥（魔法攻擊 +20%、魔力 +50%）'],
         elixir_fortune: ['💰', '幸運靈藥（掉落 +25%、金幣 +30%）'],
@@ -6343,7 +6343,7 @@ function monsterAttack(monster) {
     if (stats.defenceProc && Math.random() < 0.06) {
       state.buffs = state.buffs || {};
       state.buffs['counter_defense'] = { amount: 25, until: realNow + 10000 };
-      log('🛡️ **[副職業] 反擊防禦觸發！**  +25% 物理防禦、+25% 魔法防禦，持續 10 秒！', 'rarity-epic');
+      log('🛡️ **[副職業] 反擊防禦觸發！** +25% 物理防禦、+25% 魔法防禦，持續 10 秒！', 'rarity-epic');
       if (typeof stageFloat === 'function') stageFloat('🛡️ 反擊防禦！', 'sf-block', 'left');
       else if (typeof floatText === 'function') floatText('🛡️ 反擊防禦！', 'float-epic');
     }
