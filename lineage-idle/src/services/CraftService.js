@@ -2,14 +2,14 @@
  * CraftService.js — Motor de Criação, Metalurgia Imperial e Aprimoramento do Lineage Idle.
  *
  * Módulos Integrados e Balanceados:
- * 1. Forja Universal com Craft em Lote e Cálculo "Máx" O(1).
+ * 1. 鍛造 Universal com Craft em Lote e Cálculo "最大" O(1).
  * 2. Critical Craft (Double Craft e Foundation / Masterwork).
  * 3. Localizador de Fontes de Drop (Drop & Spoil Locator).
  * 4. Soul Crystals (Níveis 1 a 15, Drenagem de Alma & Epic Boss Stage 15 com 50% de chance).
  * 5. Ferreiro Pushkin (Mestre Armeiro: Unseal, Masterwork e Troca de Armas de Mesmo Grau).
  * 6. Symbol Maker (Dyes & Tatuagens Sagradas em Estágios 1 a 5).
  * 7. Atributos Elementais (Consumo Real de Pedras, Roda de Oposição e Drop Sources).
- * 8. Síntese de Cintos (Compound de Duplicatas com 30% de Sucesso e Rolagem de Stats).
+ * 8. Síntese de Cintos (Compound de Duplicatas com 30% de 成功 e Rolagem de Stats).
  * 9. Augmentation com Life Stones Transparentes.
  * 10. Random Craft Balanceado (Reciclagem Real de Itens e Pools Proporcionais).
  */
@@ -150,14 +150,14 @@ export function canCraftRecipe(state, id, qty = 1) {
 export function craftItem(state, recipeId, qty = 1, callbacks = {}) {
   const recipe = getRecipeDef(recipeId);
   if (!recipe) {
-    if (callbacks.log) callbacks.log('Receita de forja não encontrada.', 'system');
+    if (callbacks.log) callbacks.log('找不到鍛造配方。', 'system');
     return false;
   }
 
   const countToCraft = Math.max(1, parseInt(qty, 10) || 1);
   const maxPossible = calculateMaxCraftableQty(state, recipeId);
   if (maxPossible < countToCraft) {
-    if (callbacks.log) callbacks.log('Materiais ou Adena insuficientes para esta quantidade.', 'system');
+    if (callbacks.log) callbacks.log('材料 ou Adena insuficientes para esta quantidade.', 'system');
     return false;
   }
 
@@ -212,7 +212,7 @@ export function craftItem(state, recipeId, qty = 1, callbacks = {}) {
   const targetItemId = recipe?.result || recipeId;
   addToInventory(state, targetItemId, totalYield, rolledRarity, isFoundation, callbacks, true);
 
-  // Mensagens e Notificações de Sucesso
+  // Mensagens e Notificações de 成功
   const displayName = itemDef?.name || recipeId;
   if (isDouble && isFoundation) {
     if (callbacks.log) callbacks.log(`🌟 CRITICAL & FOUNDATION! Forjou ${totalYield}x ${displayName} (Em Dobro e Alma Ancestral)!`, 'rarity-legendary');
@@ -220,12 +220,12 @@ export function craftItem(state, recipeId, qty = 1, callbacks = {}) {
   } else if (isDouble) {
     if (callbacks.log) callbacks.log(`⚡ DOUBLE CRAFT! A bigorna ressoou e concedeu ${totalYield}x ${displayName} (2x)!`, 'rarity-epic');
   } else if (isFoundation) {
-    if (callbacks.log) callbacks.log(`✨ FOUNDATION! Você forjou ${totalYield}x ${displayName} com potencial Masterwork!`, 'rarity-foundation');
+    if (callbacks.log) callbacks.log(`✨ 基底成功！你鍛造了 ${totalYield}x ${displayName}，有機會成為大師製作品！`, 'rarity-foundation');
   } else {
-    if (callbacks.log) callbacks.log(`🔨 Forjou com sucesso ${totalYield}x ${displayName}!`, 'loot');
+    if (callbacks.log) callbacks.log(`🔨 成功鍛造 ${totalYield}x ${displayName}！`, 'loot');
   }
 
-  // Progressão do Nível de Forja da Conta
+  // Progressão do Nível de 鍛造 da Conta
   const expPerCraft = 15 + (itemDef?.tier || 1) * 10;
   const totalExpGained = expPerCraft * countToCraft;
   state.accountForgeExp = (state.accountForgeExp || 0) + totalExpGained;
@@ -235,7 +235,7 @@ export function craftItem(state, recipeId, qty = 1, callbacks = {}) {
     state.accountForgeExp -= state.accountForgeLevel * 100;
     state.accountForgeLevel += 1;
     state.craftLevel = state.accountForgeLevel;
-    if (callbacks.log) callbacks.log(`🎉 NÍVEL DE FORJA DA CONTA SUBIU PARA Lv.${state.accountForgeLevel}!`, 'rarity-legendary');
+    if (callbacks.log) callbacks.log(`🎉 帳號鍛造等級提升至 Lv.${state.accountForgeLevel}！`, 'rarity-legendary');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -259,15 +259,15 @@ export function getMaterialDropSources(matId) {
         zoneKey,
         zoneName: zone.name || zoneKey,
         minLevel: zone.reqLvl || zone.level || 1,
-        source: 'Drop / Caça Territorial'
+        source: '掉落／區域狩獵'
       });
     }
   }
 
   if (sources.length === 0) {
     sources.push(
-      { zoneKey: 'gludio', zoneName: 'Ruínas de Gludio', minLevel: 20, source: 'Monstros Comuns' },
-      { zoneKey: 'dion', zoneName: 'Planícies de Dion', minLevel: 30, source: 'Spoil de Anão' },
+      { zoneKey: 'gludio', zoneName: '古魯丁遺跡', minLevel: 20, source: 'Monstros Comuns' },
+      { zoneKey: 'dion', zoneName: '狄恩平原', minLevel: 30, source: '矮人搜刮' },
       { zoneKey: 'giran', zoneName: 'Dragon Valley', minLevel: 45, source: 'Dungeon & Bosses' }
     );
   }
@@ -282,14 +282,14 @@ export function getMaterialDropSources(matId) {
  */
 export const SA_DEFINITIONS = {
   red: {
-    focus: { name: 'Focus', desc: 'Taxa de Crítico Físico', stat: 'crit', baseVal: 65 },
-    critical_damage: { name: 'Critical Damage', desc: 'Dano Crítico Físico', stat: 'critDmg', baseVal: 280 },
-    might: { name: 'Might', desc: 'Dano Físico P.Atk', stat: 'atkPct', baseVal: 0.15 }
+    focus: { name: 'Focus', desc: '物理暴擊率', stat: 'crit', baseVal: 65 },
+    critical_damage: { name: 'Critical Damage', desc: '物理暴擊傷害', stat: 'critDmg', baseVal: 280 },
+    might: { name: 'Might', desc: '物理攻擊 P.Atk', stat: 'atkPct', baseVal: 0.15 }
   },
   green: {
     acumen: { name: 'Acumen', desc: 'Velocidade de Conjuração Mágica', stat: 'castSpd', baseVal: 0.15 },
-    haste: { name: 'Haste', desc: 'Velocidade de Ataque Físico', stat: 'atkSpd', baseVal: 0.10 },
-    health: { name: 'Health', desc: 'Vida Máxima (Max HP)', stat: 'hpPct', baseVal: 0.25 }
+    haste: { name: 'Haste', desc: '攻擊速度 Físico', stat: 'atkSpd', baseVal: 0.10 },
+    health: { name: 'Health', desc: 'Vida 最大ima (Max HP)', stat: 'hpPct', baseVal: 0.25 }
   },
   blue: {
     empower: { name: 'Empower', desc: 'Poder de Ataque Mágico (M.Atk)', stat: 'matkPct', baseVal: 0.20 },
@@ -312,7 +312,7 @@ export function processSoulDrainOnKill(state, monster = {}, callbacks = {}) {
   const isEpicBoss = monster.isEpicBoss || ['valakas', 'antharas', 'baium', 'frintezza', 'barakiel'].includes(monster.id || monster.key);
   const isRaidBoss = monster.isBoss || monster.isRaid || isEpicBoss;
 
-  // Estágio Máximo Lendário: Nível 14 -> 15 Requer Derrotar um Epic Boss com 50% de chance!
+  // Estágio 最大imo Lendário: Nível 14 -> 15 Requer Derrotar um Epic Boss com 50% de chance!
   if (currentLevel === 14) {
     if (isEpicBoss) {
       const resonanceSuccess = Math.random() < 0.50; // 50% de chance canônica
@@ -597,7 +597,7 @@ export function upgradeDyeSymbol(state, slotIdx = 0, callbacks = {}) {
   }
 
   if (current.stage >= 5) {
-    if (callbacks.log) callbacks.log('Este símbolo já atingiu o Estágio Máximo (+5 / -5)!', 'system');
+    if (callbacks.log) callbacks.log('Este símbolo já atingiu o Estágio 最大imo (+5 / -5)!', 'system');
     return false;
   }
 
@@ -792,7 +792,7 @@ export function applyLifeStone(state, weaponUid, grade = 'top', callbacks = {}) 
   const hpBonus = Math.floor((100 + Math.random() * 200) * mult);
 
   const skills = [
-    { name: 'Item Skill: Shield', desc: '+15% Defesa Física' },
+    { name: 'Item Skill: Shield', desc: '+15% 物理防禦' },
     { name: 'Item Skill: Wild Magic', desc: '+20% Taxa de Crítico Mágico' },
     { name: 'Item Skill: Might', desc: '+12% Ataque Físico' },
     { name: 'Item Skill: Heal', desc: 'Recupera 1.500 HP' }
