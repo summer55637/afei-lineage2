@@ -15,8 +15,8 @@
 export const WORLD_BOSS_CATALOG = {
   queen_ant_world: {
     id: 'queen_ant_world',
-    name: 'Queen Ant 👑',
-    title: 'Rainha dos Ermos de Gludio',
+    name: '蟻后 👑',
+    title: '古魯丁荒野女王',
     lvl: 45,
     hp: 850000,
     maxHp: 850000,
@@ -33,16 +33,16 @@ export const WORLD_BOSS_CATALOG = {
     bg: 'dungeon_wastelands',
     lore: '巨蟻女王自古魯丁荒野深處現身，她的酸性費洛蒙能腐蝕最堅固的防具。',
     drops: [
-      { itemId: 'jewel_ring_queen_ant', name: 'Ring of Queen Ant', chance: 0.35, isEpicJewel: true },
-      { itemId: 'book_4star', name: 'Tomo Sagrado: 4★ (Divino)', chance: 0.20 },
-      { itemId: 'scroll_blessed_weapon', name: 'Blessed Scroll Enchant Weapon', count: 3, chance: 0.60 },
-      { itemId: 'adena_coins', count: 25, name: '25x Aden Coins (AC)', chance: 1.0 }
+      { itemId: 'jewel_ring_queen_ant', name: '蟻后戒指', chance: 0.35, isEpicJewel: true },
+      { itemId: 'book_4star', name: '神聖魔法書：4★（神聖）', chance: 0.20 },
+      { itemId: 'scroll_blessed_weapon', name: '祝福武器強化卷軸', count: 3, chance: 0.60 },
+      { itemId: 'adena_coins', count: 25, name: '25 枚亞丁幣（AC）', chance: 1.0 }
     ]
   },
   zaken_world: {
     id: 'zaken_world',
     name: '海賊船長札肯 ⚓',
-    title: 'O Flagelo Imortal da Ilha do Diabo',
+    title: '惡魔島的不死災厄',
     lvl: 65,
     hp: 1850000,
     maxHp: 1850000,
@@ -59,16 +59,16 @@ export const WORLD_BOSS_CATALOG = {
     bg: 'pirates_ship',
     lore: '札肯被永恆詛咒困在幽靈船上，會吸取所有膽敢踏上甲板之人的生命力。',
     drops: [
-      { itemId: 'jewel_earring_zaken', name: 'Zaken\'s Earring', chance: 0.35, isEpicJewel: true },
-      { itemId: 'book_4star', name: 'Tomo Sagrado: 4★ (Divino)', chance: 0.30 },
-      { itemId: 'scroll_blessed_weapon', name: 'Blessed Scroll Enchant Weapon', count: 5, chance: 0.70 },
-      { itemId: 'adena_coins', count: 35, name: '35x Aden Coins (AC)', chance: 1.0 }
+      { itemId: 'jewel_earring_zaken', name: '札肯耳環', chance: 0.35, isEpicJewel: true },
+      { itemId: 'book_4star', name: '神聖魔法書：4★（神聖）', chance: 0.30 },
+      { itemId: 'scroll_blessed_weapon', name: '祝福武器強化卷軸', count: 5, chance: 0.70 },
+      { itemId: 'adena_coins', count: 35, name: '35 枚亞丁幣（AC）', chance: 1.0 }
     ]
   },
   baium_world: {
     id: 'baium_world',
-    name: 'Imperador Baium ⚡',
-    title: 'O Tirano Aprisionado de Insolence',
+    name: '皇帝巴溫 ⚡',
+    title: '傲慢之塔的受囚暴君',
     lvl: 75,
     hp: 3500000,
     maxHp: 3500000,
@@ -85,10 +85,10 @@ export const WORLD_BOSS_CATALOG = {
     bg: 'tower_peak',
     lore: '他是建造傲慢之塔、挑戰眾神的皇帝；雷霆之拳與秘法閃電足以摧毀整支軍隊。',
     drops: [
-      { itemId: 'jewel_ring_baium', name: 'Ring of Baium', chance: 0.35, isEpicJewel: true },
-      { itemId: 'book_4star', name: 'Tomo Sagrado: 4★ (Divino)', chance: 0.40 },
-      { itemId: 'scroll_blessed_weapon', name: 'Blessed Scroll Enchant Weapon', count: 8, chance: 0.80 },
-      { itemId: 'adena_coins', count: 50, name: '50x Aden Coins (AC)', chance: 1.0 }
+      { itemId: 'jewel_ring_baium', name: '巴溫戒指', chance: 0.35, isEpicJewel: true },
+      { itemId: 'book_4star', name: '神聖魔法書：4★（神聖）', chance: 0.40 },
+      { itemId: 'scroll_blessed_weapon', name: '祝福武器強化卷軸', count: 8, chance: 0.80 },
+      { itemId: 'adena_coins', count: 50, name: '50 枚亞丁幣（AC）', chance: 1.0 }
     ]
   },
   antharas_world: {
@@ -111,10 +111,10 @@ export const WORLD_BOSS_CATALOG = {
     bg: 'antharas_lair',
     lore: '席琳女神孕育的巨大龍族。安塔瑞斯在奇岩自千年沉睡中甦醒時，大地震動、巨石從天而降。',
     drops: [
-      { itemId: 'jewel_earring_antharas', name: 'Earring of Antharas', chance: 0.35, isEpicJewel: true },
-      { itemId: 'book_4star', name: 'Tomo Sagrado: 4★ (Divino)', chance: 0.60 },
-      { itemId: 'scroll_blessed_weapon', name: 'Blessed Scroll Enchant Weapon', count: 12, chance: 0.90 },
-      { itemId: 'adena_coins', count: 75, name: '75x Aden Coins (AC)', chance: 1.0 }
+      { itemId: 'jewel_earring_antharas', name: '安塔瑞斯耳環', chance: 0.35, isEpicJewel: true },
+      { itemId: 'book_4star', name: '神聖魔法書：4★（神聖）', chance: 0.60 },
+      { itemId: 'scroll_blessed_weapon', name: '祝福武器強化卷軸', count: 12, chance: 0.90 },
+      { itemId: 'adena_coins', count: 75, name: '75 枚亞丁幣（AC）', chance: 1.0 }
     ]
   },
   valakas_world: {
@@ -137,10 +137,10 @@ export const WORLD_BOSS_CATALOG = {
     bg: 'valakas_volcano',
     lore: '席琳龍族中最令人畏懼的存在，棲息於諸神熔爐的熔岩深處，烈焰吐息足以摧毀文明。',
     drops: [
-      { itemId: 'jewel_necklace_valakas', name: 'Necklace of Valakas', chance: 0.35, isEpicJewel: true },
-      { itemId: 'book_4star', name: 'Tomo Sagrado: 4★ (Divino)', chance: 0.75 },
-      { itemId: 'scroll_blessed_weapon', name: 'Blessed Scroll Enchant Weapon', count: 15, chance: 1.0 },
-      { itemId: 'adena_coins', count: 100, name: '100x Aden Coins (AC)', chance: 1.0 }
+      { itemId: 'jewel_necklace_valakas', name: '瓦拉卡斯項鍊', chance: 0.35, isEpicJewel: true },
+      { itemId: 'book_4star', name: '神聖魔法書：4★（神聖）', chance: 0.75 },
+      { itemId: 'scroll_blessed_weapon', name: '祝福武器強化卷軸', count: 15, chance: 1.0 },
+      { itemId: 'adena_coins', count: 100, name: '100 枚亞丁幣（AC）', chance: 1.0 }
     ]
   }
 };
