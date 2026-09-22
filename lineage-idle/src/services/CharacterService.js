@@ -498,7 +498,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
       lvl: lvl,
       stat: statKey,
       val: passiveVal,
-      desc: `血統傳承（${def.name} Lv.${lvl}）：+${(passiveVal * 100).toFixed(1)}% ${statLabel}`
+      desc: `血統傳承（${def.name} 等級 ${lvl}）：+${(passiveVal * 100).toFixed(1)}% ${statLabel}`
     };
     convertedBuffsCount++;
   }
@@ -527,9 +527,9 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
   if (callbacks.log) {
     callbacks.log(`🎉 恭喜！你已完成轉職儀式，現在成為 **${newClassDef.name}**！`, 'rarity-legendary');
     if (totalRefunded > 0) {
-      callbacks.log(`🔄 已投入的 ${totalRefunded.toLocaleString()} SP 全數返還，另獲得 ${transferSpBonus} SP 轉職贈禮！`, 'rarity-legendary');
+      callbacks.log(`🔄 已投入的 ${totalRefunded.toLocaleString()} 技能點全數返還，另獲得 ${transferSpBonus} 技能點轉職贈禮！`, 'rarity-legendary');
     } else {
-      callbacks.log(`✨ 獲得 +${transferSpBonus} SP 轉職贈禮，可用於新的技能！`, 'rarity-legendary');
+      callbacks.log(`✨ 獲得 +${transferSpBonus} 技能點轉職贈禮，可用於新的技能！`, 'rarity-legendary');
     }
   }
   if (callbacks.floatText) {
