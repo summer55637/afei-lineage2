@@ -89,7 +89,7 @@ export class ColosseumService {
     const pDmg = Math.max(150, Math.floor((pStats.atk || 2000) * 1.6 - duel.pDef * 0.4));
     duel.hp = Math.max(0, duel.hp - pDmg);
 
-    hooks.log?.(`⚔️ 你的攻擊命中 **${duel.opponentName}**，造成 **${pDmg.toLocaleString()}** 傷害！（剩餘 HP：${duel.hp.toLocaleString()}）`, 'combat');
+    hooks.log?.(`⚔️ 你的攻擊命中 **${duel.opponentName}**，造成 **${pDmg.toLocaleString()}** 傷害！（剩餘生命值：${duel.hp.toLocaleString()}）`, 'combat');
 
     if (duel.hp <= 0) {
       // 勝利!
@@ -149,7 +149,7 @@ export class ColosseumService {
     const pDmg = Math.max(200, Math.floor((pStats.atk || 2500) * 1.8 - s.pDef * 0.4));
     s.currentHp = Math.max(0, s.currentHp - pDmg);
 
-    hooks.log?.(`⚔️ 對第 ${s.waveIndex + 1} 波敵人造成 **${pDmg.toLocaleString()}** 傷害！（剩餘 HP：${s.currentHp.toLocaleString()}）`, 'combat');
+    hooks.log?.(`⚔️ 對第 ${s.waveIndex + 1} 波敵人造成 **${pDmg.toLocaleString()}** 傷害！（剩餘生命值：${s.currentHp.toLocaleString()}）`, 'combat');
 
     if (s.currentHp <= 0) {
       // Onda superada
