@@ -621,8 +621,8 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
           if (bObj.mdef) parts.push(`+${bObj.mdef} 魔法防禦`);
           if (bObj.hp) parts.push(`+${bObj.hp} 生命值`);
           if (bObj.mp) parts.push(`+${bObj.mp} 魔力`);
-          if (bObj.eva) parts.push(`+${bObj.eva} Eva`);
-          if (bObj.crit) parts.push(`+${bObj.crit}% Crit`);
+          if (bObj.eva) parts.push(`+${bObj.eva} 迴避`);
+          if (bObj.crit) parts.push(`+${bObj.crit}% 暴擊`);
           if (bObj.speed) parts.push(`+${bObj.speed} 速度`);
           if (bObj.primary) {
             for (const [pk, pv] of Object.entries(bObj.primary)) {
@@ -2617,8 +2617,8 @@ export function updateWarehouseUI(state, callbacks = {}) {
   const maxWhSlots = getMaxWarehouseSlots();
   const maxInvSlots = getMaxInventorySlots(state);
 
-  if (storageCountEl) storageCountEl.textContent = `${state.warehouse.length} / ${maxWhSlots} slots`;
-  if (invCountEl) invCountEl.textContent = `${state.inventory?.length || 0} / ${maxInvSlots} slots`;
+  if (storageCountEl) storageCountEl.textContent = `${state.warehouse.length} / ${maxWhSlots} 格`;
+  if (invCountEl) invCountEl.textContent = `${state.inventory?.length || 0} / ${maxInvSlots} 格`;
 
   const invGaugeFill = findElement('wh-inv-gauge-fill');
   const storageGaugeFill = findElement('wh-storage-gauge-fill');
@@ -6771,7 +6771,7 @@ export function renderAlchemyUI(state) {
             class="imp-forge-subtab-btn"
             style="color:#fca5a5; border-color:rgba(239,68,68,0.5); background:rgba(239,68,68,0.15);"
           >
-            🔥 Lixo Geral (NG/D/C)
+            🔥 一般垃圾（NG／D／C）
           </button>
         </div>
       </div>
@@ -6779,7 +6779,7 @@ export function renderAlchemyUI(state) {
       <!-- Recipes List -->
       <div>
         <h4 style="margin:0 0 10px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:14px;">
-          ⚗️ Receitas de Alquimia &amp; Transmutação
+          ⚗️ 鍊金與轉化配方
         </h4>
         ${recipesHtml}
       </div>
@@ -6804,7 +6804,7 @@ export function renderAstralMasteryUI(state) {
   const isReborn = prestigeLvl > 0;
   const titles = [
     '無聲望（凡人）',
-    'Aventureiro Renascido',
+    '轉生冒險者',
     '星座大師',
     '轉生之主',
     '亞丁遠古之神'
@@ -6889,7 +6889,7 @@ export function renderAstralMasteryUI(state) {
           <div>
             <span style="font-size:11px; text-transform:uppercase; color:#c084fc; font-weight:bold; letter-spacing:1px;">✨ 遠古威望系統</span>
             <h3 style="margin:2px 0 0 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:20px; display:flex; align-items:center; gap:8px;">
-              🌟 Árvore de Maestria Astral
+              🌟 星界精通樹
             </h3>
             <div style="font-size:12px; color:#ddd; margin-top:4px;">
               目前稱號：<strong style="color:#a855f7;">${currentTitle}</strong>（威望等級 <strong>${prestigeLvl}</strong>）
@@ -7311,7 +7311,7 @@ export function renderExpeditionsUI(state) {
             </div>
             <p style="margin:4px 0 6px 0; font-size:11px; color:#aaa; line-height:1.3;">${dDef.desc}</p>
             <div style="font-size:10px; color:#fca5a5; margin-bottom:6px;">
-              <strong>⚠️ 威脅：</strong> ${dDef.threat || 'Perigos Ancestrais'}
+              <strong>⚠️ 威脅：</strong> ${dDef.threat || '遠古危機'}
               <span style="color:#94a3b8; margin-left:6px;">（推薦： ${dDef.recommendedSpecs?.map(s => MERCENARY_SPECIALIZATIONS[s]?.name || s).join(', ') || '不限'})</span>
             </div>
             <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
@@ -7554,14 +7554,14 @@ export function renderForgeSoulCrystals(container, state) {
           <div>
             <h3 class="l2-workshop-title">🔮 靈魂水晶共鳴室（特殊能力）</h3>
             <p class="l2-workshop-subtitle">
-              Mantenha o cristal na bolsa durante as caçadas para absorver almas e evoluir do Estágio 1 ao 15.
+              狩獵時將水晶放在背包中即可吸收靈魂，並從階段 1 成長至階段 15。
               可為主武器與副武器（雙武裝系統）賦予特殊能力（SA）。
             </p>
           </div>
           <div style="text-align:right;">
             <div style="font-size:10px; color:#94a3b8; font-family:'Cinzel',serif; text-transform:uppercase;">背包中的水晶：</div>
             <strong style="color:${crystalStage === 15 ? '#fbbf24' : '#c084fc'}; font-size:14px; font-family:'Cinzel',serif;">
-              ${crystal ? `階段 ${crystalStage} ${crystalStage === 15 ? '👑 (最高IMO)' : ''}` : '❌ 無水晶'}
+              ${crystal ? `階段 ${crystalStage} ${crystalStage === 15 ? '👑（最高級）' : ''}` : '❌ 無水晶'}
             </strong>
           </div>
         </div>
@@ -8595,7 +8595,7 @@ export function showDropLocatorModal(matId) {
       </div>
 
       <div style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">
-        Zonas de caça e monstros do jogo onde este item realmente dropa nas tabelas ativas:
+        目前遊戲掉落表中，實際會掉落此物品的狩獵區域與怪物：
       </div>
 
       <div style="display:flex; flex-direction:column; gap:8px; max-height:290px; overflow-y:auto;">
@@ -8608,7 +8608,7 @@ export function showDropLocatorModal(matId) {
             <div style="display:flex; align-items:center; gap:6px;">
               <span style="background:rgba(34,197,94,0.15); border:1px solid #22c55e; color:#86efac; padding:3px 8px; border-radius:4px; font-size:10px; font-weight:bold; white-space:nowrap;">${s.type}</span>
               <button onclick="window.travelToZoneFromLocator('${s.zoneKey}')" class="inv-batch-btn" style="background:linear-gradient(180deg,#d4a744,#8a641c); border:1px solid #ffe699; color:#000; padding:4px 8px; border-radius:4px; font-size:10px; font-weight:bold; cursor:pointer; white-space:nowrap;" title="立即前往此區域並開始狩獵">
-                ⚔️ Caçar Aqui
+                ⚔️ 前往狩獵
               </button>
             </div>
           </div>
@@ -9183,7 +9183,7 @@ export function uiOpenPixCheckoutModal(tierId, state) {
   }
 
   const s = state || (typeof window !== 'undefined' ? (window.__GAME_STATE__ || window.gameState) : {});
-  const playerName = s?.name || s?.charName || 'Guerreiro';
+  const playerName = s?.name || s?.charName || '戰士';
   const totalAC = tier.totalAC || tier.amountAC;
   const pixKey = 'pix@adenarena.com';
 
@@ -9784,7 +9784,7 @@ export function renderRaidsTab(container, state) {
     const timesCleared = status.clears[id] || 0;
     const hasTickets = (status.tickets || 0) > 0;
 
-    let diffBadge = '⭐ Normal';
+    let diffBadge = '⭐ 一般';
     let diffColor = '#60a5fa';
     if (boss.lvl >= 100) { diffBadge = '👑 最高級'; diffColor = '#ffd700'; }
     else if (boss.lvl >= 90) { diffBadge = '⭐⭐⭐⭐⭐ 傳說'; diffColor = '#f59e0b'; }
@@ -11185,14 +11185,14 @@ export function renderFortressTab(container, state) {
             <div>
               <h3 style="margin:0; color:#fde047; font-family:'Cinzel',serif; font-size:18px;">🔥 攻城進行中：${activeSiege.fortName}</h3>
               <div style="font-size:12px; color:#fbbf24;">
-                ${activeSiege.generatorsRemaining > 0 ? `⚡ Geradores Restantes: ${activeSiege.generatorsRemaining}` : `⚔️ 要塞隊長正在與你的角色交戰！`}
+                ${activeSiege.generatorsRemaining > 0 ? `⚡ 剩餘發電機：${activeSiege.generatorsRemaining}` : `⚔️ 要塞隊長正在與你的角色交戰！`}
               </div>
             </div>
             <button
               onclick="window.executeFortressTurnAction()"
               style="padding:10px 24px; font-size:13px; font-weight:bold; background:#d97706; border:1px solid #f59e0b; color:#fff; border-radius:8px; cursor:pointer;"
             >
-              ⚔️ Atacar Fortaleza!
+              ⚔️ 攻擊要塞！
             </button>
           </div>
         </div>
@@ -11526,7 +11526,7 @@ export function renderCosmeticsTab(container, state) {
               <div style="margin-top:6px;">
                 ${isEquipped ? `
                   <button disabled style="width:100%; padding:6px; font-size:11px; background:#1e293b; border:1px solid #ffd700; color:#ffd700; border-radius:4px; font-weight:bold;">
-                    ✓ Equipada
+                    ✓ 已裝備
                   </button>
                 ` : isUnlocked ? `
                   <button onclick="window.equipCosmeticAction('aura', '${a.id}')" style="width:100%; padding:6px; font-size:11px; background:#065f46; border:1px solid #10b981; color:#fff; border-radius:4px; font-weight:bold; cursor:pointer;">
@@ -11534,7 +11534,7 @@ export function renderCosmeticsTab(container, state) {
                   </button>
                 ` : isHeroLocked ? `
                   <button disabled style="width:100%; padding:6px; font-size:11px; background:#27272a; border:1px solid #3f3f46; color:#a1a1aa; border-radius:4px;">
-                    🔒 Exclusivo das Olimpíadas
+                    🔒 奧林匹亞限定
                   </button>
                 ` : `
                   <button onclick="window.buyCosmeticAction('aura', '${a.id}')" ${!canAfford ? 'disabled' : ''} style="width:100%; padding:6px; font-size:11px; background:${canAfford ? 'linear-gradient(180deg,#d97706,#b45309)' : '#27272a'}; border:1px solid ${canAfford ? '#f59e0b' : '#3f3f46'}; color:${canAfford ? '#fff' : '#71717a'}; border-radius:4px; font-weight:bold; cursor:${canAfford ? 'pointer' : 'not-allowed'};">
