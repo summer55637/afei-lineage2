@@ -96,7 +96,7 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: '提升魔法攻擊 M.Atk，但降低魔法防禦。'
+    desc: '提升魔法攻擊，但降低魔法防禦。'
   },
   dye_wit_men_g: {
     id: 'dye_wit_men_g',
@@ -138,7 +138,7 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: '提升 M.Def 與 MP，但降低魔法傷害。'
+    desc: '提升魔法防禦與 MP，但降低魔法傷害。'
   },
   dye_men_wit_g: {
     id: 'dye_men_wit_g',
