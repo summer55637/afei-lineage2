@@ -8,11 +8,11 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
   if (!container || !state) return;
 
   const categories = [
-    { id: 'all', name: 'Todos os Refinos', icon: '⚗️' },
-    { id: 'wood', name: 'Madeira & Fibras', icon: '🪵' },
-    { id: 'leather', name: 'Curtume & Peles', icon: '🛡️' },
-    { id: 'metal', name: 'Metalurgia Imperial', icon: '⛏️' },
-    { id: 'alchemy', name: 'Alquimia & Reagentes', icon: '🧪' }
+    { id: 'all', name: '所有精煉', icon: '⚗️' },
+    { id: 'wood', name: '木材與纖維', icon: '🪵' },
+    { id: 'leather', name: '鞣製與皮革', icon: '🛡️' },
+    { id: 'metal', name: '帝國冶金', icon: '⛏️' },
+    { id: 'alchemy', name: '煉金與試劑', icon: '🧪' }
   ];
 
   const recipes = RefineryService.getRecipes(_activeRefineryCategory);
