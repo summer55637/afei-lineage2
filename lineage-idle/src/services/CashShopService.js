@@ -1,5 +1,5 @@
 /**
- * CashShopService.js — Serviço de Gestão e Processamento da Loja Comercial de Aden.
+ * CashShopService.js — Serviço de Gestão e Processamento da 商城 Comercial de Aden.
  *
  * Gerencia a moeda oficial de doação Aden Coins (AC), a compra e desempacotamento
  * inteligente dos 3 Starter Packs (adaptados por arquétipo Heavy / Light / Robe),
@@ -57,7 +57,7 @@ export class CashShopService {
     const qty = Math.max(0, parseInt(amount, 10) || 0);
     state.adenCoins = (Number(state.adenCoins) || 0) + qty;
     if (callbacks.log) {
-      callbacks.log(`🪙 **+${qty.toLocaleString()} Aden Coins (AC)** creditados com sucesso em sua conta!`, 'system');
+      callbacks.log(`🪙 **+${qty.toLocaleString()} 亞丁幣（AC）** 已成功加入帳號！`, 'system');
     }
     if (callbacks.onUpdate) callbacks.onUpdate();
     return state.adenCoins;
@@ -73,14 +73,14 @@ export class CashShopService {
   static buyStarterPack(state, packId, callbacks = {}) {
     const pack = CASH_SHOP_CATALOG.starter_packs.find(p => p.id === packId);
     if (!pack) {
-      if (callbacks.log) callbacks.log('❌ Pacote não encontrado no catálogo da Loja.', 'system');
+      if (callbacks.log) callbacks.log('❌ 商城中找不到此禮包。', 'system');
       return false;
     }
 
     const currentBalance = this.getBalance(state);
     if (currentBalance < pack.priceAC) {
       if (callbacks.log) {
-        callbacks.log(`❌ Saldo insuficiente! Você possui **${currentBalance} AC**, mas o pacote custa **${pack.priceAC} AC**.`, 'system');
+        callbacks.log(`❌ 餘額不足！你有 **${currentBalance} AC**，此禮包需要 **${pack.priceAC} AC**。`, 'system');
       }
       return false;
     }
@@ -121,7 +121,7 @@ export class CashShopService {
       addItem('scroll_teleport', 5);
 
       if (callbacks.log) {
-        callbacks.log(`🎉 **${pack.name}** resgatado! Você recebeu o Conjunto de Herança ${archetype.toUpperCase()} (Lv. 1 ao 40), Arma de Herança da Classe e 2.000x Shots!`, 'system');
+        callbacks.log(`🎉 已領取 **${pack.name}**！你獲得 ${archetype.toUpperCase()} 傳承套裝（Lv.1～40）、職業傳承武器與 2,000 發彈藥！`, 'system');
       }
     }
 
@@ -153,7 +153,7 @@ export class CashShopService {
       state.title = 'Pioneiro';
 
       if (callbacks.log) {
-        callbacks.log(`👑 **${pack.name}** ativado! Conjunto de Herança ${archetype.toUpperCase()}, Arma de Herança, 5x Joias de Herança, 5.000x Shots e Título **[Pioneiro]** concedidos!`, 'system');
+        callbacks.log(`👑 **${pack.name}** 已啟用！獲得 ${archetype.toUpperCase()} 傳承套裝、傳承武器、5 件傳承珠寶、5,000 發彈藥與稱號 **[先驅者]**！`, 'system');
       }
     }
 
@@ -328,7 +328,7 @@ export class CashShopService {
 
     const currentBalance = this.getBalance(state);
     if (currentBalance < item.priceAC) {
-      if (callbacks.log) callbacks.log(`❌ Saldo insuficiente para adquirir ${item.name}!`, 'system');
+      if (callbacks.log) callbacks.log(`❌ 餘額不足，無法購買 ${item.name}！`, 'system');
       return false;
     }
 
@@ -353,7 +353,7 @@ export class CashShopService {
     }
 
     if (callbacks.log) {
-      callbacks.log(`🎨 **${item.name}** adquirida, entregue na sua mochila e equipada com sucesso!`, 'system');
+      callbacks.log(`🎨 **${item.name}** 已購買、放入背包並成功裝備！`, 'system');
     }
     if (callbacks.onUpdate) callbacks.onUpdate();
     return true;
@@ -371,7 +371,7 @@ export class CashShopService {
 
     const currentBalance = this.getBalance(state);
     if (currentBalance < item.priceAC) {
-      if (callbacks.log) callbacks.log(`❌ Saldo insuficiente para ${item.name}!`, 'system');
+      if (callbacks.log) callbacks.log(`❌ 購買 ${item.name} 的餘額不足！`, 'system');
       return false;
     }
 
@@ -379,7 +379,7 @@ export class CashShopService {
     state.unlockedTitles = state.unlockedTitles || [];
 
     if (item.category === 'title') {
-      const titleClean = item.name.replace('Título: ', '').replace(/[\[\]]/g, '');
+      const titleClean = item.name.replace('稱號： ', '').replace(/[\[\]]/g, '');
       if (!state.unlockedTitles.includes(titleClean)) state.unlockedTitles.push(titleClean);
       state.title = titleClean;
       state.titleColor = item.color;
@@ -421,7 +421,7 @@ export class CashShopService {
 
     const currentBalance = this.getBalance(state);
     if (currentBalance < item.priceAC) {
-      if (callbacks.log) callbacks.log(`❌ Saldo insuficiente para ${item.name}!`, 'system');
+      if (callbacks.log) callbacks.log(`❌ 購買 ${item.name} 的餘額不足！`, 'system');
       return false;
     }
 
