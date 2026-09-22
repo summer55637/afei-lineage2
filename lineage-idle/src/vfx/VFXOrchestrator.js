@@ -764,7 +764,7 @@ export class VFXOrchestrator {
     }
 
     this.pool.floatingText.acquire({
-      text: ev.isMiss ? 'MISS' : `${ev.damage}`,
+      text: ev.isMiss ? '未命中' : `${ev.damage}`,
       x: targetPos.x + (Math.random() - 0.5) * 40,
       y: targetPos.y - 30,
       color: numColor,
