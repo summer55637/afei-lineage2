@@ -12,6 +12,7 @@ import {
   GATHERING_TACTICS,
   getGatheringZonesList
 } from '../data/gathering.js';
+import { RESOURCE_DICTIONARY } from '../services/lifeActivities/ResourceDictionary.js';
 import { GatheringService } from '../services/lifeActivities/GatheringService.js';
 import { LIFE_ACTIVITY_LEVEL_TABLE } from '../services/lifeActivities/LifeActivityCore.js';
 
@@ -129,7 +130,7 @@ export function renderGatheringUI(state) {
         <div>
           <div style="display:flex; align-items:center; gap:6px;">
             <strong style="font-size:12px; color:${isEquipped ? '#6ee7b7' : '#f4d58a'};">${sDef.icon} ${sDef.name}</strong>
-            <span style="font-size:9px; background:rgba(0,0,0,0.5); padding:1px 5px; border-radius:3px; color:#aaa; font-weight:bold;">[${sDef.grade.toUpperCase()}]</span>
+            <span style="font-size:9px; background:rgba(0,0,0,0.5); padding:1px 5px; border-radius:3px; color:#aaa; font-weight:bold;">[${sDef.grade === 'none' ? '無級' : sDef.grade.toUpperCase()}]</span>
           </div>
           <div style="font-size:10px; color:#94a3b8; margin-top:2px;">
             耐久度： ${sDef.durabilityMax} | 純度加成： <strong style="color:#ffd877;">+${Math.round(sDef.qualityBonus * 100)}%</strong>
@@ -207,11 +208,11 @@ export function renderGatheringUI(state) {
         </p>
         <div style="margin-bottom:12px; font-size:12px; font-family:'Cinzel',serif;">
           ${gState.inspected 
-            ? `<span style="color:#f4d58a;">[純度：${gState.targetedNodePurity}%－危險：${gState.targetedNodeHazard.toUpperCase()}]</span>` 
+            ? `<span style="color:#f4d58a;">[純度：${gState.targetedNodePurity}%－危險：${({ none: '無', thorn: '荊棘', toxin: '毒素', resin: '樹脂' })[gState.targetedNodeHazard] || gState.targetedNodeHazard}]</span>` 
             : `<span style="color:#94a3b8;">[純度：未知（檢查嫩芽）]</span>`}
         </div>
         <p style="margin:0 0 12px 0; font-size:11px; color:#aaa;">
-          Insumos: <strong style="color:#cbd5e1;">${node?.yields?.primary?.toUpperCase()}</strong> ${node?.yields?.secondary ? `+ <strong style="color:#94a3b8;">${node?.yields?.secondary?.toUpperCase()}</strong>` : ''}
+          產出： <strong style="color:#cbd5e1;">${RESOURCE_DICTIONARY[node?.yields?.primary]?.name || node?.yields?.primary || '未知材料'}</strong> ${node?.yields?.secondary ? `+ <strong style="color:#94a3b8;">${RESOURCE_DICTIONARY[node?.yields?.secondary]?.name || node?.yields?.secondary}</strong>` : ''}
         </p>
 
         <!-- Barra de Progresso de Poda -->
@@ -258,7 +259,7 @@ export function renderGatheringUI(state) {
           <p style="margin:0 0 6px 0; font-size:11px; color:#aaa; font-style:italic;">"${gState.targetedNodeSignal}"</p>
           <div style="font-size:11px; font-weight:bold;">
             ${gState.inspected 
-              ? `<span style="color:${gState.targetedNodeHazard === 'none' ? '#6ee7b7' : gState.targetedNodeHazard === 'thorn' ? '#f87171' : gState.targetedNodeHazard === 'toxin' ? '#a78bfa' : '#fbbf24'};">[純度：${gState.targetedNodePurity}%－危險：${gState.targetedNodeHazard.toUpperCase()}]</span>` 
+              ? `<span style="color:${gState.targetedNodeHazard === 'none' ? '#6ee7b7' : gState.targetedNodeHazard === 'thorn' ? '#f87171' : gState.targetedNodeHazard === 'toxin' ? '#a78bfa' : '#fbbf24'};">[純度：${gState.targetedNodePurity}%－危險：${({ none: '無', thorn: '荊棘', toxin: '毒素', resin: '樹脂' })[gState.targetedNodeHazard] || gState.targetedNodeHazard}]</span>` 
               : `<span style="color:#94a3b8;">[純度：未知（檢查嫩芽）]</span>`}
           </div>
         </div>
