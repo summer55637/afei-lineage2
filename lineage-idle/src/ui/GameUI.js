@@ -733,7 +733,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
         border-radius:4px;color:#f88870;font-size:11px;cursor:pointer;font-weight:600;">🔨 分解</button>`;
       actionsHtml += `<button data-tt-action="sell" data-uid="${item.uid}"
         style="padding:5px 8px;background:linear-gradient(180deg,#4a4a1a,#20200a);border:1px solid #b0b03a;
-        border-radius:4px;color:#f8f870;font-size:11px;cursor:pointer;font-weight:600;">💰 出售（${sellPrice}g）</button>`;
+        border-radius:4px;color:#f8f870;font-size:11px;cursor:pointer;font-weight:600;">💰 出售（${sellPrice} 金幣）</button>`;
     }
     actionsHtml += `</div>`;
   }
@@ -6678,7 +6678,7 @@ export function renderAlchemyUI(state) {
             </div>
             <div>
               <div style="font-weight:700; color:#f4d58a; font-size:13px; font-family:'Cinzel',serif;">${selectedDef?.name || '物品'}</div>
-              <div style="font-size:11px; color:#94a3b8;">在熔爐分解的預估產出（費用：🪙 ${yields.fee}g）：</div>
+              <div style="font-size:11px; color:#94a3b8;">在熔爐分解的預估產出（費用：🪙 ${yields.fee} 金幣）：</div>
             </div>
           </div>
           <div style="display:flex; gap:10px; font-size:12px; font-weight:700; font-family:'IBM Plex Mono',monospace;">
