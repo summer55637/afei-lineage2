@@ -805,7 +805,7 @@ function openClassTransferModal(classInfo) {
       </div>
       <div style="display:flex; gap:12px; justify-content:space-between; margin-top:6px;">
         <button id="legacy-back-btn" class="action-btn" style="flex:1; padding:10px; font-weight:bold;">⬅️ 返回</button>
-        <button id="legacy-confirm-btn" class="action-btn action-btn--primary" style="flex:2; padding:10px; font-weight:bold; font-family:'Cinzel',serif; font-size:14px;">✨ Consagrar Linhagem &amp; Evoluir</button>
+        <button id="legacy-confirm-btn" class="action-btn action-btn--primary" style="flex:2; padding:10px; font-weight:bold; font-family:'Cinzel',serif; font-size:14px;">✨ 昇華血統並進化</button>
       </div>
     `;
 
@@ -2474,7 +2474,7 @@ function shopRow(def, id, price, extra = '') {
   const statsLine = buildStatLine(def);
   const lockLvl = def.req && def.req.level > state.level; 
   const lockCls = def.classReq && def.classReq !== state.class;
-  const lockReason = lockLvl ? `Lv.${def.req.level}` : lockCls ? `Needs ${getClass(def.classReq)?.name}` : '';
+  const lockReason = lockLvl ? `等級 ${def.req.level}` : lockCls ? `需要 ${getClass(def.classReq)?.name}` : '';
   const row = mkEl('div'); 
   row.className = 'shop-item' + (lockLvl || lockCls ? ' locked' : '');
 
@@ -3399,7 +3399,7 @@ function updateQuestsUI() {
       const rewardsText = [];
       if (q.reward.gold) rewardsText.push(`💰 +${q.reward.gold.toLocaleString()}g`);
       if (q.reward.sp) rewardsText.push(`✦ +${q.reward.sp} SP`);
-      if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} 神燈s`);
+      if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} 魔法神燈`);
       if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} 通行證 XP`);
 
       const btnLabel = isClaimed ? '✓ Reclamado' : (isCompleted ? '🎁 Reclamar' : '進行中');
@@ -3491,7 +3491,7 @@ function renderBattlePassUI() {
       const premClaimed = Array.isArray(state.battlePass.claimedPremium) && state.battlePass.claimedPremium.includes(tier.level);
 
       const freeLabel = freeClaimed ? '✓' : (isUnlocked ? 'Reclamar' : 'Tranca');
-      const premLabel = premClaimed ? '✓' : (isUnlocked && state.battlePass.unlockedPremium ? 'Reclamar' : (state.battlePass.unlockedPremium ? 'Tranca' : '👑 R$ 15'));
+      const premLabel = premClaimed ? '✓' : (isUnlocked && state.battlePass.unlockedPremium ? '領取' : (state.battlePass.unlockedPremium ? '已鎖定' : '👑 R$ 15'));
 
       const freeRewardStr = Object.entries(tier.free).map(([k, v]) => `${k === 'gold' ? '💰 ' + v : k === 'sp' ? '✦ ' + v : v}`).join(', ');
       const premRewardStr = Object.entries(tier.premium).map(([k, v]) => `${k === 'gold' ? '💰 ' + v : k === 'title' ? '🏷️ ' + v : v}`).join(', ');
@@ -3586,7 +3586,7 @@ function updateTowerUI() {
     const rewardsStr = [];
     rewardsStr.push(`💰 +${nextDef.gold.toLocaleString()}g`);
     rewardsStr.push(`✦ +${nextDef.sp} SP`);
-    if (nextDef.rewardLamps > 0) rewardsStr.push(`🪔 +${nextDef.rewardLamps} 神燈s`);
+    if (nextDef.rewardLamps > 0) rewardsStr.push(`🪔 +${nextDef.rewardLamps} 魔法神燈`);
     if (nextDef.rewardCrystals) rewardsStr.push(`✨ +3x ${D().ALL_ITEMS[nextDef.rewardCrystals]?.name || nextDef.rewardCrystals}`);
 
     detailsCard.innerHTML = `
@@ -4388,7 +4388,7 @@ function openAddSubclassModal() {
       <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px; display:flex; justify-content:space-between; align-items:center; gap:8px;">
         <div>
           <div style="font-weight:bold; color:#fde047; font-size:12px;">${cDef?.name || cId}</div>
-          <div style="font-size:10px; color:#a855f7; text-transform:uppercase;">Arquétipo: ${arch}</div>
+          <div style="font-size:10px; color:#a855f7; text-transform:uppercase;">定位：${arch}</div>
         </div>
         <button class="action-btn action-btn--primary" style="padding:6px 12px; font-size:11px;" onclick="window.confirmAddSubclass('${cId}')">
           Adicionar ⚔️
@@ -4400,7 +4400,7 @@ function openAddSubclassModal() {
   body.innerHTML = `
     <div style="margin-bottom:14px;">
       <h3 style="margin:0; color:#fde047; font-family:'Cinzel',serif; font-size:16px;">➕ 新增副職業</h3>
-      <p style="margin:4px 0 0 0; font-size:11px; color:var(--text-muted);">MasterWork 版本－無種族限制，從等級 40 開始。</p>
+      <p style="margin:4px 0 0 0; font-size:11px; color:var(--text-muted);">名匠版本－無種族限制，從等級 40 開始。</p>
     </div>
     <div style="display:flex; flex-direction:column; gap:6px; max-height:340px; overflow-y:auto; padding-right:4px;">
       ${classOptionsHtml}
@@ -6763,7 +6763,7 @@ function populateAdminItemSelect(query = '') {
         def.weaponType || '',
         grade,
         `grade ${grade}`,
-        `lv.${def.req?.level || 1}`
+        `等級 ${def.req?.level || 1}`
       ].join(' ').toLowerCase();
 
       const matchesAllTerms = queryTerms.every(term => searchableText.includes(term));
@@ -7671,8 +7671,8 @@ function updateDollsUI() {
   const d1 = state.dolls.find(i => i.uid === state.synthSelected[0]);
   const d2 = state.dolls.find(i => i.uid === state.synthSelected[1]);
 
-  if (slot1El) slot1El.textContent = d1 ? `${BOSS_DOLLS[d1.dollId]?.name} Lv.${d1.level}` : '基底娃娃';
-  if (slot2El) slot2El.textContent = d2 ? `${BOSS_DOLLS[d2.dollId]?.name} Lv.${d2.level}` : '材料娃娃';
+  if (slot1El) slot1El.textContent = d1 ? `${BOSS_DOLLS[d1.dollId]?.name} 等級 ${d1.level}` : '基底娃娃';
+  if (slot2El) slot2El.textContent = d2 ? `${BOSS_DOLLS[d2.dollId]?.name} 等級 ${d2.level}` : '材料娃娃';
 
   const synthBtn = el('start-doll-synth-btn');
   if (synthBtn) synthBtn.onclick = synthesizeDolls;
@@ -9859,7 +9859,7 @@ export function init() {
                 <div style="font-size:10px; color:#cbd5e1; margin-top:2px;">Gravado em ${new Date(s.tattoo.engravedAt || Date.now()).toLocaleDateString()}</div>
               </div>
               <button class="action-btn action-btn--danger" onclick="window.removeDyeAction(${s.index})" style="padding:4px 8px; font-size:11px; margin-top:6px;">
-                🧹 Remover (10k Adena)
+                🧹 移除（10k 金幣）
               </button>
             `;
           } else {
@@ -10015,7 +10015,7 @@ export function init() {
               </div>
               <div style="display:flex; flex-direction:column; gap:6px;">
                 <button class="action-btn action-btn--primary" onclick="window.feedPetAction()" style="padding:6px 12px; font-size:11px; font-weight:bold;">
-                  🍖 Alimentar (5k Adena)
+                  🍖 餵食（5k 金幣）
                 </button>
                 <button class="action-btn" onclick="window.summonPetAction('${activePet.id}')" style="padding:6px 12px; font-size:11px;">
                   🛑 Recolher Mascote
