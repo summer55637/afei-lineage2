@@ -373,7 +373,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
   // 2. Validação de 等級 de Requisito de Avanço
   const reqLevel = Number(newClassDef.minLevel || (newClassDef.stage === 1 ? 20 : newClassDef.stage === 2 ? 40 : newClassDef.stage === 3 ? 76 : 1)) || 1;
   if (!callbacks.allowAdminOverride && state.level < reqLevel) {
-    if (callbacks.log) callbacks.log(`🔒 等級 insuficiente (${state.level}) para avançar para ${newClassDef.name || newClassId}. Requer nível ${reqLevel}.`, 'warning');
+    if (callbacks.log) callbacks.log(`🔒 等級不足（${state.level}），無法晉升為 ${newClassDef.name || newClassId}。需要等級 ${reqLevel}。`, 'warning');
     return false;
   }
 
@@ -388,7 +388,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
       resolveCanonicalDagClassId(e.sourceClassId, currentRace) === canonNew
     );
     if (!isLevelEligible && !isCanonicalChild) {
-      if (callbacks.log) callbacks.log(`🔒 等級 insuficiente (${state.level}) para avançar para ${newClassDef.name || newClassId}.`, 'warning');
+      if (callbacks.log) callbacks.log(`🔒 等級不足（${state.level}），無法晉升為 ${newClassDef.name || newClassId}。`, 'warning');
       return false;
     }
   }
