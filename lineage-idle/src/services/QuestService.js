@@ -124,7 +124,7 @@ export function claimDailyBonusChest(state, callbacks = {}) {
     state.battlePass.xp += rew.passXp;
   }
 
-  if (callbacks.log) callbacks.log(`👑 最高獎勵！已領取 **${DAILY_COMPLETION_BONUS.name}**（+${rew.sp} SP、+${rew.gold.toLocaleString()}g、+${rew.magicLamps} 個神燈）！`, 'rarity-legendary');
+  if (callbacks.log) callbacks.log(`👑 最高獎勵！已領取 **${DAILY_COMPLETION_BONUS.name}**（+${rew.sp} SP、+${rew.gold.toLocaleString()} 金幣、+${rew.magicLamps} 個神燈）！`, 'rarity-legendary');
   if (callbacks.floatText) callbacks.floatText(`👑 每日寶箱已領取！`, 'float-jackpot');
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
