@@ -4,15 +4,15 @@ import {
   RACES,
   SKILLS,
   type RaceDef,
-  type ClassDef,
+  type 職業Def,
   type RaceId,
 } from "./game/data";
 import { cn } from "./utils/cn";
-import { getClassIcon, getSkillIcon } from "./services/IconService";
+import { get職業Icon, getSkillIcon } from "./services/IconService";
 
 type Phase = "menu" | "playing" | "paused" | "gameover";
 
-interface ScoreEntry {
+interface 分數Entry {
   score: number;
   race: string;
   cls: string;
@@ -22,7 +22,7 @@ interface ScoreEntry {
 
 const HS_KEY = "aden_arena_highscores_v1";
 
-function loadHS(): ScoreEntry[] {
+function loadHS(): 分數Entry[] {
   try {
     const raw = localStorage.getItem(HS_KEY);
     const arr = raw ? JSON.parse(raw) : [];
@@ -32,12 +32,12 @@ function loadHS(): ScoreEntry[] {
   }
 }
 
-function commitScore(r: GameResult): {
-  list: ScoreEntry[];
+function commit分數(r: GameResult): {
+  list: 分數Entry[];
   rank: number;
   isNew: boolean;
 } {
-  const entry: ScoreEntry = {
+  const entry: 分數Entry = {
     score: r.score,
     race: r.race,
     cls: r.cls,
@@ -59,22 +59,22 @@ function fmtTime(s: number) {
   return `${m}:${sec.toString().padStart(2, "0")}`;
 }
 
-// ---------- High Score Table ----------
-function HighScoreTable({
+// ---------- High 分數 Table ----------
+function High分數Table({
   scores,
   highlightDate,
 }: {
-  scores: ScoreEntry[];
+  scores: 分數Entry[];
   highlightDate?: number;
 }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
       <h3 className="mb-3 font-display text-lg font-bold tracking-wide text-amber-200">
-        ⚜ Hall of Legends
+        ⚜ 傳奇殿堂
       </h3>
       {scores.length === 0 ? (
         <p className="py-6 text-center text-sm text-white/40">
-          No champions yet. Be the first.
+          目前還沒有冠軍，成為第一位吧。
         </p>
       ) : (
         <ol className="space-y-1.5">
@@ -131,18 +131,18 @@ function getIdleState() {
   return null;
 }
 
-function resolveRaceAndClass(idleState: any): { race: RaceDef; cls: ClassDef } {
+function resolveRaceAnd職業(idleState: any): { race: RaceDef; cls: 職業Def } {
   const defaultRace = RACES[0];
   const defaultCls = defaultRace.classes[0];
   if (!idleState) return { race: defaultRace, cls: defaultCls };
 
   const rawRaceId = String(idleState.raceId || idleState.race || "").toLowerCase();
-  const rawClassId = String(idleState.classId || idleState.class || "").toLowerCase();
+  const raw職業Id = String(idleState.classId || idleState.class || "").toLowerCase();
 
   let race = RACES.find((r) => r.id === rawRaceId);
   if (!race) {
     for (const r of RACES) {
-      if (r.classes.some((c) => c.id === rawClassId)) {
+      if (r.classes.some((c) => c.id === raw職業Id)) {
         race = r;
         break;
       }
@@ -150,10 +150,10 @@ function resolveRaceAndClass(idleState: any): { race: RaceDef; cls: ClassDef } {
   }
   if (!race) race = defaultRace;
 
-  let cls = race.classes.find((c) => c.id === rawClassId);
+  let cls = race.classes.find((c) => c.id === raw職業Id);
   if (!cls) {
     for (const r of RACES) {
-      const match = r.classes.find((c) => c.id === rawClassId);
+      const match = r.classes.find((c) => c.id === raw職業Id);
       if (match) {
         cls = match;
         break;
@@ -172,16 +172,16 @@ function MenuScreen({
   highscores,
   idleState,
   onRace,
-  onClass,
+  on職業,
   onPlay,
 }: {
   raceId: RaceId;
   clsId: string;
-  highscores: ScoreEntry[];
+  highscores: 分數Entry[];
   idleState?: any;
   onRace: (id: RaceId) => void;
-  onClass: (id: string) => void;
-  onPlay: (customRace?: RaceDef, customCls?: ClassDef) => void;
+  on職業: (id: string) => void;
+  onPlay: (customRace?: RaceDef, customCls?: 職業Def) => void;
 }) {
   const race = RACES.find((r) => r.id === raceId) as RaceDef;
   const cls = race.classes.find((c) => c.id === clsId) ?? race.classes[0];
@@ -204,7 +204,7 @@ function MenuScreen({
       <div className="relative mx-auto max-w-6xl px-4 pt-14 pb-8 sm:px-6 sm:pt-16">
         <header className="mb-6 text-center animate-float">
           <p className="text-xs font-semibold uppercase tracking-[0.4em] text-amber-300/80">
-            Lineage-inspired Browser RPG
+            天堂風格瀏覽器 RPG
           </p>
           <h1
             className="font-display text-5xl font-black tracking-tight text-transparent sm:text-6xl"
@@ -235,12 +235,12 @@ function MenuScreen({
                 <p className="mt-1 text-xs text-amber-200/80">
                   HP: {Math.ceil(idleState.hp || idleState.maxHp || 100)} / {idleState.maxHp || 100} · 
                   P.Atk: {idleState.patk || 20} · M.Atk: {idleState.matk || 20} · 
-                  Speed: {idleState.speed || 220}
+                  速度：{idleState.speed || 220}
                 </p>
               </div>
               <button
                 onClick={() => {
-                  const res = resolveRaceAndClass(idleState);
+                  const res = resolveRaceAnd職業(idleState);
                   onPlay(res.race, res.cls);
                 }}
                 className="rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 px-6 py-3.5 font-display text-base font-black tracking-wide text-[#1a1100] shadow-lg shadow-amber-500/30 hover:brightness-110 active:scale-95 transition"
@@ -256,7 +256,7 @@ function MenuScreen({
           <div className="space-y-6 lg:col-span-2">
             <section>
               <h2 className="mb-2 font-display text-xl font-bold text-white/90">
-                1 · Choose your Race
+                1 · 選擇種族
               </h2>
               <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
                 {RACES.map((r) => {
@@ -293,7 +293,7 @@ function MenuScreen({
 
             <section>
               <h2 className="mb-2 font-display text-xl font-bold text-white/90">
-                2 · Choose your Class &amp; Weapon
+                2 · 選擇職業與武器
               </h2>
               <div className="grid gap-2.5 sm:grid-cols-2">
                 {race.classes.map((c) => {
@@ -301,7 +301,7 @@ function MenuScreen({
                   return (
                     <button
                       key={c.id}
-                      onClick={() => onClass(c.id)}
+                      onClick={() => on職業(c.id)}
                       className={cn(
                         "group relative rounded-xl border p-3.5 text-left transition",
                         active
@@ -320,7 +320,7 @@ function MenuScreen({
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <img
-                            src={getClassIcon(c.id)}
+                            src={get職業Icon(c.id)}
                             alt={c.name}
                             className="w-8 h-8 object-contain rounded-md bg-black/60 border border-amber-500/40 p-0.5 shadow-sm"
                             onError={(e) => { e.currentTarget.style.display = 'none'; }}
@@ -353,9 +353,9 @@ function MenuScreen({
                       </p>
                       <div className="mt-3 grid grid-cols-2 gap-1.5 text-[11px]">
                         <Stat label="HP" value={String(c.hp)} />
-                        <Stat label="SPD" value={(c.speed / 10).toFixed(1)} />
-                        <Stat label="DMG" value={String(c.weapon.damage)} />
-                        <Stat label="RATE" value={`${aps}/s`} />
+                        <Stat label="速度" value={(c.speed / 10).toFixed(1)} />
+                        <Stat label="傷害" value={String(c.weapon.damage)} />
+                        <Stat label="攻速" value={`${aps}/s`} />
                       </div>
                       <div className="mt-2 flex flex-wrap gap-1">
                         {SKILLS[c.id]?.map((s) => (
@@ -402,11 +402,11 @@ function MenuScreen({
               }}
             >
               <p className="text-[11px] font-semibold uppercase tracking-widest text-white/50">
-                Your Champion
+                你的鬥士
               </p>
               <div className="mt-2 flex items-center gap-3">
                 <img
-                  src={getClassIcon(cls.id)}
+                  src={get職業Icon(cls.id)}
                   alt={cls.name}
                   className="w-12 h-12 object-contain rounded-xl bg-black/60 border-2 border-amber-500/50 p-1 shadow-lg"
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
@@ -433,35 +433,30 @@ function MenuScreen({
 
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-xs text-white/50">
               <h4 className="mb-2 font-display text-sm font-bold text-white/80">
-                Controls
+                操作方式
               </h4>
               <ul className="space-y-1">
                 <li>
-                  <span className="text-white/80">Move</span> — WASD / Arrows or
-                  left thumbstick
+                  <span className="text-white/80">移動</span> — WASD／方向鍵，或左側虛擬搖桿
                 </li>
                 <li>
-                  <span className="text-white/80">Aim</span> — Mouse, or right
-                  thumbstick
+                  <span className="text-white/80">瞄準</span> — 滑鼠，或右側虛擬搖桿
                 </li>
                 <li>
-                  <span className="text-white/80">Attack</span> — Click / Space,
-                  or hold right side
+                  <span className="text-white/80">攻擊</span> — 滑鼠點擊／空白鍵，或按住畫面右側
                 </li>
                 <li>
-                  <span className="text-white/80">Pause</span> — Esc or the
-                  pause button
+                  <span className="text-white/80">暫停</span> — Esc 或暫停按鈕
                 </li>
               </ul>
             </div>
 
-            <HighScoreTable scores={highscores} />
+            <High分數Table scores={highscores} />
           </div>
         </div>
 
         <footer className="mt-8 text-center text-[11px] text-white/30">
-          Built with React · Canvas · Tailwind — runs at 60fps on desktop &amp;
-          mobile.
+          使用 React · Canvas · Tailwind 製作 — 桌面與手機版目標皆為 60fps。
         </footer>
       </div>
     </div>
@@ -491,27 +486,27 @@ function PauseOverlay({
     <div className="fixed inset-0 z-30 flex items-center justify-center bg-black/70 backdrop-blur-sm">
       <div className="w-[min(92vw,420px)] rounded-3xl border border-white/15 bg-[#0b0f1c]/95 p-8 text-center shadow-2xl">
         <h2 className="font-display text-4xl font-black tracking-widest text-amber-200">
-          PAUSED
+          已暫停
         </h2>
-        <p className="mt-1 text-sm text-white/40">The battle awaits your return.</p>
+        <p className="mt-1 text-sm text-white/40">戰鬥正等待你回來。</p>
         <div className="mt-6 space-y-3">
           <button
             onClick={onResume}
             className="w-full rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 px-4 py-3 font-display text-lg font-black text-[#2a1c00] transition hover:brightness-110 active:scale-[0.98]"
           >
-            RESUME
+            繼續戰鬥
           </button>
           <button
             onClick={onRestart}
             className="w-full rounded-xl border border-white/20 bg-white/5 px-4 py-3 font-semibold text-white transition hover:bg-white/10"
           >
-            RESTART
+            重新開始
           </button>
           <button
             onClick={onQuit}
             className="w-full rounded-xl border border-white/10 px-4 py-3 font-semibold text-white/60 transition hover:bg-white/5"
           >
-            QUIT TO MENU
+            返回選單
           </button>
         </div>
       </div>
@@ -531,7 +526,7 @@ function GameOverOverlay({
   result: GameResult;
   rank: number;
   isNew: boolean;
-  highscores: ScoreEntry[];
+  highscores: 分數Entry[];
   onAgain: () => void;
   onMenu: () => void;
 }) {
@@ -539,22 +534,22 @@ function GameOverOverlay({
     <div className="fixed inset-0 z-30 flex items-center justify-center overflow-y-auto bg-black/75 px-4 py-8 backdrop-blur-sm">
       <div className="w-[min(94vw,460px)] rounded-3xl border border-red-500/30 bg-[#0b0f1c]/95 p-7 text-center shadow-2xl">
         <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-400/80">
-          You have fallen
+          你倒下了
         </p>
         <h2 className="mt-1 font-display text-5xl font-black tracking-tight text-white">
-          GAME OVER
+          戰鬥結束
         </h2>
 
         {isNew && (
           <div className="mx-auto mt-3 inline-block rounded-full bg-amber-400/20 px-4 py-1 text-xs font-bold uppercase tracking-wider text-amber-300 ring-1 ring-amber-300/50">
-            ★ New High Score · Rank #{rank}
+            ★ 新紀錄 · 排名 #{rank}
           </div>
         )}
 
         <div className="mt-5 grid grid-cols-2 gap-3 text-left">
           <div className="rounded-xl bg-white/[0.04] p-3">
             <p className="text-[11px] uppercase tracking-wider text-white/40">
-              Score
+              分數
             </p>
             <p className="font-display text-3xl font-black text-amber-200">
               {result.score.toLocaleString()}
@@ -562,7 +557,7 @@ function GameOverOverlay({
           </div>
           <div className="rounded-xl bg-white/[0.04] p-3">
             <p className="text-[11px] uppercase tracking-wider text-white/40">
-              Class
+              職業
             </p>
             <p className="truncate font-bold text-white">
               {result.cls}
@@ -571,13 +566,13 @@ function GameOverOverlay({
           </div>
           <div className="rounded-xl bg-white/[0.04] p-3">
             <p className="text-[11px] uppercase tracking-wider text-white/40">
-              Survived
+              存活時間
             </p>
             <p className="font-bold text-white">{fmtTime(result.time)}</p>
           </div>
           <div className="rounded-xl bg-white/[0.04] p-3">
             <p className="text-[11px] uppercase tracking-wider text-white/40">
-              Kills · Combo
+              擊殺 · 連擊
             </p>
             <p className="font-bold text-white">
               {result.kills} · x{result.bestCombo}
@@ -586,7 +581,7 @@ function GameOverOverlay({
         </div>
 
         <div className="mt-5">
-          <HighScoreTable scores={highscores} />
+          <High分數Table scores={highscores} />
         </div>
 
         <div className="mt-5 grid grid-cols-2 gap-3">
@@ -594,13 +589,13 @@ function GameOverOverlay({
             onClick={onAgain}
             className="rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 px-4 py-3 font-display text-base font-black text-[#2a1c00] transition hover:brightness-110 active:scale-[0.98]"
           >
-            PLAY AGAIN
+            再玩一次
           </button>
           <button
             onClick={onMenu}
             className="rounded-xl border border-white/20 bg-white/5 px-4 py-3 font-semibold text-white transition hover:bg-white/10"
           >
-            CHANGE CHARACTER
+            更換角色
           </button>
         </div>
       </div>
@@ -615,19 +610,19 @@ export default function ArenaApp() {
   const gameRef = useRef<Game | null>(null);
 
   const idleState = useMemo(() => getIdleState(), []);
-  const initialResolved = useMemo(() => resolveRaceAndClass(idleState), [idleState]);
+  const initialResolved = useMemo(() => resolveRaceAnd職業(idleState), [idleState]);
 
   const [phase, setPhase] = useState<Phase>(idleState ? "playing" : "menu");
   const [raceId, setRaceId] = useState<RaceId>(initialResolved.race.id);
   const [clsId, setClsId] = useState<string>(initialResolved.cls.id);
-  const [highscores, setHighscores] = useState<ScoreEntry[]>(() => loadHS());
+  const [highscores, setHighscores] = useState<分數Entry[]>(() => loadHS());
   const [result, setResult] = useState<
     (GameResult & { rank: number; isNew: boolean }) | null
   >(null);
 
   const race = RACES.find((r) => r.id === raceId) as RaceDef;
   const cls =
-    (race.classes.find((c) => c.id === clsId) as ClassDef) ?? race.classes[0];
+    (race.classes.find((c) => c.id === clsId) as 職業Def) ?? race.classes[0];
 
   // Tear down the 3D engine cleanly when this view unmounts (mode switch).
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -638,7 +633,7 @@ export default function ArenaApp() {
     }
   }, []);
 
-  const startGame = useCallback((targetRace?: RaceDef, targetCls?: ClassDef) => {
+  const startGame = useCallback((targetRace?: RaceDef, targetCls?: 職業Def) => {
     const canvas = canvasRef.current;
     const hud = hudRef.current;
     if (!canvas || !hud) {
@@ -665,7 +660,7 @@ export default function ArenaApp() {
           onPaused: () => setPhase("paused"),
           onResumed: () => setPhase("playing"),
           onGameOver: (r: GameResult) => {
-            const { list, rank, isNew } = commitScore(r);
+            const { list, rank, isNew } = commit分數(r);
             setHighscores(list);
             setResult({ ...r, rank, isNew });
             setPhase("gameover");
@@ -718,7 +713,7 @@ export default function ArenaApp() {
           clsId={clsId}
           highscores={highscores}
           onRace={handleRace}
-          onClass={setClsId}
+          on職業={setClsId}
           onPlay={startGame}
         />
       )}
