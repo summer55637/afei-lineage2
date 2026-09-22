@@ -629,37 +629,37 @@ const CLASSES_ECHO = {
       { name: "吸血狂怒",      type: "Self-Buff",  rarity: "2★", effect: "+10% lifesteal por 20 min",            cooldown: "50 min", desc: "賦予吸血效果。" },
       { name: "魔力強化",            type: "Self-Buff",  rarity: "2★", effect: "+25% M.ATK por 20 min",                cooldown: "50 min", desc: "提高魔法攻擊力。" },
       { name: "靈活思緒",             type: "Self-Buff",  rarity: "2★", effect: "+25% Cast Speed por 20 min",           cooldown: "50 min", desc: "提高施法效率。" },
-      { name: "Concentration",      type: "Self-Buff",  rarity: "2★", effect: "+20% M.DEF por 20 min",                cooldown: "50 min", desc: "Concentração mágica." },
-      { name: "Death Whisper",      type: "Self-Buff",  rarity: "2★", effect: "+20% Crit Damage por 20 min",          cooldown: "50 min", desc: "Sussurro da morte." },
-      { name: "Guidance",           type: "Self-Buff",  rarity: "2★", effect: "+15% Accuracy por 20 min",             cooldown: "50 min", desc: "Guia divina." },
-      { name: "Focus",              type: "Self-Buff",  rarity: "2★", effect: "+15% Crit Rate por 20 min",            cooldown: "50 min", desc: "Foco bélico." },
-      { name: "Bless Shield",       type: "Self-Buff",  rarity: "2★", effect: "+25% Block Rate por 20 min",           cooldown: "50 min", desc: "Escudo abençoado." },
-      { name: "Resist Fire",        type: "Self-Buff",  rarity: "2★", effect: "+20% Fire Resist por 20 min",          cooldown: "50 min", desc: "Resistência ao fogo." },
-      { name: "Resist Water",       type: "Self-Buff",  rarity: "2★", effect: "+20% Water Resist por 20 min",         cooldown: "50 min", desc: "Resistência à água." },
-      { name: "Resist Wind",        type: "Self-Buff",  rarity: "2★", effect: "+20% Wind Resist por 20 min",          cooldown: "50 min", desc: "Resistência ao vento." },
-      { name: "Holy Strike",        type: "Ativo",      rarity: "2★", effect: "Dano holy 280%",                       cooldown: "14s",    desc: "Golpe sagrado." },
-      { name: "Prophet's Harmony",  type: "Self-Buff",  rarity: "3★", effect: "+30% ATK, +25% M.ATK, +20% DEF 25min", cooldown: "60 min", desc: "Harmonia do profeta." }
+      { name: "專注",      type: "Self-Buff",  rarity: "2★", effect: "+20% M.DEF por 20 min",                cooldown: "50 min", desc: "提高魔法專注力。" },
+      { name: "死亡低語",      type: "Self-Buff",  rarity: "2★", effect: "+20% Crit Damage por 20 min",          cooldown: "50 min", desc: "以死亡之力強化暴擊。" },
+      { name: "引導",           type: "Self-Buff",  rarity: "2★", effect: "+15% Accuracy por 20 min",             cooldown: "50 min", desc: "獲得神聖引導。" },
+      { name: "專注",              type: "Self-Buff",  rarity: "2★", effect: "+15% Crit Rate por 20 min",            cooldown: "50 min", desc: "提升戰鬥專注力。" },
+      { name: "祝福之盾",       type: "Self-Buff",  rarity: "2★", effect: "+25% Block Rate por 20 min",           cooldown: "50 min", desc: "賦予盾牌祝福。" },
+      { name: "火焰抗性",        type: "Self-Buff",  rarity: "2★", effect: "+20% Fire Resist por 20 min",          cooldown: "50 min", desc: "提高火屬性抗性。" },
+      { name: "水屬性抗性",       type: "Self-Buff",  rarity: "2★", effect: "+20% Water Resist por 20 min",         cooldown: "50 min", desc: "提高水屬性抗性。" },
+      { name: "風屬性抗性",        type: "Self-Buff",  rarity: "2★", effect: "+20% Wind Resist por 20 min",          cooldown: "50 min", desc: "提高風屬性抗性。" },
+      { name: "神聖打擊",        type: "Ativo",      rarity: "2★", effect: "Dano holy 280%",                       cooldown: "14s",    desc: "施展神聖攻擊。" },
+      { name: "先知和諧",  type: "Self-Buff",  rarity: "3★", effect: "+30% ATK, +25% M.ATK, +20% DEF 25min", cooldown: "60 min", desc: "先知的戰鬥和諧。" }
     ]
   },
 
   // ─── HIEROPHANT (3ª classe — MEGA BUFFER + DPS) ───
   hierophant: {
-    name: 'Hierophant', parent: 'prophet', stage: 3,
-    desc: 'Hierofante, profeta supremo com profecias e dano. Skills anteriores permanecem.',
+    name: '聖言者', parent: 'prophet', stage: 3,
+    desc: '掌握預言與攻擊魔法的至高先知。保留先前學會的技能。',
     base: { atk: 15, def: 38, hp: 420, mp: 380, eva: 5, crit: 5, matk: 82, mdef: 82 },
     skills: [
-      { name: "Prophecy of Fire",             type: "Party-Buff", rarity: "3★", effect: "+30% ATK, +15% Crit party 12 min",        cooldown: "30 min", desc: "Profecia do fogo." },
-      { name: "Prophecy of Wind",             type: "Party-Buff", rarity: "3★", effect: "+25% Speed, +20% EVA party 12 min",       cooldown: "30 min", desc: "Profecia do vento." },
-      { name: "Prophecy of Water",            type: "Party-Buff", rarity: "3★", effect: "+30% M.ATK, +20% M.DEF party 12 min",     cooldown: "30 min", desc: "Profecia da água." },
-      { name: "Mass Prophecy",                type: "Party-Buff", rarity: "4★", effect: "Todas profecias de uma vez 8 min",        cooldown: "60 min", desc: "Profecia em massa." },
-      { name: "Holy Punishment",              type: "Ativo",      rarity: "3★", effect: "Dano holy 400% + silence 5s",              cooldown: "22s",    desc: "Punição sagrada." },
-      { name: "Mystic Immunity",              type: "Ativo",      rarity: "4★", effect: "Imune a magia 8s, não pode atacar",        cooldown: "180s",   desc: "Imunidade mística." },
-      { name: "Blessing of Nobility",         type: "Party-Buff", rarity: "3★", effect: "+15% all stats party 10 min",             cooldown: "30 min", desc: "Bênção da nobreza." },
-      { name: "Transcendent Holy Burst",      type: "Ativo",      rarity: "4★", effect: "Dano holy AoE 650% + stun 4s + purge",    cooldown: "180s",   desc: "Explosão sagrada transcendente." },
-      { name: "Hierophant's Harmony",         type: "Self-Buff",  rarity: "4★", effect: "+50% ATK, +45% M.ATK, +35% DEF 30min",    cooldown: "90 min", desc: "Harmonia do hierofante." },
-      { name: "Master of Prophecy",           type: "Passivo",    rarity: "3★", effect: "+15% buff duration, +5% PvE",             cooldown: "N/A",    desc: "Mestre das profecias." },
-      { name: "Hierophant Spirit",            type: "Passivo",    rarity: "3★", effect: "+12% holy ATK, +8% Heal",                  cooldown: "N/A",    desc: "Espírito do hierofante." },
-      { name: "Body of the Hierophant",       type: "Passivo",    rarity: "3★", effect: "+10% Max HP, +10% Max MP",                cooldown: "N/A",    desc: "Corpo do hierofante." }
+      { name: "火之預言",             type: "Party-Buff", rarity: "3★", effect: "+30% ATK, +15% Crit party 12 min",        cooldown: "30 min", desc: "施放火之預言。" },
+      { name: "風之預言",             type: "Party-Buff", rarity: "3★", effect: "+25% Speed, +20% EVA party 12 min",       cooldown: "30 min", desc: "施放風之預言。" },
+      { name: "水之預言",            type: "Party-Buff", rarity: "3★", effect: "+30% M.ATK, +20% M.DEF party 12 min",     cooldown: "30 min", desc: "施放水之預言。" },
+      { name: "群體預言",                type: "Party-Buff", rarity: "4★", effect: "Todas profecias de uma vez 8 min",        cooldown: "60 min", desc: "對隊伍施放群體預言。" },
+      { name: "神聖懲罰",              type: "Ativo",      rarity: "3★", effect: "Dano holy 400% + silence 5s",              cooldown: "22s",    desc: "以神聖力量懲罰敵人。" },
+      { name: "神秘免疫",              type: "Ativo",      rarity: "4★", effect: "Imune a magia 8s, não pode atacar",        cooldown: "180s",   desc: "獲得神秘力量保護。" },
+      { name: "貴族祝福",         type: "Party-Buff", rarity: "3★", effect: "+15% all stats party 10 min",             cooldown: "30 min", desc: "獲得貴族的祝福。" },
+      { name: "超越神聖爆發",      type: "Ativo",      rarity: "4★", effect: "Dano holy AoE 650% + stun 4s + purge",    cooldown: "180s",   desc: "施展超越極限的神聖爆發。" },
+      { name: "聖言者和諧",         type: "Self-Buff",  rarity: "4★", effect: "+50% ATK, +45% M.ATK, +35% DEF 30min",    cooldown: "90 min", desc: "聖言者的戰鬥和諧。" },
+      { name: "預言大師",           type: "Passivo",    rarity: "3★", effect: "+15% buff duration, +5% PvE",             cooldown: "N/A",    desc: "精通各式預言。" },
+      { name: "聖言者之魂",            type: "Passivo",    rarity: "3★", effect: "+12% holy ATK, +8% Heal",                  cooldown: "N/A",    desc: "聖言者的戰鬥精神。" },
+      { name: "聖言者之軀",       type: "Passivo",    rarity: "3★", effect: "+10% Max HP, +10% Max MP",                cooldown: "N/A",    desc: "強化聖言者的身軀。" }
     ]
   },
 
@@ -668,88 +668,88 @@ const CLASSES_ECHO = {
   // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 
   elfFighter: {
-    name: 'Elf Fighter', archetype: 'fighter', race: 'elf', stage: 0,
-    desc: 'Guerreiro élfico ágil.',
+    name: '精靈戰士', archetype: 'fighter', race: 'elf', stage: 0,
+    desc: '敏捷的精靈戰士。',
     base: { atk: 10, def: 8, hp: 90, mp: 35, eva: 10, crit: 6, matk: 0, mdef: 6 },
     skills: [
-      { name: "Power Strike",       type: "Ativo",    rarity: "1★", effect: "Dano físico 150%",               cooldown: "8s",     desc: "Golpe concentrado." },
-      { name: "Mortal Blow",         type: "Ativo",    rarity: "1★", effect: "Dano 170% + chance crit 20%",    cooldown: "10s",    desc: "Golpe mortal." },
-      { name: "Power Shot",          type: "Ativo",    rarity: "1★", effect: "Dano à distância 140%",          cooldown: "9s",     desc: "Disparo concentrado." },
-      { name: "Elven Spirit",        type: "Self-Buff",rarity: "1★", effect: "+10% EVA, +10% Speed por 15 min",cooldown: "30 min", desc: "Espírito élfico." },
-      { name: "HP Increase Lv1",     type: "Passivo",  rarity: "1★", effect: "+5% Max HP",                     cooldown: "N/A",    desc: "Constituição élfica." },
-      { name: "Light Armor Mastery", type: "Passivo",  rarity: "1★", effect: "+8% DEF com armadura leve",      cooldown: "N/A",    desc: "Maestria em armaduras leves." }
+      { name: "強力打擊",       type: "Ativo",    rarity: "1★", effect: "Dano físico 150%",               cooldown: "8s",     desc: "對目標施展集中打擊。" },
+      { name: "致命一擊",         type: "Ativo",    rarity: "1★", effect: "Dano 170% + chance crit 20%",    cooldown: "10s",    desc: "施展致命攻擊。" },
+      { name: "強力射擊",          type: "Ativo",    rarity: "1★", effect: "Dano à distância 140%",          cooldown: "9s",     desc: "進行集中射擊。" },
+      { name: "精靈之魂",        type: "Self-Buff",rarity: "1★", effect: "+10% EVA, +10% Speed por 15 min",cooldown: "30 min", desc: "獲得精靈之魂的力量。" },
+      { name: "HP 提升 Lv1",     type: "Passivo",  rarity: "1★", effect: "+5% Max HP",                     cooldown: "N/A",    desc: "強化精靈體質。" },
+      { name: "輕甲精通", type: "Passivo",  rarity: "1★", effect: "+8% DEF com armadura leve",      cooldown: "N/A",    desc: "精通輕型防具。" }
     ]
   },
 
   // ─── ELVEN KNIGHT (1ª classe) ───
   elvenKnight: {
-    name: 'Elven Knight', parent: 'elfFighter', race: 'elf', archetype: 'tank', stage: 1,
-    desc: 'Cavaleiro élfico com escudo. Skills anteriores permanecem.',
+    name: '精靈騎士', parent: 'elfFighter', race: 'elf', archetype: 'tank', stage: 1,
+    desc: '使用盾牌作戰的精靈騎士。保留先前學會的技能。',
     base: { atk: 16, def: 30, hp: 230, mp: 55, eva: 8, crit: 4, mdef: 18 },
     skills: [
-      { name: "Shield Strike",         type: "Ativo",    rarity: "1★", effect: "Dano 160% + taunt 5s",         cooldown: "10s",    desc: "Golpe de escudo." },
-      { name: "Hate",                  type: "Ativo",    rarity: "1★", effect: "Taunt + aggro forte",          cooldown: "8s",     desc: "Gera ódio." },
-      { name: "Power Break",           type: "Ativo",    rarity: "1★", effect: "Dano 150% + -20% ATK 8s",      cooldown: "14s",    desc: "Quebra de poder." },
-      { name: "Heavy Armor Mastery",   type: "Passivo",  rarity: "1★", effect: "+15% DEF armadura pesada",     cooldown: "N/A",    desc: "Maestria pesada." },
-      { name: "Shield Mastery",        type: "Passivo",  rarity: "1★", effect: "+15% Block Rate",              cooldown: "N/A",    desc: "Maestria em escudos." },
-      { name: "Sword/Blunt Mastery",   type: "Passivo",  rarity: "1★", effect: "+10% ATK espada/blunt",        cooldown: "N/A",    desc: "Maestria em espadas." },
-      { name: "HP Increase Lv2",       type: "Passivo",  rarity: "1★", effect: "+10% Max HP",                  cooldown: "N/A",    desc: "Constituição reforçada." },
-      { name: "Deflect Arrow",         type: "Passivo",  rarity: "1★", effect: "+10% desviar projéteis",       cooldown: "N/A",    desc: "Desvio de projéteis." }
+      { name: "盾牌打擊",         type: "Ativo",    rarity: "1★", effect: "Dano 160% + taunt 5s",         cooldown: "10s",    desc: "以盾牌攻擊敵人。" },
+      { name: "仇恨",                  type: "Ativo",    rarity: "1★", effect: "Taunt + aggro forte",          cooldown: "8s",     desc: "激起敵人的仇恨。" },
+      { name: "力量削弱",           type: "Ativo",    rarity: "1★", effect: "Dano 150% + -20% ATK 8s",      cooldown: "14s",    desc: "削弱敵人的力量。" },
+      { name: "重甲精通",   type: "Passivo",  rarity: "1★", effect: "+15% DEF armadura pesada",     cooldown: "N/A",    desc: "精通重型防具。" },
+      { name: "盾牌精通",        type: "Passivo",  rarity: "1★", effect: "+15% Block Rate",              cooldown: "N/A",    desc: "精通盾牌防禦。" },
+      { name: "劍／鈍器精通",   type: "Passivo",  rarity: "1★", effect: "+10% ATK espada/blunt",        cooldown: "N/A",    desc: "精通劍與鈍器。" },
+      { name: "HP 提升 Lv2",       type: "Passivo",  rarity: "1★", effect: "+10% Max HP",                  cooldown: "N/A",    desc: "進一步強化體質。" },
+      { name: "箭矢偏轉",         type: "Passivo",  rarity: "1★", effect: "+10% desviar projéteis",       cooldown: "N/A",    desc: "提高對投射物的閃避能力。" }
     ]
   },
 
   // ─── TEMPLE KNIGHT (2ª classe) ───
   templeKnight: {
-    name: 'Temple Knight', parent: 'elvenKnight', stage: 2,
-    desc: 'Cavaleiro do templo de Eva. Skills anteriores permanecem.',
+    name: '聖殿騎士', parent: 'elvenKnight', stage: 2,
+    desc: '侍奉伊娃神殿的騎士。保留先前學會的技能。',
     base: { atk: 35, def: 62, hp: 500, mp: 100, eva: 8, crit: 5, mdef: 40 },
     skills: [
-      { name: "Shield Stun",           type: "Ativo",    rarity: "2★", effect: "Dano 200% + stun 3s",           cooldown: "18s",    desc: "Escudada atordoante." },
-      { name: "Tribunal",              type: "Ativo",    rarity: "2★", effect: "Dano 240% + -20% DEF 10s",      cooldown: "20s",    desc: "Julgamento do templo." },
-      { name: "Eva's Will",            type: "Ativo",    rarity: "3★", effect: "+30% water resist + cura 15% HP",cooldown: "45s",   desc: "Vontade de Eva." },
-      { name: "Sacrifice",             type: "Ativo",    rarity: "2★", effect: "Cura aliado 30% (gasta 10%)",    cooldown: "25s",    desc: "Sacrifício pelo aliado." },
-      { name: "Aegis",                 type: "Ativo",    rarity: "2★", effect: "+60% Block Rate por 15s",        cooldown: "45s",    desc: "Aegis defensivo." },
-      { name: "Holy Blade",            type: "Ativo",    rarity: "2★", effect: "Dano sagrado 250%",              cooldown: "16s",    desc: "Lâmina sagrada." },
-      { name: "Ultimate Defense",      type: "Ativo",    rarity: "3★", effect: "+80% DEF, -50% ATK por 15s",     cooldown: "120s",   desc: "Defesa absoluta." },
-      { name: "Provoke",               type: "Ativo",    rarity: "1★", effect: "Taunt + aggro",                  cooldown: "8s",     desc: "Provocação." },
-      { name: "Summon Life Cubic",     type: "Ativo",    rarity: "2★", effect: "Cubic que cura 5%/5s",           cooldown: "45s",    desc: "Cubic vital." },
-      { name: "Summon Storm Cubic",    type: "Ativo",    rarity: "2★", effect: "Cubic de dano lightning",        cooldown: "45s",    desc: "Cubic de tempestade." },
-      { name: "TK's Harmony",          type: "Self-Buff",rarity: "3★", effect: "+35% DEF, +25% HP, +15% EVA 25min",cooldown: "60 min",desc: "Harmonia do cavaleiro do templo." },
-      { name: "Boost HP",              type: "Passivo",  rarity: "2★", effect: "+15% Max HP",                    cooldown: "N/A",    desc: "HP reforçado." },
-      { name: "Resist Aqua",           type: "Passivo",  rarity: "1★", effect: "+10% Water Resist",              cooldown: "N/A",    desc: "Resistência aquática." }
+      { name: "盾牌暈擊",           type: "Ativo",    rarity: "2★", effect: "Dano 200% + stun 3s",           cooldown: "18s",    desc: "以盾牌重擊使敵人暈眩。" },
+      { name: "審判",              type: "Ativo",    rarity: "2★", effect: "Dano 240% + -20% DEF 10s",      cooldown: "20s",    desc: "施展神殿的審判。" },
+      { name: "伊娃意志",            type: "Ativo",    rarity: "3★", effect: "+30% water resist + cura 15% HP",cooldown: "45s",   desc: "獲得伊娃的意志。" },
+      { name: "犧牲",             type: "Ativo",    rarity: "2★", effect: "Cura aliado 30% (gasta 10%)",    cooldown: "25s",    desc: "犧牲自身力量守護盟友。" },
+      { name: "神盾",                 type: "Ativo",    rarity: "2★", effect: "+60% Block Rate por 15s",        cooldown: "45s",    desc: "展開強力防禦。" },
+      { name: "神聖之刃",            type: "Ativo",    rarity: "2★", effect: "Dano sagrado 250%",              cooldown: "16s",    desc: "以神聖力量強化刀刃。" },
+      { name: "終極防禦",      type: "Ativo",    rarity: "3★", effect: "+80% DEF, -50% ATK por 15s",     cooldown: "120s",   desc: "進入近乎絕對的防禦狀態。" },
+      { name: "挑釁",               type: "Ativo",    rarity: "1★", effect: "Taunt + aggro",                  cooldown: "8s",     desc: "挑釁敵人並吸引其注意。" },
+      { name: "召喚生命晶體",     type: "Ativo",    rarity: "2★", effect: "Cubic que cura 5%/5s",           cooldown: "45s",    desc: "召喚具有生命恢復能力的晶體。" },
+      { name: "召喚風暴晶體",    type: "Ativo",    rarity: "2★", effect: "Cubic de dano lightning",        cooldown: "45s",    desc: "召喚風暴晶體協助戰鬥。" },
+      { name: "聖殿騎士和諧",          type: "Self-Buff",rarity: "3★", effect: "+35% DEF, +25% HP, +15% EVA 25min",cooldown: "60 min",desc: "聖殿騎士的戰鬥和諧。" },
+      { name: "HP 強化",              type: "Passivo",  rarity: "2★", effect: "+15% Max HP",                    cooldown: "N/A",    desc: "強化 HP。" },
+      { name: "水屬性抗性",           type: "Passivo",  rarity: "1★", effect: "+10% Water Resist",              cooldown: "N/A",    desc: "提高水屬性抗性。" }
     ]
   },
 
   // ─── EVA'S TEMPLAR (3ª classe) ───
   evaTemplar: {
-    name: "Eva's Templar", parent: 'templeKnight', stage: 3,
-    desc: 'Templário de Eva, tank divino aquático. Skills anteriores permanecem.',
+    name: "伊娃聖殿騎士", parent: 'templeKnight', stage: 3,
+    desc: '伊娃的神聖水系防禦騎士。保留先前學會的技能。',
     base: { atk: 68, def: 100, hp: 820, mp: 145, eva: 10, crit: 6, mdef: 65 },
     skills: [
-      { name: "Touch of Eva",                  type: "Ativo",    rarity: "3★", effect: "Cura AoE 25% HP party + cleanse 1 debuff", cooldown: "35s",    desc: "Toque de Eva." },
-      { name: "Shield of Eva",                 type: "Ativo",    rarity: "3★", effect: "Absorve 5000 dano por 15s",               cooldown: "90s",    desc: "Escudo de Eva." },
-      { name: "Celestial Shield",              type: "Ativo",    rarity: "4★", effect: "Party imune a dano por 5s",               cooldown: "300s",   desc: "Escudo celestial." },
-      { name: "Aqua Strike",                   type: "Ativo",    rarity: "3★", effect: "Dano water 380% + slow 40% 6s",           cooldown: "22s",    desc: "Golpe aquático." },
-      { name: "Summon Guardian Agathion",       type: "Ativo",    rarity: "3★", effect: "Invoca agathion protetor (+15% DEF)",     cooldown: "120s",   desc: "Agathion guardião." },
-      { name: "Transcendent Shield Charge",    type: "Ativo",    rarity: "4★", effect: "Rush + 480% dano + AoE taunt 10s",        cooldown: "160s",   desc: "Investida transcendente." },
-      { name: "Eva's Templar Harmony",         type: "Self-Buff",rarity: "4★", effect: "+55% DEF, +40% HP, +25% M.DEF 30min",     cooldown: "90 min", desc: "Harmonia suprema." },
-      { name: "Master of Combat",              type: "Passivo",  rarity: "3★", effect: "+10% ATK, +15% aggro, +5% PvE",           cooldown: "N/A",    desc: "Mestre do combate." },
-      { name: "Eva's Templar Spirit",          type: "Passivo",  rarity: "3★", effect: "+15% water ATK, +10% Block",              cooldown: "N/A",    desc: "Espírito do templário." },
-      { name: "Body of Eva's Templar",         type: "Passivo",  rarity: "3★", effect: "+15% Max HP, +10% DEF",                  cooldown: "N/A",    desc: "Corpo do templário." },
-      { name: "Protection of Eva",             type: "Passivo",  rarity: "3★", effect: "+15% water resist",                       cooldown: "N/A",    desc: "Proteção de Eva." },
-      { name: "Eva's Help",                    type: "Passivo",  rarity: "3★", effect: "10% chance ao ser atacado: cura 5% HP",   cooldown: "N/A",    desc: "Ajuda de Eva (trigger)." }
+      { name: "伊娃之觸",                  type: "Ativo",    rarity: "3★", effect: "Cura AoE 25% HP party + cleanse 1 debuff", cooldown: "35s",    desc: "施展伊娃之觸。" },
+      { name: "伊娃之盾",                 type: "Ativo",    rarity: "3★", effect: "Absorve 5000 dano por 15s",               cooldown: "90s",    desc: "展開伊娃之盾。" },
+      { name: "天界之盾",              type: "Ativo",    rarity: "4★", effect: "Party imune a dano por 5s",               cooldown: "300s",   desc: "展開天界護盾。" },
+      { name: "水之打擊",                   type: "Ativo",    rarity: "3★", effect: "Dano water 380% + slow 40% 6s",           cooldown: "22s",    desc: "施展水屬性攻擊。" },
+      { name: "召喚守護亞加西翁",       type: "Ativo",    rarity: "3★", effect: "Invoca agathion protetor (+15% DEF)",     cooldown: "120s",   desc: "召喚守護型亞加西翁。" },
+      { name: "超越盾牌衝鋒",    type: "Ativo",    rarity: "4★", effect: "Rush + 480% dano + AoE taunt 10s",        cooldown: "160s",   desc: "施展超越極限的盾牌突進。" },
+      { name: "伊娃聖殿騎士和諧",         type: "Self-Buff",rarity: "4★", effect: "+55% DEF, +40% HP, +25% M.DEF 30min",     cooldown: "90 min", desc: "伊娃聖殿騎士的至高戰鬥和諧。" },
+      { name: "戰鬥大師",              type: "Passivo",  rarity: "3★", effect: "+10% ATK, +15% aggro, +5% PvE",           cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
+      { name: "伊娃聖殿騎士之魂",          type: "Passivo",  rarity: "3★", effect: "+15% water ATK, +10% Block",              cooldown: "N/A",    desc: "伊娃聖殿騎士的戰鬥精神。" },
+      { name: "伊娃聖殿騎士之軀",         type: "Passivo",  rarity: "3★", effect: "+15% Max HP, +10% DEF",                  cooldown: "N/A",    desc: "強化伊娃聖殿騎士的身軀。" },
+      { name: "伊娃守護",             type: "Passivo",  rarity: "3★", effect: "+15% water resist",                       cooldown: "N/A",    desc: "獲得伊娃的守護。" },
+      { name: "伊娃援助",                    type: "Passivo",  rarity: "3★", effect: "10% chance ao ser atacado: cura 5% HP",   cooldown: "N/A",    desc: "觸發伊娃的援助效果。" }
     ]
   },
 
   // ─── SWORD SINGER (2ª classe — BARD) ───
   swordSinger: {
-    name: 'Sword Singer', parent: 'elvenKnight', stage: 2,
-    desc: 'Bardo élfico com canções de buff. Skills anteriores permanecem.',
+    name: '劍歌者', parent: 'elvenKnight', stage: 2,
+    desc: '以歌聲強化隊伍的精靈吟遊詩人。保留先前學會的技能。',
     base: { atk: 38, def: 45, hp: 400, mp: 120, eva: 10, crit: 8, mdef: 35 },
     skills: [
-      { name: "Song of Earth",         type: "Self-Buff", rarity: "2★", effect: "+20% DEF por 20 min",            cooldown: "50 min", desc: "Canção da terra." },
-      { name: "Song of Life",          type: "Self-Buff", rarity: "2★", effect: "+15% HP Regen por 20 min",       cooldown: "50 min", desc: "Canção da vida." },
-      { name: "Song of Water",         type: "Self-Buff", rarity: "2★", effect: "+20% Water Resist por 20 min",   cooldown: "50 min", desc: "Canção da água." },
+      { name: "大地之歌",         type: "Self-Buff", rarity: "2★", effect: "+20% DEF por 20 min",            cooldown: "50 min", desc: "吟唱大地之歌。" },
+      { name: "生命之歌",          type: "Self-Buff", rarity: "2★", effect: "+15% HP Regen por 20 min",       cooldown: "50 min", desc: "吟唱生命之歌。" },
+      { name: "水之歌",         type: "Self-Buff", rarity: "2★", effect: "+20% Water Resist por 20 min",   cooldown: "50 min", desc: "吟唱水之歌。" },
       { name: "Song of Warding",       type: "Self-Buff", rarity: "2★", effect: "+20% M.DEF por 20 min",          cooldown: "50 min", desc: "Canção de proteção." },
       { name: "Song of Wind",          type: "Self-Buff", rarity: "2★", effect: "+20% ATK Speed por 20 min",      cooldown: "50 min", desc: "Canção do vento." },
       { name: "Song of Hunter",        type: "Self-Buff", rarity: "2★", effect: "+15% Crit Rate por 20 min",      cooldown: "50 min", desc: "Canção do caçador." },
