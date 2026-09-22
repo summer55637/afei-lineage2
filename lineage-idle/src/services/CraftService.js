@@ -447,7 +447,7 @@ export function unsealItem(state, itemUid, callbacks = {}) {
   const def = gData?.ALL_ITEMS?.[item.itemId || item.id] || item;
 
   if (callbacks.log) {
-    callbacks.log(`✨ PUSHKIN：${def.name} 的封印已解除！套裝加成已啟用。`, 'rarity-epic');
+    callbacks.log(`✨ 普希金：${def.name} 的封印已解除！套裝加成已啟用。`, 'rarity-epic');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -534,12 +534,12 @@ export function swapWeaponSameGrade(state, weaponUid, targetWeaponId, callbacks 
  * ═══════════════════════════════════════════════════════════════════════════
  */
 export const DYES_CATALOG = {
-  dye_str_con: { key: 'dye_str_con', name: 'STR／CON 染料', statPlus: 'str', statMinus: 'con' },
-  dye_dex_con: { key: 'dye_dex_con', name: 'DEX／CON 染料', statPlus: 'dex', statMinus: 'con' },
-  dye_con_str: { key: 'dye_con_str', name: 'CON／STR 染料', statPlus: 'con', statMinus: 'str' },
-  dye_wit_men: { key: 'dye_wit_men', name: 'WIT／MEN 染料', statPlus: 'wit', statMinus: 'men' },
-  dye_int_men: { key: 'dye_int_men', name: 'INT／MEN 染料', statPlus: 'int', statMinus: 'men' },
-  dye_men_int: { key: 'dye_men_int', name: 'MEN／INT 染料', statPlus: 'men', statMinus: 'int' }
+  dye_str_con: { key: 'dye_str_con', name: '力量／體質染料', statPlus: 'str', statMinus: 'con' },
+  dye_dex_con: { key: 'dye_dex_con', name: '敏捷／體質染料', statPlus: 'dex', statMinus: 'con' },
+  dye_con_str: { key: 'dye_con_str', name: '體質／力量染料', statPlus: 'con', statMinus: 'str' },
+  dye_wit_men: { key: 'dye_wit_men', name: '智慧／精神染料', statPlus: 'wit', statMinus: 'men' },
+  dye_int_men: { key: 'dye_int_men', name: '智力／精神染料', statPlus: 'int', statMinus: 'men' },
+  dye_men_int: { key: 'dye_men_int', name: '精神／智力染料', statPlus: 'men', statMinus: 'int' }
 };
 
 export function applyDyeSymbol(state, slotIdx = 0, dyeKey = 'dye_str_con', stage = 1, callbacks = {}) {
