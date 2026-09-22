@@ -634,68 +634,68 @@ export interface SkillDef {
 
 export const SKILLS: Record<string, SkillDef[]> = {
   warrior: [
-    { id: "whirl", name: "Whirlwind", emoji: "🌀", kind: "aoe", cooldown: 6, mana: 30, radius: 130, damage: 1.6, desc: "Spin to damage all nearby foes." },
-    { id: "charge", name: "Charge", emoji: "💥", kind: "dash", cooldown: 5, mana: 25, damage: 2.2, duration: 0.18, desc: "Dash forward, crushing enemies." },
+    { id: "whirl", name: "旋風斬", emoji: "🌀", kind: "aoe", cooldown: 6, mana: 30, radius: 130, damage: 1.6, desc: "旋轉攻擊周圍所有敵人。" },
+    { id: "charge", name: "衝鋒", emoji: "💥", kind: "dash", cooldown: 5, mana: 25, damage: 2.2, duration: 0.18, desc: "向前衝刺並重創敵人。" },
   ],
   knight: [
-    { id: "bash", name: "Shield Bash", emoji: "🛡️", kind: "nova", cooldown: 7, mana: 35, radius: 130, damage: 1.3, slow: 0.5, desc: "Concussive bash that slows." },
-    { id: "sanctuary", name: "Sanctuary", emoji: "✨", kind: "heal", cooldown: 12, mana: 50, amount: 0.4, duration: 3, buff: "shield", desc: "Heal and gain a temporary shield." },
+    { id: "bash", name: "盾擊", emoji: "🛡️", kind: "nova", cooldown: 7, mana: 35, radius: 130, damage: 1.3, slow: 0.5, desc: "以盾牌重擊敵人並使其減速。" },
+    { id: "sanctuary", name: "聖域", emoji: "✨", kind: "heal", cooldown: 12, mana: 50, amount: 0.4, duration: 3, buff: "shield", desc: "恢復生命並獲得暫時護盾。" },
   ],
   rogue: [
-    { id: "shadowstep", name: "Shadowstep", emoji: "👤", kind: "dash", cooldown: 4, mana: 22, damage: 2.0, duration: 0.16, desc: "Blink to strike from the shadows." },
-    { id: "fan", name: "Fan of Knives", emoji: "🔪", kind: "aoe", cooldown: 7, mana: 30, radius: 115, damage: 1.0, desc: "Burst of blades around you." },
+    { id: "shadowstep", name: "暗影步", emoji: "👤", kind: "dash", cooldown: 4, mana: 22, damage: 2.0, duration: 0.16, desc: "瞬移至敵人身旁，從暗影中發動攻擊。" },
+    { id: "fan", name: "刀刃扇舞", emoji: "🔪", kind: "aoe", cooldown: 7, mana: 30, radius: 115, damage: 1.0, desc: "向四周爆發大量刀刃。" },
   ],
   archer: [
-    { id: "multi", name: "Multishot", emoji: "🏹", kind: "projectile", cooldown: 5, mana: 25, count: 3, spread: 0.42, damage: 1.0, desc: "Fire a spread of arrows." },
-    { id: "volley", name: "Volley", emoji: "🌧️", kind: "point", cooldown: 8, mana: 35, range: 300, radius: 120, damage: 1.3, desc: "Rain arrows on a distant point." },
+    { id: "multi", name: "多重射擊", emoji: "🏹", kind: "projectile", cooldown: 5, mana: 25, count: 3, spread: 0.42, damage: 1.0, desc: "向前方扇形射出多支箭矢。" },
+    { id: "volley", name: "箭雨", emoji: "🌧️", kind: "point", cooldown: 8, mana: 35, range: 300, radius: 120, damage: 1.3, desc: "向遠方指定區域降下箭雨。" },
   ],
   mystic: [
-    { id: "meteor", name: "Meteor", emoji: "☄️", kind: "point", cooldown: 8, mana: 45, range: 320, radius: 130, damage: 1.8, desc: "Call down a devastating meteor." },
-    { id: "frost", name: "Frost Nova", emoji: "❄️", kind: "nova", cooldown: 7, mana: 30, radius: 150, damage: 1.0, slow: 0.6, desc: "Freeze and shatter nearby foes." },
+    { id: "meteor", name: "隕石術", emoji: "☄️", kind: "point", cooldown: 8, mana: 45, range: 320, radius: 130, damage: 1.8, desc: "召喚具有毀滅威力的隕石。" },
+    { id: "frost", name: "冰霜新星", emoji: "❄️", kind: "nova", cooldown: 7, mana: 30, radius: 150, damage: 1.0, slow: 0.6, desc: "凍結並粉碎周圍敵人。" },
   ],
   sentinel: [
-    { id: "impale", name: "Impale", emoji: "🔱", kind: "beam", cooldown: 6, mana: 30, range: 340, damage: 1.6, desc: "Pierce a line of enemies." },
-    { id: "warcry", name: "War Cry", emoji: "📣", kind: "buff", cooldown: 12, mana: 40, buff: "damage", amount: 1.4, duration: 8, desc: "Boost your damage." },
+    { id: "impale", name: "穿刺", emoji: "🔱", kind: "beam", cooldown: 6, mana: 30, range: 340, damage: 1.6, desc: "貫穿一直線上的敵人。" },
+    { id: "warcry", name: "戰吼", emoji: "📣", kind: "buff", cooldown: 12, mana: 40, buff: "damage", amount: 1.4, duration: 8, desc: "提升自身傷害。" },
   ],
   assassin: [
-    { id: "shadowstep", name: "Shadowstep", emoji: "👤", kind: "dash", cooldown: 4, mana: 20, damage: 2.2, duration: 0.16, desc: "Blink strike from darkness." },
-    { id: "poison", name: "Poison Cloud", emoji: "☠️", kind: "aoe", cooldown: 8, mana: 35, radius: 120, damage: 1.2, slow: 0.4, desc: "Toxic cloud that slows." },
+    { id: "shadowstep", name: "暗影步", emoji: "👤", kind: "dash", cooldown: 4, mana: 20, damage: 2.2, duration: 0.16, desc: "從黑暗中瞬移並發動突襲。" },
+    { id: "poison", name: "毒霧", emoji: "☠️", kind: "aoe", cooldown: 8, mana: 35, radius: 120, damage: 1.2, slow: 0.4, desc: "釋放使敵人減速的毒霧。" },
   ],
   shillien: [
-    { id: "deathcoil", name: "Death Coil", emoji: "🌑", kind: "aoe", cooldown: 8, mana: 45, radius: 150, damage: 1.8, desc: "A massive scythe sweep." },
-    { id: "siphon", name: "Siphon", emoji: "🩸", kind: "heal", cooldown: 10, mana: 40, amount: 0.3, buff: "damage", buffAmount: 1.3 as any, duration: 6, desc: "Drain life and empower strikes." },
+    { id: "deathcoil", name: "死亡迴旋", emoji: "🌑", kind: "aoe", cooldown: 8, mana: 45, radius: 150, damage: 1.8, desc: "以巨大鐮刃橫掃敵人。" },
+    { id: "siphon", name: "生命汲取", emoji: "🩸", kind: "heal", cooldown: 10, mana: 40, amount: 0.3, buff: "damage", buffAmount: 1.3 as any, duration: 6, desc: "吸取生命並強化後續攻擊。" },
   ],
   sorcerer: [
-    { id: "chain", name: "Chain Lightning", emoji: "⚡", kind: "nova", cooldown: 6, mana: 35, radius: 160, damage: 1.4, desc: "Arc lightning to all nearby." },
-    { id: "darkpulse", name: "Dark Pulse", emoji: "🌑", kind: "beam", cooldown: 7, mana: 30, range: 320, damage: 1.5, desc: "Fire a beam of dark energy." },
+    { id: "chain", name: "連鎖閃電", emoji: "⚡", kind: "nova", cooldown: 6, mana: 35, radius: 160, damage: 1.4, desc: "對周圍敵人釋放連鎖閃電。" },
+    { id: "darkpulse", name: "黑暗脈衝", emoji: "🌑", kind: "beam", cooldown: 7, mana: 30, range: 320, damage: 1.5, desc: "射出一道黑暗能量光束。" },
   ],
   destroyer: [
-    { id: "earth", name: "Earthshatter", emoji: "🌋", kind: "aoe", cooldown: 9, mana: 50, radius: 150, damage: 2.0, stun: true, desc: "Stun and crush the earth." },
-    { id: "enrage", name: "Enrage", emoji: "😡", kind: "buff", cooldown: 14, mana: 40, buff: "damage", amount: 1.5, duration: 8, desc: "Massively boost damage." },
+    { id: "earth", name: "裂地震擊", emoji: "🌋", kind: "aoe", cooldown: 9, mana: 50, radius: 150, damage: 2.0, stun: true, desc: "震碎大地並使敵人暈眩。" },
+    { id: "enrage", name: "狂暴", emoji: "😡", kind: "buff", cooldown: 14, mana: 40, buff: "damage", amount: 1.5, duration: 8, desc: "大幅提升傷害。" },
   ],
   monk: [
-    { id: "flurry", name: "Flurry", emoji: "🥊", kind: "buff", cooldown: 8, mana: 30, buff: "atkspeed", amount: 2.2, duration: 5, desc: "Unleash a flurry of blows." },
-    { id: "chi", name: "Chi Heal", emoji: "💚", kind: "heal", cooldown: 10, mana: 40, amount: 0.35, desc: "Restore health with chi." },
+    { id: "flurry", name: "連擊", emoji: "🥊", kind: "buff", cooldown: 8, mana: 30, buff: "atkspeed", amount: 2.2, duration: 5, desc: "快速連續發動多次攻擊。" },
+    { id: "chi", name: "氣療術", emoji: "💚", kind: "heal", cooldown: 10, mana: 40, amount: 0.35, desc: "以氣恢復生命。" },
   ],
   overlord: [
-    { id: "warcry", name: "War Cry", emoji: "📣", kind: "buff", cooldown: 12, mana: 40, buff: "damage", amount: 1.4, duration: 8, desc: "Empower your attacks." },
-    { id: "meteortotem", name: "Meteor Totem", emoji: "🗿", kind: "point", cooldown: 7, mana: 35, range: 300, radius: 120, damage: 1.4, desc: "Hurl an explosive totem." },
+    { id: "warcry", name: "戰吼", emoji: "📣", kind: "buff", cooldown: 12, mana: 40, buff: "damage", amount: 1.4, duration: 8, desc: "強化自身攻擊。" },
+    { id: "meteortotem", name: "隕石圖騰", emoji: "🗿", kind: "point", cooldown: 7, mana: 35, range: 300, radius: 120, damage: 1.4, desc: "投擲會爆炸的圖騰。" },
   ],
   artisan: [
-    { id: "forge", name: "Forge Bomb", emoji: "💣", kind: "point", cooldown: 8, mana: 45, range: 240, radius: 130, damage: 2.0, desc: "Lob a devastating bomb." },
-    { id: "steam", name: "Steam Shield", emoji: "💨", kind: "buff", cooldown: 12, mana: 40, buff: "shield", duration: 3, desc: "Gain a temporary shield." },
+    { id: "forge", name: "鍛造炸彈", emoji: "💣", kind: "point", cooldown: 8, mana: 45, range: 240, radius: 130, damage: 2.0, desc: "投擲具有強大威力的炸彈。" },
+    { id: "steam", name: "蒸氣護盾", emoji: "💨", kind: "buff", cooldown: 12, mana: 40, buff: "shield", duration: 3, desc: "獲得暫時護盾。" },
   ],
   warsmith: [
-    { id: "pierce", name: "Piercing Shot", emoji: "➹", kind: "beam", cooldown: 6, mana: 30, range: 420, damage: 1.6, desc: "A piercing long-range bolt." },
-    { id: "trap", name: "Trap", emoji: "🪤", kind: "point", cooldown: 7, mana: 30, range: 260, radius: 110, damage: 1.2, slow: 0.5, desc: "Set a slowing explosive trap." },
+    { id: "pierce", name: "穿透射擊", emoji: "➹", kind: "beam", cooldown: 6, mana: 30, range: 420, damage: 1.6, desc: "射出遠距離穿透箭矢。" },
+    { id: "trap", name: "陷阱", emoji: "🪤", kind: "point", cooldown: 7, mana: 30, range: 260, radius: 110, damage: 1.2, slow: 0.5, desc: "設置會爆炸並使敵人減速的陷阱。" },
   ],
   berserker: [
-    { id: "blade", name: "Blade Storm", emoji: "🌪️", kind: "aoe", cooldown: 6, mana: 30, radius: 130, damage: 1.4, desc: "Whirl twin blades wildly." },
-    { id: "enrage", name: "Enrage", emoji: "😡", kind: "buff", cooldown: 12, mana: 40, buff: "damage", amount: 1.5, duration: 8, desc: "Boost damage in a frenzy." },
+    { id: "blade", name: "刀刃風暴", emoji: "🌪️", kind: "aoe", cooldown: 6, mana: 30, radius: 130, damage: 1.4, desc: "高速揮舞雙刃形成風暴。" },
+    { id: "enrage", name: "狂暴", emoji: "😡", kind: "buff", cooldown: 12, mana: 40, buff: "damage", amount: 1.5, duration: 8, desc: "進入狂亂狀態並提升傷害。" },
   ],
   soulbreaker: [
-    { id: "soulrend", name: "Soul Rend", emoji: "🔮", kind: "beam", cooldown: 6, mana: 35, range: 360, damage: 1.8, desc: "Rend souls with a beam." },
-    { id: "soullink", name: "Soul Link", emoji: "🔗", kind: "heal", cooldown: 10, mana: 40, amount: 0.25, buff: "damage", buffAmount: 1.3 as any, duration: 6, desc: "Heal and empower via soul link." },
+    { id: "soulrend", name: "靈魂撕裂", emoji: "🔮", kind: "beam", cooldown: 6, mana: 35, range: 360, damage: 1.8, desc: "以光束撕裂敵人的靈魂。" },
+    { id: "soullink", name: "靈魂連結", emoji: "🔗", kind: "heal", cooldown: 10, mana: 40, amount: 0.25, buff: "damage", buffAmount: 1.3 as any, duration: 6, desc: "透過靈魂連結恢復生命並獲得強化。" },
   ],
 };
 
