@@ -149,7 +149,7 @@ export const HuntingService = {
       hState.activeLure = lureId;
     }
 
-    if (callbacks.log) callbacks.log(`🎒 Comprou ${count}x **${lure.name}** por ${totalCost.toLocaleString()} Adena.`, 'loot');
+    if (callbacks.log) callbacks.log(`🎒 已用 ${totalCost.toLocaleString()} 金幣購買 ${count}x **${lure.name}**。`, 'loot');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -179,7 +179,7 @@ export const HuntingService = {
     hState.knifeDurability[knifeId] = knife.durabilityMax;
     hState.knife = knifeId;
 
-    if (callbacks.log) callbacks.log(`🔪 Adquiriu e equipou **${knife.name}**!`, 'rarity-legendary');
+    if (callbacks.log) callbacks.log(`🔪 已取得並裝備 **${knife.name}**！`, 'rarity-legendary');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -226,7 +226,7 @@ export const HuntingService = {
     state.gold -= cost;
     hState.knifeDurability[targetKnifeId] = knife.durabilityMax;
 
-    if (callbacks.log) callbacks.log(`✨ **${knife.name}** foi afiada na pedra de amolar! Durabilidade restaurada (${knife.durabilityMax}/${knife.durabilityMax}).`, 'system');
+    if (callbacks.log) callbacks.log(`✨ **${knife.name}** 已用磨刀石磨利！耐久度已恢復（${knife.durabilityMax}/${knife.durabilityMax}）。`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -449,7 +449,7 @@ export const HuntingService = {
       const qualityPrefix = quality.tier === 'perfect' ? '🌟 **完美剝皮！**'
         : quality.tier === 'excellent' ? '✨ **優秀剝皮！**'
         : '✓ 剝皮完成：';
-      callbacks.log(`🐾 ${qualityPrefix} Abateu **${prey.name}** [${quality.name}]! Obteve +${primaryQty}x ${primaryMat.toUpperCase()}${secMat && secQty > 0 ? ` e +${secQty}x ${secMat.toUpperCase()}` : ''}! (+${finalXp} XP de 狩獵)`, 'loot');
+      callbacks.log(`🐾 ${qualityPrefix} 擊倒 **${prey.name}** [${quality.name}]！獲得 +${primaryQty}x ${primaryMat.toUpperCase()}${secMat && secQty > 0 ? ` 與 +${secQty}x ${secMat.toUpperCase()}` : ''}！（+${finalXp} 狩獵 XP）`, 'loot');
     }
 
     if (callbacks.floatText) {
@@ -514,7 +514,7 @@ export const HuntingService = {
     hState.slainPreyData = null;
 
     if (callbacks.log) {
-      callbacks.log(`🔪 Descarne (${choice === 'pelt' ? 'Foco em Peles' : 'Foco em Ossos'}): Obteve ${primaryQty}x ${primaryMat.toUpperCase()}! (+${finalXp} XP)`, 'loot');
+      callbacks.log(`🔪 處理獵物（${choice === 'pelt' ? '偏重皮革' : '偏重骨材'}）：獲得 ${primaryQty}x ${primaryMat.toUpperCase()}！（+${finalXp} XP）`, 'loot');
     }
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
@@ -576,7 +576,7 @@ export const HuntingService = {
     const dur = hState.knifeDurability[activeKnifeId] ?? 0;
     if (dur <= 0) {
       hState.autoHunting = false;
-      if (callbacks.log) callbacks.log('⚠️ 狩獵 AFK interrompida: Sua faca perdeu o corte!', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 自動狩獵已中斷：你的獵刀已經鈍化！', 'warning');
       if (callbacks.updateAllUI) callbacks.updateAllUI();
       return;
     }
