@@ -147,7 +147,7 @@ export const RESONANCE_DEFINITIONS = {
     weap1: 'spear',
     weap2: 'sword',
     requirements: ['spear', 'sword'],
-    activationRule: 'Equipar Lança e Espada 1H nos slots de armamento',
+    activationRule: '在武器欄裝備長槍與單手劍',
     passives: { pDefPct: 20, pAtkPct: 8 },
     passiveEffects: { pDefPct: 20, pAtkPct: 8 },
     triggerEffects: [
@@ -158,11 +158,11 @@ export const RESONANCE_DEFINITIONS = {
     visual: { icon: '🔱⚔️', color: '#eab308', badge: 'Falange' }
   },
 
-  // 11. Lança + Dual Swords
+  // 11. 長槍 + 雙劍
   bladestorm_warlord: {
     id: 'bladestorm_warlord',
     name: '暴風領主',
-    pairName: 'Lança + Dual Swords',
+    pairName: '長槍 + 雙劍',
     icon: '🔱⚔️',
     color: '#38bdf8',
     desc: '暴風狂怒：長槍攻擊累積氣勢（最多 3 層）。雙劍技能消耗層數施展集中斬擊（每層 +8% 傷害，最多 +24%，並降低怪物 10% 物理防禦）。被動 +15% 失衡傷害。',
@@ -171,11 +171,11 @@ export const RESONANCE_DEFINITIONS = {
     passives: { staggerDmgPct: 15, pAtkPct: 8 }
   },
 
-  // 12. Lança + Maça/Blunt
+  // 12. 長槍 + 鈍器
   titan_colossus: {
     id: 'titan_colossus',
     name: '泰坦巨像',
-    pairName: 'Lança + Maça/Blunt',
+    pairName: '長槍 + 鈍器',
     icon: '🔱🔨',
     color: '#f97316',
     desc: '地震衝擊：鈍器可破壞護甲穩定（怪物物理攻擊 -10%）。長槍技能集中衝擊（+20% 姿態傷害），並使失衡時間延長 1.5 秒。',
@@ -184,11 +184,11 @@ export const RESONANCE_DEFINITIONS = {
     passives: { staggerDmgPct: 20, pDefPct: 8 }
   },
 
-  // 13. Lança + Espada 2H
+  // 13. 長槍 + 雙手劍
   dreadnought: {
     id: 'dreadnought',
     name: '狂戰將軍',
-    pairName: 'Lança + Espada 2H',
+    pairName: '長槍 + 雙手劍',
     icon: '🔱🗡️',
     color: '#dc2626',
     desc: '泰坦打擊：+12% 物理攻擊、+15% 姿態傷害。怪物進入 BREAK 期間，額外造成 +15% 集中傷害。',
@@ -197,11 +197,11 @@ export const RESONANCE_DEFINITIONS = {
     passives: { pAtkPct: 12, staggerDmgPct: 15 }
   },
 
-  // 14. Lança + Cajado
+  // 14. 長槍 + 法杖
   storm_arbiter: {
     id: 'storm_arbiter',
     name: '暴風仲裁者',
-    pairName: 'Lança + Cajado',
+    pairName: '長槍 + 法杖',
     icon: '🔱🔮',
     color: '#6366f1',
     desc: '元素引導：長槍將法術力量集中於目標（+15% 元素魔法傷害、+15% 施法速度）。',
@@ -210,11 +210,11 @@ export const RESONANCE_DEFINITIONS = {
     passives: { castSpd: 15, mAtkPct: 10 }
   },
 
-  // 15. Lança + Garras/Punhos
+  // 15. 長槍 + 利爪／拳套
   asura_striker: {
     id: 'asura_striker',
     name: '武僧大師',
-    pairName: 'Lança + Garras/Punhos',
+    pairName: '長槍 + 利爪／拳套',
     icon: '🔱🥊',
     color: '#14b8a6',
     desc: '武鬥氣流：拳擊使戰鬥節奏加快（每層 +2% 攻擊速度，最多 +12%）。長槍攻擊會消耗氣流，施展無視 18% 物理防禦的集中突刺。',
@@ -236,11 +236,11 @@ export const RESONANCE_DEFINITIONS = {
     passives: { atkSpd: 15, critChance: 8 }
   },
 
-  // 17. Adaga + Maça/Blunt
+  // 17. 匕首 + 鈍器
   iron_inquisitor: {
     id: 'iron_inquisitor',
     name: '鋼鐵審判者',
-    pairName: 'Adaga + Maça/Blunt',
+    pairName: '匕首 + 鈍器',
     icon: '🗡️🔨',
     color: '#78716c',
     desc: '弱點暴露：鈍器攻擊使怪物失衡 3 秒。失衡期間的匕首攻擊無視 20% 物理防禦並造成 +18% 集中傷害。',
@@ -289,11 +289,11 @@ export const RESONANCE_DEFINITIONS = {
     passives: { pDefPct: 12, staggerDmgPct: 15 }
   },
 
-  // 21. Espada 2H + Maça/Blunt
+  // 21. 雙手劍 + 鈍器
   skullbreaker: {
     id: 'skullbreaker',
     name: '碎顱者',
-    pairName: 'Espada 2H + Maça/Blunt',
+    pairName: '雙手劍 + 鈍器',
     icon: '🗡️🔨',
     color: '#991b1b',
     desc: '破甲：鈍器削弱目標防守（+25% 失衡傷害）。雙手劍對 BREAK 狀態怪物造成 +20% 重擊傷害。',
@@ -302,11 +302,11 @@ export const RESONANCE_DEFINITIONS = {
     passives: { staggerDmgPct: 25, pAtkPct: 10 }
   },
 
-  // 22. Cajado + Espada/Lâmina
+  // 22. 法杖 + 劍／刀刃
   spellblade_arcanist: {
     id: 'spellblade_arcanist',
     name: '魔刃術士',
-    pairName: 'Cajado + Espada/Lâmina',
+    pairName: '法杖 + 劍／刀刃',
     icon: '🔮🗡️',
     color: '#c084fc',
     desc: '奧術之刃：施法可累積符文能量。刀刃攻擊造成混合傷害（+15% 集中傷害），恢復最大 MP 的 3%，並使魔法技能冷卻減少 1 秒。',
@@ -315,11 +315,11 @@ export const RESONANCE_DEFINITIONS = {
     passives: { castSpd: 12, mAtkPct: 8 }
   },
 
-  // 23. Cajado + Maça/Blunt
+  // 23. 法杖 + 鈍器
   battle_hierophant: {
     id: 'battle_hierophant',
     name: '戰鬥祭司',
-    pairName: 'Cajado + Maça/Blunt',
+    pairName: '法杖 + 鈍器',
     icon: '🔮🔨',
     color: '#fde047',
     desc: '戰爭祈禱：治癒與續戰效率 +15%。鈍器攻擊灌注神聖力量（對目標 +12% 神聖魔法傷害，並獲得 +12% 魔法防禦）。',
@@ -555,7 +555,7 @@ export class WeaponResonanceService {
     if (resonance.id === 'dragon_lancer') {
       if (reqWeapon === 'bow' || skillNameLower.includes('shot') || skillNameLower.includes('arrow')) {
         monster._slowUntil = realNow + 6000;
-        if (callbacks.floatText) callbacks.floatText('❄️ LENTIDÃO DRACÔNICA!', 'float-gold');
+        if (callbacks.floatText) callbacks.floatText('❄️ 龍之緩速！', 'float-gold');
       }
     }
 
@@ -564,8 +564,8 @@ export class WeaponResonanceService {
       if (reqWeapon === 'spear' || skillNameLower.includes('whirlwind') || skillNameLower.includes('storm') || skillNameLower.includes('sweep')) {
         state.resonanceState.stormFury = Math.min(3, (state.resonanceState.stormFury || 0) + 1);
         const stacks = state.resonanceState.stormFury;
-        if (callbacks.floatText) callbacks.floatText(`⚡ FÚRIA (${stacks}/3)`, 'float-gold');
-        if (callbacks.log) callbacks.log(`⚡ Fúria da Tempestade acumulada (${stacks}/3 cargas)!`, 'combat');
+        if (callbacks.floatText) callbacks.floatText(`⚡ 狂怒（${stacks}/3）`, 'float-gold');
+        if (callbacks.log) callbacks.log(`⚡ 暴風狂怒累積（${stacks}/3 層）！`, 'combat');
       }
     }
 
@@ -573,8 +573,8 @@ export class WeaponResonanceService {
     if (resonance.id === 'avenging_paladin') {
       if (skillDef.requiredShield || skillNameLower.includes('shield') || skillNameLower.includes('stun')) {
         state.resonanceState.holyVengeanceUntil = realNow + 7000;
-        if (callbacks.floatText) callbacks.floatText('🛡️ VINGANÇA SAGRADA!', 'float-jackpot');
-        if (callbacks.log) callbacks.log('🛡️ Vingança Sagrada ativada! O próximo ataque com a Espada de 2 Mãos ignorará 20% da P.Def do alvo (+20% Dano)!', 'rarity-legendary');
+        if (callbacks.floatText) callbacks.floatText('🛡️ 神聖復仇！', 'float-jackpot');
+        if (callbacks.log) callbacks.log('🛡️ 神聖復仇已啟動！下一次雙手劍攻擊將無視目標 20% P.Def（+20% 傷害）！', 'rarity-legendary');
       }
     }
 
@@ -588,10 +588,10 @@ export class WeaponResonanceService {
               state._cds[k] = Math.max(realNow, state._cds[k] - 1000);
             }
           }
-          if (callbacks.floatText) callbacks.floatText('⚡ ACELERAÇÃO ARCANA (-1s CD)', 'float-jackpot');
-          if (callbacks.log) callbacks.log('⚡ Feiticeiro da Lâmina: Pulso Arcano reduziu o tempo de recarga de feitiços em 1s!', 'rarity-legendary');
+          if (callbacks.floatText) callbacks.floatText('⚡ 奧術加速（CD -1 秒）', 'float-jackpot');
+          if (callbacks.log) callbacks.log('⚡ 魔刃術士：奧術脈衝使法術冷卻時間縮短 1 秒！', 'rarity-legendary');
         } else {
-          if (callbacks.floatText) callbacks.floatText('🔮 LÂMINA ARCANA!', 'float-epic');
+          if (callbacks.floatText) callbacks.floatText('🔮 奧術之刃！', 'float-epic');
         }
       }
     }
@@ -615,7 +615,7 @@ export class WeaponResonanceService {
         state.resonanceState.state = 'ARMED';
         state.resonanceState.phalanxCleave = true;
         if (callbacks.floatText) callbacks.floatText('⚔ TACTICAL FRACTURE (ARMED)', 'float-epic');
-        if (callbacks.log) callbacks.log('⚔ Fratura Tática armada! Próximo ataque de Lança causará Estocada Tática com +45% de dano!', 'combat');
+        if (callbacks.log) callbacks.log('⚔ 戰術破甲已準備！下一次長槍攻擊將觸發戰術突刺，傷害 +45%！', 'combat');
       }
     }
   }
@@ -671,7 +671,7 @@ export class WeaponResonanceService {
         monster._tempPdefReductionUntil = realNow + 5000; // -10% P.Def
         extraEffects.push('vacuum_wave');
 
-        if (callbacks.floatText) callbacks.floatText(`🌪️ CORTE DE VÁCUO (+${stacks * 8}%)!`, 'float-jackpot');
+        if (callbacks.floatText) callbacks.floatText(`🌪️ 真空斬（+${stacks * 8}%）！`, 'float-jackpot');
         if (callbacks.log) callbacks.log(`🌪️ Golpe Cortante liberado (${stacks} cargas): ${finalDamage.toLocaleString()} de Dano e Armadura desgastada (-10% P.Def)!`, 'rarity-rare');
       }
     }
@@ -684,8 +684,8 @@ export class WeaponResonanceService {
         const toxinMult = 1 + (toks * 0.10); // Até +30% dano
         finalDamage = Math.floor(finalDamage * toxinMult);
         extraEffects.push('viper_detonation');
-        if (callbacks.floatText) callbacks.floatText(`💥 ESTOCADA TÓXICA (+${toks * 10}%)!`, 'float-jackpot');
-        if (callbacks.log) callbacks.log(`💥 Toxina detonada pela Lança: ${finalDamage.toLocaleString()} de Dano Hemorrágico (+${toks * 10}%)!`, 'rarity-legendary');
+        if (callbacks.floatText) callbacks.floatText(`💥 劇毒突刺（+${toks * 10}%）！`, 'float-jackpot');
+        if (callbacks.log) callbacks.log(`💥 長槍引爆毒素：造成 ${finalDamage.toLocaleString()} 流血傷害（+${toks * 10}%）！`, 'rarity-legendary');
       }
     }
 
@@ -697,7 +697,7 @@ export class WeaponResonanceService {
         state.resonanceState.phalanxCleave = true;
         extraEffects.push('tactical_fracture_armed');
         if (callbacks.floatText) callbacks.floatText('⚔ TACTICAL FRACTURE (ARMED)', 'float-epic');
-        if (callbacks.log) callbacks.log('⚔ Comandante de Falange: Fratura Tática armada pela Espada! Próximo ataque de Lança desfere Estocada Tática (+45%)!', 'combat');
+        if (callbacks.log) callbacks.log('⚔ 方陣指揮官：劍已啟動戰術破甲！下一次長槍攻擊將施展戰術突刺（+45%）！', 'combat');
       } else if (weaponTypeUsed === 'spear') {
         if (state.resonanceState.tacticalFracture === 'ARMED' || state.resonanceState.phalanxCleave) {
           state.resonanceState.tacticalFracture = 'INACTIVE';
@@ -708,7 +708,7 @@ export class WeaponResonanceService {
           finalDamage = CleaveDamage;
           extraEffects.push('phalanx_cleave');
           if (callbacks.floatText) callbacks.floatText('🔱 CLEAVE (+45%)', 'float-jackpot');
-          if (callbacks.log) callbacks.log(`🔱 Fratura Tática detonada! Estocada de Lança desferida: ${CleaveDamage.toLocaleString()} (+45%)!`, 'rarity-legendary');
+          if (callbacks.log) callbacks.log(`🔱 戰術破甲引爆！長槍突刺造成 ${CleaveDamage.toLocaleString()} 傷害（+45%）！`, 'rarity-legendary');
         }
       }
     }
@@ -720,8 +720,8 @@ export class WeaponResonanceService {
         finalDamage = Math.floor(finalDamage * 1.20);
         extraEffects.push('holy_penetration');
 
-        if (callbacks.floatText) callbacks.floatText('💥 RETRIBUIÇÃO SAGRADA! (+20%)', 'float-jackpot');
-        if (callbacks.log) callbacks.log(`💥 Retribuição Sagrada desferida com a Espada de 2 Mãos: ${finalDamage.toLocaleString()} de Dano focado!`, 'rarity-legendary');
+        if (callbacks.floatText) callbacks.floatText('💥 神聖懲戒！（+20%）', 'float-jackpot');
+        if (callbacks.log) callbacks.log(`💥 雙手劍施放神聖懲戒：造成 ${finalDamage.toLocaleString()} 集中傷害！`, 'rarity-legendary');
       }
     }
 
@@ -734,8 +734,8 @@ export class WeaponResonanceService {
         state.mp = Math.min(state.maxMp || 100, (state.mp || 0) + mpRestored);
         extraEffects.push('mana_restored');
 
-        if (callbacks.floatText) callbacks.floatText(`🔮 LÂMINA ARCANA (+${mpRestored} MP)`, 'float-gold');
-        if (callbacks.log) callbacks.log(`🔮 Lâmina Arcana atingiu o alvo com dano híbrido (+${mpRestored} MP recuperados)!`, 'heal');
+        if (callbacks.floatText) callbacks.floatText(`🔮 奧術之刃（+${mpRestored} MP）`, 'float-gold');
+        if (callbacks.log) callbacks.log(`🔮 奧術之刃以混合傷害命中目標（恢復 +${mpRestored} MP）！`, 'heal');
       }
     }
 
