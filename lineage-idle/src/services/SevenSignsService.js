@@ -124,7 +124,7 @@ export class SevenSignsService {
     const playerDmg = Math.max(100, Math.floor((playerStats.atk || 1500) * 1.5 - fight.pDef * 0.4));
     fight.bossHp = Math.max(0, fight.bossHp - playerDmg);
 
-    hooks.log?.(`⚔️ Você desferiu **${playerDmg.toLocaleString()}** de dano em **${boss.name}** (HP: ${fight.bossHp.toLocaleString()} / ${fight.maxHp.toLocaleString()})`, 'combat');
+    hooks.log?.(`⚔️ 你對 **${boss.name}** 造成 **${playerDmg.toLocaleString()}** 傷害（HP：${fight.bossHp.toLocaleString()} / ${fight.maxHp.toLocaleString()}）`, 'combat');
 
     if (fight.bossHp <= 0) {
       // Vitória!
@@ -144,7 +144,7 @@ export class SevenSignsService {
       }
 
       ss.activeBossFight = null;
-      hooks.log?.(`🏆 VITÓRIA GLORIOSA! Você derrotou **${boss.name}**! Recompensas: +${boss.rewards.aa.toLocaleString()} AA, +${boss.rewards.xp.toLocaleString()} XP e Itens Supremos!`, 'victory');
+      hooks.log?.(`🏆 榮耀勝利！你擊敗了 **${boss.name}**！獎勵：+${boss.rewards.aa.toLocaleString()} AA、+${boss.rewards.xp.toLocaleString()} XP 與頂級物品！`, 'victory');
       hooks.onUpdate?.();
       return { success: true, isVictory: true, rewards: boss.rewards };
     }
@@ -181,7 +181,7 @@ export class SevenSignsService {
       count: 1
     });
 
-    hooks.log?.(`🛒 Você adquiriu **${item.name}** do Merchant of Mammon por **${item.costAA.toLocaleString()} AA**!`, 'gain');
+    hooks.log?.(`🛒 你以 **${item.costAA.toLocaleString()} AA** 從瑪門商人購買了 **${item.name}**！`, 'gain');
     hooks.onUpdate?.();
     return { success: true, item };
   }
@@ -316,7 +316,7 @@ export class SevenSignsService {
     }
 
     hooks.log?.(
-      `💀 **PENALIDADE DE MORTE:** Você perdeu -${expLost.toLocaleString()} EXP! ${droppedItem ? `💥 Um item [${droppedItem.name || droppedItem.id}] caiu no chão!` : ''}`,
+      `💀 **死亡懲罰：**你損失了 ${expLost.toLocaleString()} EXP！${droppedItem ? `💥 物品【${droppedItem.name || droppedItem.id}】掉落在地上！` : ''}`,
       'danger'
     );
     hooks.onUpdate?.();
