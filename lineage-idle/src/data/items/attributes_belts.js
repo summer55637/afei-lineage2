@@ -32,7 +32,7 @@ export const BELT_ITEMS = {
   belt_leather: { id: 'belt_leather', name: '皮革腰帶［D 級］', slot: 'belt', tier: 2, rarity: 'rare', price: 25000, icon: 'graded/armors/armor_brigandine_belt.png', desc: '強化皮革腰帶。負重上限 +1000、物理防禦 +10。' },
   belt_iron: { id: 'belt_iron', name: '鐵製腰帶［C 級］', slot: 'belt', tier: 3, rarity: 'epic', price: 75000, icon: 'gradec/armors/armor_full_plate_belt.png', desc: '鑲鐵腰帶。負重上限 +1500、物理防禦 +20。' },
   belt_mithril: { id: 'belt_mithril', name: '米索莉腰帶［B 級］', slot: 'belt', tier: 4, rarity: 'epic', price: 200000, icon: 'gradeb/armors/armor_blue_wolf_belt.png', desc: '附魔米索莉腰帶。負重上限 +2000、物理防禦 +35。' },
-  belt_blessed_top: { id: 'belt_blessed_top', name: '祝福最高級魔法飾品腰帶［S］', slot: 'belt', tier: 6, rarity: 'legendary', price: 1000000, icon: 'gradespecial/armors/armor_nobless_belt.png', desc: '至高神聖腰帶：整體防禦（PvE）+7.2%、物理傷害與技能傷害 +6%。' }
+  belt_blessed_top: { id: 'belt_blessed_top', name: '祝福最高級魔法飾品腰帶［S］', slot: 'belt', tier: 6, rarity: 'legendary', price: 1000000, icon: 'gradespecial/armors/armor_nobless_belt.png', desc: '至高神聖腰帶：整體防禦（一般狩獵）+7.2%、物理傷害與技能傷害 +6%。' }
 };
 
 export function getAttributeDamageBonus(attackerAttr = 0, targetAttrDef = 0) {
@@ -49,10 +49,10 @@ export const BELT_COMPOUND_RATES = {
 };
 
 export const SUPERIOR_LIFE_STONE_AUGMENTS = [
-  { id: 'might', name: '物品技能：力量', desc: '物理攻擊 +8%（一般 PvE）。', pAtkMult: 0.08 },
-  { id: 'empower', name: '物品技能：魔力強化', desc: '魔法攻擊 +15%（一般 PvE）。', mAtkMult: 0.15 },
-  { id: 'shield', name: '物品技能：盾牌', desc: '物理防禦 +10%（一般 PvE）。', pDefMult: 0.10 },
-  { id: 'magicBarrier', name: '物品技能：魔法屏障', desc: '魔法防禦 +12%（一般 PvE）。', mDefMult: 0.12 },
+  { id: 'might', name: '物品技能：力量', desc: '物理攻擊 +8%（一般狩獵）。', pAtkMult: 0.08 },
+  { id: 'empower', name: '物品技能：魔力強化', desc: '魔法攻擊 +15%（一般狩獵）。', mAtkMult: 0.15 },
+  { id: 'shield', name: '物品技能：盾牌', desc: '物理防禦 +10%（一般狩獵）。', pDefMult: 0.10 },
+  { id: 'magicBarrier', name: '物品技能：魔法屏障', desc: '魔法防禦 +12%（一般狩獵）。', mDefMult: 0.12 },
   { id: 'focus', name: '物品技能：專注', desc: '物理暴擊率 +50 點。', critRateAdd: 50 },
   { id: 'wildMagic', name: '物品技能：野性魔力', desc: '魔法暴擊率 +4 點。', mCritAdd: 4 },
   { id: 'vampiricRage', name: '物品技能：吸血狂怒', desc: '吸血狂怒 +6%。', lifestealAdd: 0.06 }
