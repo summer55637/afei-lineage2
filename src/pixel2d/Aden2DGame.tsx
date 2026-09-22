@@ -512,7 +512,7 @@ export default function Aden2DGame() {
             try { if (w.checkLevelUp) w.checkLevelUp(); } catch (_) {}
             try { if (w.saveGameState) w.saveGameState(); } catch (_) {}
           }
-          addFloat(`+${currentMonster.xpReward} XP`, canvas.width / 2, canvas.height * 0.4, '#ffff00');
+          addFloat(`+${currentMonster.xpReward} 經驗值`, canvas.width / 2, canvas.height * 0.4, '#ffff00');
           addFloat(`+${currentMonster.goldReward} 金幣`, canvas.width / 2, canvas.height * 0.45, '#ffd700');
 
           gameStateRef.current = CombatState.VICTORY_LOOT;
