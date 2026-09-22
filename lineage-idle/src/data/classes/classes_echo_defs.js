@@ -171,87 +171,87 @@ const CLASSES_ECHO = {
       { name: "騎士和諧",      type: "Self-Buff",rarity: "2★", effect: "+25% DEF e +20% HP por 20 min",    cooldown: "45 min", desc: "騎士的戰鬥和諧。" },
       { name: "重甲精通",   type: "Passivo",  rarity: "1★", effect: "+15% DEF com armadura pesada",     cooldown: "N/A",    desc: "精通重型防具。" },
       { name: "盾牌精通",        type: "Passivo",  rarity: "1★", effect: "+15% Block Rate",                  cooldown: "N/A",    desc: "精通盾牌防禦。" },
-      { name: "Sword/Blunt Mastery",   type: "Passivo",  rarity: "1★", effect: "+10% ATK espada/blunt",            cooldown: "N/A",    desc: "Maestria em espadas." },
-      { name: "HP Increase Lv2",       type: "Passivo",  rarity: "1★", effect: "+12% Max HP",                      cooldown: "N/A",    desc: "Constituição reforçada." },
-      { name: "Deflect Arrow",         type: "Passivo",  rarity: "1★", effect: "+10% chance desviar projéteis",    cooldown: "N/A",    desc: "Desvio de projéteis." }
+      { name: "劍／鈍器精通",   type: "Passivo",  rarity: "1★", effect: "+10% ATK espada/blunt",            cooldown: "N/A",    desc: "精通劍類武器。" },
+      { name: "HP 提升 Lv2",       type: "Passivo",  rarity: "1★", effect: "+12% Max HP",                      cooldown: "N/A",    desc: "進一步強化體質。" },
+      { name: "箭矢偏轉",         type: "Passivo",  rarity: "1★", effect: "+10% chance desviar projéteis",    cooldown: "N/A",    desc: "提高對投射物的閃避能力。" }
     ]
   },
 
   // ─── PALADIN (2ª classe) ───
   paladin: {
-    name: 'Paladin', parent: 'knight', stage: 2,
-    desc: 'Cavaleiro sagrado, tank com cura e proteção. Skills anteriores permanecem.',
+    name: '聖騎士', parent: 'knight', stage: 2,
+    desc: '兼具治療與守護能力的神聖騎士。保留先前學會的技能。',
     base: { atk: 38, def: 65, hp: 520, mp: 100, eva: 5, crit: 6, mdef: 42 },
     skills: [
-      { name: "Shield Stun",           type: "Ativo",    rarity: "2★", effect: "Dano 210% + stun 3s",             cooldown: "18s",    desc: "Escudada atordoante." },
-      { name: "Holy Blade",            type: "Ativo",    rarity: "2★", effect: "Dano sagrado 260%",               cooldown: "16s",    desc: "Lâmina sagrada." },
-      { name: "Holy Strike",           type: "Ativo",    rarity: "3★", effect: "Dano sagrado 320% + undead 2x",   cooldown: "20s",    desc: "Golpe sagrado devastador." },
-      { name: "Majesty",               type: "Ativo",    rarity: "3★", effect: "Não pode morrer por 7s (HP min 1)",cooldown: "180s",  desc: "Majestade divina." },
-      { name: "Angelic Icon",          type: "Self-Buff",rarity: "3★", effect: "+30% DEF, +30% M.DEF por 30s",    cooldown: "120s",   desc: "Ícone angelical." },
-      { name: "Sacrifice",             type: "Ativo",    rarity: "2★", effect: "Cura aliado 30% HP (gasta 10% próprio)",cooldown: "25s",desc: "Sacrifício pelo aliado." },
-      { name: "Aegis",                 type: "Ativo",    rarity: "2★", effect: "+60% Block Rate por 15s",         cooldown: "45s",    desc: "Aegis defensivo." },
-      { name: "Vengeance",             type: "Ativo",    rarity: "3★", effect: "Reflete 30% dano recebido por 15s",cooldown: "60s",   desc: "Vingança sagrada." },
-      { name: "Ultimate Defense",      type: "Ativo",    rarity: "3★", effect: "+80% DEF, -50% ATK por 15s",      cooldown: "120s",   desc: "Defesa absoluta." },
-      { name: "Holy Blessing",         type: "Ativo",    rarity: "2★", effect: "Remove 2 debuffs",                cooldown: "30s",    desc: "Bênção purificadora." },
-      { name: "Summon Storm Cubic",    type: "Ativo",    rarity: "2★", effect: "Invoca cubic de dano lightning",   cooldown: "60s",    desc: "Cubic de tempestade." },
-      { name: "Provoke",               type: "Ativo",    rarity: "1★", effect: "Taunt + aggro forte",             cooldown: "8s",     desc: "Provocação." },
-      { name: "Paladin's Harmony",     type: "Self-Buff",rarity: "3★", effect: "+40% DEF, +30% HP, +20% M.DEF 25min",cooldown: "60 min",desc: "Harmonia do paladino." },
-      { name: "Resist Holy/Dark",      type: "Passivo",  rarity: "2★", effect: "+15% resist holy/dark",           cooldown: "N/A",    desc: "Resistência sagrada." },
-      { name: "Boost HP",              type: "Passivo",  rarity: "2★", effect: "+18% Max HP",                     cooldown: "N/A",    desc: "HP expandido." }
+      { name: "盾牌暈擊",           type: "Ativo",    rarity: "2★", effect: "Dano 210% + stun 3s",             cooldown: "18s",    desc: "以盾牌重擊使敵人暈眩。" },
+      { name: "神聖之刃",            type: "Ativo",    rarity: "2★", effect: "Dano sagrado 260%",               cooldown: "16s",    desc: "以神聖力量強化刀刃。" },
+      { name: "神聖打擊",           type: "Ativo",    rarity: "3★", effect: "Dano sagrado 320% + undead 2x",   cooldown: "20s",    desc: "施展強力神聖打擊。" },
+      { name: "威嚴",               type: "Ativo",    rarity: "3★", effect: "Não pode morrer por 7s (HP min 1)",cooldown: "180s",  desc: "獲得神聖威嚴。" },
+      { name: "天使聖像",          type: "Self-Buff",rarity: "3★", effect: "+30% DEF, +30% M.DEF por 30s",    cooldown: "120s",   desc: "召喚天使般的神聖力量。" },
+      { name: "犧牲",             type: "Ativo",    rarity: "2★", effect: "Cura aliado 30% HP (gasta 10% próprio)",cooldown: "25s",desc: "犧牲自身力量守護盟友。" },
+      { name: "神盾",                 type: "Ativo",    rarity: "2★", effect: "+60% Block Rate por 15s",         cooldown: "45s",    desc: "展開強力防禦。" },
+      { name: "復仇",             type: "Ativo",    rarity: "3★", effect: "Reflete 30% dano recebido por 15s",cooldown: "60s",   desc: "以神聖力量反擊敵人。" },
+      { name: "終極防禦",      type: "Ativo",    rarity: "3★", effect: "+80% DEF, -50% ATK por 15s",      cooldown: "120s",   desc: "進入近乎絕對的防禦狀態。" },
+      { name: "神聖祝福",         type: "Ativo",    rarity: "2★", effect: "Remove 2 debuffs",                cooldown: "30s",    desc: "施放具有淨化效果的祝福。" },
+      { name: "召喚風暴晶體",    type: "Ativo",    rarity: "2★", effect: "Invoca cubic de dano lightning",   cooldown: "60s",    desc: "召喚風暴晶體協助戰鬥。" },
+      { name: "挑釁",               type: "Ativo",    rarity: "1★", effect: "Taunt + aggro forte",             cooldown: "8s",     desc: "挑釁敵人並吸引其注意。" },
+      { name: "聖騎士和諧",     type: "Self-Buff",rarity: "3★", effect: "+40% DEF, +30% HP, +20% M.DEF 25min",cooldown: "60 min",desc: "聖騎士的戰鬥和諧。" },
+      { name: "神聖／黑暗抗性",      type: "Passivo",  rarity: "2★", effect: "+15% resist holy/dark",           cooldown: "N/A",    desc: "提高神聖與黑暗屬性抗性。" },
+      { name: "HP 強化",              type: "Passivo",  rarity: "2★", effect: "+18% Max HP",                     cooldown: "N/A",    desc: "擴充最大 HP。" }
     ]
   },
 
   // ─── PHOENIX KNIGHT (3ª classe) ───
   phoenixKnight: {
-    name: 'Phoenix Knight', parent: 'paladin', stage: 3,
-    desc: 'Cavaleiro da Fênix, tank supremo com ressurreição. Skills anteriores permanecem.',
+    name: '鳳凰騎士', parent: 'paladin', stage: 3,
+    desc: '擁有復活力量的至高防禦騎士。保留先前學會的技能。',
     base: { atk: 72, def: 105, hp: 850, mp: 140, eva: 6, crit: 8, mdef: 68 },
     skills: [
-      { name: "Touch of Life",                type: "Ativo",    rarity: "3★", effect: "Cura AoE 25% HP (party)",               cooldown: "35s",    desc: "Toque vital da fênix." },
-      { name: "Phoenix Aura",                 type: "Self-Buff",rarity: "3★", effect: "+45% DEF, +HP Regen 3%/s por 25min",    cooldown: "60 min", desc: "Aura da fênix." },
-      { name: "Shield of Faith",              type: "Ativo",    rarity: "3★", effect: "Absorve 5000 dano por 15s",             cooldown: "90s",    desc: "Escudo de fé." },
-      { name: "Flame Icon",                   type: "Ativo",    rarity: "3★", effect: "+35% ATK para party por 30s",           cooldown: "120s",   desc: "Ícone de chamas." },
-      { name: "Celestial Shield",             type: "Ativo",    rarity: "4★", effect: "Party imune a dano por 5s",             cooldown: "300s",   desc: "Escudo celestial absoluto." },
-      { name: "Summon Imperial Phoenix",      type: "Ativo",    rarity: "4★", effect: "Invoca fênix (dano+cura contínua 30s)", cooldown: "180s",   desc: "Fênix Imperial." },
-      { name: "Transcendent Shield Charge",   type: "Ativo",    rarity: "4★", effect: "Rush + 500% dano + AoE taunt 10s",     cooldown: "160s",   desc: "Investida transcendente." },
-      { name: "Phoenix Knight's Harmony",     type: "Self-Buff",rarity: "4★", effect: "+60% DEF, +40% HP, +30% M.DEF 30min",  cooldown: "90 min", desc: "Harmonia suprema." },
-      { name: "Spirit of Phoenix",            type: "Passivo",  rarity: "4★", effect: "Ao morrer: revive com 30% HP (1x/30min)",cooldown: "N/A",   desc: "Espírito da fênix — auto-ressurreição." },
-      { name: "Master of Combat",             type: "Passivo",  rarity: "3★", effect: "+10% ATK, +15% aggro, +5% PvE",        cooldown: "N/A",    desc: "Mestre do combate." },
-      { name: "Protection of Faith",          type: "Passivo",  rarity: "3★", effect: "+12% resist all",                      cooldown: "N/A",    desc: "Proteção da fé." },
-      { name: "Body of the Phoenix",          type: "Passivo",  rarity: "3★", effect: "+15% Max HP, +10% DEF",                cooldown: "N/A",    desc: "Corpo da fênix." }
+      { name: "生命之觸",                type: "Ativo",    rarity: "3★", effect: "Cura AoE 25% HP (party)",               cooldown: "35s",    desc: "施展鳳凰的生命之觸。" },
+      { name: "鳳凰光環",                 type: "Self-Buff",rarity: "3★", effect: "+45% DEF, +HP Regen 3%/s por 25min",    cooldown: "60 min", desc: "釋放鳳凰之力形成光環。" },
+      { name: "信仰之盾",              type: "Ativo",    rarity: "3★", effect: "Absorve 5000 dano por 15s",             cooldown: "90s",    desc: "以信仰之力展開護盾。" },
+      { name: "烈焰聖像",                   type: "Ativo",    rarity: "3★", effect: "+35% ATK para party por 30s",           cooldown: "120s",   desc: "召喚烈焰之力。" },
+      { name: "天界之盾",             type: "Ativo",    rarity: "4★", effect: "Party imune a dano por 5s",             cooldown: "300s",   desc: "展開強大的天界護盾。" },
+      { name: "召喚帝國鳳凰",      type: "Ativo",    rarity: "4★", effect: "Invoca fênix (dano+cura contínua 30s)", cooldown: "180s",   desc: "召喚帝國鳳凰協助戰鬥。" },
+      { name: "超越盾牌衝鋒",   type: "Ativo",    rarity: "4★", effect: "Rush + 500% dano + AoE taunt 10s",     cooldown: "160s",   desc: "施展超越極限的盾牌突進。" },
+      { name: "鳳凰騎士和諧",     type: "Self-Buff",rarity: "4★", effect: "+60% DEF, +40% HP, +30% M.DEF 30min",  cooldown: "90 min", desc: "鳳凰騎士的至高戰鬥和諧。" },
+      { name: "鳳凰之魂",            type: "Passivo",  rarity: "4★", effect: "Ao morrer: revive com 30% HP (1x/30min)",cooldown: "N/A",   desc: "鳳凰之魂可賦予自動復活能力。" },
+      { name: "戰鬥大師",             type: "Passivo",  rarity: "3★", effect: "+10% ATK, +15% aggro, +5% PvE",        cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
+      { name: "信仰守護",          type: "Passivo",  rarity: "3★", effect: "+12% resist all",                      cooldown: "N/A",    desc: "以信仰之力獲得守護。" },
+      { name: "鳳凰之軀",          type: "Passivo",  rarity: "3★", effect: "+15% Max HP, +10% DEF",                cooldown: "N/A",    desc: "獲得鳳凰般強韌的身軀。" }
     ]
   },
 
   // ─── DARK AVENGER (2ª classe) ───
   darkAvenger: {
-    name: 'Dark Avenger', parent: 'knight', stage: 2,
-    desc: 'Cavaleiro sombrio com pantera e drain. Skills anteriores permanecem.',
+    name: '黑暗復仇者', parent: 'knight', stage: 2,
+    desc: '與黑暗豹並肩作戰並汲取生命的黑暗騎士。保留先前學會的技能。',
     base: { atk: 45, def: 55, hp: 480, mp: 90, eva: 5, crit: 8, mdef: 35 },
     skills: [
-      { name: "Summon Dark Panther",    type: "Ativo",    rarity: "3★", effect: "Invoca pantera (ATK 60% do dono)",    cooldown: "90s",    desc: "Pantera das trevas." },
-      { name: "Drain Health",           type: "Ativo",    rarity: "2★", effect: "Dano 220% + drena 30% como HP",      cooldown: "15s",    desc: "Drena vida do inimigo." },
-      { name: "Horror",                 type: "Ativo",    rarity: "2★", effect: "Medo no alvo por 5s",                cooldown: "30s",    desc: "Terror sombrio." },
-      { name: "Shield Stun",            type: "Ativo",    rarity: "2★", effect: "Dano 200% + stun 3s",               cooldown: "18s",    desc: "Escudada atordoante." },
-      { name: "Judgment",               type: "Ativo",    rarity: "3★", effect: "Dano dark 300% + -20% DEF 10s",     cooldown: "22s",    desc: "Julgamento sombrio." },
-      { name: "Touch of Death",         type: "Ativo",    rarity: "3★", effect: "Dano 280% + poison 10s",            cooldown: "20s",    desc: "Toque mortal." },
-      { name: "Dark Flame",             type: "Ativo",    rarity: "2★", effect: "Dano AoE dark 240%",                cooldown: "18s",    desc: "Chamas sombrias." },
-      { name: "Doom Shield",            type: "Ativo",    rarity: "3★", effect: "Absorve 3000 dano + reflete 15%",   cooldown: "60s",    desc: "Escudo da perdição." },
-      { name: "Seed of Revenge",        type: "Ativo",    rarity: "2★", effect: "Marca: ao morrer causa 500% dano",  cooldown: "120s",   desc: "Semente da vingança." },
-      { name: "Dark Avenger's Harmony", type: "Self-Buff",rarity: "3★", effect: "+35% ATK, +30% DEF, +20% drain 25min",cooldown: "60 min",desc: "Harmonia sombria." },
-      { name: "Reflect Damage",         type: "Passivo",  rarity: "2★", effect: "Reflete 8% dano recebido",          cooldown: "N/A",    desc: "Reflexo de dano." },
-      { name: "Boost HP",               type: "Passivo",  rarity: "2★", effect: "+16% Max HP",                       cooldown: "N/A",    desc: "HP reforçado." }
+      { name: "召喚黑暗豹",    type: "Ativo",    rarity: "3★", effect: "Invoca pantera (ATK 60% do dono)",    cooldown: "90s",    desc: "召喚黑暗豹協助戰鬥。" },
+      { name: "生命吸取",           type: "Ativo",    rarity: "2★", effect: "Dano 220% + drena 30% como HP",      cooldown: "15s",    desc: "吸取敵人的生命力。" },
+      { name: "恐懼",                 type: "Ativo",    rarity: "2★", effect: "Medo no alvo por 5s",                cooldown: "30s",    desc: "以黑暗力量使敵人陷入恐懼。" },
+      { name: "盾牌暈擊",            type: "Ativo",    rarity: "2★", effect: "Dano 200% + stun 3s",               cooldown: "18s",    desc: "以盾牌重擊使敵人暈眩。" },
+      { name: "審判",               type: "Ativo",    rarity: "3★", effect: "Dano dark 300% + -20% DEF 10s",     cooldown: "22s",    desc: "施展黑暗審判。" },
+      { name: "死亡之觸",         type: "Ativo",    rarity: "3★", effect: "Dano 280% + poison 10s",            cooldown: "20s",    desc: "以死亡力量侵蝕敵人。" },
+      { name: "黑暗火焰",             type: "Ativo",    rarity: "2★", effect: "Dano AoE dark 240%",                cooldown: "18s",    desc: "釋放黑暗火焰。" },
+      { name: "末日之盾",            type: "Ativo",    rarity: "3★", effect: "Absorve 3000 dano + reflete 15%",   cooldown: "60s",    desc: "展開末日之盾。" },
+      { name: "復仇種子",        type: "Ativo",    rarity: "2★", effect: "Marca: ao morrer causa 500% dano",  cooldown: "120s",   desc: "種下復仇之力。" },
+      { name: "黑暗復仇者和諧", type: "Self-Buff",rarity: "3★", effect: "+35% ATK, +30% DEF, +20% drain 25min",cooldown: "60 min",desc: "黑暗復仇者的戰鬥和諧。" },
+      { name: "傷害反射",         type: "Passivo",  rarity: "2★", effect: "Reflete 8% dano recebido",          cooldown: "N/A",    desc: "反射受到的部分傷害。" },
+      { name: "HP 強化",               type: "Passivo",  rarity: "2★", effect: "+16% Max HP",                       cooldown: "N/A",    desc: "強化 HP。" }
     ]
   },
 
   // ─── HELL KNIGHT (3ª classe) ───
   hellKnight: {
-    name: 'Hell Knight', parent: 'darkAvenger', stage: 3,
-    desc: 'Cavaleiro infernal com aura de trevas. Skills anteriores permanecem.',
+    name: '地獄騎士', parent: 'darkAvenger', stage: 3,
+    desc: '操控黑暗光環的地獄騎士。保留先前學會的技能。',
     base: { atk: 82, def: 88, hp: 780, mp: 130, eva: 6, crit: 12, mdef: 55 },
     skills: [
-      { name: "Insane Crusher",               type: "Ativo",    rarity: "3★", effect: "Dano 420% + stun 4s",                    cooldown: "28s",    desc: "Esmagamento insano." },
-      { name: "Panther Cancel",               type: "Ativo",    rarity: "3★", effect: "Pantera explode: AoE 350% + fear 3s",    cooldown: "60s",    desc: "Explosão da pantera." },
-      { name: "Anthem of Hell",               type: "Self-Buff",rarity: "3★", effect: "+40% ATK, +20% drain HP por 30s",        cooldown: "90s",    desc: "Hino infernal." },
+      { name: "瘋狂粉碎",               type: "Ativo",    rarity: "3★", effect: "Dano 420% + stun 4s",                    cooldown: "28s",    desc: "施展狂暴的粉碎攻擊。" },
+      { name: "黑豹爆破",               type: "Ativo",    rarity: "3★", effect: "Pantera explode: AoE 350% + fear 3s",    cooldown: "60s",    desc: "引爆黑暗豹的力量。" },
+      { name: "地獄頌歌",               type: "Self-Buff",rarity: "3★", effect: "+40% ATK, +20% drain HP por 30s",        cooldown: "90s",    desc: "吟唱地獄的戰鬥頌歌。" },
       { name: "Gehenna",                      type: "Ativo",    rarity: "4★", effect: "AoE dark 500% + -30% heal recebida 10s", cooldown: "120s",   desc: "Portão do inferno." },
       { name: "Touch of Darkness",            type: "Ativo",    rarity: "3★", effect: "Dano 380% + silence 5s",                 cooldown: "30s",    desc: "Toque das trevas." },
       { name: "Summon Dark Panther Enhanced",  type: "Ativo",    rarity: "4★", effect: "Pantera aprimorada (ATK 80% do dono)",   cooldown: "120s",   desc: "Pantera das trevas aprimorada." },
