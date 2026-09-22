@@ -8934,7 +8934,7 @@ export function renderCompoundModal(container, state) {
   container.innerHTML = `
     <div style="background:linear-gradient(180deg, rgba(20,16,32,0.98), rgba(10,8,16,0.98)); border:1px solid rgba(168,85,247,0.5); border-radius:14px; max-width:550px; width:100%; padding:20px; color:#fff; font-family:sans-serif; box-shadow:0 10px 30px rgba(0,0,0,0.8);">
       <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(168,85,247,0.3); padding-bottom:12px; margin-bottom:16px;">
-        <h3 style="margin:0; font-family:'Cinzel',serif; color:#f4d58a; font-size:18px;">🧪 合成系統（L2 Essence）</h3>
+        <h3 style="margin:0; font-family:'Cinzel',serif; color:#f4d58a; font-size:18px;">🧪 合成系統（天堂 2 精髓版）</h3>
         <button onclick="window.closeCompoundModal()" style="background:none; border:none; color:#aaa; font-size:20px; cursor:pointer;">✕</button>
       </div>
 
@@ -10004,7 +10004,7 @@ export function renderOlympiadTab(container, state) {
       <div style="background:rgba(15,23,42,0.6); border:1px solid rgba(255,215,0,0.25); border-radius:10px; padding:16px; margin-bottom:16px;">
         <div style="text-align:center; margin-bottom:16px;">
           <h3 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#fde047; font-size:18px;">🏟️ 亞丁帝國競技場</h3>
-          <p style="margin:0; font-size:12px; color:#cbd5e1;">與積分相近的鬥士進行 1 對 1 戰鬥。 勝利可獲得 ELO 積分與 <strong>奧林匹亞代幣</strong>!</p>
+          <p style="margin:0; font-size:12px; color:#cbd5e1;">與積分相近的鬥士進行 1 對 1 戰鬥。 勝利可獲得競技積分與 <strong>奧林匹亞代幣</strong>!</p>
         </div>
 
         <div style="display:grid; grid-template-columns:1fr auto 1fr; gap:12px; align-items:center; margin-bottom:16px;">
@@ -10292,7 +10292,7 @@ export function renderOlympiadTab(container, state) {
               </div>
             </div>
             <div style="background:rgba(0,0,0,0.55); border:1px solid #ffd700; border-radius:8px; padding:6px 12px; text-align:center;">
-              <div style="font-size:9.5px; color:#cbd5e1; text-transform:uppercase;">ELO 積分</div>
+              <div style="font-size:9.5px; color:#cbd5e1; text-transform:uppercase;">競技積分</div>
               <div style="font-size:13px; font-weight:bold; color:#fde047;">🏆 ${olyStatus.points} 點</div>
             </div>
             <div style="background:rgba(0,0,0,0.55); border:1px solid #38bdf8; border-radius:8px; padding:6px 12px; text-align:center;">
