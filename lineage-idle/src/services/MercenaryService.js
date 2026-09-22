@@ -232,7 +232,7 @@ export const MercenaryService = {
     const oldLoyalty = merc.loyalty ?? 50;
     merc.loyalty = Math.max(0, Math.min(100, oldLoyalty + amount));
     if (merc.loyalty >= 80 && oldLoyalty < 80 && callbacks.log) {
-      callbacks.log(`🤝 **${merc.name} 達到狂熱忠誠（Lv.${merc.loyalty}）！** 效率最高且成本降低！`, 'rarity-legendary');
+      callbacks.log(`🤝 **${merc.name} 達到狂熱忠誠（等級 ${merc.loyalty}）！** 效率最高且成本降低！`, 'rarity-legendary');
     }
     return merc.loyalty;
   }
