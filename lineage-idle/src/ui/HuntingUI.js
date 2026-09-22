@@ -107,7 +107,7 @@ export function renderHuntingUI(state) {
           onclick="window.equipHuntingKnife('${kId}')"
           style="padding:4px 10px; font-size:10px; font-weight:bold; background:rgba(212,167,68,0.2); border:1px solid #d4a744; color:#ffd877; border-radius:4px; cursor:pointer;"
         >
-          EMPUNHAR
+          裝備
         </button>
       `;
     } else {
@@ -155,7 +155,7 @@ export function renderHuntingUI(state) {
             <span style="font-size:10px; color:#ffd877; font-weight:bold;">x${count}</span>
           </div>
           <div style="font-size:10px; color:#94a3b8; margin-top:2px;">
-            ${lDef.desc} （每個 ${lDef.buyPrice}g）
+            ${lDef.desc}（每個 ${lDef.buyPrice} 金幣）
           </div>
         </div>
         <div style="display:flex; gap:4px; align-items:center;">
