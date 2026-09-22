@@ -199,7 +199,7 @@ export function renderMarketTab(container, state, callbacks = {}) {
         <div style="display: flex; align-items: center; gap: 8px; flex: 1; max-width: 420px; justify-content: flex-end;">
           <input type="text" id="market-search-input" value="${_searchQuery}" placeholder="🔍 搜尋物品或賣家..." style="flex: 1; background: rgba(0,0,0,0.6); border: 1px solid rgba(212,167,68,0.3); border-radius: 4px; padding: 5px 10px; color: #fff; font-size: 11px; font-family: 'Inter', sans-serif;" />
           <button id="btn-market-refresh" class="l2wt-refresh-btn" title="同步市場刊登">
-            🔄 Refresh
+            🔄 重新整理
           </button>
         </div>
       </div>
@@ -323,7 +323,7 @@ function renderBuyTab(state) {
                     </button>
                   ` : `
                     <button class="l2wt-buy-btn market-buy-btn" data-id="${l.id}">
-                      Buy
+                      購買
                     </button>
                   `}
                 </td>
@@ -682,7 +682,7 @@ function attachMarketEvents(container, state, callbacks = {}) {
   if (refreshBtn) {
     refreshBtn.onclick = async () => {
       refreshBtn.disabled = true;
-      refreshBtn.innerText = '⏳ Sincronizando...';
+      refreshBtn.innerText = '⏳ 同步中...';
       const playerName = state.name || state.charName || '亞丁英雄';
       await MarketService.fetchRemoteListings();
       await MarketService.fetchPlayerSalesFromCloud(playerName);
