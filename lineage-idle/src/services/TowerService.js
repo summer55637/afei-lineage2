@@ -166,7 +166,7 @@ export function completeTowerFloor(state, floorNum, callbacks = {}) {
     state.tower.currentFloor = Math.min(100, floorNum + 1);
 
     const fDef = getTowerFloorDef(floorNum);
-    if (callbacks.log) callbacks.log(`🏆 勝利！已攻略第 ${floorNum} 層！永久 ATK／DEF +${floorNum}%！`, 'rarity-legendary');
+    if (callbacks.log) callbacks.log(`🏆 勝利！已攻略第 ${floorNum} 層！永久攻擊／防禦 +${floorNum}%！`, 'rarity-legendary');
     if (callbacks.floatText) callbacks.floatText(`第 ${floorNum} 層攻略完成！`, 'float-jackpot');
 
     if (fDef.rewardLamps > 0) {
@@ -177,7 +177,7 @@ export function completeTowerFloor(state, floorNum, callbacks = {}) {
       addToInventory(state, fDef.rewardCrystals, 3, null, false, callbacks);
       const gData = D();
       const cName = gData?.ALL_ITEMS?.[fDef.rewardCrystals]?.name || fDef.rewardCrystals;
-      if (callbacks.log) callbacks.log(`✨ 首次擊破獎勵：+3x ${cName}！`, 'rarity-legendary');
+      if (callbacks.log) callbacks.log(`✨ 首次擊破獎勵：+3× ${cName}！`, 'rarity-legendary');
     }
 
     triggerQuestEvent(state, 'boss', 1);
@@ -221,7 +221,7 @@ export function sweepTowerDaily(state, callbacks = {}) {
   state.sp = (state.sp || 0) + totalSp;
 
   if (callbacks.log) callbacks.log(`🧹 高塔掃蕩完成！領取 ${highest} 層獎勵：+${totalGold.toLocaleString()} 金幣、+${totalSp.toLocaleString()} 技能點！`, 'rarity-legendary');
-  if (callbacks.floatText) callbacks.floatText(`+${totalGold.toLocaleString()}g 掃蕩獎勵！`, 'float-jackpot');
+  if (callbacks.floatText) callbacks.floatText(`+${totalGold.toLocaleString()} 金幣掃蕩獎勵！`, 'float-jackpot');
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save(true, true);
