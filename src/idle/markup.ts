@@ -120,7 +120,7 @@ export const IDLE_MARKUP = `
           </button>
           <div style="display:flex; justify-content:space-between; align-items:center; font-size:10px; color:#64748b; border-top:1px dashed rgba(255,255,255,0.06); padding-top:2px; margin-top:2px;">
             <span>編年史</span>
-            <span id="saga-text" class="stat-value" style="color:#94a3b8;">Interlude</span>
+            <span id="saga-text" class="stat-value" style="color:#94a3b8;">間奏曲</span>
           </div>
         </div>
 
@@ -178,7 +178,7 @@ export const IDLE_MARKUP = `
             <span id="gold-text-stat" class="stat-value gold" style="color:#f59e0b; font-weight:bold; font-size:13px;">0</span>
           </div>
           <div style="display:flex; justify-content:space-between; align-items:center; font-size:10px; margin-top:2px;">
-            <span style="color:#64748b;">Renda/s:</span>
+            <span style="color:#64748b;">每秒收入：</span>
             <span id="gps-text" class="stat-value gold-dim" style="font-size:10px;">—</span>
           </div>
           <div style="display:flex; justify-content:space-between; align-items:center; font-size:10px; margin-top:2px; border-top:1px dashed rgba(255,255,255,0.06); padding-top:2px;">
@@ -212,9 +212,9 @@ export const IDLE_MARKUP = `
               <label class="combat-ctrl-btn combat-ctrl-vfx" style="display:inline-flex; align-items:center; gap:4px; cursor:pointer;" title="視覺效果品質">
                 <span>VFX</span>
                 <select id="vfx-quality-select" title="視覺效果品質">
-                  <option value="low">Baixo</option>
+                  <option value="low">低</option>
                   <option value="medium" selected>中等</option>
-                  <option value="high">Alto</option>
+                  <option value="high">高</option>
                 </select>
               </label>
             </div>
@@ -394,7 +394,7 @@ export const IDLE_MARKUP = `
                   <div>
                     <div class="l2-hero-title-group">
                       <h2 class="l2-hero-name" id="portrait-name">Tristan</h2>
-                      <span class="l2-hero-level-tag">Nv. <span id="hero-sheet-level">1</span></span>
+                      <span class="l2-hero-level-tag">等級  <span id="hero-sheet-level">1</span></span>
                     </div>
                     <div class="l2-hero-lineage" style="margin-top: 4px;">
                       <span id="hero-race-class-display">人類 · 戰士</span>
@@ -535,7 +535,7 @@ export const IDLE_MARKUP = `
               <div class="l2-section-header">
                 <span class="l2-section-icon">🛡️</span>
                 <h3>裝備戰力與貢獻</h3>
-                <span class="l2-section-tag">Arsenal Auditado</span>
+                <span class="l2-section-tag">已檢查裝備庫</span>
               </div>
               <p class="l2-section-desc">每件已裝備物品的品級、強化（+0 至 +16）與套裝加成對戰鬥力的影響。</p>
               <div id="char-equipped-power-list" class="l2-equip-power-grid"></div>
@@ -595,7 +595,7 @@ export const IDLE_MARKUP = `
             </div>
           </div>
 
-          <!-- Skills Tab -->
+          <!-- 技能 Tab -->
           <div id="tab-skills" class="tab-pane">
             <div class="skills-head">
               <h3>技能與天賦樹</h3>
@@ -638,7 +638,7 @@ export const IDLE_MARKUP = `
                 <div class="inv-pressure-bar-track" style="width:110px; height:8px; background:rgba(0,0,0,0.7); border:1px solid rgba(212,167,68,0.3); border-radius:4px; overflow:hidden; position:relative;">
                   <div class="inv-pressure-bar-fill" id="inv-capacity-pressure-bar" style="width:0%; height:100%; background:#c8aa6e; transition:width 0.3s ease, background 0.3s ease;"></div>
                 </div>
-                <span class="inv-pressure-bar-label" id="inv-capacity-pressure-label" style="font-size:10px; font-weight:bold; color:#cbd5e1; min-width:80px;">0% Normal</span>
+                <span class="inv-pressure-bar-label" id="inv-capacity-pressure-label" style="font-size:10px; font-weight:bold; color:#cbd5e1; min-width:80px;">0% 一般</span>
               </div>
               <div class="l2inv-window-controls">
                 <button class="l2inv-win-btn forge-shortcut-btn" id="btn-inv-open-forge" title="開啟亞丁鍛造（武器與防具製作）" style="background:rgba(212,167,68,0.2); color:#ffd700; border:1px solid rgba(212,167,68,0.4); font-size:11px; padding:2px 8px; border-radius:4px; cursor:pointer; font-weight:bold;">⚒ 鍛造</button>
@@ -668,11 +668,11 @@ export const IDLE_MARKUP = `
                       <span class="l2inv-pd-icon">👒</span>
                       <span class="l2inv-pd-item" id="pd-item-hair1"></span>
                     </div>
-                    <div class="l2inv-pd-slot equip-slot" data-slot="earring1" title="Brinco 1">
+                    <div class="l2inv-pd-slot equip-slot" data-slot="earring1" title="耳環 1">
                       <span class="l2inv-pd-icon">💎</span>
                       <span class="l2inv-pd-item" id="pd-item-earring1"></span>
                     </div>
-                    <div class="l2inv-pd-slot equip-slot" data-slot="necklace" title="Colar">
+                    <div class="l2inv-pd-slot equip-slot" data-slot="necklace" title="項鍊">
                       <span class="l2inv-pd-icon">📿</span>
                       <span class="l2inv-pd-item" id="pd-item-necklace"></span>
                     </div>
@@ -680,11 +680,11 @@ export const IDLE_MARKUP = `
                       <span class="l2inv-pd-icon">⚔️</span>
                       <span class="l2inv-pd-item" id="pd-item-weapon"></span>
                     </div>
-                    <div class="l2inv-pd-slot equip-slot" data-slot="ring1" title="Anel 1">
+                    <div class="l2inv-pd-slot equip-slot" data-slot="ring1" title="戒指 1">
                       <span class="l2inv-pd-icon">💍</span>
                       <span class="l2inv-pd-item" id="pd-item-ring1"></span>
                     </div>
-                    <div class="l2inv-pd-slot equip-slot" data-slot="belt" title="Cinto">
+                    <div class="l2inv-pd-slot equip-slot" data-slot="belt" title="腰帶">
                       <span class="l2inv-pd-icon">🪢</span>
                       <span class="l2inv-pd-item" id="pd-item-belt"></span>
                     </div>
@@ -696,7 +696,7 @@ export const IDLE_MARKUP = `
 
                   <!-- Column 2 (Center - 6 slots) -->
                   <div class="l2inv-doll-col">
-                    <div class="l2inv-pd-slot equip-slot" data-slot="helmet" title="Capacete">
+                    <div class="l2inv-pd-slot equip-slot" data-slot="helmet" title="頭盔">
                       <span class="l2inv-pd-icon">⛑️</span>
                       <span class="l2inv-pd-item" id="pd-item-helmet"></span>
                     </div>
@@ -708,11 +708,11 @@ export const IDLE_MARKUP = `
                       <span class="l2inv-pd-icon">👖</span>
                       <span class="l2inv-pd-item" id="pd-item-legs"></span>
                     </div>
-                    <div class="l2inv-pd-slot equip-slot" data-slot="gloves" title="Luvas">
+                    <div class="l2inv-pd-slot equip-slot" data-slot="gloves" title="手套">
                       <span class="l2inv-pd-icon">🧤</span>
                       <span class="l2inv-pd-item" id="pd-item-gloves"></span>
                     </div>
-                    <div class="l2inv-pd-slot equip-slot" data-slot="boots" title="Botas">
+                    <div class="l2inv-pd-slot equip-slot" data-slot="boots" title="靴子">
                       <span class="l2inv-pd-icon">👢</span>
                       <span class="l2inv-pd-item" id="pd-item-boots"></span>
                     </div>
@@ -728,11 +728,11 @@ export const IDLE_MARKUP = `
                       <span class="l2inv-pd-icon">🎭</span>
                       <span class="l2inv-pd-item" id="pd-item-hair2"></span>
                     </div>
-                    <div class="l2inv-pd-slot equip-slot" data-slot="earring2" title="Brinco 2">
+                    <div class="l2inv-pd-slot equip-slot" data-slot="earring2" title="耳環 2">
                       <span class="l2inv-pd-icon">💎</span>
                       <span class="l2inv-pd-item" id="pd-item-earring2"></span>
                     </div>
-                    <div class="l2inv-pd-slot equip-slot" data-slot="cloak" title="Capa">
+                    <div class="l2inv-pd-slot equip-slot" data-slot="cloak" title="披風">
                       <span class="l2inv-pd-icon">🧥</span>
                       <span class="l2inv-pd-item" id="pd-item-cloak"></span>
                     </div>
@@ -744,7 +744,7 @@ export const IDLE_MARKUP = `
                       <span class="l2inv-pd-icon">🗡️</span>
                       <span class="l2inv-pd-item" id="pd-item-weapon2"></span>
                     </div>
-                    <div class="l2inv-pd-slot equip-slot" data-slot="ring2" title="Anel 2">
+                    <div class="l2inv-pd-slot equip-slot" data-slot="ring2" title="戒指 2">
                       <span class="l2inv-pd-icon">💍</span>
                       <span class="l2inv-pd-item" id="pd-item-ring2"></span>
                     </div>
@@ -758,15 +758,15 @@ export const IDLE_MARKUP = `
                 <!-- Paperdoll Stats Summary -->
                 <div class="l2inv-stats-box">
                   <div class="l2inv-stat-row">
-                    <span>P.Atk: <strong id="l2stat-atk">0</strong></span>
-                    <span>P.Def: <strong id="l2stat-def">0</strong></span>
+                    <span>物理攻擊： <strong id="l2stat-atk">0</strong></span>
+                    <span>物理防禦： <strong id="l2stat-def">0</strong></span>
                   </div>
                   <div class="l2inv-stat-row">
-                    <span>M.Atk: <strong id="l2stat-matk">0</strong></span>
-                    <span>M.Def: <strong id="l2stat-mdef">0</strong></span>
+                    <span>魔法攻擊： <strong id="l2stat-matk">0</strong></span>
+                    <span>魔法防禦： <strong id="l2stat-mdef">0</strong></span>
                   </div>
                   <div class="l2inv-stat-row">
-                    <span>Crit: <strong id="l2stat-crit">0%</strong></span>
+                    <span>暴擊： <strong id="l2stat-crit">0%</strong></span>
                     <span>速度： <strong id="l2stat-speed">0</strong></span>
                   </div>
                   <button class="l2inv-unequip-all" id="unequip-all-btn" title="卸下所有裝備">全部卸下</button>
@@ -812,7 +812,7 @@ export const IDLE_MARKUP = `
                       <select id="inv-sort-select" name="invSort" aria-label="背包排序" style="background:#090b10; color:#fff; border:1px solid rgba(212,167,68,0.3); border-radius:4px; padding:3px 6px; font-size:10px; cursor:pointer;">
                         <option value="recommended">✨ 推薦</option>
                         <option value="cp">⚡ CP 由高到低</option>
-                        <option value="grade">🎖️ 等級（S→NG）</option>
+                        <option value="grade">🎖️ 等級（S→無級別）</option>
                         <option value="rarity">🌟 稀有度</option>
                         <option value="enchant">✨ 強化值</option>
                         <option value="name">🔤 名稱（A-Z）</option>
@@ -822,7 +822,7 @@ export const IDLE_MARKUP = `
                     <div style="display:flex; align-items:center; gap:4px; font-size:10px; color:#fde047; flex-shrink:0;">
                       <label for="auto-sell-rarity-select" style="font-weight:600; cursor:pointer;">自動出售：</label>
                       <select id="auto-sell-rarity-select" name="autoSellRarity" aria-label="依稀有度設定自動出售" style="background:#090b10; color:#fff; border:1px solid rgba(212,167,68,0.3); border-radius:4px; padding:3px 6px; font-size:10px; cursor:pointer;">
-                        <option value="off">OFF</option>
+                        <option value="off">關閉</option>
                         <option value="common">≤ 一般</option>
                         <option value="uncommon">≤ 非凡</option>
                         <option value="rare">≤ 稀有</option>
@@ -849,11 +849,11 @@ export const IDLE_MARKUP = `
                     </div>
                   </div>
 
-                  <!-- Linha 3: Filtro por Grau (NG, D, C, B, A, S) -->
+                  <!-- Linha 3: Filtro por Grau (無級別, D, C, B, A, S) -->
                   <div class="l2inv-grade-pills" style="display:flex; align-items:center; gap:3px; padding-top:2px; border-top:1px solid rgba(212,167,68,0.15); flex-wrap:wrap;">
                     <span style="font-size:10px; color:var(--gilt); font-weight:600; margin-right:4px;">等級：</span>
                     <button class="grade-filter-btn active" data-grade="all" style="padding:2px 7px; font-size:10px; border-radius:3px; cursor:pointer; background:#1e293b; color:#cbd5e1; border:1px solid rgba(212,167,68,0.3);">全部</button>
-                    <button class="grade-filter-btn" data-grade="ng" style="padding:2px 7px; font-size:10px; border-radius:3px; cursor:pointer; background:#0f172a; color:#94a3b8; border:1px solid rgba(148,163,184,0.3);">NG</button>
+                    <button class="grade-filter-btn" data-grade="ng" style="padding:2px 7px; font-size:10px; border-radius:3px; cursor:pointer; background:#0f172a; color:#94a3b8; border:1px solid rgba(148,163,184,0.3);">無級別</button>
                     <button class="grade-filter-btn" data-grade="d" style="padding:2px 7px; font-size:10px; border-radius:3px; cursor:pointer; background:#0f172a; color:#38bdf8; border:1px solid rgba(56,189,248,0.3);">D</button>
                     <button class="grade-filter-btn" data-grade="c" style="padding:2px 7px; font-size:10px; border-radius:3px; cursor:pointer; background:#0f172a; color:#4ade80; border:1px solid rgba(74,222,128,0.3);">C</button>
                     <button class="grade-filter-btn" data-grade="b" style="padding:2px 7px; font-size:10px; border-radius:3px; cursor:pointer; background:#0f172a; color:#f87171; border:1px solid rgba(248,113,113,0.3);">B</button>
@@ -939,12 +939,12 @@ export const IDLE_MARKUP = `
             <!-- ═══════════════════════════════════════════════════════════════════════════ -->
             <div id="shop-dialogue-view" class="l2chat-window-frame">
               <div class="l2chat-window-header">
-                <span class="l2chat-title">Chat</span>
+                <span class="l2chat-title">聊天</span>
                 <button class="l2chat-close-btn" id="shop-dialogue-close-btn" title="關閉" onclick="window.switchTab ? window.switchTab('inventory') : null">✕</button>
               </div>
               <div class="l2chat-inner-panel">
                 <div class="l2chat-npc-speech">
-                  <div class="l2chat-npc-name" id="shop-npc-name">Trader Woodrow:</div>
+                  <div class="l2chat-npc-name" id="shop-npc-name">商人伍德羅：</div>
                   <div class="l2chat-npc-text" id="shop-npc-text">想找什麼嗎？這裡一定有適合你的商品。</div>
                 </div>
                 <div class="l2chat-options-container" id="shop-dialogue-options">
@@ -957,13 +957,13 @@ export const IDLE_MARKUP = `
             <!-- STAGE 2: JANELA STORE CLÁSSICA DO LINEAGE 2 (IMAGEM 2 DE REFERÊNCIA)      -->
             <!-- ═══════════════════════════════════════════════════════════════════════════ -->
             <div id="shop-store-view" class="l2store-window-frame" style="display:none;">
-              <!-- Store Window Header -->
+              <!-- 商店 Window Header -->
               <div class="l2store-window-header">
                 <div class="l2store-header-left">
                   <button class="l2store-back-btn" id="shop-back-to-dialogue-btn" title="返回對話">
                     ← 對話
                   </button>
-                  <span class="l2store-window-title" id="shop-window-title">Store</span>
+                  <span class="l2store-window-title" id="shop-window-title">商店</span>
                 </div>
                 
                 <!-- Central Search Bar with clear button (Image 2) -->
@@ -974,17 +974,17 @@ export const IDLE_MARKUP = `
 
                 <!-- Window Right Controls -->
                 <div class="l2store-header-right">
-                  <button class="l2store-icon-btn" id="shop-view-toggle-btn" title="Alternar Modo Grade/Lista">🔲</button>
+                  <button class="l2store-icon-btn" id="shop-view-toggle-btn" title="切換網格／清單模式">🔲</button>
                   <button class="l2store-icon-btn close" id="shop-store-close-btn" title="返回對話">✕</button>
                 </div>
               </div>
 
-              <!-- Store Primary Tabs: Buy / Sell / Refund + Slot Gauge -->
+              <!-- 商店 Primary Tabs: Buy / Sell / 回購 + Slot Gauge -->
               <div class="l2store-tabs-bar">
                 <div class="l2store-tabs">
                   <button class="l2store-tab active" data-shoptab="buy">購買</button>
                   <button class="l2store-tab" data-shoptab="sell">出售</button>
-                  <button class="l2store-tab" data-shoptab="refund">Refund</button>
+                  <button class="l2store-tab" data-shoptab="refund">回購</button>
                 </div>
                 <div class="l2store-slot-counter" id="shop-slot-counter">
                   (<span id="shop-inv-used">0</span>/<span id="shop-inv-max">150</span>)
@@ -998,10 +998,10 @@ export const IDLE_MARKUP = `
                   <!-- Gerado dinamicamente: Todos, Arcos, Espadas, etc. -->
                 </div>
 
-                <!-- Grade Filter Row: NG, D, C, B, A, S -->
+                <!-- Grade Filter Row: 無級別, D, C, B, A, S -->
                 <div class="l2store-grade-strip" id="shop-grade-strip">
                   <button class="l2store-grade-btn active" data-shopgrade="all">全部</button>
-                  <button class="l2store-grade-btn grade-ng" data-shopgrade="ng">NG</button>
+                  <button class="l2store-grade-btn grade-ng" data-shopgrade="ng">無級別</button>
                   <button class="l2store-grade-btn grade-d" data-shopgrade="d">D</button>
                   <button class="l2store-grade-btn grade-c" data-shopgrade="c">C</button>
                   <button class="l2store-grade-btn grade-b" data-shopgrade="b">B</button>
@@ -1013,7 +1013,7 @@ export const IDLE_MARKUP = `
               <!-- Mystic Emporium Special Header (Banner) -->
               <div id="shop-mystic-banner" style="display:none; padding: 6px 12px; margin-bottom: 8px;"></div>
 
-              <!-- Store Two-Column Layout (Signature Lineage 2 Store) -->
+              <!-- 商店 Two-Column Layout (Signature Lineage 2 商店) -->
               <div class="l2store-main-body">
                 <!-- Left Column: Shop Catalog -->
                 <div class="l2store-col l2store-left-col">
@@ -1031,10 +1031,10 @@ export const IDLE_MARKUP = `
                   <span>▶</span>
                 </div>
 
-                <!-- Right Column: Purchase List / Cart -->
+                <!-- Right Column: 購買清單 / Cart -->
                 <div class="l2store-col l2store-right-col">
                   <div class="l2store-col-header">
-                    <span id="shop-right-col-title">Purchase List</span>
+                    <span id="shop-right-col-title">購買清單</span>
                     <button class="l2store-clear-cart-btn" id="shop-clear-cart-btn" title="清空清單">清空</button>
                   </div>
                   <div class="l2store-grid-scroll" id="shop-purchase-list">
@@ -1043,7 +1043,7 @@ export const IDLE_MARKUP = `
                 </div>
               </div>
 
-              <!-- Store Bottom Status & Actions Bar (Identical to Image 2) -->
+              <!-- 商店 Bottom Status & Actions Bar (Identical to Image 2) -->
               <div class="l2store-bottom-bar">
                 <div class="l2store-status-left">
                   <!-- 金幣 Row -->
@@ -1054,9 +1054,9 @@ export const IDLE_MARKUP = `
                       <span id="shop-bottom-adena">0</span>
                     </div>
                   </div>
-                  <!-- Weight Row -->
+                  <!-- 重量 Row -->
                   <div class="l2store-status-row">
-                    <span class="l2store-label">Weight</span>
+                    <span class="l2store-label">重量</span>
                     <span class="l2store-scale-icon">⚖️</span>
                     <div class="l2store-weight-box">
                       <div class="l2store-weight-track">
@@ -1099,7 +1099,7 @@ export const IDLE_MARKUP = `
               <div class="l2chat-window-header">
                 <div style="display:flex; align-items:center; gap:8px;">
                   <span style="font-size:16px;">💬</span>
-                  <span class="l2chat-title">Chat</span>
+                  <span class="l2chat-title">聊天</span>
                 </div>
                 <button class="l2chat-close-btn" id="forge-dialogue-close-btn" title="關閉對話">✕</button>
               </div>
@@ -1107,7 +1107,7 @@ export const IDLE_MARKUP = `
               <!-- NPC Speech Box & Story Lore (Wilbert from Image 5) -->
               <div class="l2chat-inner-panel">
                 <div class="l2chat-npc-speech">
-                  <div class="l2chat-npc-name" id="forge-npc-name">Blacksmith Wilbert:</div>
+                  <div class="l2chat-npc-name" id="forge-npc-name">鐵匠威爾伯特：</div>
                   <div class="l2chat-npc-text" id="forge-npc-text">
                     哈哈！鐵匠可不只是打造盔甲、長矛和斧頭而已。沒有我們黑色鐵砧公會，亞丁城可不會有今天！<br><br>
                     對了，雖然只是傳聞……我聽說那些曾被用來驅逐人類的魔像，也是我們公會打造的。除了我們，還有誰能發明這種了不起的技術呢？
@@ -1255,7 +1255,7 @@ export const IDLE_MARKUP = `
                 <span class="z-badge" style="background:rgba(212,167,68,0.15); color:#f5df93; border:1px solid rgba(212,167,68,0.3); padding:2px 8px; border-radius:4px; font-size:11px;">開放世界</span>
               </div>
               <button class="action-btn" onclick="window.openInstancesModal()" style="padding:6px 14px; font-size:11px; background:linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); border:1px solid #818cf8; color:#e0e7ff; font-weight:bold; border-radius:6px; box-shadow:0 0 10px rgba(129,140,248,0.3); cursor:pointer; display:flex; align-items:center; gap:6px; transition:all 0.2s;" onmouseover="this.style.filter='brightness(1.15)'" onmouseout="this.style.filter='none'">
-                <span>🌀</span> <span>專屬選單：Kamaloka 與 Pailaka</span>
+                <span>🌀</span> <span>專屬選單：卡瑪洛卡與派拉卡</span>
               </button>
             </div>
 
@@ -2182,7 +2182,7 @@ export const IDLE_MARKUP = `
       <button class="mobile-nav-btn active" data-tab="battle"><span class="icon">⚔️</span><span>戰鬥</span></button>
       <button class="mobile-nav-btn" data-tab="inventory"><span class="icon">🎒</span><span>背包</span></button>
       <button class="mobile-nav-btn" data-tab="hero"><span class="icon">👤</span><span>角色</span></button>
-      <button class="mobile-nav-btn" data-tab="skills"><span class="icon">✦</span><span>Skills</span></button>
+      <button class="mobile-nav-btn" data-tab="skills"><span class="icon">✦</span><span>技能</span></button>
       <button class="mobile-nav-btn" data-tab="codex"><span class="icon">📜</span><span>圖鑑</span></button>
       <button class="mobile-nav-btn" data-tab="shop"><span class="icon">🛒</span><span>商店</span></button>
     </nav>
