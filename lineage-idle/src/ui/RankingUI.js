@@ -18,8 +18,8 @@ export function renderRankingTab(container, state) {
   if (!container || !state) return;
 
   const playerCP = CombatPowerService.calculateCombatPower(state);
-  const rankings = 排行榜Service.getLeaderboards(state);
-  const playerProfile = 排行榜Service.buildPublicProfile(state);
+  const rankings = RankingService.getLeaderboards(state);
+  const playerProfile = RankingService.buildPublicProfile(state);
 
   let currentList = [];
   if (_activeTab === 'cp') currentList = rankings.cp || [];
