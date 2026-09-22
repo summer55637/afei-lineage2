@@ -1981,7 +1981,7 @@ function updateStatsUI() {
   const _gEl = el('gold-text-stat');
   if (_gEl) { _gEl.textContent = state.gold.toLocaleString(); if (_gEl._lastGold != null && state.gold > _gEl._lastGold) { _gEl.classList.remove('pulse'); void _gEl.offsetWidth; _gEl.classList.add('pulse'); } _gEl._lastGold = state.gold; }
   const _acEl = el('top-ac-amount');
-  if (_acEl) _acEl.textContent = `${(state.adenCoins || 0).toLocaleString()} AC`;
+  if (_acEl) _acEl.textContent = `${(state.adenCoins || 0).toLocaleString()} 亞丁幣`;
   const gps = getGoldPerSec();
   const gpsEl = el('gps-text'); if (gpsEl) gpsEl.textContent = gps > 0 ? `${gps.toFixed(1)}/s` : '—';
   
@@ -2693,7 +2693,7 @@ function updateCombatControlsUI() {
     const mpCount = getInventoryCount('mp_potion_s') + getInventoryCount('mp_potion_m') + getInventoryCount('mp_potion_l') + getInventoryCount('mp_potion_xl');
     const hpPct = Math.round((state.autoPotionSettings?.hpThreshold || 0.6) * 100);
     apBtn.innerHTML = `<span>🧪 自動藥水</span> <span style="font-size:9px; color:${isApActive ? '#ffd877' : '#94a3b8'};">（生命藥水 ${hpCount}／魔力藥水 ${mpCount}）</span>`;
-    apBtn.title = `自動藥水：${isApActive ? '開啟' : '關閉'}（HP < ${hpPct}%）－點擊切換，或在巨集按鈕中設定 ⚙️`;
+    apBtn.title = `自動藥水：${isApActive ? '開啟' : '關閉'}（生命值 < ${hpPct}%）－點擊切換，或在巨集按鈕中設定 ⚙️`;
   }
   const spdBtn = el('speed-toggle-btn');
   if (spdBtn) {
@@ -3054,7 +3054,7 @@ function renderZoneInfoCard() {
         <h3>🗺️ ${z.name}</h3>
         <span class="z-card-req">需求：等級 ${z.level}</span>
         <div style="margin-top:4px; font-size:11px; color:${curDiff.color || '#10b981'}; font-weight:bold;">
-          ${curDiff.icon || '🟢'} 難度：<strong>${curDiff.name || '一般'}</strong>（${curDiff.xpMult || 1}x XP／金幣 · ${curDiff.dropMult || 1}x 掉落）
+          ${curDiff.icon || '🟢'} 難度：<strong>${curDiff.name || '一般'}</strong>（${curDiff.xpMult || 1} 倍經驗值／金幣 · ${curDiff.dropMult || 1} 倍掉落）
         </div>
       </div>
       <div class="z-card-kills">⚔️ 狩獵：${currentKills}/50（首領）</div>
@@ -3353,7 +3353,7 @@ function updateQuestsUI() {
               完成目前每日狩獵任務（${dailyClaimedCount}/${availableDaily.length}）即可領取最高獎勵。
             </div>
             <div style="font-size:11px; color:#86efac; font-weight:bold;">
-              ✦ 額外 +500 SP · 💰 +50,000g · 🪔 +2 魔法神燈 · 🎫 通行證 XP +250
+              ✦ 額外 +500 技能點 · 💰 +50,000 金幣 · 🪔 +2 魔法神燈 · 🎫 通行證經驗值 +250
             </div>
           </div>
         </div>
@@ -3362,7 +3362,7 @@ function updateQuestsUI() {
             <span style="font-size:11px; color:#10b981; font-weight:bold; padding:6px 14px; border:1px solid #10b981; border-radius:6px; background:rgba(16,185,129,0.15);">✓ 今日已領取</span>
           ` : `
             <button id="claim-grand-daily-btn" class="action-btn action-btn--primary" style="padding:8px 18px; font-weight:bold; font-size:12px; ${allDailyDone ? 'background:linear-gradient(180deg,#d4a744,#8a641c); border:1px solid #ffe699; color:#000; box-shadow:0 0 12px rgba(234,179,8,0.5); cursor:pointer;' : 'opacity:0.5; cursor:not-allowed;'}" ${!allDailyDone ? 'disabled' : ''}>
-              ${allDailyDone ? '🎁 領取寶箱（+500 SP）' : `${dailyClaimedCount}/${availableDaily.length} 每日任務`}
+              ${allDailyDone ? '🎁 領取寶箱（+500 技能點）' : `${dailyClaimedCount}/${availableDaily.length} 每日任務`}
             </button>
           `}
         </div>
@@ -4140,9 +4140,9 @@ export function renderSubclassesUI() {
       if (certBonuses.pDefPercent) parts.push(`+${Math.round(certBonuses.pDefPercent * 100)}% 物理防禦`);
       if (certBonuses.mAtkPercent) parts.push(`+${Math.round(certBonuses.mAtkPercent * 100)}% 魔法攻擊`);
       if (certBonuses.mDefPercent) parts.push(`+${Math.round(certBonuses.mDefPercent * 100)}% 魔法防禦`);
-      if (certBonuses.maxHpPercent) parts.push(`+${Math.round(certBonuses.maxHpPercent * 100)}% 最大 HP`);
-      if (certBonuses.maxMpPercent) parts.push(`+${Math.round(certBonuses.maxMpPercent * 100)}% 最大 MP`);
-      if (certBonuses.maxCpPercent) parts.push(`+${Math.round(certBonuses.maxCpPercent * 100)}% 最大 CP`);
+      if (certBonuses.maxHpPercent) parts.push(`+${Math.round(certBonuses.maxHpPercent * 100)}% 最大生命值`);
+      if (certBonuses.maxMpPercent) parts.push(`+${Math.round(certBonuses.maxMpPercent * 100)}% 最大魔力`);
+      if (certBonuses.maxCpPercent) parts.push(`+${Math.round(certBonuses.maxCpPercent * 100)}% 最大戰鬥力`);
       if (certBonuses.critRate) parts.push(`+${certBonuses.critRate} 暴擊率`);
       if (certBonuses.castSpd) parts.push(`+${certBonuses.castSpd} 施法速度`);
       if (certBonuses.evasion) parts.push(`+${certBonuses.evasion} 迴避`);
@@ -6596,7 +6596,7 @@ const RATE_PRESETS = {
   aden: { name: '⚔️ 亞丁動態倍率（3x）', rates: { xp: 3, sp: 3, adena: 2, drop: 2, spoil: 2, enchant: 1.2, book: 2 } },
   mid: { name: '🔥 官方中倍率（10x）', rates: { xp: 10, sp: 10, adena: 8, drop: 5, spoil: 5, enchant: 1.5, book: 5 } },
   high: { name: '👑 高倍率／活動（50x）', rates: { xp: 50, sp: 50, adena: 25, drop: 15, spoil: 10, enchant: 2.0, book: 10 } },
-  turbo: { name: '⚡ 極速 PvP（100x）', rates: { xp: 100, sp: 100, adena: 50, drop: 30, spoil: 20, enchant: 2.5, book: 20 } },
+  turbo: { name: '⚡ 極速玩家對戰（100 倍）', rates: { xp: 100, sp: 100, adena: 50, drop: 30, spoil: 20, enchant: 2.5, book: 20 } },
   reset: { name: '🔄 標準（1x）', rates: { xp: 1, sp: 1, adena: 1, drop: 1, spoil: 1, enchant: 1, book: 1 } }
 };
 
@@ -6837,7 +6837,7 @@ function addAdminAC(amount) {
   const amt = parseInt(amount) || 0;
   if (amt <= 0) return;
   state.adenCoins = (state.adenCoins || 0) + amt;
-  log(`🪙 [管理員] 已增加 ${amt.toLocaleString()} 亞丁幣（AC）！`, 'rarity-legendary');
+  log(`🪙 [管理員] 已增加 ${amt.toLocaleString()} 亞丁幣！`, 'rarity-legendary');
   floatText(`🪙 +${amt.toLocaleString()} 亞丁幣！`, 'float-gold');
   updateAllUI();
   save(true, true);
@@ -7985,7 +7985,7 @@ export const TAB_NAMES_MAP = {
   zones: '狩獵與區域',
   raids: '團隊首領與首領',
   tower: '傲慢之塔',
-  colosseum: 'PvP 競技場',
+  colosseum: '玩家對戰競技場',
   expeditions: '遠征',
   fishing: '釣魚',
   market: '奇岩市場',
@@ -8586,7 +8586,7 @@ export function bindEvents() {
           '此操作將刪除 Cloud Firestore 中全部 17 個正式資料集合：\n' +
           '• 帳號、角色、英雄名稱\n' +
           '• 血盟與血盟成員\n' +
-          '• PvP 排行榜、奧林匹亞紀錄與市場\n' +
+          '• 玩家對戰排行榜、奧林匹亞紀錄與市場\n' +
           '• 上線狀態、好友、好友邀請、導師與封鎖資料\n\n' +
           '所有玩家都會被登出，並從角色建立畫面重新開始。\n\n' +
           '如果你完全確定，請按「確定」。'
@@ -8943,7 +8943,7 @@ const MANOR_SEEDS = {
 const CASTLES_DEFS = {
   dion: { id: 'dion', name: '狄恩城堡', reqLevel: 30, taxPerHour: 5000, desc: '每小時 +5,000 金幣', enemyName: '狄恩守衛（Lv.30）' },
   giran: { id: 'giran', name: '奇岩城堡', reqLevel: 50, taxPerHour: 15000, desc: '每小時 +15,000 金幣，商店折扣 5%', enemyName: '奇岩守衛（等級 50）' },
-  goddard: { id: 'goddard', name: '高達特城堡', reqLevel: 70, taxPerHour: 35000, desc: '每小時 +35,000 金幣，並獲得 +5% XP 加成', enemyName: '高達特守衛（Lv.70）' },
+  goddard: { id: 'goddard', name: '高達特城堡', reqLevel: 70, taxPerHour: 35000, desc: '每小時 +35,000 金幣，並獲得 +5% 經驗值加成', enemyName: '高達特守衛（Lv.70）' },
   aden: { id: 'aden', name: '亞丁帝國城堡', reqLevel: 85, taxPerHour: 75000, desc: '每小時 +75,000 金幣，總傷害 +10%', enemyName: '亞丁帝國守衛（等級 85）' }
 };
 
@@ -9878,12 +9878,12 @@ export function init() {
       // 2. Render Net Summary Bar
       if (summaryContainer) {
         const statsList = [
-          { key: 'str', label: 'STR', color: '#f87171' },
-          { key: 'dex', label: 'DEX', color: '#60a5fa' },
-          { key: 'con', label: 'CON', color: '#4ade80' },
-          { key: 'int', label: 'INT', color: '#c084fc' },
-          { key: 'wit', label: 'WIT', color: '#fde047' },
-          { key: 'men', label: 'MEN', color: '#38bdf8' }
+          { key: 'str', label: '力量', color: '#f87171' },
+          { key: 'dex', label: '敏捷', color: '#60a5fa' },
+          { key: 'con', label: '體質', color: '#4ade80' },
+          { key: 'int', label: '智力', color: '#c084fc' },
+          { key: 'wit', label: '智慧', color: '#fde047' },
+          { key: 'men', label: '精神', color: '#38bdf8' }
         ];
         summaryContainer.innerHTML = `
           <div style="font-weight:bold; color:#ffd877;">📊 目前生效的淨屬性加成（上限 +5）：</div>
@@ -11054,7 +11054,7 @@ export function init() {
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                 <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-weight:bold; font-size:12px; color:#fca5a5;">
                   <input type="checkbox" ${ap.autoHp !== false ? 'checked' : ''} onchange="window.setMacroToggleHp(this.checked)" />
-                  自動使用生命藥水（HP）
+                  自動使用生命藥水
                 </label>
                 <span style="font-weight:bold; color:#ef4444; font-size:12px;">&lt; ${hpVal}%</span>
               </div>
@@ -11071,7 +11071,7 @@ export function init() {
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                 <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-weight:bold; font-size:12px; color:#93c5fd;">
                   <input type="checkbox" ${ap.autoMp !== false ? 'checked' : ''} onchange="window.setMacroToggleMp(this.checked)" />
-                  自動使用魔力藥水（MP）
+                  自動使用魔力藥水
                 </label>
                 <span style="font-weight:bold; color:#3b82f6; font-size:12px;">&lt; ${mpVal}%</span>
               </div>
@@ -11133,14 +11133,14 @@ export function init() {
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(212,167,68,0.3); border-radius:10px; padding:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
           <div>
             <div style="font-family:'Cinzel',serif; font-size:14px; font-weight:bold; color:#ffd877;">
-              ♻️ 丟棄篩選與 AFK 自動回收
+              ♻️ 丟棄篩選與掛機自動回收
             </div>
             <div style="font-size:11px; color:#94a3b8;">
               目前狀態：<strong>${state.autoRecycle?.enabled ? '🟢 已啟用（' + (state.autoRecycle.mode === 'sell' ? '自動出售' : '分解成水晶') + '）' : '⚪ 已停用'}</strong>。支援無級別至 A 級，並會強制保護有強化值與稀有物品。
             </div>
           </div>
           <button onclick="window.openAutoRecycleModal()" style="background:linear-gradient(180deg,#d4a744,#8a641c); border:1px solid #ffe699; color:#000; font-family:'Cinzel',serif; font-weight:bold; font-size:12px; border-radius:6px; padding:8px 16px; cursor:pointer;">
-            設定 AFK 篩選 ⚙️
+            設定掛機篩選 ⚙️
           </button>
         </div>
       `;
