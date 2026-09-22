@@ -53,30 +53,30 @@ export const SLOTS: ItemSlot[] = ["armor", "trinket", "boots"];
 
 export const ITEMS: ItemDef[] = [
   // ---------- ARMOR (chest) ----------
-  { id: "padded_vest", name: "Padded Vest", slot: "armor", rarity: "common", icon: "🧥", hp: 22, desc: "Quilted layers that turn a glancing blow.", dropWeight: 3, minWave: 1 },
-  { id: "studded_leather", name: "Studded Leather", slot: "armor", rarity: "uncommon", icon: "🧥", hp: 38, dmgPct: 3, desc: "Hardened hide, ringed with iron studs.", dropWeight: 3, minWave: 3 },
-  { id: "chainmail", name: "Chainmail", slot: "armor", rarity: "rare", icon: "🛡", hp: 64, dmgPct: 6, desc: "Thousands of interlocked rings.", dropWeight: 2, minWave: 6 },
-  { id: "berserker_girdle", name: "Berserker Girdle", slot: "armor", rarity: "rare", icon: "🛡", dmgPct: 12, crit: 5, desc: "Binds the rage to the ribs.", dropWeight: 2, minWave: 10 },
-  { id: "plate_of_valor", name: "Plate of Valor", slot: "armor", rarity: "epic", icon: "🛡", hp: 105, dmgPct: 10, desc: "Forged for those who hold the line.", dropWeight: 1.5, minWave: 12 },
-  { id: "aegis_of_aden", name: "Aegis of Aden", slot: "armor", rarity: "legendary", icon: "🛡", hp: 185, dmgPct: 15, cdr: 5, desc: "The kingdom's last word in steel.", dropWeight: 1, minWave: 22 },
+  { id: "padded_vest", name: "襯墊背心", slot: "armor", rarity: "common", icon: "🧥", hp: 22, desc: "多層襯墊可減輕擦身而過的攻擊。", dropWeight: 3, minWave: 1 },
+  { id: "studded_leather", name: "鉚釘皮甲", slot: "armor", rarity: "uncommon", icon: "🧥", hp: 38, dmgPct: 3, desc: "以硬化皮革與鐵製鉚釘打造。", dropWeight: 3, minWave: 3 },
+  { id: "chainmail", name: "鎖子甲", slot: "armor", rarity: "rare", icon: "🛡", hp: 64, dmgPct: 6, desc: "由數千個互相扣合的金屬環製成。", dropWeight: 2, minWave: 6 },
+  { id: "berserker_girdle", name: "狂戰士護腰", slot: "armor", rarity: "rare", icon: "🛡", dmgPct: 12, crit: 5, desc: "將狂怒牢牢束縛於身軀。", dropWeight: 2, minWave: 10 },
+  { id: "plate_of_valor", name: "勇氣板甲", slot: "armor", rarity: "epic", icon: "🛡", hp: 105, dmgPct: 10, desc: "為堅守戰線的戰士所鍛造。", dropWeight: 1.5, minWave: 12 },
+  { id: "aegis_of_aden", name: "亞丁神盾", slot: "armor", rarity: "legendary", icon: "🛡", hp: 185, dmgPct: 15, cdr: 5, desc: "王國最高工藝的鋼鐵防具。", dropWeight: 1, minWave: 22 },
 
   // ---------- BOOTS ----------
-  { id: "worn_sandals", name: "Worn Sandals", slot: "boots", rarity: "common", icon: "👡", speedPct: 4, desc: "Barely held together by hope.", dropWeight: 3, minWave: 1 },
-  { id: "leather_boots", name: "Leather Boots", slot: "boots", rarity: "uncommon", icon: "🥾", speedPct: 7, hp: 12, desc: "Broken in over a hundred roads.", dropWeight: 3, minWave: 3 },
-  { id: "swiftstride", name: "Swiftstride", slot: "boots", rarity: "rare", icon: "🥾", speedPct: 11, hp: 22, desc: "The ground seems to hurry past.", dropWeight: 2, minWave: 7 },
-  { id: "monk_wrap", name: "Monk's Wraps", slot: "boots", rarity: "rare", icon: "🥾", speedPct: 8, cdr: 8, desc: "Silent steps, quicker hands.", dropWeight: 2, minWave: 10 },
-  { id: "windrunner", name: "Windrunner", slot: "boots", rarity: "epic", icon: "👢", speedPct: 16, hp: 44, desc: "Woven from the breath of storms.", dropWeight: 1.5, minWave: 14 },
-  { id: "titan_greaves", name: "Titan Greaves", slot: "boots", rarity: "epic", icon: "👢", hp: 120, dmgPct: 5, desc: "Each step cracks the flagstones.", dropWeight: 1.5, minWave: 18 },
-  { id: "hermes_greaves", name: "Hermes Greaves", slot: "boots", rarity: "legendary", icon: "👢", speedPct: 22, cdr: 5, hp: 60, desc: "Winged at the heel, blessed by thieves.", dropWeight: 1, minWave: 24 },
+  { id: "worn_sandals", name: "磨損涼鞋", slot: "boots", rarity: "common", icon: "👡", speedPct: 4, desc: "幾乎只靠意志勉強維持完整。", dropWeight: 3, minWave: 1 },
+  { id: "leather_boots", name: "皮靴", slot: "boots", rarity: "uncommon", icon: "🥾", speedPct: 7, hp: 12, desc: "走過無數道路後變得柔軟合腳。", dropWeight: 3, minWave: 3 },
+  { id: "swiftstride", name: "迅捷之靴", slot: "boots", rarity: "rare", icon: "🥾", speedPct: 11, hp: 22, desc: "穿上後彷彿大地都在腳下飛逝。", dropWeight: 2, minWave: 7 },
+  { id: "monk_wrap", name: "武僧纏足", slot: "boots", rarity: "rare", icon: "🥾", speedPct: 8, cdr: 8, desc: "腳步無聲，出手更加迅捷。", dropWeight: 2, minWave: 10 },
+  { id: "windrunner", name: "風行者之靴", slot: "boots", rarity: "epic", icon: "👢", speedPct: 16, hp: 44, desc: "以暴風的氣息編織而成。", dropWeight: 1.5, minWave: 14 },
+  { id: "titan_greaves", name: "泰坦護腿", slot: "boots", rarity: "epic", icon: "👢", hp: 120, dmgPct: 5, desc: "每一步都足以震裂石板。", dropWeight: 1.5, minWave: 18 },
+  { id: "hermes_greaves", name: "赫密士護腿", slot: "boots", rarity: "legendary", icon: "👢", speedPct: 22, cdr: 5, hp: 60, desc: "足跟如有羽翼，受到盜賊之神祝福。", dropWeight: 1, minWave: 24 },
 
   // ---------- TRINKETS ----------
-  { id: "copper_band", name: "Copper Band", slot: "trinket", rarity: "common", icon: "💍", crit: 3, desc: "A lucky ring, green at the edges.", dropWeight: 3, minWave: 1 },
-  { id: "wolf_fang_charm", name: "Wolf-Fang Charm", slot: "trinket", rarity: "uncommon", icon: "📿", crit: 6, dmgPct: 3, desc: "Still warm from the kill.", dropWeight: 3, minWave: 3 },
-  { id: "scholars_mark", name: "Scholar's Mark", slot: "trinket", rarity: "uncommon", icon: "📿", cdr: 10, hp: 20, desc: "A seal that quickens the mind.", dropWeight: 2.5, minWave: 5 },
-  { id: "ruby_pendant", name: "Ruby Pendant", slot: "trinket", rarity: "rare", icon: "📿", crit: 9, dmgPct: 6, lifesteal: 3, desc: "Pulses like a second heart.", dropWeight: 2, minWave: 8 },
-  { id: "vampire_seal", name: "Vampire Seal", slot: "trinket", rarity: "epic", icon: "💍", crit: 12, lifesteal: 8, dmgPct: 8, desc: "It drinks, and so do you.", dropWeight: 1.5, minWave: 15 },
-  { id: "seer_orb", name: "Seer's Orb", slot: "trinket", rarity: "epic", icon: "🔮", cdr: 12, crit: 10, desc: "You finish the spell before you start it.", dropWeight: 1.5, minWave: 18 },
-  { id: "soul_gem", name: "Soul Gem", slot: "trinket", rarity: "legendary", icon: "💎", crit: 16, lifesteal: 12, dmgPct: 12, cdr: 8, desc: "A captured star, hungry for more.", dropWeight: 1, minWave: 26 },
+  { id: "copper_band", name: "銅戒", slot: "trinket", rarity: "common", icon: "💍", crit: 3, desc: "一枚帶來好運、邊緣略帶銅綠的戒指。", dropWeight: 3, minWave: 1 },
+  { id: "wolf_fang_charm", name: "狼牙護符", slot: "trinket", rarity: "uncommon", icon: "📿", crit: 6, dmgPct: 3, desc: "剛從獵物身上取下，仍殘留餘溫。", dropWeight: 3, minWave: 3 },
+  { id: "scholars_mark", name: "學者印記", slot: "trinket", rarity: "uncommon", icon: "📿", cdr: 10, hp: 20, desc: "能使思緒更加敏捷的印記。", dropWeight: 2.5, minWave: 5 },
+  { id: "ruby_pendant", name: "紅寶石墜飾", slot: "trinket", rarity: "rare", icon: "📿", crit: 9, dmgPct: 6, lifesteal: 3, desc: "宛如第二顆心臟般搏動。", dropWeight: 2, minWave: 8 },
+  { id: "vampire_seal", name: "吸血鬼印記", slot: "trinket", rarity: "epic", icon: "💍", crit: 12, lifesteal: 8, dmgPct: 8, desc: "它會吸取生命，而你也一樣。", dropWeight: 1.5, minWave: 15 },
+  { id: "seer_orb", name: "先知寶珠", slot: "trinket", rarity: "epic", icon: "🔮", cdr: 12, crit: 10, desc: "彷彿在施法開始前就已看見結局。", dropWeight: 1.5, minWave: 18 },
+  { id: "soul_gem", name: "靈魂寶石", slot: "trinket", rarity: "legendary", icon: "💎", crit: 16, lifesteal: 12, dmgPct: 12, cdr: 8, desc: "宛如被囚禁的星辰，渴望吞噬更多力量。", dropWeight: 1, minWave: 26 },
 ];
 
 export const ITEM_BY_ID: Record<string, ItemDef> = (() => {
