@@ -53,7 +53,7 @@ export function buyItem(state, itemId, qty = 1, rarity = 'common', callbacks = {
   }
 
   state.gold -= cost;
-  if (callbacks.log) callbacks.log(`🎁 Comprou ${cleanQty}x ${def.name} por 💰 ${cost.toLocaleString()} Gold!`, 'loot');
+  if (callbacks.log) callbacks.log(`🎁 已購買 ${cleanQty}x ${def.name}，花費 💰 ${cost.toLocaleString()} 金幣！`, 'loot');
 
   if (callbacks.updateAllUI) callbacks.updateAllUI(state);
   if (callbacks.save) callbacks.save(true, true);
@@ -164,7 +164,7 @@ export function sellItem(state, uid, qty = 1, callbacks = {}) {
   state.gold = (state.gold || 0) + totalAdena;
 
   if (callbacks.log) {
-    callbacks.log(`💰 Vendeu ${sellCount}x ${def?.name || 'Item'} por +${totalAdena.toLocaleString()} Adena!`, 'loot');
+    callbacks.log(`💰 已出售 ${sellCount}x ${def?.name || '物品'}，獲得 +${totalAdena.toLocaleString()} 金幣！`, 'loot');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI(state);
@@ -279,7 +279,7 @@ export function buybackItem(state, buybackIndex, callbacks = {}) {
   state.buybackQueue.splice(buybackIndex, 1);
 
   if (callbacks.log) {
-    callbacks.log(`↩️ Recomprou item por ${entry.sellPrice.toLocaleString()} Adena!`, 'loot');
+    callbacks.log(`↩️ 已用 ${entry.sellPrice.toLocaleString()} 金幣回購物品！`, 'loot');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI(state);
@@ -296,7 +296,7 @@ export function buybackItem(state, buybackIndex, callbacks = {}) {
  */
 export function rerollMysticStock(state, rollStockFn, callbacks = {}) {
   if ((state.gold || 0) < MYSTIC_REROLL_COST) {
-    if (callbacks.log) callbacks.log(`Requer 💰 ${MYSTIC_REROLL_COST.toLocaleString()} Adena para invocar novos itens ancestrais!`, 'system');
+    if (callbacks.log) callbacks.log(`需要 💰 ${MYSTIC_REROLL_COST.toLocaleString()} 金幣才能刷新新的古代物品！`, 'system');
     return false;
   }
 
@@ -307,7 +307,7 @@ export function rerollMysticStock(state, rollStockFn, callbacks = {}) {
   }
 
   if (callbacks.log) {
-    callbacks.log(`🔮 O Mercador Místico revelou um novo lote de relíquias ancestrais! (-${MYSTIC_REROLL_COST.toLocaleString()}g)`, 'rarity-legendary');
+    callbacks.log(`🔮 神秘商人展示了新一批古代遺物！（-${MYSTIC_REROLL_COST.toLocaleString()}g）`, 'rarity-legendary');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI(state);
