@@ -2011,7 +2011,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
         <div class="detail-card current">
           <div class="detail-card-badge-row">
             <span class="detail-card-role equipped">🛡️ 目前裝備</span>
-            <span class="tier-badge">${(currentEquippedDef.grade || 'NG').toUpperCase()}</span>
+            <span class="tier-badge">${(currentEquippedDef.grade || 'NG').toUpperCase() === 'NG' ? '無級' : (currentEquippedDef.grade || 'NG').toUpperCase()}</span>
           </div>
           <div class="detail-item-identity">
             <div class="detail-item-icon-box rarity-${currentEquippedItem.rarity || 'common'}">
@@ -2034,7 +2034,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
         <div class="detail-card candidate">
           <div class="detail-card-badge-row">
             <span class="detail-card-role selected">⚡ 建議／已選擇</span>
-            <span class="tier-badge">${(def.grade || 'NG').toUpperCase()}</span>
+            <span class="tier-badge">${(def.grade || 'NG').toUpperCase() === 'NG' ? '無級' : (def.grade || 'NG').toUpperCase()}</span>
           </div>
           <div class="detail-item-identity">
             <div class="detail-item-icon-box rarity-${item.rarity || 'common'}">
@@ -2066,7 +2066,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
           <span class="detail-card-role ${isCurrentItemEquipped ? 'equipped' : 'selected'}">
             ${isCurrentItemEquipped ? '🛡️ 已裝備' : '🎒 在背包中'}
           </span>
-          ${def.grade ? `<span class="tier-badge">${def.grade.toUpperCase()}</span>` : ''}
+          ${def.grade ? `<span class="tier-badge">${def.grade.toUpperCase() === 'NG' ? '無級' : def.grade.toUpperCase()}</span>` : ''}
         </div>
         <div class="detail-item-identity">
           <div class="detail-item-icon-box rarity-${item.rarity || 'common'}">
@@ -3310,7 +3310,7 @@ export function updateCharacterUI(state) {
 
     let tattoosHtml = '';
     if (tattoos.length > 0) {
-      tattoosHtml = tattoos.map(t => `<div class="l2-tatt-badge">🖋️ 刺青： +${t.plusVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[t.plusStat] || t.plusStat.toUpperCase()} / -${t.minusVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[t.minusStat] || t.minusStat.toUpperCase()}</div>`).join('');
+      tattoosHtml = tattoos.map(t => `<div class="l2-tatt-badge">🖋️ 刺青： +${t.plusVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[t.plusStat] || t.({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[plusStat] || plusStat.toUpperCase()} / -${t.minusVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[t.minusStat] || t.({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[minusStat] || minusStat.toUpperCase()}</div>`).join('');
     } else {
       tattoosHtml = '<div class="l2-tatt-empty">尚未刻印任何紋身。（取得染料後可在鍛造大師處刻印）</div>';
     }
@@ -3395,7 +3395,7 @@ export function updateCharacterUI(state) {
             ${tattoosHtml}
           </div>
           <div class="l2-mystic-sa">
-            ${socket ? `🔮 武器 SA： <strong style="color:#38bdf8;">${({ focus: '專注', acumen: '靈敏', health: '生命', empower: '魔力增幅', guidance: '導引' })[socket.effect] || socket.effect} （階段 ${socket.stage}）</strong>` : '🔮 武器 SA： 尚未鑲嵌靈魂水晶。'}
+            ${socket ? `🔮 武器特殊能力： <strong style="color:#38bdf8;">${({ focus: '專注', acumen: '靈敏', health: '生命', empower: '魔力增幅', guidance: '導引' })[socket.effect] || socket.effect} （階段 ${socket.stage}）</strong>` : '🔮 武器 SA： 尚未鑲嵌靈魂水晶。'}
           </div>
         </div>
       </div>
@@ -3451,9 +3451,9 @@ export function updateCharacterUI(state) {
           <div class="l2-ep-slot-icon">${meta.icon}</div>
           <div class="l2-ep-info">
             <div class="l2-ep-name">${encPrefix}${def.name || invItem.name || slotKey}</div>
-            <div class="l2-ep-stats">${meta.label} · 品級 ${grade.toUpperCase()}</div>
+            <div class="l2-ep-stats">${meta.label} · 品級 ${grade.toUpperCase() === 'NG' ? '無級' : grade.toUpperCase()}</div>
           </div>
-          <div class="l2-ep-cp-chip">+${itemCp.toLocaleString()} CP</div>
+          <div class="l2-ep-cp-chip">+${itemCp.toLocaleString()} 戰鬥力</div>
         </div>
       `);
     }
@@ -4280,7 +4280,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
     const listHtml = Object.values(state.legacyPassives).map(p => `
       <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.3); border:1px solid rgba(255,215,0,0.25); border-radius:4px; padding:4px 8px; margin-top:4px; font-size:11px;">
         <span style="color:#ffd700; font-weight:bold;">🧬 ${p.name || p.originalSkill}</span>
-        <span style="color:#34d399; font-weight:bold;">+${(p.val * 100).toFixed(1)}% ${p.stat.toUpperCase()}</span>
+        <span style="color:#34d399; font-weight:bold;">+${(p.val * 100).toFixed(1)}% ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[p.stat] || p.stat.toUpperCase()}</span>
       </div>
     `).join('');
 
@@ -5128,7 +5128,7 @@ function renderStoreBuyTab(state, callbacks) {
 
       return `
         <div class="l2store-slot ${!isLvlOk ? 'locked' : ''}" data-add-cart="${def.id}" data-rarity="${rarity}" title="${tooltip}">
-          <span class="l2store-slot-grade grade-${gradeInfo.code}">${gradeInfo.code.toUpperCase()}</span>
+          <span class="l2store-slot-grade grade-${gradeInfo.code}">${gradeInfo.code.toUpperCase() === 'NG' ? '無級' : gradeInfo.code.toUpperCase()}</span>
           ${getItemIcon(def)}
           ${!isLvlOk ? `<div style="position:absolute; inset:0; background:rgba(0,0,0,0.65); display:flex; align-items:center; justify-content:center; font-size:9px; color:#f87171; font-weight:bold; font-family:'IBM Plex Mono',monospace;">等級 ${reqLvl}</div>` : ''}
         </div>
@@ -5333,7 +5333,7 @@ function renderStoreSellTab(state, callbacks) {
 
       return `
         <div class="l2store-slot ${isEquipped || isLocked ? 'locked' : ''}" data-sell-item="${item.uid}" title="${item.enchant > 0 ? `+${item.enchant} ` : ''}${def.name}\n出售價值： ${sellUnit.toLocaleString()} 金幣">
-          <span class="l2store-slot-grade grade-${gradeInfo.code}">${gradeInfo.code.toUpperCase()}</span>
+          <span class="l2store-slot-grade grade-${gradeInfo.code}">${gradeInfo.code.toUpperCase() === 'NG' ? '無級' : gradeInfo.code.toUpperCase()}</span>
           ${getItemIcon(def)}
           ${count > 1 ? `<span class="l2store-slot-qty">${count}</span>` : ''}
           ${isEquipped ? `<div style="position:absolute; inset:0; background:rgba(16,185,129,0.5); display:flex; align-items:center; justify-content:center; font-size:8px; color:#fff; font-weight:bold;">裝備</div>` : ''}
@@ -5436,7 +5436,7 @@ function renderStoreRefundTab(state, callbacks) {
       const gradeInfo = getItemGrade(def);
       return `
         <div class="l2store-slot" data-buyback-idx="${idx}" title="${def.name}\n回購價格： ${entry.sellPrice.toLocaleString()} 金幣">
-          <span class="l2store-slot-grade grade-${gradeInfo.code}">${gradeInfo.code.toUpperCase()}</span>
+          <span class="l2store-slot-grade grade-${gradeInfo.code}">${gradeInfo.code.toUpperCase() === 'NG' ? '無級' : gradeInfo.code.toUpperCase()}</span>
           ${getItemIcon(def)}
           ${item.count > 1 ? `<span class="l2store-slot-qty">${item.count}</span>` : ''}
         </div>
@@ -7817,7 +7817,7 @@ export function renderForgeTattoos(container, state) {
           <div>
             <strong style="color:#d8b4fe; font-size:12px; font-family:'Cinzel',serif;">節點 ${idx + 1}： ${d.name} （等級 ${d.stage}/5）</strong>
             <div class="l2-stat-chip-row">
-              <span class="l2-stat-chip-pos">+${plusVal} ${plusStat.toUpperCase()}</span>
+              <span class="l2-stat-chip-pos">+${plusVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[plusStat] || plusStat.toUpperCase()}</span>
               <span class="l2-stat-chip-neg">-${minusVal} ${minusStat.toUpperCase()}</span>
             </div>
           </div>
@@ -11095,7 +11095,7 @@ function renderSevenSignsMammonView(ss, state) {
       ${accessCheck.allowed ? `
         <div style="grid-column:1/-1; background:rgba(34,197,94,0.15); border:1px solid #22c55e; border-radius:8px; padding:10px 14px; font-size:12px; color:#86efac; display:flex; align-items:center; gap:8px;">
           <span>✅</span>
-          <div><strong>封印祝福已啟用：</strong>你的陣營【${(ss.winnerFaction || ss.faction || 'DAWN').toUpperCase()}】主宰本週循環！瑪門鐵匠已開放特殊能力與防具解封功能。</div>
+          <div><strong>封印祝福已啟用：</strong>你的陣營【${({ DAWN: '黎明', DUSK: '黃昏', dawn: '黎明', dusk: '黃昏' })[ss.winnerFaction || ss.faction || 'DAWN'] || (ss.winnerFaction || ss.faction || '黎明')}】主宰本週循環！瑪門鐵匠已開放特殊能力與防具解封功能。</div>
         </div>
       ` : `
         <div style="grid-column:1/-1; background:rgba(239,68,68,0.15); border:1px solid #ef4444; border-radius:8px; padding:10px 14px; font-size:12px; color:#fca5a5; display:flex; align-items:center; gap:8px;">
@@ -11843,7 +11843,7 @@ export function openEnchantFlowModal(initialTargetUid = null, initialScrollUid =
             <span style="font-size:14px;">${tDef.slot === 'weapon' ? '⚔️' : '🛡️'}</span>
             <div style="display:flex; flex-direction:column;">
               <span style="font-size:11px; font-weight:bold; color:${isSelected ? '#38bdf8' : '#e2e8f0'};">${encLevel > 0 ? '+' + encLevel + ' ' : ''}${tDef.name}</span>
-              <span style="font-size:9.5px; color:#94a3b8;">${(tDef.grade || 'NG').toUpperCase()} 級 ${t.equipped ? '· ⚡ 已裝備' : ''}</span>
+              <span style="font-size:9.5px; color:#94a3b8;">${(tDef.grade || 'NG').toUpperCase() === 'NG' ? '無級' : (tDef.grade || 'NG').toUpperCase()} 級 ${t.equipped ? '· ⚡ 已裝備' : ''}</span>
             </div>
           </div>
         `;
@@ -11885,7 +11885,7 @@ export function openEnchantFlowModal(initialTargetUid = null, initialScrollUid =
                   <div style="font-size:14px; font-weight:bold; color:#ffd700;">
                     +${curEnc} → <span style="color:#38bdf8; font-size:16px;">+${nxtEnc}</span> ${targetDef.name}
                   </div>
-                  <div style="font-size:10px; color:#94a3b8;">品級 ${(targetDef.grade || 'NG').toUpperCase()} · 安全上限：+${preview.safeLimit}</div>
+                  <div style="font-size:10px; color:#94a3b8;">品級 ${(targetDef.grade || 'NG').toUpperCase() === 'NG' ? '無級' : (targetDef.grade || 'NG').toUpperCase()} · 安全上限：+${preview.safeLimit}</div>
                 </div>
               </div>
               <div style="text-align:right;">
