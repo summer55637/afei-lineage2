@@ -12,13 +12,13 @@
 import { OLYMPIAD_GLADIATORS, OLYMPIAD_SHOP_CATALOG, INFINITY_WEAPONS, HEROIC_SKILLS } from '../data/olympiad.js';
 import { NoblesseService } from './NoblesseService.js';
 
-export class 奧林匹亞Service {
+export class OlympiadService {
   /**
    * Retorna o status completo do herói na Grand 奧林匹亞.
    * @param {Object} state
    * @returns {Object}
    */
-  static get奧林匹亞Status(state) {
+  static getOlympiadStatus(state) {
     if (!state) {
       return {
         points: 1000,
@@ -51,7 +51,7 @@ export class 奧林匹亞Service {
       wins,
       losses,
       isHero,
-      canEnter: noblesseCheck.canJoin奧林匹亞,
+      canEnter: noblesseCheck.canJoinOlympiad,
       reason: noblesseCheck.reason,
       tierName,
       isNoblesse: noblesseCheck.isNoblesse,
@@ -65,7 +65,7 @@ export class 奧林匹亞Service {
    * @returns {{ok: boolean, reason?: string}}
    */
   static canJoinMatch(state) {
-    const status = this.get奧林匹亞Status(state);
+    const status = this.getOlympiadStatus(state);
     if (!status.canEnter) {
       return { ok: false, reason: status.reason };
     }
@@ -153,7 +153,7 @@ export class 奧林匹亞Service {
    * @param {Object} callbacks
    * @returns {Promise<Object>}
    */
-  static async start奧林匹亞Match(state, callbacks = {}) {
+  static async startOlympiadMatch(state, callbacks = {}) {
     const check = this.canJoinMatch(state);
     if (!check.ok) {
       if (callbacks.log) callbacks.log(`❌ ${check.reason}`, 'system');
@@ -162,7 +162,7 @@ export class 奧林匹亞Service {
 
     const gladiator = await this.getMatchmakingOpponent(state);
     if (callbacks.log) {
-      callbacks.log(`⚔️ [大奧林匹亞] **決鬥開始：** ${state.heroName || state.charName || '你'} vs ${gladiator.name}（${gladiator.title}）！`, gladiator.isRealPlayer ? 'rarity-legendary' : 'rarity-epic');
+      callbacks.log(`⚔️ [大奧林匹亞] **決鬥開始：** ${state.heroName || state.charName || '你'} 對戰 ${gladiator.name}（${gladiator.title}）！`, gladiator.isRealPlayer ? 'rarity-legendary' : 'rarity-epic');
     }
 
     // Atributos do Herói
@@ -187,14 +187,14 @@ export class 奧林匹亞Service {
       const heroHit = Math.max(Math.round((rawHeroDmg * (100 / (100 + gladDefense * 0.15))) * (0.9 + Math.random() * 0.2)), 50);
 
       gladHp = Math.max(0, gladHp - heroHit);
-      battleLog.push(`第 ${round} 回合：你對 ${gladiator.name} 造成 **${heroHit.toLocaleString()}** 傷害。（對手 HP：${gladHp.toLocaleString()}/${gladiator.hp.toLocaleString()}）`);
+      battleLog.push(`第 ${round} 回合：你對 ${gladiator.name} 造成 **${heroHit.toLocaleString()}** 傷害。（對手生命值：${gladHp.toLocaleString()}/${gladiator.hp.toLocaleString()}）`);
 
       if (gladHp <= 0) break;
 
       // 2. Gladiador ataca Herói
       const gladDmg = Math.max(Math.round((gladiator.atk * 1.25 * (100 / (100 + heroDef * 0.15))) * (0.85 + Math.random() * 0.3)), 40);
       heroHp = Math.max(0, heroHp - gladDmg);
-      battleLog.push(`第 ${round} 回合：${gladiator.name} 對你造成 **${gladDmg.toLocaleString()}** 傷害！（你的 HP：${heroHp.toLocaleString()}/${heroHpMax.toLocaleString()}）`);
+      battleLog.push(`第 ${round} 回合：${gladiator.name} 對你造成 **${gladDmg.toLocaleString()}** 傷害！（你的生命值：${heroHp.toLocaleString()}/${heroHpMax.toLocaleString()}）`);
 
       round++;
     }
@@ -272,7 +272,7 @@ export class 奧林匹亞Service {
     }
 
     state.isHero = true;
-    state.heroTitle = 'Grand 奧林匹亞 Hero 👑';
+    state.heroTitle = '大奧林匹亞英雄 👑';
     state.heroAura = 'golden_hero_aura';
 
     // Adiciona as 4 Habilidades Heroicas
