@@ -1566,8 +1566,8 @@ function useItem(uid) {
     if (typeof floatText === 'function') floatText(`🎒 背包 +30 格（${totalSlots}）`, 'float-jackpot');
   } else if (def.type === 'vip_pass' || item.itemId === 'pass_vip_teleport_30d') {
     state.vipTeleportUntil = Math.max(Date.now(), state.vipTeleportUntil || 0) + (30 * 24 * 3600 * 1000);
-    log('🌟 Passe VIP de Teleporte ativado! Teleportes gratuitos liberados por 30 dias.', 'system');
-    if (typeof floatText === 'function') floatText('🌟 VIP 30 DIAS ATIVADO!', 'float-jackpot');
+    log('🌟 VIP 傳送通行證已啟用！30 天內可免費傳送。', 'system');
+    if (typeof floatText === 'function') floatText('🌟 VIP 30 天已啟用！', 'float-jackpot');
   } else if (item.itemId === 'scroll_blessed_weapon' || item.itemId === 'scroll_blessed_armor') {
     const isWpn = item.itemId.includes('weapon');
     log(`📜 已選擇祝福的${isWpn ? '武器' : '防具'}強化卷軸！正在開啟具完全保護效果的鍛造介面。`, 'system');
@@ -2683,7 +2683,7 @@ function updateCombatControlsUI() {
     
     const shotLabel = isMage ? '✨ SPS' : '⚡ SS';
     ssBtn.innerHTML = `<span>${shotLabel}</span> <span style="font-size:9px; color:${isSsActive ? '#fef08a' : '#94a3b8'};">(${shotCount})</span>`;
-    ssBtn.title = `${isMage ? '祝福魔靈彈' : 'Soulshot'}: ${isSsActive ? '開啟' : 'DES開啟'} (Estoque: ${shotCount})`;
+    ssBtn.title = `${isMage ? '祝福魔靈彈' : '魂彈'}：${isSsActive ? '開啟' : '關閉'}（庫存：${shotCount}）`;
   }
   const apBtn = el('autopotion-toggle-btn');
   if (apBtn) {
@@ -3023,7 +3023,7 @@ function renderZoneInfoCard() {
   const monsterHtml = monsterIds.map(mId => {
     const mon = MONSTERS[mId];
     if (!mon) return '';
-    const badge = mon.boss ? '<span class="z-badge boss">★ Boss</span>' : (mon.elite ? '<span class="z-badge elite">⚔ Elite</span>' : '');
+    const badge = mon.boss ? '<span class="z-badge boss">★ 首領</span>' : (mon.elite ? '<span class="z-badge elite">⚔ 菁英</span>' : '');
     const mLvl = mon.lvl || z.level || 1;
     const archKey = mon.archetype || MonsterAIEngine.getMonsterArchetype(mon);
     const arch = ARCHETYPE_INFO[archKey] || ARCHETYPE_INFO.berserker;
@@ -6260,7 +6260,7 @@ function monsterAttack(monster) {
         stageFloat('💫 STUNNED', 'sf-crit', 'left');
         log(`💫 **${monster.name}** 使用 [${skillName}] 使你暈眩！`, 'warning');
       } else if (sk.effect === 'root') {
-        stageFloat('🌿 PRESO', 'sf-block', 'left');
+        stageFloat('🌿 定身', 'sf-block', 'left');
         log(`🌿 **${monster.name}** 使用 [${skillName}] 使你定身！`, 'warning');
       } else if (sk.effect === 'bleed') {
         stageFloat('🩸 SANGRANDO', 'sf-hurt', 'left');
@@ -6343,14 +6343,14 @@ function monsterAttack(monster) {
     if (stats.defenceProc && Math.random() < 0.06) {
       state.buffs = state.buffs || {};
       state.buffs['counter_defense'] = { amount: 25, until: realNow + 10000 };
-      log('🛡️ **[Subclasse] Counter Defense ativado!** +25% P.Def & +25% M.Def por 10s!', 'rarity-epic');
+      log('🛡️ **[副職業] 反擊防禦觸發！** +25% P.Def、+25% M.Def，持續 10 秒！', 'rarity-epic');
       if (typeof stageFloat === 'function') stageFloat('🛡️ COUNTER DEF!', 'sf-block', 'left');
       else if (typeof floatText === 'function') floatText('🛡️ COUNTER DEFENSE!', 'float-epic');
     }
     if (stats.spiritProc && Math.random() < 0.05) {
       state.buffs = state.buffs || {};
       state.buffs['counter_spirit'] = { amount: 10, until: realNow + 10000 };
-      log('👻 **[Subclasse] Counter Spirit ativado!** +10% P.Atk, M.Atk e Atk.Spd por 10s!', 'rarity-epic');
+      log('👻 **[副職業] 反擊之魂觸發！** +10% P.Atk、M.Atk 與攻擊速度，持續 10 秒！', 'rarity-epic');
       if (typeof stageFloat === 'function') stageFloat('👻 COUNTER SPIRIT!', 'sf-crit', 'left');
       else if (typeof floatText === 'function') floatText('👻 COUNTER SPIRIT!', 'float-epic');
     }
@@ -6469,7 +6469,7 @@ function applyAdminLevelChange(targetLevel) {
   // 4. Log e feedback visual do nível
   playSfx('levelUp');
   log(`⚡ [管理員] 等級已調整為 ${newLvl}！SP（+${cumulativeSp + 1000}）、HP/MP、史詩任務、狩獵地圖與技能已同步。`, 'rarity-legendary');
-  floatText(`⚡ NIVEL ${newLvl}!`, 'float-jackpot');
+  floatText(`⚡ 等級 ${newLvl}！`, 'float-jackpot');
 
   // 5. Atualiza todos os módulos visuais (Troca de classe, Árvore de Skills, Mapa, Subclasses, Raids, Missões)
   checkClassAdvancement();
@@ -6650,7 +6650,7 @@ function applyServerRatePreset(presetKey) {
   });
   
   log(`🚀 [管理員] 已套用預設：**${preset.name}**！所有倍率已即時更新。`, 'rarity-legendary');
-  if (typeof floatText === 'function') floatText(`🚀 PRESET ${presetKey.toUpperCase()} ATIVADO!`, 'float-jackpot');
+  if (typeof floatText === 'function') floatText(`🚀 預設 ${presetKey.toUpperCase()} 已啟用！`, 'float-jackpot');
   
   try {
     if (typeof localStorage !== 'undefined') {
@@ -7122,7 +7122,7 @@ function executeAdminCmd(cmd) {
   else if (cmd === 'ac2000') { addAdminAC(2000); }
   else if (cmd === 'godmode') { 
     state.godMode = !state.godMode; 
-    log(`🛡️ [Admin] Invencibilidade: ${state.godMode ? 'ATIVADO' : 'DESATIVADO'}!`, 'rarity-legendary'); 
+    log(`🛡️ [管理員] 無敵狀態：${state.godMode ? '已啟用' : '已停用'}！`, 'rarity-legendary'); 
     if (typeof floatText === 'function') floatText(`🛡️ GOD MODE: ${state.godMode ? 'ON' : 'OFF'}`, 'float-jackpot');
   }
   else if (cmd === 'healfull') { 
@@ -7671,8 +7671,8 @@ function updateDollsUI() {
   const d1 = state.dolls.find(i => i.uid === state.synthSelected[0]);
   const d2 = state.dolls.find(i => i.uid === state.synthSelected[1]);
 
-  if (slot1El) slot1El.textContent = d1 ? `${BOSS_DOLLS[d1.dollId]?.name} Lv.${d1.level}` : 'Doll Base';
-  if (slot2El) slot2El.textContent = d2 ? `${BOSS_DOLLS[d2.dollId]?.name} Lv.${d2.level}` : 'Doll Material';
+  if (slot1El) slot1El.textContent = d1 ? `${BOSS_DOLLS[d1.dollId]?.name} Lv.${d1.level}` : '基底娃娃';
+  if (slot2El) slot2El.textContent = d2 ? `${BOSS_DOLLS[d2.dollId]?.name} Lv.${d2.level}` : '材料娃娃';
 
   const synthBtn = el('start-doll-synth-btn');
   if (synthBtn) synthBtn.onclick = synthesizeDolls;
@@ -7983,7 +7983,7 @@ export const TAB_NAMES_MAP = {
   cosmetics: 'Cosméticos',
   quests: 'Missões',
   zones: '狩獵與區域',
-  raids: 'Raids & Bosses',
+  raids: '團隊首領與首領',
   tower: '傲慢之塔',
   colosseum: 'Coliseu PvP',
   expeditions: 'Expedições',
@@ -8930,7 +8930,7 @@ function reincarnateHero() {
 
 // --------------------------- EXPEDITIONS & MANOR SYSTEM ---------------------------
 const MANOR_SEEDS = {
-  dark_coda: { id: 'dark_coda', name: 'Dark Coda Seed', level: 10, price: 100, reward1: 'stem', reward2: 'braided_hemp', ratio1: 5, ratio2: 2 },
+  dark_coda: { id: 'dark_coda', name: '黑暗柯達種子', level: 10, price: 100, reward1: 'stem', reward2: 'braided_hemp', ratio1: 5, ratio2: 2 },
   red_coda: { id: 'red_coda', name: 'Red Coda Seed', level: 13, price: 200, reward1: 'varnish', reward2: 'cokes', ratio1: 5, ratio2: 2 },
   chilly_coda: { id: 'chilly_coda', name: 'Chilly Coda Seed', level: 16, price: 350, reward1: 'suede', reward2: 'oriharukon_ore', ratio1: 5, ratio2: 2 },
   blue_coda: { id: 'blue_coda', name: 'Blue Coda Seed', level: 19, price: 500, reward1: 'animal_skin', reward2: 'crafted_leather', ratio1: 5, ratio2: 2 },
@@ -9196,7 +9196,7 @@ function socketSoulCrystalToWeapon(effect = 'focus', stage = 1) {
   };
 
   log(`🔮 已將 SA 靈魂水晶 [${effect.toUpperCase()} 階段 ${stage}] 鑲嵌到目前武器！`, 'rarity-legendary');
-  floatText(`SA ${effect.toUpperCase()} ATIVADO`, 'float-gold');
+  floatText(`SA ${effect.toUpperCase()} 已啟用`, 'float-gold');
 
   updateAllUI();
   save();
@@ -10429,7 +10429,7 @@ export function init() {
           save();
         } else {
           log('ℹ️ 目前沒有待領獎勵。當你推薦的朋友達到等級 40 後，可在這裡領取 50 AC 與 5 張祝福強化卷軸！', 'info');
-          if (typeof floatText === 'function') floatText('Nenhuma recompensa pendente', 'float-normal');
+          if (typeof floatText === 'function') floatText('沒有待領獎勵', 'float-normal');
         }
       } catch (err) {
         console.error('Erro ao verificar recompensas de indicação:', err);
@@ -11044,7 +11044,7 @@ export function init() {
               <span>🧪 Gatilhos de Auto-Poção</span>
             </div>
             <button onclick="window.toggleCombatAutoPotionAction()" style="background:${state.autoPotionActive ? 'linear-gradient(180deg,#22c55e,#15803d)' : 'rgba(255,255,255,0.1)'}; border:1px solid ${state.autoPotionActive ? '#86efac' : 'rgba(255,255,255,0.2)'}; color:#fff; border-radius:6px; padding:4px 12px; font-size:12px; font-weight:bold; cursor:pointer;">
-              ${state.autoPotionActive ? '🟢 Ativado' : '⚪ Desativado'}
+              ${state.autoPotionActive ? '🟢 已啟用' : '⚪ 已停用'}
             </button>
           </div>
 
