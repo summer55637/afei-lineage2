@@ -4,15 +4,15 @@ import {
   RACES,
   SKILLS,
   type RaceDef,
-  type 職業Def,
+  type ClassDef,
   type RaceId,
 } from "./game/data";
 import { cn } from "./utils/cn";
-import { get職業Icon, getSkillIcon } from "./services/IconService";
+import { getClassIcon, getSkillIcon } from "./services/IconService";
 
 type Phase = "menu" | "playing" | "paused" | "gameover";
 
-interface 分數Entry {
+interface ScoreEntry {
   score: number;
   race: string;
   cls: string;
@@ -22,7 +22,7 @@ interface 分數Entry {
 
 const HS_KEY = "aden_arena_highscores_v1";
 
-function loadHS(): 分數Entry[] {
+function loadHS(): ScoreEntry[] {
   try {
     const raw = localStorage.getItem(HS_KEY);
     const arr = raw ? JSON.parse(raw) : [];
@@ -32,12 +32,12 @@ function loadHS(): 分數Entry[] {
   }
 }
 
-function commit分數(r: GameResult): {
-  list: 分數Entry[];
+function commitScore(r: GameResult): {
+  list: ScoreEntry[];
   rank: number;
   isNew: boolean;
 } {
-  const entry: 分數Entry = {
+  const entry: ScoreEntry = {
     score: r.score,
     race: r.race,
     cls: r.cls,
@@ -59,12 +59,12 @@ function fmtTime(s: number) {
   return `${m}:${sec.toString().padStart(2, "0")}`;
 }
 
-// ---------- High 分數 Table ----------
-function High分數Table({
+// ---------- High Score Table ----------
+function HighScoreTable({
   scores,
   highlightDate,
 }: {
-  scores: 分數Entry[];
+  scores: ScoreEntry[];
   highlightDate?: number;
 }) {
   return (
@@ -131,18 +131,18 @@ function getIdleState() {
   return null;
 }
 
-function resolveRaceAnd職業(idleState: any): { race: RaceDef; cls: 職業Def } {
+function resolveRaceAndClass(idleState: any): { race: RaceDef; cls: ClassDef } {
   const defaultRace = RACES[0];
   const defaultCls = defaultRace.classes[0];
   if (!idleState) return { race: defaultRace, cls: defaultCls };
 
   const rawRaceId = String(idleState.raceId || idleState.race || "").toLowerCase();
-  const raw職業Id = String(idleState.classId || idleState.class || "").toLowerCase();
+  const rawClassId = String(idleState.classId || idleState.class || "").toLowerCase();
 
   let race = RACES.find((r) => r.id === rawRaceId);
   if (!race) {
     for (const r of RACES) {
-      if (r.classes.some((c) => c.id === raw職業Id)) {
+      if (r.classes.some((c) => c.id === rawClassId)) {
         race = r;
         break;
       }
@@ -150,10 +150,10 @@ function resolveRaceAnd職業(idleState: any): { race: RaceDef; cls: 職業Def }
   }
   if (!race) race = defaultRace;
 
-  let cls = race.classes.find((c) => c.id === raw職業Id);
+  let cls = race.classes.find((c) => c.id === rawClassId);
   if (!cls) {
     for (const r of RACES) {
-      const match = r.classes.find((c) => c.id === raw職業Id);
+      const match = r.classes.find((c) => c.id === rawClassId);
       if (match) {
         cls = match;
         break;
@@ -172,16 +172,16 @@ function MenuScreen({
   highscores,
   idleState,
   onRace,
-  on職業,
+  onClass,
   onPlay,
 }: {
   raceId: RaceId;
   clsId: string;
-  highscores: 分數Entry[];
+  highscores: ScoreEntry[];
   idleState?: any;
   onRace: (id: RaceId) => void;
-  on職業: (id: string) => void;
-  onPlay: (customRace?: RaceDef, customCls?: 職業Def) => void;
+  onClass: (id: string) => void;
+  onPlay: (customRace?: RaceDef, customCls?: ClassDef) => void;
 }) {
   const race = RACES.find((r) => r.id === raceId) as RaceDef;
   const cls = race.classes.find((c) => c.id === clsId) ?? race.classes[0];
@@ -240,7 +240,7 @@ function MenuScreen({
               </div>
               <button
                 onClick={() => {
-                  const res = resolveRaceAnd職業(idleState);
+                  const res = resolveRaceAndClass(idleState);
                   onPlay(res.race, res.cls);
                 }}
                 className="rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 px-6 py-3.5 font-display text-base font-black tracking-wide text-[#1a1100] shadow-lg shadow-amber-500/30 hover:brightness-110 active:scale-95 transition"
@@ -301,7 +301,7 @@ function MenuScreen({
                   return (
                     <button
                       key={c.id}
-                      onClick={() => on職業(c.id)}
+                      onClick={() => onClass(c.id)}
                       className={cn(
                         "group relative rounded-xl border p-3.5 text-left transition",
                         active
@@ -320,7 +320,7 @@ function MenuScreen({
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <img
-                            src={get職業Icon(c.id)}
+                            src={getClassIcon(c.id)}
                             alt={c.name}
                             className="w-8 h-8 object-contain rounded-md bg-black/60 border border-amber-500/40 p-0.5 shadow-sm"
                             onError={(e) => { e.currentTarget.style.display = 'none'; }}
@@ -406,7 +406,7 @@ function MenuScreen({
               </p>
               <div className="mt-2 flex items-center gap-3">
                 <img
-                  src={get職業Icon(cls.id)}
+                  src={getClassIcon(cls.id)}
                   alt={cls.name}
                   className="w-12 h-12 object-contain rounded-xl bg-black/60 border-2 border-amber-500/50 p-1 shadow-lg"
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
@@ -451,7 +451,7 @@ function MenuScreen({
               </ul>
             </div>
 
-            <High分數Table scores={highscores} />
+            <HighScoreTable scores={highscores} />
           </div>
         </div>
 
@@ -526,7 +526,7 @@ function GameOverOverlay({
   result: GameResult;
   rank: number;
   isNew: boolean;
-  highscores: 分數Entry[];
+  highscores: ScoreEntry[];
   onAgain: () => void;
   onMenu: () => void;
 }) {
@@ -581,7 +581,7 @@ function GameOverOverlay({
         </div>
 
         <div className="mt-5">
-          <High分數Table scores={highscores} />
+          <HighScoreTable scores={highscores} />
         </div>
 
         <div className="mt-5 grid grid-cols-2 gap-3">
@@ -610,19 +610,19 @@ export default function ArenaApp() {
   const gameRef = useRef<Game | null>(null);
 
   const idleState = useMemo(() => getIdleState(), []);
-  const initialResolved = useMemo(() => resolveRaceAnd職業(idleState), [idleState]);
+  const initialResolved = useMemo(() => resolveRaceAndClass(idleState), [idleState]);
 
   const [phase, setPhase] = useState<Phase>(idleState ? "playing" : "menu");
   const [raceId, setRaceId] = useState<RaceId>(initialResolved.race.id);
   const [clsId, setClsId] = useState<string>(initialResolved.cls.id);
-  const [highscores, setHighscores] = useState<分數Entry[]>(() => loadHS());
+  const [highscores, setHighscores] = useState<ScoreEntry[]>(() => loadHS());
   const [result, setResult] = useState<
     (GameResult & { rank: number; isNew: boolean }) | null
   >(null);
 
   const race = RACES.find((r) => r.id === raceId) as RaceDef;
   const cls =
-    (race.classes.find((c) => c.id === clsId) as 職業Def) ?? race.classes[0];
+    (race.classes.find((c) => c.id === clsId) as ClassDef) ?? race.classes[0];
 
   // Tear down the 3D engine cleanly when this view unmounts (mode switch).
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -633,7 +633,7 @@ export default function ArenaApp() {
     }
   }, []);
 
-  const startGame = useCallback((targetRace?: RaceDef, targetCls?: 職業Def) => {
+  const startGame = useCallback((targetRace?: RaceDef, targetCls?: ClassDef) => {
     const canvas = canvasRef.current;
     const hud = hudRef.current;
     if (!canvas || !hud) {
@@ -660,7 +660,7 @@ export default function ArenaApp() {
           onPaused: () => setPhase("paused"),
           onResumed: () => setPhase("playing"),
           onGameOver: (r: GameResult) => {
-            const { list, rank, isNew } = commit分數(r);
+            const { list, rank, isNew } = commitScore(r);
             setHighscores(list);
             setResult({ ...r, rank, isNew });
             setPhase("gameover");
@@ -713,7 +713,7 @@ export default function ArenaApp() {
           clsId={clsId}
           highscores={highscores}
           onRace={handleRace}
-          on職業={setClsId}
+          onClass={setClsId}
           onPlay={startGame}
         />
       )}
