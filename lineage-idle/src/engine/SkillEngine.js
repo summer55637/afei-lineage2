@@ -215,7 +215,7 @@ export function canCastSkillWeapon(state, skillDef) {
 
     const hasBow = equippedWeaponTypes.includes('bow');
     if (!hasBow) {
-      return { ok: false, reason: 'Requer Arco equipado para esta habilidade' };
+      return { ok: false, reason: '此技能需要裝備弓' };
     }
   }
 
@@ -224,7 +224,7 @@ export function canCastSkillWeapon(state, skillDef) {
     const shieldUid = state.equipment?.shield;
     const shieldItem = (shieldUid && typeof shieldUid === 'object') ? shieldUid : (shieldUid ? state.inventory?.find(i => i.uid === shieldUid) : null);
     if (!shieldItem) {
-      return { ok: false, reason: 'Requer Escudo equipado' };
+      return { ok: false, reason: '需要裝備盾牌' };
     }
   }
 
