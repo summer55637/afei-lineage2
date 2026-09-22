@@ -467,12 +467,12 @@ export const MarketService = {
    */
   async createListing(state, { itemUid, quantity = 1, pricePerUnit, currency = 'adena' }) {
     if (!state || !state.inventory) {
-      return { ok: false, msg: 'Inventário indisponível.' };
+      return { ok: false, msg: '背包目前不可用。' };
     }
 
     const itemIndex = state.inventory.findIndex(i => (i.uid === itemUid || i.id === itemUid));
     if (itemIndex === -1) {
-      return { ok: false, msg: 'Item não encontrado na mochila.' };
+      return { ok: false, msg: '背包中找不到該物品。' };
     }
 
     const item = state.inventory[itemIndex];
@@ -491,7 +491,7 @@ export const MarketService = {
     // Verifica se está equipado
     const isEquipped = Object.values(state.equipment || {}).includes(item.uid || item.id);
     if (isEquipped) {
-      return { ok: false, msg: 'Desequipe o item antes de anunciar no mercado!' };
+      return { ok: false, msg: '請先卸下物品，再刊登到市場！' };
     }
 
     const availableCount = Number(item.count || item.quantity) || 1;
@@ -503,7 +503,7 @@ export const MarketService = {
     const listingFee = Math.max(100, Math.floor((currency === 'adena' ? totalPrice : totalPrice * 1000) * 0.05));
 
     if ((state.gold || 0) < listingFee) {
-      return { ok: false, msg: `Adena insuficiente para a taxa imperial de listagem (Exige ${listingFee.toLocaleString()} Adena).` };
+      return { ok: false, msg: `金幣不足，無法支付帝國刊登費（需要 ${listingFee.toLocaleString()} 金幣）。` };
     }
 
     // Deduz a taxa de listagem
@@ -572,7 +572,7 @@ export const MarketService = {
 
     return { 
       ok: true, 
-      msg: `刊登建立成功！ Taxa recolhida pelo Império: ${listingFee.toLocaleString()} Adena.`,
+      msg: `刊登建立成功！帝國已收取 ${listingFee.toLocaleString()} 金幣刊登費。`,
       listing: newListing 
     };
   },
@@ -581,12 +581,12 @@ export const MarketService = {
    * Compra um item anunciado no mercado
    */
   async buyListing(state, listingId) {
-    if (!state) return { ok: false, msg: 'Estado de jogo indisponível.' };
+    if (!state) return { ok: false, msg: '遊戲狀態目前不可用。' };
 
     const listings = this.getListings(state);
     const index = listings.findIndex(l => l.id === listingId);
     if (index === -1 || _deletedListingIds.has(listingId)) {
-      return { ok: false, msg: 'Este anúncio já foi adquirido por outro jogador ou foi cancelado!' };
+      return { ok: false, msg: '此刊登已被其他玩家購買或已取消！' };
     }
 
     const listing = listings[index];
@@ -594,7 +594,7 @@ export const MarketService = {
     const buyerUid = typeof window !== 'undefined' ? window.FirebaseBridge?.getCurrentUserId?.() : null;
 
     if (this._isMyListing(listing, state)) {
-      return { ok: false, msg: 'Você não pode comprar seu próprio anúncio! Cancele-o na aba Minhas Vendas se desejar o item de volta.' };
+      return { ok: false, msg: '你不能購買自己的刊登！若想取回物品，請到「我的銷售」取消刊登。' };
     }
 
     // Validação de espaço na mochila (Capacidade Máxima de Slots)
@@ -603,7 +603,7 @@ export const MarketService = {
     const isStackable = ['material', 'consumable', 'scroll', 'crystal', 'powerup', 'potion'].includes(String(listing.item.slot || '').toLowerCase()) || String(listing.item.type || '').toLowerCase() === 'consumable';
     const hasStack = isStackable && (state.inventory || []).some(i => (i.itemId === actualItemId || i.id === actualItemId) && !i.enchant && !i.equipped);
     if (!hasStack && (state.inventory || []).length >= maxSlots) {
-      return { ok: false, msg: `Sua mochila está cheia (${state.inventory.length}/${maxSlots})! Libere espaço antes de comprar.` };
+      return { ok: false, msg: `你的背包已滿（${state.inventory.length}/${maxSlots}）！請先騰出空間再購買。` };
     }
 
     const totalCost = Number(listing.totalPrice) || (listing.pricePerUnit * listing.quantity);
@@ -612,12 +612,12 @@ export const MarketService = {
     if (currency === 'adencoin') {
       const playerAc = Number(state.adenCoins || state.ac || 0);
       if (playerAc < totalCost) {
-        return { ok: false, msg: `Aden Coins insuficientes! Você tem ${playerAc} e o item custa ${totalCost} Aden Coins 👑.` };
+        return { ok: false, msg: `亞丁幣不足！你有 ${playerAc}，此物品需要 ${totalCost} 亞丁幣 👑。` };
       }
     } else {
       const playerGold = Number(state.gold || 0);
       if (playerGold < totalCost) {
-        return { ok: false, msg: `Adena insuficiente! Você tem ${playerGold.toLocaleString()} e o item custa ${totalCost.toLocaleString()} Adena 🪙.` };
+        return { ok: false, msg: `金幣不足！你有 ${playerGold.toLocaleString()}，此物品需要 ${totalCost.toLocaleString()} 金幣 🪙。` };
       }
     }
 
@@ -631,7 +631,7 @@ export const MarketService = {
           _inMemoryListings = current;
           this.saveListings(current, false);
           this.notifyUI();
-          return { ok: false, msg: txResult.msg || 'Este item já foi adquirido por outro jogador!' };
+          return { ok: false, msg: txResult.msg || '此物品已被其他玩家購買！' };
         }
       } catch (cloudErr) {
         console.warn('[MarketService] Aviso na transação remota:', cloudErr);
@@ -714,7 +714,7 @@ export const MarketService = {
 
     return {
       ok: true,
-      msg: `Compra realizada com sucesso! Você recebeu ${listing.quantity}x ${listing.item.name}.`,
+      msg: `購買成功！你獲得 ${listing.quantity}x ${listing.item.name}。`,
       item: boughtItem
     };
   },
@@ -723,18 +723,18 @@ export const MarketService = {
    * Cancela uma listagem e devolve o item para a mochila do jogador
    */
   async cancelListing(state, listingId) {
-    if (!state) return { ok: false, msg: 'Estado de jogo indisponível.' };
+    if (!state) return { ok: false, msg: '遊戲狀態目前不可用。' };
 
     const listings = this.getListings(state);
     const index = listings.findIndex(l => l.id === listingId);
     if (index === -1 || _deletedListingIds.has(listingId)) {
-      return { ok: false, msg: '刊登 não encontrado ou já negociado.' };
+      return { ok: false, msg: '找不到刊登，或該刊登已完成交易。' };
     }
 
     const listing = listings[index];
 
     if (!this._isMyListing(listing, state)) {
-      return { ok: false, msg: 'Você só pode cancelar seus próprios anúncios!' };
+      return { ok: false, msg: '你只能取消自己的刊登！' };
     }
 
     // 1. Verifica no Firestore se o anúncio já foi vendido para impedir duplicação e resgate indevido
@@ -747,7 +747,7 @@ export const MarketService = {
           _inMemoryListings = updated;
           this.saveListings(updated, false);
           this.notifyUI();
-          return { ok: false, msg: 'Este item já foi vendido para outro jogador! Os lucros da venda estão disponíveis para resgate na aba Minhas Vendas.' };
+          return { ok: false, msg: '此物品已出售給其他玩家！銷售收益可在「我的銷售」頁面領取。' };
         }
       } catch (e) {}
     }
@@ -805,7 +805,7 @@ export const MarketService = {
 
     return {
       ok: true,
-      msg: `刊登 cancelado com sucesso! ${listing.quantity}x ${listing.item.name} devolvido à sua mochila.`
+      msg: `刊登已成功取消！${listing.quantity}x ${listing.item.name} 已退回背包。`
     };
   },
 
@@ -813,7 +813,7 @@ export const MarketService = {
    * Coleta todos os lucros pendentes de vendas
    */
   async claimProfits(state) {
-    if (!state) return { ok: false, msg: 'Estado indisponível.' };
+    if (!state) return { ok: false, msg: '目前狀態不可用。' };
 
     const playerName = state.charName || state.heroName || state.playerName || state.name || 'Hero of Aden';
     let claimedAdena = 0;
@@ -841,7 +841,7 @@ export const MarketService = {
     const totalCoins = Math.max(claimedCoins, localCoins);
 
     if (totalAdena <= 0 && totalCoins <= 0) {
-      return { ok: false, msg: 'Nenhum lucro pendente de vendas para resgatar no momento.' };
+      return { ok: false, msg: '目前沒有待領取的銷售收益。' };
     }
 
     if (totalAdena > 0) {
@@ -860,7 +860,7 @@ export const MarketService = {
 
     return {
       ok: true,
-      msg: `Lucros imperiais coletados com sucesso: +${totalAdena.toLocaleString()} Adena 🪙 e +${totalCoins} Aden Coins 👑!`,
+      msg: `帝國市場收益領取成功：+${totalAdena.toLocaleString()} 金幣 🪙、+${totalCoins} 亞丁幣 👑！`,
       adena: totalAdena,
       adencoin: totalCoins
     };
