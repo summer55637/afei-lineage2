@@ -107,7 +107,7 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
       } else if (err.code === 'auth/invalid-email') {
         setError('電子郵件格式無效。');
       } else {
-        setError(err.message || '登入時發生錯誤。');
+        setError('登入時發生錯誤，請稍後再試。');
       }
     } finally {
       setLoading(false);
@@ -138,7 +138,7 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
       } else if (err.code === 'auth/weak-password') {
         setError('密碼強度不足，請至少使用 6 個字元。');
       } else {
-        setError(err.message || '建立帳號時發生錯誤。');
+        setError('建立帳號時發生錯誤，請稍後再試。');
       }
     } finally {
       setLoading(false);
@@ -153,7 +153,7 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
       await signInWithPopup(auth, googleProvider);
       setIsOpen(false);
     } catch (err: any) {
-      setError(err.message || '使用 Google 登入時發生錯誤。');
+      setError('使用 Google 登入時發生錯誤，請稍後再試。');
     } finally {
       setLoading(false);
     }
@@ -181,7 +181,7 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
         setTimeout(() => setError(null), 5000);
       }
     } catch (err: any) {
-      setError(err?.message || '雲端儲存時發生錯誤。');
+      setError('雲端儲存時發生錯誤，請稍後再試。');
       setTimeout(() => setError(null), 5000);
     } finally {
       setSyncing(false);
@@ -203,7 +203,7 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
         setTimeout(() => setError(null), 5000);
       }
     } catch (err: any) {
-      setError(err?.message || '從雲端載入時發生錯誤。');
+      setError('從雲端載入時發生錯誤，請稍後再試。');
       setTimeout(() => setError(null), 5000);
     } finally {
       setSyncing(false);
