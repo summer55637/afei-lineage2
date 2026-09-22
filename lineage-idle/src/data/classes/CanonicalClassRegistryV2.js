@@ -560,7 +560,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "deathPilgrim": {
         "id": "deathPilgrim",
-        "name": "Death Pilgrim",
+        "name": "死亡朝聖者",
         "lineageId": "deathKnight",
         "lineageName": "Death Knight",
         "stage": 0,
@@ -568,7 +568,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Peregrino da morte — começo da jornada dark.",
+        "desc": "死亡朝聖者——黑暗之路的起點。",
         "skillIds": [
             "change_armor",
             "sword_blunt_mastery",
@@ -578,7 +578,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "deathBlade": {
         "id": "deathBlade",
-        "name": "Death Blade",
+        "name": "死亡之刃",
         "lineageId": "deathKnight",
         "lineageName": "Death Knight",
         "stage": 1,
@@ -586,7 +586,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "deathPilgrim",
-        "desc": "Lâmina da morte — combate dark agressivo.",
+        "desc": "死亡之刃——以侵略性的黑暗力量作戰。",
         "skillIds": [
             "punishment",
             "roar_of_death",
@@ -597,7 +597,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "deathMessenger": {
         "id": "deathMessenger",
-        "name": "Death Messenger",
+        "name": "死亡使者",
         "lineageId": "deathKnight",
         "lineageName": "Death Knight",
         "stage": 2,
@@ -605,7 +605,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "deathBlade",
-        "desc": "Mensageiro da morte — ataques dark devastadores.",
+        "desc": "死亡使者——施展毀滅性的黑暗攻擊。",
         "skillIds": [
             "wipeout",
             "deadly_pull",
@@ -616,7 +616,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "deathKnight": {
         "id": "deathKnight",
-        "name": "Death Knight",
+        "name": "死亡騎士",
         "lineageId": "deathKnight",
         "lineageName": "Death Knight",
         "stage": 3,
@@ -624,7 +624,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "deathMessenger",
-        "desc": "Cavaleiro da Morte — devastação dark absoluta com Death Points.",
+        "desc": "死亡騎士——運用 Death Points 發動絕對的黑暗毀滅。",
         "skillIds": [
             "ultimate_death_knight",
             "hellfire",
@@ -636,7 +636,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "warg": {
         "id": "warg",
-        "name": "Warg",
+        "name": "戰狼",
         "lineageId": "warg",
         "lineageName": "Warg",
         "stage": 3,
@@ -644,7 +644,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": null,
-        "desc": "Warg — guerreiro feral com transformação em lobo ancestral e vampirismo feral.",
+        "desc": "戰狼——可化身遠古狼形，並以野性吸血能力作戰的狂野戰士。",
         "skillIds": [
             "enormous_wolf",
             "upward_strike",
@@ -663,7 +663,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Caçador das sombras com adagas.",
+        "desc": "使用匕首的暗影獵人。",
         "skillIds": [
             "blow",
             "bandage",
@@ -693,7 +693,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "assassinS2": {
         "id": "assassinS2",
-        "name": "刺客",
+        "name": "解鎖暗影系統的刺客。",
         "lineageId": "assassinS3",
         "lineageName": "Assassin",
         "stage": 2,
@@ -712,7 +712,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "assassinS3": {
         "id": "assassinS3",
-        "name": "刺客",
+        "name": "至高刺客——以致命暗影進行瞬間處決。",
         "lineageId": "assassinS3",
         "lineageName": "Assassin",
         "stage": 3,
@@ -948,7 +948,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "操控自然魔法的精靈法師。",
+        "desc": "精靈巫師",
         "skillIds": [
             "ice_bolt",
             "wind_strike",
@@ -959,7 +959,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elvenWizard": {
         "id": "elvenWizard",
-        "name": "Elven Wizard",
+        "name": "精通元素魔法的精靈巫師。保留先前學會的技能。",
         "lineageId": "mysticMuse",
         "lineageName": "Mystic Muse",
         "stage": 1,
@@ -967,7 +967,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "elfMage",
-        "desc": "Mago élfico elemental. Skills anteriores permanecem.",
+        "desc": "咒術詩人",
         "skillIds": [
             "aqua_swirl",
             "concentration",
@@ -978,7 +978,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "spellsinger": {
         "id": "spellsinger",
-        "name": "Spellsinger",
+        "name": "以水與風魔法為主的咒術詩人。保留先前學會的技能。",
         "lineageId": "mysticMuse",
         "lineageName": "Mystic Muse",
         "stage": 2,
@@ -986,7 +986,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "elvenWizard",
-        "desc": "Cantor de magias, foco em água e vento. Skills anteriores permanecem.",
+        "desc": "神秘繆思",
         "skillIds": [
             "hydro_blast",
             "freezing_skin",
@@ -997,7 +997,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "mysticMuse": {
         "id": "mysticMuse",
-        "name": "Mystic Muse",
+        "name": "精通水系魔法的神秘繆思。保留先前學會的技能。定位：WATER。",
         "lineageId": "mysticMuse",
         "lineageName": "Mystic Muse",
         "stage": 3,
@@ -1005,7 +1005,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "spellsinger",
-        "desc": "Musa mística, mestre da magia aquática. Skills anteriores permanecem. Foco: WATER.",
+        "desc": "元素召喚師",
         "skillIds": [
             "aqua_splash",
             "blizzard",
@@ -1016,7 +1016,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elementalSummoner": {
         "id": "elementalSummoner",
-        "name": "Elemental Summoner",
+        "name": "精靈族的元素召喚師。保留先前學會的技能。定位：SUMMON。",
         "lineageId": "elementalMaster",
         "lineageName": "Elemental Master",
         "stage": 2,
@@ -1024,7 +1024,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "elvenWizard",
-        "desc": "Invocador elemental élfico. Skills anteriores permanecem. Foco: SUMMON.",
+        "desc": "元素大師",
         "skillIds": [
             "elemental_discharge",
             "summon_elemental_unicorn",
@@ -1035,7 +1035,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elementalMaster": {
         "id": "elementalMaster",
-        "name": "Elemental Master",
+        "name": "精靈族的至高元素召喚大師。保留先前學會的技能。",
         "lineageId": "elementalMaster",
         "lineageName": "Elemental Master",
         "stage": 3,
@@ -1043,7 +1043,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "elementalSummoner",
-        "desc": "Mestre elemental, invocador supremo élfico. Skills anteriores permanecem.",
+        "desc": "神使",
         "skillIds": [
             "elemental_strike",
             "elemental_vortex",
@@ -1054,7 +1054,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elfOracle": {
         "id": "elfOracle",
-        "name": "Oracle",
+        "name": "精靈族的治癒神使。保留先前學會的技能。",
         "lineageId": "evaSaint",
         "lineageName": "Eva's Saint",
         "stage": 1,
@@ -1062,7 +1062,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "elfMage",
-        "desc": "Oráculo élfico curador. Skills anteriores permanecem.",
+        "desc": "長老",
         "skillIds": [
             "divine_strike",
             "heal",
@@ -1073,7 +1073,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elfElder": {
         "id": "elfElder",
-        "name": "Elder",
+        "name": "精靈族的治療與增益職業長老。保留先前學會的技能。",
         "lineageId": "evaSaint",
         "lineageName": "Eva's Saint",
         "stage": 2,
@@ -1081,7 +1081,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "elfOracle",
-        "desc": "Ancião élfico, curador e buffer. Skills anteriores permanecem.",
+        "desc": "伊娃聖者",
         "skillIds": [
             "greater_heal",
             "purify",
@@ -1092,7 +1092,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "evaSaint": {
         "id": "evaSaint",
-        "name": "Eva's Saint",
+        "name": "伊娃的至高聖者，精靈族最高階治癒職業。保留先前學會的技能。",
         "lineageId": "evaSaint",
         "lineageName": "Eva's Saint",
         "stage": 3,
