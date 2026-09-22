@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "hammer_slam",
-        "name": "Martelada",
+        "name": "戰鎚猛擊",
         "classId": "dwarf_artisan",
         "race": "dwarf",
         "tier": "core_1",
@@ -15,7 +15,7 @@
           "Earth",
           "Physical"
         ],
-        "description": "Martelada — Habilidade Especialista de dwarf_artisan."
+        "description": "戰鎚猛擊——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -168,7 +168,7 @@
     {
       "identity": {
         "id": "construct_summon",
-        "name": "Invocar Construto",
+        "name": "召喚構裝體",
         "classId": "dwarf_artisan",
         "race": "dwarf",
         "tier": "core_2",
@@ -179,7 +179,7 @@
           "Earth",
           "Metal"
         ],
-        "description": "Invocar Construto — Habilidade Especialista de dwarf_artisan."
+        "description": "召喚構裝體——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -332,7 +332,7 @@
     {
       "identity": {
         "id": "reinforced_plating",
-        "name": "Blindagem Reforçada",
+        "name": "強化裝甲",
         "classId": "dwarf_artisan",
         "race": "dwarf",
         "tier": "specialization",
@@ -342,7 +342,7 @@
         "tags": [
           "Metal"
         ],
-        "description": "Blindagem Reforçada — Habilidade Especialista de dwarf_artisan."
+        "description": "強化裝甲——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -495,7 +495,7 @@
     {
       "identity": {
         "id": "seismic_stun",
-        "name": "Atordoamento Sísmico",
+        "name": "地震暈擊",
         "classId": "dwarf_artisan",
         "race": "dwarf",
         "tier": "elemental_specialization",
@@ -506,7 +506,7 @@
           "Earth",
           "Physical"
         ],
-        "description": "Atordoamento Sísmico — Habilidade Especialista de dwarf_artisan."
+        "description": "地震暈擊——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -677,7 +677,7 @@
     {
       "identity": {
         "id": "forge_colossus",
-        "name": "Forge Colossus",
+        "name": "鍛造巨像",
         "classId": "dwarf_artisan",
         "race": "dwarf",
         "tier": "ultimate",
@@ -687,7 +687,7 @@
         "tags": [
           "Earth"
         ],
-        "description": "Forge Colossus — Habilidade Ultimate (★★★★) de dwarf_artisan."
+        "description": "鍛造巨像——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -873,7 +873,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "FORGE COLOSSUS!",
+          "text": "鍛造巨像！",
           "style": "gold_banner",
           "banner": true
         }
@@ -894,7 +894,7 @@
     {
       "identity": {
         "id": "master_forge_colossus",
-        "name": "Master: Forge Colossus",
+        "name": "大師：鍛造巨像",
         "classId": "dwarf_artisan",
         "race": "dwarf",
         "tier": "master_ultimate",
@@ -904,7 +904,7 @@
         "tags": [
           "Earth"
         ],
-        "description": "Master: Forge Colossus — Habilidade Master Ultimate (★★★★★) de dwarf_artisan."
+        "description": "大師：鍛造巨像——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1091,7 +1091,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: FORGE COLOSSUS!",
+          "text": "大師：鍛造巨像！",
           "style": "mythic_banner",
           "banner": true
         }
