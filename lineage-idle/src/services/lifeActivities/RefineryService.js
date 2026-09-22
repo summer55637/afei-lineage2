@@ -282,7 +282,7 @@ export const RefineryService = {
   refine(state, recipeId, times = 1, callbacks = {}) {
     const recipe = this.getRecipeById(recipeId);
     if (!recipe) {
-      if (callbacks.log) callbacks.log('⚠️ Receita de refino desconhecida.', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 未知的精煉配方。', 'warning');
       return { success: false, reason: 'invalid_recipe' };
     }
 
@@ -290,7 +290,7 @@ export const RefineryService = {
     const totalAdena = (recipe.adenaCost || 0) * count;
 
     if ((state.gold || 0) < totalAdena) {
-      if (callbacks.log) callbacks.log(`⚠️ Adena insuficiente para refino! Requer ${totalAdena.toLocaleString()} Adena.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！精煉需要 ${totalAdena.toLocaleString()} 金幣。`, 'warning');
       return { success: false, reason: 'insufficient_gold' };
     }
 
@@ -380,7 +380,7 @@ export const RefineryService = {
   refineAll(state, recipeId, callbacks = {}) {
     const maxCount = this.calculateMaxRefinements(state, recipeId);
     if (maxCount <= 0) {
-      if (callbacks.log) callbacks.log('⚠️ Recursos ou Adena insuficientes para refinar este material.', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 精煉此材料所需資源或金幣不足。', 'warning');
       return { success: false, reason: 'cannot_refine' };
     }
     return this.refine(state, recipeId, maxCount, callbacks);
