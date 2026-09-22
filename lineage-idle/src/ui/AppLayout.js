@@ -204,7 +204,7 @@ export function updateTabVisibilityByLevel(state) {
       btn.style.opacity = '0.55';
       btn.title = currentLvl < reqLvl
         ? `於等級 ${reqLvl} 解鎖`
-        : `Bloqueado na Temporada Atual (Cap Lv. ${globalCap})`;
+        : `目前季節尚未解鎖（等級上限 ${globalCap}）`;
       if (!btn.querySelector('.tab-lock-indicator')) {
         const lockSpan = document.createElement('span');
         lockSpan.className = 'tab-lock-indicator';
