@@ -304,7 +304,7 @@ export async function savePlayerStateToCloud(userId: string, stateData: any, imm
         olympiadLosses:  Number(cleanState.olympiad?.losses  || cleanState.olympiadLosses)  || 0,
         duelWins:        Number(cleanState.colosseum?.duelWins  || cleanState.duelWins)     || 0,
         duelLosses:      Number(cleanState.colosseum?.duelLosses || cleanState.duelLosses)  || 0,
-        clanName:        sanitizeString(cleanState.clan?.name || 'Sem Clã', 24),
+        clanName:        sanitizeString(cleanState.clan?.name || '無血盟', 24),
         castleLord:      cleanState.clan?.castle || null,
         isHero:          Boolean(cleanState.olympiad?.isHero || cleanState.isHero),
         topWeaponName,
@@ -335,7 +335,7 @@ export async function savePlayerStateToCloud(userId: string, stateData: any, imm
           playerType: 'real',
           status: 'active',
           isDiscoverable: true,
-          clanName: sanitizeString(cleanState.clan?.name || 'Sem Clã', 24),
+          clanName: sanitizeString(cleanState.clan?.name || '無血盟', 24),
           topWeaponName,
           topWeaponGlow,
           statsSnapshot: { hp: maxHp, pAtk, mAtk, pDef, mDef, crit: Number(stats.crit) || 10 },
@@ -491,7 +491,7 @@ export async function reserveCharacterNameAndCreate(
         playerType: 'real',
         status: 'active',
         isDiscoverable: true,
-        clanName: 'Sem Clã',
+        clanName: '無血盟',
         topWeaponName: 'Sem Arma',
         topWeaponGlow: null,
         statsSnapshot: { hp: 1000, pAtk: 100, mAtk: 50, pDef: 80, mDef: 60, crit: 10 },
@@ -512,10 +512,10 @@ export async function reserveCharacterNameAndCreate(
     return { success: true, characterId: charId, accountId: accId };
   } catch (err: any) {
     if (err?.message === 'NICKNAME_TAKEN') {
-      return { success: false, reason: `O nome "${characterData.charName}" já está em uso por outro herói.` };
+      return { success: false, reason: `名稱「${characterData.charName}」已被其他角色使用。` };
     }
     console.warn('[reserveCharacterNameAndCreate] Transação falhou:', err);
-    return { success: false, reason: err?.message || 'Erro ao registrar nome do personagem.' };
+    return { success: false, reason: err?.message || '登錄角色名稱時發生錯誤。' };
   }
 }
 
@@ -526,7 +526,7 @@ export async function checkNicknameAvailability(nickname: string, currentUserId?
       return { available: false, reason: 'O nome do personagem deve ter pelo menos 3 caracteres.' };
     }
     if (cleanNick.length > 16) {
-      return { available: false, reason: 'O nome do personagem não pode ter mais de 16 caracteres.' };
+      return { available: false, reason: '角色名稱不能超過 16 個字元。' };
     }
 
     const normNick = cleanNick.toLowerCase();
@@ -538,7 +538,7 @@ export async function checkNicknameAvailability(nickname: string, currentUserId?
       if (nameSnap.exists()) {
         const data = nameSnap.data();
         if (!currentUserId || (data?.ownerUid !== currentUserId)) {
-          return { available: false, reason: `O nome "${cleanNick}" já está reservado por outro herói em Aden!` };
+          return { available: false, reason: `名稱「${cleanNick}」已被亞丁中的其他角色保留！` };
         }
       }
     } catch (e) {}
@@ -562,7 +562,7 @@ export async function checkNicknameAvailability(nickname: string, currentUserId?
     if (isTaken) {
       return { 
         available: false, 
-        reason: `O nome "${cleanNick}" já está em uso por outro herói em Aden. Escolha outro nome!` 
+        reason: `名稱「${cleanNick}」已被亞丁中的其他角色使用，請選擇其他名稱！` 
       };
     }
 
@@ -672,7 +672,7 @@ export async function fetchLeaderboardRankings(category: 'cp' | 'olympiad' | 'du
           olympiadLosses: Number(uData.olympiadLosses || state.olympiad?.losses || state.olympiadLosses) || 0,
           duelWins: Number(uData.duelWins || state.colosseum?.duelWins || state.duelWins) || 0,
           duelLosses: Number(uData.duelLosses || state.colosseum?.duelLosses || state.duelLosses) || 0,
-          clanName: uData.clanName || state.clan?.name || 'Sem Clã',
+          clanName: uData.clanName || state.clan?.name || '無血盟',
           castleLord: uData.castleLord || state.clan?.castle || null,
           isHero: Boolean(uData.isHero || state.olympiad?.isHero || state.isHero),
           topWeaponName: uData.topWeaponName || 'Sem Arma',
