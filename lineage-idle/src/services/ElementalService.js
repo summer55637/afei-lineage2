@@ -299,13 +299,13 @@ export function applySoulCrystalToWeapon(state, weaponUid, color = 'red', saKey 
   const playerLvl = Number(state.level || 1);
 
   if (playerLvl < gating.minLevel) {
-    if (callbacks.log) callbacks.log(`Nível insuficiente! Armas de ${gating.label} requerem Nível ${gating.minLevel}+ para engastar Soul Crystals.`, 'system');
+    if (callbacks.log) callbacks.log(`等級不足！${gating.label} 武器需要等級 ${gating.minLevel}+ 才能鑲嵌靈魂水晶。`, 'system');
     return false;
   }
 
   const adenaCost = gating.adenaCost;
   if ((state.gold || 0) < adenaCost) {
-    if (callbacks.log) callbacks.log(`Adena insuficiente! Requer ${adenaCost.toLocaleString()} Adena para engastar o Soul Crystal nesta arma.`, 'system');
+    if (callbacks.log) callbacks.log(`金幣不足！在這把武器鑲嵌靈魂水晶需要 ${adenaCost.toLocaleString()} 金幣。`, 'system');
     return false;
   }
 
@@ -340,7 +340,7 @@ export function applySoulCrystalToWeapon(state, weaponUid, color = 'red', saKey 
   };
 
   if (callbacks.log) {
-    callbacks.log(`🔮 SPECIAL ABILITY CONCEDIDA (Lv.${crystalLevel}): ${item.name || def.name} recebeu [SA: ${saBonus.name}]! (${item.soulCrystal.desc})`, 'rarity-legendary');
+    callbacks.log(`🔮 已賦予特殊能力（Lv.${crystalLevel}）：${item.name || def.name} 獲得 [SA：${saBonus.name}]！（${item.soulCrystal.desc}）`, 'rarity-legendary');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -358,7 +358,7 @@ export function removeSoulCrystalFromWeapon(state, weaponUid, callbacks = {}) {
 
   const cost = 20000;
   if ((state.gold || 0) < cost) {
-    if (callbacks.log) callbacks.log(`Adena insuficiente! Requer ${cost.toLocaleString()} Adena para extrair o Soul Crystal.`, 'system');
+    if (callbacks.log) callbacks.log(`金幣不足！取出靈魂水晶需要 ${cost.toLocaleString()} 金幣。`, 'system');
     return false;
   }
 
@@ -367,7 +367,7 @@ export function removeSoulCrystalFromWeapon(state, weaponUid, callbacks = {}) {
   item.soulCrystal = null;
 
   if (callbacks.log) {
-    callbacks.log(`🧹 Soul Crystal [${oldSa}] extraído de ${item.name || item.itemId}.`, 'system');
+    callbacks.log(`🧹 已從 ${item.name || item.itemId} 取出靈魂水晶 [${oldSa}]。`, 'system');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
