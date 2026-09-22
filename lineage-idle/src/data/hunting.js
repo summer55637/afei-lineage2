@@ -232,7 +232,7 @@ export const PREY_CATALOG = {
     id: 'prey_shadow_panther', name: '奇岩暗影豹', icon: '🐈‍⬛', rarity: 'epic', behavior: 'elusive',
     weightRange: '90-140 kg', xpReward: 100, sellPrice: 1000,
     skinYield: { primary: 'crafted_leather', primaryQty: 4, secondary: 'enria', secondaryQty: 1 },
-    exchangeRate: 1, exchangeReward: 'enria', exchangeRewardName: 'Enria',
+    exchangeRate: 1, exchangeReward: 'enria', exchangeRewardName: '恩尼亞',
     zones: ['zone_giran_wilderness']
   },
   prey_giant_viper: {
