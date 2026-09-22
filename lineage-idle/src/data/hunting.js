@@ -126,28 +126,28 @@ export const PREY_CATALOG = {
   // Comum (Talking Island & Gludio)
   prey_hare: {
     id: 'prey_hare', name: '丘陵野兔', icon: '🐇', rarity: 'common', behavior: 'elusive',
-    weightRange: '1-3 kg', xpReward: 6, sellPrice: 15,
+    weightRange: '1–3 公斤', xpReward: 6, sellPrice: 15,
     skinYield: { primary: 'leather', primaryQty: 2, secondary: 'cord', secondaryQty: 1 },
     exchangeRate: 5, exchangeReward: 'leather', exchangeRewardName: '鞣製皮革',
     zones: ['zone_talking_forest']
   },
   prey_fox: {
     id: 'prey_fox', name: '亞丁狡狐', icon: '🦊', rarity: 'common', behavior: 'elusive',
-    weightRange: '4-8 kg', xpReward: 8, sellPrice: 25,
+    weightRange: '4–8 公斤', xpReward: 8, sellPrice: 25,
     skinYield: { primary: 'leather', primaryQty: 3, secondary: 'cotton_thread', secondaryQty: 2 },
     exchangeRate: 5, exchangeReward: 'leather', exchangeRewardName: '鞣製皮革',
     zones: ['zone_talking_forest']
   },
   prey_young_boar: {
     id: 'prey_young_boar', name: '幼年野豬', icon: '🐗', rarity: 'common', behavior: 'calm',
-    weightRange: '15-30 kg', xpReward: 10, sellPrice: 35,
+    weightRange: '15–30 公斤', xpReward: 10, sellPrice: 35,
     skinYield: { primary: 'leather', primaryQty: 4, secondary: 'bone', secondaryQty: 2 },
     exchangeRate: 5, exchangeReward: 'bone', exchangeRewardName: '動物骨頭',
     zones: ['zone_talking_forest']
   },
   prey_grey_wolf: {
     id: 'prey_grey_wolf', name: '古魯丁灰狼', icon: '🐺', rarity: 'common', behavior: 'aggressive',
-    weightRange: '20-40 kg', xpReward: 12, sellPrice: 40,
+    weightRange: '20–40 公斤', xpReward: 12, sellPrice: 40,
     skinYield: { primary: 'leather', primaryQty: 5, secondary: 'bone', secondaryQty: 3 },
     exchangeRate: 5, exchangeReward: 'bone', exchangeRewardName: '動物骨頭',
     zones: ['zone_gludio_plains']
@@ -156,28 +156,28 @@ export const PREY_CATALOG = {
   // Incomum
   prey_stag: {
     id: 'prey_stag', name: '精靈貴族鹿', icon: '🦌', rarity: 'uncommon', behavior: 'elusive',
-    weightRange: '50-90 kg', xpReward: 18, sellPrice: 80,
+    weightRange: '50–90 公斤', xpReward: 18, sellPrice: 80,
     skinYield: { primary: 'leather', primaryQty: 2, secondary: 'bone', secondaryQty: 3 },
     exchangeRate: 3, exchangeReward: 'leather', exchangeRewardName: '鞣製皮革',
     zones: ['zone_talking_forest']
   },
   prey_plains_boar: {
     id: 'prey_plains_boar', name: '鎧甲野豬', icon: '🐗', rarity: 'uncommon', behavior: 'tenacious',
-    weightRange: '60-110 kg', xpReward: 20, sellPrice: 95,
+    weightRange: '60–110 公斤', xpReward: 20, sellPrice: 95,
     skinYield: { primary: 'leather', primaryQty: 2, secondary: 'cokes', secondaryQty: 1 },
     exchangeRate: 3, exchangeReward: 'leather', exchangeRewardName: '鞣製皮革',
     zones: ['zone_gludio_plains']
   },
   prey_wasteland_hyena: {
     id: 'prey_wasteland_hyena', name: '荒野鬣狗', icon: '🐕', rarity: 'uncommon', behavior: 'aggressive',
-    weightRange: '30-55 kg', xpReward: 22, sellPrice: 110,
+    weightRange: '30–55 公斤', xpReward: 22, sellPrice: 110,
     skinYield: { primary: 'leather', primaryQty: 2, secondary: 'braided_hemp', secondaryQty: 2 },
     exchangeRate: 3, exchangeReward: 'suede', exchangeRewardName: '麂皮',
     zones: ['zone_gludio_plains']
   },
   prey_hunting_hawk: {
     id: 'prey_hunting_hawk', name: '狄恩獵鷹', icon: '🦅', rarity: 'uncommon', behavior: 'elusive',
-    weightRange: '3-6 kg', xpReward: 25, sellPrice: 125,
+    weightRange: '3–6 公斤', xpReward: 25, sellPrice: 125,
     skinYield: { primary: 'leather', primaryQty: 2, secondary: 'cord', secondaryQty: 3 },
     exchangeRate: 3, exchangeReward: 'braided_hemp', exchangeRewardName: '編織大麻',
     zones: ['zone_dion_hills']
@@ -186,42 +186,42 @@ export const PREY_CATALOG = {
   // Raro
   prey_alpha_wolf: {
     id: 'prey_alpha_wolf', name: '黑牙狼王', icon: '🐺', rarity: 'rare', behavior: 'aggressive',
-    weightRange: '55-80 kg', xpReward: 40, sellPrice: 250,
+    weightRange: '55–80 公斤', xpReward: 40, sellPrice: 250,
     skinYield: { primary: 'crafted_leather', primaryQty: 1, secondary: 'bone', secondaryQty: 5 },
     exchangeRate: 2, exchangeReward: 'crafted_leather', exchangeRewardName: '加工皮革',
     zones: ['zone_gludio_plains']
   },
   prey_brown_bear: {
     id: 'prey_brown_bear', name: '丘陵棕熊', icon: '🐻', rarity: 'rare', behavior: 'tenacious',
-    weightRange: '180-320 kg', xpReward: 45, sellPrice: 300,
+    weightRange: '180–320 公斤', xpReward: 45, sellPrice: 300,
     skinYield: { primary: 'crafted_leather', primaryQty: 1, secondary: 'cokes', secondaryQty: 2 },
     exchangeRate: 2, exchangeReward: 'crafted_leather', exchangeRewardName: '加工皮革',
     zones: ['zone_dion_hills']
   },
   prey_marsh_panther: {
     id: 'prey_marsh_panther', name: '沼澤黑豹', icon: '🐆', rarity: 'rare', behavior: 'elusive',
-    weightRange: '70-100 kg', xpReward: 50, sellPrice: 350,
+    weightRange: '70–100 公斤', xpReward: 50, sellPrice: 350,
     skinYield: { primary: 'crafted_leather', primaryQty: 2, secondary: 'suede', secondaryQty: 4 },
     exchangeRate: 2, exchangeReward: 'crafted_leather', exchangeRewardName: '加工皮革',
     zones: ['zone_dion_hills']
   },
   prey_swamp_alligator: {
     id: 'prey_swamp_alligator', name: '狄恩鎧甲鱷魚', icon: '🐊', rarity: 'rare', behavior: 'tenacious',
-    weightRange: '120-220 kg', xpReward: 55, sellPrice: 400,
+    weightRange: '120–220 公斤', xpReward: 55, sellPrice: 400,
     skinYield: { primary: 'crafted_leather', primaryQty: 2, secondary: 'bone', secondaryQty: 8 },
     exchangeRate: 2, exchangeReward: 'steel', exchangeRewardName: '精製鋼',
     zones: ['zone_dion_hills']
   },
   prey_savanna_lion: {
     id: 'prey_savanna_lion', name: '草原帝國獅', icon: '🦁', rarity: 'rare', behavior: 'aggressive',
-    weightRange: '150-250 kg', xpReward: 60, sellPrice: 450,
+    weightRange: '150–250 公斤', xpReward: 60, sellPrice: 450,
     skinYield: { primary: 'crafted_leather', primaryQty: 2, secondary: 'cord', secondaryQty: 5 },
     exchangeRate: 2, exchangeReward: 'crafted_leather', exchangeRewardName: '加工皮革',
     zones: ['zone_giran_wilderness']
   },
   prey_snow_wolf: {
     id: 'prey_snow_wolf', name: '冰原極地狼', icon: '🐺', rarity: 'rare', behavior: 'aggressive',
-    weightRange: '60-90 kg', xpReward: 65, sellPrice: 500,
+    weightRange: '60–90 公斤', xpReward: 65, sellPrice: 500,
     skinYield: { primary: 'crafted_leather', primaryQty: 2, secondary: 'varnish', secondaryQty: 5 },
     exchangeRate: 2, exchangeReward: 'mithril_alloy', exchangeRewardName: '米索莉合金',
     zones: ['zone_oren_snowlands']
@@ -230,28 +230,28 @@ export const PREY_CATALOG = {
   // Épico
   prey_shadow_panther: {
     id: 'prey_shadow_panther', name: '奇岩暗影豹', icon: '🐈‍⬛', rarity: 'epic', behavior: 'elusive',
-    weightRange: '90-140 kg', xpReward: 100, sellPrice: 1000,
+    weightRange: '90–140 公斤', xpReward: 100, sellPrice: 1000,
     skinYield: { primary: 'crafted_leather', primaryQty: 4, secondary: 'enria', secondaryQty: 1 },
     exchangeRate: 1, exchangeReward: 'enria', exchangeRewardName: '恩尼亞',
     zones: ['zone_giran_wilderness']
   },
   prey_giant_viper: {
     id: 'prey_giant_viper', name: '叢林泰坦巨蛇', icon: '🐍', rarity: 'epic', behavior: 'aggressive',
-    weightRange: '100-200 kg', xpReward: 110, sellPrice: 1200,
+    weightRange: '100–200 公斤', xpReward: 110, sellPrice: 1200,
     skinYield: { primary: 'crafted_leather', primaryQty: 4, secondary: 'metallic_thread', secondaryQty: 2 },
     exchangeRate: 1, exchangeReward: 'metallic_thread', exchangeRewardName: '金屬線',
     zones: ['zone_giran_wilderness']
   },
   prey_frost_tiger: {
     id: 'prey_frost_tiger', name: '冰霜劍齒虎', icon: '🐅', rarity: 'epic', behavior: 'aggressive',
-    weightRange: '180-280 kg', xpReward: 125, sellPrice: 1400,
+    weightRange: '180–280 公斤', xpReward: 125, sellPrice: 1400,
     skinYield: { primary: 'crafted_leather', primaryQty: 5, secondary: 'mold_lubricant', secondaryQty: 2 },
     exchangeRate: 1, exchangeReward: 'durable_metal_plate', exchangeRewardName: '耐久金屬板',
     zones: ['zone_oren_snowlands']
   },
   prey_cave_bear: {
     id: 'prey_cave_bear', name: '洞穴古熊', icon: '🐻‍❄️', rarity: 'epic', behavior: 'tenacious',
-    weightRange: '350-550 kg', xpReward: 140, sellPrice: 1600,
+    weightRange: '350–550 公斤', xpReward: 140, sellPrice: 1600,
     skinYield: { primary: 'crafted_leather', primaryQty: 5, secondary: 'oriharukon_ore', secondaryQty: 2 },
     exchangeRate: 1, exchangeReward: 'oriharukon_ore', exchangeRewardName: '奧里哈魯根礦石',
     zones: ['zone_oren_snowlands']
@@ -260,28 +260,28 @@ export const PREY_CATALOG = {
   // Lendário (Oren & Goddard)
   prey_tundra_mammoth: {
     id: 'prey_tundra_mammoth', name: '凍原巨型猛獁', icon: '🦣', rarity: 'legendary', behavior: 'tenacious',
-    weightRange: '2000-4500 kg', xpReward: 250, sellPrice: 3500,
+    weightRange: '2000–4500 公斤', xpReward: 250, sellPrice: 3500,
     skinYield: { primary: 'crafted_leather', primaryQty: 10, secondary: 'durable_metal_plate', secondaryQty: 3 },
     exchangeRate: 1, exchangeReward: 'durable_metal_plate', exchangeRewardName: '耐久金屬板 x2',
     zones: ['zone_oren_snowlands']
   },
   prey_mountain_chimera: {
     id: 'prey_mountain_chimera', name: '岩峰皇家奇美拉', icon: '🦁', rarity: 'legendary', behavior: 'aggressive',
-    weightRange: '400-750 kg', xpReward: 300, sellPrice: 4500,
+    weightRange: '400–750 公斤', xpReward: 300, sellPrice: 4500,
     skinYield: { primary: 'crafted_leather', primaryQty: 12, secondary: 'enria', secondaryQty: 3 },
     exchangeRate: 1, exchangeReward: 'enria', exchangeRewardName: '恩尼亞 x3',
     zones: ['zone_goddard_peaks']
   },
   prey_wild_gryphon: {
     id: 'prey_wild_gryphon', name: '高達特野生獅鷲', icon: '🦅', rarity: 'legendary', behavior: 'elusive',
-    weightRange: '300-600 kg', xpReward: 320, sellPrice: 5000,
+    weightRange: '300–600 公斤', xpReward: 320, sellPrice: 5000,
     skinYield: { primary: 'crafted_leather', primaryQty: 15, secondary: 'oriharukon_ore', secondaryQty: 4 },
     exchangeRate: 1, exchangeReward: 'oriharukon_ore', exchangeRewardName: '奧里哈魯根礦石 x3',
     zones: ['zone_goddard_peaks']
   },
   prey_young_wyvern: {
     id: 'prey_young_wyvern', name: '山脈翼龍王', icon: '🐉', rarity: 'legendary', behavior: 'aggressive',
-    weightRange: '600-1200 kg', xpReward: 400, sellPrice: 7500,
+    weightRange: '600–1200 公斤', xpReward: 400, sellPrice: 7500,
     skinYield: { primary: 'crafted_leather', primaryQty: 20, secondary: 'metallic_thread', secondaryQty: 6 },
     exchangeRate: 1, exchangeReward: 'durable_metal_plate', exchangeRewardName: '耐久金屬板 x4',
     zones: ['zone_goddard_peaks']
