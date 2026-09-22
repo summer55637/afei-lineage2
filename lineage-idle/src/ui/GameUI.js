@@ -3052,7 +3052,7 @@ export function renderStageMonster(state) {
           sFill.style.width = '100%';
           sFill.style.background = '';
         }
-        if (sText) sText.textContent = `💥 易傷 [${timeLeft}s] (2.0× 傷害)`;
+        if (sText) sText.textContent = `💥 易傷［${timeLeft} 秒］（2.0× 傷害）`;
       } else if (isFatal) {
         sBar.classList.remove('stage-stagger-break');
         sBar.classList.add('stage-stagger-fatal');
@@ -3065,7 +3065,7 @@ export function renderStageMonster(state) {
           sFill.style.width = `${pct}%`;
           sFill.style.background = 'linear-gradient(90deg, #ef4444, #dc2626)';
         }
-        if (sText) sText.textContent = `⚠️ 打斷：姿態［${pct}%］［${timeLeft}s］`;
+        if (sText) sText.textContent = `⚠️ 打斷：姿態［${pct}%］［${timeLeft} 秒］`;
       } else {
         sBar.classList.remove('stage-stagger-break');
         sBar.classList.remove('stage-stagger-fatal');
@@ -6427,7 +6427,7 @@ export function openCraftModal(itemId, state, callbacks = {}) {
             <h3 style="margin:0; font-family:'Cinzel',serif; color:#f3c669; font-size:18px;">${def.name}</h3>
             <span style="background:${gradeInfo.color}; color:#fff; font-size:11px; font-weight:bold; padding:2px 8px; border-radius:4px;">${gradeInfo.label}</span>
           </div>
-          <div style="font-size:12px; color:#aaa; margin-top:2px;">需要鍛造等級 ${reqForgeLvl} · 欄位：${def.slot || '一般'}</div>
+          <div style="font-size:12px; color:#aaa; margin-top:2px;">需要鍛造等級 ${reqForgeLvl} · 欄位：${({ weapon: '武器', weapon2: '副武器', shield: '盾牌', helmet: '頭盔', head: '頭盔', armor: '胸甲', chest: '胸甲', fullbody: '全身甲', legs: '腿甲', gloves: '手套', boots: '靴子', necklace: '項鍊', earring: '耳環', earring1: '耳環 1', earring2: '耳環 2', ring: '戒指', ring1: '戒指 1', ring2: '戒指 2', cloak: '披風', belt: '腰帶', hair: '頭飾', hair1: '頭飾 1', hair2: '頭飾 2', consumable: '消耗品', material: '材料', scroll: '卷軸', crystal: '水晶' })[def.slot] || def.slot || '一般'}</div>
         </div>
       </div>
 
@@ -6535,8 +6535,8 @@ export function renderAlchemyUI(state) {
       const mins = Math.floor(secondsLeft / 60);
       const secs = secondsLeft % 60;
       const timeStr = mins > 60
-        ? `${(mins / 60).toFixed(1)}h`
-        : `${mins}m ${secs < 10 ? '0' : ''}${secs}s`;
+        ? `${(mins / 60).toFixed(1)} 小時`
+        : `${mins} 分 ${secs < 10 ? '0' : ''}${secs} 秒`;
 
       activeBuffsHtml += `
         <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(212,167,68,0.12); border:1px solid var(--imp-border-accent, rgba(212,167,68,0.4)); padding:8px 12px; border-radius:8px; margin-bottom:8px;">
@@ -7410,7 +7410,7 @@ export function renderExpeditionsUI(state) {
             onclick="window.buyManorSeed('${sId}', 10)"
             style="padding:6px 12px; font-weight:bold; font-size:11px; background:rgba(212,167,68,0.2); border:1px solid rgba(212,167,68,0.4); color:#ffd877; border-radius:6px; cursor:pointer;"
           >
-            🛒 購買 10x 種子 (${(sDef.price * 10).toLocaleString()} 金幣)
+            🛒 購買 10× 種子（${(sDef.price * 10).toLocaleString()} 金幣）
           </button>
         </div>
 
