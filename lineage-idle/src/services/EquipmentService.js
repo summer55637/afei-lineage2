@@ -125,7 +125,26 @@ export function equipItem(state, uid, targetSlotOrCallbacks = null, maybeCallbac
   item.equipped = true;
   item.equippedSlot = targetSlot;
 
-  const slotLabel = targetSlot === 'weapon2' ? '副武器（欄位 2）' : (targetSlot === 'weapon' ? '主武器（欄位 1）' : (targetSlot === 'chest' || targetSlot === 'armor' ? '防具／胸甲' : targetSlot));
+  const equipSlotLabels = {
+    weapon: '主武器（欄位 1）',
+    weapon2: '副武器（欄位 2）',
+    armor: '防具／胸甲',
+    chest: '防具／胸甲',
+    helmet: '頭盔',
+    gloves: '手套',
+    boots: '靴子',
+    legs: '腿甲',
+    necklace: '項鍊',
+    earring1: '耳環 1',
+    earring2: '耳環 2',
+    ring1: '戒指 1',
+    ring2: '戒指 2',
+    cloak: '披風',
+    belt: '腰帶',
+    hair: '頭飾',
+    sigil: '符印'
+  };
+  const slotLabel = equipSlotLabels[targetSlot] || targetSlot;
   if (callbacks.log) callbacks.log(`已裝備 ${def.name} [${slotLabel}]`, 'loot');
 
   const stats = getStats(state);
