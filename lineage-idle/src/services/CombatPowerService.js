@@ -178,7 +178,7 @@ export const CombatPowerService = {
         type: 'warning',
         icon: '🛡️',
         title: '物理防禦低於建議值',
-        desc: `你的 P.Def（${currentDef.toLocaleString()}）低於建議生存標準（${expectedDef.toLocaleString()}）。請優先提升頭盔、胸甲與腿甲。`
+        desc: `你的物理防禦（${currentDef.toLocaleString()}）低於建議生存標準（${expectedDef.toLocaleString()}）。請優先提升頭盔、胸甲與腿甲。`
       });
     }
 
@@ -207,7 +207,7 @@ export const CombatPowerService = {
           type: 'recommendation',
           icon: '💎',
           title: '強化套裝與飾品',
-          desc: '裝備完整套裝並精煉飾品，可提高 M.Def 與魔法抗性。'
+          desc: '裝備完整套裝並精煉飾品，可提高魔法防禦與魔法抗性。'
         });
       }
     } else {
