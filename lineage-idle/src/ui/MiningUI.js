@@ -204,7 +204,7 @@ export function renderMiningUI(state) {
           </span>
         </h3>
         <p style="margin:0 0 12px 0; font-size:11px; color:#aaa;">
-          礦物： <strong style="color:#cbd5e1;">${RESOURCE_DICTIONARY[node?.yields?.primary]?.name || node?.yields?.primary || '未知材料'}</strong> ${node?.yields?.secondary ? `+ <strong style="color:#94a3b8;">${RESOURCE_DICTIONARY[node?.yields?.secondary]?.name || node?.yields?.secondary}</strong>` : ''}
+          礦物： <strong style="color:#cbd5e1;">${RESOURCE_DICTIONARY[node?.yields?.primary]?.name || '未知材料'}</strong> ${node?.yields?.secondary ? `+ <strong style="color:#94a3b8;">${RESOURCE_DICTIONARY[node?.yields?.secondary]?.name || '未知材料'}</strong>` : ''}
         </p>
 
         <!-- Barra de Progresso de Escavação -->
