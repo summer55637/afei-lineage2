@@ -2226,7 +2226,7 @@ export function openAutoEquipPreviewModal(state, callbacks = {}) {
   const proposal = generateAutoEquipProposal(state);
   if (!proposal || proposal.changes.length === 0) {
     if (callbacks.log) {
-      callbacks.log('✨ 你的裝備已由 ERS 演算法最佳化完成！', 'system');
+      callbacks.log('✨ 你的裝備已由裝備最佳化演算法完成最佳化！', 'system');
     }
     alert('✨ 你的裝備已經非常適合目前職業與配裝！');
     return;
@@ -2241,7 +2241,7 @@ export function openAutoEquipPreviewModal(state, callbacks = {}) {
 
   if (!overlay || !body) return;
 
-  if (title) title.innerHTML = '⚡ 裝備最佳化建議（ERS）';
+  if (title) title.innerHTML = '⚡ 裝備最佳化建議';
 
   const allItems = D()?.ALL_ITEMS || {};
   const d = proposal.deltas;
