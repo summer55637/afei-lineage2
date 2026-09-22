@@ -63,13 +63,13 @@ export class 貴族Service {
 
     const prog = state.noblesseProgress || {};
     if (step === 1 && (prog.part1Kills || 0) < 25) {
-      return { ok: false, reason: `Derrote 25 monstros em Valley of Saints (${prog.part1Kills || 0}/25).` };
+      return { ok: false, reason: `在聖者之谷擊敗 25 隻怪物（${prog.part1Kills || 0}/25）。` };
     }
     if (step === 2 && (prog.part2Kills || 0) < 30) {
       return { ok: false, reason: `在悲鳴沼澤淨化 30 個靈魂（${prog.part2Kills || 0}/30）。` };
     }
     if (step === 3 && !prog.barakielKilled) {
-      return { ok: false, reason: '擊敗團隊首領 Flame of Splendor Barakiel，取回女神權杖！' };
+      return { ok: false, reason: '擊敗團隊首領「光輝之炎巴拉基爾」，取回女神權杖！' };
     }
 
     return { ok: true };
