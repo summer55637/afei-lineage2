@@ -215,10 +215,10 @@ export function craftItem(state, recipeId, qty = 1, callbacks = {}) {
   // Mensagens e Notificações de 成功
   const displayName = itemDef?.name || recipeId;
   if (isDouble && isFoundation) {
-    if (callbacks.log) callbacks.log(`🌟 CRITICAL & FOUNDATION! Forjou ${totalYield}x ${displayName} (Em Dobro e Alma Ancestral)!`, 'rarity-legendary');
-    if (callbacks.floatText) callbacks.floatText('🌟 DOUBLE & FOUNDATION!', 'float-jackpot');
+    if (callbacks.log) callbacks.log(`🌟 暴擊＋基底成功！鍛造 ${totalYield}x ${displayName}（雙倍產量並附帶遠古之魂）！`, 'rarity-legendary');
+    if (callbacks.floatText) callbacks.floatText('🌟 雙倍＋基底成功！', 'float-jackpot');
   } else if (isDouble) {
-    if (callbacks.log) callbacks.log(`⚡ DOUBLE CRAFT! A bigorna ressoou e concedeu ${totalYield}x ${displayName} (2x)!`, 'rarity-epic');
+    if (callbacks.log) callbacks.log(`⚡ 雙倍製作！鐵砧共鳴，獲得 ${totalYield}x ${displayName}（2 倍）！`, 'rarity-epic');
   } else if (isFoundation) {
     if (callbacks.log) callbacks.log(`✨ 基底成功！你鍛造了 ${totalYield}x ${displayName}，有機會成為大師製作品！`, 'rarity-foundation');
   } else {
@@ -266,9 +266,9 @@ export function getMaterialDropSources(matId) {
 
   if (sources.length === 0) {
     sources.push(
-      { zoneKey: 'gludio', zoneName: '古魯丁遺跡', minLevel: 20, source: 'Monstros Comuns' },
+      { zoneKey: 'gludio', zoneName: '古魯丁遺跡', minLevel: 20, source: '一般怪物' },
       { zoneKey: 'dion', zoneName: '狄恩平原', minLevel: 30, source: '矮人搜刮' },
-      { zoneKey: 'giran', zoneName: 'Dragon Valley', minLevel: 45, source: 'Dungeon & Bosses' }
+      { zoneKey: 'giran', zoneName: '龍之谷', minLevel: 45, source: '地城與首領' }
     );
   }
 
@@ -323,7 +323,7 @@ export function processSoulDrainOnKill(state, monster = {}, callbacks = {}) {
         if (callbacks.log) {
           callbacks.log(`🌟 史詩共鳴！${monster.name || '史詩首領'} 的靈魂使靈魂水晶提升至階段 15（最高）！`, 'rarity-sovereign');
         }
-        if (callbacks.floatText) callbacks.floatText('🌟 SOUL CRYSTAL STAGE 15!', 'float-jackpot');
+        if (callbacks.floatText) callbacks.floatText('🌟 靈魂水晶階段 15！', 'float-jackpot');
       } else {
         if (callbacks.log) {
           callbacks.log(`💨 史詩首領的靈魂逃脫了……Lv.14 靈魂水晶共鳴失敗（50% 機率）。`, 'system');
@@ -648,12 +648,12 @@ export function removeDyeSymbol(state, slotIdx = 0, callbacks = {}) {
  * ═══════════════════════════════════════════════════════════════════════════
  */
 export const ELEMENT_DEFINITIONS = {
-  fire: { name: '火 🔥', opposed: 'water', stoneId: 'fire_stone', dropZone: 'Forge of the Gods (Lv.70+)' },
-  water: { name: '水 💧', opposed: 'fire', stoneId: 'water_stone', dropZone: 'Garden of Eva (Lv.45+)' },
-  wind: { name: '風 🌪️', opposed: 'earth', stoneId: 'wind_stone', dropZone: 'Dragon Valley (Lv.55+)' },
-  earth: { name: '地 🌍', opposed: 'wind', stoneId: 'earth_stone', dropZone: 'Mithril Mines (Lv.35+)' },
-  holy: { name: '神聖 ✨', opposed: 'dark', stoneId: 'holy_stone', dropZone: 'Monastery of Silence (Lv.75+)' },
-  dark: { name: '黑暗 🌑', opposed: 'holy', stoneId: 'dark_stone', dropZone: 'Imperial Tomb / Crypt (Lv.70+)' }
+  fire: { name: '火 🔥', opposed: 'water', stoneId: 'fire_stone', dropZone: '諸神熔爐（等級 70+）' },
+  water: { name: '水 💧', opposed: 'fire', stoneId: 'water_stone', dropZone: '伊娃花園（等級 45+）' },
+  wind: { name: '風 🌪️', opposed: 'earth', stoneId: 'wind_stone', dropZone: '龍之谷（等級 55+）' },
+  earth: { name: '地 🌍', opposed: 'wind', stoneId: 'earth_stone', dropZone: '密銀礦坑（等級 35+）' },
+  holy: { name: '神聖 ✨', opposed: 'dark', stoneId: 'holy_stone', dropZone: '寂靜修道院（等級 75+）' },
+  dark: { name: '黑暗 🌑', opposed: 'holy', stoneId: 'dark_stone', dropZone: '帝國陵墓／地穴（等級 70+）' }
 };
 
 export function getElementalDropSources() {
@@ -771,7 +771,7 @@ export function getLifeStoneDropSources() {
     { grade: 'common', name: '一般生命石', source: '狩獵怪物（1% 光效、2% 技能）' },
     { grade: 'mid', name: '中級生命石', source: '冠軍怪物（5% 光效、5% 技能）' },
     { grade: 'high', name: '高級生命石', source: '地城與副本首領（15% 光效、12% 技能）' },
-    { grade: 'top', name: '頂級生命石', source: 'Raid Bosses & Epic Bosses (40% Glow, 25% Skill)' }
+    { grade: 'top', name: '頂級生命石', source: '團隊首領與史詩首領（40% 光效、25% 技能）' }
   ];
 }
 
@@ -919,7 +919,7 @@ export function chargeRandomCraft(state, pointsToAdd = 20, callbacks = {}) {
     rc.points -= RANDOM_CRAFT_POINTS_PER_CHARGE;
     rc.charge = (rc.charge || 0) + 1;
     if (callbacks.log) {
-      callbacks.log(`🛠️ RANDOM CRAFT: +1 Carga Imperial gerada! (Total: ${rc.charge} Cargas)`, 'rarity-legendary');
+      callbacks.log(`🛠️ 隨機製作：獲得 1 次帝國充能！（目前共 ${rc.charge} 次）`, 'rarity-legendary');
     }
   }
 
@@ -990,7 +990,7 @@ export function spinRandomCraft(state, callbacks = {}) {
   if (rc.history.length > 20) rc.history.pop();
 
   if (callbacks.log) {
-    callbacks.log(`🎰 RANDOM CRAFT! A Roleta sorteou o Slot ${wonIdx + 1}: **${def.name}** ${reward.count > 1 ? `(${reward.count}x)` : ''}!`, 'rarity-legendary');
+    callbacks.log(`🎰 隨機製作！輪盤抽中第 ${wonIdx + 1} 格：**${def.name}** ${reward.count > 1 ? `（${reward.count}x）` : ''}！`, 'rarity-legendary');
   }
 
   // Renova automaticamente os 5 slots para o próximo giro
