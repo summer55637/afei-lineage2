@@ -29,30 +29,30 @@ export class SevenSignsService {
   static joinFaction(state, factionId, hooks = {}) {
     const ss = this.ensureState(state);
     if (!FACTIONS[factionId]) {
-      return { success: false, message: 'Facção inválida.' };
+      return { success: false, message: '陣營無效。' };
     }
     ss.faction = factionId;
-    hooks.log?.(`🏛️ Você jurou fidelidade à facção **${FACTIONS[factionId].name}** na competição dos Sete Selos!`, 'system');
+    hooks.log?.(`🏛️ 你已在七封印競賽中向 **${FACTIONS[factionId].name}** 陣營宣誓效忠！`, 'system');
     hooks.onUpdate?.();
     return { success: true, faction: factionId };
   }
 
   /**
-   * Deposita pedras de selo para pontuar e converter em Ancient Adena
+   * Deposita pedras de selo para pontuar e converter em 古代金幣
    */
   static depositStones(state, stoneId, count = 1, hooks = {}) {
     const ss = this.ensureState(state);
     if (!ss.faction) {
-      return { success: false, message: 'Você precisa escolher uma facção primeiro.' };
+      return { success: false, message: '你必須先選擇陣營。' };
     }
     const def = SEAL_STONES[stoneId];
-    if (!def) return { success: false, message: 'Pedra de selo inválida.' };
+    if (!def) return { success: false, message: '封印石無效。' };
 
     const inv = state.inventory || [];
     const invItem = inv.find(i => (i.id === stoneId || i.itemId === stoneId));
     const available = invItem ? (invItem.count || 1) : 0;
     if (available < count) {
-      return { success: false, message: `Você não tem ${count}x ${def.name}.` };
+      return { success: false, message: `你沒有 ${count}x ${def.name}。` };
     }
 
     // Deduz do inventário
@@ -74,7 +74,7 @@ export class SevenSignsService {
       ss.duskScore += aaGained;
     }
 
-    hooks.log?.(`🏛️ Você entregou **${count}x ${def.name}** e recebeu **+${aaGained.toLocaleString()} Ancient Adena**!`, 'gain');
+    hooks.log?.(`🏛️ 你交付了 **${count}x ${def.name}**，獲得 **+${aaGained.toLocaleString()} 古代金幣**！`, 'gain');
     hooks.onUpdate?.();
     return { success: true, aaGained, totalAA: ss.ancientAdena };
   }
@@ -85,14 +85,14 @@ export class SevenSignsService {
   static startBossFight(state, bossId, hooks = {}) {
     const ss = this.ensureState(state);
     const boss = SEVEN_SIGNS_BOSSES[bossId];
-    if (!boss) return { success: false, message: 'Chefe de selo não encontrado.' };
+    if (!boss) return { success: false, message: '找不到封印首領。' };
 
     if (state.level < boss.level) {
-      return { success: false, message: `Nível ${boss.level}+ necessário para desafiar ${boss.name}.` };
+      return { success: false, message: `挑戰 ${boss.name} 需要等級 ${boss.level} 以上。` };
     }
 
     if (ss.ancientAdena < boss.reqAA) {
-      return { success: false, message: `Requer ${boss.reqAA.toLocaleString()} Ancient Adena para abrir o portal do santuário.` };
+      return { success: false, message: `開啟聖域傳送門需要 ${boss.reqAA.toLocaleString()} 古代金幣。` };
     }
 
     ss.ancientAdena -= boss.reqAA;
@@ -106,7 +106,7 @@ export class SevenSignsService {
       turn: 1
     };
 
-    hooks.log?.(`⚡ O portal selado se abriu! Você adentrou o santuário sagrado de **${boss.name}**!`, 'warning');
+    hooks.log?.(`⚡ 封印傳送門已開啟！你進入了 **${boss.name}** 的神聖聖域！`, 'warning');
     hooks.onUpdate?.();
     return { success: true, fight: ss.activeBossFight };
   }
@@ -168,7 +168,7 @@ export class SevenSignsService {
     if (!item) return { success: false, message: 'Item de Mammon não encontrado.' };
 
     if (ss.ancientAdena < item.costAA) {
-      return { success: false, message: `Ancient Adena insuficiente. Requer ${item.costAA.toLocaleString()} AA.` };
+      return { success: false, message: `古代金幣 insuficiente. Requer ${item.costAA.toLocaleString()} AA.` };
     }
 
     ss.ancientAdena -= item.costAA;
@@ -198,7 +198,7 @@ export class SevenSignsService {
     const ss = this.ensureState(state);
     const cost = 50000;
     if (ss.ancientAdena < cost) {
-      return { success: false, message: `Ancient Adena insuficiente. Requer ${cost.toLocaleString()} AA para deselar armadura.` };
+      return { success: false, message: `古代金幣 insuficiente. Requer ${cost.toLocaleString()} AA para deselar armadura.` };
     }
     if (!armorItem) return { success: false, message: 'Selecione uma armadura selada.' };
 
