@@ -868,20 +868,20 @@ const CLASSES_ECHO = {
     base: { atk: 108, def: 24, hp: 450, mp: 95, eva: 38, crit: 46, mdef: 18 },
     skills: [
       { name: "七連矢",                  type: "Ativo",    rarity: "3★", effect: "7 flechas, dano total 480%",               cooldown: "25s",    desc: "連續射出七支箭矢。" },
-      { name: "Dead Eye",                     type: "Self-Buff",rarity: "3★", effect: "+50% ATK, +40% Range 20min",              cooldown: "55 min", desc: "Olho mortal." },
-      { name: "Pinpoint Shot",                type: "Ativo",    rarity: "3★", effect: "Dano 400% + ignora 50% DEF",              cooldown: "28s",    desc: "Tiro preciso." },
-      { name: "Triple Shot",                  type: "Ativo",    rarity: "3★", effect: "3 disparos, dano total 360%",              cooldown: "14s",    desc: "Tiro triplo." },
-      { name: "Thorn Shot",                   type: "Ativo",    rarity: "2★", effect: "Dano 260% + bleed 10s",                   cooldown: "12s",    desc: "Flecha de espinhos." },
-      { name: "Binding Shot",                 type: "Ativo",    rarity: "2★", effect: "Dano 220% + root 4s",                     cooldown: "18s",    desc: "Flecha aprisionadora." },
-      { name: "Freezing Shot",                type: "Ativo",    rarity: "2★", effect: "Dano gelo 260% + slow 40% 6s",            cooldown: "16s",    desc: "Flecha congelante." },
-      { name: "Ice Arrow Rain",             type: "Ativo",    rarity: "3★", effect: "AoE GELO 380% (10 alvos) + freeze",         cooldown: "28s",    desc: "Condensa o ar em volta das flechas congelando-as." },
-      { name: "Spiral Shot",                  type: "Ativo",    rarity: "3★", effect: "Dano 420% + penetra alvos",               cooldown: "24s",    desc: "Tiro espiral." },
-      { name: "Target Lock",                  type: "Ativo",    rarity: "3★", effect: "Marca alvo: +40% dano 12s",                cooldown: "30s",    desc: "Trava de mira." },
-      { name: "Transcendent Seven Arrow",     type: "Ativo",    rarity: "4★", effect: "Dano 700% + elemental + ignora DEF",      cooldown: "180s",   desc: "Sete flechas transcendentes." },
-      { name: "Moonlight Harmony",            type: "Self-Buff",rarity: "4★", effect: "+60% ATK, +50% Crit, +40% Range 30min",   cooldown: "90 min", desc: "Harmonia do luar." },
-      { name: "Master of Combat",             type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% Range, +5% PvE",          cooldown: "N/A",    desc: "Mestre do combate." },
-      { name: "Moonlight Sentinel Spirit",    type: "Passivo",  rarity: "3★", effect: "+15% Bow ATK",                            cooldown: "N/A",    desc: "Espírito do sentinela." },
-      { name: "Body of Moonlight Sentinel",   type: "Passivo",  rarity: "3★", effect: "+10% Max HP, +8% EVA",                   cooldown: "N/A",    desc: "Corpo do sentinela." }
+      { name: "死亡之眼",                     type: "Self-Buff",rarity: "3★", effect: "+50% ATK, +40% Range 20min",              cooldown: "55 min", desc: "進入致命瞄準狀態。" },
+      { name: "精準射擊",                type: "Ativo",    rarity: "3★", effect: "Dano 400% + ignora 50% DEF",              cooldown: "28s",    desc: "對要害施展精準射擊。" },
+      { name: "三重射擊",                  type: "Ativo",    rarity: "3★", effect: "3 disparos, dano total 360%",              cooldown: "14s",    desc: "連續射擊三次。" },
+      { name: "荊棘射擊",                   type: "Ativo",    rarity: "2★", effect: "Dano 260% + bleed 10s",                   cooldown: "12s",    desc: "發射帶有荊棘力量的箭矢。" },
+      { name: "束縛射擊",                 type: "Ativo",    rarity: "2★", effect: "Dano 220% + root 4s",                     cooldown: "18s",    desc: "發射可束縛敵人的箭矢。" },
+      { name: "冰凍射擊",                type: "Ativo",    rarity: "2★", effect: "Dano gelo 260% + slow 40% 6s",            cooldown: "16s",    desc: "發射冰凍箭矢。" },
+      { name: "寒冰箭雨",             type: "Ativo",    rarity: "3★", effect: "AoE GELO 380% (10 alvos) + freeze",         cooldown: "28s",    desc: "凝聚周圍冷氣，讓箭矢結冰後降下寒冰箭雨。" },
+      { name: "螺旋射擊",                  type: "Ativo",    rarity: "3★", effect: "Dano 420% + penetra alvos",               cooldown: "24s",    desc: "發射螺旋箭矢。" },
+      { name: "目標鎖定",                  type: "Ativo",    rarity: "3★", effect: "Marca alvo: +40% dano 12s",                cooldown: "30s",    desc: "鎖定目標以提高命中與傷害。" },
+      { name: "超越七連矢",     type: "Ativo",    rarity: "4★", effect: "Dano 700% + elemental + ignora DEF",      cooldown: "180s",   desc: "施展超越極限的七連箭攻擊。" },
+      { name: "月光守衛和諧",            type: "Self-Buff",rarity: "4★", effect: "+60% ATK, +50% Crit, +40% Range 30min",   cooldown: "90 min", desc: "月光守衛的戰鬥和諧。" },
+      { name: "戰鬥大師",             type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% Range, +5% PvE",          cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
+      { name: "月光守衛之魂",    type: "Passivo",  rarity: "3★", effect: "+15% Bow ATK",                            cooldown: "N/A",    desc: "月光守衛的戰鬥精神。" },
+      { name: "月光守衛之軀",   type: "Passivo",  rarity: "3★", effect: "+10% Max HP, +8% EVA",                   cooldown: "N/A",    desc: "強化月光守衛的身軀。" }
     ]
   },
 
@@ -890,104 +890,104 @@ const CLASSES_ECHO = {
   // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 
   elfMage: {
-    name: 'Elf Mage', archetype: 'mage', race: 'elf', stage: 0,
-    desc: 'Mago élfico da natureza.',
+    name: '精靈法師', archetype: 'mage', race: 'elf', stage: 0,
+    desc: '操控自然力量的精靈法師。',
     base: { atk: 4, def: 5, hp: 65, mp: 85, eva: 8, crit: 3, matk: 14, mdef: 10 },
     skills: [
-      { name: "Wind Strike",   type: "Ativo",    rarity: "1★", effect: "Dano vento 160%",             cooldown: "8s",     desc: "Rajada de vento." },
-      { name: "Ice Bolt",      type: "Ativo",    rarity: "1★", effect: "Dano gelo 155% + slow 15% 4s",cooldown: "8s",     desc: "Projétil de gelo." },
-      { name: "Self Heal",     type: "Ativo",    rarity: "1★", effect: "Cura 20% HP",                 cooldown: "25s",    desc: "Autocura." },
-      { name: "Sleep",         type: "Ativo",    rarity: "1★", effect: "Adormece alvo 8s",             cooldown: "30s",    desc: "Sono mágico." },
-      { name: "Robe Mastery",  type: "Passivo",  rarity: "1★", effect: "+10% M.DEF, +8% Cast Speed",   cooldown: "N/A",    desc: "Maestria em vestes." },
-      { name: "MP Increase",   type: "Passivo",  rarity: "1★", effect: "+8% Max MP",                   cooldown: "N/A",    desc: "Reserva mágica." }
+      { name: "風之打擊",   type: "Ativo",    rarity: "1★", effect: "Dano vento 160%",             cooldown: "8s",     desc: "釋放風之衝擊。" },
+      { name: "冰箭",      type: "Ativo",    rarity: "1★", effect: "Dano gelo 155% + slow 15% 4s",cooldown: "8s",     desc: "發射冰之彈體。" },
+      { name: "自我治癒",     type: "Ativo",    rarity: "1★", effect: "Cura 20% HP",                 cooldown: "25s",    desc: "進行基礎自我治療。" },
+      { name: "睡眠",         type: "Ativo",    rarity: "1★", effect: "Adormece alvo 8s",             cooldown: "30s",    desc: "以魔法使目標陷入睡眠。" },
+      { name: "法袍精通",  type: "Passivo",  rarity: "1★", effect: "+10% M.DEF, +8% Cast Speed",   cooldown: "N/A",    desc: "精通法袍裝備。" },
+      { name: "MP 提升",   type: "Passivo",  rarity: "1★", effect: "+8% Max MP",                   cooldown: "N/A",    desc: "提高魔力儲備。" }
     ]
   },
 
   // ─── ELVEN WIZARD (1ª classe) ───
   elvenWizard: {
-    name: 'Elven Wizard', parent: 'elfMage', race: 'elf', archetype: 'mage', stage: 1,
-    desc: 'Mago élfico elemental. Skills anteriores permanecem.',
+    name: '精靈巫師', parent: 'elfMage', race: 'elf', archetype: 'mage', stage: 1,
+    desc: '精通元素魔法的精靈巫師。保留先前學會的技能。',
     base: { atk: 5, def: 7, hp: 95, mp: 135, eva: 6, crit: 4, matk: 33, mdef: 20 },
     skills: [
-      { name: "Blaze",              type: "Ativo",    rarity: "1★", effect: "Dano fogo 210%",                 cooldown: "10s",    desc: "Chamas." },
-      { name: "Aqua Swirl",         type: "Ativo",    rarity: "1★", effect: "Dano água 200% + slow 20% 5s",   cooldown: "10s",    desc: "Turbilhão aquático." },
-      { name: "Aura Burn",          type: "Ativo",    rarity: "2★", effect: "AoE fogo 180% ao redor",         cooldown: "14s",    desc: "Queimadura áurica." },
-      { name: "Life Drain",         type: "Ativo",    rarity: "2★", effect: "Dano 190% + drena 25% HP",       cooldown: "15s",    desc: "Dreno vital." },
-      { name: "Wizard's Harmony",   type: "Self-Buff",rarity: "2★", effect: "+25% M.ATK, +15% Cast Speed 20min",cooldown: "45 min",desc: "Harmonia do mago élfico." },
-      { name: "Boost Mana",         type: "Passivo",  rarity: "1★", effect: "+12% Max MP",                    cooldown: "N/A",    desc: "Reserva mágica." }
+      { name: "烈焰",              type: "Ativo",    rarity: "1★", effect: "Dano fogo 210%",                 cooldown: "10s",    desc: "釋放熾熱火焰。" },
+      { name: "水之漩渦",         type: "Ativo",    rarity: "1★", effect: "Dano água 200% + slow 20% 5s",   cooldown: "10s",    desc: "召喚水流漩渦。" },
+      { name: "光環燃燒",          type: "Ativo",    rarity: "2★", effect: "AoE fogo 180% ao redor",         cooldown: "14s",    desc: "以魔力燃燒周圍敵人。" },
+      { name: "生命吸取",         type: "Ativo",    rarity: "2★", effect: "Dano 190% + drena 25% HP",       cooldown: "15s",    desc: "吸取目標生命力。" },
+      { name: "精靈巫師和諧",   type: "Self-Buff",rarity: "2★", effect: "+25% M.ATK, +15% Cast Speed 20min",cooldown: "45 min",desc: "精靈巫師的戰鬥和諧。" },
+      { name: "MP 強化",         type: "Passivo",  rarity: "1★", effect: "+12% Max MP",                    cooldown: "N/A",    desc: "強化魔力儲備。" }
     ]
   },
 
   // ─── SPELLSINGER (2ª classe — WATER/WIND) ───
   spellsinger: {
-    name: 'Spellsinger', parent: 'elvenWizard', stage: 2,
-    desc: 'Cantor de magias, foco em água e vento. Skills anteriores permanecem.',
+    name: '咒術詩人', parent: 'elvenWizard', stage: 2,
+    desc: '以水與風魔法為主的咒術詩人。保留先前學會的技能。',
     base: { atk: 7, def: 13, hp: 170, mp: 250, eva: 7, crit: 5, matk: 72, mdef: 42 },
     skills: [
-      { name: "Hydro Blast",          type: "Ativo",    rarity: "2★", effect: "Dano água 300% + knockback",       cooldown: "15s",    desc: "Explosão hídrica." },
-      { name: "Blizzard",             type: "Ativo",    rarity: "3★", effect: "AoE gelo 340% + slow 30% 6s",      cooldown: "22s",    desc: "Nevasca." },
-      { name: "Solar Flare",          type: "Ativo",    rarity: "3★", effect: "Dano fogo 360% + blind 4s",        cooldown: "25s",    desc: "Explosão solar." },
-      { name: "Elemental Symphony",   type: "Ativo",    rarity: "3★", effect: "Dano multi-element 380%",          cooldown: "24s",    desc: "Sinfonia elemental." },
-      { name: "Arcane Power",         type: "Self-Buff",rarity: "3★", effect: "+40% M.ATK por 30s",               cooldown: "90s",    desc: "Poder arcano." },
-      { name: "Freezing Skin",        type: "Self-Buff",rarity: "2★", effect: "Atacantes recebem slow 20% 15s",   cooldown: "45s",    desc: "Pele congelante." },
-      { name: "Cancel",               type: "Ativo",    rarity: "3★", effect: "Remove 3 buffs do alvo",           cooldown: "40s",    desc: "Cancelamento." },
-      { name: "Body to Mind",         type: "Ativo",    rarity: "2★", effect: "Converte 15% HP em 30% MP",        cooldown: "30s",    desc: "Corpo em mente." },
-      { name: "SS's Harmony",         type: "Self-Buff",rarity: "3★", effect: "+35% M.ATK, +20% Cast Speed 25min",cooldown: "60 min", desc: "Harmonia do cantor." },
-      { name: "Elemental Assault",    type: "Passivo",  rarity: "2★", effect: "+12% elemental damage",            cooldown: "N/A",    desc: "Assalto elemental." }
+      { name: "水流爆裂",          type: "Ativo",    rarity: "2★", effect: "Dano água 300% + knockback",       cooldown: "15s",    desc: "釋放強力水流爆炸。" },
+      { name: "暴風雪",             type: "Ativo",    rarity: "3★", effect: "AoE gelo 340% + slow 30% 6s",      cooldown: "22s",    desc: "召喚暴風雪。" },
+      { name: "太陽耀斑",          type: "Ativo",    rarity: "3★", effect: "Dano fogo 360% + blind 4s",        cooldown: "25s",    desc: "釋放太陽能量爆炸。" },
+      { name: "元素交響曲",   type: "Ativo",    rarity: "3★", effect: "Dano multi-element 380%",          cooldown: "24s",    desc: "以多重元素奏出交響攻擊。" },
+      { name: "奧術之力",         type: "Self-Buff",rarity: "3★", effect: "+40% M.ATK por 30s",               cooldown: "90s",    desc: "凝聚奧術力量。" },
+      { name: "冰凍皮膚",        type: "Self-Buff",rarity: "2★", effect: "Atacantes recebem slow 20% 15s",   cooldown: "45s",    desc: "以冰霜強化皮膚。" },
+      { name: "解除",               type: "Ativo",    rarity: "3★", effect: "Remove 3 buffs do alvo",           cooldown: "40s",    desc: "解除魔法效果。" },
+      { name: "身心轉換",         type: "Ativo",    rarity: "2★", effect: "Converte 15% HP em 30% MP",        cooldown: "30s",    desc: "將生命力轉換為魔力。" },
+      { name: "咒術詩人和諧",         type: "Self-Buff",rarity: "3★", effect: "+35% M.ATK, +20% Cast Speed 25min",cooldown: "60 min", desc: "咒術詩人的戰鬥和諧。" },
+      { name: "元素突擊",    type: "Passivo",  rarity: "2★", effect: "+12% elemental damage",            cooldown: "N/A",    desc: "發動元素突擊。" }
     ]
   },
 
   // ─── MYSTIC MUSE (3ª classe — FOCO WATER) ───
   mysticMuse: {
-    name: 'Mystic Muse', parent: 'spellsinger', stage: 3,
-    desc: 'Musa mística, mestre da magia aquática. Skills anteriores permanecem. Foco: WATER.',
+    name: '神秘繆思', parent: 'spellsinger', stage: 3,
+    desc: '精通水系魔法的神秘繆思。保留先前學會的技能。定位：水。',
     base: { atk: 9, def: 18, hp: 280, mp: 440, eva: 8, crit: 7, matk: 130, mdef: 68 },
     skills: [
-      { name: "Aqua Splash",                  type: "Ativo",    rarity: "3★", effect: "Dano water 420% + AoE splash",             cooldown: "22s",    desc: "Respingo aquático massivo." },
-      { name: "Water Spiral",                  type: "Ativo",    rarity: "3★", effect: "Dano water 400% + penetra alvos",         cooldown: "20s",    desc: "Espiral de água perfurante." },
-      { name: "Aqua Explosion",                type: "Ativo",    rarity: "4★", effect: "Dano water AoE 680% + freeze 4s",         cooldown: "160s",   desc: "EXPLOSÃO AQUÁTICA — devastação total." },
-      { name: "Seed of Water",                 type: "Ativo",    rarity: "2★", effect: "Planta semente: explode 300% água após 5s",cooldown: "20s",   desc: "Semente de água." },
-      { name: "Elemental Burst",               type: "Ativo",    rarity: "3★", effect: "Explode Seeds: dano 500%",                cooldown: "18s",    desc: "Explosão elemental (combo Seeds)." },
-      { name: "Elemental Storm",               type: "Ativo",    rarity: "3★", effect: "AoE multi-element 440% (8 alvos)",        cooldown: "30s",    desc: "Tempestade elemental." },
-      { name: "Mystic Immunity",               type: "Ativo",    rarity: "4★", effect: "Imune a magia 8s",                        cooldown: "180s",   desc: "Imunidade mística." },
-      { name: "Empowering Echo",               type: "Ativo",    rarity: "3★", effect: "Próxima skill: +50% dano",                cooldown: "45s",    desc: "Eco potencializador." },
-      { name: "Transcendent Aqua Explosion",   type: "Ativo",    rarity: "4★", effect: "Dano water 850% + freeze 6s + AoE",       cooldown: "200s",   desc: "Explosão aquática transcendente." },
-      { name: "Mystic Muse Harmony",           type: "Self-Buff",rarity: "4★", effect: "+55% M.ATK, +35% Cast Speed, +20% MP 30min",cooldown: "90 min",desc: "Harmonia da musa." },
-      { name: "Master of Magic",               type: "Passivo",  rarity: "3★", effect: "+10% M.ATK, +10% water dmg, +5% PvE",    cooldown: "N/A",    desc: "Mestre da magia." },
-      { name: "Spell Mastery",                  type: "Passivo",  rarity: "3★", effect: "+12% M. Skill Power",                    cooldown: "N/A",    desc: "Maestria em feitiços." },
-      { name: "Magic Focus",                    type: "Passivo",  rarity: "3★", effect: "+8% M. Crit Rate",                       cooldown: "N/A",    desc: "Foco mágico." },
-      { name: "Mystic Muse Spirit",            type: "Passivo",  rarity: "3★", effect: "+15% water magic ATK",                    cooldown: "N/A",    desc: "Espírito da musa." },
-      { name: "Body of the Mystic Muse",       type: "Passivo",  rarity: "3★", effect: "+10% Max MP, +8% M.DEF",                 cooldown: "N/A",    desc: "Corpo da musa." }
+      { name: "水花爆發",                  type: "Ativo",    rarity: "3★", effect: "Dano water 420% + AoE splash",             cooldown: "22s",    desc: "釋放大範圍水流衝擊。" },
+      { name: "水之螺旋",                  type: "Ativo",    rarity: "3★", effect: "Dano water 400% + penetra alvos",         cooldown: "20s",    desc: "釋放具有穿透力的水流螺旋。" },
+      { name: "水流爆炸",                type: "Ativo",    rarity: "4★", effect: "Dano water AoE 680% + freeze 4s",         cooldown: "160s",   desc: "引發毀滅性的水元素爆炸。" },
+      { name: "水之種子",                 type: "Ativo",    rarity: "2★", effect: "Planta semente: explode 300% água após 5s",cooldown: "20s",   desc: "凝聚水元素種子。" },
+      { name: "元素爆發",               type: "Ativo",    rarity: "3★", effect: "Explode Seeds: dano 500%",                cooldown: "18s",    desc: "引爆元素力量，可與種子效果連動。" },
+      { name: "元素風暴",               type: "Ativo",    rarity: "3★", effect: "AoE multi-element 440% (8 alvos)",        cooldown: "30s",    desc: "召喚元素風暴。" },
+      { name: "神秘免疫",               type: "Ativo",    rarity: "4★", effect: "Imune a magia 8s",                        cooldown: "180s",   desc: "獲得神秘力量保護。" },
+      { name: "強化迴響",               type: "Ativo",    rarity: "3★", effect: "Próxima skill: +50% dano",                cooldown: "45s",    desc: "以迴響強化自身力量。" },
+      { name: "超越水流爆炸",   type: "Ativo",    rarity: "4★", effect: "Dano water 850% + freeze 6s + AoE",       cooldown: "200s",   desc: "施展超越極限的水元素爆炸。" },
+      { name: "神秘繆思和諧",           type: "Self-Buff",rarity: "4★", effect: "+55% M.ATK, +35% Cast Speed, +20% MP 30min",cooldown: "90 min",desc: "神秘繆思的戰鬥和諧。" },
+      { name: "魔法大師",               type: "Passivo",  rarity: "3★", effect: "+10% M.ATK, +10% water dmg, +5% PvE",    cooldown: "N/A",    desc: "精通各式魔法。" },
+      { name: "法術精通",                  type: "Passivo",  rarity: "3★", effect: "+12% M. Skill Power",                    cooldown: "N/A",    desc: "精通法術施放。" },
+      { name: "魔法專注",                    type: "Passivo",  rarity: "3★", effect: "+8% M. Crit Rate",                       cooldown: "N/A",    desc: "提高魔法專注力。" },
+      { name: "神秘繆思之魂",            type: "Passivo",  rarity: "3★", effect: "+15% water magic ATK",                    cooldown: "N/A",    desc: "神秘繆思的戰鬥精神。" },
+      { name: "神秘繆思之軀",       type: "Passivo",  rarity: "3★", effect: "+10% Max MP, +8% M.DEF",                 cooldown: "N/A",    desc: "強化神秘繆思的身軀。" }
     ]
   },
 
   // ─── ELEMENTAL SUMMONER → ELEMENTAL MASTER ───
   elementalSummoner: {
-    name: 'Elemental Summoner', parent: 'elvenWizard', stage: 2,
-    desc: 'Invocador elemental élfico. Skills anteriores permanecem. Foco: SUMMON.',
+    name: '元素召喚師', parent: 'elvenWizard', stage: 2,
+    desc: '精靈族的元素召喚師。保留先前學會的技能。定位：召喚。',
     base: { atk: 6, def: 14, hp: 185, mp: 245, eva: 6, crit: 4, matk: 60, mdef: 40 },
     skills: [
-      { name: "Summon Unicorn Boxer",   type: "Ativo",    rarity: "2★", effect: "Invoca unicórnio fighter (ATK 50%)",  cooldown: "60s",    desc: "Unicórnio lutador." },
-      { name: "Summon Unicorn Mirage",  type: "Ativo",    rarity: "2★", effect: "Invoca unicórnio mago (M.ATK 50%)",  cooldown: "60s",    desc: "Unicórnio ilusório." },
-      { name: "Summon Unicorn Merrow",  type: "Ativo",    rarity: "3★", effect: "Invoca merrow (ATK 65%, tank)",      cooldown: "90s",    desc: "Merrow aquático." },
-      { name: "Servitor Heal",          type: "Ativo",    rarity: "2★", effect: "Cura summon 35% HP",                 cooldown: "12s",    desc: "Cura do servitor." },
-      { name: "Servitor Recharge",      type: "Ativo",    rarity: "2★", effect: "Restaura 30% MP do summon",          cooldown: "15s",    desc: "Recarga do servitor." },
-      { name: "Transfer Pain",          type: "Toggle",   rarity: "2★", effect: "50% dano recebido vai pro summon",   cooldown: "N/A",    desc: "Transferência de dor." },
-      { name: "Summon Life Cubic",      type: "Ativo",    rarity: "2★", effect: "Cubic que cura 5%/5s",               cooldown: "45s",    desc: "Cubic vital." },
-      { name: "ES's Harmony",           type: "Self-Buff",rarity: "3★", effect: "+30% M.ATK, +25% Summon ATK 25min",  cooldown: "60 min", desc: "Harmonia do invocador." },
-      { name: "Servitor Physical ATK",  type: "Passivo",  rarity: "2★", effect: "+15% Summon ATK",                    cooldown: "N/A",    desc: "Poder do servitor." }
+      { name: "召喚拳鬥獨角獸",   type: "Ativo",    rarity: "2★", effect: "Invoca unicórnio fighter (ATK 50%)",  cooldown: "60s",    desc: "召喚擅長近戰的獨角獸。" },
+      { name: "召喚幻影獨角獸",  type: "Ativo",    rarity: "2★", effect: "Invoca unicórnio mago (M.ATK 50%)",  cooldown: "60s",    desc: "召喚具有幻影能力的獨角獸。" },
+      { name: "召喚梅洛獨角獸",  type: "Ativo",    rarity: "3★", effect: "Invoca merrow (ATK 65%, tank)",      cooldown: "90s",    desc: "召喚水元素獨角獸梅洛。" },
+      { name: "召喚獸治癒",          type: "Ativo",    rarity: "2★", effect: "Cura summon 35% HP",                 cooldown: "12s",    desc: "治療召喚獸。" },
+      { name: "召喚獸回復",      type: "Ativo",    rarity: "2★", effect: "Restaura 30% MP do summon",          cooldown: "15s",    desc: "恢復召喚獸的魔力。" },
+      { name: "痛苦轉移",          type: "Toggle",   rarity: "2★", effect: "50% dano recebido vai pro summon",   cooldown: "N/A",    desc: "將部分受到的傷害轉移給召喚獸。" },
+      { name: "召喚生命晶體",      type: "Ativo",    rarity: "2★", effect: "Cubic que cura 5%/5s",               cooldown: "45s",    desc: "召喚具有生命恢復能力的晶體。" },
+      { name: "元素召喚師和諧",           type: "Self-Buff",rarity: "3★", effect: "+30% M.ATK, +25% Summon ATK 25min",  cooldown: "60 min", desc: "元素召喚師的戰鬥和諧。" },
+      { name: "召喚獸物理攻擊",  type: "Passivo",  rarity: "2★", effect: "+15% Summon ATK",                    cooldown: "N/A",    desc: "提高召喚獸的物理攻擊能力。" }
     ]
   },
 
   elementalMaster: {
-    name: 'Elemental Master', parent: 'elementalSummoner', stage: 3,
-    desc: 'Mestre elemental, invocador supremo élfico. Skills anteriores permanecem.',
+    name: '元素大師', parent: 'elementalSummoner', stage: 3,
+    desc: '精靈族的至高元素召喚大師。保留先前學會的技能。',
     base: { atk: 9, def: 20, hp: 300, mp: 420, eva: 7, crit: 5, matk: 115, mdef: 62 },
     skills: [
-      { name: "Summon Seraphim",                type: "Ativo",    rarity: "3★", effect: "Invoca Serafim (cura+suporte 60%)",        cooldown: "90s",    desc: "Serafim celestial." },
-      { name: "Servitor Barrier",               type: "Ativo",    rarity: "3★", effect: "Summon ganha escudo 5000 HP 15s",          cooldown: "60s",    desc: "Barreira do servitor." },
-      { name: "Mass Servitor Heal",             type: "Ativo",    rarity: "3★", effect: "Cura todos summons 40% HP",               cooldown: "25s",    desc: "Cura em massa." },
-      { name: "Final Servitor",                 type: "Ativo",    rarity: "4★", effect: "Summon sacrifica: AoE 600% + cura 50%",    cooldown: "180s",   desc: "Sacrifício final." },
+      { name: "召喚熾天使",                type: "Ativo",    rarity: "3★", effect: "Invoca Serafim (cura+suporte 60%)",        cooldown: "90s",    desc: "召喚天界熾天使。" },
+      { name: "召喚獸屏障",               type: "Ativo",    rarity: "3★", effect: "Summon ganha escudo 5000 HP 15s",          cooldown: "60s",    desc: "為召喚獸展開防護屏障。" },
+      { name: "群體召喚獸治癒",             type: "Ativo",    rarity: "3★", effect: "Cura todos summons 40% HP",               cooldown: "25s",    desc: "治療多個召喚獸。" },
+      { name: "最終召喚獸",                 type: "Ativo",    rarity: "4★", effect: "Summon sacrifica: AoE 600% + cura 50%",    cooldown: "180s",   desc: "犧牲召喚獸釋放最後力量。" },
       { name: "Transcendent Summon Burst",      type: "Ativo",    rarity: "4★", effect: "Todos summons atacam: 800% total",        cooldown: "200s",   desc: "Explosão de invocações." },
       { name: "Elemental Master Harmony",       type: "Self-Buff",rarity: "4★", effect: "+50% M.ATK, +60% Summon Power 30min",     cooldown: "90 min", desc: "Harmonia suprema." },
       { name: "Unicorn's Friendship",           type: "Passivo",  rarity: "3★", effect: "+20% Summon ATK/DEF",                     cooldown: "N/A",    desc: "Amizade dos unicórnios." },
