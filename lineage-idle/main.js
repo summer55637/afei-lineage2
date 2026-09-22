@@ -10974,7 +10974,7 @@ export function init() {
       }, {
         charName,
         name: charName,
-        className: 'Rival do Ranking',
+        className: '排行榜對手',
         statsSnapshot: {
           hp: Math.floor(oppCP * 0.08),
           pAtk: Math.floor(oppCP * 0.06),
@@ -11041,7 +11041,7 @@ export function init() {
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(212,167,68,0.3); border-radius:10px; padding:14px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
             <div style="font-family:'Cinzel',serif; font-size:14px; font-weight:bold; color:#ffd877; display:flex; align-items:center; gap:8px;">
-              <span>🧪 Gatilhos de Auto-Poção</span>
+              <span>🧪 自動藥水觸發條件</span>
             </div>
             <button onclick="window.toggleCombatAutoPotionAction()" style="background:${state.autoPotionActive ? 'linear-gradient(180deg,#22c55e,#15803d)' : 'rgba(255,255,255,0.1)'}; border:1px solid ${state.autoPotionActive ? '#86efac' : 'rgba(255,255,255,0.2)'}; color:#fff; border-radius:6px; padding:4px 12px; font-size:12px; font-weight:bold; cursor:pointer;">
               ${state.autoPotionActive ? '🟢 已啟用' : '⚪ 已停用'}
@@ -11054,15 +11054,15 @@ export function init() {
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                 <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-weight:bold; font-size:12px; color:#fca5a5;">
                   <input type="checkbox" ${ap.autoHp !== false ? 'checked' : ''} onchange="window.setMacroToggleHp(this.checked)" />
-                  Auto-Poção de Vida (HP)
+                  自動使用生命藥水（HP）
                 </label>
                 <span style="font-weight:bold; color:#ef4444; font-size:12px;">&lt; ${hpVal}%</span>
               </div>
               <input type="range" min="20" max="90" step="5" value="${hpVal}" oninput="window.setMacroHpThreshold(this.value)" style="width:100%; accent-color:#ef4444; cursor:pointer;" />
               <div style="display:flex; justify-content:space-between; font-size:10px; color:#94a3b8; margin-top:2px;">
-                <span>20% (Crítico)</span>
+                <span>20%（危急）</span>
                 <span>50%</span>
-                <span>90% (Seguro)</span>
+                <span>90%（安全）</span>
               </div>
             </div>
 
@@ -11071,15 +11071,15 @@ export function init() {
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                 <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-weight:bold; font-size:12px; color:#93c5fd;">
                   <input type="checkbox" ${ap.autoMp !== false ? 'checked' : ''} onchange="window.setMacroToggleMp(this.checked)" />
-                  Auto-Poção de Mana (MP)
+                  自動使用魔力藥水（MP）
                 </label>
                 <span style="font-weight:bold; color:#3b82f6; font-size:12px;">&lt; ${mpVal}%</span>
               </div>
               <input type="range" min="15" max="85" step="5" value="${mpVal}" oninput="window.setMacroMpThreshold(this.value)" style="width:100%; accent-color:#3b82f6; cursor:pointer;" />
               <div style="display:flex; justify-content:space-between; font-size:10px; color:#94a3b8; margin-top:2px;">
-                <span>15% (Baixo)</span>
+                <span>15%（低）</span>
                 <span>40%</span>
-                <span>85% (Alto)</span>
+                <span>85%（高）</span>
               </div>
             </div>
           </div>
@@ -11090,10 +11090,10 @@ export function init() {
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
             <div>
               <div style="font-family:'Cinzel',serif; font-size:14px; font-weight:bold; color:#ffd877;">
-                ⚡ Rotação &amp; Prioridade de Habilidades
+                ⚡ 技能循環與優先順序
               </div>
               <div style="font-size:11px; color:#94a3b8;">
-                Defina a ordem de execução do combate automático. O herói tentará usar as primeiras skills da lista sempre que o tempo de recarga (CD) estiver disponível.
+                設定自動戰鬥的技能施放順序。只要冷卻時間結束，角色會優先嘗試使用列表前方的技能。
               </div>
             </div>
           </div>
@@ -11108,19 +11108,19 @@ export function init() {
                   <div style="display:flex; align-items:center; gap:10px;">
                     <span style="font-size:12px; font-weight:bold; color:#ffd877; width:20px; text-align:center;">#${idx + 1}</span>
                     <div>
-                      <div style="font-weight:bold; font-size:13px; color:#f8fafc; font-family:'Cinzel',serif;">${sk.def.name} <span style="font-size:11px; color:#86efac;">(Nv. ${sk.lvl})</span></div>
-                      <div style="font-size:10px; color:#94a3b8;">Recarga: ${cdSec}s | MP: ${mpCost} | Tier: ${sk.def.tier || 1}</div>
+                      <div style="font-weight:bold; font-size:13px; color:#f8fafc; font-family:'Cinzel',serif;">${sk.def.name} <span style="font-size:11px; color:#86efac;">（等級 ${sk.lvl}）</span></div>
+                      <div style="font-size:10px; color:#94a3b8;">冷卻：${cdSec} 秒 | MP：${mpCost} | 階級：${sk.def.tier || 1}</div>
                     </div>
                   </div>
 
                   <div style="display:flex; align-items:center; gap:8px;">
                     <label style="display:flex; align-items:center; gap:4px; font-size:11px; cursor:pointer; color:${isAuto ? '#86efac' : '#94a3b8'};">
                       <input type="checkbox" ${isAuto ? 'checked' : ''} onchange="window.toggleSkillAutoCastAction('${sk.id}')" />
-                      Auto-Usar
+                      自動使用
                     </label>
                     <div style="display:flex; gap:3px;">
-                      <button ${idx === 0 ? 'disabled' : ''} onclick="window.moveSkillPriorityAction('${sk.id}', -1)" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#fff; border-radius:4px; padding:2px 6px; cursor:${idx === 0 ? 'default' : 'pointer'}; opacity:${idx === 0 ? 0.3 : 1};" title="Subir prioridade">▲</button>
-                      <button ${idx === knownActiveSkills.length - 1 ? 'disabled' : ''} onclick="window.moveSkillPriorityAction('${sk.id}', 1)" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#fff; border-radius:4px; padding:2px 6px; cursor:${idx === knownActiveSkills.length - 1 ? 'default' : 'pointer'}; opacity:${idx === knownActiveSkills.length - 1 ? 0.3 : 1};" title="Descer prioridade">▼</button>
+                      <button ${idx === 0 ? 'disabled' : ''} onclick="window.moveSkillPriorityAction('${sk.id}', -1)" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#fff; border-radius:4px; padding:2px 6px; cursor:${idx === 0 ? 'default' : 'pointer'}; opacity:${idx === 0 ? 0.3 : 1};" title="提高優先順序">▲</button>
+                      <button ${idx === knownActiveSkills.length - 1 ? 'disabled' : ''} onclick="window.moveSkillPriorityAction('${sk.id}', 1)" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#fff; border-radius:4px; padding:2px 6px; cursor:${idx === knownActiveSkills.length - 1 ? 'default' : 'pointer'}; opacity:${idx === knownActiveSkills.length - 1 ? 0.3 : 1};" title="降低優先順序">▼</button>
                     </div>
                   </div>
                 </div>
@@ -11133,14 +11133,14 @@ export function init() {
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(212,167,68,0.3); border-radius:10px; padding:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
           <div>
             <div style="font-family:'Cinzel',serif; font-size:14px; font-weight:bold; color:#ffd877;">
-              ♻️ Filtro de Descarte &amp; Auto-Recycle AFK
+              ♻️ 丟棄篩選與 AFK 自動回收
             </div>
             <div style="font-size:11px; color:#94a3b8;">
               目前狀態：<strong>${state.autoRecycle?.enabled ? '🟢 已啟用（' + (state.autoRecycle.mode === 'sell' ? '自動出售' : '分解成水晶') + '）' : '⚪ 已停用'}</strong>。支援無級別至 A 級，並會強制保護有強化值與稀有物品。
             </div>
           </div>
           <button onclick="window.openAutoRecycleModal()" style="background:linear-gradient(180deg,#d4a744,#8a641c); border:1px solid #ffe699; color:#000; font-family:'Cinzel',serif; font-weight:bold; font-size:12px; border-radius:6px; padding:8px 16px; cursor:pointer;">
-            Configurar Filtro AFK ⚙️
+            設定 AFK 篩選 ⚙️
           </button>
         </div>
       `;
@@ -11236,11 +11236,11 @@ export function init() {
                 <div style="font-size:15px; font-weight:bold; color:#facc15;">+${Math.round((evt.modifiers.goldMult - 1) * 100)}%</div>
               </div>
               <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:6px; text-align:center; border:1px solid rgba(255,255,255,0.1);">
-                <div style="font-size:11px; color:#94a3b8;">EXP 加成</div>
+                <div style="font-size:11px; color:#94a3b8;">經驗值加成</div>
                 <div style="font-size:15px; font-weight:bold; color:#38bdf8;">+${Math.round((evt.modifiers.xpMult - 1) * 100)}%</div>
               </div>
               <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:6px; text-align:center; border:1px solid rgba(255,255,255,0.1);">
-                <div style="font-size:11px; color:#94a3b8;">SP 加成</div>
+                <div style="font-size:11px; color:#94a3b8;">技能點加成</div>
                 <div style="font-size:15px; font-weight:bold; color:#c084fc;">+${Math.round((evt.modifiers.spMult - 1) * 100)}%</div>
               </div>
               <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:6px; text-align:center; border:1px solid rgba(255,255,255,0.1);">
@@ -11250,7 +11250,7 @@ export function init() {
             </div>
           </div>
           <div style="font-size:11px; color:#94a3b8; text-align:center; font-style:italic;">
-            Live-Ops 活動會依王國行事曆自動即時更新。
+            即時活動會依王國行事曆自動更新。
           </div>
         `;
       }
@@ -11493,7 +11493,7 @@ export function init() {
       if (typeof window !== 'undefined' && window.idleAudio) {
         const isMuted = window.idleAudio.toggleMute();
         const btn = el('audio-mute-btn');
-        if (btn) btn.textContent = isMuted ? '🔇 Muted' : '🔊 Audio';
+        if (btn) btn.textContent = isMuted ? '🔇 已靜音' : '🔊 音效';
       }
     };
 
