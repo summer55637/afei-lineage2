@@ -4,17 +4,17 @@
  */
 
 export const DUEL_BET_TIERS = [
-  { id: 'bet_100k', name: 'Duelo de Aprendiz', bet: 100000, rewardAA: 500, label: '100,000 金幣' },
-  { id: 'bet_500k', name: 'Duelo de Gladiador', bet: 500000, rewardAA: 2500, label: '500,000 金幣' },
+  { id: 'bet_100k', name: '學徒決鬥', bet: 100000, rewardAA: 500, label: '100,000 金幣' },
+  { id: 'bet_500k', name: '角鬥士決鬥', bet: 500000, rewardAA: 2500, label: '500,000 金幣' },
   { id: 'bet_2m5', name: '冠軍決鬥', bet: 2500000, rewardAA: 12500, label: '2,500,000 金幣' },
-  { id: 'bet_10m', name: 'Duelo de Lenda de Aden', bet: 10000000, rewardAA: 50000, label: '10,000,000 金幣' }
+  { id: 'bet_10m', name: '亞丁傳說決鬥', bet: 10000000, rewardAA: 50000, label: '10,000,000 金幣' }
 ];
 
 export const DUEL_OPPONENT_ARCHETYPES = [
   {
     type: 'duelist',
-    name: 'Gladiador de Giran ⚔️',
-    title: 'Mestre das Espadas Duplas',
+    name: '奇岩角鬥士 ⚔️',
+    title: '雙劍大師',
     icon: '⚔️',
     hpMult: 1.2,
     pAtkMult: 1.1,
@@ -22,8 +22,8 @@ export const DUEL_OPPONENT_ARCHETYPES = [
   },
   {
     type: 'archer',
-    name: 'Arqueiro Fantasma 🏹',
-    title: 'Tirador de Elite de Silver Ranger',
+    name: '幽靈弓手 🏹',
+    title: 'Silver Ranger 菁英射手',
     icon: '🏹',
     hpMult: 0.9,
     pAtkMult: 1.3,
@@ -31,8 +31,8 @@ export const DUEL_OPPONENT_ARCHETYPES = [
   },
   {
     type: 'nuker',
-    name: 'Feiticeiro Arcano 🔮',
-    title: 'Arcanista de Prominence',
+    name: '奧術法師 🔮',
+    title: '卓越奧術師',
     icon: '🔮',
     hpMult: 0.8,
     mAtkMult: 1.4,
@@ -40,8 +40,8 @@ export const DUEL_OPPONENT_ARCHETYPES = [
   },
   {
     type: 'dagger',
-    name: 'Assassino das Sombras 🗡️',
-    title: 'Abyss Walker Letal',
+    name: '暗影刺客 🗡️',
+    title: '致命 Abyss Walker',
     icon: '🗡️',
     hpMult: 0.85,
     pAtkMult: 1.25,
@@ -49,8 +49,8 @@ export const DUEL_OPPONENT_ARCHETYPES = [
   },
   {
     type: 'tank',
-    name: 'Paladino Imperial 🛡️',
-    title: 'Muralha de Phoenix Knight',
+    name: '帝國聖騎士 🛡️',
+    title: 'Phoenix Knight 鐵壁',
     icon: '🛡️',
     hpMult: 1.6,
     pDefMult: 1.5,
@@ -59,22 +59,22 @@ export const DUEL_OPPONENT_ARCHETYPES = [
 ];
 
 export const SURVIVAL_WAVES = [
-  { wave: 1, name: 'Feras do Coliseu (Lobos & Ursos)', hp: 40000, pAtk: 600, pDef: 500, badges: 5 },
-  { wave: 2, name: 'Gladiadores Novatos de Dion', hp: 75000, pAtk: 900, pDef: 750, badges: 10 },
-  { wave: 3, name: 'Bando de Bandidos de Floran', hp: 120000, pAtk: 1200, pDef: 950, badges: 15 },
-  { wave: 4, name: 'Magos Renegados de Ivory Tower', hp: 180000, pAtk: 1600, pDef: 1100, badges: 20 },
+  { wave: 1, name: '競技場猛獸（狼與熊）', hp: 40000, pAtk: 600, pDef: 500, badges: 5 },
+  { wave: 2, name: '狄恩新手角鬥士', hp: 75000, pAtk: 900, pDef: 750, badges: 10 },
+  { wave: 3, name: '芙羅蘭盜賊團', hp: 120000, pAtk: 1200, pDef: 950, badges: 15 },
+  { wave: 4, name: '象牙塔叛逆法師', hp: 180000, pAtk: 1600, pDef: 1100, badges: 20 },
   { wave: 5, name: '傲慢之塔石像鬼', hp: 260000, pAtk: 2000, pDef: 1400, badges: 30 },
-  { wave: 6, name: 'Veteranos do Sepulcro Imperial', hp: 350000, pAtk: 2400, pDef: 1700, badges: 40 },
+  { wave: 6, name: '帝國陵墓老兵', hp: 350000, pAtk: 2400, pDef: 1700, badges: 40 },
   { wave: 7, name: '席琳不死冠軍', hp: 480000, pAtk: 2800, pDef: 2000, badges: 50 },
-  { wave: 8, name: 'Cavaleiros do Abismo Negro', hp: 650000, pAtk: 3300, pDef: 2300, badges: 70 },
-  { wave: 9, name: 'Generais da Guarda Real de Aden', hp: 850000, pAtk: 3800, pDef: 2600, badges: 100 },
-  { wave: 10, name: 'Lorde Supremo do Coliseu 👑', hp: 1200000, pAtk: 4500, pDef: 3000, badges: 200 }
+  { wave: 8, name: '黑暗深淵騎士', hp: 650000, pAtk: 3300, pDef: 2300, badges: 70 },
+  { wave: 9, name: '亞丁皇家衛隊將軍', hp: 850000, pAtk: 3800, pDef: 2600, badges: 100 },
+  { wave: 10, name: '競技場至尊領主 👑', hp: 1200000, pAtk: 4500, pDef: 3000, badges: 200 }
 ];
 
 export const COLOSSEUM_SHOP_CATALOG = [
   {
     id: 'gladiator_circlet',
-    name: 'Gladiator Champion Circlet 👑',
+    name: '角鬥士冠軍頭冠 👑',
     costBadges: 250,
     icon: '👑',
     desc: '競技場至尊冠軍頭冠（P.Def +100、M.Def +100、PvP 傷害 +5%）。'
@@ -91,13 +91,13 @@ export const COLOSSEUM_SHOP_CATALOG = [
     name: "巨人秘典－精通 🌟",
     costBadges: 400,
     icon: '🌟',
-    desc: 'Tomo dos Gigantes para encanto seguro de habilidades.'
+    desc: '用於安全強化技能的巨人秘典。'
   },
   {
     id: 'scroll_enchant_weapon_s',
-    name: 'Scroll: Enchant Weapon (S-Grade) 📜',
+    name: 'S 級武器強化卷軸 📜',
     costBadges: 300,
     icon: '📜',
-    desc: 'Pergaminho sagrado de encantamento de armas S-Grade.'
+    desc: '用於強化 S 級武器的神聖卷軸。'
   }
 ];
