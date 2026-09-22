@@ -750,124 +750,124 @@ const CLASSES_ECHO = {
       { name: "大地之歌",         type: "Self-Buff", rarity: "2★", effect: "+20% DEF por 20 min",            cooldown: "50 min", desc: "吟唱大地之歌。" },
       { name: "生命之歌",          type: "Self-Buff", rarity: "2★", effect: "+15% HP Regen por 20 min",       cooldown: "50 min", desc: "吟唱生命之歌。" },
       { name: "水之歌",         type: "Self-Buff", rarity: "2★", effect: "+20% Water Resist por 20 min",   cooldown: "50 min", desc: "吟唱水之歌。" },
-      { name: "Song of Warding",       type: "Self-Buff", rarity: "2★", effect: "+20% M.DEF por 20 min",          cooldown: "50 min", desc: "Canção de proteção." },
-      { name: "Song of Wind",          type: "Self-Buff", rarity: "2★", effect: "+20% ATK Speed por 20 min",      cooldown: "50 min", desc: "Canção do vento." },
-      { name: "Song of Hunter",        type: "Self-Buff", rarity: "2★", effect: "+15% Crit Rate por 20 min",      cooldown: "50 min", desc: "Canção do caçador." },
-      { name: "Song of Invocation",    type: "Self-Buff", rarity: "2★", effect: "+15% MP Regen por 20 min",       cooldown: "50 min", desc: "Canção da invocação." },
-      { name: "Song of Vitality",      type: "Self-Buff", rarity: "2★", effect: "+15% Max HP por 20 min",         cooldown: "50 min", desc: "Canção da vitalidade." },
-      { name: "Song of Vengeance",     type: "Self-Buff", rarity: "2★", effect: "+8% reflect damage por 20 min",  cooldown: "50 min", desc: "Canção da vingança." },
-      { name: "Song of Flame Guard",   type: "Self-Buff", rarity: "2★", effect: "+20% Fire Resist por 20 min",    cooldown: "50 min", desc: "Canção da chama." },
-      { name: "Song of Champion",      type: "Self-Buff", rarity: "3★", effect: "+20% ATK por 20 min",            cooldown: "50 min", desc: "Canção do campeão." },
-      { name: "Song of Renewal",       type: "Self-Buff", rarity: "3★", effect: "+10% HP+MP Regen por 20 min",    cooldown: "50 min", desc: "Canção da renovação." },
-      { name: "SS's Harmony",          type: "Self-Buff", rarity: "3★", effect: "+30% ATK, +20% DEF, +15% Speed 25min",cooldown: "60 min",desc: "Harmonia do bardo." },
-      { name: "Heavy Armor Mastery",   type: "Passivo",  rarity: "1★", effect: "+12% DEF armadura pesada",        cooldown: "N/A",    desc: "Maestria pesada." },
-      { name: "Boost HP",              type: "Passivo",  rarity: "1★", effect: "+12% Max HP",                     cooldown: "N/A",    desc: "HP reforçado." }
+      { name: "守護之歌",       type: "Self-Buff", rarity: "2★", effect: "+20% M.DEF por 20 min",          cooldown: "50 min", desc: "吟唱守護之歌。" },
+      { name: "風之歌",          type: "Self-Buff", rarity: "2★", effect: "+20% ATK Speed por 20 min",      cooldown: "50 min", desc: "吟唱風之歌。" },
+      { name: "獵人之歌",        type: "Self-Buff", rarity: "2★", effect: "+15% Crit Rate por 20 min",      cooldown: "50 min", desc: "吟唱獵人之歌。" },
+      { name: "召喚之歌",    type: "Self-Buff", rarity: "2★", effect: "+15% MP Regen por 20 min",       cooldown: "50 min", desc: "吟唱召喚之歌。" },
+      { name: "活力之歌",      type: "Self-Buff", rarity: "2★", effect: "+15% Max HP por 20 min",         cooldown: "50 min", desc: "吟唱活力之歌。" },
+      { name: "復仇之歌",     type: "Self-Buff", rarity: "2★", effect: "+8% reflect damage por 20 min",  cooldown: "50 min", desc: "吟唱復仇之歌。" },
+      { name: "火焰守護之歌",   type: "Self-Buff", rarity: "2★", effect: "+20% Fire Resist por 20 min",    cooldown: "50 min", desc: "吟唱火焰守護之歌。" },
+      { name: "冠軍之歌",      type: "Self-Buff", rarity: "3★", effect: "+20% ATK por 20 min",            cooldown: "50 min", desc: "吟唱冠軍之歌。" },
+      { name: "更新之歌",       type: "Self-Buff", rarity: "3★", effect: "+10% HP+MP Regen por 20 min",    cooldown: "50 min", desc: "吟唱更新之歌。" },
+      { name: "劍歌者和諧",          type: "Self-Buff", rarity: "3★", effect: "+30% ATK, +20% DEF, +15% Speed 25min",cooldown: "60 min",desc: "劍歌者的戰鬥和諧。" },
+      { name: "重甲精通",   type: "Passivo",  rarity: "1★", effect: "+12% DEF armadura pesada",        cooldown: "N/A",    desc: "精通重型防具。" },
+      { name: "HP 強化",              type: "Passivo",  rarity: "1★", effect: "+12% Max HP",                     cooldown: "N/A",    desc: "強化 HP。" }
     ]
   },
 
   // ─── SWORD MUSE (3ª classe — MEGA BARD + DPS) ───
   swordMuse: {
-    name: 'Sword Muse', parent: 'swordSinger', stage: 3,
-    desc: 'Musa da espada, bardo supremo com DPS. Skills anteriores permanecem.',
+    name: '劍之繆思', parent: 'swordSinger', stage: 3,
+    desc: '兼具強力增益與輸出能力的至高劍歌者。保留先前學會的技能。',
     base: { atk: 72, def: 58, hp: 580, mp: 160, eva: 14, crit: 12, mdef: 48 },
     skills: [
-      { name: "Song of Purification",    type: "Self-Buff", rarity: "3★", effect: "+25% Debuff Resist por 20 min",     cooldown: "50 min", desc: "Canção de purificação." },
-      { name: "Song of Elemental",       type: "Self-Buff", rarity: "3★", effect: "+20% all elemental ATK por 20 min", cooldown: "50 min", desc: "Canção elemental." },
-      { name: "Song of Storm Guard",     type: "Self-Buff", rarity: "3★", effect: "+20% Wind Resist por 20 min",       cooldown: "50 min", desc: "Canção da tempestade." },
-      { name: "Mass Song",               type: "Party-Buff",rarity: "3★", effect: "Aplica todas Songs na party 8 min", cooldown: "60 min", desc: "Canção em massa." },
-      { name: "Final Song",              type: "Ativo",     rarity: "4★", effect: "Party +50% all stats por 20s",       cooldown: "300s",   desc: "Canção final — buff supremo." },
-      { name: "Sonic Slash",             type: "Ativo",     rarity: "3★", effect: "Dano 380% + AoE 5 alvos",           cooldown: "20s",    desc: "Corte sônico." },
-      { name: "Melody Strike",           type: "Ativo",     rarity: "3★", effect: "Dano 350% + stun 2s",               cooldown: "18s",    desc: "Golpe melódico." },
-      { name: "Transcendent Melody",     type: "Ativo",     rarity: "4★", effect: "Dano AoE 550% + all songs refreshed",cooldown: "180s",  desc: "Melodia transcendente." },
-      { name: "Sword Muse Harmony",      type: "Self-Buff", rarity: "4★", effect: "+50% ATK, +40% DEF, +30% Song Power 30min",cooldown: "90 min",desc: "Harmonia da musa." },
-      { name: "Sword Muse Spirit",       type: "Passivo",   rarity: "3★", effect: "+15% Song effectiveness",           cooldown: "N/A",    desc: "Espírito da musa." },
-      { name: "Body of Sword Muse",      type: "Passivo",   rarity: "3★", effect: "+10% Max HP, +10% Max MP",         cooldown: "N/A",    desc: "Corpo da musa." }
+      { name: "淨化之歌",    type: "Self-Buff", rarity: "3★", effect: "+25% Debuff Resist por 20 min",     cooldown: "50 min", desc: "吟唱淨化之歌。" },
+      { name: "元素之歌",       type: "Self-Buff", rarity: "3★", effect: "+20% all elemental ATK por 20 min", cooldown: "50 min", desc: "吟唱元素之歌。" },
+      { name: "暴風守護之歌",     type: "Self-Buff", rarity: "3★", effect: "+20% Wind Resist por 20 min",       cooldown: "50 min", desc: "吟唱暴風守護之歌。" },
+      { name: "群體之歌",               type: "Party-Buff",rarity: "3★", effect: "Aplica todas Songs na party 8 min", cooldown: "60 min", desc: "對隊伍吟唱群體強化之歌。" },
+      { name: "終焉之歌",              type: "Ativo",     rarity: "4★", effect: "Party +50% all stats por 20s",       cooldown: "300s",   desc: "吟唱至高的終焉之歌。" },
+      { name: "音速斬",             type: "Ativo",     rarity: "3★", effect: "Dano 380% + AoE 5 alvos",           cooldown: "20s",    desc: "施展音速斬擊。" },
+      { name: "旋律打擊",           type: "Ativo",     rarity: "3★", effect: "Dano 350% + stun 2s",               cooldown: "18s",    desc: "以旋律之力攻擊敵人。" },
+      { name: "超越旋律",     type: "Ativo",     rarity: "4★", effect: "Dano AoE 550% + all songs refreshed",cooldown: "180s",  desc: "施展超越極限的旋律。" },
+      { name: "劍之繆思和諧",      type: "Self-Buff", rarity: "4★", effect: "+50% ATK, +40% DEF, +30% Song Power 30min",cooldown: "90 min",desc: "劍之繆思的戰鬥和諧。" },
+      { name: "劍之繆思之魂",       type: "Passivo",   rarity: "3★", effect: "+15% Song effectiveness",           cooldown: "N/A",    desc: "劍之繆思的戰鬥精神。" },
+      { name: "劍之繆思之軀",      type: "Passivo",   rarity: "3★", effect: "+10% Max HP, +10% Max MP",         cooldown: "N/A",    desc: "強化劍之繆思的身軀。" }
     ]
   },
 
   // ─── SCOUT (1ª classe — Elf) ───
   elfScout: {
-    name: 'Scout', parent: 'elfFighter', race: 'elf', archetype: 'assassin', stage: 1,
-    desc: 'Batedor élfico, dagger e bow. Skills anteriores permanecem.',
+    name: '斥候', parent: 'elfFighter', race: 'elf', archetype: 'assassin', stage: 1,
+    desc: '使用匕首與弓的精靈斥候。保留先前學會的技能。',
     base: { atk: 20, def: 10, hp: 140, mp: 40, eva: 18, crit: 12, mdef: 8 },
     skills: [
-      { name: "Double Shot",          type: "Ativo",    rarity: "1★", effect: "2 disparos, dano total 200%",   cooldown: "10s",    desc: "Duplo disparo." },
-      { name: "Backstab",             type: "Ativo",    rarity: "2★", effect: "Dano 250% por trás + crit",     cooldown: "14s",    desc: "Punhalada nas costas." },
-      { name: "Dash",                 type: "Ativo",    rarity: "1★", effect: "+50% Speed por 8s",             cooldown: "20s",    desc: "Corrida rápida." },
-      { name: "Light Armor Mastery",  type: "Passivo",  rarity: "1★", effect: "+12% EVA com armadura leve",    cooldown: "N/A",    desc: "Maestria leve." },
-      { name: "Dagger Mastery",       type: "Passivo",  rarity: "1★", effect: "+12% ATK com dagger",           cooldown: "N/A",    desc: "Maestria em adagas." },
-      { name: "Bow Mastery",          type: "Passivo",  rarity: "1★", effect: "+12% ATK com arco",             cooldown: "N/A",    desc: "Maestria em arcos." },
-      { name: "Critical Chance",      type: "Passivo",  rarity: "1★", effect: "+8% Crit Rate",                 cooldown: "N/A",    desc: "Senso crítico." }
+      { name: "雙重射擊",          type: "Ativo",    rarity: "1★", effect: "2 disparos, dano total 200%",   cooldown: "10s",    desc: "連續射擊兩次。" },
+      { name: "背刺",             type: "Ativo",    rarity: "2★", effect: "Dano 250% por trás + crit",     cooldown: "14s",    desc: "從背後施展致命一擊。" },
+      { name: "疾走",                 type: "Ativo",    rarity: "1★", effect: "+50% Speed por 8s",             cooldown: "20s",    desc: "短時間快速移動。" },
+      { name: "輕甲精通",  type: "Passivo",  rarity: "1★", effect: "+12% EVA com armadura leve",    cooldown: "N/A",    desc: "精通輕型防具。" },
+      { name: "匕首精通",       type: "Passivo",  rarity: "1★", effect: "+12% ATK com dagger",           cooldown: "N/A",    desc: "精通匕首武器。" },
+      { name: "弓精通",          type: "Passivo",  rarity: "1★", effect: "+12% ATK com arco",             cooldown: "N/A",    desc: "精通弓類武器。" },
+      { name: "暴擊機率",      type: "Passivo",  rarity: "1★", effect: "+8% Crit Rate",                 cooldown: "N/A",    desc: "提高暴擊感知能力。" }
     ]
   },
 
   // ─── PLAINS WALKER (2ª classe — dagger) ───
   plainsWalker: {
-    name: 'Plains Walker', parent: 'elfScout', stage: 2,
-    desc: 'Caminhante das planícies, dagger stealth. Skills anteriores permanecem.',
+    name: '平原行者', parent: 'elfScout', stage: 2,
+    desc: '擅長匕首與潛行的平原行者。保留先前學會的技能。',
     base: { atk: 52, def: 18, hp: 290, mp: 60, eva: 30, crit: 26, mdef: 14 },
     skills: [
-      { name: "Deadly Blow",       type: "Ativo",    rarity: "2★", effect: "Dano 280% + crit garantido",       cooldown: "14s",    desc: "Golpe mortal." },
-      { name: "Lethal Blow",       type: "Ativo",    rarity: "3★", effect: "Dano 350% + chance kill 5%",       cooldown: "22s",    desc: "Golpe letal." },
-      { name: "Sand Bomb",         type: "Ativo",    rarity: "2★", effect: "AoE blind 5s + dano 150%",         cooldown: "20s",    desc: "Bomba de areia." },
-      { name: "Blinding Blow",     type: "Ativo",    rarity: "2★", effect: "Dano 240% + blind 4s",             cooldown: "18s",    desc: "Golpe cegante." },
-      { name: "Shadow Step",       type: "Ativo",    rarity: "2★", effect: "Teleporta atrás do alvo",          cooldown: "15s",    desc: "Passo sombrio." },
-      { name: "Switch",            type: "Ativo",    rarity: "2★", effect: "Troca posição com alvo",           cooldown: "25s",    desc: "Troca de posição." },
-      { name: "Fake Death",        type: "Ativo",    rarity: "2★", effect: "Finge morte, perde aggro",         cooldown: "60s",    desc: "Morte falsa." },
-      { name: "Trick",             type: "Ativo",    rarity: "2★", effect: "Remove alvo do inimigo",           cooldown: "20s",    desc: "Truque evasivo." },
-      { name: "PW's Harmony",      type: "Self-Buff",rarity: "3★", effect: "+35% Crit, +25% EVA, +20% ATK 25min",cooldown: "60 min",desc: "Harmonia do caminhante." },
-      { name: "Evasion",           type: "Passivo",  rarity: "2★", effect: "+12% EVA",                         cooldown: "N/A",    desc: "Evasão aprimorada." },
-      { name: "Critical Power",    type: "Passivo",  rarity: "2★", effect: "+18% Crit Damage",                 cooldown: "N/A",    desc: "Poder crítico." },
-      { name: "Focus",             type: "Passivo",  rarity: "1★", effect: "+10% Crit Rate",                   cooldown: "N/A",    desc: "Concentração." }
+      { name: "致命打擊",       type: "Ativo",    rarity: "2★", effect: "Dano 280% + crit garantido",       cooldown: "14s",    desc: "施展強力致命攻擊。" },
+      { name: "致死打擊",       type: "Ativo",    rarity: "3★", effect: "Dano 350% + chance kill 5%",       cooldown: "22s",    desc: "施展具有致死可能的打擊。" },
+      { name: "沙塵炸彈",         type: "Ativo",    rarity: "2★", effect: "AoE blind 5s + dano 150%",         cooldown: "20s",    desc: "投擲沙塵炸彈。" },
+      { name: "致盲打擊",     type: "Ativo",    rarity: "2★", effect: "Dano 240% + blind 4s",             cooldown: "18s",    desc: "施展可使敵人失明的攻擊。" },
+      { name: "暗影步伐",       type: "Ativo",    rarity: "2★", effect: "Teleporta atrás do alvo",          cooldown: "15s",    desc: "瞬間移動到目標身後。" },
+      { name: "位置交換",            type: "Ativo",    rarity: "2★", effect: "Troca posição com alvo",           cooldown: "25s",    desc: "與目標交換位置。" },
+      { name: "假死",        type: "Ativo",    rarity: "2★", effect: "Finge morte, perde aggro",         cooldown: "60s",    desc: "偽裝死亡以解除敵人仇恨。" },
+      { name: "詭計",             type: "Ativo",    rarity: "2★", effect: "Remove alvo do inimigo",           cooldown: "20s",    desc: "以詭計擾亂敵人。" },
+      { name: "平原行者和諧",      type: "Self-Buff",rarity: "3★", effect: "+35% Crit, +25% EVA, +20% ATK 25min",cooldown: "60 min",desc: "平原行者的戰鬥和諧。" },
+      { name: "迴避",           type: "Passivo",  rarity: "2★", effect: "+12% EVA",                         cooldown: "N/A",    desc: "進一步提高迴避能力。" },
+      { name: "暴擊威力",    type: "Passivo",  rarity: "2★", effect: "+18% Crit Damage",                 cooldown: "N/A",    desc: "提高暴擊威力。" },
+      { name: "專注",             type: "Passivo",  rarity: "1★", effect: "+10% Crit Rate",                   cooldown: "N/A",    desc: "提升專注力。" }
     ]
   },
 
   // ─── WIND RIDER (3ª classe) ───
   windRider: {
-    name: 'Wind Rider', parent: 'plainsWalker', stage: 3,
-    desc: 'Cavaleiro do vento, dagger supremo. Skills anteriores permanecem.',
+    name: '風騎士', parent: 'plainsWalker', stage: 3,
+    desc: '精通匕首的至高風之戰士。保留先前學會的技能。',
     base: { atk: 95, def: 30, hp: 480, mp: 85, eva: 55, crit: 44, mdef: 20 },
     skills: [
-      { name: "Wind Riding",                type: "Ativo",    rarity: "3★", effect: "+80% Speed + invisível 10s",         cooldown: "60s",    desc: "Cavalgando o vento." },
-      { name: "Exciting Adventure",          type: "Self-Buff",rarity: "3★", effect: "+45% EVA, +30% Crit, +20% ATK 20min",cooldown: "55 min",desc: "Aventura élfica." },
-      { name: "Lucky Strike",               type: "Ativo",    rarity: "3★", effect: "Dano 420% + chance loot 2x",         cooldown: "30s",    desc: "Golpe de sorte." },
-      { name: "Transcendent Deadly Blow",    type: "Ativo",    rarity: "4★", effect: "Dano 650% + ignora EVA + bleed 12s", cooldown: "150s",   desc: "Golpe mortal transcendente." },
-      { name: "Wind Rider Harmony",          type: "Self-Buff",rarity: "4★", effect: "+55% Crit, +45% EVA, +35% ATK 30min",cooldown: "90 min",desc: "Harmonia suprema." },
-      { name: "Master of Combat",            type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% Crit, +5% PvE",      cooldown: "N/A",    desc: "Mestre do combate." },
-      { name: "Shadow Sense",                type: "Passivo",  rarity: "3★", effect: "+15% EVA à noite/dungeon",           cooldown: "N/A",    desc: "Sentido das sombras." },
-      { name: "Wind Rider Spirit",           type: "Passivo",  rarity: "3★", effect: "+12% dagger ATK",                    cooldown: "N/A",    desc: "Espírito do cavaleiro do vento." },
-      { name: "Body of Wind Rider",          type: "Passivo",  rarity: "3★", effect: "+10% Max HP, +8% EVA",              cooldown: "N/A",    desc: "Corpo do vento." },
-      { name: "Final Frenzy",                type: "Passivo",  rarity: "3★", effect: "+25% ATK quando HP < 30%",           cooldown: "N/A",    desc: "Frenesi final." }
+      { name: "御風",                type: "Ativo",    rarity: "3★", effect: "+80% Speed + invisível 10s",         cooldown: "60s",    desc: "乘風高速移動。" },
+      { name: "刺激冒險",          type: "Self-Buff",rarity: "3★", effect: "+45% EVA, +30% Crit, +20% ATK 20min",cooldown: "55 min",desc: "進入精靈式的冒險戰鬥狀態。" },
+      { name: "幸運打擊",               type: "Ativo",    rarity: "3★", effect: "Dano 420% + chance loot 2x",         cooldown: "30s",    desc: "施展帶來額外收穫的幸運攻擊。" },
+      { name: "超越致命打擊",    type: "Ativo",    rarity: "4★", effect: "Dano 650% + ignora EVA + bleed 12s", cooldown: "150s",   desc: "施展超越極限的致命攻擊。" },
+      { name: "風騎士和諧",          type: "Self-Buff",rarity: "4★", effect: "+55% Crit, +45% EVA, +35% ATK 30min",cooldown: "90 min",desc: "風騎士的至高戰鬥和諧。" },
+      { name: "戰鬥大師",            type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% Crit, +5% PvE",      cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
+      { name: "暗影感知",                type: "Passivo",  rarity: "3★", effect: "+15% EVA à noite/dungeon",           cooldown: "N/A",    desc: "感知暗影中的動靜。" },
+      { name: "風騎士之魂",           type: "Passivo",  rarity: "3★", effect: "+12% dagger ATK",                    cooldown: "N/A",    desc: "風騎士的戰鬥精神。" },
+      { name: "風騎士之軀",          type: "Passivo",  rarity: "3★", effect: "+10% Max HP, +8% EVA",              cooldown: "N/A",    desc: "獲得風一般靈活的身軀。" },
+      { name: "最終狂熱",                type: "Passivo",  rarity: "3★", effect: "+25% ATK quando HP < 30%",           cooldown: "N/A",    desc: "在危急狀態下進入最終狂熱。" }
     ]
   },
 
   // ─── SILVER RANGER (2ª classe — archer) ───
   silverRanger: {
-    name: 'Silver Ranger', parent: 'elfScout', stage: 2,
-    desc: 'Arqueiro prateado élfico. Skills anteriores permanecem.',
+    name: '銀月遊俠', parent: 'elfScout', stage: 2,
+    desc: '精靈族的銀色弓箭手。保留先前學會的技能。',
     base: { atk: 58, def: 16, hp: 270, mp: 60, eva: 22, crit: 24, mdef: 12 },
     skills: [
-      { name: "Double Shot",       type: "Ativo",    rarity: "2★", effect: "2 disparos, dano total 260%",     cooldown: "10s",    desc: "Duplo disparo aprimorado." },
-      { name: "Burst Shot",        type: "Ativo",    rarity: "2★", effect: "Dano 280% + knockback",           cooldown: "14s",    desc: "Disparo explosivo." },
-      { name: "Stun Shot",         type: "Ativo",    rarity: "2★", effect: "Dano 220% + stun 3s",            cooldown: "18s",    desc: "Disparo atordoante." },
-      { name: "Arrow Rain",        type: "Ativo",    rarity: "3★", effect: "AoE 320% (8 alvos)",             cooldown: "22s",    desc: "Chuva de flechas." },
-      { name: "Rapid Fire",        type: "Ativo",    rarity: "2★", effect: "+50% ATK Speed arco 15s",        cooldown: "45s",    desc: "Disparo rápido." },
-      { name: "SR's Harmony",      type: "Self-Buff",rarity: "3★", effect: "+35% ATK, +25% Crit, +15% Range 25min",cooldown: "60 min",desc: "Harmonia do ranger." },
-      { name: "Bow Mastery",       type: "Passivo",  rarity: "2★", effect: "+18% ATK com arco",              cooldown: "N/A",    desc: "Maestria em arcos." },
-      { name: "Long Shot",         type: "Passivo",  rarity: "2★", effect: "+30% Range",                      cooldown: "N/A",    desc: "Longo alcance." },
-      { name: "Focus",             type: "Passivo",  rarity: "1★", effect: "+10% Crit Rate",                  cooldown: "N/A",    desc: "Concentração." },
-      { name: "Critical Power",    type: "Passivo",  rarity: "2★", effect: "+18% Crit Damage",                cooldown: "N/A",    desc: "Poder crítico." },
-      { name: "Evasion",           type: "Passivo",  rarity: "1★", effect: "+10% EVA",                        cooldown: "N/A",    desc: "Evasão." }
+      { name: "雙重射擊",       type: "Ativo",    rarity: "2★", effect: "2 disparos, dano total 260%",     cooldown: "10s",    desc: "施展強化的雙重射擊。" },
+      { name: "爆裂射擊",        type: "Ativo",    rarity: "2★", effect: "Dano 280% + knockback",           cooldown: "14s",    desc: "發射具有爆炸威力的箭矢。" },
+      { name: "暈眩射擊",         type: "Ativo",    rarity: "2★", effect: "Dano 220% + stun 3s",            cooldown: "18s",    desc: "發射可使敵人暈眩的箭矢。" },
+      { name: "箭雨",        type: "Ativo",    rarity: "3★", effect: "AoE 320% (8 alvos)",             cooldown: "22s",    desc: "向範圍內降下大量箭矢。" },
+      { name: "快速射擊",        type: "Ativo",    rarity: "2★", effect: "+50% ATK Speed arco 15s",        cooldown: "45s",    desc: "短時間提高射擊速度。" },
+      { name: "銀月遊俠和諧",      type: "Self-Buff",rarity: "3★", effect: "+35% ATK, +25% Crit, +15% Range 25min",cooldown: "60 min",desc: "銀月遊俠的戰鬥和諧。" },
+      { name: "弓精通",       type: "Passivo",  rarity: "2★", effect: "+18% ATK com arco",              cooldown: "N/A",    desc: "精通弓類武器。" },
+      { name: "遠距射擊",         type: "Passivo",  rarity: "2★", effect: "+30% Range",                      cooldown: "N/A",    desc: "提高射擊距離。" },
+      { name: "專注",             type: "Passivo",  rarity: "1★", effect: "+10% Crit Rate",                  cooldown: "N/A",    desc: "提升專注力。" },
+      { name: "暴擊威力",    type: "Passivo",  rarity: "2★", effect: "+18% Crit Damage",                cooldown: "N/A",    desc: "提高暴擊威力。" },
+      { name: "迴避",           type: "Passivo",  rarity: "1★", effect: "+10% EVA",                        cooldown: "N/A",    desc: "提高迴避能力。" }
     ]
   },
 
   // ─── MOONLIGHT SENTINEL (3ª classe) ───
   moonlightSentinel: {
-    name: 'Moonlight Sentinel', parent: 'silverRanger', stage: 3,
-    desc: 'Sentinela do luar, arqueiro supremo élfico. Skills anteriores permanecem.',
+    name: '月光守衛', parent: 'silverRanger', stage: 3,
+    desc: '精靈族的至高弓箭手月光守衛。保留先前學會的技能。',
     base: { atk: 108, def: 24, hp: 450, mp: 95, eva: 38, crit: 46, mdef: 18 },
     skills: [
-      { name: "Seven Arrow",                  type: "Ativo",    rarity: "3★", effect: "7 flechas, dano total 480%",               cooldown: "25s",    desc: "Sete flechas." },
+      { name: "七連矢",                  type: "Ativo",    rarity: "3★", effect: "7 flechas, dano total 480%",               cooldown: "25s",    desc: "連續射出七支箭矢。" },
       { name: "Dead Eye",                     type: "Self-Buff",rarity: "3★", effect: "+50% ATK, +40% Range 20min",              cooldown: "55 min", desc: "Olho mortal." },
       { name: "Pinpoint Shot",                type: "Ativo",    rarity: "3★", effect: "Dano 400% + ignora 50% DEF",              cooldown: "28s",    desc: "Tiro preciso." },
       { name: "Triple Shot",                  type: "Ativo",    rarity: "3★", effect: "3 disparos, dano total 360%",              cooldown: "14s",    desc: "Tiro triplo." },
