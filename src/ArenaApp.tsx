@@ -233,8 +233,8 @@ function MenuScreen({
                   {idleState.charName || idleState.heroName || "你的角色"} · 等級 {idleState.level || 1}
                 </h2>
                 <p className="mt-1 text-xs text-amber-200/80">
-                  HP: {Math.ceil(idleState.hp || idleState.maxHp || 100)} / {idleState.maxHp || 100} · 
-                  P.Atk: {idleState.patk || 20} · M.Atk: {idleState.matk || 20} · 
+                  生命值：{Math.ceil(idleState.hp || idleState.maxHp || 100)} / {idleState.maxHp || 100} · 
+                  物理攻擊：{idleState.patk || 20} · 魔法攻擊：{idleState.matk || 20} · 
                   速度：{idleState.speed || 220}
                 </p>
               </div>
@@ -352,7 +352,7 @@ function MenuScreen({
                         {c.desc}
                       </p>
                       <div className="mt-3 grid grid-cols-2 gap-1.5 text-[11px]">
-                        <Stat label="HP" value={String(c.hp)} />
+                        <Stat label="生命值" value={String(c.hp)} />
                         <Stat label="速度" value={(c.speed / 10).toFixed(1)} />
                         <Stat label="傷害" value={String(c.weapon.damage)} />
                         <Stat label="攻速" value={`${aps}/s`} />
