@@ -81,7 +81,7 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       id: 'master_haste',
       name: '機率加速',
       icon: '⚡',
-      badge: 'Proc Atk.Spd',
+      badge: '觸發攻速',
       desc: '攻擊時有 6% 機率觸發 +32% 攻擊速度，持續 10 秒',
       stats: { hasteProc: true, atkSpdPercent: 0.05 },
       cp: 3800
@@ -90,7 +90,7 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       id: 'master_boost_cp',
       name: '提升 CP',
       icon: '🛡️',
-      badge: 'Max CP',
+      badge: '最大 CP',
       desc: '+18% 最大 CP、+35% CP 恢復率',
       stats: { maxCpPercent: 0.18, regenCpPercent: 0.35 },
       cp: 3500
@@ -101,7 +101,7 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       id: 'master_defense',
       name: '反擊防禦',
       icon: '🛡️',
-      badge: 'Proc Def',
+      badge: '觸發防禦',
       desc: '受到傷害時有 6% 機率觸發 +25% 物理防禦與 +25% 魔法防禦，持續 10 秒',
       stats: { defenceProc: true, pDefPercent: 0.04, mDefPercent: 0.04 },
       cp: 3800
@@ -110,7 +110,7 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       id: 'master_boost_hp',
       name: '提升 HP',
       icon: '❤️',
-      badge: 'Max HP',
+      badge: '最大 HP',
       desc: '+14% 最大 HP、+25% HP 恢復率',
       stats: { maxHpPercent: 0.14, regenHpPercent: 0.25 },
       cp: 3500
@@ -121,7 +121,7 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       id: 'master_critical',
       name: '機率暴擊',
       icon: '💥',
-      badge: 'Proc Crit',
+      badge: '觸發暴擊',
       desc: '攻擊時有 6% 機率觸發 +35% 暴擊率與 +10% 暴擊傷害，持續 10 秒',
       stats: { critProc: true, critRate: 20 },
       cp: 3800
@@ -130,7 +130,7 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       id: 'master_evasion',
       name: '迴避與敏捷',
       icon: '👟',
-      badge: 'Esquiva',
+      badge: '迴避',
       desc: '+8 物理迴避、+6% 技能迴避率',
       stats: { evasion: 8, skillEvasionPercent: 0.06 },
       cp: 3500
@@ -139,7 +139,7 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       id: 'master_long_shot',
       name: '遠距射擊',
       icon: '🏹',
-      badge: 'Alcance',
+      badge: '射程',
       desc: '+150 攻擊距離、+6% 物理攻擊傷害',
       stats: { pAtkPercent: 0.06, range: 150 },
       cp: 3500
@@ -150,7 +150,7 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       id: 'master_anti_magic',
       name: '抗魔與魔力增益',
       icon: '🔮',
-      badge: 'M.Def & MP',
+      badge: '魔防與 MP',
       desc: '永久 +10% 魔法防禦、+25 魔法元素抗性',
       stats: { mDefPercent: 0.10, elementalResist: 25 },
       cp: 3500
@@ -159,7 +159,7 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       id: 'master_boost_mp',
       name: '提升 MP 與靈敏',
       icon: '💙',
-      badge: 'Max MP',
+      badge: '最大 MP',
       desc: '+16% 最大 MP、+30 施法速度、+25% MP 恢復率',
       stats: { maxMpPercent: 0.16, castSpd: 30, regenMpPercent: 0.25 },
       cp: 3500
@@ -170,7 +170,7 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       id: 'master_spirit',
       name: '反擊之魂',
       icon: '👻',
-      badge: 'Proc All Stats',
+      badge: '觸發全屬性',
       desc: '受到傷害時有 5% 機率觸發 +10% 物理攻擊、+10% 魔法攻擊與 +10% 攻擊速度，持續 10 秒',
       stats: { spiritProc: true, pAtkPercent: 0.03, mAtkPercent: 0.03 },
       cp: 3800
@@ -179,7 +179,7 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       id: 'master_boost_hp_mp',
       name: '提升 HP 與 MP',
       icon: '💖',
-      badge: 'HP & MP',
+      badge: 'HP 與 MP',
       desc: '永久 +10% 最大 HP、+12% 最大 MP',
       stats: { maxHpPercent: 0.10, maxMpPercent: 0.12 },
       cp: 3500
@@ -190,7 +190,7 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       id: 'master_prayer',
       name: '祈禱與神聖恩典',
       icon: '🕊️',
-      badge: 'Cura Recebida',
+      badge: '受到治療',
       desc: '+18% 受到治癒效果、+6% 最大 HP',
       stats: { healReceivePercent: 0.18, maxHpPercent: 0.06 },
       cp: 3500
@@ -199,7 +199,7 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       id: 'master_resist_trait',
       name: '異常抗性',
       icon: '🛡️',
-      badge: 'Resistência Debuff',
+      badge: '減益抗性',
       desc: '+18% 暈眩、麻痺、沉默、流血與減益抗性',
       stats: { debuffResistPercent: 0.18, mDefPercent: 0.05 },
       cp: 3500
@@ -210,7 +210,7 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       id: 'master_barrier',
       name: '屏障（天界之盾）',
       icon: '🌟',
-      badge: 'Proc Imunidade',
+      badge: '觸發無敵',
       desc: '受到傷害時有 4% 機率觸發天界之盾（無敵），持續 5 秒',
       stats: { celestialProc: true, pDefPercent: 0.03, mDefPercent: 0.03 },
       cp: 4200
@@ -219,7 +219,7 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       id: 'master_boost_mana',
       name: '大師魔力澄明',
       icon: '📜',
-      badge: 'Eficiência MP',
+      badge: 'MP 效率',
       desc: '所有技能 MP 消耗 -10%，最大 MP +10%',
       stats: { mpCostReduction: 0.10, maxMpPercent: 0.10 },
       cp: 3500
