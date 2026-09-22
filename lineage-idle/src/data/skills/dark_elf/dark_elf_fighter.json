@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "venom_edge",
-        "name": "Fio Venenoso",
+        "name": "毒刃",
         "classId": "dark_elf_fighter",
         "race": "dark_elf",
         "tier": "core_1",
@@ -15,7 +15,7 @@
           "Dark",
           "Poison"
         ],
-        "description": "Fio Venenoso — Habilidade Especialista de dark_elf_fighter."
+        "description": "毒刃——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -167,7 +167,7 @@
     {
       "identity": {
         "id": "life_siphon",
-        "name": "Sifão de Vida",
+        "name": "生命汲取",
         "classId": "dark_elf_fighter",
         "race": "dark_elf",
         "tier": "core_2",
@@ -177,7 +177,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Sifão de Vida — Habilidade Especialista de dark_elf_fighter."
+        "description": "生命汲取——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -329,7 +329,7 @@
     {
       "identity": {
         "id": "umbral_dash",
-        "name": "Investida Umbral",
+        "name": "暗影突進",
         "classId": "dark_elf_fighter",
         "race": "dark_elf",
         "tier": "specialization",
@@ -339,7 +339,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Investida Umbral — Habilidade Especialista de dark_elf_fighter."
+        "description": "暗影突進——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -491,7 +491,7 @@
     {
       "identity": {
         "id": "crippling_slash",
-        "name": "Corte Mutilante",
+        "name": "殘廢斬擊",
         "classId": "dark_elf_fighter",
         "race": "dark_elf",
         "tier": "elemental_specialization",
@@ -502,7 +502,7 @@
           "Dark",
           "Physical"
         ],
-        "description": "Corte Mutilante — Habilidade Especialista de dark_elf_fighter."
+        "description": "殘廢斬擊——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -672,7 +672,7 @@
     {
       "identity": {
         "id": "abyssal_rupture",
-        "name": "Abyssal Rupture",
+        "name": "深淵破裂",
         "classId": "dark_elf_fighter",
         "race": "dark_elf",
         "tier": "ultimate",
@@ -682,7 +682,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Abyssal Rupture — Habilidade Ultimate (★★★★) de dark_elf_fighter."
+        "description": "深淵破裂——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -867,7 +867,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "ABYSSAL RUPTURE!",
+          "text": "深淵破裂！",
           "style": "gold_banner",
           "banner": true
         }
@@ -888,7 +888,7 @@
     {
       "identity": {
         "id": "master_abyssal_rupture",
-        "name": "Master: Abyssal Rupture",
+        "name": "大師：深淵破裂",
         "classId": "dark_elf_fighter",
         "race": "dark_elf",
         "tier": "master_ultimate",
@@ -898,7 +898,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Master: Abyssal Rupture — Habilidade Master Ultimate (★★★★★) de dark_elf_fighter."
+        "description": "大師：深淵破裂——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1084,7 +1084,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: ABYSSAL RUPTURE!",
+          "text": "大師：深淵破裂！",
           "style": "mythic_banner",
           "banner": true
         }
