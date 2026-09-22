@@ -2,7 +2,7 @@
 export const DYES_CATALOG = {
   dye_str_con_g: {
     id: 'dye_str_con_g',
-    name: '高級染料：+4 STR / -4 CON',
+    name: '高級染料：+4 力量 / -4 體質',
     shortName: '+4 力量 / -4 體質',
     icon: '⚔️🩸',
     category: 'dye',
@@ -12,11 +12,11 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: '提升物理攻擊力，但降低最大 生命值。'
+    desc: '提升物理攻擊力，但降低最大生命值。'
   },
   dye_str_dex_g: {
     id: 'dye_str_dex_g',
-    name: '高級染料：+4 STR / -4 DEX',
+    name: '高級染料：+4 力量 / -4 敏捷',
     shortName: '+4 力量 / -4 敏捷',
     icon: '⚔️🌪️',
     category: 'dye',
@@ -30,7 +30,7 @@ export const DYES_CATALOG = {
   },
   dye_dex_con_g: {
     id: 'dye_dex_con_g',
-    name: '高級染料：+4 DEX / -4 CON',
+    name: '高級染料：+4 敏捷 / -4 體質',
     shortName: '+4 敏捷 / -4 體質',
     icon: '🎯🩸',
     category: 'dye',
@@ -40,11 +40,11 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: '提升暴擊率、速度與迴避，但降低最大 生命值。'
+    desc: '提升暴擊率、速度與迴避，但降低最大生命值。'
   },
   dye_dex_str_g: {
     id: 'dye_dex_str_g',
-    name: '高級染料：+4 DEX / -4 STR',
+    name: '高級染料：+4 敏捷 / -4 力量',
     shortName: '+4 敏捷 / -4 力量',
     icon: '🎯⚔️',
     category: 'dye',
@@ -58,7 +58,7 @@ export const DYES_CATALOG = {
   },
   dye_con_str_g: {
     id: 'dye_con_str_g',
-    name: '高級染料：+4 CON / -4 STR',
+    name: '高級染料：+4 體質 / -4 力量',
     shortName: '+4 體質 / -4 力量',
     icon: '🛡️⚔️',
     category: 'dye',
@@ -68,11 +68,11 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: '提升最大 生命值 與抗性，但降低物理傷害。'
+    desc: '提升最大生命值 與抗性，但降低物理傷害。'
   },
   dye_con_dex_g: {
     id: 'dye_con_dex_g',
-    name: '高級染料：+4 CON / -4 DEX',
+    name: '高級染料：+4 體質 / -4 敏捷',
     shortName: '+4 體質 / -4 敏捷',
     icon: '🛡️🎯',
     category: 'dye',
@@ -82,11 +82,11 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: '提升抗性與最大 生命值，但降低速度與迴避。'
+    desc: '提升抗性與最大生命值，但降低速度與迴避。'
   },
   dye_int_men_g: {
     id: 'dye_int_men_g',
-    name: '高級染料：+4 INT / -4 MEN',
+    name: '高級染料：+4 智力 / -4 精神',
     shortName: '+4 智力 / -4 精神',
     icon: '🔮📜',
     category: 'dye',
@@ -100,7 +100,7 @@ export const DYES_CATALOG = {
   },
   dye_wit_men_g: {
     id: 'dye_wit_men_g',
-    name: '高級染料：+4 WIT / -4 MEN',
+    name: '高級染料：+4 智慧 / -4 精神',
     shortName: '+4 智慧 / -4 精神',
     icon: '⚡📜',
     category: 'dye',
@@ -114,7 +114,7 @@ export const DYES_CATALOG = {
   },
   dye_wit_int_g: {
     id: 'dye_wit_int_g',
-    name: '高級染料：+4 WIT / -4 INT',
+    name: '高級染料：+4 智慧 / -4 智力',
     shortName: '+4 智慧 / -4 智力',
     icon: '⚡🔮',
     category: 'dye',
@@ -128,7 +128,7 @@ export const DYES_CATALOG = {
   },
   dye_men_int_g: {
     id: 'dye_men_int_g',
-    name: '高級染料：+4 MEN / -4 INT',
+    name: '高級染料：+4 精神 / -4 智力',
     shortName: '+4 精神 / -4 智力',
     icon: '📜🔮',
     category: 'dye',
@@ -138,11 +138,11 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: '提升魔法防禦與 魔力，但降低魔法傷害。'
+    desc: '提升魔法防禦與魔力，但降低魔法傷害。'
   },
   dye_men_wit_g: {
     id: 'dye_men_wit_g',
-    name: '高級染料：+4 MEN / -4 WIT',
+    name: '高級染料：+4 精神 / -4 智慧',
     shortName: '+4 精神 / -4 智慧',
     icon: '📜⚡',
     category: 'dye',
@@ -152,6 +152,6 @@ export const DYES_CATALOG = {
     minusVal: 4,
     fee: 50000,
     requiredCount: 10,
-    desc: '提升魔法抗性與 魔力，但降低施法速度。'
+    desc: '提升魔法抗性與魔力，但降低施法速度。'
   }
 };
