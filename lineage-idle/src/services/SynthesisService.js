@@ -39,7 +39,7 @@ export const SYNTHESIS_CONFIG = {
     successRate: 0.30,
     costAdena: 2500000,
     reqForgeLvl: 10,
-    desc: '究極大師合成：成功率 30%（鍛造 Lv.10 時 +10%）。風險：失敗時目標可能下降 1 階！'
+    desc: '究極大師合成：成功率 30%（鍛造等級 10 時 +10%）。風險：失敗時目標可能下降 1 階！'
   }
 };
 
@@ -174,7 +174,7 @@ export class SynthesisService {
     const finalReqForge = Math.max(config.reqForgeLvl, reqGradeForge);
 
     if (forgeLvl < finalReqForge) {
-      log(`鍛造等級不足！製作此物品需要帝國鍛造 Lv.${finalReqForge}（目前：Lv.${forgeLvl}）。`, 'error');
+      log(`鍛造等級不足！製作此物品需要帝國鍛造等級 ${finalReqForge}（目前：等級 ${forgeLvl}）。`, 'error');
       return { success: false, reason: 'forge_level_too_low' };
     }
 
