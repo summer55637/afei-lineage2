@@ -9868,7 +9868,7 @@ export function init() {
                 <div style="font-size:10px; color:#cbd5e1; margin-top:2px;">刻印日期：${new Date(s.tattoo.engravedAt || Date.now()).toLocaleDateString()}</div>
               </div>
               <button class="action-btn action-btn--danger" onclick="window.removeDyeAction(${s.index})" style="padding:4px 8px; font-size:11px; margin-top:6px;">
-                🧹 移除（10k 金幣）
+                🧹 移除（10,000 金幣）
               </button>
             `;
           } else {
@@ -10024,7 +10024,7 @@ export function init() {
               </div>
               <div style="display:flex; flex-direction:column; gap:6px;">
                 <button class="action-btn action-btn--primary" onclick="window.feedPetAction()" style="padding:6px 12px; font-size:11px; font-weight:bold;">
-                  🍖 餵食（5k 金幣）
+                  🍖 餵食（5,000 金幣）
                 </button>
                 <button class="action-btn" onclick="window.summonPetAction('${activePet.id}')" style="padding:6px 12px; font-size:11px;">
                   🛑 收回寵物
