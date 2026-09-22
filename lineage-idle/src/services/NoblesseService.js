@@ -100,7 +100,7 @@ export class 貴族Service {
       if (state.noblesseProgress.part2Kills < 30) {
         state.noblesseProgress.part2Kills++;
         if (callbacks.log && state.noblesseProgress.part2Kills % 5 === 0) {
-          callbacks.log(`🔮 [貴族] Almas purificadas em Swamp of Screams: ${state.noblesseProgress.part2Kills}/30`, 'system');
+          callbacks.log(`🔮 [貴族] 悲鳴沼澤已淨化靈魂：${state.noblesseProgress.part2Kills}/30`, 'system');
         }
       }
     }
