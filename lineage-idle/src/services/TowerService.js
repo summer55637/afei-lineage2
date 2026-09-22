@@ -220,7 +220,7 @@ export function sweepTowerDaily(state, callbacks = {}) {
   state.gold = (state.gold || 0) + totalGold;
   state.sp = (state.sp || 0) + totalSp;
 
-  if (callbacks.log) callbacks.log(`🧹 高塔掃蕩完成！領取 ${highest} 層獎勵：+${totalGold.toLocaleString()} 金幣、+${totalSp.toLocaleString()} SP！`, 'rarity-legendary');
+  if (callbacks.log) callbacks.log(`🧹 高塔掃蕩完成！領取 ${highest} 層獎勵：+${totalGold.toLocaleString()} 金幣、+${totalSp.toLocaleString()} 技能點！`, 'rarity-legendary');
   if (callbacks.floatText) callbacks.floatText(`+${totalGold.toLocaleString()}g 掃蕩獎勵！`, 'float-jackpot');
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
