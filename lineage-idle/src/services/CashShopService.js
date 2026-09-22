@@ -149,8 +149,8 @@ export class CashShopService {
       
       // Concede Título [Pioneiro]
       state.unlockedTitles = state.unlockedTitles || [];
-      if (!state.unlockedTitles.includes('Pioneiro')) state.unlockedTitles.push('Pioneiro');
-      state.title = 'Pioneiro';
+      if (!state.unlockedTitles.includes('先驅者')) state.unlockedTitles.push('先驅者');
+      state.title = '先驅者';
 
       if (callbacks.log) {
         callbacks.log(`👑 **${pack.name}** 已啟用！獲得 ${archetype === 'heavy' ? '重甲' : archetype === 'light' ? '輕甲' : archetype === 'robe' ? '法袍' : archetype} 傳承套裝、傳承武器、5 件傳承珠寶、5,000 發彈藥與稱號 **[先驅者]**！`, 'system');
@@ -195,8 +195,8 @@ export class CashShopService {
 
       // Título Dourado [Lorde Soberano]
       state.unlockedTitles = state.unlockedTitles || [];
-      if (!state.unlockedTitles.includes('Lorde Soberano')) state.unlockedTitles.push('Lorde Soberano');
-      state.title = 'Lorde Soberano';
+      if (!state.unlockedTitles.includes('君主至尊')) state.unlockedTitles.push('君主至尊');
+      state.title = '君主至尊';
 
       // Agathion Bebê Dragão Dourado
       state.activeAgathion = 'agathion_golden_dragon';
