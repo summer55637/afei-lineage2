@@ -122,7 +122,7 @@ export const HuntingService = {
 
     hState.activeLure = lureId;
     const lureDef = LURES_CATALOG[lureId];
-    if (callbacks.log) callbacks.log(`🥩 誘餌 selecionado: **${lureDef?.name || lureId}**.`, 'system');
+    if (callbacks.log) callbacks.log(`🥩 已選擇誘餌：**${lureDef?.name || lureId}**。`, 'system');
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
@@ -137,7 +137,7 @@ export const HuntingService = {
     const totalCost = lure.buyPrice * count;
 
     if ((state.gold || 0) < totalCost) {
-      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！購買 ${count}x ${lure.name} 需要 ${totalCost.toLocaleString()} 金幣。`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！購買 ${count}× ${lure.name} 需要 ${totalCost.toLocaleString()} 金幣。`, 'warning');
       return false;
     }
 
@@ -149,7 +149,7 @@ export const HuntingService = {
       hState.activeLure = lureId;
     }
 
-    if (callbacks.log) callbacks.log(`🎒 已用 ${totalCost.toLocaleString()} 金幣購買 ${count}x **${lure.name}**。`, 'loot');
+    if (callbacks.log) callbacks.log(`🎒 已用 ${totalCost.toLocaleString()} 金幣購買 ${count}× **${lure.name}**。`, 'loot');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -664,7 +664,7 @@ export const HuntingService = {
     const totalRequired = setsToExchange * reqRatio;
 
     if (huntedCount < totalRequired) {
-      if (callbacks.log) callbacks.log(`⚠️ 圖鑑擊殺數不足！皮革交換需要 ${totalRequired}x ${prey.name}。`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 圖鑑擊殺數不足！皮革交換需要 ${totalRequired}× ${prey.name}。`, 'warning');
       return false;
     }
 
@@ -675,7 +675,7 @@ export const HuntingService = {
     addToInventory(state, rewardMat, rewardQty, prey.rarity, false, callbacks, true);
 
     if (callbacks.log) {
-      callbacks.log(`💼 **皮革市場：**交付 ${totalRequired}x ${prey.name} 屍體，獲得 +${rewardQty}x **${prey.exchangeRewardName}**！`, 'rarity-legendary');
+      callbacks.log(`💼 **皮革市場：**交付 ${totalRequired}× ${prey.name} 屍體，獲得 +${rewardQty}× **${prey.exchangeRewardName}**！`, 'rarity-legendary');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
