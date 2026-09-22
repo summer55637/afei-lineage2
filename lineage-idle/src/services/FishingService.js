@@ -102,7 +102,7 @@ export const FishingService = {
 
     fState.activeBait = baitId;
     const bait = BAIT_CATALOG[baitId];
-    if (callbacks.log) callbacks.log(`🪱 已裝上魚餌 **${bait ? bait.name : baitId}**（剩餘 ${available} 個）。`, 'system');
+    if (callbacks.log) callbacks.log(`🪱 已裝上魚餌 **${bait ? bait.name : '未知魚餌'}**（剩餘 ${available} 個）。`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     return true;
   },
@@ -173,7 +173,7 @@ export const FishingService = {
 
     fState.rod = rodId;
     const rod = RODS_CATALOG[rodId];
-    if (callbacks.log) callbacks.log(`🎣 已裝備 **${rod ? rod.name : rodId}**。`, 'system');
+    if (callbacks.log) callbacks.log(`🎣 已裝備 **${rod ? rod.name : '未知釣竿'}**。`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     return true;
   },
@@ -241,7 +241,7 @@ export const FishingService = {
       const baitCount = fState.baitInventory[zone.requiredBait] || 0;
       if (fState.activeBait !== zone.requiredBait || baitCount <= 0) {
         const requiredBaitDef = BAIT_CATALOG[zone.requiredBait];
-        if (callbacks.log) callbacks.log(`⚠️ ${zone.name} 水域需要 **${requiredBaitDef ? requiredBaitDef.name : zone.requiredBait}**！`, 'warning');
+        if (callbacks.log) callbacks.log(`⚠️ ${zone.name} 水域需要 **${requiredBaitDef ? requiredBaitDef.name : '指定魚餌'}**！`, 'warning');
         return { success: false, reason: 'invalid_bait' };
       }
     }
