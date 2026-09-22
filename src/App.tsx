@@ -88,7 +88,7 @@ function ModeSwitch({
             <span className="mode-dropdown__icon">📜</span>
             <div className="mode-dropdown__info">
               <div className="mode-dropdown__title">放置編年史</div>
-              <div className="mode-dropdown__desc">亞丁成長與冒險 RPG</div>
+              <div className="mode-dropdown__desc">亞丁成長與冒險角色扮演遊戲</div>
             </div>
             {mode === "idle" && <span className="mode-dropdown__check">✓</span>}
           </button>
