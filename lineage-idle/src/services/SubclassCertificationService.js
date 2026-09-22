@@ -399,6 +399,7 @@ export class SubclassCertificationService {
     const subLevel = Number(sub.level) || 40;
     const archetype = this.getArchetypeForClass(sub.classId);
     const subCerts = state.subclassCertifications?.[sub.id] || {};
+    const archetypeLabel = ({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[archetype] || archetype;
 
     const milestones = [
       {
@@ -406,7 +407,7 @@ export class SubclassCertificationService {
         milestoneKey: 'lv65',
         requiredLevel: 65,
         title: '新興認證 I（Lv. 65）',
-        badge: 'Emergent I',
+        badge: '新興 I',
         isUnlocked: subLevel >= 65,
         isLearned: Boolean(subCerts.lv65),
         learnedId: subCerts.lv65 || null,
@@ -417,7 +418,7 @@ export class SubclassCertificationService {
         milestoneKey: 'lv70',
         requiredLevel: 70,
         title: '新興認證 II（Lv. 70）',
-        badge: 'Emergent II',
+        badge: '新興 II',
         isUnlocked: subLevel >= 70,
         isLearned: Boolean(subCerts.lv70),
         learnedId: subCerts.lv70 || null,
@@ -427,8 +428,8 @@ export class SubclassCertificationService {
         tier: 3,
         milestoneKey: 'lv75',
         requiredLevel: 75,
-        title: `${archetype.toUpperCase()} 大師技能（Lv.75）`,
-        badge: 'Master Ability',
+        title: `${archetypeLabel}大師技能（Lv.75）`,
+        badge: '大師技能',
         isUnlocked: subLevel >= 75,
         isLearned: Boolean(subCerts.lv75),
         learnedId: subCerts.lv75 || null,
@@ -438,8 +439,8 @@ export class SubclassCertificationService {
         tier: 4,
         milestoneKey: 'lv80',
         requiredLevel: 80,
-        title: `${archetype.toUpperCase()} 神聖變身（Lv.80）`,
-        badge: 'Divine Form',
+        title: `${archetypeLabel}神聖變身（Lv.80）`,
+        badge: '神聖變身',
         isUnlocked: subLevel >= 80,
         isLearned: Boolean(subCerts.lv80),
         learnedId: subCerts.lv80 || null,
