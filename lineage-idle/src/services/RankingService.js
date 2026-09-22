@@ -48,9 +48,9 @@ export const 排行榜Service = {
     }
 
     return {
-      charName: state.heroName || state.name || state.charName || 'Hero of Aden',
+      charName: state.heroName || state.name || state.charName || '亞丁英雄',
       race: state.race || 'Human',
-      className: state.className || state.class || 'Warrior',
+      className: state.className || state.class || '戰士',
       level: Number(state.level) || 1,
       gold: Number(state.gold) || 0,
       combatPower: cp,
@@ -121,9 +121,9 @@ export const 排行榜Service = {
       wealth: this._mergeCurrentPlayer(wealthList, state, 'wealth'),
       clans: this._mergeCurrentPlayer(clansList, state, 'clans'),
       castles: (_cached排行榜s.castles && _cached排行榜s.castles.length > 0) ? _cached排行榜s.castles : [
-        { castle: 'Castelo de Aden', lord: 'LordValen', clan: 'BloodThorn', tax: '15%' },
-        { castle: 'Castelo de Giran', lord: 'SirAres', clan: 'GloryKnights', tax: '10%' },
-        { castle: 'Castelo de Dion', lord: 'LadyElena', clan: 'SilverDawn', tax: '5%' }
+        { castle: '亞丁城堡', lord: 'LordValen', clan: 'BloodThorn', tax: '15%' },
+        { castle: '奇岩城堡', lord: 'SirAres', clan: 'GloryKnights', tax: '10%' },
+        { castle: '狄恩城堡', lord: 'LadyElena', clan: 'SilverDawn', tax: '5%' }
       ]
     };
   },
@@ -240,7 +240,7 @@ export const 排行榜Service = {
       const clan = state.clan || { name: '亞丁守護者', level: 1, reputation: 100 };
       const myClanEntry = {
         userId: 'player_clan',
-        charName: state.heroName || state.name || state.charName || 'Hero of Aden',
+        charName: state.heroName || state.name || state.charName || '亞丁英雄',
         clanName: clan.name,
         level: clan.level || 1,
         reputation: clan.reputation || 100,
