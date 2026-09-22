@@ -252,87 +252,87 @@ const CLASSES_ECHO = {
       { name: "瘋狂粉碎",               type: "Ativo",    rarity: "3★", effect: "Dano 420% + stun 4s",                    cooldown: "28s",    desc: "施展狂暴的粉碎攻擊。" },
       { name: "黑豹爆破",               type: "Ativo",    rarity: "3★", effect: "Pantera explode: AoE 350% + fear 3s",    cooldown: "60s",    desc: "引爆黑暗豹的力量。" },
       { name: "地獄頌歌",               type: "Self-Buff",rarity: "3★", effect: "+40% ATK, +20% drain HP por 30s",        cooldown: "90s",    desc: "吟唱地獄的戰鬥頌歌。" },
-      { name: "Gehenna",                      type: "Ativo",    rarity: "4★", effect: "AoE dark 500% + -30% heal recebida 10s", cooldown: "120s",   desc: "Portão do inferno." },
-      { name: "Touch of Darkness",            type: "Ativo",    rarity: "3★", effect: "Dano 380% + silence 5s",                 cooldown: "30s",    desc: "Toque das trevas." },
-      { name: "Summon Dark Panther Enhanced",  type: "Ativo",    rarity: "4★", effect: "Pantera aprimorada (ATK 80% do dono)",   cooldown: "120s",   desc: "Pantera das trevas aprimorada." },
-      { name: "Transcendent Dark Strike",     type: "Ativo",    rarity: "4★", effect: "Dano 580% dark + drain 40% como HP",     cooldown: "150s",   desc: "Golpe sombrio transcendente." },
-      { name: "Hell Knight's Harmony",        type: "Self-Buff",rarity: "4★", effect: "+55% ATK, +40% DEF, +30% drain 30min",   cooldown: "90 min", desc: "Harmonia infernal." },
-      { name: "Master of Combat",             type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% drain, +5% PvE",         cooldown: "N/A",    desc: "Mestre do combate." },
-      { name: "Hell Knight Spirit",           type: "Passivo",  rarity: "3★", effect: "+15% dark ATK",                          cooldown: "N/A",    desc: "Espírito do cavaleiro infernal." },
-      { name: "Body of the Hell Knight",      type: "Passivo",  rarity: "3★", effect: "+12% Max HP, +10% DEF",                 cooldown: "N/A",    desc: "Corpo infernal." },
-      { name: "Protection of Darkness",       type: "Passivo",  rarity: "3★", effect: "+15% dark resist",                       cooldown: "N/A",    desc: "Proteção das trevas." }
+      { name: "煉獄",                      type: "Ativo",    rarity: "4★", effect: "AoE dark 500% + -30% heal recebida 10s", cooldown: "120s",   desc: "開啟通往地獄的力量。" },
+      { name: "黑暗之觸",            type: "Ativo",    rarity: "3★", effect: "Dano 380% + silence 5s",                 cooldown: "30s",    desc: "以黑暗力量侵蝕敵人。" },
+      { name: "召喚強化黑暗豹",  type: "Ativo",    rarity: "4★", effect: "Pantera aprimorada (ATK 80% do dono)",   cooldown: "120s",   desc: "召喚經過強化的黑暗豹。" },
+      { name: "超越黑暗打擊",     type: "Ativo",    rarity: "4★", effect: "Dano 580% dark + drain 40% como HP",     cooldown: "150s",   desc: "施展超越極限的黑暗打擊。" },
+      { name: "地獄騎士和諧",        type: "Self-Buff",rarity: "4★", effect: "+55% ATK, +40% DEF, +30% drain 30min",   cooldown: "90 min", desc: "地獄騎士的戰鬥和諧。" },
+      { name: "戰鬥大師",             type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% drain, +5% PvE",         cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
+      { name: "地獄騎士之魂",           type: "Passivo",  rarity: "3★", effect: "+15% dark ATK",                          cooldown: "N/A",    desc: "地獄騎士的戰鬥精神。" },
+      { name: "地獄騎士之軀",      type: "Passivo",  rarity: "3★", effect: "+12% Max HP, +10% DEF",                 cooldown: "N/A",    desc: "獲得地獄騎士般強韌的身軀。" },
+      { name: "黑暗守護",       type: "Passivo",  rarity: "3★", effect: "+15% dark resist",                       cooldown: "N/A",    desc: "提高對黑暗力量的抗性。" }
     ]
   },
 
   // ─── ROGUE (1ª classe) ───
   rogue: {
-    name: 'Rogue', parent: 'fighter', race: 'human', archetype: 'assassin', stage: 1,
-    desc: 'Ladino ágil, especialista em dagger e bow. Skills anteriores permanecem.',
+    name: '盜賊', parent: 'fighter', race: 'human', archetype: 'assassin', stage: 1,
+    desc: '敏捷的盜賊，擅長匕首與弓。保留先前學會的技能。',
     base: { atk: 22, def: 12, hp: 150, mp: 40, eva: 15, crit: 12, mdef: 8 },
     skills: [
-      { name: "Double Shot",          type: "Ativo",    rarity: "1★", effect: "2 disparos, dano total 200%",      cooldown: "10s",    desc: "Duplo disparo." },
-      { name: "Backstab",             type: "Ativo",    rarity: "2★", effect: "Dano 250% por trás + crit garantido",cooldown: "14s",  desc: "Punhalada nas costas." },
-      { name: "Dash",                 type: "Ativo",    rarity: "1★", effect: "+50% Speed por 8s",                cooldown: "20s",    desc: "Corrida rápida." },
-      { name: "Unlock",               type: "Ativo",    rarity: "1★", effect: "Abre baús/portas",                 cooldown: "5s",     desc: "Destravar." },
-      { name: "Rogue's Harmony",      type: "Self-Buff",rarity: "2★", effect: "+20% EVA, +15% Crit por 20 min",   cooldown: "45 min", desc: "Harmonia do ladino." },
-      { name: "Light Armor Mastery",  type: "Passivo",  rarity: "1★", effect: "+12% EVA com armadura leve",       cooldown: "N/A",    desc: "Maestria leve." },
-      { name: "Dagger Mastery",       type: "Passivo",  rarity: "1★", effect: "+12% ATK com dagger",              cooldown: "N/A",    desc: "Maestria em adagas." },
-      { name: "Bow Mastery",          type: "Passivo",  rarity: "1★", effect: "+12% ATK com arco",                cooldown: "N/A",    desc: "Maestria em arcos." },
-      { name: "Critical Chance",      type: "Passivo",  rarity: "1★", effect: "+8% Crit Rate",                    cooldown: "N/A",    desc: "Senso para pontos vitais." }
+      { name: "雙重射擊",          type: "Ativo",    rarity: "1★", effect: "2 disparos, dano total 200%",      cooldown: "10s",    desc: "連續射擊兩次。" },
+      { name: "背刺",             type: "Ativo",    rarity: "2★", effect: "Dano 250% por trás + crit garantido",cooldown: "14s",  desc: "從背後施展致命一擊。" },
+      { name: "疾走",                 type: "Ativo",    rarity: "1★", effect: "+50% Speed por 8s",                cooldown: "20s",    desc: "短時間大幅提高移動速度。" },
+      { name: "開鎖",               type: "Ativo",    rarity: "1★", effect: "Abre baús/portas",                 cooldown: "5s",     desc: "開啟寶箱與門鎖。" },
+      { name: "盜賊和諧",      type: "Self-Buff",rarity: "2★", effect: "+20% EVA, +15% Crit por 20 min",   cooldown: "45 min", desc: "盜賊的戰鬥和諧。" },
+      { name: "輕甲精通",  type: "Passivo",  rarity: "1★", effect: "+12% EVA com armadura leve",       cooldown: "N/A",    desc: "精通輕型防具。" },
+      { name: "匕首精通",       type: "Passivo",  rarity: "1★", effect: "+12% ATK com dagger",              cooldown: "N/A",    desc: "精通匕首武器。" },
+      { name: "弓精通",          type: "Passivo",  rarity: "1★", effect: "+12% ATK com arco",                cooldown: "N/A",    desc: "精通弓類武器。" },
+      { name: "暴擊機率",      type: "Passivo",  rarity: "1★", effect: "+8% Crit Rate",                    cooldown: "N/A",    desc: "提高命中要害的能力。" }
     ]
   },
 
   // ─── TREASURE HUNTER (2ª classe) ───
   treasureHunter: {
-    name: 'Treasure Hunter', parent: 'rogue', stage: 2,
-    desc: 'Caçador de tesouros, mestre em adagas. Skills anteriores permanecem.',
+    name: '寶藏獵人', parent: 'rogue', stage: 2,
+    desc: '精通匕首技巧的寶藏獵人。保留先前學會的技能。',
     base: { atk: 55, def: 20, hp: 300, mp: 60, eva: 28, crit: 24, mdef: 14 },
     skills: [
-      { name: "Deadly Blow",           type: "Ativo",    rarity: "2★", effect: "Dano 280% + crit garantido",          cooldown: "14s",    desc: "Golpe mortal." },
-      { name: "Lethal Blow",           type: "Ativo",    rarity: "3★", effect: "Dano 350% + chance kill 5%",          cooldown: "22s",    desc: "Golpe letal." },
-      { name: "Sand Bomb",             type: "Ativo",    rarity: "2★", effect: "AoE blind 5s + dano 150%",            cooldown: "20s",    desc: "Bomba de areia." },
-      { name: "Blinding Blow",         type: "Ativo",    rarity: "2★", effect: "Dano 240% + blind 4s",                cooldown: "18s",    desc: "Golpe cegante." },
-      { name: "Shadow Step",           type: "Ativo",    rarity: "2★", effect: "Teleporta atrás do alvo",             cooldown: "15s",    desc: "Passo sombrio." },
-      { name: "Switch",                type: "Ativo",    rarity: "2★", effect: "Troca posição com alvo",              cooldown: "25s",    desc: "Troca de posição." },
-      { name: "Fake Death",            type: "Ativo",    rarity: "2★", effect: "Finge morte, perde aggro",            cooldown: "60s",    desc: "Morte falsa." },
-      { name: "Trick",                 type: "Ativo",    rarity: "2★", effect: "Remove alvo do inimigo",              cooldown: "20s",    desc: "Truque evasivo." },
-      { name: "Mirage",                type: "Ativo",    rarity: "3★", effect: "+80% EVA por 8s",                     cooldown: "45s",    desc: "Ilusão de espelhos." },
-      { name: "Detect/Remove Trap",    type: "Ativo",    rarity: "1★", effect: "Detecta e remove armadilhas",         cooldown: "10s",    desc: "Detectar armadilhas." },
-      { name: "TH's Harmony",          type: "Self-Buff",rarity: "3★", effect: "+35% Crit, +25% EVA, +20% ATK 25min", cooldown: "60 min", desc: "Harmonia do caçador." },
-      { name: "Evasion",               type: "Passivo",  rarity: "2★", effect: "+12% EVA",                            cooldown: "N/A",    desc: "Evasão aprimorada." },
-      { name: "Critical Power",        type: "Passivo",  rarity: "2★", effect: "+18% Crit Damage",                    cooldown: "N/A",    desc: "Poder crítico." },
-      { name: "Focus",                 type: "Passivo",  rarity: "1★", effect: "+10% Crit Rate",                      cooldown: "N/A",    desc: "Foco em pontos vitais." }
+      { name: "致命打擊",           type: "Ativo",    rarity: "2★", effect: "Dano 280% + crit garantido",          cooldown: "14s",    desc: "施展強力致命攻擊。" },
+      { name: "致死打擊",           type: "Ativo",    rarity: "3★", effect: "Dano 350% + chance kill 5%",          cooldown: "22s",    desc: "施展具有致死可能的打擊。" },
+      { name: "沙塵炸彈",             type: "Ativo",    rarity: "2★", effect: "AoE blind 5s + dano 150%",            cooldown: "20s",    desc: "投擲沙塵炸彈使敵人失明。" },
+      { name: "致盲打擊",         type: "Ativo",    rarity: "2★", effect: "Dano 240% + blind 4s",                cooldown: "18s",    desc: "施展可使敵人失明的攻擊。" },
+      { name: "暗影步伐",           type: "Ativo",    rarity: "2★", effect: "Teleporta atrás do alvo",             cooldown: "15s",    desc: "瞬間移動到目標身後。" },
+      { name: "位置交換",                type: "Ativo",    rarity: "2★", effect: "Troca posição com alvo",              cooldown: "25s",    desc: "與目標交換位置。" },
+      { name: "假死",            type: "Ativo",    rarity: "2★", effect: "Finge morte, perde aggro",            cooldown: "60s",    desc: "偽裝死亡以解除敵人仇恨。" },
+      { name: "詭計",                 type: "Ativo",    rarity: "2★", effect: "Remove alvo do inimigo",              cooldown: "20s",    desc: "以詭計擾亂敵人的鎖定。" },
+      { name: "幻影",                type: "Ativo",    rarity: "3★", effect: "+80% EVA por 8s",                     cooldown: "45s",    desc: "製造鏡像幻影提高迴避。" },
+      { name: "偵測／解除陷阱",    type: "Ativo",    rarity: "1★", effect: "Detecta e remove armadilhas",         cooldown: "10s",    desc: "偵測並解除陷阱。" },
+      { name: "寶藏獵人和諧",          type: "Self-Buff",rarity: "3★", effect: "+35% Crit, +25% EVA, +20% ATK 25min", cooldown: "60 min", desc: "寶藏獵人的戰鬥和諧。" },
+      { name: "迴避",               type: "Passivo",  rarity: "2★", effect: "+12% EVA",                            cooldown: "N/A",    desc: "進一步提高迴避能力。" },
+      { name: "暴擊威力",        type: "Passivo",  rarity: "2★", effect: "+18% Crit Damage",                    cooldown: "N/A",    desc: "提高暴擊威力。" },
+      { name: "專注",                 type: "Passivo",  rarity: "1★", effect: "+10% Crit Rate",                      cooldown: "N/A",    desc: "集中攻擊敵人的要害。" }
     ]
   },
 
   // ─── ADVENTURER (3ª classe) ───
   adventurer: {
-    name: 'Adventurer', parent: 'treasureHunter', stage: 3,
-    desc: 'Aventureiro supremo, mestre da evasão e dano furtivo. Skills anteriores permanecem.',
+    name: '冒險家', parent: 'treasureHunter', stage: 3,
+    desc: '精通迴避與偷襲傷害的至高冒險家。保留先前學會的技能。',
     base: { atk: 98, def: 32, hp: 500, mp: 85, eva: 52, crit: 42, mdef: 22 },
     skills: [
-      { name: "Exciting Adventure",          type: "Self-Buff",rarity: "3★", effect: "+45% EVA, +30% Crit, +20% ATK 20min",  cooldown: "55 min", desc: "Aventura emocionante." },
-      { name: "Wind Riding",                 type: "Ativo",    rarity: "3★", effect: "+80% Speed + invisível por 10s",        cooldown: "60s",    desc: "Cavalgando o vento." },
-      { name: "Lucky Strike",                type: "Ativo",    rarity: "3★", effect: "Dano 420% + chance loot 2x",            cooldown: "30s",    desc: "Golpe de sorte." },
-      { name: "Detection",                   type: "Ativo",    rarity: "2★", effect: "Revela invisíveis em área",             cooldown: "20s",    desc: "Detecção de ocultos." },
-      { name: "Transcendent Deadly Blow",    type: "Ativo",    rarity: "4★", effect: "Dano 650% + ignora EVA + bleed 12s",    cooldown: "150s",   desc: "Golpe mortal transcendente." },
-      { name: "Adventurer's Harmony",        type: "Self-Buff",rarity: "4★", effect: "+55% Crit, +45% EVA, +35% ATK 30min",  cooldown: "90 min", desc: "Harmonia suprema." },
-      { name: "Master of Combat",            type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% Crit, +5% PvE",         cooldown: "N/A",    desc: "Mestre do combate." },
-      { name: "Shadow Sense",                type: "Passivo",  rarity: "3★", effect: "+15% EVA à noite / dungeon",            cooldown: "N/A",    desc: "Sentido das sombras." },
-      { name: "Adventurer Spirit",           type: "Passivo",  rarity: "3★", effect: "+12% dagger ATK",                       cooldown: "N/A",    desc: "Espírito aventureiro." },
-      { name: "Body of the Adventurer",      type: "Passivo",  rarity: "3★", effect: "+10% Max HP, +8% EVA",                 cooldown: "N/A",    desc: "Corpo ágil." },
-      { name: "Final Frenzy",                type: "Passivo",  rarity: "3★", effect: "+25% ATK quando HP < 30%",              cooldown: "N/A",    desc: "Frenesi final." }
+      { name: "刺激冒險",          type: "Self-Buff",rarity: "3★", effect: "+45% EVA, +30% Crit, +20% ATK 20min",  cooldown: "55 min", desc: "進入充滿刺激感的戰鬥狀態。" },
+      { name: "御風",                 type: "Ativo",    rarity: "3★", effect: "+80% Speed + invisível por 10s",        cooldown: "60s",    desc: "乘風高速移動。" },
+      { name: "幸運打擊",                type: "Ativo",    rarity: "3★", effect: "Dano 420% + chance loot 2x",            cooldown: "30s",    desc: "施展帶來額外收穫的幸運攻擊。" },
+      { name: "偵測",                   type: "Ativo",    rarity: "2★", effect: "Revela invisíveis em área",             cooldown: "20s",    desc: "偵測隱藏中的敵人。" },
+      { name: "超越致命打擊",    type: "Ativo",    rarity: "4★", effect: "Dano 650% + ignora EVA + bleed 12s",    cooldown: "150s",   desc: "施展超越極限的致命攻擊。" },
+      { name: "冒險家和諧",        type: "Self-Buff",rarity: "4★", effect: "+55% Crit, +45% EVA, +35% ATK 30min",  cooldown: "90 min", desc: "冒險家的至高戰鬥和諧。" },
+      { name: "戰鬥大師",            type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% Crit, +5% PvE",         cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
+      { name: "暗影感知",                type: "Passivo",  rarity: "3★", effect: "+15% EVA à noite / dungeon",            cooldown: "N/A",    desc: "感知暗影中的動靜。" },
+      { name: "冒險家之魂",           type: "Passivo",  rarity: "3★", effect: "+12% dagger ATK",                       cooldown: "N/A",    desc: "冒險家的戰鬥精神。" },
+      { name: "冒險家之軀",      type: "Passivo",  rarity: "3★", effect: "+10% Max HP, +8% EVA",                 cooldown: "N/A",    desc: "獲得靈活敏捷的身軀。" },
+      { name: "最終狂熱",                type: "Passivo",  rarity: "3★", effect: "+25% ATK quando HP < 30%",              cooldown: "N/A",    desc: "在危急狀態下進入最終狂熱。" }
     ]
   },
 
   // ─── HAWKEYE (2ª classe) ───
   hawkeye: {
-    name: 'Hawkeye', parent: 'rogue', stage: 2,
-    desc: 'Arqueiro de elite com dano à distância. Skills anteriores permanecem.',
+    name: '鷹眼', parent: 'rogue', stage: 2,
+    desc: '擅長遠距離傷害的菁英弓箭手。保留先前學會的技能。',
     base: { atk: 60, def: 18, hp: 280, mp: 65, eva: 20, crit: 22, mdef: 12 },
     skills: [
-      { name: "Double Shot",           type: "Ativo",    rarity: "2★", effect: "2 disparos, dano total 260%",         cooldown: "10s",    desc: "Duplo disparo aprimorado." },
-      { name: "Burst Shot",            type: "Ativo",    rarity: "2★", effect: "Dano 280% + knockback",               cooldown: "14s",    desc: "Disparo explosivo." },
+      { name: "雙重射擊",           type: "Ativo",    rarity: "2★", effect: "2 disparos, dano total 260%",         cooldown: "10s",    desc: "施展強化的雙重射擊。" },
+      { name: "爆裂射擊",            type: "Ativo",    rarity: "2★", effect: "Dano 280% + knockback",               cooldown: "14s",    desc: "發射具有爆炸威力的箭矢。" },
       { name: "Stun Shot",             type: "Ativo",    rarity: "2★", effect: "Dano 220% + stun 3s",                cooldown: "18s",    desc: "Disparo atordoante." },
       { name: "Arrow Rain",            type: "Ativo",    rarity: "3★", effect: "Dano AoE 320% (8 alvos)",            cooldown: "22s",    desc: "Chuva de flechas." },
       { name: "Rapid Fire",            type: "Ativo",    rarity: "2★", effect: "+50% ATK Speed arco por 15s",        cooldown: "45s",    desc: "Disparo rápido." },
