@@ -704,7 +704,7 @@ export const IDLE_MARKUP = `
                       <span class="l2inv-pd-icon">🛡️</span>
                       <span class="l2inv-pd-item" id="pd-item-chest"></span>
                     </div>
-                    <div class="l2inv-pd-slot equip-slot" data-slot="legs" title="褲子／腿甲">
+                    <div class="l2inv-pd-slot equip-slot" data-slot="legs" title="褲子">
                       <span class="l2inv-pd-icon">👖</span>
                       <span class="l2inv-pd-item" id="pd-item-legs"></span>
                     </div>
@@ -716,7 +716,7 @@ export const IDLE_MARKUP = `
                       <span class="l2inv-pd-icon">👢</span>
                       <span class="l2inv-pd-item" id="pd-item-boots"></span>
                     </div>
-                    <div class="l2inv-pd-slot equip-slot" data-slot="agathion_bracelet" title="阿加西翁手鐲">
+                    <div class="l2inv-pd-slot equip-slot" data-slot="agathion_bracelet" title="阿加希翁手鐲">
                       <span class="l2inv-pd-icon">🧚‍♂️</span>
                       <span class="l2inv-pd-item" id="pd-item-agathion_bracelet"></span>
                     </div>
@@ -1179,7 +1179,7 @@ export const IDLE_MARKUP = `
                   <button class="inv-batch-btn" data-craft-cat="weapon">⚔ 武器</button>
                   <button class="inv-batch-btn" data-craft-cat="armor">🛡 防具</button>
                   <button class="inv-batch-btn" data-craft-cat="jewel">💍 飾品</button>
-                  <button class="inv-batch-btn" data-craft-cat="relic">🧚 阿加西翁</button>
+                  <button class="inv-batch-btn" data-craft-cat="relic">🧚 阿加希翁</button>
                   <button class="inv-batch-btn" data-craft-cat="consumable">🧪 消耗品</button>
                 </div>
               </div>
