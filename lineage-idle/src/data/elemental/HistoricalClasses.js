@@ -209,7 +209,7 @@ export const HISTORICAL_CLASSES = [
   // Human Mystic Branch
   {
     id: 'human_mystic',
-    name: 'Human Mystic',
+    name: '人類法師',
     race: 'Human',
     lineage: 'Human Mystic',
     lineageType: 'BASE_CLASS',
@@ -433,7 +433,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'elf_plainswalker',
-    name: 'Plainswalker',
+    name: '平原行者',
     race: 'Elf',
     lineage: 'Elven Scout',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -545,7 +545,7 @@ export const HISTORICAL_CLASSES = [
   // Elven Oracle Branch
   {
     id: 'elf_oracle',
-    name: 'Elven Oracle',
+    name: '精靈神使',
     race: 'Elf',
     lineage: 'Elven Cleric',
     lineageType: 'FIRST_CLASS_TRANSFER',
@@ -557,7 +557,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'elf_elder',
-    name: 'Elven Elder',
+    name: '精靈長老',
     race: 'Elf',
     lineage: 'Elven Cleric',
     lineageType: 'SECOND_CLASS_TRANSFER',
