@@ -62,7 +62,7 @@ export function renderRankingTab(container, state) {
               <div style="font-size: 16px; font-weight: bold; color: #ffd877; font-family: 'IBM Plex Mono', monospace;">${playerRankDisplay}</div>
             </div>
             <div style="text-align: right; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 12px;">
-              <div style="font-size: 11px; color: #94a3b8; font-family: 'Inter', sans-serif;">你的戰力（CP）：</div>
+              <div style="font-size: 11px; color: #94a3b8; font-family: 'Inter', sans-serif;">你的戰鬥力：</div>
               <div style="font-size: 16px; font-weight: bold; color: #60a5fa; font-family: 'IBM Plex Mono', monospace;">⚔️ ${playerCP.toLocaleString()}</div>
             </div>
           </div>
@@ -91,13 +91,13 @@ export function renderRankingTab(container, state) {
       <!-- Categories Tabs -->
       <div style="display: flex; gap: 8px; margin-bottom: 14px; border-bottom: 1px solid rgba(212,167,68,0.2); padding-bottom: 8px; flex-wrap: wrap;">
         <button class="rank-cat-btn ${_activeTab === 'cp' ? 'active' : ''}" data-cat="cp" style="background: ${_activeTab === 'cp' ? '#ca8a04' : 'rgba(0,0,0,0.4)'}; color: ${_activeTab === 'cp' ? '#000' : '#cbd5e1'}; border: 1px solid ${_activeTab === 'cp' ? '#fde047' : 'rgba(255,255,255,0.1)'}; padding: 7px 14px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 11.5px;">
-          ⚔️ 戰力排行榜（CP）
+          ⚔️ 戰鬥力排行榜
         </button>
         <button class="rank-cat-btn ${_activeTab === 'level' ? 'active' : ''}" data-cat="level" style="background: ${_activeTab === 'level' ? '#ca8a04' : 'rgba(0,0,0,0.4)'}; color: ${_activeTab === 'level' ? '#000' : '#cbd5e1'}; border: 1px solid ${_activeTab === 'level' ? '#fde047' : 'rgba(255,255,255,0.1)'}; padding: 7px 14px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 11.5px;">
-          ⭐ 等級與 XP 排行
+          ⭐ 等級與經驗值排行
         </button>
         <button class="rank-cat-btn ${_activeTab === 'olympiad' ? 'active' : ''}" data-cat="olympiad" style="background: ${_activeTab === 'olympiad' ? '#ca8a04' : 'rgba(0,0,0,0.4)'}; color: ${_activeTab === 'olympiad' ? '#000' : '#cbd5e1'}; border: 1px solid ${_activeTab === 'olympiad' ? '#fde047' : 'rgba(255,255,255,0.1)'}; padding: 7px 14px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 11.5px;">
-          👑 奧林匹亞排行（PvP）
+          👑 奧林匹亞玩家對戰排行
         </button>
         <button class="rank-cat-btn ${_activeTab === 'wealth' ? 'active' : ''}" data-cat="wealth" style="background: ${_activeTab === 'wealth' ? '#ca8a04' : 'rgba(0,0,0,0.4)'}; color: ${_activeTab === 'wealth' ? '#000' : '#cbd5e1'}; border: 1px solid ${_activeTab === 'wealth' ? '#fde047' : 'rgba(255,255,255,0.1)'}; padding: 7px 14px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 11.5px;">
           💰 財富（金幣）
@@ -141,7 +141,7 @@ export function renderRankingTab(container, state) {
 
                 <div style="text-align: right; font-family: 'IBM Plex Mono', monospace;">
                   <div style="font-size: 13px; font-weight: bold; color: #fde047;">
-                    ${(p.reputation || 0).toLocaleString()} CRP
+                    ${(p.reputation || 0).toLocaleString()} 血盟聲望
                   </div>
                   <div style="font-size: 10px; color: #94a3b8;">血盟聲望</div>
                 </div>
@@ -204,15 +204,15 @@ export function renderRankingTab(container, state) {
                     <div style="font-size: 13px; font-weight: bold; color: #fde047;">
                       🏆 ${(p.olympiadPoints || 1000).toLocaleString()} 分
                     </div>
-                    <div style="font-size: 10px; color: #94a3b8;">奧林匹亞 PvP</div>
+                    <div style="font-size: 10px; color: #94a3b8;">奧林匹亞玩家對戰</div>
                   ` : _activeTab === 'level' ? `
                     <div style="font-size: 13px; font-weight: bold; color: #38bdf8;">
                       ⭐ 等級 ${p.level}
                     </div>
-                    <div style="font-size: 10px; color: #94a3b8;">⚔️ ${(p.combatPower || 1000).toLocaleString()} CP</div>
+                    <div style="font-size: 10px; color: #94a3b8;">⚔️ 戰鬥力 ${(p.combatPower || 1000).toLocaleString()}</div>
                   ` : `
                     <div style="font-size: 13px; font-weight: bold; color: #60a5fa;">
-                      ⚔️ ${(p.combatPower || 1000).toLocaleString()} CP
+                      ⚔️ 戰鬥力 ${(p.combatPower || 1000).toLocaleString()}
                     </div>
                     <div style="font-size: 10px; color: #94a3b8;">血盟：${p.clanName || '無血盟'}</div>
                   `}
