@@ -67,7 +67,7 @@ export const CombatPowerService = {
    */
   formatCombatPower(cp) {
     const num = Math.floor(Number(cp) || 0);
-    return `${num.toLocaleString('pt-BR')} CP`;
+    return `${num.toLocaleString('zh-TW')} CP`;
   },
 
   /**
