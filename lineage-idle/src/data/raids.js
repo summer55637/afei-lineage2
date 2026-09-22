@@ -81,7 +81,7 @@ export const RAID_BOSSES = {
     },
     mechanics: [
       { name: '電磁屏障', triggerHp: 0.60, damagePercent: 0.20, text: '⚡ 核心啟動反射屏障，造成範圍電擊！' },
-      { name: '電漿超載', triggerHp: 0.25, damagePercent: 0.30, text: '💥 電漿超載 de Alta Voltagem disparada!' }
+      { name: '電漿超載', triggerHp: 0.25, damagePercent: 0.30, text: '💥 高壓電漿超載爆發！' }
     ],
     drops: [
       { itemId: 'jewel_ring_core', name: '核心戒指', chance: 0.25, isEpicJewel: true },
@@ -194,7 +194,7 @@ export const RAID_BOSSES = {
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: '雷霆粉碎拳', triggerHp: 0.70, damagePercent: 0.25, text: '⚡ Baium desferiu o 雷霆粉碎拳!' },
+      { name: '雷霆粉碎拳', triggerHp: 0.70, damagePercent: 0.25, text: '⚡ 巴溫使出雷霆粉碎拳！' },
       { name: '被囚神性的狂怒', triggerHp: 0.30, damagePercent: 0.35, text: '🌩️ 帝國狂怒：巴溫大幅提升攻擊力！' }
     ],
     drops: [
@@ -350,11 +350,11 @@ export const RAID_BOSSES = {
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: '太陽烈焰爆發', triggerHp: 0.60, damagePercent: 0.20, text: '🔥 Barakiel conjurou 太陽烈焰爆發!' },
-      { name: '純淨火焰屏障', triggerHp: 0.25, healPercent: 0.15, text: '🛡️ Barakiel invocou a 純淨火焰屏障!' }
+      { name: '太陽烈焰爆發', triggerHp: 0.60, damagePercent: 0.20, text: '🔥 Barakiel 施放太陽烈焰爆發！' },
+      { name: '純淨火焰屏障', triggerHp: 0.25, healPercent: 0.15, text: '🛡️ Barakiel 召喚純淨火焰屏障！' }
     ],
     drops: [
-      { itemId: 'staff_goddess_rain_song', name: 'Staff of Goddess: Rain Song', chance: 1.0 },
+      { itemId: 'staff_goddess_rain_song', name: '女神法杖：雨之歌', chance: 1.0 },
       { itemId: 'scroll_blessed_universal', name: '祝福的通用強化卷軸', chance: 1.0 },
       { itemId: 'scroll_blessed_weapon', name: '祝福的武器強化卷軸', chance: 0.50 },
       { itemId: 'adena_coins', count: 30, name: '30x 亞丁幣（AC）', chance: 0.50 }
