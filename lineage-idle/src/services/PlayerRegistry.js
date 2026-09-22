@@ -40,7 +40,7 @@ export class PlayerRegistry {
           return char;
         }
       } catch (err) {
-        console.warn(`[PlayerRegistry] Erro ao buscar ${characterId}:`, err);
+        console.warn(`[玩家登錄] 查詢 ${characterId} 時發生錯誤：`, err);
       }
     }
     return null;
@@ -62,7 +62,7 @@ export class PlayerRegistry {
           return char;
         }
       } catch (err) {
-        console.warn(`[PlayerRegistry] Erro ao buscar por nome "${name}":`, err);
+        console.warn(`[玩家登錄] 依名稱「${name}」查詢時發生錯誤：`, err);
       }
     }
     return null;
@@ -74,7 +74,7 @@ export class PlayerRegistry {
       try {
         return await window.FirebaseBridge.getPlayersBatch(characterIds);
       } catch (err) {
-        console.warn('[PlayerRegistry] Erro em batch get:', err);
+        console.warn('[玩家登錄] 批次查詢發生錯誤：', err);
       }
     }
     return [];
@@ -98,7 +98,7 @@ export class PlayerRegistry {
   static async requireExistingPlayer(characterId) {
     const p = await this.getPlayer(characterId);
     if (!p) {
-      const err = new Error(`Jogador "${characterId}" não encontrado.`);
+      const err = new Error(`找不到玩家「${characterId}」。`);
       err.code = 'PLAYER_NOT_FOUND';
       throw err;
     }
@@ -108,7 +108,7 @@ export class PlayerRegistry {
   static async requireRealPlayer(characterId) {
     const p = await this.requireExistingPlayer(characterId);
     if (p.playerType !== 'real') {
-      const err = new Error(`Jogador "${characterId}" não é um jogador real.`);
+      const err = new Error(`「${characterId}」不是真實玩家。`);
       err.code = 'REAL_PLAYER_REQUIRED';
       throw err;
     }
