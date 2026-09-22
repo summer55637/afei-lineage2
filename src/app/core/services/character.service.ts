@@ -7,7 +7,7 @@ import { CharacterState } from '../models/character.model';
 
 export class CharacterService {
   private _state: CharacterState = {
-    name: 'Aventureiro',
+    name: '冒險者',
     level: 1,
     race: 'human',
     classId: 'fighter',
