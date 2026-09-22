@@ -202,7 +202,7 @@ export function renderRankingTab(container, state) {
                     <div style="font-size: 10px; color: #94a3b8;">累積財富</div>
                   ` : _activeTab === 'olympiad' ? `
                     <div style="font-size: 13px; font-weight: bold; color: #fde047;">
-                      🏆 ${(p.olympiadPoints || 1000).toLocaleString()} pts
+                      🏆 ${(p.olympiadPoints || 1000).toLocaleString()} 分
                     </div>
                     <div style="font-size: 10px; color: #94a3b8;">奧林匹亞 PvP</div>
                   ` : _activeTab === 'level' ? `
