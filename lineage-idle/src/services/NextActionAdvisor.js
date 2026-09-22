@@ -180,7 +180,7 @@ export class NextActionAdvisor {
     // 4. PRIORIDADE 5: POWER MILESTONE & DESBLOQUEIO DE CONTEÚDO
     const level = Number(state.level) || 1;
     let targetCp = 1500;
-    let targetName = '第一次轉職（Lv.20）';
+    let targetName = '第一次轉職（等級 20）';
     let actionTab = 'zones';
 
     if (level < 20) {
@@ -259,7 +259,7 @@ export class NextActionAdvisor {
         ${isMilestone && advice.targetCp ? `
           <div style="margin-top:2px;">
             <div style="display:flex; justify-content:space-between; font-size:10px; color:#94a3b8; margin-bottom:3px;">
-              <span>目前 CP： <strong style="color:#ffd700;">${advice.currentCp.toLocaleString()}</strong></span>
+              <span>目前戰鬥力：<strong style="color:#ffd700;">${advice.currentCp.toLocaleString()}</strong></span>
               <span>目標： <strong style="color:#38bdf8;">${advice.targetCp.toLocaleString()}</strong></span>
             </div>
             <div style="width:100%; height:6px; background:rgba(0,0,0,0.6); border:1px solid rgba(212,167,68,0.25); border-radius:3px; overflow:hidden;">
