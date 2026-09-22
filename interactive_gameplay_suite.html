@@ -249,10 +249,10 @@
         { race: 'sylph', classId: 'sylphid', canonicalId: 'sylphid', name: 'Zephyr', desc: 'Sylphid (Sylph Gunner)' },
         { race: 'human', classId: 'fighter', canonicalId: 'human_fighter', name: 'Tristan', desc: '人類戰士（參考）' },
         { race: 'human', classId: 'werewolf_0', canonicalId: 'werewolf_0', name: 'Fenrir', desc: 'Warg (CONTENT_GAP: V2_NODE_ABSENT)' },
-        { race: 'dwarf', classId: 'shineMakerBase', canonicalId: 'shineMakerBase', name: 'Gilded', desc: 'Shine Maker (CONTENT_GAP: V2_NODE_ABSENT, 0 skills)' },
+        { race: 'dwarf', classId: 'shineMakerBase', canonicalId: 'shineMakerBase', name: 'Gilded', desc: '光耀創造者學徒（內容缺口：第二版節點不存在，0 個技能）' },
         { race: 'highelf', classId: 'spirit_0', canonicalId: 'spirit_0', name: 'Solas', desc: 'High Elf Spirit (CONTENT_GAP: V2_NODE_ABSENT)' },
-        { race: 'ertheia', classId: 'marauderBase', canonicalId: 'marauderBase', name: 'Kael', desc: 'Marauder (CONTENT_GAP: UNPROVEN_PROVENANCE, 0 skills)' },
-        { race: 'ertheia', classId: 'sayhaMageBase', canonicalId: 'sayhaMageBase', name: 'Sylphie', desc: 'Sayha Mage (CONTENT_GAP: UNPROVEN_PROVENANCE, 0 skills)' }
+        { race: 'ertheia', classId: 'marauderBase', canonicalId: 'marauderBase', name: 'Kael', desc: '艾爾提亞戰士（內容缺口：來源未驗證，0 個技能）' },
+        { race: 'ertheia', classId: 'sayhaMageBase', canonicalId: 'sayhaMageBase', name: 'Sylphie', desc: '賽哈法師（內容缺口：來源未驗證，0 個技能）' }
       ];
 
       const creationSubResults = [];
@@ -397,11 +397,11 @@
       // Executa o ciclo de produção attackMonster() para todas as 5 classes CONTENT_GAP com monstro completo (xp, elite, gold)
       // ─────────────────────────────────────────────────────────────
       const combatGapClasses = [
-        { classId: 'shineMakerBase', race: 'dwarf', weapon: 'weapon_dwarven_mace', name: 'Shine Maker (0 skills)', hasSkills: false },
-        { classId: 'marauderBase', race: 'ertheia', weapon: 'weapon_knuckle_duster', name: 'Marauder (0 skills)', hasSkills: false },
-        { classId: 'sayhaMageBase', race: 'ertheia', weapon: 'weapon_apprentice_staff', name: 'Sayha Mage (0 skills)', hasSkills: false },
-        { classId: 'werewolf_0', race: 'human', weapon: 'weapon_broad_sword', name: 'Warg (1 skill: direct_strike)', hasSkills: true, skillId: 'direct_strike' },
-        { classId: 'spirit_0', race: 'highelf', weapon: 'weapon_apprentice_staff', name: 'High Elf Spirit (2 skills: fire_sphere)', hasSkills: true, skillId: 'fire_sphere' }
+        { classId: 'shineMakerBase', race: 'dwarf', weapon: 'weapon_dwarven_mace', name: '光耀創造者學徒（0 個技能）', hasSkills: false },
+        { classId: 'marauderBase', race: 'ertheia', weapon: 'weapon_knuckle_duster', name: '艾爾提亞戰士（0 個技能）', hasSkills: false },
+        { classId: 'sayhaMageBase', race: 'ertheia', weapon: 'weapon_apprentice_staff', name: '賽哈法師（0 個技能）', hasSkills: false },
+        { classId: 'werewolf_0', race: 'human', weapon: 'weapon_broad_sword', name: '狼人戰士（1 個技能：direct_strike）', hasSkills: true, skillId: 'direct_strike' },
+        { classId: 'spirit_0', race: 'highelf', weapon: 'weapon_apprentice_staff', name: '元素編織者學徒（2 個技能：fire_sphere）', hasSkills: true, skillId: 'fire_sphere' }
       ];
 
       const combatResults = [];
