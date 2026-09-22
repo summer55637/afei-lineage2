@@ -34,7 +34,7 @@ export class NextActionAdvisor {
         category: 'MILESTONE',
         title: '歡迎來到亞丁',
         description: '探索狩獵區並展開你的史詩旅程。',
-        actionText: '⚔️ Explorar Zonas',
+        actionText: '⚔️ 探索狩獵區',
         actionTab: 'zones',
         actionType: 'NAVIGATE',
         currentCp: 0,
@@ -59,7 +59,7 @@ export class NextActionAdvisor {
             category: 'UPGRADE',
             title: '⬆️ 有可升級的裝備',
             description: '背包中發現更好的裝備！替換較弱裝備以提升戰力。',
-            actionText: `⬆️ Equipar Melhoria (+${proposal.deltas.cpDelta.toLocaleString()} CP)`,
+            actionText: `⬆️ 裝備升級品 (+${proposal.deltas.cpDelta.toLocaleString()} CP)`,
             actionTab: 'inventory',
             actionType: 'AUTO_EQUIP',
             actionPayload: proposal,
@@ -73,7 +73,7 @@ export class NextActionAdvisor {
             category: 'AUTO_EQUIP',
             title: '⚡ 偵測到可裝備物品',
             description: '背包中有可填補空裝備欄位的物品，可立即提升角色實力。',
-            actionText: `⚡ Auto-Equipar Agora (+${proposal.deltas.cpDelta.toLocaleString()} CP)`,
+            actionText: `⚡ 立即自動裝備 (+${proposal.deltas.cpDelta.toLocaleString()} CP)`,
             actionTab: 'inventory',
             actionType: 'AUTO_EQUIP',
             actionPayload: proposal,
@@ -118,7 +118,7 @@ export class NextActionAdvisor {
                 category: 'ENCHANT',
                 title: '✨ 強化機會',
                 description: `你有 ${scrollDef.name || '卷軸'} 可強化 ${eqDef.name}（+${currentEnc} → +${currentEnc + 1}）。`,
-                actionText: `✨ Encantar ${eqDef.name} (${chance}% Chance)`,
+                actionText: `✨ 強化 ${eqDef.name}（成功率 ${chance}%）`,
                 actionTab: 'inventory',
                 actionType: 'ENCHANT',
                 actionPayload: { scrollUid: scrollItem.uid, targetUid: eqItem.uid },
@@ -163,7 +163,7 @@ export class NextActionAdvisor {
             category: 'FORGE',
             title: '⚒️ 帝國鍛造：可製作',
             description: `你已收集足夠材料，可以製作 ${targetDef.name}！`,
-            actionText: `⚒️ Criar ${targetDef.name} na Forja`,
+            actionText: `⚒️ 在鍛造中製作 ${targetDef.name}`,
             actionTab: 'craft',
             actionType: 'NAVIGATE',
             actionPayload: { itemId: targetDef.id || rec.itemId },
@@ -259,8 +259,8 @@ export class NextActionAdvisor {
         ${isMilestone && advice.targetCp ? `
           <div style="margin-top:2px;">
             <div style="display:flex; justify-content:space-between; font-size:10px; color:#94a3b8; margin-bottom:3px;">
-              <span>CP Atual: <strong style="color:#ffd700;">${advice.currentCp.toLocaleString()}</strong></span>
-              <span>Meta: <strong style="color:#38bdf8;">${advice.targetCp.toLocaleString()}</strong></span>
+              <span>目前 CP： <strong style="color:#ffd700;">${advice.currentCp.toLocaleString()}</strong></span>
+              <span>目標： <strong style="color:#38bdf8;">${advice.targetCp.toLocaleString()}</strong></span>
             </div>
             <div style="width:100%; height:6px; background:rgba(0,0,0,0.6); border:1px solid rgba(212,167,68,0.25); border-radius:3px; overflow:hidden;">
               <div style="width:${progressPct}%; height:100%; background:linear-gradient(90deg, #d97706, #eab308, #38bdf8); transition:width 0.3s ease;"></div>
