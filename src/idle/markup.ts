@@ -436,7 +436,7 @@ export const IDLE_MARKUP = `
                 <div class="l2-vitals-container">
                   <div class="l2-vital-meter">
                     <div class="l2-vital-head">
-                      <span class="l2-vital-title hp">❤️ 生命值（生命值）</span>
+                      <span class="l2-vital-title hp">❤️ 生命值</span>
                       <span class="l2-vital-val" id="hero-vital-hp">0 / 0</span>
                     </div>
                     <div class="l2-vital-track">
@@ -445,7 +445,7 @@ export const IDLE_MARKUP = `
                   </div>
                   <div class="l2-vital-meter">
                     <div class="l2-vital-head">
-                      <span class="l2-vital-title mp">💙 魔力（魔力）</span>
+                      <span class="l2-vital-title mp">💙 魔力</span>
                       <span class="l2-vital-val" id="hero-vital-mp">0 / 0</span>
                     </div>
                     <div class="l2-vital-track">
@@ -1795,7 +1795,7 @@ export const IDLE_MARKUP = `
               <div class="admin-rate-card" data-rate-key="xp">
                 <div class="rate-card-header">
                   <span class="rate-title">🌟 經驗值倍率（經驗值）</span>
-                  <span id="rate-val-xp" class="rate-badge">x1.0</span>
+                  <span id="rate-val-xp" class="rate-badge">×1.0</span>
                 </div>
                 <div class="rate-btn-row">
                   <button class="rate-pill-btn" data-rate-set="xp:1">1×</button>
@@ -1816,7 +1816,7 @@ export const IDLE_MARKUP = `
               <div class="admin-rate-card" data-rate-key="sp">
                 <div class="rate-card-header">
                   <span class="rate-title">✦ 技能點數倍率（技能點）</span>
-                  <span id="rate-val-sp" class="rate-badge">x1.0</span>
+                  <span id="rate-val-sp" class="rate-badge">×1.0</span>
                 </div>
                 <div class="rate-btn-row">
                   <button class="rate-pill-btn" data-rate-set="sp:1">1×</button>
@@ -1837,7 +1837,7 @@ export const IDLE_MARKUP = `
               <div class="admin-rate-card" data-rate-key="adena">
                 <div class="rate-card-header">
                   <span class="rate-title">🪙 金幣倍率</span>
-                  <span id="rate-val-adena" class="rate-badge">x1.0</span>
+                  <span id="rate-val-adena" class="rate-badge">×1.0</span>
                 </div>
                 <div class="rate-btn-row">
                   <button class="rate-pill-btn" data-rate-set="adena:1">1×</button>
@@ -1858,7 +1858,7 @@ export const IDLE_MARKUP = `
               <div class="admin-rate-card" data-rate-key="drop">
                 <div class="rate-card-header">
                   <span class="rate-title">📦 掉落倍率（物品與裝備）</span>
-                  <span id="rate-val-drop" class="rate-badge">x1.0</span>
+                  <span id="rate-val-drop" class="rate-badge">×1.0</span>
                 </div>
                 <div class="rate-btn-row">
                   <button class="rate-pill-btn" data-rate-set="drop:1">1×</button>
@@ -1879,7 +1879,7 @@ export const IDLE_MARKUP = `
               <div class="admin-rate-card" data-rate-key="spoil">
                 <div class="rate-card-header">
                   <span class="rate-title">⚒️ 搜刮與製作點數倍率</span>
-                  <span id="rate-val-spoil" class="rate-badge">x1.0</span>
+                  <span id="rate-val-spoil" class="rate-badge">×1.0</span>
                 </div>
                 <div class="rate-btn-row">
                   <button class="rate-pill-btn" data-rate-set="spoil:1">1×</button>
@@ -1899,7 +1899,7 @@ export const IDLE_MARKUP = `
               <div class="admin-rate-card" data-rate-key="enchant">
                 <div class="rate-card-header">
                   <span class="rate-title">✨ 強化成功率</span>
-                  <span id="rate-val-enchant" class="rate-badge">x1.0</span>
+                  <span id="rate-val-enchant" class="rate-badge">×1.0</span>
                 </div>
                 <div class="rate-btn-row">
                   <button class="rate-pill-btn" data-rate-set="enchant:1">1.0×（標準）</button>
@@ -1918,7 +1918,7 @@ export const IDLE_MARKUP = `
               <div class="admin-rate-card" data-rate-key="book">
                 <div class="rate-card-header">
                   <span class="rate-title">📖 技能書掉落倍率（1★～4★）</span>
-                  <span id="rate-val-book" class="rate-badge">x1.0</span>
+                  <span id="rate-val-book" class="rate-badge">×1.0</span>
                 </div>
                 <div class="rate-btn-row">
                   <button class="rate-pill-btn" data-rate-set="book:1">1×</button>
