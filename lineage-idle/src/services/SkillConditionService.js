@@ -228,19 +228,19 @@ export function getConditionBadgeText(condition) {
   if (!condition) return null;
   const parts = [];
 
-  if (condition.bossTarget === 'boss_only') parts.push('👑 Boss');
-  else if (condition.bossTarget === 'normal_only') parts.push('🐺 Mobs');
+  if (condition.bossTarget === 'boss_only') parts.push('👑 首領');
+  else if (condition.bossTarget === 'normal_only') parts.push('🐺 一般怪物');
 
   if (condition.minEnemies >= 2) parts.push(`👥 ${condition.minEnemies}+`);
 
   if (condition.hpTrigger === 'self_below_75') parts.push('HP<75%');
   else if (condition.hpTrigger === 'self_below_50') parts.push('HP<50%');
   else if (condition.hpTrigger === 'self_below_30') parts.push('HP<30%');
-  else if (condition.hpTrigger === 'target_below_30') parts.push('Foe<30%');
-  else if (condition.hpTrigger === 'target_below_50') parts.push('Foe<50%');
+  else if (condition.hpTrigger === 'target_below_30') parts.push('敵人<30%');
+  else if (condition.hpTrigger === 'target_below_50') parts.push('敵人<50%');
 
-  if (condition.statusReq === 'stunned') parts.push('💫 Stun');
-  else if (condition.statusReq === 'bleeding') parts.push('🩸 Bleed');
+  if (condition.statusReq === 'stunned') parts.push('💫 暈眩');
+  else if (condition.statusReq === 'bleeding') parts.push('🩸 流血');
 
   return parts.length > 0 ? parts.join(' · ') : null;
 }
