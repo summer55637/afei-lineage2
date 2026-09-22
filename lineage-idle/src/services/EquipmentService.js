@@ -514,7 +514,7 @@ export function commitAutoEquipProposal(state, proposal, callbacks = {}) {
     if (uid) {
       const item = state.inventory?.find(i => i.uid === uid);
       if (!item) {
-        return { success: false, appliedChanges: 0, reason: `背包中找不到物品 ${uid}。` };
+        return { success: false, appliedChanges: 0, reason: '背包中找不到指定物品。' };
       }
       const def = allItems[item.itemId] || item;
       if (!isEquippableItem(def)) {
