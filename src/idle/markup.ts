@@ -153,10 +153,10 @@ export const IDLE_MARKUP = `
         <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(212,167,68,0.15); border-radius:6px; padding:6px 8px; margin-bottom:6px;">
           <div style="font-size:9px; font-weight:bold; color:#d4a744; font-family:'Cinzel',serif; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">⚔️ 物理戰鬥</div>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px;">
-            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">ATK</label><span id="atk-text" class="stat-value" style="color:#f87171; font-weight:bold;">10</span></div>
-            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">DEF</label><span id="def-text" class="stat-value" style="color:#60a5fa; font-weight:bold;">5</span></div>
-            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">CRIT</label><span id="crit-text" class="stat-value" style="color:#fde047; font-weight:bold;">0%</span></div>
-            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">EVA</label><span id="eva-text" class="stat-value" style="color:#a7f3d0; font-weight:bold;">0</span></div>
+            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">攻擊</label><span id="atk-text" class="stat-value" style="color:#f87171; font-weight:bold;">10</span></div>
+            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">防禦</label><span id="def-text" class="stat-value" style="color:#60a5fa; font-weight:bold;">5</span></div>
+            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">暴擊</label><span id="crit-text" class="stat-value" style="color:#fde047; font-weight:bold;">0%</span></div>
+            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">迴避</label><span id="eva-text" class="stat-value" style="color:#a7f3d0; font-weight:bold;">0</span></div>
           </div>
         </div>
 
@@ -164,10 +164,10 @@ export const IDLE_MARKUP = `
         <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(212,167,68,0.15); border-radius:6px; padding:6px 8px; margin-bottom:6px;">
           <div style="font-size:9px; font-weight:bold; color:#d4a744; font-family:'Cinzel',serif; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">🔮 魔法與鍛造</div>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px;">
-            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">M.ATK</label><span id="matk-text" class="stat-value" style="color:#c084fc; font-weight:bold;">0</span></div>
-            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">M.DEF</label><span id="mdef-text" class="stat-value" style="color:#818cf8; font-weight:bold;">0</span></div>
+            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">魔攻</label><span id="matk-text" class="stat-value" style="color:#c084fc; font-weight:bold;">0</span></div>
+            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">魔防</label><span id="mdef-text" class="stat-value" style="color:#818cf8; font-weight:bold;">0</span></div>
             <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">掉落</label><span id="loot-text" class="stat-value" style="color:#34d399; font-weight:bold;">100%</span></div>
-            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">鍛造</label><span id="craft-level-stat" class="stat-value" style="color:#fbbf24; font-weight:bold;">Lv. 1</span></div>
+            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">鍛造</label><span id="craft-level-stat" class="stat-value" style="color:#fbbf24; font-weight:bold;">等級 1</span></div>
           </div>
         </div>
 
@@ -182,7 +182,7 @@ export const IDLE_MARKUP = `
             <span id="gps-text" class="stat-value gold-dim" style="font-size:10px;">—</span>
           </div>
           <div style="display:flex; justify-content:space-between; align-items:center; font-size:10px; margin-top:2px; border-top:1px dashed rgba(255,255,255,0.06); padding-top:2px;">
-            <span style="color:#67e8f9;">✦ SP:</span>
+            <span style="color:#67e8f9;">✦ 技能點：</span>
             <span id="sp-text" class="stat-value" style="color:#67e8f9; font-weight:bold;">0</span>
           </div>
         </div>
@@ -253,7 +253,7 @@ export const IDLE_MARKUP = `
           <div class="log-filters">
             <button class="log-filter-btn active" data-logfilter="all">✨ 全部</button>
             <button class="log-filter-btn" data-logfilter="loot">📦 掉落與物品</button>
-            <button class="log-filter-btn" data-logfilter="gold_xp">💰 XP 與金幣</button>
+            <button class="log-filter-btn" data-logfilter="gold_xp">💰 經驗值與金幣</button>
             <button class="log-filter-btn" data-logfilter="combat">⚔️ 戰鬥</button>
             <button class="log-filter-btn" data-logfilter="system">⚙️ 系統</button>
           </div>
@@ -368,7 +368,7 @@ export const IDLE_MARKUP = `
               <span class="imp-res-chip imp-res-chip--ac" title="亞丁幣"><span class="chip-icon">💎</span> <span id="imp-res-ac" class="res-val">0</span> AC</span>
               <span class="imp-res-chip imp-res-chip--aa" title="古代金幣（七封印）"><span class="chip-icon">🏛️</span> <span id="imp-res-aa" class="res-val">0</span> AA</span>
               <span class="imp-res-chip imp-res-chip--sp" title="技能點數"><span class="chip-icon">✦</span> <span id="imp-res-sp" class="res-val">0</span> SP</span>
-              <span class="imp-res-chip imp-res-chip--forge" title="帝國鍛造等級"><span class="chip-icon">🔨</span> 鍛造： <span id="imp-res-forge" class="res-val">Lv. 1</span></span>
+              <span class="imp-res-chip imp-res-chip--forge" title="帝國鍛造等級"><span class="chip-icon">🔨</span> 鍛造： <span id="imp-res-forge" class="res-val">等級 1</span></span>
               <span class="imp-res-chip imp-res-chip--charges" title="帝國輪盤充能"><span class="chip-icon">🎲</span> 輪盤： <span id="imp-res-charges" class="res-val">0 次充能</span></span>
             </div>
           </div>
@@ -567,7 +567,7 @@ export const IDLE_MARKUP = `
               <div class="l2-section-header">
                 <span class="l2-section-icon">📜</span>
                 <h3>亞丁副職業與認證</h3>
-                <span id="subclass-count-badge" class="l2-section-tag">需要 Lv.52+</span>
+                <span id="subclass-count-badge" class="l2-section-tag">需要等級 52+</span>
               </div>
               <p class="l2-section-desc">最多培養 3 個高階副職業，解鎖可永久套用於主職業的被動認證能力。</p>
               
@@ -600,8 +600,8 @@ export const IDLE_MARKUP = `
             <div class="skills-head">
               <h3>技能與天賦樹</h3>
               <div style="display:flex; gap:10px; align-items:center;">
-                <span class="sp-pill"><span class="sp-icon">✦</span> <span id="sp-available">0</span> 可用 SP</span>
-                <button id="reset-sp-btn" class="inv-batch-btn" title="重置所有已投入的技能點">🔄 重置 SP</button>
+                <span class="sp-pill"><span class="sp-icon">✦</span> <span id="sp-available">0</span> 可用技能點</span>
+                <button id="reset-sp-btn" class="inv-batch-btn" title="重置所有已投入的技能點">🔄 重置技能點</button>
               </div>
             </div>
             <!-- Banner de Troca de Classe na Aba de Habilidades -->
@@ -1348,7 +1348,7 @@ export const IDLE_MARKUP = `
                   <span class="pass-title" id="pass-status-text">免費戰鬥通行證</span>
                 </div>
                 <div class="pass-xp-info">
-                  <span id="pass-xp-text">0 / 100 通行證 XP</span>
+                  <span id="pass-xp-text">0 / 100 通行證經驗</span>
                   <button id="unlock-premium-pass-btn" class="inv-batch-btn gold-glow-btn" title="購買本賽季官方高級通行證">👑 取得高級通行證（R$ 15,00）</button>
                 </div>
               </div>
@@ -1399,7 +1399,7 @@ export const IDLE_MARKUP = `
               <div class="tower-header-info">
                 <div class="tower-level-badge">
                   <span class="tower-lvl-num" id="tower-highest-floor-text">目前樓層：0 / 100</span>
-                  <span class="tower-title" id="tower-bonus-text">被動加成：+0% ATK、DEF 與 魔法攻擊</span>
+                  <span class="tower-title" id="tower-bonus-text">被動加成：+0% 攻擊、防禦與魔法攻擊</span>
                 </div>
                 <div class="tower-action-group">
                   <button id="tower-challenge-btn" class="action-btn action-btn--primary" style="font-size:12px; font-weight:bold;">⚔️ 挑戰樓層 <span id="tower-next-floor-num">1</span></button>
@@ -1947,10 +1947,10 @@ export const IDLE_MARKUP = `
                 切換伺服器編年史，以正式且永久的方式解鎖分頁、系統與限制：
               </p>
               <div class="admin-btn-group" style="display:flex; flex-wrap:wrap; gap:8px;">
-                <button class="admin-btn" data-admin-cmd="setseason1">📜 編年史 1：覺醒（Lv.40）</button>
-                <button class="admin-btn" data-admin-cmd="setseason2">🏰 編年史 2：血盟與城堡（Lv.75）</button>
-                <button class="admin-btn" data-admin-cmd="setseason3">🏛️ 編年史 3：七封印（Lv.85）</button>
-                <button class="admin-btn" data-admin-cmd="setseason4">🐉 編年史 4：High Five 與巨龍（Lv.120）</button>
+                <button class="admin-btn" data-admin-cmd="setseason1">📜 編年史 1：覺醒（等級 40）</button>
+                <button class="admin-btn" data-admin-cmd="setseason2">🏰 編年史 2：血盟與城堡（等級 75）</button>
+                <button class="admin-btn" data-admin-cmd="setseason3">🏛️ 編年史 3：七封印（等級 85）</button>
+                <button class="admin-btn" data-admin-cmd="setseason4">🐉 編年史 4：High Five 與巨龍（等級 120）</button>
               </div>
               <div style="margin-top:10px;">
                 <button class="admin-btn primary" data-admin-cmd="unlockallseasons" style="width:100%; background:linear-gradient(135deg, #065f46, #047857); border-color:#34d399; color:#ecfdf5; font-size:12px; font-weight:bold; padding:9px 12px; cursor:pointer;">
@@ -1967,12 +1967,12 @@ export const IDLE_MARKUP = `
               </div>
               <p style="font-size:11px; color:#cbd5e1; margin-bottom:10px;">設定伺服器所有玩家可達到的最高等級上限：</p>
               <div class="admin-btn-group" style="display:flex; flex-wrap:wrap; gap:8px;">
-                <button class="admin-btn" data-admin-cmd="setcap40">上限 Lv.40（序章）</button>
-                <button class="admin-btn" data-admin-cmd="setcap60">上限 Lv.60（階段 1）</button>
-                <button class="admin-btn" data-admin-cmd="setcap75">上限 Lv.75（階段 2）</button>
-                <button class="admin-btn" data-admin-cmd="setcap85">上限 Lv.85（階段 3－貴族）</button>
-                <button class="admin-btn" data-admin-cmd="setcap100">上限 Lv.100（階段 4－帝國）</button>
-                <button class="admin-btn" data-admin-cmd="setcap120" style="background:#7c2d12; border-color:#f59e0b; color:#fbbf24; font-weight:bold;">👑 上限 Lv.120（最高）</button>
+                <button class="admin-btn" data-admin-cmd="setcap40">上限等級 40（序章）</button>
+                <button class="admin-btn" data-admin-cmd="setcap60">上限等級 60（階段 1）</button>
+                <button class="admin-btn" data-admin-cmd="setcap75">上限等級 75（階段 2）</button>
+                <button class="admin-btn" data-admin-cmd="setcap85">上限等級 85（階段 3－貴族）</button>
+                <button class="admin-btn" data-admin-cmd="setcap100">上限等級 100（階段 4－帝國）</button>
+                <button class="admin-btn" data-admin-cmd="setcap120" style="background:#7c2d12; border-color:#f59e0b; color:#fbbf24; font-weight:bold;">👑 上限等級 120（最高）</button>
               </div>
               <div class="admin-input-row" style="margin-top:10px; display:flex; gap:6px; align-items:center;">
                 <input type="number" id="admin-cap-custom" class="admin-num-input" placeholder="自訂等級上限（例如：80）" min="1" max="120" style="flex:1;" />
@@ -2055,11 +2055,11 @@ export const IDLE_MARKUP = `
               <div class="admin-section">
                 <h3>📊 等級與經驗值（XP）</h3>
                 <div class="admin-btn-group">
-                  <button class="admin-btn" data-admin-cmd="level20">設為 Lv.20</button>
-                  <button class="admin-btn" data-admin-cmd="level40">設為 Lv.40</button>
-                  <button class="admin-btn" data-admin-cmd="level76">設為 Lv.76</button>
-                  <button class="admin-btn" data-admin-cmd="level85">設為 Lv.85</button>
-                  <button class="admin-btn" data-admin-cmd="level120" style="background:#7c2d12; border-color:#f59e0b; color:#fbbf24; font-weight:bold;">👑 設為 Lv.120</button>
+                  <button class="admin-btn" data-admin-cmd="level20">設為等級 20</button>
+                  <button class="admin-btn" data-admin-cmd="level40">設為等級 40</button>
+                  <button class="admin-btn" data-admin-cmd="level76">設為等級 76</button>
+                  <button class="admin-btn" data-admin-cmd="level85">設為等級 85</button>
+                  <button class="admin-btn" data-admin-cmd="level120" style="background:#7c2d12; border-color:#f59e0b; color:#fbbf24; font-weight:bold;">👑 設為等級 120</button>
                   <button class="admin-btn" data-admin-cmd="add1level">+1 等級</button>
                   <button class="admin-btn" data-admin-cmd="add5levels">+5 等級</button>
                 </div>
