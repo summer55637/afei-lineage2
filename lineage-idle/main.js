@@ -689,7 +689,7 @@ function openClassTransferModal(classInfo) {
 
       const statsStr = Object.entries(clsDef.base || {})
         .filter(([, v]) => v > 0)
-        .map(([k, v]) => `+${v} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[k] || k.toUpperCase()}`)
+        .map(([k, v]) => `+${v} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[k] || '其他屬性'}`)
         .join(' · ');
 
       const archetypeIcons = {
@@ -1445,8 +1445,8 @@ function useItem(uid) {
   // ── Buff Potions ───────────────────────────────────────────────────────────
   else if (def.type === 'buff') {
     applyBuff(def.stat, def.amount, def.duration || 1800);
-    log(`⚡ 使用 ${def.name}：+${def.amount} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[def.stat] || def.stat.toUpperCase()}，持續 ${fmtDur(def.duration || 1800)}`, 'heal');
-    if (typeof floatText === 'function') floatText(`⚡ +${def.amount} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[def.stat] || def.stat.toUpperCase()}`, 'sf-heal');
+    log(`⚡ 使用 ${def.name}：+${def.amount} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[def.stat] || '其他屬性'}，持續 ${fmtDur(def.duration || 1800)}`, 'heal');
+    if (typeof floatText === 'function') floatText(`⚡ +${def.amount} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[def.stat] || '其他屬性'}`, 'sf-heal');
   }
   else if (item.itemId === 'attack_potion') {
     applyBuff('atk', 0.20, 1800); log(`⚡ 使用 ${def.name}：+20% 攻擊，持續 30 分鐘`, 'heal');
@@ -2418,10 +2418,10 @@ function showSkillTooltip(skillId, e) {
     : `<span class="tt-icon">${def.icon || '✦'}</span>`;
 
   const elemBadge = semantic?.element
-    ? `<span class="tt-elem-pill elem-${semantic.element.toLowerCase()}">${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗', physical: '物理', none: '無屬性' })[String(semantic.element).toLowerCase()] || semantic.element}</span>`
+    ? `<span class="tt-elem-pill elem-${semantic.element.toLowerCase()}">${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗', physical: '物理', none: '無屬性' })[String(semantic.element).toLowerCase()] || '其他屬性'}</span>`
     : '';
   const roleBadge = semantic?.role
-    ? `<span class="tt-role-pill">${({ physical: '物理', magic: '魔法', buff: '增益', debuff: '減益', heal: '治療', healing: '治療', control: '控制', passive: '被動', active: '主動', summon: '召喚', aoe: '範圍', utility: '輔助' })[String(semantic.role).toLowerCase()] || semantic.role}</span>`
+    ? `<span class="tt-role-pill">${({ physical: '物理', magic: '魔法', buff: '增益', debuff: '減益', heal: '治療', healing: '治療', control: '控制', passive: '被動', active: '主動', summon: '召喚', aoe: '範圍', utility: '輔助' })[String(semantic.role).toLowerCase()] || '技能'}</span>`
     : '';
   const starBadge = (def.starRank >= 4 || def.tier >= 4)
     ? `<span class="tt-star-pill">${def.starRank || (def.tier === 5 ? 5 : 4)}★</span>`
@@ -4106,7 +4106,7 @@ export function renderSubclassesUI() {
             <span>⚔️ 副職業 ${idx + 1}：</span>
             <span style="color:#fde047;">${subClassDef?.name || '未知職業'}</span>
             <span style="color:#60a5fa; font-size:11px; background:rgba(96,165,250,0.15); padding:1px 6px; border-radius:4px;">等級 ${sub.level}/85</span>
-            <span style="color:#a855f7; font-size:10px; background:rgba(168,85,247,0.15); padding:1px 5px; border-radius:4px; text-transform:uppercase;">${({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[archetype] || archetype}</span>
+            <span style="color:#a855f7; font-size:10px; background:rgba(168,85,247,0.15); padding:1px 5px; border-radius:4px; text-transform:uppercase;">${({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[archetype] || '戰士'}</span>
           </div>
           <div style="font-size:10px; color:var(--text-muted); margin-top:2px;">名匠認證可於等級 65、70、75、80 取得。</div>
         </div>
@@ -7520,7 +7520,7 @@ function renderMonsterCardsCodex(container, summaryEl) {
     const bonusLabel = Object.entries(cardDef.codexBonus || {})
       .map(([stat, val]) => {
         const multipliedVal = isAbsorbed ? Math.round(val * rankMult) : val;
-        return `+${typeof val === 'number' && val < 1 ? (val * 100).toFixed(0) + '%' : multipliedVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[stat] || stat.toUpperCase()}`;
+        return `+${typeof val === 'number' && val < 1 ? (val * 100).toFixed(0) + '%' : multipliedVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[stat] || '其他屬性'}`;
       })
       .join(', ');
 
@@ -9266,7 +9266,7 @@ function applyTattoo(plusStat = 'str', minusStat = 'con', val = 4) {
     minusVal: val
   });
 
-  log(`🖋️ 刺青已套用：+${val} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[plusStat] || plusStat.toUpperCase()} / -${val} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[minusStat] || minusStat.toUpperCase()}！`, 'rarity-legendary');
+  log(`🖋️ 刺青已套用：+${val} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[plusStat] || '其他屬性'} / -${val} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[minusStat] || '其他屬性'}！`, 'rarity-legendary');
   updateAllUI();
   save();
   return true;
