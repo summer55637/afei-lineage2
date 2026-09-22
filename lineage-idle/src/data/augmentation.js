@@ -145,12 +145,12 @@ export const ITEM_SKILLS = [
 ];
 
 export const STAT_ROLL_POOL = [
-  { name: '+P.Atk', key: 'atk', min: 15, max: 45 },
-  { name: '+M.Atk', key: 'matk', min: 20, max: 60 },
-  { name: '+P.Def', key: 'def', min: 15, max: 40 },
-  { name: '+M.Def', key: 'mdef', min: 18, max: 50 },
-  { name: '+Max HP', key: 'hp', min: 200, max: 650 },
-  { name: '+Max CP', key: 'cp', min: 250, max: 800 },
+  { name: '+物理攻擊', key: 'atk', min: 15, max: 45 },
+  { name: '+魔法攻擊', key: 'matk', min: 20, max: 60 },
+  { name: '+物理防禦', key: 'def', min: 15, max: 40 },
+  { name: '+魔法防禦', key: 'mdef', min: 18, max: 50 },
+  { name: '+最大 HP', key: 'hp', min: 200, max: 650 },
+  { name: '+最大 CP', key: 'cp', min: 250, max: 800 },
   { name: '+暴擊率', key: 'crit', min: 5, max: 18 },
   { name: '+迴避', key: 'eva', min: 3, max: 8 }
 ];
