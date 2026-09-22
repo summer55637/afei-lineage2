@@ -633,12 +633,12 @@ export default function Aden2DGame() {
       ctx.textAlign = 'left';
       ctx.fillStyle = '#ffd700';
       ctx.font = isMobileScreen ? 'bold 14px monospace' : 'bold 18px monospace';
-      ctx.fillText(`⚔ ${liveState.name || '英雄'}  Lv.${liveState.level || 1}`, 18, 30);
+      ctx.fillText(`⚔ ${liveState.name || '英雄'}  等級 ${liveState.level || 1}`, 18, 30);
 
       // HP bar
       ctx.fillStyle = '#aaa';
       ctx.font = '11px monospace';
-      ctx.fillText('HP', 18, 52);
+      ctx.fillText('生命值', 18, 52);
       drawBar(40, 41, panelW - 55, 14, (liveState.hp || 0) / (liveState.maxHp || 1), '#e44', '#333');
       ctx.fillStyle = '#fff';
       ctx.font = '10px monospace';
@@ -649,7 +649,7 @@ export default function Aden2DGame() {
       ctx.textAlign = 'left';
       ctx.fillStyle = '#aaa';
       ctx.font = '11px monospace';
-      ctx.fillText('MP', 18, 72);
+      ctx.fillText('魔力', 18, 72);
       drawBar(40, 61, panelW - 55, 14, (liveState.mp || 0) / (liveState.maxMp || 1), '#44f', '#333');
       ctx.fillStyle = '#fff';
       ctx.font = '10px monospace';
@@ -660,7 +660,7 @@ export default function Aden2DGame() {
       ctx.textAlign = 'left';
       ctx.fillStyle = '#aaa';
       ctx.font = '11px monospace';
-      ctx.fillText('XP', 18, 92);
+      ctx.fillText('經驗值', 18, 92);
       const nextXp = (liveState.level || 1) * 150;
       drawBar(40, 81, panelW - 55, 10, (liveState.xp || 0) / nextXp, '#ff4', '#333');
       ctx.fillStyle = '#fff';
