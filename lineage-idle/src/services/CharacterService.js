@@ -452,7 +452,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
 
     if (sName.includes('hp') || sName.includes('life') || sName.includes('vital') || sName.includes('body') || sDesc.includes('hp') || sDesc.includes('vida')) {
       statKey = 'maxHp';
-      statLabel = '最大 HP';
+      statLabel = '最大生命值';
       baseVal = 0.06 + (lvl * 0.02);
     } else if (sName.includes('mdef') || sName.includes('magic def') || sName.includes('resist') || sName.includes('barrier') || sName.includes('ward')) {
       statKey = 'mdef';
@@ -464,7 +464,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
       baseVal = 0.06 + (lvl * 0.02);
     } else if (sName.includes('mana') || sName.includes('mp') || sName.includes('clarity') || sName.includes('recovery') || sName.includes('mind')) {
       statKey = 'mpRegen';
-      statLabel = 'MP 恢復';
+      statLabel = '魔力恢復';
       baseVal = 0.08 + (lvl * 0.025);
     } else if (sName.includes('magic') || sName.includes('mage') || sName.includes('mystic') || sName.includes('elem') || sName.includes('fire') || sName.includes('water') || sName.includes('wind') || sName.includes('spell') || sName.includes('empower') || sType === 'magic') {
       statKey = 'matk';
