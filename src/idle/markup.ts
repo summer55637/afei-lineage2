@@ -207,7 +207,7 @@ export const IDLE_MARKUP = `
               <button id="combat-toggle-btn" class="combat-ctrl-btn active" title="暫停或開始自動狩獵（P 鍵）"><span class="combat-stance-gem"></span> <span>⚔️ 狩獵中</span></button>
               <button id="soulshot-toggle-btn" class="combat-ctrl-btn" title="戰鬥中啟用魂彈（傷害 +100%）"><span>⚡ 魂彈</span> <span style="font-size:9px; color:#ffd877;">（關閉）</span></button>
               <button id="autopotion-toggle-btn" class="combat-ctrl-btn" title="生命值 低於 50% 時自動使用 生命值 藥水"><span>🧪 自動補血</span> <span style="font-size:9px; color:#ffd877;">（關閉）</span></button>
-              <button id="speed-toggle-btn" class="combat-ctrl-btn" title="戰鬥速度（1x 一般／2x 加速）"><span>⏩ 1x</span></button>
+              <button id="speed-toggle-btn" class="combat-ctrl-btn" title="戰鬥速度（1× 一般／2× 加速）"><span>⏩ 1×</span></button>
               <button id="macro-settings-btn" class="combat-ctrl-btn" onclick="window.openMacroSettingsModal && window.openMacroSettingsModal()" title="放置巨集設定：生命值／魔力 觸發、技能循環與自動回收"><span>⚙️ 巨集</span></button>
               <label class="combat-ctrl-btn combat-ctrl-vfx" style="display:inline-flex; align-items:center; gap:4px; cursor:pointer;" title="視覺效果品質">
                 <span>視覺效果</span>
