@@ -2821,9 +2821,9 @@ export function updateEquipmentUI(state, callbacks = {}) {
   }
 
   // Remove qualquer resquício do antigo container comprimido acima dos itens equipados
-  const old雙刀Container = root.querySelector('#dual-resonance-hud-container');
-  if (old雙刀Container) {
-    old雙刀Container.remove();
+  const oldDualContainer = root.querySelector('#dual-resonance-hud-container');
+  if (oldDualContainer) {
+    oldDualContainer.remove();
   }
 }
 
@@ -4684,7 +4684,7 @@ export function updateImperialEconomyHeader(state) {
   if (acEl) acEl.textContent = (state.adenCoins || 0).toLocaleString();
 
   const aaEl = root.querySelector('#imp-res-aa');
-  if (aaEl) aaEl.textContent = ((state.sevenSigns && state.sevenSigns.ancient金幣) || 0).toLocaleString();
+  if (aaEl) aaEl.textContent = ((state.sevenSigns && state.sevenSigns.ancientAdena) || 0).toLocaleString();
 
   const spEl = root.querySelector('#imp-res-sp');
   if (spEl) spEl.textContent = (state.sp || 0).toLocaleString();
@@ -5245,14 +5245,14 @@ function renderStoreBuyTab(state, callbacks) {
   const totalPrice = _purchaseCart.reduce((sum, item) => sum + (item.unitPrice * item.qty), 0);
   const totalCartCount = _purchaseCart.reduce((sum, item) => sum + item.qty, 0);
 
-  const bottom金幣 = root.querySelector('#shop-bottom-adena');
+  const bottomAdena = root.querySelector('#shop-bottom-adena');
   const bottomPrice = root.querySelector('#shop-bottom-price');
   const weightBar = root.querySelector('#shop-bottom-weight-bar');
   const weightText = root.querySelector('#shop-bottom-weight-text');
   const confirmBtn = root.querySelector('#shop-action-confirm-btn');
   const cancelBtn = root.querySelector('#shop-action-cancel-btn');
 
-  if (bottom金幣) bottom金幣.textContent = (state.gold || 0).toLocaleString();
+  if (bottomAdena) bottomAdena.textContent = (state.gold || 0).toLocaleString();
   if (bottomPrice) bottomPrice.textContent = totalPrice.toLocaleString();
 
   const invCount = (state.inventory || []).length;
@@ -5379,12 +5379,12 @@ function renderStoreSellTab(state, callbacks) {
   };
 
   // Barra Inferior
-  const bottom金幣 = root.querySelector('#shop-bottom-adena');
+  const bottomAdena = root.querySelector('#shop-bottom-adena');
   const bottomPrice = root.querySelector('#shop-bottom-price');
   const confirmBtn = root.querySelector('#shop-action-confirm-btn');
   const cancelBtn = root.querySelector('#shop-action-cancel-btn');
 
-  if (bottom金幣) bottom金幣.textContent = (state.gold || 0).toLocaleString();
+  if (bottomAdena) bottomAdena.textContent = (state.gold || 0).toLocaleString();
   if (bottomPrice) bottomPrice.textContent = '0';
   if (confirmBtn) {
     confirmBtn.textContent = 'Sell';
@@ -5461,12 +5461,12 @@ function renderStoreRefundTab(state, callbacks) {
     `;
   }
 
-  const bottom金幣 = root.querySelector('#shop-bottom-adena');
+  const bottomAdena = root.querySelector('#shop-bottom-adena');
   const bottomPrice = root.querySelector('#shop-bottom-price');
   const confirmBtn = root.querySelector('#shop-action-confirm-btn');
   const cancelBtn = root.querySelector('#shop-action-cancel-btn');
 
-  if (bottom金幣) bottom金幣.textContent = (state.gold || 0).toLocaleString();
+  if (bottomAdena) bottomAdena.textContent = (state.gold || 0).toLocaleString();
   if (bottomPrice) bottomPrice.textContent = '0';
   if (confirmBtn) {
     confirmBtn.textContent = 'Refund';
@@ -6279,10 +6279,10 @@ export function updateCraftUI(state, callbacks = {}) {
     const reqForgeLvl = r.craftLevel || (r.level ? getCraftLevelReq(r.level) : 1);
     const gradeInfo = getItemGrade(def);
     const statsSummary = buildShopStatsSummary(def);
-    const base金幣 = r.gold || 250;
+    const baseAdena = r.gold || 250;
 
     const mats = getRecipeMaterials(r);
-    let hasAllMats = (state.gold || 0) >= base金幣;
+    let hasAllMats = (state.gold || 0) >= baseAdena;
 
     const matsHtml = mats.map(m => {
       const matDef = allItems[m.matId];
@@ -6322,7 +6322,7 @@ export function updateCraftUI(state, callbacks = {}) {
             <div class="l2-blueprint-meta">
               <span>⚒️ Forja Lv.${reqForgeLvl}</span>
               <span>·</span>
-              <span style="color:#ffd877; font-weight:bold;">🪙 ${base金幣.toLocaleString()} 金幣</span>
+              <span style="color:#ffd877; font-weight:bold;">🪙 ${baseAdena.toLocaleString()} 金幣</span>
             </div>
           </div>
         </div>
@@ -6377,7 +6377,7 @@ export function openCraftModal(itemId, state, callbacks = {}) {
   const statsSummary = buildShopStatsSummary(def);
 
   function renderModalContent() {
-    const total金幣 = (r.gold || 250) * currentQty;
+    const totalAdena = (r.gold || 250) * currentQty;
     const mats = getRecipeMaterials(r);
     const maxCraftable = Math.max(1, calculateMaxCraftableQty(state, itemId));
 
@@ -6436,7 +6436,7 @@ export function openCraftModal(itemId, state, callbacks = {}) {
       <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(212,175,55,0.2); border-radius:8px; padding:12px; margin-bottom:16px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
           <span style="font-size:12px; color:var(--text-muted);">Qtd. a Forjar:</span>
-          <span style="font-size:14px; font-weight:bold; color:#fff;">🪙 費用： <strong style="color:var(--gilt);">${total金幣.toLocaleString()} 金幣</strong></span>
+          <span style="font-size:14px; font-weight:bold; color:#fff;">🪙 費用： <strong style="color:var(--gilt);">${totalAdena.toLocaleString()} 金幣</strong></span>
         </div>
 
         <div style="display:flex; gap:6px; flex-wrap:wrap;" id="craft-modal-qty-picker">
@@ -8075,8 +8075,8 @@ export function renderForgeSynthesis(container, state) {
   const isForgeOk = forgeLvl >= finalReqForge;
 
   const baseRatePct = Math.round((cfg.successRate + (isMasterSmith ? 0.10 : 0)) * 100);
-  const cost金幣 = cfg.cost金幣;
-  const canAfford = (state.gold || 0) >= cost金幣;
+  const costAdena = cfg.costAdena;
+  const canAfford = (state.gold || 0) >= costAdena;
   const isMaxRank = curRank >= 5;
   const canSynthesize = selectedTargetItem && selectedIngredientItem && isForgeOk && canAfford && !isMaxRank;
 
@@ -8193,7 +8193,7 @@ export function renderForgeSynthesis(container, state) {
             <span class="l2comp-fee-label">Fee</span>
             <div class="l2comp-fee-val-box">
               <span>🪙</span>
-              <span>${selectedTargetItem ? cost金幣.toLocaleString() : '0'}</span>
+              <span>${selectedTargetItem ? costAdena.toLocaleString() : '0'}</span>
             </div>
           </div>
 
@@ -8505,7 +8505,7 @@ export function renderForgeRandomCraft(container, state, callbacks = {}) {
         </button>
 
         <button
-          onclick="window.chargeRandomCraftWith金幣Action()"
+          onclick="window.chargeRandomCraftWithAdenaAction()"
           class="imp-forge-subtab-btn"
           style="min-width:180px; font-size:11px; padding:8px 12px; background:rgba(180,83,9,0.25); border:1px solid rgba(245,158,11,0.4); color:#fde047;"
         >
@@ -10488,7 +10488,7 @@ export function renderClanTab(container, state) {
           <div>
             <div style="font-family:'Cinzel',serif; font-size:13px; font-weight:bold; color:#fde047;">${item.name}</div>
             <div style="font-size:11px; color:#cbd5e1;">${item.desc}</div>
-            <div style="font-size:11px; color:#a3e635; font-weight:bold; margin-top:2px;">價格： ${item.price金幣.toLocaleString()} 金幣</div>
+            <div style="font-size:11px; color:#a3e635; font-weight:bold; margin-top:2px;">價格： ${item.priceAdena.toLocaleString()} 金幣</div>
           </div>
         </div>
         <button
@@ -10507,7 +10507,7 @@ export function renderClanTab(container, state) {
     const roster = ClanService.getClanRoster(state);
     const motto = clan.motto || 'Pela Glória e Honra de Aden!';
     const rep = clan.reputation || 100;
-    const adenaDonated = clan.donations金幣 || 0;
+    const adenaDonated = clan.donationsAdena || 0;
     const spDonated = clan.donationsSp || 0;
 
     const rosterRows = roster.map(m => `
@@ -10621,7 +10621,7 @@ export function renderClanTab(container, state) {
                 ${isBuffActive ? `<span style="background:rgba(74,222,128,0.2); border:1px solid #4ade80; color:#86efac; font-size:10.5px; padding:1px 6px; border-radius:8px; font-weight:bold;">⏳ Ativo (${remainingMin}m)</span>` : ''}
               </div>
               <div style="font-size:11.5px; color:#cbd5e1; margin-top:2px;">${b.desc}</div>
-              <div style="font-size:11px; color:#a3e635; margin-top:2px;">費用： <strong>${b.cost金幣.toLocaleString()} 金幣</strong> (持續時間： 60 min)</div>
+              <div style="font-size:11px; color:#a3e635; margin-top:2px;">費用： <strong>${b.costAdena.toLocaleString()} 金幣</strong> (持續時間： 60 min)</div>
             </div>
           </div>
           <div>
@@ -10673,7 +10673,7 @@ export function renderClanTab(container, state) {
               onclick="window.upgradeClanAction()"
               style="padding:8px 16px; font-family:'Cinzel',serif; font-size:12px; font-weight:bold; background:linear-gradient(180deg,#16a34a,#15803d); border:1px solid #4ade80; color:#fff; border-radius:6px; cursor:pointer;"
             >
-              ⬆️ 提升血盟至等級 ${nextLvl.level} (${nextLvl.cost金幣.toLocaleString()} 金幣 / ${nextLvl.costSp.toLocaleString()} SP)
+              ⬆️ 提升血盟至等級 ${nextLvl.level} (${nextLvl.costAdena.toLocaleString()} 金幣 / ${nextLvl.costSp.toLocaleString()} SP)
             </button>
           ` : `
             <span style="color:#fde047; font-weight:bold; font-size:12px;">👑 等級 最大imo do Clã</span>
@@ -10889,7 +10889,7 @@ export function openAugmentModal(state) {
               style="padding:10px; font-size:11px; text-align:left; background:${activeStoneId === s.id ? '#164e63' : '#27272a'}; border:1px solid ${activeStoneId === s.id ? '#22d3ee' : '#3f3f46'}; color:#fff; border-radius:6px; cursor:pointer;"
             >
               <div style="font-weight:bold; color:#67e8f9;">${s.name}</div>
-              <div style="font-size:10px; color:#cbd5e1;">${s.desc} | 價格： ${s.price金幣.toLocaleString()} 金幣</div>
+              <div style="font-size:10px; color:#cbd5e1;">${s.desc} | 價格： ${s.priceAdena.toLocaleString()} 金幣</div>
             </button>
           `).join('')}
         </div>
@@ -10934,7 +10934,7 @@ export function renderSevenSignsTab(container, state) {
               🏛️ Seven Signs — Guerra dos Sete Selos
             </h2>
             <div style="font-size:12px; color:#c084fc; margin-top:4px;">
-              Facção Atual: <strong>${ss.faction ? FACTIONS[ss.faction].name : 'Nenhuma (Escolha sua facção)'}</strong> | Ancient 金幣: <strong style="color:#fef08a;">${(ss.ancient金幣 || 0).toLocaleString()} AA</strong>
+              Facção Atual: <strong>${ss.faction ? FACTIONS[ss.faction].name : 'Nenhuma (Escolha sua facção)'}</strong> | 古代金幣: <strong style="color:#fef08a;">${(ss.ancientAdena || 0).toLocaleString()} AA</strong>
             </div>
           </div>
           <div style="display:flex; gap:12px; align-items:center;">
@@ -11505,7 +11505,7 @@ export function renderCosmeticsTab(container, state) {
           const isUnlocked = state.cosmetics.unlockedAuras.includes(a.id);
           const isEquipped = state.cosmetics.activeAura === a.id || (a.id === 'aura_hero_golden' && state.isHero && state.cosmetics.activeAura === 'aura_none');
           const isHeroLocked = a.reqHero && !state.isHero && !state.heroStatus?.isHero;
-          const canAfford = (state.gold || 0) >= a.cost金幣;
+          const canAfford = (state.gold || 0) >= a.costAdena;
 
           return `
             <div class="cosmetic-card ${isEquipped ? 'equipped' : ''}" style="border: 1px solid ${isEquipped ? '#ffd700' : 'rgba(212,167,68,0.25)'};">
@@ -11519,7 +11519,7 @@ export function renderCosmeticsTab(container, state) {
                     ${isEquipped ? '<span style="font-size:9px; background:#ffd700; color:#000; padding:1px 4px; border-radius:3px; font-weight:bold;">ATIVO</span>' : ''}
                   </div>
                   <div style="font-size:11px; color:#94a3b8; margin-top:2px;">${a.desc}</div>
-                  ${!isUnlocked && a.cost金幣 > 0 ? `<div style="font-size:11px; color:#f59e0b; font-weight:bold; margin-top:4px;">💰 ${a.cost金幣.toLocaleString()} 金幣</div>` : ''}
+                  ${!isUnlocked && a.costAdena > 0 ? `<div style="font-size:11px; color:#f59e0b; font-weight:bold; margin-top:4px;">💰 ${a.costAdena.toLocaleString()} 金幣</div>` : ''}
                 </div>
               </div>
 
@@ -11538,7 +11538,7 @@ export function renderCosmeticsTab(container, state) {
                   </button>
                 ` : `
                   <button onclick="window.buyCosmeticAction('aura', '${a.id}')" ${!canAfford ? 'disabled' : ''} style="width:100%; padding:6px; font-size:11px; background:${canAfford ? 'linear-gradient(180deg,#d97706,#b45309)' : '#27272a'}; border:1px solid ${canAfford ? '#f59e0b' : '#3f3f46'}; color:${canAfford ? '#fff' : '#71717a'}; border-radius:4px; font-weight:bold; cursor:${canAfford ? 'pointer' : 'not-allowed'};">
-                    Desbloquear (${a.cost金幣.toLocaleString()} 金幣)
+                    Desbloquear (${a.costAdena.toLocaleString()} 金幣)
                   </button>
                 `}
               </div>
@@ -11553,7 +11553,7 @@ export function renderCosmeticsTab(container, state) {
         ${frames.map(f => {
           const isUnlocked = state.cosmetics.unlockedFrames.includes(f.id);
           const isEquipped = state.cosmetics.activeFrame === f.id;
-          const canAfford = (state.gold || 0) >= f.cost金幣;
+          const canAfford = (state.gold || 0) >= f.costAdena;
 
           return `
             <div class="cosmetic-card ${isEquipped ? 'equipped' : ''}" style="border: 1px solid ${isEquipped ? '#ffd700' : 'rgba(212,167,68,0.25)'};">
@@ -11567,7 +11567,7 @@ export function renderCosmeticsTab(container, state) {
                     ${isEquipped ? '<span style="font-size:9px; background:#ffd700; color:#000; padding:1px 4px; border-radius:3px; font-weight:bold;">ATIVO</span>' : ''}
                   </div>
                   <div style="font-size:11px; color:#94a3b8; margin-top:2px;">${f.desc}</div>
-                  ${!isUnlocked && f.cost金幣 > 0 ? `<div style="font-size:11px; color:#f59e0b; font-weight:bold; margin-top:4px;">💰 ${f.cost金幣.toLocaleString()} 金幣</div>` : ''}
+                  ${!isUnlocked && f.costAdena > 0 ? `<div style="font-size:11px; color:#f59e0b; font-weight:bold; margin-top:4px;">💰 ${f.costAdena.toLocaleString()} 金幣</div>` : ''}
                 </div>
               </div>
 
@@ -11582,7 +11582,7 @@ export function renderCosmeticsTab(container, state) {
                   </button>
                 ` : `
                   <button onclick="window.buyCosmeticAction('frame', '${f.id}')" ${!canAfford ? 'disabled' : ''} style="width:100%; padding:6px; font-size:11px; background:${canAfford ? 'linear-gradient(180deg,#d97706,#b45309)' : '#27272a'}; border:1px solid ${canAfford ? '#f59e0b' : '#3f3f46'}; color:${canAfford ? '#fff' : '#71717a'}; border-radius:4px; font-weight:bold; cursor:${canAfford ? 'pointer' : 'not-allowed'};">
-                    Desbloquear (${f.cost金幣.toLocaleString()} 金幣)
+                    Desbloquear (${f.costAdena.toLocaleString()} 金幣)
                   </button>
                 `}
               </div>
@@ -11597,7 +11597,7 @@ export function renderCosmeticsTab(container, state) {
         ${titles.map(t => {
           const isUnlocked = state.cosmetics.unlockedTitles.includes(t.id);
           const isEquipped = state.cosmetics.activeTitle === t.id;
-          const canAfford = (state.gold || 0) >= t.cost金幣;
+          const canAfford = (state.gold || 0) >= t.costAdena;
 
           return `
             <div class="cosmetic-card ${isEquipped ? 'equipped' : ''}" style="border: 1px solid ${isEquipped ? '#ffd700' : 'rgba(212,167,68,0.25)'};">
@@ -11611,7 +11611,7 @@ export function renderCosmeticsTab(container, state) {
                     ${isEquipped ? '<span style="font-size:9px; background:#ffd700; color:#000; padding:1px 4px; border-radius:3px; font-weight:bold;">ATIVO</span>' : ''}
                   </div>
                   <div style="font-size:11px; color:#94a3b8; margin-top:2px;">${t.desc}</div>
-                  ${!isUnlocked && t.cost金幣 > 0 ? `<div style="font-size:11px; color:#f59e0b; font-weight:bold; margin-top:4px;">💰 ${t.cost金幣.toLocaleString()} 金幣</div>` : ''}
+                  ${!isUnlocked && t.costAdena > 0 ? `<div style="font-size:11px; color:#f59e0b; font-weight:bold; margin-top:4px;">💰 ${t.costAdena.toLocaleString()} 金幣</div>` : ''}
                 </div>
               </div>
 
@@ -11626,7 +11626,7 @@ export function renderCosmeticsTab(container, state) {
                   </button>
                 ` : `
                   <button onclick="window.buyCosmeticAction('title', '${t.id}')" ${!canAfford ? 'disabled' : ''} style="width:100%; padding:6px; font-size:11px; background:${canAfford ? 'linear-gradient(180deg,#d97706,#b45309)' : '#27272a'}; border:1px solid ${canAfford ? '#f59e0b' : '#3f3f46'}; color:${canAfford ? '#fff' : '#71717a'}; border-radius:4px; font-weight:bold; cursor:${canAfford ? 'pointer' : 'not-allowed'};">
-                    Desbloquear (${t.cost金幣.toLocaleString()} 金幣)
+                    Desbloquear (${t.costAdena.toLocaleString()} 金幣)
                   </button>
                 `}
               </div>
