@@ -283,7 +283,7 @@ export function dissolveItemsByGrade(state, targetGrade = 'all', callbacks = {})
   }
 
   if (toDissolve.length === 0) {
-    log(`⚠️ Nenhum equipamento [Grau: ${targetGrade.toUpperCase()}] desequipado para dissolver!`, 'warning');
+    log(`⚠️ 沒有可分解的未裝備 ${targetGrade.toUpperCase()} 級裝備！`, 'warning');
     return 0;
   }
 
@@ -320,7 +320,7 @@ export function dissolveItemsByGrade(state, targetGrade = 'all', callbacks = {})
     if (amt > 0) state.essences[type] = (state.essences[type] || 0) + amt;
   }
 
-  log(`🔥 Cadinho de Almas: Dissolveu ${count} equipamentos (+${totalEssences.fire} 🔥, +${totalEssences.earth} 🛡️, +${totalEssences.wind} 🍃, +${totalEssences.water} 💧)!`, 'rarity-legendary');
+  log(`🔥 靈魂熔爐：已分解 ${count} 件裝備（+${totalEssences.fire} 🔥、+${totalEssences.earth} 🛡️、+${totalEssences.wind} 🍃、+${totalEssences.water} 💧）！`, 'rarity-legendary');
   updateAllUI();
   save();
   return count;
@@ -429,15 +429,15 @@ export function useChaosBossSummonStone(state, callbacks = {}) {
 
   const gData = D();
   const bosses = [
-    { id: 'queen_ant', name: '蟻后（Queen Ant）', level: 40, hp: 120000, atk: 450, def: 220, exp: 35000, sp: 8000, gold: 50000, icon: 'monsters/queen_ant.png' },
-    { id: 'core', name: '克魯瑪高塔 Core', level: 50, hp: 200000, atk: 650, def: 350, exp: 60000, sp: 15000, gold: 80000, icon: 'monsters/core.png' },
-    { id: 'orfen', name: '孢子之海 Orfen', level: 60, hp: 350000, atk: 900, def: 480, exp: 110000, sp: 28000, gold: 120000, icon: 'monsters/orfen.png' },
+    { id: 'queen_ant', name: '蟻后', level: 40, hp: 120000, atk: 450, def: 220, exp: 35000, sp: 8000, gold: 50000, icon: 'monsters/queen_ant.png' },
+    { id: 'core', name: '克魯瑪高塔核心', level: 50, hp: 200000, atk: 650, def: 350, exp: 60000, sp: 15000, gold: 80000, icon: 'monsters/core.png' },
+    { id: 'orfen', name: '孢子之海歐爾芬', level: 60, hp: 350000, atk: 900, def: 480, exp: 110000, sp: 28000, gold: 120000, icon: 'monsters/orfen.png' },
     { id: 'zaken', name: '海賊王札肯', level: 70, hp: 600000, atk: 1300, def: 650, exp: 220000, sp: 55000, gold: 200000, icon: 'monsters/zaken.png' },
     { id: 'baium', name: '皇帝巴溫', level: 75, hp: 1200000, atk: 2200, def: 900, exp: 450000, sp: 120000, gold: 400000, icon: 'monsters/baium.png' },
-    { id: 'barakiel', name: '光輝之炎 Barakiel', level: 80, hp: 1800000, atk: 2800, def: 1200, exp: 700000, sp: 200000, gold: 600000, icon: 'monsters/barakiel.png' },
-    { id: 'frintezza', name: '王子 Frintezza 與 Halisha', level: 85, hp: 2500000, atk: 3600, def: 1500, exp: 1100000, sp: 320000, gold: 900000, icon: 'monsters/frintezza.png' },
-    { id: 'antharas', name: '地龍 Antharas', level: 90, hp: 4000000, atk: 5000, def: 2000, exp: 2000000, sp: 600000, gold: 1500000, icon: 'monsters/antharas.png' },
-    { id: 'valakas', name: '火龍 Valakas', level: 95, hp: 6000000, atk: 6800, def: 2600, exp: 3500000, sp: 1000000, gold: 2500000, icon: 'monsters/valakas.png' }
+    { id: 'barakiel', name: '光輝之炎巴拉基爾', level: 80, hp: 1800000, atk: 2800, def: 1200, exp: 700000, sp: 200000, gold: 600000, icon: 'monsters/barakiel.png' },
+    { id: 'frintezza', name: '王子弗林泰沙與哈里沙', level: 85, hp: 2500000, atk: 3600, def: 1500, exp: 1100000, sp: 320000, gold: 900000, icon: 'monsters/frintezza.png' },
+    { id: 'antharas', name: '地龍安塔瑞斯', level: 90, hp: 4000000, atk: 5000, def: 2000, exp: 2000000, sp: 600000, gold: 1500000, icon: 'monsters/antharas.png' },
+    { id: 'valakas', name: '火龍巴拉卡斯', level: 95, hp: 6000000, atk: 6800, def: 2600, exp: 3500000, sp: 1000000, gold: 2500000, icon: 'monsters/valakas.png' }
   ];
 
   // Escala com o nível atual do jogador
@@ -478,7 +478,7 @@ export function useChaosBossSummonStone(state, callbacks = {}) {
   state.isRaidActive = false; // Permite combate idle normal
 
   log(`🌀 混沌裂隙已開啟！你在戰鬥模式召喚了 ${chaosBoss.name}！`, 'rarity-legendary');
-  floatText('🌀 CHAOS BOSS INVOCADO!', 'float-meteor');
+  floatText('🌀 混沌首領已召喚！', 'float-meteor');
 
   if (callbacks.renderStageMonster) {
     try { callbacks.renderStageMonster(); } catch (e) {}
@@ -515,7 +515,7 @@ export function processChaosBossLoot(state, monster, callbacks = {}) {
   // 2. Adena da Temporada
   const goldReward = Math.floor(droplist.goldMin + Math.random() * (droplist.goldMax - droplist.goldMin + 1));
   state.gold = (state.gold || 0) + goldReward;
-  log(`🪙 Ouro do Caos: +${goldReward.toLocaleString()} Adena recolhida do chefe derrotado!`, 'loot');
+  log(`🪙 混沌金幣：從擊敗的首領取得 +${goldReward.toLocaleString()} 金幣！`, 'loot');
 
   // 3. Drops com Probabilidade da Temporada
   if (Array.isArray(droplist.chanceDrops)) {
@@ -523,7 +523,7 @@ export function processChaosBossLoot(state, monster, callbacks = {}) {
       if (Math.random() < cd.chance) {
         addToInventory(state, cd.itemId, cd.count || 1, cd.rarity || 'epic', false, callbacks, true);
         const def = getItemDef(cd.itemId) || { name: cd.itemId };
-        log(`💎 Drop Raro do Caos (${Math.round(cd.chance * 100)}%): Resgatou [${def.name}]!`, 'rarity-legendary');
+        log(`💎 混沌稀有掉落（${Math.round(cd.chance * 100)}%）：獲得 [${def.name}]！`, 'rarity-legendary');
       }
     }
   }
