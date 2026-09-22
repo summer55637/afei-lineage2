@@ -106,7 +106,7 @@ export const IDLE_MARKUP = `
           <div style="display:flex; justify-content:space-between; align-items:center;">
             <div style="display:flex; align-items:center; gap:6px;">
               <span style="font-size:10px; color:#94a3b8; font-family:'Cinzel',serif;">等級</span>
-              <span id="hero-title-badge" style="display:none; color:#ffd700; font-size:10px; font-weight:bold; background:rgba(255,215,0,0.15); border:1px solid rgba(255,215,0,0.4); padding:1px 5px; border-radius:4px;">👑 HERÓI</span>
+              <span id="hero-title-badge" style="display:none; color:#ffd700; font-size:10px; font-weight:bold; background:rgba(255,215,0,0.15); border:1px solid rgba(255,215,0,0.4); padding:1px 5px; border-radius:4px;">👑 角色</span>
               <span id="hero-custom-title-badge" style="display:none; font-size:10px; font-weight:bold; padding:1px 5px; border-radius:4px; border:1px solid currentColor;"></span>
             </div>
             <span id="level-text" class="stat-value" style="color:#ffd700; font-weight:bold; font-size:13px;">1</span>
@@ -590,7 +590,7 @@ export const IDLE_MARKUP = `
             <!-- 9. AÇÕES DO RODAPÉ -->
             <div class="char-actions" style="margin-top: 20px;">
               <button id="save-btn" class="action-btn">💾 儲存進度</button>
-              <button id="start-btn" class="action-btn action-btn--primary">⚔️ Entrar na Caçada</button>
+              <button id="start-btn" class="action-btn action-btn--primary">⚔️ 開始狩獵</button>
               <button id="reset-btn" class="action-btn action-btn--danger">⚠️ Reiniciar 角色</button>
             </div>
           </div>
@@ -600,7 +600,7 @@ export const IDLE_MARKUP = `
             <div class="skills-head">
               <h3>技能與天賦樹</h3>
               <div style="display:flex; gap:10px; align-items:center;">
-                <span class="sp-pill"><span class="sp-icon">✦</span> <span id="sp-available">0</span> SP Disponível</span>
+                <span class="sp-pill"><span class="sp-icon">✦</span> <span id="sp-available">0</span> 可用 SP</span>
                 <button id="reset-sp-btn" class="inv-batch-btn" title="Redistribuir todos os pontos de habilidade investidos">🔄 重置 SP</button>
               </div>
             </div>
@@ -608,7 +608,7 @@ export const IDLE_MARKUP = `
             <div id="skills-class-adv-banner" class="class-advancement-banner" style="display:none; margin: 8px 0 12px 0;">
               <span class="banner-icon">⚡</span>
               <div class="banner-info">
-                <h4 id="skills-class-adv-title">1ª Troca de Classe Disponível!</h4>
+                <h4 id="skills-class-adv-title">第一次轉職已開放！</h4>
                 <p id="skills-class-adv-sub">提升職業階段以解鎖新的力量與天賦樹。</p>
               </div>
               <button id="skills-class-adv-btn" class="class-adv-action-btn" onclick="window.openClassTransferModal && window.openClassTransferModal()">職業晉升</button>
@@ -795,7 +795,7 @@ export const IDLE_MARKUP = `
                 <div class="l2inv-tabs-header">
                   <button class="l2inv-tab-btn filter-btn active" data-filter="all">✨ Todos</button>
                   <button class="l2inv-tab-btn filter-btn" data-filter="gear">⚔️ Equipamentos</button>
-                  <button class="l2inv-tab-btn filter-btn" data-filter="consumable">🧪 Consumíveis</button>
+                  <button class="l2inv-tab-btn filter-btn" data-filter="consumable">🧪 消耗品</button>
                   <button class="l2inv-tab-btn filter-btn" data-filter="material">💎 Materiais</button>
                 </div>
 
@@ -930,7 +930,7 @@ export const IDLE_MARKUP = `
               </div>
               <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
                 <span class="shop-gold-pill">🪙 <span id="shop-gold">0</span> Adena</span>
-                <span id="mystic-shop-timer" class="mystic-timer-pill" style="display:none;">⏳ Restoque Místico: <strong id="mystic-timer-countdown">03:00:00</strong></span>
+                <span id="mystic-shop-timer" class="mystic-timer-pill" style="display:none;">⏳ 神秘補貨： <strong id="mystic-timer-countdown">03:00:00</strong></span>
               </div>
             </div>
 
@@ -1101,7 +1101,7 @@ export const IDLE_MARKUP = `
                   <span style="font-size:16px;">💬</span>
                   <span class="l2chat-title">Chat</span>
                 </div>
-                <button class="l2chat-close-btn" id="forge-dialogue-close-btn" title="關閉 Diálogo">✕</button>
+                <button class="l2chat-close-btn" id="forge-dialogue-close-btn" title="關閉對話">✕</button>
               </div>
 
               <!-- NPC Speech Box & Story Lore (Wilbert from Image 5) -->
@@ -1180,7 +1180,7 @@ export const IDLE_MARKUP = `
                   <button class="inv-batch-btn" data-craft-cat="armor">🛡 Armaduras</button>
                   <button class="inv-batch-btn" data-craft-cat="jewel">💍 Joias</button>
                   <button class="inv-batch-btn" data-craft-cat="relic">🧚 Agathions</button>
-                  <button class="inv-batch-btn" data-craft-cat="consumable">🧪 Consumíveis</button>
+                  <button class="inv-batch-btn" data-craft-cat="consumable">🧪 消耗品</button>
                 </div>
               </div>
 
@@ -1243,7 +1243,7 @@ export const IDLE_MARKUP = `
               <h3>強化工坊（+1 至 +16）</h3>
               <p class="stat-value">使用古代卷軸強化</p>
             </div>
-            <p class="shop-info">Encante seus equipamentos usando Pergaminhos de Encantamento (+10% de atributos adicionais por nível de encantamento).</p>
+            <p class="shop-info">使用強化卷軸強化裝備（每個強化等級額外 +10% 屬性）。</p>
             <div class="enchant-workspace" id="enchant-workspace-dedicated"></div>
           </div>
 
@@ -1656,7 +1656,7 @@ export const IDLE_MARKUP = `
     <!-- Class Transfer Modal -->
     <div id="class-transfer-modal" class="modal">
       <div class="modal-content class-transfer-box">
-        <h2 id="class-modal-heading">📜 Cerimônia de Avanço de Classe</h2>
+        <h2 id="class-modal-heading">📜 轉職儀式</h2>
         <p class="modal-sub">選擇你在亞丁的最終成長路線。晉升後可獲得新屬性、被動加成並解鎖高階技能！</p>
         <div id="class-options-container" class="class-options-container"></div>
         <div class="modal-actions" style="margin-top: 16px;">
@@ -1686,7 +1686,7 @@ export const IDLE_MARKUP = `
         <div id="symbol-net-summary" style="background:rgba(0,0,0,0.6); border:1px solid rgba(212,175,55,0.3); border-radius:8px; padding:10px 14px; margin-bottom:16px; font-size:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;"></div>
 
         <!-- Available Hennas for Inscription -->
-        <div style="font-family:'Cinzel',serif; font-size:13px; font-weight:bold; color:#93c5fd; margin-bottom:8px;">📜 Hennas Maiores Disponíveis no Inventário / 市場</div>
+        <div style="font-family:'Cinzel',serif; font-size:13px; font-weight:bold; color:#93c5fd; margin-bottom:8px;">📜 背包／市場可用的高階染料</div>
         <div id="symbol-hennas-list" style="display:flex; flex-direction:column; gap:8px; max-height:220px; overflow-y:auto; padding-right:4px;"></div>
       </div>
     </div>
@@ -1984,7 +1984,7 @@ export const IDLE_MARKUP = `
           <!-- TAB 3: ITEM SPAWNER -->
           <div id="admin-tab-spawner" class="admin-tab-panel">
             <div class="admin-section admin-spawner">
-              <h3>🎁 Gerador de Itens &amp; Relíquias</h3>
+              <h3>🎁 物品與遺物產生器</h3>
               <div class="spawner-fields">
                 <div class="admin-search-wrapper" style="margin-bottom:8px; display:flex; gap:6px;">
                   <input 
@@ -2040,10 +2040,10 @@ export const IDLE_MARKUP = `
                 <div class="spawner-check-row" style="margin-top:6px; display:flex; align-items:center; gap:8px;">
                   <label style="font-size:12px; color:var(--gilt-bright); cursor:pointer; display:flex; align-items:center; gap:6px;">
                     <input type="checkbox" id="admin-item-foundation" style="accent-color:#d4a744; width:15px; height:15px; cursor:pointer;" />
-                    ✨ <strong>Item Foundation</strong> (Bônus Místico de Raridade &amp; Afixo Exclusivo)
+                    ✨ <strong>物品基底</strong>（稀有度神秘加成與專屬詞綴）
                   </label>
                 </div>
-                <button id="admin-spawn-btn" class="admin-btn primary" style="margin-top:10px; width:100%; padding:10px; font-weight:bold;">✨ Gerar Item na Mochila</button>
+                <button id="admin-spawn-btn" class="admin-btn primary" style="margin-top:10px; width:100%; padding:10px; font-weight:bold;">✨ 產生物品到背包</button>
               </div>
             </div>
           </div>
@@ -2053,7 +2053,7 @@ export const IDLE_MARKUP = `
             <div class="admin-grid">
               <!-- Section 1: Level & XP Controls -->
               <div class="admin-section">
-                <h3>📊 Nível &amp; Experiência (XP)</h3>
+                <h3>📊 等級與經驗值（XP）</h3>
                 <div class="admin-btn-group">
                   <button class="admin-btn" data-admin-cmd="level20">Set Lv.20</button>
                   <button class="admin-btn" data-admin-cmd="level40">Set Lv.40</button>
@@ -2099,7 +2099,7 @@ export const IDLE_MARKUP = `
           <!-- TAB 5: CHEATS & PROGRESSION -->
           <div id="admin-tab-cheats" class="admin-tab-panel">
             <div class="admin-section">
-              <h3>⚡ Cheats de Jogo &amp; Progressão Imediata</h3>
+              <h3>⚡ 遊戲測試與快速進度</h3>
               <div class="admin-btn-group">
                 <button class="admin-btn" data-admin-cmd="godmode">🛡️ Invencibilidade (God Mode)</button>
                 <button class="admin-btn" data-admin-cmd="healfull">❤️ Recuperar HP/MP Full</button>
@@ -2179,8 +2179,8 @@ export const IDLE_MARKUP = `
 
     <!-- Mobile Bottom Dock Navigation -->
     <nav class="mobile-bottom-nav">
-      <button class="mobile-nav-btn active" data-tab="battle"><span class="icon">⚔️</span><span>Batalha</span></button>
-      <button class="mobile-nav-btn" data-tab="inventory"><span class="icon">🎒</span><span>Mochila</span></button>
+      <button class="mobile-nav-btn active" data-tab="battle"><span class="icon">⚔️</span><span>戰鬥</span></button>
+      <button class="mobile-nav-btn" data-tab="inventory"><span class="icon">🎒</span><span>背包</span></button>
       <button class="mobile-nav-btn" data-tab="hero"><span class="icon">👤</span><span>角色</span></button>
       <button class="mobile-nav-btn" data-tab="skills"><span class="icon">✦</span><span>Skills</span></button>
       <button class="mobile-nav-btn" data-tab="codex"><span class="icon">📜</span><span>Codex</span></button>
