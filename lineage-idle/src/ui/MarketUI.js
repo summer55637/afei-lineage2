@@ -559,7 +559,7 @@ function renderMySalesTab(state, salesData) {
             ${history.slice(0, 15).map(h => `
               <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.04); border-radius: 6px; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
                 <span style="color: #cbd5e1;">
-                  已將 <strong style="color:#ffd877;">${h.quantity}x ${h.itemName}</strong> 售給 <span style="color:#34d399;">${h.buyer}</span>
+                  已將 <strong style="color:#ffd877;">${h.quantity}× ${h.itemName}</strong> 售給 <span style="color:#34d399;">${h.buyer}</span>
                 </span>
                 <span style="font-weight: bold; color: ${h.currency === 'adena' ? '#ffd877' : '#60a5fa'}; font-family: 'IBM Plex Mono', monospace;">
                   +${h.currency === 'adena' ? '🪙 ' : '👑 '}${h.totalCost.toLocaleString()}
