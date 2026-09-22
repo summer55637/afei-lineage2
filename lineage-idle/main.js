@@ -3500,7 +3500,7 @@ function renderBattlePassUI() {
       const premClaimed = Array.isArray(state.battlePass.claimedPremium) && state.battlePass.claimedPremium.includes(tier.level);
 
       const freeLabel = freeClaimed ? '✓' : (isUnlocked ? '領取' : '已鎖定');
-      const premLabel = premClaimed ? '✓' : (isUnlocked && state.battlePass.unlockedPremium ? '領取' : (state.battlePass.unlockedPremium ? '已鎖定' : '👑 R$ 15'));
+      const premLabel = premClaimed ? '✓' : (isUnlocked && state.battlePass.unlockedPremium ? '領取' : (state.battlePass.unlockedPremium ? '已鎖定' : '👑 15 巴西雷亞爾'));
 
       const freeRewardStr = Object.entries(tier.free).map(([k, v]) => `${k === 'gold' ? '💰 ' + v : k === 'sp' ? '✦ ' + v : v}`).join(', ');
       const premRewardStr = Object.entries(tier.premium).map(([k, v]) => `${k === 'gold' ? '💰 ' + v : k === 'title' ? '🏷️ ' + v : v}`).join(', ');
@@ -6510,7 +6510,7 @@ function handleChatSubmit(inputStr) {
   // Open Admin Console secret commands
   if (isAuthorizedAdmin() && (lower === '//admin' || lower === '/admin' || lower === '//gm' || lower === 'admin' || lower === 'gm')) {
     openAdminModal();
-    log('🛡️ [GM 控制台] 已授權存取！管理員面板已解鎖。', 'rarity-legendary');
+    log('🛡️ [管理員控制台] 已授權存取！管理員面板已解鎖。', 'rarity-legendary');
     return;
   }
 
@@ -8610,7 +8610,7 @@ export function bindEvents() {
 
         try {
           adminWipeBtn.disabled = true;
-          adminWipeBtn.textContent = '⏳ 正在清除 Firestore 的 17 個資料集合...';
+          adminWipeBtn.textContent = '⏳ 正在清除雲端資料庫的 17 個資料集合……';
 
           const wipeFn = (typeof window !== 'undefined' && window.FirebaseBridge?.wipeEntireGameDatabase) || 
                          (typeof window !== 'undefined' && window.wipeEntireGameDatabase);
