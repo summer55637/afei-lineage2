@@ -33,7 +33,7 @@ export const SupabaseService = {
     const supabase = getSupabase();
     if (!supabase || !userId) {
       // Fallback local garantido
-      return { ok: true, msg: 'Salvo localmente com sucesso.' };
+      return { ok: true, msg: '已成功儲存到本機。' };
     }
 
     try {
@@ -55,10 +55,10 @@ export const SupabaseService = {
         .upsert(payload, { onConflict: 'user_id' });
 
       if (error) throw error;
-      return { ok: true, msg: 'Progresso sincronizado na nuvem ☁️' };
+      return { ok: true, msg: '進度已同步至雲端 ☁️' };
     } catch (err: any) {
       console.warn('[SupabaseService] Erro ao sincronizar nuvem:', err.message);
-      return { ok: false, msg: 'Falha na conexão com a nuvem (Salvo localmente).' };
+      return { ok: false, msg: '雲端連線失敗（已儲存到本機）。' };
     }
   },
 
