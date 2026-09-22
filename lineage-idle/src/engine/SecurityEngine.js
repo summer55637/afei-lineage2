@@ -52,16 +52,16 @@ export function generateStateChecksum(state) {
  */
 export function validateStateIntegrity(data) {
   if (!data || typeof data !== 'object') {
-    return { valid: false, reason: 'Dados corrompidos ou inválidos.' };
+    return { valid: false, reason: '存檔資料損壞或無效。' };
   }
 
   // Validação de limites de sanidade fundamentais
   if (data.level && (data.level < 1 || data.level > MAX_LEVEL_CAP)) {
-    return { valid: false, reason: `Nível fora dos limites permitidos (1-${MAX_LEVEL_CAP}).` };
+    return { valid: false, reason: `等級超出允許範圍（1-${MAX_LEVEL_CAP}）。` };
   }
 
   if (data.gold !== undefined && (typeof data.gold !== 'number' || isNaN(data.gold) || data.gold < 0)) {
-    return { valid: false, reason: 'Quantidade de ouro inválida ou negativa.' };
+    return { valid: false, reason: '金幣數量無效或為負數。' };
   }
 
   // Se o save já possui checksum gerado anteriormente, valida correspondência
@@ -69,7 +69,7 @@ export function validateStateIntegrity(data) {
     const expected = generateStateChecksum(data);
     if (data._chk !== expected) {
       // Se apenas o checksum divergiu mas os valores são válidos e numéricos, auto-recupera sem descartar dados
-      return { valid: false, reason: 'Assinatura de integridade incompatível (dados alterados externamente).' };
+      return { valid: false, reason: '存檔完整性簽章不符（資料可能曾被外部修改）。' };
     }
   }
 
