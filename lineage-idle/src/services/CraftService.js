@@ -808,7 +808,7 @@ export function applyLifeStone(state, weaponUid, grade = 'top', callbacks = {}) 
   };
 
   if (callbacks.log) {
-    callbacks.log(`💎 附魔改造完成：${def.name} 獲得【+${atkBonus} P.Atk、+${critBonus} 暴擊、+${hpBonus} HP】${skill ? ` 與【${skill.name}】` : ''}！`, 'rarity-legendary');
+    callbacks.log(`💎 附魔改造完成：${def.name} 獲得【+${atkBonus} 物理攻擊、+${critBonus} 暴擊、+${hpBonus} 生命值】${skill ? ` 與【${skill.name}】` : ''}！`, 'rarity-legendary');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -990,7 +990,7 @@ export function spinRandomCraft(state, callbacks = {}) {
   if (rc.history.length > 20) rc.history.pop();
 
   if (callbacks.log) {
-    callbacks.log(`🎰 隨機製作！輪盤抽中第 ${wonIdx + 1} 格：**${def.name}** ${reward.count > 1 ? `（${reward.count}x）` : ''}！`, 'rarity-legendary');
+    callbacks.log(`🎰 隨機製作！輪盤抽中第 ${wonIdx + 1} 格：**${def.name}** ${reward.count > 1 ? `（${reward.count}×）` : ''}！`, 'rarity-legendary');
   }
 
   // Renova automaticamente os 5 slots para o próximo giro
