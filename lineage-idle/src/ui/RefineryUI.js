@@ -95,7 +95,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
           transition: border-color 0.2s;
         ">
           <div>
-            <!-- Cabeçalho da Receita -->
+            <!-- Cabeçalho da 配方 -->
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
               <div style="display: flex; align-items: center; gap: 8px;">
                 <img src="/img/icons/${outDef.icon}" style="width:28px; height:28px; object-fit:contain; border:1px solid rgba(212,167,68,0.4); border-radius:4px; background:rgba(0,0,0,0.5); padding:2px;" onerror="this.src='/img/icons/materials/steel.png'" />
@@ -113,7 +113,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
               ${rec.desc}
             </p>
 
-            <!-- Materiais Requeridos ➔ Saída -->
+            <!-- 所需材料 ➔ 產出 -->
             <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 12px;">
               ${inputsHtml}
               <span style="color: #6ee7b7; font-size: 14px; font-weight: bold;">➔</span>
@@ -149,7 +149,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
                 cursor: ${maxPossible >= 1 ? 'pointer' : 'not-allowed'};
               "
             >
-              Refinar x1
+              精煉 x1
             </button>
             <button
               onclick="window.refineMaterial('${rec.id}', 10)"
@@ -166,7 +166,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
                 cursor: ${maxPossible >= 10 ? 'pointer' : 'not-allowed'};
               "
             >
-              Refinar x10
+              精煉 x10
             </button>
             <button
               onclick="window.refineMaterialMax('${rec.id}')"
@@ -184,7 +184,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
                 cursor: ${maxPossible > 0 ? 'pointer' : 'not-allowed'};
               "
             >
-              Refinar Máx (${maxPossible})
+              最大量精煉 (${maxPossible})
             </button>
           </div>
         </div>
@@ -211,11 +211,11 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
             ⚗️ Bancada de Refino de Materiais (Life Activities 2.0)
           </h3>
           <p style="margin: 4px 0 0 0; font-size: 11px; color: #cbd5e1;">
-            Transforme madeira, peles, ossos, minérios e ervas colhidos nas atividades de vida em materiais nobres para a Forja Imperial.
+            將生活活動取得的木材、皮革、骨頭、礦石與草藥精煉成帝國鍛造所需的高級材料。
           </p>
         </div>
         <div style="font-size: 11px; color: #ffd877; background: rgba(0,0,0,0.5); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(212,167,68,0.3);">
-          🪙 Ouro: <strong style="color:#fde047;">${(state.gold || 0).toLocaleString()} Adena</strong>
+          🪙 金幣： <strong style="color:#fde047;">${(state.gold || 0).toLocaleString()} Adena</strong>
         </div>
       </div>
 
@@ -224,7 +224,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
         ${filterButtonsHtml}
       </div>
 
-      <!-- Grid de Receitas de Refino -->
+      <!-- Grid de 配方s de Refino -->
       <div style="
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
