@@ -3408,7 +3408,7 @@ export function updateCharacterUI(state) {
       weapon2: { label: '副武器', icon: '🗡️' },
       shield: { label: '盾牌／符印', icon: '🛡️' },
       helmet: { label: 'Capacete', icon: '🪖' },
-      armor: { label: 'Peitoral', icon: '🛡️' },
+      armor: { label: '胸甲', icon: '🛡️' },
       legs: { label: 'Perneiras', icon: '👖' },
       gloves: { label: 'Luvas', icon: '🧤' },
       boots: { label: 'Botas', icon: '👢' },
@@ -4700,7 +4700,7 @@ export function updateImperialEconomyHeader(state) {
     const rc = state.randomCraft || {};
     const charges = Number(rc.charge ?? state.craftCharges ?? 0);
     const points = Number(rc.points ?? state.randomCraftCharge ?? state.craftPoints ?? 0);
-    chargesEl.textContent = `${charges} Carga${charges !== 1 ? 's' : ''} (${points}/100)`;
+    chargesEl.textContent = `${charges} 次充能（${points}/100）`;
   }
 }
 
@@ -5387,7 +5387,7 @@ function renderStoreSellTab(state, callbacks) {
   if (bottomAdena) bottomAdena.textContent = (state.gold || 0).toLocaleString();
   if (bottomPrice) bottomPrice.textContent = '0';
   if (confirmBtn) {
-    confirmBtn.textContent = 'Sell';
+    confirmBtn.textContent = '出售';
     confirmBtn.disabled = true;
   }
   if (cancelBtn) {
