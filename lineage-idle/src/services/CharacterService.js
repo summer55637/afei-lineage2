@@ -11,7 +11,7 @@ import { getClass } from '../engine/StatsEngine.js';
 import { getSkillCost } from '../engine/SkillEngine.js';
 import { resolveCanonicalClassId, resolveCanonicalDagClassId, getCanonicalCharacterClass } from '../data/classes/class_aliases.js';
 import { getAncestors, getDescendants, getLineage, getSuccessors, canAdvance, getClassEntity } from '../data/elemental/ClassLineage.js';
-import { HISTORICAL_CLASS_MAP } from '../data/elemental/Historical職業s.js';
+import { HISTORICAL_CLASS_MAP } from '../data/elemental/HistoricalClasses.js';
 import { CLASS_IDENTITIES } from '../data/elemental/ClassIdentity.js';
 import { CANONICAL_CLASS_REGISTRY } from '../data/classes/CanonicalClassRegistry.js';
 
