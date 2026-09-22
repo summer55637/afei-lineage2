@@ -35,14 +35,14 @@ const CLASSES_ECHO = {
     desc: '人類的基礎戰鬥職業。',
     base: { atk: 12, def: 10, hp: 100, mp: 30, eva: 5, crit: 5, matk: 0, mdef: 5 },
     skills: [
-      { name: "強力打擊",       type: "Ativo",    rarity: "1★", effect: "Dano físico 150%",              cooldown: "8s",     desc: "對目標施展集中打擊。" },
-      { name: "致命一擊",         type: "Ativo",    rarity: "1★", effect: "Dano 170% + chance crit 20%",   cooldown: "10s",    desc: "具有較高暴擊機率的攻擊。" },
-      { name: "強力射擊",          type: "Ativo",    rarity: "1★", effect: "Dano à distância 140%",         cooldown: "9s",     desc: "集中力量進行射擊。" },
-      { name: "突進",                type: "Ativo",    rarity: "1★", effect: "Avança ao alvo + dano 120%",    cooldown: "15s",    desc: "快速衝向敵人。" },
-      { name: "包紮",             type: "Ativo",    rarity: "1★", effect: "Cura 15% HP",                   cooldown: "30s",    desc: "進行緊急治療。" },
-      { name: "戰士意志",      type: "Self-Buff",rarity: "1★", effect: "+10% ATK e +10% DEF por 15 min",cooldown: "30 min", desc: "戰士堅定的意志。" },
-      { name: "HP 提升 Lv1",     type: "Passivo",  rarity: "1★", effect: "+5% Max HP",                    cooldown: "N/A",    desc: "強化體質。" },
-      { name: "輕甲精通", type: "Passivo",  rarity: "1★", effect: "+8% DEF com armadura leve",     cooldown: "N/A",    desc: "精通輕型防具。" }
+      { name: "強力打擊",       type: "Ativo",    rarity: "1★", effect: "物理傷害 150%",              cooldown: "8s",     desc: "對目標施展集中打擊。" },
+      { name: "致命一擊",         type: "Ativo",    rarity: "1★", effect: "傷害 170% + 暴擊率 20%",   cooldown: "10s",    desc: "具有較高暴擊機率的攻擊。" },
+      { name: "強力射擊",          type: "Ativo",    rarity: "1★", effect: "遠距傷害 140%",         cooldown: "9s",     desc: "集中力量進行射擊。" },
+      { name: "突進",                type: "Ativo",    rarity: "1★", effect: "衝向目標 + 傷害 120%",    cooldown: "15s",    desc: "快速衝向敵人。" },
+      { name: "包紮",             type: "Ativo",    rarity: "1★", effect: "治癒 15% HP",                   cooldown: "30s",    desc: "進行緊急治療。" },
+      { name: "戰士意志",      type: "Self-Buff",rarity: "1★", effect: "+10% ATK 並 +10% DEF 持續 15 分鐘",cooldown: "30 min", desc: "戰士堅定的意志。" },
+      { name: "HP 提升 Lv1",     type: "Passivo",  rarity: "1★", effect: "+5% 最大 HP",                    cooldown: "N/A",    desc: "強化體質。" },
+      { name: "輕甲精通", type: "Passivo",  rarity: "1★", effect: "+8% DEF 裝備輕甲時",     cooldown: "N/A",    desc: "精通輕型防具。" }
     ]
   },
 
@@ -52,17 +52,17 @@ const CLASSES_ECHO = {
     desc: '專精劍與長柄武器的近戰戰士。保留先前學會的技能。',
     base: { atk: 28, def: 18, hp: 180, mp: 45, eva: 6, crit: 8, mdef: 8 },
     skills: [
-      { name: "強力粉碎",           type: "Ativo",    rarity: "1★", effect: "Dano 190% + knockback",               cooldown: "10s",    desc: "施展粉碎性重擊。" },
-      { name: "旋轉斬",        type: "Ativo",    rarity: "1★", effect: "Dano AoE 160% ao redor",              cooldown: "12s",    desc: "旋轉並斬擊周圍敵人。" },
-      { name: "暈眩攻擊",           type: "Ativo",    rarity: "2★", effect: "Dano 175% + stun 2s",                 cooldown: "18s",    desc: "可使敵人暈眩的打擊。" },
-      { name: "鋼鐵意志",             type: "Ativo",    rarity: "2★", effect: "+30% DEF por 30s",                    cooldown: "45s",    desc: "暫時獲得鋼鐵般的意志。" },
-      { name: "戰吼",               type: "Ativo",    rarity: "2★", effect: "+20% ATK para si por 60s",            cooldown: "60s",    desc: "激發力量的戰鬥吶喊。" },
-      { name: "戰鬥咆哮",           type: "Self-Buff",rarity: "2★", effect: "+25% ATK e +15% HP por 20 min",       cooldown: "45 min", desc: "發出戰鬥咆哮。" },
-      { name: "劍／鈍器精通",   type: "Passivo",  rarity: "1★", effect: "+12% ATK com espada/blunt",           cooldown: "N/A",    desc: "精通劍與鈍器。" },
-      { name: "長柄武器精通",       type: "Passivo",  rarity: "1★", effect: "+12% ATK com polearm",                cooldown: "N/A",    desc: "精通長槍與長柄武器。" },
-      { name: "重甲精通",   type: "Passivo",  rarity: "1★", effect: "+12% DEF com armadura pesada",        cooldown: "N/A",    desc: "精通重型防具。" },
-      { name: "HP 提升 Lv2",       type: "Passivo",  rarity: "1★", effect: "+10% Max HP",                         cooldown: "N/A",    desc: "強化戰士體質。" },
-      { name: "負重上限",          type: "Passivo",  rarity: "1★", effect: "+15% capacidade de carga",            cooldown: "N/A",    desc: "經過鍛鍊的身體可承受更多負重。" }
+      { name: "強力粉碎",           type: "Ativo",    rarity: "1★", effect: "傷害 190% + 擊退",               cooldown: "10s",    desc: "施展粉碎性重擊。" },
+      { name: "旋轉斬",        type: "Ativo",    rarity: "1★", effect: "傷害 範圍 160% 周圍",              cooldown: "12s",    desc: "旋轉並斬擊周圍敵人。" },
+      { name: "暈眩攻擊",           type: "Ativo",    rarity: "2★", effect: "傷害 175% + 暈眩 2 秒",                 cooldown: "18s",    desc: "可使敵人暈眩的打擊。" },
+      { name: "鋼鐵意志",             type: "Ativo",    rarity: "2★", effect: "+30% DEF 持續 30 秒",                    cooldown: "45s",    desc: "暫時獲得鋼鐵般的意志。" },
+      { name: "戰吼",               type: "Ativo",    rarity: "2★", effect: "+20% ATK 自身 持續 60 秒",            cooldown: "60s",    desc: "激發力量的戰鬥吶喊。" },
+      { name: "戰鬥咆哮",           type: "Self-Buff",rarity: "2★", effect: "+25% ATK 並 +15% HP 持續 20 分鐘",       cooldown: "45 min", desc: "發出戰鬥咆哮。" },
+      { name: "劍／鈍器精通",   type: "Passivo",  rarity: "1★", effect: "+12% ATK 使用劍／鈍器時",           cooldown: "N/A",    desc: "精通劍與鈍器。" },
+      { name: "長柄武器精通",       type: "Passivo",  rarity: "1★", effect: "+12% ATK 使用長柄武器時",                cooldown: "N/A",    desc: "精通長槍與長柄武器。" },
+      { name: "重甲精通",   type: "Passivo",  rarity: "1★", effect: "+12% DEF 裝備重甲時",        cooldown: "N/A",    desc: "精通重型防具。" },
+      { name: "HP 提升 Lv2",       type: "Passivo",  rarity: "1★", effect: "+10% 最大 HP",                         cooldown: "N/A",    desc: "強化戰士體質。" },
+      { name: "負重上限",          type: "Passivo",  rarity: "1★", effect: "+15% 負重上限",            cooldown: "N/A",    desc: "經過鍛鍊的身體可承受更多負重。" }
     ]
   },
 
@@ -72,21 +72,21 @@ const CLASSES_ECHO = {
     desc: '精通雙武器與強力連段。保留先前學會的技能。',
     base: { atk: 58, def: 28, hp: 320, mp: 65, eva: 8, crit: 18, mdef: 12 },
     skills: [
-      { name: "三連斬",           type: "Ativo",    rarity: "2★", effect: "3 golpes, dano total 300%",           cooldown: "14s",    desc: "快速連續斬擊三次。" },
-      { name: "音速砲",          type: "Ativo",    rarity: "2★", effect: "Dano 240% + stun 2s",                cooldown: "16s",    desc: "以音速衝擊使敵人暈眩。" },
-      { name: "音速風暴",            type: "Ativo",    rarity: "3★", effect: "Dano AoE 320% (8 alvos)",            cooldown: "25s",    desc: "施展強大的音速風暴。" },
-      { name: "音速爆裂",           type: "Ativo",    rarity: "2★", effect: "Dano 260% + pushback",               cooldown: "18s",    desc: "向前方釋放音速爆炸。" },
-      { name: "雙重音速斬",     type: "Ativo",    rarity: "3★", effect: "Dano 350% em 2 hits",                cooldown: "22s",    desc: "施展雙重音速斬擊。" },
-      { name: "戰鎚粉碎",           type: "Ativo",    rarity: "2★", effect: "Dano 230% + stun 3s",                cooldown: "20s",    desc: "以戰鎚施展粉碎攻擊。" },
-      { name: "音速移動",             type: "Ativo",    rarity: "2★", effect: "Teleporte curto + 180% dano",        cooldown: "20s",    desc: "瞬間進行音速移動。" },
-      { name: "獅子之心",              type: "Ativo",    rarity: "3★", effect: "Imune a medo/stun por 15s",          cooldown: "120s",   desc: "獅子般的勇氣，意志不可動搖。" },
-      { name: "戰鬥狂熱",             type: "Self-Buff",rarity: "2★", effect: "+20% ATK Speed por 60s",             cooldown: "90s",    desc: "進入狂熱戰鬥狀態。" },
-      { name: "兇猛姿態",         type: "Toggle",   rarity: "2★", effect: "+25% Crit Rate, -10% DEF",           cooldown: "N/A",    desc: "持續維持積極進攻姿態。" },
-      { name: "角鬥士和諧",    type: "Self-Buff",rarity: "3★", effect: "+35% ATK e +20% Crit por 25 min",    cooldown: "60 min", desc: "角鬥士的戰鬥和諧。" },
-      { name: "雙武器精通",    type: "Passivo",  rarity: "2★", effect: "+18% ATK com dual weapons",          cooldown: "N/A",    desc: "精通雙持武器。" },
-      { name: "專注",                  type: "Passivo",  rarity: "1★", effect: "+8% Crit Rate",                      cooldown: "N/A",    desc: "集中攻擊敵人的要害。" },
-      { name: "暴擊威力",         type: "Passivo",  rarity: "2★", effect: "+15% Crit Damage",                   cooldown: "N/A",    desc: "提高暴擊威力。" },
-      { name: "HP 強化",               type: "Passivo",  rarity: "1★", effect: "+12% Max HP",                        cooldown: "N/A",    desc: "強化角鬥士的 HP。" }
+      { name: "三連斬",           type: "Ativo",    rarity: "2★", effect: "3 次打擊, 總傷害 300%",           cooldown: "14s",    desc: "快速連續斬擊三次。" },
+      { name: "音速砲",          type: "Ativo",    rarity: "2★", effect: "傷害 240% + 暈眩 2 秒",                cooldown: "16s",    desc: "以音速衝擊使敵人暈眩。" },
+      { name: "音速風暴",            type: "Ativo",    rarity: "3★", effect: "傷害 範圍 320% (8 目標)",            cooldown: "25s",    desc: "施展強大的音速風暴。" },
+      { name: "音速爆裂",           type: "Ativo",    rarity: "2★", effect: "傷害 260% + 擊退",               cooldown: "18s",    desc: "向前方釋放音速爆炸。" },
+      { name: "雙重音速斬",     type: "Ativo",    rarity: "3★", effect: "傷害 350%於2 次命中",                cooldown: "22s",    desc: "施展雙重音速斬擊。" },
+      { name: "戰鎚粉碎",           type: "Ativo",    rarity: "2★", effect: "傷害 230% + 暈眩 3 秒",                cooldown: "20s",    desc: "以戰鎚施展粉碎攻擊。" },
+      { name: "音速移動",             type: "Ativo",    rarity: "2★", effect: "短距離傳送 + 180% 傷害",        cooldown: "20s",    desc: "瞬間進行音速移動。" },
+      { name: "獅子之心",              type: "Ativo",    rarity: "3★", effect: "免疫恐懼／暈眩 持續 15 秒",          cooldown: "120s",   desc: "獅子般的勇氣，意志不可動搖。" },
+      { name: "戰鬥狂熱",             type: "Self-Buff",rarity: "2★", effect: "+20% 攻擊速度 持續 60 秒",             cooldown: "90s",    desc: "進入狂熱戰鬥狀態。" },
+      { name: "兇猛姿態",         type: "Toggle",   rarity: "2★", effect: "+25% 暴擊率, -10% DEF",           cooldown: "N/A",    desc: "持續維持積極進攻姿態。" },
+      { name: "角鬥士和諧",    type: "Self-Buff",rarity: "3★", effect: "+35% ATK 並 +20% 暴擊 持續 25 分鐘",    cooldown: "60 min", desc: "角鬥士的戰鬥和諧。" },
+      { name: "雙武器精通",    type: "Passivo",  rarity: "2★", effect: "+18% ATK 使用雙持武器時",          cooldown: "N/A",    desc: "精通雙持武器。" },
+      { name: "專注",                  type: "Passivo",  rarity: "1★", effect: "+8% 暴擊率",                      cooldown: "N/A",    desc: "集中攻擊敵人的要害。" },
+      { name: "暴擊威力",         type: "Passivo",  rarity: "2★", effect: "+15% 暴擊傷害",                   cooldown: "N/A",    desc: "提高暴擊威力。" },
+      { name: "HP 強化",               type: "Passivo",  rarity: "1★", effect: "+12% 最大 HP",                        cooldown: "N/A",    desc: "強化角鬥士的 HP。" }
     ]
   },
 
@@ -96,21 +96,21 @@ const CLASSES_ECHO = {
     desc: '至高決鬥者，精通雙武器戰鬥。保留先前學會的技能。',
     base: { atk: 105, def: 42, hp: 580, mp: 95, eva: 12, crit: 30, mdef: 18 },
     skills: [
-      { name: "音速聚氣",               type: "Ativo",    rarity: "3★", effect: "Dano 380% + ignora 30% DEF",           cooldown: "28s",    desc: "凝聚毀滅性的音速力量。" },
-      { name: "氣勁砲",             type: "Ativo",    rarity: "3★", effect: "Dano 340% à distância",                cooldown: "20s",    desc: "發射音速氣勁彈。" },
-      { name: "雙重打擊",                 type: "Ativo",    rarity: "3★", effect: "Dano 400% + bleed 8s",                 cooldown: "24s",    desc: "施展帶有流血效果的雙重攻擊。" },
-      { name: "突進氣勁",             type: "Ativo",    rarity: "3★", effect: "Rush + 320% dano + stun 2s",           cooldown: "22s",    desc: "以強勁力量向前突進。" },
-      { name: "長距打擊",                 type: "Ativo",    rarity: "2★", effect: "Dano 280% alcance estendido",          cooldown: "16s",    desc: "施展延伸距離的打擊。" },
-      { name: "氣勁爆裂",              type: "Ativo",    rarity: "3★", effect: "Dano AoE 360% frontal",               cooldown: "26s",    desc: "向前方釋放氣勁爆炸。" },
-      { name: "地震",                type: "Ativo",    rarity: "3★", effect: "Dano AoE 420% + knockdown 3s",         cooldown: "35s",    desc: "引發毀滅性地震。" },
-      { name: "真實目標",               type: "Ativo",    rarity: "2★", effect: "Marca alvo: +30% dano contra ele 10s", cooldown: "30s",    desc: "辨識並鎖定敵人的弱點。" },
-      { name: "戰鬥激情",              type: "Ativo",    rarity: "3★", effect: "+40% ATK por 30s quando HP < 30%",     cooldown: "120s",   desc: "在危急狀態下激發腎上腺素。" },
-      { name: "音速狂怒",                type: "Ativo",    rarity: "3★", effect: "Dano 450% + AoE 5 alvos",             cooldown: "30s",    desc: "釋放失控的音速狂怒。" },
-      { name: "超越雙重打擊",    type: "Ativo",    rarity: "4★", effect: "Dano 620% + bleed 12s + ignora DEF",   cooldown: "150s",   desc: "施展超越極限的雙重打擊。" },
-      { name: "決鬥者",         type: "Self-Buff",rarity: "4★", effect: "+55% ATK, +40% Crit, +20% Speed 30min",cooldown: "90 min", desc: "決鬥者的至高戰鬥和諧。" },
-      { name: "戰鬥大師",          type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% Crit, +5% PvE dmg",    cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
-      { name: "決鬥者之魂",            type: "Passivo",  rarity: "3★", effect: "+15% dual weapon ATK",                 cooldown: "N/A",    desc: "決鬥者的戰鬥精神。" },
-      { name: "決鬥者之刃",      type: "Passivo",  rarity: "3★", effect: "+12% P.Skill Power",                   cooldown: "N/A",    desc: "灌注強大力量的刀刃。" }
+      { name: "音速聚氣",               type: "Ativo",    rarity: "3★", effect: "傷害 380% + 無視 30% DEF",           cooldown: "28s",    desc: "凝聚毀滅性的音速力量。" },
+      { name: "氣勁砲",             type: "Ativo",    rarity: "3★", effect: "傷害 340% 遠距",                cooldown: "20s",    desc: "發射音速氣勁彈。" },
+      { name: "雙重打擊",                 type: "Ativo",    rarity: "3★", effect: "傷害 400% + 流血 8 秒",                 cooldown: "24s",    desc: "施展帶有流血效果的雙重攻擊。" },
+      { name: "突進氣勁",             type: "Ativo",    rarity: "3★", effect: "Rush + 320% 傷害 + 暈眩 2 秒",           cooldown: "22s",    desc: "以強勁力量向前突進。" },
+      { name: "長距打擊",                 type: "Ativo",    rarity: "2★", effect: "傷害 280% 延伸射程",          cooldown: "16s",    desc: "施展延伸距離的打擊。" },
+      { name: "氣勁爆裂",              type: "Ativo",    rarity: "3★", effect: "傷害 範圍 360% 前方",               cooldown: "26s",    desc: "向前方釋放氣勁爆炸。" },
+      { name: "地震",                type: "Ativo",    rarity: "3★", effect: "傷害 範圍 420% + 擊倒 3 秒",         cooldown: "35s",    desc: "引發毀滅性地震。" },
+      { name: "真實目標",               type: "Ativo",    rarity: "2★", effect: "標記目標: +30% 傷害 對該目標 10 秒", cooldown: "30s",    desc: "辨識並鎖定敵人的弱點。" },
+      { name: "戰鬥激情",              type: "Ativo",    rarity: "3★", effect: "+40% ATK 持續 30 秒 當 HP < 30%",     cooldown: "120s",   desc: "在危急狀態下激發腎上腺素。" },
+      { name: "音速狂怒",                type: "Ativo",    rarity: "3★", effect: "傷害 450% + 範圍 5 目標",             cooldown: "30s",    desc: "釋放失控的音速狂怒。" },
+      { name: "超越雙重打擊",    type: "Ativo",    rarity: "4★", effect: "傷害 620% + 流血 12 秒 + 無視 DEF",   cooldown: "150s",   desc: "施展超越極限的雙重打擊。" },
+      { name: "決鬥者",         type: "Self-Buff",rarity: "4★", effect: "+55% ATK, +40% 暴擊, +20% 速度 30 分鐘",cooldown: "90 min", desc: "決鬥者的至高戰鬥和諧。" },
+      { name: "戰鬥大師",          type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% 暴擊, +5% PvE 傷害",    cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
+      { name: "決鬥者之魂",            type: "Passivo",  rarity: "3★", effect: "+15% 雙持武器攻擊",                 cooldown: "N/A",    desc: "決鬥者的戰鬥精神。" },
+      { name: "決鬥者之刃",      type: "Passivo",  rarity: "3★", effect: "+12% 物理技能威力",                   cooldown: "N/A",    desc: "灌注強大力量的刀刃。" }
     ]
   },
 
@@ -120,19 +120,19 @@ const CLASSES_ECHO = {
     desc: '使用長柄武器施展大範圍毀滅攻擊。保留先前學會的技能。',
     base: { atk: 52, def: 38, hp: 380, mp: 60, eva: 5, crit: 10, mdef: 18 },
     skills: [
-      { name: "旋風",              type: "Ativo",    rarity: "2★", effect: "Dano AoE 280% (10 alvos)",           cooldown: "18s",    desc: "以長槍掀起旋風攻擊。" },
-      { name: "雷霆風暴",          type: "Ativo",    rarity: "3★", effect: "Dano AoE 340% + stun 2s",           cooldown: "25s",    desc: "召喚雷霆般的風暴攻擊。" },
-      { name: "咆哮",                   type: "Ativo",    rarity: "2★", effect: "AoE taunt + -15% ATK inimigos 10s",  cooldown: "20s",    desc: "發出具有威嚇效果的咆哮。" },
-      { name: "挑釁",               type: "Ativo",    rarity: "1★", effect: "Taunt single + dano 120%",           cooldown: "10s",    desc: "直接挑釁目標。" },
-      { name: "橫掃",             type: "Ativo",    rarity: "2★", effect: "Dano 250% + knockdown 2s",            cooldown: "20s",    desc: "施展強力橫掃攻擊。" },
-      { name: "冰凍打擊",       type: "Ativo",    rarity: "2★", effect: "Dano 220% + slow 30% por 8s",         cooldown: "18s",    desc: "施展冰凍屬性打擊。" },
-      { name: "燃燒劈砍",          type: "Ativo",    rarity: "2★", effect: "Dano 240% + burn 8s",                 cooldown: "18s",    desc: "施展燃燒的劈砍攻擊。" },
-      { name: "震擊踐踏",           type: "Ativo",    rarity: "2★", effect: "AoE 200% + stun 2s (perto)",          cooldown: "22s",    desc: "以踐踏引發震擊。" },
-      { name: "戰吼",               type: "Self-Buff",rarity: "2★", effect: "+25% ATK por 60s",                    cooldown: "90s",    desc: "戰爭領主的戰鬥吶喊。" },
-      { name: "戰爭領主和諧",     type: "Self-Buff",rarity: "3★", effect: "+30% ATK, +25% HP por 25 min",        cooldown: "60 min", desc: "戰爭領主的戰鬥和諧。" },
-      { name: "生命之力",           type: "Passivo",  rarity: "1★", effect: "+10% HP Regen",                       cooldown: "N/A",    desc: "強化生命恢復能力。" },
-      { name: "專注",                 type: "Passivo",  rarity: "1★", effect: "+8% Crit Rate",                       cooldown: "N/A",    desc: "提升專注力。" },
-      { name: "HP 強化",              type: "Passivo",  rarity: "1★", effect: "+15% Max HP",                         cooldown: "N/A",    desc: "強化 HP。" }
+      { name: "旋風",              type: "Ativo",    rarity: "2★", effect: "傷害 範圍 280% (10 目標)",           cooldown: "18s",    desc: "以長槍掀起旋風攻擊。" },
+      { name: "雷霆風暴",          type: "Ativo",    rarity: "3★", effect: "傷害 範圍 340% + 暈眩 2 秒",           cooldown: "25s",    desc: "召喚雷霆般的風暴攻擊。" },
+      { name: "咆哮",                   type: "Ativo",    rarity: "2★", effect: "範圍 嘲諷 + -15% ATK 敵人 10 秒",  cooldown: "20s",    desc: "發出具有威嚇效果的咆哮。" },
+      { name: "挑釁",               type: "Ativo",    rarity: "1★", effect: "嘲諷 singl並 + 傷害 120%",           cooldown: "10s",    desc: "直接挑釁目標。" },
+      { name: "橫掃",             type: "Ativo",    rarity: "2★", effect: "傷害 250% + 擊倒 2 秒",            cooldown: "20s",    desc: "施展強力橫掃攻擊。" },
+      { name: "冰凍打擊",       type: "Ativo",    rarity: "2★", effect: "傷害 220% + 緩速 30% 持續 8 秒",         cooldown: "18s",    desc: "施展冰凍屬性打擊。" },
+      { name: "燃燒劈砍",          type: "Ativo",    rarity: "2★", effect: "傷害 240% + 燃燒 8 秒",                 cooldown: "18s",    desc: "施展燃燒的劈砍攻擊。" },
+      { name: "震擊踐踏",           type: "Ativo",    rarity: "2★", effect: "範圍 200% + 暈眩 2 秒 (近距離)",          cooldown: "22s",    desc: "以踐踏引發震擊。" },
+      { name: "戰吼",               type: "Self-Buff",rarity: "2★", effect: "+25% ATK 持續 60 秒",                    cooldown: "90s",    desc: "戰爭領主的戰鬥吶喊。" },
+      { name: "戰爭領主和諧",     type: "Self-Buff",rarity: "3★", effect: "+30% ATK, +25% HP 持續 25 分鐘",        cooldown: "60 min", desc: "戰爭領主的戰鬥和諧。" },
+      { name: "生命之力",           type: "Passivo",  rarity: "1★", effect: "+10% HP 恢復",                       cooldown: "N/A",    desc: "強化生命恢復能力。" },
+      { name: "專注",                 type: "Passivo",  rarity: "1★", effect: "+8% 暴擊率",                       cooldown: "N/A",    desc: "提升專注力。" },
+      { name: "HP 強化",              type: "Passivo",  rarity: "1★", effect: "+15% 最大 HP",                         cooldown: "N/A",    desc: "強化 HP。" }
     ]
   },
 
@@ -142,18 +142,18 @@ const CLASSES_ECHO = {
     desc: '以長柄武器施展大範圍攻擊的重裝戰士。保留先前學會的技能。',
     base: { atk: 95, def: 62, hp: 650, mp: 85, eva: 6, crit: 14, mdef: 32 },
     skills: [
-      { name: "突進衝擊",               type: "Ativo",    rarity: "3★", effect: "Rush + 350% dano + stun 3s",              cooldown: "25s",    desc: "施展毀滅性的突進攻擊。" },
-      { name: "恐懼領域",                type: "Ativo",    rarity: "3★", effect: "AoE contínuo 200%/s por 5s (8 alvos)",    cooldown: "35s",    desc: "創造恐懼區域。" },
-      { name: "刺擊",                     type: "Ativo",    rarity: "3★", effect: "Dano 380% + penetra DEF 40%",             cooldown: "28s",    desc: "施展具有穿透力的刺擊。" },
-      { name: "抗魔護甲",          type: "Ativo",    rarity: "3★", effect: "+50% M.DEF por 20s",                      cooldown: "60s",    desc: "提高對魔法的防禦能力。" },
-      { name: "武器封鎖",           type: "Ativo",    rarity: "3★", effect: "Desarma inimigo por 5s",                  cooldown: "45s",    desc: "封鎖敵人的武器。" },
-      { name: "獅子之心",                 type: "Ativo",    rarity: "3★", effect: "Imune a medo/stun 15s",                   cooldown: "120s",   desc: "獲得獅子般的勇氣。" },
-      { name: "戰鬥狂熱",                type: "Self-Buff",rarity: "3★", effect: "+30% ATK Speed por 45s",                  cooldown: "90s",    desc: "進入完全狂熱狀態。" },
-      { name: "超越旋風",    type: "Ativo",    rarity: "4★", effect: "Dano AoE 600% + knockdown (12 alvos)",    cooldown: "160s",   desc: "施展超越極限的旋風攻擊。" },
-      { name: "恐懼戰艦和諧",     type: "Self-Buff",rarity: "4★", effect: "+50% ATK, +35% HP, +20% DEF 30min",      cooldown: "90 min", desc: "恐懼戰艦的戰鬥和諧。" },
-      { name: "戰鬥大師",          type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% AoE dmg, +5% PvE",        cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
-      { name: "恐懼戰艦之魂",        type: "Passivo",  rarity: "3★", effect: "+15% Polearm ATK",                        cooldown: "N/A",    desc: "恐懼戰艦的戰鬥精神。" },
-      { name: "恐懼戰艦之軀",   type: "Passivo",  rarity: "3★", effect: "+10% Max HP, +10% DEF",                  cooldown: "N/A",    desc: "獲得近乎無法摧毀的身軀。" }
+      { name: "突進衝擊",               type: "Ativo",    rarity: "3★", effect: "Rush + 350% 傷害 + 暈眩 3 秒",              cooldown: "25s",    desc: "施展毀滅性的突進攻擊。" },
+      { name: "恐懼領域",                type: "Ativo",    rarity: "3★", effect: "範圍 持續 200%/s 持續 5 秒 (8 目標)",    cooldown: "35s",    desc: "創造恐懼區域。" },
+      { name: "刺擊",                     type: "Ativo",    rarity: "3★", effect: "傷害 380% + 穿透 DEF 40%",             cooldown: "28s",    desc: "施展具有穿透力的刺擊。" },
+      { name: "抗魔護甲",          type: "Ativo",    rarity: "3★", effect: "+50% M.DEF 持續 20 秒",                      cooldown: "60s",    desc: "提高對魔法的防禦能力。" },
+      { name: "武器封鎖",           type: "Ativo",    rarity: "3★", effect: "解除武裝 敵人 持續 5 秒",                  cooldown: "45s",    desc: "封鎖敵人的武器。" },
+      { name: "獅子之心",                 type: "Ativo",    rarity: "3★", effect: "免疫恐懼／暈眩 15 秒",                   cooldown: "120s",   desc: "獲得獅子般的勇氣。" },
+      { name: "戰鬥狂熱",                type: "Self-Buff",rarity: "3★", effect: "+30% 攻擊速度 持續 45 秒",                  cooldown: "90s",    desc: "進入完全狂熱狀態。" },
+      { name: "超越旋風",    type: "Ativo",    rarity: "4★", effect: "傷害 範圍 600% + 擊倒 (12 目標)",    cooldown: "160s",   desc: "施展超越極限的旋風攻擊。" },
+      { name: "恐懼戰艦和諧",     type: "Self-Buff",rarity: "4★", effect: "+50% ATK, +35% HP, +20% DEF 30 分鐘",      cooldown: "90 min", desc: "恐懼戰艦的戰鬥和諧。" },
+      { name: "戰鬥大師",          type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% 範圍 傷害, +5% PvE",        cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
+      { name: "恐懼戰艦之魂",        type: "Passivo",  rarity: "3★", effect: "+15% 長柄武器攻擊",                        cooldown: "N/A",    desc: "恐懼戰艦的戰鬥精神。" },
+      { name: "恐懼戰艦之軀",   type: "Passivo",  rarity: "3★", effect: "+10% 最大 HP, +10% DEF",                  cooldown: "N/A",    desc: "獲得近乎無法摧毀的身軀。" }
     ]
   },
 
@@ -163,17 +163,17 @@ const CLASSES_ECHO = {
     desc: '使用盾牌承受傷害的防禦型騎士。保留先前學會的技能。',
     base: { atk: 18, def: 32, hp: 250, mp: 50, eva: 4, crit: 4, mdef: 18 },
     skills: [
-      { name: "盾牌打擊",         type: "Ativo",    rarity: "1★", effect: "Dano 170% + taunt 5s",             cooldown: "10s",    desc: "以盾牌攻擊敵人。" },
-      { name: "仇恨",                  type: "Ativo",    rarity: "1★", effect: "Taunt alvo + aggro máximo",        cooldown: "8s",     desc: "激起目標對自己的仇恨。" },
-      { name: "仇恨光環",          type: "Ativo",    rarity: "2★", effect: "AoE taunt (5 alvos) 8s",           cooldown: "18s",    desc: "釋放吸引敵人的仇恨光環。" },
-      { name: "力量削弱",           type: "Ativo",    rarity: "1★", effect: "Dano 150% + -20% ATK inimigo 8s",  cooldown: "14s",    desc: "削弱敵人的力量。" },
-      { name: "神聖治癒",           type: "Ativo",    rarity: "2★", effect: "Cura 20% HP próprio",              cooldown: "25s",    desc: "以神聖力量治療自己。" },
-      { name: "騎士和諧",      type: "Self-Buff",rarity: "2★", effect: "+25% DEF e +20% HP por 20 min",    cooldown: "45 min", desc: "騎士的戰鬥和諧。" },
-      { name: "重甲精通",   type: "Passivo",  rarity: "1★", effect: "+15% DEF com armadura pesada",     cooldown: "N/A",    desc: "精通重型防具。" },
-      { name: "盾牌精通",        type: "Passivo",  rarity: "1★", effect: "+15% Block Rate",                  cooldown: "N/A",    desc: "精通盾牌防禦。" },
-      { name: "劍／鈍器精通",   type: "Passivo",  rarity: "1★", effect: "+10% ATK espada/blunt",            cooldown: "N/A",    desc: "精通劍類武器。" },
-      { name: "HP 提升 Lv2",       type: "Passivo",  rarity: "1★", effect: "+12% Max HP",                      cooldown: "N/A",    desc: "進一步強化體質。" },
-      { name: "箭矢偏轉",         type: "Passivo",  rarity: "1★", effect: "+10% chance desviar projéteis",    cooldown: "N/A",    desc: "提高對投射物的閃避能力。" }
+      { name: "盾牌打擊",         type: "Ativo",    rarity: "1★", effect: "傷害 170% + 嘲諷 5 秒",             cooldown: "10s",    desc: "以盾牌攻擊敵人。" },
+      { name: "仇恨",                  type: "Ativo",    rarity: "1★", effect: "嘲諷 目標 + 最高仇恨",        cooldown: "8s",     desc: "激起目標對自己的仇恨。" },
+      { name: "仇恨光環",          type: "Ativo",    rarity: "2★", effect: "範圍 嘲諷 (5 目標) 8 秒",           cooldown: "18s",    desc: "釋放吸引敵人的仇恨光環。" },
+      { name: "力量削弱",           type: "Ativo",    rarity: "1★", effect: "傷害 150% + -20% ATK 敵人 8 秒",  cooldown: "14s",    desc: "削弱敵人的力量。" },
+      { name: "神聖治癒",           type: "Ativo",    rarity: "2★", effect: "治癒 20% HP 自身",              cooldown: "25s",    desc: "以神聖力量治療自己。" },
+      { name: "騎士和諧",      type: "Self-Buff",rarity: "2★", effect: "+25% DEF 並 +20% HP 持續 20 分鐘",    cooldown: "45 min", desc: "騎士的戰鬥和諧。" },
+      { name: "重甲精通",   type: "Passivo",  rarity: "1★", effect: "+15% DEF 裝備重甲時",     cooldown: "N/A",    desc: "精通重型防具。" },
+      { name: "盾牌精通",        type: "Passivo",  rarity: "1★", effect: "+15% 格擋率",                  cooldown: "N/A",    desc: "精通盾牌防禦。" },
+      { name: "劍／鈍器精通",   type: "Passivo",  rarity: "1★", effect: "+10% ATK 劍／鈍器",            cooldown: "N/A",    desc: "精通劍類武器。" },
+      { name: "HP 提升 Lv2",       type: "Passivo",  rarity: "1★", effect: "+12% 最大 HP",                      cooldown: "N/A",    desc: "進一步強化體質。" },
+      { name: "箭矢偏轉",         type: "Passivo",  rarity: "1★", effect: "+10% 機率 閃避投射物",    cooldown: "N/A",    desc: "提高對投射物的閃避能力。" }
     ]
   },
 
@@ -183,21 +183,21 @@ const CLASSES_ECHO = {
     desc: '兼具治療與守護能力的神聖騎士。保留先前學會的技能。',
     base: { atk: 38, def: 65, hp: 520, mp: 100, eva: 5, crit: 6, mdef: 42 },
     skills: [
-      { name: "盾牌暈擊",           type: "Ativo",    rarity: "2★", effect: "Dano 210% + stun 3s",             cooldown: "18s",    desc: "以盾牌重擊使敵人暈眩。" },
-      { name: "神聖之刃",            type: "Ativo",    rarity: "2★", effect: "Dano sagrado 260%",               cooldown: "16s",    desc: "以神聖力量強化刀刃。" },
-      { name: "神聖打擊",           type: "Ativo",    rarity: "3★", effect: "Dano sagrado 320% + undead 2x",   cooldown: "20s",    desc: "施展強力神聖打擊。" },
-      { name: "威嚴",               type: "Ativo",    rarity: "3★", effect: "Não pode morrer por 7s (HP min 1)",cooldown: "180s",  desc: "獲得神聖威嚴。" },
-      { name: "天使聖像",          type: "Self-Buff",rarity: "3★", effect: "+30% DEF, +30% M.DEF por 30s",    cooldown: "120s",   desc: "召喚天使般的神聖力量。" },
-      { name: "犧牲",             type: "Ativo",    rarity: "2★", effect: "Cura aliado 30% HP (gasta 10% próprio)",cooldown: "25s",desc: "犧牲自身力量守護盟友。" },
-      { name: "神盾",                 type: "Ativo",    rarity: "2★", effect: "+60% Block Rate por 15s",         cooldown: "45s",    desc: "展開強力防禦。" },
-      { name: "復仇",             type: "Ativo",    rarity: "3★", effect: "Reflete 30% dano recebido por 15s",cooldown: "60s",   desc: "以神聖力量反擊敵人。" },
-      { name: "終極防禦",      type: "Ativo",    rarity: "3★", effect: "+80% DEF, -50% ATK por 15s",      cooldown: "120s",   desc: "進入近乎絕對的防禦狀態。" },
-      { name: "神聖祝福",         type: "Ativo",    rarity: "2★", effect: "Remove 2 debuffs",                cooldown: "30s",    desc: "施放具有淨化效果的祝福。" },
-      { name: "召喚風暴晶體",    type: "Ativo",    rarity: "2★", effect: "Invoca cubic de dano lightning",   cooldown: "60s",    desc: "召喚風暴晶體協助戰鬥。" },
-      { name: "挑釁",               type: "Ativo",    rarity: "1★", effect: "Taunt + aggro forte",             cooldown: "8s",     desc: "挑釁敵人並吸引其注意。" },
-      { name: "聖騎士和諧",     type: "Self-Buff",rarity: "3★", effect: "+40% DEF, +30% HP, +20% M.DEF 25min",cooldown: "60 min",desc: "聖騎士的戰鬥和諧。" },
-      { name: "神聖／黑暗抗性",      type: "Passivo",  rarity: "2★", effect: "+15% resist holy/dark",           cooldown: "N/A",    desc: "提高神聖與黑暗屬性抗性。" },
-      { name: "HP 強化",              type: "Passivo",  rarity: "2★", effect: "+18% Max HP",                     cooldown: "N/A",    desc: "擴充最大 HP。" }
+      { name: "盾牌暈擊",           type: "Ativo",    rarity: "2★", effect: "傷害 210% + 暈眩 3 秒",             cooldown: "18s",    desc: "以盾牌重擊使敵人暈眩。" },
+      { name: "神聖之刃",            type: "Ativo",    rarity: "2★", effect: "傷害 神聖 260%",               cooldown: "16s",    desc: "以神聖力量強化刀刃。" },
+      { name: "神聖打擊",           type: "Ativo",    rarity: "3★", effect: "傷害 神聖 320% + 不死族 2x",   cooldown: "20s",    desc: "施展強力神聖打擊。" },
+      { name: "威嚴",               type: "Ativo",    rarity: "3★", effect: "不會死亡 持續 7 秒 (HP min 1)",cooldown: "180s",  desc: "獲得神聖威嚴。" },
+      { name: "天使聖像",          type: "Self-Buff",rarity: "3★", effect: "+30% DEF, +30% M.DEF 持續 30 秒",    cooldown: "120s",   desc: "召喚天使般的神聖力量。" },
+      { name: "犧牲",             type: "Ativo",    rarity: "2★", effect: "治癒盟友 30% HP (消耗 10% 自身)",cooldown: "25s",desc: "犧牲自身力量守護盟友。" },
+      { name: "神盾",                 type: "Ativo",    rarity: "2★", effect: "+60% 格擋率 持續 15 秒",         cooldown: "45s",    desc: "展開強力防禦。" },
+      { name: "復仇",             type: "Ativo",    rarity: "3★", effect: "反射 30% 傷害 受到的 持續 15 秒",cooldown: "60s",   desc: "以神聖力量反擊敵人。" },
+      { name: "終極防禦",      type: "Ativo",    rarity: "3★", effect: "+80% DEF, -50% ATK 持續 15 秒",      cooldown: "120s",   desc: "進入近乎絕對的防禦狀態。" },
+      { name: "神聖祝福",         type: "Ativo",    rarity: "2★", effect: "移除 2 de增益",                cooldown: "30s",    desc: "施放具有淨化效果的祝福。" },
+      { name: "召喚風暴晶體",    type: "Ativo",    rarity: "2★", effect: "召喚 晶體的傷害 雷電",   cooldown: "60s",    desc: "召喚風暴晶體協助戰鬥。" },
+      { name: "挑釁",               type: "Ativo",    rarity: "1★", effect: "嘲諷 + 高仇恨",             cooldown: "8s",     desc: "挑釁敵人並吸引其注意。" },
+      { name: "聖騎士和諧",     type: "Self-Buff",rarity: "3★", effect: "+40% DEF, +30% HP, +20% M.DEF 25 分鐘",cooldown: "60 min",desc: "聖騎士的戰鬥和諧。" },
+      { name: "神聖／黑暗抗性",      type: "Passivo",  rarity: "2★", effect: "+15% 抗性 神聖/黑暗",           cooldown: "N/A",    desc: "提高神聖與黑暗屬性抗性。" },
+      { name: "HP 強化",              type: "Passivo",  rarity: "2★", effect: "+18% 最大 HP",                     cooldown: "N/A",    desc: "擴充最大 HP。" }
     ]
   },
 
@@ -207,18 +207,18 @@ const CLASSES_ECHO = {
     desc: '擁有復活力量的至高防禦騎士。保留先前學會的技能。',
     base: { atk: 72, def: 105, hp: 850, mp: 140, eva: 6, crit: 8, mdef: 68 },
     skills: [
-      { name: "生命之觸",                type: "Ativo",    rarity: "3★", effect: "Cura AoE 25% HP (party)",               cooldown: "35s",    desc: "施展鳳凰的生命之觸。" },
-      { name: "鳳凰光環",                 type: "Self-Buff",rarity: "3★", effect: "+45% DEF, +HP Regen 3%/s por 25min",    cooldown: "60 min", desc: "釋放鳳凰之力形成光環。" },
-      { name: "信仰之盾",              type: "Ativo",    rarity: "3★", effect: "Absorve 5000 dano por 15s",             cooldown: "90s",    desc: "以信仰之力展開護盾。" },
-      { name: "烈焰聖像",                   type: "Ativo",    rarity: "3★", effect: "+35% ATK para party por 30s",           cooldown: "120s",   desc: "召喚烈焰之力。" },
-      { name: "天界之盾",             type: "Ativo",    rarity: "4★", effect: "Party imune a dano por 5s",             cooldown: "300s",   desc: "展開強大的天界護盾。" },
-      { name: "召喚帝國鳳凰",      type: "Ativo",    rarity: "4★", effect: "Invoca fênix (dano+cura contínua 30s)", cooldown: "180s",   desc: "召喚帝國鳳凰協助戰鬥。" },
-      { name: "超越盾牌衝鋒",   type: "Ativo",    rarity: "4★", effect: "Rush + 500% dano + AoE taunt 10s",     cooldown: "160s",   desc: "施展超越極限的盾牌突進。" },
-      { name: "鳳凰騎士和諧",     type: "Self-Buff",rarity: "4★", effect: "+60% DEF, +40% HP, +30% M.DEF 30min",  cooldown: "90 min", desc: "鳳凰騎士的至高戰鬥和諧。" },
-      { name: "鳳凰之魂",            type: "Passivo",  rarity: "4★", effect: "Ao morrer: revive com 30% HP (1x/30min)",cooldown: "N/A",   desc: "鳳凰之魂可賦予自動復活能力。" },
-      { name: "戰鬥大師",             type: "Passivo",  rarity: "3★", effect: "+10% ATK, +15% aggro, +5% PvE",        cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
-      { name: "信仰守護",          type: "Passivo",  rarity: "3★", effect: "+12% resist all",                      cooldown: "N/A",    desc: "以信仰之力獲得守護。" },
-      { name: "鳳凰之軀",          type: "Passivo",  rarity: "3★", effect: "+15% Max HP, +10% DEF",                cooldown: "N/A",    desc: "獲得鳳凰般強韌的身軀。" }
+      { name: "生命之觸",                type: "Ativo",    rarity: "3★", effect: "治癒 範圍 25% HP (隊伍)",               cooldown: "35s",    desc: "施展鳳凰的生命之觸。" },
+      { name: "鳳凰光環",                 type: "Self-Buff",rarity: "3★", effect: "+45% DEF, +HP 恢復 3%/s 持續 25 分鐘",    cooldown: "60 min", desc: "釋放鳳凰之力形成光環。" },
+      { name: "信仰之盾",              type: "Ativo",    rarity: "3★", effect: "吸收 5000 傷害 持續 15 秒",             cooldown: "90s",    desc: "以信仰之力展開護盾。" },
+      { name: "烈焰聖像",                   type: "Ativo",    rarity: "3★", effect: "+35% ATK給隊伍 持續 30 秒",           cooldown: "120s",   desc: "召喚烈焰之力。" },
+      { name: "天界之盾",             type: "Ativo",    rarity: "4★", effect: "隊伍 免疫 a 傷害 持續 5 秒",             cooldown: "300s",   desc: "展開強大的天界護盾。" },
+      { name: "召喚帝國鳳凰",      type: "Ativo",    rarity: "4★", effect: "召喚 鳳凰 (傷害+治癒 持續 30 秒)", cooldown: "180s",   desc: "召喚帝國鳳凰協助戰鬥。" },
+      { name: "超越盾牌衝鋒",   type: "Ativo",    rarity: "4★", effect: "Rush + 500% 傷害 + 範圍 嘲諷 10 秒",     cooldown: "160s",   desc: "施展超越極限的盾牌突進。" },
+      { name: "鳳凰騎士和諧",     type: "Self-Buff",rarity: "4★", effect: "+60% DEF, +40% HP, +30% M.DEF 30 分鐘",  cooldown: "90 min", desc: "鳳凰騎士的至高戰鬥和諧。" },
+      { name: "鳳凰之魂",            type: "Passivo",  rarity: "4★", effect: "Ao 死亡: 復活 搭配 30% HP (1x/30 分鐘)",cooldown: "N/A",   desc: "鳳凰之魂可賦予自動復活能力。" },
+      { name: "戰鬥大師",             type: "Passivo",  rarity: "3★", effect: "+10% ATK, +15% 仇恨, +5% PvE",        cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
+      { name: "信仰守護",          type: "Passivo",  rarity: "3★", effect: "+12% 抗性 全",                      cooldown: "N/A",    desc: "以信仰之力獲得守護。" },
+      { name: "鳳凰之軀",          type: "Passivo",  rarity: "3★", effect: "+15% 最大 HP, +10% DEF",                cooldown: "N/A",    desc: "獲得鳳凰般強韌的身軀。" }
     ]
   },
 
@@ -228,18 +228,18 @@ const CLASSES_ECHO = {
     desc: '與黑暗豹並肩作戰並汲取生命的黑暗騎士。保留先前學會的技能。',
     base: { atk: 45, def: 55, hp: 480, mp: 90, eva: 5, crit: 8, mdef: 35 },
     skills: [
-      { name: "召喚黑暗豹",    type: "Ativo",    rarity: "3★", effect: "Invoca pantera (ATK 60% do dono)",    cooldown: "90s",    desc: "召喚黑暗豹協助戰鬥。" },
-      { name: "生命吸取",           type: "Ativo",    rarity: "2★", effect: "Dano 220% + drena 30% como HP",      cooldown: "15s",    desc: "吸取敵人的生命力。" },
-      { name: "恐懼",                 type: "Ativo",    rarity: "2★", effect: "Medo no alvo por 5s",                cooldown: "30s",    desc: "以黑暗力量使敵人陷入恐懼。" },
-      { name: "盾牌暈擊",            type: "Ativo",    rarity: "2★", effect: "Dano 200% + stun 3s",               cooldown: "18s",    desc: "以盾牌重擊使敵人暈眩。" },
-      { name: "審判",               type: "Ativo",    rarity: "3★", effect: "Dano dark 300% + -20% DEF 10s",     cooldown: "22s",    desc: "施展黑暗審判。" },
-      { name: "死亡之觸",         type: "Ativo",    rarity: "3★", effect: "Dano 280% + poison 10s",            cooldown: "20s",    desc: "以死亡力量侵蝕敵人。" },
-      { name: "黑暗火焰",             type: "Ativo",    rarity: "2★", effect: "Dano AoE dark 240%",                cooldown: "18s",    desc: "釋放黑暗火焰。" },
-      { name: "末日之盾",            type: "Ativo",    rarity: "3★", effect: "Absorve 3000 dano + reflete 15%",   cooldown: "60s",    desc: "展開末日之盾。" },
-      { name: "復仇種子",        type: "Ativo",    rarity: "2★", effect: "Marca: ao morrer causa 500% dano",  cooldown: "120s",   desc: "種下復仇之力。" },
-      { name: "黑暗復仇者和諧", type: "Self-Buff",rarity: "3★", effect: "+35% ATK, +30% DEF, +20% drain 25min",cooldown: "60 min",desc: "黑暗復仇者的戰鬥和諧。" },
-      { name: "傷害反射",         type: "Passivo",  rarity: "2★", effect: "Reflete 8% dano recebido",          cooldown: "N/A",    desc: "反射受到的部分傷害。" },
-      { name: "HP 強化",               type: "Passivo",  rarity: "2★", effect: "+16% Max HP",                       cooldown: "N/A",    desc: "強化 HP。" }
+      { name: "召喚黑暗豹",    type: "Ativo",    rarity: "3★", effect: "召喚 黑豹 (ATK 60% 主人)",    cooldown: "90s",    desc: "召喚黑暗豹協助戰鬥。" },
+      { name: "生命吸取",           type: "Ativo",    rarity: "2★", effect: "傷害 220% + 吸取 30%為 HP",      cooldown: "15s",    desc: "吸取敵人的生命力。" },
+      { name: "恐懼",                 type: "Ativo",    rarity: "2★", effect: "恐懼在目標 持續 5 秒",                cooldown: "30s",    desc: "以黑暗力量使敵人陷入恐懼。" },
+      { name: "盾牌暈擊",            type: "Ativo",    rarity: "2★", effect: "傷害 200% + 暈眩 3 秒",               cooldown: "18s",    desc: "以盾牌重擊使敵人暈眩。" },
+      { name: "審判",               type: "Ativo",    rarity: "3★", effect: "傷害 黑暗 300% + -20% DEF 10 秒",     cooldown: "22s",    desc: "施展黑暗審判。" },
+      { name: "死亡之觸",         type: "Ativo",    rarity: "3★", effect: "傷害 280% + 中毒 10 秒",            cooldown: "20s",    desc: "以死亡力量侵蝕敵人。" },
+      { name: "黑暗火焰",             type: "Ativo",    rarity: "2★", effect: "傷害 範圍 黑暗 240%",                cooldown: "18s",    desc: "釋放黑暗火焰。" },
+      { name: "末日之盾",            type: "Ativo",    rarity: "3★", effect: "吸收 3000 傷害 + 反射 15%",   cooldown: "60s",    desc: "展開末日之盾。" },
+      { name: "復仇種子",        type: "Ativo",    rarity: "2★", effect: "標記：對死亡 造成 500% 傷害",  cooldown: "120s",   desc: "種下復仇之力。" },
+      { name: "黑暗復仇者和諧", type: "Self-Buff",rarity: "3★", effect: "+35% ATK, +30% DEF, +20% 吸取 25 分鐘",cooldown: "60 min",desc: "黑暗復仇者的戰鬥和諧。" },
+      { name: "傷害反射",         type: "Passivo",  rarity: "2★", effect: "反射 8% 傷害 受到的",          cooldown: "N/A",    desc: "反射受到的部分傷害。" },
+      { name: "HP 強化",               type: "Passivo",  rarity: "2★", effect: "+16% 最大 HP",                       cooldown: "N/A",    desc: "強化 HP。" }
     ]
   },
 
@@ -249,18 +249,18 @@ const CLASSES_ECHO = {
     desc: '操控黑暗光環的地獄騎士。保留先前學會的技能。',
     base: { atk: 82, def: 88, hp: 780, mp: 130, eva: 6, crit: 12, mdef: 55 },
     skills: [
-      { name: "瘋狂粉碎",               type: "Ativo",    rarity: "3★", effect: "Dano 420% + stun 4s",                    cooldown: "28s",    desc: "施展狂暴的粉碎攻擊。" },
-      { name: "黑豹爆破",               type: "Ativo",    rarity: "3★", effect: "Pantera explode: AoE 350% + fear 3s",    cooldown: "60s",    desc: "引爆黑暗豹的力量。" },
-      { name: "地獄頌歌",               type: "Self-Buff",rarity: "3★", effect: "+40% ATK, +20% drain HP por 30s",        cooldown: "90s",    desc: "吟唱地獄的戰鬥頌歌。" },
-      { name: "煉獄",                      type: "Ativo",    rarity: "4★", effect: "AoE dark 500% + -30% heal recebida 10s", cooldown: "120s",   desc: "開啟通往地獄的力量。" },
-      { name: "黑暗之觸",            type: "Ativo",    rarity: "3★", effect: "Dano 380% + silence 5s",                 cooldown: "30s",    desc: "以黑暗力量侵蝕敵人。" },
-      { name: "召喚強化黑暗豹",  type: "Ativo",    rarity: "4★", effect: "Pantera aprimorada (ATK 80% do dono)",   cooldown: "120s",   desc: "召喚經過強化的黑暗豹。" },
-      { name: "超越黑暗打擊",     type: "Ativo",    rarity: "4★", effect: "Dano 580% dark + drain 40% como HP",     cooldown: "150s",   desc: "施展超越極限的黑暗打擊。" },
-      { name: "地獄騎士和諧",        type: "Self-Buff",rarity: "4★", effect: "+55% ATK, +40% DEF, +30% drain 30min",   cooldown: "90 min", desc: "地獄騎士的戰鬥和諧。" },
-      { name: "戰鬥大師",             type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% drain, +5% PvE",         cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
-      { name: "地獄騎士之魂",           type: "Passivo",  rarity: "3★", effect: "+15% dark ATK",                          cooldown: "N/A",    desc: "地獄騎士的戰鬥精神。" },
-      { name: "地獄騎士之軀",      type: "Passivo",  rarity: "3★", effect: "+12% Max HP, +10% DEF",                 cooldown: "N/A",    desc: "獲得地獄騎士般強韌的身軀。" },
-      { name: "黑暗守護",       type: "Passivo",  rarity: "3★", effect: "+15% dark resist",                       cooldown: "N/A",    desc: "提高對黑暗力量的抗性。" }
+      { name: "瘋狂粉碎",               type: "Ativo",    rarity: "3★", effect: "傷害 420% + 暈眩 4 秒",                    cooldown: "28s",    desc: "施展狂暴的粉碎攻擊。" },
+      { name: "黑豹爆破",               type: "Ativo",    rarity: "3★", effect: "黑豹 爆炸: 範圍 350% + 恐懼 3 秒",    cooldown: "60s",    desc: "引爆黑暗豹的力量。" },
+      { name: "地獄頌歌",               type: "Self-Buff",rarity: "3★", effect: "+40% ATK, +20% 吸取 HP 持續 30 秒",        cooldown: "90s",    desc: "吟唱地獄的戰鬥頌歌。" },
+      { name: "煉獄",                      type: "Ativo",    rarity: "4★", effect: "範圍 黑暗 500% + -30% 治癒 受到的 10 秒", cooldown: "120s",   desc: "開啟通往地獄的力量。" },
+      { name: "黑暗之觸",            type: "Ativo",    rarity: "3★", effect: "傷害 380% + 沉默 5 秒",                 cooldown: "30s",    desc: "以黑暗力量侵蝕敵人。" },
+      { name: "召喚強化黑暗豹",  type: "Ativo",    rarity: "4★", effect: "黑豹 強化 (ATK 80% 主人)",   cooldown: "120s",   desc: "召喚經過強化的黑暗豹。" },
+      { name: "超越黑暗打擊",     type: "Ativo",    rarity: "4★", effect: "傷害 580% 黑暗 + 吸取 40%為 HP",     cooldown: "150s",   desc: "施展超越極限的黑暗打擊。" },
+      { name: "地獄騎士和諧",        type: "Self-Buff",rarity: "4★", effect: "+55% ATK, +40% DEF, +30% 吸取 30 分鐘",   cooldown: "90 min", desc: "地獄騎士的戰鬥和諧。" },
+      { name: "戰鬥大師",             type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% 吸取, +5% PvE",         cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
+      { name: "地獄騎士之魂",           type: "Passivo",  rarity: "3★", effect: "+15% 黑暗 ATK",                          cooldown: "N/A",    desc: "地獄騎士的戰鬥精神。" },
+      { name: "地獄騎士之軀",      type: "Passivo",  rarity: "3★", effect: "+12% 最大 HP, +10% DEF",                 cooldown: "N/A",    desc: "獲得地獄騎士般強韌的身軀。" },
+      { name: "黑暗守護",       type: "Passivo",  rarity: "3★", effect: "+15% 黑暗 抗性",                       cooldown: "N/A",    desc: "提高對黑暗力量的抗性。" }
     ]
   },
 
@@ -270,15 +270,15 @@ const CLASSES_ECHO = {
     desc: '敏捷的盜賊，擅長匕首與弓。保留先前學會的技能。',
     base: { atk: 22, def: 12, hp: 150, mp: 40, eva: 15, crit: 12, mdef: 8 },
     skills: [
-      { name: "雙重射擊",          type: "Ativo",    rarity: "1★", effect: "2 disparos, dano total 200%",      cooldown: "10s",    desc: "連續射擊兩次。" },
-      { name: "背刺",             type: "Ativo",    rarity: "2★", effect: "Dano 250% por trás + crit garantido",cooldown: "14s",  desc: "從背後施展致命一擊。" },
-      { name: "疾走",                 type: "Ativo",    rarity: "1★", effect: "+50% Speed por 8s",                cooldown: "20s",    desc: "短時間大幅提高移動速度。" },
-      { name: "開鎖",               type: "Ativo",    rarity: "1★", effect: "Abre baús/portas",                 cooldown: "5s",     desc: "開啟寶箱與門鎖。" },
-      { name: "盜賊和諧",      type: "Self-Buff",rarity: "2★", effect: "+20% EVA, +15% Crit por 20 min",   cooldown: "45 min", desc: "盜賊的戰鬥和諧。" },
-      { name: "輕甲精通",  type: "Passivo",  rarity: "1★", effect: "+12% EVA com armadura leve",       cooldown: "N/A",    desc: "精通輕型防具。" },
-      { name: "匕首精通",       type: "Passivo",  rarity: "1★", effect: "+12% ATK com dagger",              cooldown: "N/A",    desc: "精通匕首武器。" },
-      { name: "弓精通",          type: "Passivo",  rarity: "1★", effect: "+12% ATK com arco",                cooldown: "N/A",    desc: "精通弓類武器。" },
-      { name: "暴擊機率",      type: "Passivo",  rarity: "1★", effect: "+8% Crit Rate",                    cooldown: "N/A",    desc: "提高命中要害的能力。" }
+      { name: "雙重射擊",          type: "Ativo",    rarity: "1★", effect: "2 次射擊, 總傷害 200%",      cooldown: "10s",    desc: "連續射擊兩次。" },
+      { name: "背刺",             type: "Ativo",    rarity: "2★", effect: "傷害 250% 從背後 + 必定暴擊",cooldown: "14s",  desc: "從背後施展致命一擊。" },
+      { name: "疾走",                 type: "Ativo",    rarity: "1★", effect: "+50% 速度 持續 8 秒",                cooldown: "20s",    desc: "短時間大幅提高移動速度。" },
+      { name: "開鎖",               type: "Ativo",    rarity: "1★", effect: "開啟寶箱／門",                 cooldown: "5s",     desc: "開啟寶箱與門鎖。" },
+      { name: "盜賊和諧",      type: "Self-Buff",rarity: "2★", effect: "+20% 迴避, +15% 暴擊 持續 20 分鐘",   cooldown: "45 min", desc: "盜賊的戰鬥和諧。" },
+      { name: "輕甲精通",  type: "Passivo",  rarity: "1★", effect: "+12% 迴避 裝備輕甲時",       cooldown: "N/A",    desc: "精通輕型防具。" },
+      { name: "匕首精通",       type: "Passivo",  rarity: "1★", effect: "+12% ATK 使用匕首時",              cooldown: "N/A",    desc: "精通匕首武器。" },
+      { name: "弓精通",          type: "Passivo",  rarity: "1★", effect: "+12% ATK 使用弓時",                cooldown: "N/A",    desc: "精通弓類武器。" },
+      { name: "暴擊機率",      type: "Passivo",  rarity: "1★", effect: "+8% 暴擊率",                    cooldown: "N/A",    desc: "提高命中要害的能力。" }
     ]
   },
 
@@ -288,20 +288,20 @@ const CLASSES_ECHO = {
     desc: '精通匕首技巧的寶藏獵人。保留先前學會的技能。',
     base: { atk: 55, def: 20, hp: 300, mp: 60, eva: 28, crit: 24, mdef: 14 },
     skills: [
-      { name: "致命打擊",           type: "Ativo",    rarity: "2★", effect: "Dano 280% + crit garantido",          cooldown: "14s",    desc: "施展強力致命攻擊。" },
-      { name: "致死打擊",           type: "Ativo",    rarity: "3★", effect: "Dano 350% + chance kill 5%",          cooldown: "22s",    desc: "施展具有致死可能的打擊。" },
-      { name: "沙塵炸彈",             type: "Ativo",    rarity: "2★", effect: "AoE blind 5s + dano 150%",            cooldown: "20s",    desc: "投擲沙塵炸彈使敵人失明。" },
-      { name: "致盲打擊",         type: "Ativo",    rarity: "2★", effect: "Dano 240% + blind 4s",                cooldown: "18s",    desc: "施展可使敵人失明的攻擊。" },
-      { name: "暗影步伐",           type: "Ativo",    rarity: "2★", effect: "Teleporta atrás do alvo",             cooldown: "15s",    desc: "瞬間移動到目標身後。" },
-      { name: "位置交換",                type: "Ativo",    rarity: "2★", effect: "Troca posição com alvo",              cooldown: "25s",    desc: "與目標交換位置。" },
-      { name: "假死",            type: "Ativo",    rarity: "2★", effect: "Finge morte, perde aggro",            cooldown: "60s",    desc: "偽裝死亡以解除敵人仇恨。" },
-      { name: "詭計",                 type: "Ativo",    rarity: "2★", effect: "Remove alvo do inimigo",              cooldown: "20s",    desc: "以詭計擾亂敵人的鎖定。" },
-      { name: "幻影",                type: "Ativo",    rarity: "3★", effect: "+80% EVA por 8s",                     cooldown: "45s",    desc: "製造鏡像幻影提高迴避。" },
-      { name: "偵測／解除陷阱",    type: "Ativo",    rarity: "1★", effect: "Detecta e remove armadilhas",         cooldown: "10s",    desc: "偵測並解除陷阱。" },
-      { name: "寶藏獵人和諧",          type: "Self-Buff",rarity: "3★", effect: "+35% Crit, +25% EVA, +20% ATK 25min", cooldown: "60 min", desc: "寶藏獵人的戰鬥和諧。" },
-      { name: "迴避",               type: "Passivo",  rarity: "2★", effect: "+12% EVA",                            cooldown: "N/A",    desc: "進一步提高迴避能力。" },
-      { name: "暴擊威力",        type: "Passivo",  rarity: "2★", effect: "+18% Crit Damage",                    cooldown: "N/A",    desc: "提高暴擊威力。" },
-      { name: "專注",                 type: "Passivo",  rarity: "1★", effect: "+10% Crit Rate",                      cooldown: "N/A",    desc: "集中攻擊敵人的要害。" }
+      { name: "致命打擊",           type: "Ativo",    rarity: "2★", effect: "傷害 280% + 必定暴擊",          cooldown: "14s",    desc: "施展強力致命攻擊。" },
+      { name: "致死打擊",           type: "Ativo",    rarity: "3★", effect: "傷害 350% + 即死機率 5%",          cooldown: "22s",    desc: "施展具有致死可能的打擊。" },
+      { name: "沙塵炸彈",             type: "Ativo",    rarity: "2★", effect: "範圍 致盲 5 秒 + 傷害 150%",            cooldown: "20s",    desc: "投擲沙塵炸彈使敵人失明。" },
+      { name: "致盲打擊",         type: "Ativo",    rarity: "2★", effect: "傷害 240% + 致盲 4 秒",                cooldown: "18s",    desc: "施展可使敵人失明的攻擊。" },
+      { name: "暗影步伐",           type: "Ativo",    rarity: "2★", effect: "傳送到目標背後",             cooldown: "15s",    desc: "瞬間移動到目標身後。" },
+      { name: "位置交換",                type: "Ativo",    rarity: "2★", effect: "與目標交換位置",              cooldown: "25s",    desc: "與目標交換位置。" },
+      { name: "假死",            type: "Ativo",    rarity: "2★", effect: "裝死, 失去 仇恨",            cooldown: "60s",    desc: "偽裝死亡以解除敵人仇恨。" },
+      { name: "詭計",                 type: "Ativo",    rarity: "2★", effect: "移除 目標 do 敵人",              cooldown: "20s",    desc: "以詭計擾亂敵人的鎖定。" },
+      { name: "幻影",                type: "Ativo",    rarity: "3★", effect: "+80% 迴避 持續 8 秒",                     cooldown: "45s",    desc: "製造鏡像幻影提高迴避。" },
+      { name: "偵測／解除陷阱",    type: "Ativo",    rarity: "1★", effect: "偵測 和 移除 陷阱",         cooldown: "10s",    desc: "偵測並解除陷阱。" },
+      { name: "寶藏獵人和諧",          type: "Self-Buff",rarity: "3★", effect: "+35% 暴擊, +25% 迴避, +20% ATK 25 分鐘", cooldown: "60 min", desc: "寶藏獵人的戰鬥和諧。" },
+      { name: "迴避",               type: "Passivo",  rarity: "2★", effect: "+12% 迴避",                            cooldown: "N/A",    desc: "進一步提高迴避能力。" },
+      { name: "暴擊威力",        type: "Passivo",  rarity: "2★", effect: "+18% 暴擊傷害",                    cooldown: "N/A",    desc: "提高暴擊威力。" },
+      { name: "專注",                 type: "Passivo",  rarity: "1★", effect: "+10% 暴擊率",                      cooldown: "N/A",    desc: "集中攻擊敵人的要害。" }
     ]
   },
 
@@ -311,17 +311,17 @@ const CLASSES_ECHO = {
     desc: '精通迴避與偷襲傷害的至高冒險家。保留先前學會的技能。',
     base: { atk: 98, def: 32, hp: 500, mp: 85, eva: 52, crit: 42, mdef: 22 },
     skills: [
-      { name: "刺激冒險",          type: "Self-Buff",rarity: "3★", effect: "+45% EVA, +30% Crit, +20% ATK 20min",  cooldown: "55 min", desc: "進入充滿刺激感的戰鬥狀態。" },
-      { name: "御風",                 type: "Ativo",    rarity: "3★", effect: "+80% Speed + invisível por 10s",        cooldown: "60s",    desc: "乘風高速移動。" },
-      { name: "幸運打擊",                type: "Ativo",    rarity: "3★", effect: "Dano 420% + chance loot 2x",            cooldown: "30s",    desc: "施展帶來額外收穫的幸運攻擊。" },
-      { name: "偵測",                   type: "Ativo",    rarity: "2★", effect: "Revela invisíveis em área",             cooldown: "20s",    desc: "偵測隱藏中的敵人。" },
-      { name: "超越致命打擊",    type: "Ativo",    rarity: "4★", effect: "Dano 650% + ignora EVA + bleed 12s",    cooldown: "150s",   desc: "施展超越極限的致命攻擊。" },
-      { name: "冒險家和諧",        type: "Self-Buff",rarity: "4★", effect: "+55% Crit, +45% EVA, +35% ATK 30min",  cooldown: "90 min", desc: "冒險家的至高戰鬥和諧。" },
-      { name: "戰鬥大師",            type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% Crit, +5% PvE",         cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
-      { name: "暗影感知",                type: "Passivo",  rarity: "3★", effect: "+15% EVA à noite / dungeon",            cooldown: "N/A",    desc: "感知暗影中的動靜。" },
-      { name: "冒險家之魂",           type: "Passivo",  rarity: "3★", effect: "+12% dagger ATK",                       cooldown: "N/A",    desc: "冒險家的戰鬥精神。" },
-      { name: "冒險家之軀",      type: "Passivo",  rarity: "3★", effect: "+10% Max HP, +8% EVA",                 cooldown: "N/A",    desc: "獲得靈活敏捷的身軀。" },
-      { name: "最終狂熱",                type: "Passivo",  rarity: "3★", effect: "+25% ATK quando HP < 30%",              cooldown: "N/A",    desc: "在危急狀態下進入最終狂熱。" }
+      { name: "刺激冒險",          type: "Self-Buff",rarity: "3★", effect: "+45% 迴避, +30% 暴擊, +20% ATK 20 分鐘",  cooldown: "55 min", desc: "進入充滿刺激感的戰鬥狀態。" },
+      { name: "御風",                 type: "Ativo",    rarity: "3★", effect: "+80% 速度 + 隱形 持續 10 秒",        cooldown: "60s",    desc: "乘風高速移動。" },
+      { name: "幸運打擊",                type: "Ativo",    rarity: "3★", effect: "傷害 420% + 2 倍掉落機率",            cooldown: "30s",    desc: "施展帶來額外收穫的幸運攻擊。" },
+      { name: "偵測",                   type: "Ativo",    rarity: "2★", effect: "顯示 隱形目標於區域",             cooldown: "20s",    desc: "偵測隱藏中的敵人。" },
+      { name: "超越致命打擊",    type: "Ativo",    rarity: "4★", effect: "傷害 650% + 無視 迴避 + 流血 12 秒",    cooldown: "150s",   desc: "施展超越極限的致命攻擊。" },
+      { name: "冒險家和諧",        type: "Self-Buff",rarity: "4★", effect: "+55% 暴擊, +45% 迴避, +35% ATK 30 分鐘",  cooldown: "90 min", desc: "冒險家的至高戰鬥和諧。" },
+      { name: "戰鬥大師",            type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% 暴擊, +5% PvE",         cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
+      { name: "暗影感知",                type: "Passivo",  rarity: "3★", effect: "+15% 迴避 夜間 / 地城",            cooldown: "N/A",    desc: "感知暗影中的動靜。" },
+      { name: "冒險家之魂",           type: "Passivo",  rarity: "3★", effect: "+12% 匕首攻擊",                       cooldown: "N/A",    desc: "冒險家的戰鬥精神。" },
+      { name: "冒險家之軀",      type: "Passivo",  rarity: "3★", effect: "+10% 最大 HP, +8% 迴避",                 cooldown: "N/A",    desc: "獲得靈活敏捷的身軀。" },
+      { name: "最終狂熱",                type: "Passivo",  rarity: "3★", effect: "+25% ATK 當 HP < 30%",              cooldown: "N/A",    desc: "在危急狀態下進入最終狂熱。" }
     ]
   },
 
@@ -331,18 +331,18 @@ const CLASSES_ECHO = {
     desc: '擅長遠距離傷害的菁英弓箭手。保留先前學會的技能。',
     base: { atk: 60, def: 18, hp: 280, mp: 65, eva: 20, crit: 22, mdef: 12 },
     skills: [
-      { name: "雙重射擊",           type: "Ativo",    rarity: "2★", effect: "2 disparos, dano total 260%",         cooldown: "10s",    desc: "施展強化的雙重射擊。" },
-      { name: "爆裂射擊",            type: "Ativo",    rarity: "2★", effect: "Dano 280% + knockback",               cooldown: "14s",    desc: "發射具有爆炸威力的箭矢。" },
-      { name: "暈眩射擊",             type: "Ativo",    rarity: "2★", effect: "Dano 220% + stun 3s",                cooldown: "18s",    desc: "發射可使敵人暈眩的箭矢。" },
-      { name: "箭雨",            type: "Ativo",    rarity: "3★", effect: "Dano AoE 320% (8 alvos)",            cooldown: "22s",    desc: "向範圍內降下大量箭矢。" },
-      { name: "快速射擊",            type: "Ativo",    rarity: "2★", effect: "+50% ATK Speed arco por 15s",        cooldown: "45s",    desc: "短時間提高射擊速度。" },
-      { name: "卑劣射擊",            type: "Ativo",    rarity: "2★", effect: "Dano 200% + slow 30% por 8s",        cooldown: "16s",    desc: "以干擾性射擊削弱敵人。" },
-      { name: "鷹眼和諧",     type: "Self-Buff",rarity: "3★", effect: "+35% ATK, +25% Crit, +15% Range 25min",cooldown: "60 min",desc: "鷹眼的戰鬥和諧。" },
-      { name: "弓精通",           type: "Passivo",  rarity: "2★", effect: "+18% ATK com arco",                  cooldown: "N/A",    desc: "精通弓類武器。" },
-      { name: "遠距射擊",             type: "Passivo",  rarity: "2★", effect: "+30% Range",                          cooldown: "N/A",    desc: "提高射擊距離。" },
-      { name: "專注",                 type: "Passivo",  rarity: "1★", effect: "+10% Crit Rate",                      cooldown: "N/A",    desc: "提升專注力。" },
-      { name: "暴擊威力",        type: "Passivo",  rarity: "2★", effect: "+18% Crit Damage",                    cooldown: "N/A",    desc: "提高暴擊威力。" },
-      { name: "迴避",               type: "Passivo",  rarity: "1★", effect: "+10% EVA",                            cooldown: "N/A",    desc: "提高迴避能力。" }
+      { name: "雙重射擊",           type: "Ativo",    rarity: "2★", effect: "2 次射擊, 總傷害 260%",         cooldown: "10s",    desc: "施展強化的雙重射擊。" },
+      { name: "爆裂射擊",            type: "Ativo",    rarity: "2★", effect: "傷害 280% + 擊退",               cooldown: "14s",    desc: "發射具有爆炸威力的箭矢。" },
+      { name: "暈眩射擊",             type: "Ativo",    rarity: "2★", effect: "傷害 220% + 暈眩 3 秒",                cooldown: "18s",    desc: "發射可使敵人暈眩的箭矢。" },
+      { name: "箭雨",            type: "Ativo",    rarity: "3★", effect: "傷害 範圍 320% (8 目標)",            cooldown: "22s",    desc: "向範圍內降下大量箭矢。" },
+      { name: "快速射擊",            type: "Ativo",    rarity: "2★", effect: "+50% 攻擊速度 弓 持續 15 秒",        cooldown: "45s",    desc: "短時間提高射擊速度。" },
+      { name: "卑劣射擊",            type: "Ativo",    rarity: "2★", effect: "傷害 200% + 緩速 30% 持續 8 秒",        cooldown: "16s",    desc: "以干擾性射擊削弱敵人。" },
+      { name: "鷹眼和諧",     type: "Self-Buff",rarity: "3★", effect: "+35% ATK, +25% 暴擊, +15% 射程 25 分鐘",cooldown: "60 min",desc: "鷹眼的戰鬥和諧。" },
+      { name: "弓精通",           type: "Passivo",  rarity: "2★", effect: "+18% ATK 使用弓時",                  cooldown: "N/A",    desc: "精通弓類武器。" },
+      { name: "遠距射擊",             type: "Passivo",  rarity: "2★", effect: "+30% 射程",                          cooldown: "N/A",    desc: "提高射擊距離。" },
+      { name: "專注",                 type: "Passivo",  rarity: "1★", effect: "+10% 暴擊率",                      cooldown: "N/A",    desc: "提升專注力。" },
+      { name: "暴擊威力",        type: "Passivo",  rarity: "2★", effect: "+18% 暴擊傷害",                    cooldown: "N/A",    desc: "提高暴擊威力。" },
+      { name: "迴避",               type: "Passivo",  rarity: "1★", effect: "+10% 迴避",                            cooldown: "N/A",    desc: "提高迴避能力。" }
     ]
   },
 
@@ -352,26 +352,26 @@ const CLASSES_ECHO = {
     desc: '傳說級弓箭手，精通弓術。保留先前學會的技能。',
     base: { atk: 112, def: 25, hp: 460, mp: 95, eva: 35, crit: 45, mdef: 18 },
     skills: [
-      { name: "七連矢",                  type: "Ativo",    rarity: "3★", effect: "7 flechas, dano total 480%",              cooldown: "25s",    desc: "連續射出七支箭矢。" },
-      { name: "箭矢爆裂",                  type: "Ativo",    rarity: "3★", effect: "Dano AoE 380% + burn 8s",                cooldown: "22s",    desc: "引爆箭矢造成範圍傷害。" },
-      { name: "死亡之眼",                     type: "Self-Buff",rarity: "3★", effect: "+50% ATK, +40% Range por 20min",         cooldown: "55 min", desc: "進入完美瞄準狀態。" },
-      { name: "精準射擊",                type: "Ativo",    rarity: "3★", effect: "Dano 400% + ignora 50% DEF",             cooldown: "28s",    desc: "對要害施展精準射擊。" },
-      { name: "三重射擊",                  type: "Ativo",    rarity: "3★", effect: "3 disparos, dano total 360%",             cooldown: "14s",    desc: "連續射擊三次。" },
-      { name: "荊棘射擊",                   type: "Ativo",    rarity: "2★", effect: "Dano 260% + bleed 10s",                  cooldown: "12s",    desc: "發射帶有荊棘力量的箭矢。" },
-      { name: "束縛射擊",                 type: "Ativo",    rarity: "2★", effect: "Dano 220% + root 4s",                    cooldown: "18s",    desc: "發射可束縛敵人的箭矢。" },
-      { name: "燃燒射擊",              type: "Ativo",    rarity: "2★", effect: "Dano fogo 280% + burn 8s",               cooldown: "16s",    desc: "發射燃燒箭矢。" },
-      { name: "冰凍射擊",                type: "Ativo",    rarity: "2★", effect: "Dano gelo 260% + slow 40% 6s",           cooldown: "16s",    desc: "發射冰凍箭矢。" },
-      { name: "風之射擊",                    type: "Ativo",    rarity: "2★", effect: "Dano vento 270% + knockback",            cooldown: "16s",    desc: "發射風屬性箭矢。" },
-      { name: "烈焰箭雨",             type: "Ativo",    rarity: "3★", effect: "AoE fogo 380% (10 alvos) + burn",        cooldown: "28s",    desc: "降下燃燒的箭雨。" },
-      { name: "寒冰箭雨",             type: "Ativo",    rarity: "3★", effect: "AoE gelo 360% (10 alvos) + slow",        cooldown: "28s",    desc: "降下冰冷的箭雨。" },
-      { name: "暴風箭雨",             type: "Ativo",    rarity: "3★", effect: "AoE vento 370% (10 alvos) + stun 2s",    cooldown: "28s",    desc: "降下暴風般的箭雨。" },
-      { name: "螺旋射擊",                  type: "Ativo",    rarity: "3★", effect: "Dano 420% + penetra múltiplos alvos",    cooldown: "24s",    desc: "發射具有穿透力的螺旋箭矢。" },
-      { name: "目標鎖定",                  type: "Ativo",    rarity: "3★", effect: "Marca alvo: +40% dano contra ele 12s",   cooldown: "30s",    desc: "鎖定目標以提高對其造成的傷害。" },
-      { name: "超越七連矢",     type: "Ativo",    rarity: "4★", effect: "Dano 700% + elemental + ignora DEF",     cooldown: "180s",   desc: "施展超越極限的七連箭攻擊。" },
-      { name: "射手座和諧",         type: "Self-Buff",rarity: "4★", effect: "+60% ATK, +50% Crit, +40% Range 30min",  cooldown: "90 min", desc: "射手座的戰鬥和諧。" },
-      { name: "戰鬥大師",             type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% Range, +5% PvE",         cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
-      { name: "射手之魂",            type: "Passivo",  rarity: "3★", effect: "+15% Bow ATK",                           cooldown: "N/A",    desc: "射手座的戰鬥精神。" },
-      { name: "射手之軀",       type: "Passivo",  rarity: "3★", effect: "+10% Max HP, +8% EVA",                  cooldown: "N/A",    desc: "獲得射手般靈活的身軀。" }
+      { name: "七連矢",                  type: "Ativo",    rarity: "3★", effect: "7 箭矢, 總傷害 480%",              cooldown: "25s",    desc: "連續射出七支箭矢。" },
+      { name: "箭矢爆裂",                  type: "Ativo",    rarity: "3★", effect: "傷害 範圍 380% + 燃燒 8 秒",                cooldown: "22s",    desc: "引爆箭矢造成範圍傷害。" },
+      { name: "死亡之眼",                     type: "Self-Buff",rarity: "3★", effect: "+50% ATK, +40% 射程 持續 20 分鐘",         cooldown: "55 min", desc: "進入完美瞄準狀態。" },
+      { name: "精準射擊",                type: "Ativo",    rarity: "3★", effect: "傷害 400% + 無視 50% DEF",             cooldown: "28s",    desc: "對要害施展精準射擊。" },
+      { name: "三重射擊",                  type: "Ativo",    rarity: "3★", effect: "3 次射擊, 總傷害 360%",             cooldown: "14s",    desc: "連續射擊三次。" },
+      { name: "荊棘射擊",                   type: "Ativo",    rarity: "2★", effect: "傷害 260% + 流血 10 秒",                  cooldown: "12s",    desc: "發射帶有荊棘力量的箭矢。" },
+      { name: "束縛射擊",                 type: "Ativo",    rarity: "2★", effect: "傷害 220% + 定身 4 秒",                    cooldown: "18s",    desc: "發射可束縛敵人的箭矢。" },
+      { name: "燃燒射擊",              type: "Ativo",    rarity: "2★", effect: "傷害 火 280% + 燃燒 8 秒",               cooldown: "16s",    desc: "發射燃燒箭矢。" },
+      { name: "冰凍射擊",                type: "Ativo",    rarity: "2★", effect: "傷害 冰 260% + 緩速 40% 6 秒",           cooldown: "16s",    desc: "發射冰凍箭矢。" },
+      { name: "風之射擊",                    type: "Ativo",    rarity: "2★", effect: "傷害 風 270% + 擊退",            cooldown: "16s",    desc: "發射風屬性箭矢。" },
+      { name: "烈焰箭雨",             type: "Ativo",    rarity: "3★", effect: "範圍 火 380% (10 目標) + 燃燒",        cooldown: "28s",    desc: "降下燃燒的箭雨。" },
+      { name: "寒冰箭雨",             type: "Ativo",    rarity: "3★", effect: "範圍 冰 360% (10 目標) + 緩速",        cooldown: "28s",    desc: "降下冰冷的箭雨。" },
+      { name: "暴風箭雨",             type: "Ativo",    rarity: "3★", effect: "範圍 風 370% (10 目標) + 暈眩 2 秒",    cooldown: "28s",    desc: "降下暴風般的箭雨。" },
+      { name: "螺旋射擊",                  type: "Ativo",    rarity: "3★", effect: "傷害 420% + 穿透 多個 目標",    cooldown: "24s",    desc: "發射具有穿透力的螺旋箭矢。" },
+      { name: "目標鎖定",                  type: "Ativo",    rarity: "3★", effect: "標記目標: +40% 傷害 對該目標 12 秒",   cooldown: "30s",    desc: "鎖定目標以提高對其造成的傷害。" },
+      { name: "超越七連矢",     type: "Ativo",    rarity: "4★", effect: "傷害 700% + 元素 + 無視 DEF",     cooldown: "180s",   desc: "施展超越極限的七連箭攻擊。" },
+      { name: "射手座和諧",         type: "Self-Buff",rarity: "4★", effect: "+60% ATK, +50% 暴擊, +40% 射程 30 分鐘",  cooldown: "90 min", desc: "射手座的戰鬥和諧。" },
+      { name: "戰鬥大師",             type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% 射程, +5% PvE",         cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
+      { name: "射手之魂",            type: "Passivo",  rarity: "3★", effect: "+15% 弓攻擊",                           cooldown: "N/A",    desc: "射手座的戰鬥精神。" },
+      { name: "射手之軀",       type: "Passivo",  rarity: "3★", effect: "+10% 最大 HP, +8% 迴避",                  cooldown: "N/A",    desc: "獲得射手般靈活的身軀。" }
     ]
   },
 
@@ -384,14 +384,14 @@ const CLASSES_ECHO = {
     desc: '人類的基礎魔法職業。',
     base: { atk: 5, def: 6, hp: 70, mp: 80, eva: 4, crit: 3, matk: 15, mdef: 12 },
     skills: [
-      { name: "風之打擊",       type: "Ativo",    rarity: "1★", effect: "Dano vento 160%",              cooldown: "8s",     desc: "釋放風之衝擊。" },
-      { name: "火焰打擊",      type: "Ativo",    rarity: "1★", effect: "Dano fogo 170%",               cooldown: "9s",     desc: "釋放熾熱火焰。" },
-      { name: "冰箭",          type: "Ativo",    rarity: "1★", effect: "Dano gelo 155% + slow 15% 4s", cooldown: "8s",     desc: "發射冰之彈體。" },
-      { name: "自我治癒",         type: "Ativo",    rarity: "1★", effect: "Cura 20% HP",                  cooldown: "25s",    desc: "進行基礎自我治療。" },
-      { name: "睡眠",             type: "Ativo",    rarity: "1★", effect: "Adormece alvo 8s (cancela dano)",cooldown: "30s",   desc: "以魔法使目標陷入睡眠。" },
-      { name: "法師意志",       type: "Self-Buff",rarity: "1★", effect: "+10% M.ATK, +10% M.DEF 15min", cooldown: "30 min", desc: "法師堅定的意志。" },
-      { name: "法袍精通",      type: "Passivo",  rarity: "1★", effect: "+10% M.DEF, +8% Cast Speed com robe",cooldown: "N/A",desc: "精通法袍裝備。" },
-      { name: "MP 提升",       type: "Passivo",  rarity: "1★", effect: "+8% Max MP",                   cooldown: "N/A",    desc: "提高魔力儲備。" }
+      { name: "風之打擊",       type: "Ativo",    rarity: "1★", effect: "傷害 風 160%",              cooldown: "8s",     desc: "釋放風之衝擊。" },
+      { name: "火焰打擊",      type: "Ativo",    rarity: "1★", effect: "傷害 火 170%",               cooldown: "9s",     desc: "釋放熾熱火焰。" },
+      { name: "冰箭",          type: "Ativo",    rarity: "1★", effect: "傷害 冰 155% + 緩速 15% 4 秒", cooldown: "8s",     desc: "發射冰之彈體。" },
+      { name: "自我治癒",         type: "Ativo",    rarity: "1★", effect: "治癒 20% HP",                  cooldown: "25s",    desc: "進行基礎自我治療。" },
+      { name: "睡眠",             type: "Ativo",    rarity: "1★", effect: "使其睡眠 目標 8 秒 (取消 傷害)",cooldown: "30s",   desc: "以魔法使目標陷入睡眠。" },
+      { name: "法師意志",       type: "Self-Buff",rarity: "1★", effect: "+10% M.ATK, +10% M.DEF 15 分鐘", cooldown: "30 min", desc: "法師堅定的意志。" },
+      { name: "法袍精通",      type: "Passivo",  rarity: "1★", effect: "+10% M.DEF, +8% 施法速度 搭配 法袍",cooldown: "N/A",desc: "精通法袍裝備。" },
+      { name: "MP 提升",       type: "Passivo",  rarity: "1★", effect: "+8% 最大 MP",                   cooldown: "N/A",    desc: "提高魔力儲備。" }
     ]
   },
 
@@ -401,16 +401,16 @@ const CLASSES_ECHO = {
     desc: '擅長多種元素魔法的施法者。保留先前學會的技能。',
     base: { atk: 6, def: 8, hp: 100, mp: 140, eva: 4, crit: 4, matk: 35, mdef: 22 },
     skills: [
-      { name: "烈焰",                 type: "Ativo",    rarity: "1★", effect: "Dano fogo 210%",                    cooldown: "10s",    desc: "釋放熾熱火焰。" },
-      { name: "水之漩渦",            type: "Ativo",    rarity: "1★", effect: "Dano água 200% + slow 20% 5s",      cooldown: "10s",    desc: "召喚水流漩渦。" },
-      { name: "龍捲",               type: "Ativo",    rarity: "1★", effect: "Dano vento 195%",                   cooldown: "10s",    desc: "召喚小型龍捲風。" },
-      { name: "光環燃燒",             type: "Ativo",    rarity: "2★", effect: "AoE fogo 180% ao redor",            cooldown: "14s",    desc: "以魔力燃燒周圍敵人。" },
-      { name: "生命吸取",            type: "Ativo",    rarity: "2★", effect: "Dano dark 190% + drena 25% como HP",cooldown: "15s",    desc: "吸取目標生命力。" },
-      { name: "火焰弱化",     type: "Ativo",    rarity: "2★", effect: "-20% Fire Resist no alvo 15s",      cooldown: "25s",    desc: "降低目標對火屬性的抗性。" },
-      { name: "水之弱化",    type: "Ativo",    rarity: "2★", effect: "-20% Water Resist no alvo 15s",     cooldown: "25s",    desc: "降低目標對水屬性的抗性。" },
-      { name: "風之弱化",     type: "Ativo",    rarity: "2★", effect: "-20% Wind Resist no alvo 15s",      cooldown: "25s",    desc: "降低目標對風屬性的抗性。" },
-      { name: "巫師和諧",      type: "Self-Buff",rarity: "2★", effect: "+25% M.ATK, +15% Cast Speed 20min", cooldown: "45 min", desc: "巫師的戰鬥和諧。" },
-      { name: "MP 強化",            type: "Passivo",  rarity: "1★", effect: "+12% Max MP",                       cooldown: "N/A",    desc: "進一步強化魔力儲備。" }
+      { name: "烈焰",                 type: "Ativo",    rarity: "1★", effect: "傷害 火 210%",                    cooldown: "10s",    desc: "釋放熾熱火焰。" },
+      { name: "水之漩渦",            type: "Ativo",    rarity: "1★", effect: "傷害 水 200% + 緩速 20% 5 秒",      cooldown: "10s",    desc: "召喚水流漩渦。" },
+      { name: "龍捲",               type: "Ativo",    rarity: "1★", effect: "傷害 風 195%",                   cooldown: "10s",    desc: "召喚小型龍捲風。" },
+      { name: "光環燃燒",             type: "Ativo",    rarity: "2★", effect: "範圍 火 180% 周圍",            cooldown: "14s",    desc: "以魔力燃燒周圍敵人。" },
+      { name: "生命吸取",            type: "Ativo",    rarity: "2★", effect: "傷害 黑暗 190% + 吸取 25%為 HP",cooldown: "15s",    desc: "吸取目標生命力。" },
+      { name: "火焰弱化",     type: "Ativo",    rarity: "2★", effect: "-20% 火抗性在目標 15 秒",      cooldown: "25s",    desc: "降低目標對火屬性的抗性。" },
+      { name: "水之弱化",    type: "Ativo",    rarity: "2★", effect: "-20% 水抗性在目標 15 秒",     cooldown: "25s",    desc: "降低目標對水屬性的抗性。" },
+      { name: "風之弱化",     type: "Ativo",    rarity: "2★", effect: "-20% 風抗性在目標 15 秒",      cooldown: "25s",    desc: "降低目標對風屬性的抗性。" },
+      { name: "巫師和諧",      type: "Self-Buff",rarity: "2★", effect: "+25% M.ATK, +15% 施法速度 20 分鐘", cooldown: "45 min", desc: "巫師的戰鬥和諧。" },
+      { name: "MP 強化",            type: "Passivo",  rarity: "1★", effect: "+12% 最大 MP",                       cooldown: "N/A",    desc: "進一步強化魔力儲備。" }
     ]
   },
 
@@ -420,20 +420,20 @@ const CLASSES_ECHO = {
     desc: '精通攻擊型元素魔法。保留先前學會的技能。',
     base: { atk: 8, def: 14, hp: 180, mp: 260, eva: 5, crit: 6, matk: 75, mdef: 45 },
     skills: [
-      { name: "烈焰柱",            type: "Ativo",    rarity: "2★", effect: "Dano fogo 300%",                      cooldown: "16s",    desc: "召喚火焰之柱。" },
-      { name: "暴風雪",              type: "Ativo",    rarity: "3★", effect: "Dano gelo AoE 340% + slow 30% 6s",    cooldown: "22s",    desc: "召喚毀滅性的暴風雪。" },
-      { name: "颶風",             type: "Ativo",    rarity: "2★", effect: "Dano vento 290%",                     cooldown: "16s",    desc: "施展毀滅性的颶風。" },
-      { name: "水流爆裂",           type: "Ativo",    rarity: "2★", effect: "Dano água 280% + knockback",          cooldown: "15s",    desc: "釋放強力水流爆炸。" },
-      { name: "太陽耀斑",           type: "Ativo",    rarity: "3★", effect: "Dano fogo 360% + blind 4s",           cooldown: "25s",    desc: "釋放太陽能量爆炸。" },
-      { name: "元素風暴",               type: "Ativo",    rarity: "3★", effect: "Dano vento AoE 350% (8 alvos)",       cooldown: "25s",    desc: "召喚元素風暴。" },
-      { name: "光環閃光",            type: "Ativo",    rarity: "2★", effect: "AoE 240% + knockback ao redor",       cooldown: "18s",    desc: "釋放瞬間光環閃擊。" },
-      { name: "奧術之力",          type: "Self-Buff",rarity: "3★", effect: "+40% M.ATK por 30s",                  cooldown: "90s",    desc: "凝聚奧術力量。" },
-      { name: "冰凍皮膚",         type: "Self-Buff",rarity: "2★", effect: "Quem ataca recebe slow 20% por 15s",  cooldown: "45s",    desc: "以冰霜強化皮膚。" },
-      { name: "解除",                type: "Ativo",    rarity: "3★", effect: "Remove 3 buffs do alvo",              cooldown: "40s",    desc: "解除魔法效果。" },
-      { name: "身心轉換",          type: "Ativo",    rarity: "2★", effect: "Converte 15% HP em 30% MP",           cooldown: "30s",    desc: "將生命力轉換為魔力。" },
-      { name: "抗魔",            type: "Ativo",    rarity: "3★", effect: "Silence no alvo por 8s",              cooldown: "45s",    desc: "提高對魔法的抗性。" },
-      { name: "術士和諧",    type: "Self-Buff",rarity: "3★", effect: "+35% M.ATK, +20% Cast Speed 25min",   cooldown: "60 min", desc: "術士的戰鬥和諧。" },
-      { name: "元素突擊",     type: "Passivo",  rarity: "2★", effect: "+12% elemental damage",               cooldown: "N/A",    desc: "發動元素突擊。" }
+      { name: "烈焰柱",            type: "Ativo",    rarity: "2★", effect: "傷害 火 300%",                      cooldown: "16s",    desc: "召喚火焰之柱。" },
+      { name: "暴風雪",              type: "Ativo",    rarity: "3★", effect: "傷害 冰 範圍 340% + 緩速 30% 6 秒",    cooldown: "22s",    desc: "召喚毀滅性的暴風雪。" },
+      { name: "颶風",             type: "Ativo",    rarity: "2★", effect: "傷害 風 290%",                     cooldown: "16s",    desc: "施展毀滅性的颶風。" },
+      { name: "水流爆裂",           type: "Ativo",    rarity: "2★", effect: "傷害 水 280% + 擊退",          cooldown: "15s",    desc: "釋放強力水流爆炸。" },
+      { name: "太陽耀斑",           type: "Ativo",    rarity: "3★", effect: "傷害 火 360% + 致盲 4 秒",           cooldown: "25s",    desc: "釋放太陽能量爆炸。" },
+      { name: "元素風暴",               type: "Ativo",    rarity: "3★", effect: "傷害 風 範圍 350% (8 目標)",       cooldown: "25s",    desc: "召喚元素風暴。" },
+      { name: "光環閃光",            type: "Ativo",    rarity: "2★", effect: "範圍 240% + 擊退 周圍",       cooldown: "18s",    desc: "釋放瞬間光環閃擊。" },
+      { name: "奧術之力",          type: "Self-Buff",rarity: "3★", effect: "+40% M.ATK 持續 30 秒",                  cooldown: "90s",    desc: "凝聚奧術力量。" },
+      { name: "冰凍皮膚",         type: "Self-Buff",rarity: "2★", effect: "攻擊者受到 緩速 20% 持續 15 秒",  cooldown: "45s",    desc: "以冰霜強化皮膚。" },
+      { name: "解除",                type: "Ativo",    rarity: "3★", effect: "移除 3 增益 do 目標",              cooldown: "40s",    desc: "解除魔法效果。" },
+      { name: "身心轉換",          type: "Ativo",    rarity: "2★", effect: "轉換 15% HP於30% MP",           cooldown: "30s",    desc: "將生命力轉換為魔力。" },
+      { name: "抗魔",            type: "Ativo",    rarity: "3★", effect: "沉默在目標 持續 8 秒",              cooldown: "45s",    desc: "提高對魔法的抗性。" },
+      { name: "術士和諧",    type: "Self-Buff",rarity: "3★", effect: "+35% M.ATK, +20% 施法速度 25 分鐘",   cooldown: "60 min", desc: "術士的戰鬥和諧。" },
+      { name: "元素突擊",     type: "Passivo",  rarity: "2★", effect: "+12% 元素 傷害",               cooldown: "N/A",    desc: "發動元素突擊。" }
     ]
   },
 
@@ -443,24 +443,24 @@ const CLASSES_ECHO = {
     desc: '精通火焰的高階法師，擅長大範圍高傷害。保留先前學會的技能。定位：火。',
     base: { atk: 10, def: 20, hp: 300, mp: 450, eva: 6, crit: 8, matk: 135, mdef: 72 },
     skills: [
-      { name: "隕石",                       type: "Ativo",    rarity: "4★", effect: "Dano fogo AoE 750% + burn 12s + knockdown",  cooldown: "180s",   desc: "召喚隕石造成毀滅性傷害。" },
-      { name: "地獄煉獄",                  type: "Ativo",    rarity: "3★", effect: "Dano fogo 450% + burn 10s",                 cooldown: "30s",    desc: "召喚熊熊燃燒的煉獄。" },
-      { name: "火焰爆炸",               type: "Ativo",    rarity: "3★", effect: "Dano fogo 420% + 2 hits",                  cooldown: "25s",    desc: "造成兩段火焰爆炸傷害。" },
-      { name: "火焰螺旋",                   type: "Ativo",    rarity: "3★", effect: "Dano fogo 380% + penetra alvos",           cooldown: "22s",    desc: "釋放具有穿透力的火焰螺旋。" },
-      { name: "烈焰之環",                type: "Ativo",    rarity: "3★", effect: "AoE fogo 400% ao redor (10 alvos)",        cooldown: "28s",    desc: "創造燃燒的火焰圓環。" },
-      { name: "火之種子",                  type: "Ativo",    rarity: "2★", effect: "Planta semente: explode 300% após 5s",     cooldown: "20s",    desc: "凝聚火元素種子。" },
-      { name: "元素爆發",               type: "Ativo",    rarity: "3★", effect: "Explode Seeds: dano 500%",                 cooldown: "18s",    desc: "引爆元素力量，可與種子效果連動。" },
-      { name: "元素風暴",               type: "Ativo",    rarity: "3★", effect: "AoE multi-element 440% (8 alvos)",         cooldown: "30s",    desc: "召喚元素風暴。" },
-      { name: "魔力燃燒",                     type: "Ativo",    rarity: "2★", effect: "Drena 30% MP do alvo + dano = MP drenado", cooldown: "25s",    desc: "燃燒目標的魔力。" },
-      { name: "神秘免疫",               type: "Ativo",    rarity: "4★", effect: "Imune a magia por 8s, não pode atacar",    cooldown: "180s",   desc: "獲得神秘力量保護。" },
-      { name: "強化迴響",               type: "Ativo",    rarity: "3★", effect: "Próxima skill: +50% dano",                 cooldown: "45s",    desc: "以迴響強化自身力量。" },
-      { name: "超越地獄煉獄",     type: "Ativo",    rarity: "4★", effect: "Dano fogo 800% + ignora M.DEF + burn 15s", cooldown: "200s",   desc: "施展超越極限的煉獄攻擊。" },
-      { name: "大法師和諧",            type: "Self-Buff",rarity: "4★", effect: "+55% M.ATK, +35% Cast Speed, +20% MP 30min",cooldown: "90 min",desc: "大法師的戰鬥和諧。" },
-      { name: "魔法大師",               type: "Passivo",  rarity: "3★", effect: "+10% M.ATK, +10% fire dmg, +5% PvE",      cooldown: "N/A",    desc: "精通各式魔法。" },
-      { name: "法術精通",                  type: "Passivo",  rarity: "3★", effect: "+12% M. Skill Power",                     cooldown: "N/A",    desc: "精通法術施放。" },
-      { name: "魔法專注",                    type: "Passivo",  rarity: "3★", effect: "+8% M. Crit Rate",                        cooldown: "N/A",    desc: "提高魔法專注力。" },
-      { name: "大法師之魂",                type: "Passivo",  rarity: "3★", effect: "+15% fire magic ATK",                     cooldown: "N/A",    desc: "大法師的魔法精神。" },
-      { name: "大法師之軀",           type: "Passivo",  rarity: "3★", effect: "+10% Max MP, +8% M.DEF",                 cooldown: "N/A",    desc: "以奧術力量強化身軀。" }
+      { name: "隕石",                       type: "Ativo",    rarity: "4★", effect: "傷害 火 範圍 750% + 燃燒 12 秒 + 擊倒",  cooldown: "180s",   desc: "召喚隕石造成毀滅性傷害。" },
+      { name: "地獄煉獄",                  type: "Ativo",    rarity: "3★", effect: "傷害 火 450% + 燃燒 10 秒",                 cooldown: "30s",    desc: "召喚熊熊燃燒的煉獄。" },
+      { name: "火焰爆炸",               type: "Ativo",    rarity: "3★", effect: "傷害 火 420% + 2 次命中",                  cooldown: "25s",    desc: "造成兩段火焰爆炸傷害。" },
+      { name: "火焰螺旋",                   type: "Ativo",    rarity: "3★", effect: "傷害 火 380% + 穿透 目標",           cooldown: "22s",    desc: "釋放具有穿透力的火焰螺旋。" },
+      { name: "烈焰之環",                type: "Ativo",    rarity: "3★", effect: "範圍 火 400% 周圍 (10 目標)",        cooldown: "28s",    desc: "創造燃燒的火焰圓環。" },
+      { name: "火之種子",                  type: "Ativo",    rarity: "2★", effect: "種下種子: 爆炸 300% 後 5 秒",     cooldown: "20s",    desc: "凝聚火元素種子。" },
+      { name: "元素爆發",               type: "Ativo",    rarity: "3★", effect: "引爆種子: 傷害 500%",                 cooldown: "18s",    desc: "引爆元素力量，可與種子效果連動。" },
+      { name: "元素風暴",               type: "Ativo",    rarity: "3★", effect: "範圍 多元素 440% (8 目標)",         cooldown: "30s",    desc: "召喚元素風暴。" },
+      { name: "魔力燃燒",                     type: "Ativo",    rarity: "2★", effect: "吸取 30% MP do 目標 + 傷害 = MP 吸取do", cooldown: "25s",    desc: "燃燒目標的魔力。" },
+      { name: "神秘免疫",               type: "Ativo",    rarity: "4★", effect: "免疫魔法 持續 8 秒, 無法攻擊",    cooldown: "180s",   desc: "獲得神秘力量保護。" },
+      { name: "強化迴響",               type: "Ativo",    rarity: "3★", effect: "下一個技能: +50% 傷害",                 cooldown: "45s",    desc: "以迴響強化自身力量。" },
+      { name: "超越地獄煉獄",     type: "Ativo",    rarity: "4★", effect: "傷害 火 800% + 無視 M.DEF + 燃燒 15 秒", cooldown: "200s",   desc: "施展超越極限的煉獄攻擊。" },
+      { name: "大法師和諧",            type: "Self-Buff",rarity: "4★", effect: "+55% M.ATK, +35% 施法速度, +20% MP 30 分鐘",cooldown: "90 min",desc: "大法師的戰鬥和諧。" },
+      { name: "魔法大師",               type: "Passivo",  rarity: "3★", effect: "+10% M.ATK, +10% 火 傷害, +5% PvE",      cooldown: "N/A",    desc: "精通各式魔法。" },
+      { name: "法術精通",                  type: "Passivo",  rarity: "3★", effect: "+12% 魔法技能威力",                     cooldown: "N/A",    desc: "精通法術施放。" },
+      { name: "魔法專注",                    type: "Passivo",  rarity: "3★", effect: "+8% M. 暴擊率",                        cooldown: "N/A",    desc: "提高魔法專注力。" },
+      { name: "大法師之魂",                type: "Passivo",  rarity: "3★", effect: "+15% 火 magic ATK",                     cooldown: "N/A",    desc: "大法師的魔法精神。" },
+      { name: "大法師之軀",           type: "Passivo",  rarity: "3★", effect: "+10% 最大 MP, +8% M.DEF",                 cooldown: "N/A",    desc: "以奧術力量強化身軀。" }
     ]
   },
 
@@ -470,19 +470,19 @@ const CLASSES_ECHO = {
     desc: '操控黑暗與不死生物的法師。保留先前學會的技能。定位：黑暗／不死。',
     base: { atk: 8, def: 16, hp: 200, mp: 240, eva: 4, crit: 5, matk: 68, mdef: 40 },
     skills: [
-      { name: "死亡尖刺",           type: "Ativo",    rarity: "2★", effect: "Dano dark 260% + drain 25% HP",       cooldown: "12s",    desc: "召喚致命尖刺攻擊敵人。" },
-      { name: "屍體瘟疫",          type: "Ativo",    rarity: "2★", effect: "AoE dark 280% + poison 10s",          cooldown: "20s",    desc: "以屍體散播瘟疫。" },
-      { name: "吸血鬼之爪",         type: "Ativo",    rarity: "2★", effect: "Dano 240% + drain 35% HP",            cooldown: "14s",    desc: "以吸血鬼之爪汲取生命。" },
-      { name: "黑暗束縛",                type: "Ativo",    rarity: "2★", effect: "Root no alvo 6s + dano 180%",         cooldown: "22s",    desc: "以黑暗力量束縛目標。" },
-      { name: "詛咒：幽暗",          type: "Ativo",    rarity: "2★", effect: "-25% ATK e M.ATK do alvo 12s",        cooldown: "25s",    desc: "施加幽暗詛咒。" },
-      { name: "屍爆",          type: "Ativo",    rarity: "3★", effect: "Explode cadáver: AoE 350% dark",      cooldown: "25s",    desc: "引爆屍體造成傷害。" },
-      { name: "召喚復生者", type: "Ativo",    rarity: "2★", effect: "Invoca morto-vivo (ATK 50% do dono)", cooldown: "60s",    desc: "召喚復生的不死生物。" },
-      { name: "召喚詛咒骨骸",    type: "Ativo",    rarity: "2★", effect: "Invoca esqueleto (ATK 40% do dono)",  cooldown: "45s",    desc: "召喚被詛咒的骨骸。" },
-      { name: "黑暗火焰",            type: "Ativo",    rarity: "2★", effect: "AoE dark 250% ao redor",              cooldown: "18s",    desc: "釋放黑暗火焰。" },
-      { name: "不潔弱化",   type: "Ativo",    rarity: "2★", effect: "-25% Dark Resist no alvo 15s",        cooldown: "25s",    desc: "降低目標對黑暗／不潔屬性的抗性。" },
-      { name: "恐懼詛咒",            type: "Ativo",    rarity: "3★", effect: "Medo AoE 5s (3 alvos)",               cooldown: "40s",    desc: "以詛咒使敵人陷入恐懼。" },
-      { name: "死靈法師和諧",       type: "Self-Buff",rarity: "3★", effect: "+30% M.ATK, +20% drain, +15% HP 25min",cooldown: "60 min",desc: "死靈法師的戰鬥和諧。" },
-      { name: "骨之鎧甲",            type: "Passivo",  rarity: "2★", effect: "+15% DEF, +10% dark resist",          cooldown: "N/A",    desc: "以骨骼形成護甲。" }
+      { name: "死亡尖刺",           type: "Ativo",    rarity: "2★", effect: "傷害 黑暗 260% + 吸取 25% HP",       cooldown: "12s",    desc: "召喚致命尖刺攻擊敵人。" },
+      { name: "屍體瘟疫",          type: "Ativo",    rarity: "2★", effect: "範圍 黑暗 280% + 中毒 10 秒",          cooldown: "20s",    desc: "以屍體散播瘟疫。" },
+      { name: "吸血鬼之爪",         type: "Ativo",    rarity: "2★", effect: "傷害 240% + 吸取 35% HP",            cooldown: "14s",    desc: "以吸血鬼之爪汲取生命。" },
+      { name: "黑暗束縛",                type: "Ativo",    rarity: "2★", effect: "定身在目標 6 秒 + 傷害 180%",         cooldown: "22s",    desc: "以黑暗力量束縛目標。" },
+      { name: "詛咒：幽暗",          type: "Ativo",    rarity: "2★", effect: "-25% ATK 和 M.ATK do 目標 12 秒",        cooldown: "25s",    desc: "施加幽暗詛咒。" },
+      { name: "屍爆",          type: "Ativo",    rarity: "3★", effect: "引爆屍體: 範圍 350% 黑暗",      cooldown: "25s",    desc: "引爆屍體造成傷害。" },
+      { name: "召喚復生者", type: "Ativo",    rarity: "2★", effect: "召喚 不死生物 (ATK 50% 主人)", cooldown: "60s",    desc: "召喚復生的不死生物。" },
+      { name: "召喚詛咒骨骸",    type: "Ativo",    rarity: "2★", effect: "召喚 骷髏 (ATK 40% 主人)",  cooldown: "45s",    desc: "召喚被詛咒的骨骸。" },
+      { name: "黑暗火焰",            type: "Ativo",    rarity: "2★", effect: "範圍 黑暗 250% 周圍",              cooldown: "18s",    desc: "釋放黑暗火焰。" },
+      { name: "不潔弱化",   type: "Ativo",    rarity: "2★", effect: "-25% 黑暗 抗性在目標 15 秒",        cooldown: "25s",    desc: "降低目標對黑暗／不潔屬性的抗性。" },
+      { name: "恐懼詛咒",            type: "Ativo",    rarity: "3★", effect: "恐懼 範圍 5 秒 (3 目標)",               cooldown: "40s",    desc: "以詛咒使敵人陷入恐懼。" },
+      { name: "死靈法師和諧",       type: "Self-Buff",rarity: "3★", effect: "+30% M.ATK, +20% 吸取, +15% HP 25 分鐘",cooldown: "60 min",desc: "死靈法師的戰鬥和諧。" },
+      { name: "骨之鎧甲",            type: "Passivo",  rarity: "2★", effect: "+15% DEF, +10% 黑暗 抗性",          cooldown: "N/A",    desc: "以骨骼形成護甲。" }
     ]
   },
 
@@ -492,19 +492,19 @@ const CLASSES_ECHO = {
     desc: '收割靈魂並造成大量黑暗傷害。保留先前學會的技能。定位：黑暗。',
     base: { atk: 10, def: 22, hp: 320, mp: 420, eva: 5, crit: 7, matk: 125, mdef: 62 },
     skills: [
-      { name: "靈魂漩渦",                  type: "Ativo",    rarity: "3★", effect: "Dano dark 420% + soul drain",               cooldown: "25s",    desc: "召喚靈魂漩渦。" },
-      { name: "靈魂漩渦毀滅",       type: "Ativo",    rarity: "4★", effect: "Dano dark AoE 650% + drain 30% HP",        cooldown: "160s",   desc: "引爆靈魂漩渦造成毀滅傷害。" },
-      { name: "虛空爆炸",                type: "Ativo",    rarity: "4★", effect: "Dano dark 700% + 2 hits + silence 5s",     cooldown: "180s",   desc: "引發虛空能量爆炸。" },
-      { name: "群體詛咒：幽暗",             type: "Ativo",    rarity: "3★", effect: "AoE -30% ATK/M.ATK (8 alvos) 12s",         cooldown: "35s",    desc: "對範圍敵人施加幽暗詛咒。" },
-      { name: "靈魂吸收",               type: "Ativo",    rarity: "3★", effect: "Drena 40% MP do alvo como MP próprio",     cooldown: "30s",    desc: "吸收敵人的靈魂力量。" },
-      { name: "召喚黑暗詛咒",             type: "Ativo",    rarity: "3★", effect: "Invoca entidade dark (ATK 70% do dono)",    cooldown: "90s",    desc: "召喚具有生命的黑暗詛咒。" },
-      { name: "黑暗負擔",                   type: "Ativo",    rarity: "3★", effect: "-40% Speed no alvo 10s + dano 300%",       cooldown: "28s",    desc: "使目標承受黑暗負擔。" },
-      { name: "超越靈魂漩渦",      type: "Ativo",    rarity: "4★", effect: "Dano dark 850% + drain todo MP + stun 4s", cooldown: "200s",   desc: "施展超越極限的靈魂漩渦。" },
-      { name: "奪魂者和諧",           type: "Self-Buff",rarity: "4★", effect: "+55% M.ATK, +40% drain, +25% HP 30min",    cooldown: "90 min", desc: "奪魂者的戰鬥和諧。" },
-      { name: "黑暗魔法大師",          type: "Passivo",  rarity: "3★", effect: "+10% M.ATK, +10% dark dmg, +5% PvE",      cooldown: "N/A",    desc: "精通黑暗魔法。" },
-      { name: "法術精通",                  type: "Passivo",  rarity: "3★", effect: "+12% M. Skill Power",                     cooldown: "N/A",    desc: "精通法術施放。" },
-      { name: "奪魂者之魂",              type: "Passivo",  rarity: "3★", effect: "+15% dark magic ATK",                      cooldown: "N/A",    desc: "奪魂者的戰鬥精神。" },
-      { name: "奪魂者之軀",         type: "Passivo",  rarity: "3★", effect: "+12% Max MP, +10% HP",                    cooldown: "N/A",    desc: "強化奪魂者的身軀。" }
+      { name: "靈魂漩渦",                  type: "Ativo",    rarity: "3★", effect: "傷害 黑暗 420% + 靈魂 吸取",               cooldown: "25s",    desc: "召喚靈魂漩渦。" },
+      { name: "靈魂漩渦毀滅",       type: "Ativo",    rarity: "4★", effect: "傷害 黑暗 範圍 650% + 吸取 30% HP",        cooldown: "160s",   desc: "引爆靈魂漩渦造成毀滅傷害。" },
+      { name: "虛空爆炸",                type: "Ativo",    rarity: "4★", effect: "傷害 黑暗 700% + 2 次命中 + 沉默 5 秒",     cooldown: "180s",   desc: "引發虛空能量爆炸。" },
+      { name: "群體詛咒：幽暗",             type: "Ativo",    rarity: "3★", effect: "範圍 -30% ATK/M.ATK (8 目標) 12 秒",         cooldown: "35s",    desc: "對範圍敵人施加幽暗詛咒。" },
+      { name: "靈魂吸收",               type: "Ativo",    rarity: "3★", effect: "吸取 40% MP do 目標 como MP 自身",     cooldown: "30s",    desc: "吸收敵人的靈魂力量。" },
+      { name: "召喚黑暗詛咒",             type: "Ativo",    rarity: "3★", effect: "召喚 實體 黑暗 (ATK 70% 主人)",    cooldown: "90s",    desc: "召喚具有生命的黑暗詛咒。" },
+      { name: "黑暗負擔",                   type: "Ativo",    rarity: "3★", effect: "-40% 速度在目標 10 秒 + 傷害 300%",       cooldown: "28s",    desc: "使目標承受黑暗負擔。" },
+      { name: "超越靈魂漩渦",      type: "Ativo",    rarity: "4★", effect: "傷害 黑暗 850% + 吸取 todo MP + 暈眩 4 秒", cooldown: "200s",   desc: "施展超越極限的靈魂漩渦。" },
+      { name: "奪魂者和諧",           type: "Self-Buff",rarity: "4★", effect: "+55% M.ATK, +40% 吸取, +25% HP 30 分鐘",    cooldown: "90 min", desc: "奪魂者的戰鬥和諧。" },
+      { name: "黑暗魔法大師",          type: "Passivo",  rarity: "3★", effect: "+10% M.ATK, +10% 黑暗 傷害, +5% PvE",      cooldown: "N/A",    desc: "精通黑暗魔法。" },
+      { name: "法術精通",                  type: "Passivo",  rarity: "3★", effect: "+12% 魔法技能威力",                     cooldown: "N/A",    desc: "精通法術施放。" },
+      { name: "奪魂者之魂",              type: "Passivo",  rarity: "3★", effect: "+15% 黑暗 magic ATK",                      cooldown: "N/A",    desc: "奪魂者的戰鬥精神。" },
+      { name: "奪魂者之軀",         type: "Passivo",  rarity: "3★", effect: "+12% 最大 MP, +10% HP",                    cooldown: "N/A",    desc: "強化奪魂者的身軀。" }
     ]
   },
 
@@ -514,17 +514,17 @@ const CLASSES_ECHO = {
     desc: '召喚黑暗生物作戰。保留先前學會的技能。定位：召喚。',
     base: { atk: 7, def: 15, hp: 190, mp: 250, eva: 4, crit: 4, matk: 62, mdef: 42 },
     skills: [
-      { name: "召喚暗影",          type: "Ativo",    rarity: "2★", effect: "Invoca sombra (ATK 45% do dono)",     cooldown: "60s",    desc: "召喚戰鬥型暗影。" },
-      { name: "召喚魅影",      type: "Ativo",    rarity: "2★", effect: "Invoca silhueta (tank, DEF 60%)",     cooldown: "60s",    desc: "召喚防禦型魅影。" },
-      { name: "召喚無魂者",        type: "Ativo",    rarity: "3★", effect: "Invoca sem-alma (ATK 65% do dono)",   cooldown: "90s",    desc: "召喚強力的無魂生物。" },
-      { name: "召喚獸治癒",          type: "Ativo",    rarity: "2★", effect: "Cura summon 35% HP",                  cooldown: "12s",    desc: "治療召喚獸。" },
-      { name: "召喚獸回復",      type: "Ativo",    rarity: "2★", effect: "Restaura 30% MP do summon",           cooldown: "15s",    desc: "恢復召喚獸的魔力。" },
-      { name: "痛苦轉移",          type: "Toggle",   rarity: "2★", effect: "50% dano recebido vai pro summon",    cooldown: "N/A",    desc: "將部分受到的傷害轉移給召喚獸。" },
-      { name: "召喚束縛晶體",   type: "Ativo",    rarity: "2★", effect: "Cubic que causa root em inimigos",    cooldown: "45s",    desc: "召喚具有束縛能力的晶體。" },
-      { name: "召喚幻影晶體",   type: "Ativo",    rarity: "2★", effect: "Cubic que causa dano dark contínuo",  cooldown: "45s",    desc: "召喚幻影晶體協助戰鬥。" },
-      { name: "生命晶體",             type: "Ativo",    rarity: "2★", effect: "Cubic que cura dono 5%/5s",           cooldown: "45s",    desc: "召喚具有生命恢復能力的晶體。" },
-      { name: "召喚術士和諧",      type: "Self-Buff",rarity: "3★", effect: "+30% M.ATK, +25% Summon ATK 25min",   cooldown: "60 min", desc: "召喚術士的戰鬥和諧。" },
-      { name: "召喚獸物理攻擊",  type: "Passivo",  rarity: "2★", effect: "+15% Summon ATK",                     cooldown: "N/A",    desc: "提高召喚獸的物理攻擊能力。" }
+      { name: "召喚暗影",          type: "Ativo",    rarity: "2★", effect: "召喚 暗影 (ATK 45% 主人)",     cooldown: "60s",    desc: "召喚戰鬥型暗影。" },
+      { name: "召喚魅影",      type: "Ativo",    rarity: "2★", effect: "召喚 幻影 (tank, DEF 60%)",     cooldown: "60s",    desc: "召喚防禦型魅影。" },
+      { name: "召喚無魂者",        type: "Ativo",    rarity: "3★", effect: "召喚 無魂者 (ATK 65% 主人)",   cooldown: "90s",    desc: "召喚強力的無魂生物。" },
+      { name: "召喚獸治癒",          type: "Ativo",    rarity: "2★", effect: "治癒召喚物 35% HP",                  cooldown: "12s",    desc: "治療召喚獸。" },
+      { name: "召喚獸回復",      type: "Ativo",    rarity: "2★", effect: "恢復 30% MP do 召喚物",           cooldown: "15s",    desc: "恢復召喚獸的魔力。" },
+      { name: "痛苦轉移",          type: "Toggle",   rarity: "2★", effect: "50% 傷害 受到的 轉移給 召喚物",    cooldown: "N/A",    desc: "將部分受到的傷害轉移給召喚獸。" },
+      { name: "召喚束縛晶體",   type: "Ativo",    rarity: "2★", effect: "晶體 造成 定身於敵人",    cooldown: "45s",    desc: "召喚具有束縛能力的晶體。" },
+      { name: "召喚幻影晶體",   type: "Ativo",    rarity: "2★", effect: "晶體 造成 傷害 黑暗 持續",  cooldown: "45s",    desc: "召喚幻影晶體協助戰鬥。" },
+      { name: "生命晶體",             type: "Ativo",    rarity: "2★", effect: "晶體 會 治癒 主人 5%/5 秒",           cooldown: "45s",    desc: "召喚具有生命恢復能力的晶體。" },
+      { name: "召喚術士和諧",      type: "Self-Buff",rarity: "3★", effect: "+30% M.ATK, +25% 召喚物 ATK 25 分鐘",   cooldown: "60 min", desc: "召喚術士的戰鬥和諧。" },
+      { name: "召喚獸物理攻擊",  type: "Passivo",  rarity: "2★", effect: "+15% 召喚物 ATK",                     cooldown: "N/A",    desc: "提高召喚獸的物理攻擊能力。" }
     ]
   },
 
@@ -534,17 +534,17 @@ const CLASSES_ECHO = {
     desc: '召喚師中的奧術領主。保留先前學會的技能。定位：召喚。',
     base: { atk: 10, def: 22, hp: 310, mp: 430, eva: 5, crit: 5, matk: 118, mdef: 65 },
     skills: [
-      { name: "召喚貓王",            type: "Ativo",    rarity: "4★", effect: "Invoca Rei Felino (ATK 90% do dono)",       cooldown: "120s",   desc: "召喚至高的貓族之王。" },
-      { name: "召喚馬格努斯",                 type: "Ativo",    rarity: "3★", effect: "Invoca Magnus (AoE ATK 70% do dono)",       cooldown: "90s",    desc: "召喚元素生物馬格努斯。" },
-      { name: "召喚獸屏障",              type: "Ativo",    rarity: "3★", effect: "Summon ganha escudo 5000 HP por 15s",       cooldown: "60s",    desc: "為召喚獸展開防護屏障。" },
-      { name: "群體召喚獸治癒",            type: "Ativo",    rarity: "3★", effect: "Cura todos summons 40% HP",                cooldown: "25s",    desc: "治療多個召喚獸。" },
-      { name: "召喚獸強化",          type: "Self-Buff",rarity: "3★", effect: "+50% Summon ATK/DEF por 30s",               cooldown: "90s",    desc: "強化召喚獸的戰鬥能力。" },
-      { name: "最終召喚獸",                type: "Ativo",    rarity: "4★", effect: "Summon sacrifica: AoE 600% + cura 50% HP",  cooldown: "180s",   desc: "犧牲召喚獸釋放最後力量。" },
-      { name: "超越召喚爆發",     type: "Ativo",    rarity: "4★", effect: "Todos summons atacam: dano 800% total",     cooldown: "200s",   desc: "引爆多重召喚力量。" },
-      { name: "奧術領主和諧",         type: "Self-Buff",rarity: "4★", effect: "+50% M.ATK, +60% Summon Power 30min",       cooldown: "90 min", desc: "奧術領主的戰鬥和諧。" },
-      { name: "召喚大師",           type: "Passivo",  rarity: "3★", effect: "+15% Summon ATK/DEF, +5% PvE",             cooldown: "N/A",    desc: "精通召喚術。" },
-      { name: "奧術領主之魂",            type: "Passivo",  rarity: "3★", effect: "+12% M.ATK, +10% Summon HP",                cooldown: "N/A",    desc: "奧術領主的戰鬥精神。" },
-      { name: "奧術領主之軀",       type: "Passivo",  rarity: "3★", effect: "+10% Max MP, +8% Max HP",                  cooldown: "N/A",    desc: "以奧術力量強化身軀。" }
+      { name: "召喚貓王",            type: "Ativo",    rarity: "4★", effect: "召喚 Rei Felino (ATK 90% 主人)",       cooldown: "120s",   desc: "召喚至高的貓族之王。" },
+      { name: "召喚馬格努斯",                 type: "Ativo",    rarity: "3★", effect: "召喚 Magnus (範圍 ATK 70% 主人)",       cooldown: "90s",    desc: "召喚元素生物馬格努斯。" },
+      { name: "召喚獸屏障",              type: "Ativo",    rarity: "3★", effect: "召喚物 獲得護盾 5000 HP 持續 15 秒",       cooldown: "60s",    desc: "為召喚獸展開防護屏障。" },
+      { name: "群體召喚獸治癒",            type: "Ativo",    rarity: "3★", effect: "治癒所有召喚物 40% HP",                cooldown: "25s",    desc: "治療多個召喚獸。" },
+      { name: "召喚獸強化",          type: "Self-Buff",rarity: "3★", effect: "+50% 召喚物 ATK/DEF 持續 30 秒",               cooldown: "90s",    desc: "強化召喚獸的戰鬥能力。" },
+      { name: "最終召喚獸",                type: "Ativo",    rarity: "4★", effect: "召喚物 犧牲: 範圍 600% + 治癒 50% HP",  cooldown: "180s",   desc: "犧牲召喚獸釋放最後力量。" },
+      { name: "超越召喚爆發",     type: "Ativo",    rarity: "4★", effect: "所有 召喚物 攻擊: 傷害 800% 完全",     cooldown: "200s",   desc: "引爆多重召喚力量。" },
+      { name: "奧術領主和諧",         type: "Self-Buff",rarity: "4★", effect: "+50% M.ATK, +60% 召喚物 威力 30 分鐘",       cooldown: "90 min", desc: "奧術領主的戰鬥和諧。" },
+      { name: "召喚大師",           type: "Passivo",  rarity: "3★", effect: "+15% 召喚物 ATK/DEF, +5% PvE",             cooldown: "N/A",    desc: "精通召喚術。" },
+      { name: "奧術領主之魂",            type: "Passivo",  rarity: "3★", effect: "+12% M.ATK, +10% 召喚物 HP",                cooldown: "N/A",    desc: "奧術領主的戰鬥精神。" },
+      { name: "奧術領主之軀",       type: "Passivo",  rarity: "3★", effect: "+10% 最大 MP, +8% 最大 HP",                  cooldown: "N/A",    desc: "以奧術力量強化身軀。" }
     ]
   },
 
@@ -554,16 +554,16 @@ const CLASSES_ECHO = {
     desc: '擅長治療與支援的牧師。保留先前學會的技能。',
     base: { atk: 8, def: 15, hp: 130, mp: 120, eva: 4, crit: 3, matk: 22, mdef: 28 },
     skills: [
-      { name: "治癒",             type: "Ativo",    rarity: "1★", effect: "Cura 25% HP alvo",                 cooldown: "8s",     desc: "進行基礎治療。" },
-      { name: "戰鬥治癒",      type: "Ativo",    rarity: "1★", effect: "Cura 20% HP + remove 1 debuff",    cooldown: "10s",    desc: "在戰鬥中快速治療。" },
-      { name: "力量",            type: "Party-Buff",rarity: "1★", effect: "+15% ATK para party 10 min",      cooldown: "25 min", desc: "賦予提升力量的祝福。" },
-      { name: "盾牌祝福",    type: "Party-Buff",rarity: "1★", effect: "+15% DEF para party 10 min",      cooldown: "25 min", desc: "賦予防護祝福。" },
-      { name: "風之疾走",        type: "Party-Buff",rarity: "1★", effect: "+20% Speed para party 10 min",    cooldown: "25 min", desc: "提高移動速度。" },
-      { name: "解毒",      type: "Ativo",    rarity: "1★", effect: "Remove poison",                    cooldown: "5s",     desc: "解除中毒狀態。" },
-      { name: "止血",       type: "Ativo",    rarity: "1★", effect: "Remove bleed",                     cooldown: "5s",     desc: "解除流血狀態。" },
-      { name: "驅散不死生物",      type: "Ativo",    rarity: "2★", effect: "Dano holy 200% vs undead",         cooldown: "12s",    desc: "驅逐不死系敵人。" },
-      { name: "魔力回復",         type: "Ativo",    rarity: "1★", effect: "Restaura 20% MP do alvo",          cooldown: "12s",    desc: "恢復目標的 MP。" },
-      { name: "牧師和諧", type: "Self-Buff",rarity: "2★", effect: "+20% M.ATK, +20% Heal Power 20min",cooldown: "45 min", desc: "牧師的戰鬥和諧。" }
+      { name: "治癒",             type: "Ativo",    rarity: "1★", effect: "治癒 25% HP 目標",                 cooldown: "8s",     desc: "進行基礎治療。" },
+      { name: "戰鬥治癒",      type: "Ativo",    rarity: "1★", effect: "治癒 20% HP + 移除 1 減益",    cooldown: "10s",    desc: "在戰鬥中快速治療。" },
+      { name: "力量",            type: "Party-Buff",rarity: "1★", effect: "+15% ATK給隊伍 10 分鐘",      cooldown: "25 min", desc: "賦予提升力量的祝福。" },
+      { name: "盾牌祝福",    type: "Party-Buff",rarity: "1★", effect: "+15% DEF給隊伍 10 分鐘",      cooldown: "25 min", desc: "賦予防護祝福。" },
+      { name: "風之疾走",        type: "Party-Buff",rarity: "1★", effect: "+20% 速度給隊伍 10 分鐘",    cooldown: "25 min", desc: "提高移動速度。" },
+      { name: "解毒",      type: "Ativo",    rarity: "1★", effect: "移除 中毒",                    cooldown: "5s",     desc: "解除中毒狀態。" },
+      { name: "止血",       type: "Ativo",    rarity: "1★", effect: "移除 流血",                     cooldown: "5s",     desc: "解除流血狀態。" },
+      { name: "驅散不死生物",      type: "Ativo",    rarity: "2★", effect: "傷害 神聖 200% vs 不死族",         cooldown: "12s",    desc: "驅逐不死系敵人。" },
+      { name: "魔力回復",         type: "Ativo",    rarity: "1★", effect: "恢復 20% MP do 目標",          cooldown: "12s",    desc: "恢復目標的 MP。" },
+      { name: "牧師和諧", type: "Self-Buff",rarity: "2★", effect: "+20% M.ATK, +20% 治癒威力 20 分鐘",cooldown: "45 min", desc: "牧師的戰鬥和諧。" }
     ]
   },
 
@@ -573,24 +573,24 @@ const CLASSES_ECHO = {
     desc: '擁有強大治療能力的主教。保留先前學會的技能。',
     base: { atk: 10, def: 28, hp: 250, mp: 220, eva: 4, crit: 4, matk: 50, mdef: 60 },
     skills: [
-      { name: "高級治癒",          type: "Ativo",      rarity: "2★", effect: "Cura 40% HP alvo",                    cooldown: "10s",    desc: "施展更強力的治療。" },
-      { name: "高級群體治癒",    type: "Ativo",      rarity: "3★", effect: "Cura 30% HP party",                   cooldown: "18s",    desc: "治療隊伍成員。" },
-      { name: "復活",          type: "Ativo",      rarity: "3★", effect: "Ressuscita aliado com 30% HP",        cooldown: "120s",   desc: "使倒下的目標復活。" },
-      { name: "高級力量",         type: "Party-Buff", rarity: "2★", effect: "+25% ATK party 12 min",               cooldown: "30 min", desc: "賦予更強大的力量祝福。" },
-      { name: "高級盾牌",        type: "Party-Buff", rarity: "2★", effect: "+25% DEF party 12 min",               cooldown: "30 min", desc: "賦予更強大的防護祝福。" },
-      { name: "祝福之軀",          type: "Party-Buff", rarity: "2★", effect: "+20% Max HP party 12 min",            cooldown: "30 min", desc: "以祝福強化身體。" },
-      { name: "祝福之魂",          type: "Party-Buff", rarity: "2★", effect: "+20% Max MP party 12 min",            cooldown: "30 min", desc: "以祝福強化靈魂。" },
-      { name: "神聖武器",           type: "Party-Buff", rarity: "2★", effect: "+15% Holy ATK party 12 min",          cooldown: "30 min", desc: "賦予武器神聖力量。" },
-      { name: "淨化",                type: "Ativo",      rarity: "2★", effect: "Remove 3 debuffs do alvo",            cooldown: "20s",    desc: "淨化負面狀態。" },
-      { name: "潔淨",               type: "Ativo",      rarity: "3★", effect: "Remove TODOS debuffs do alvo",        cooldown: "45s",    desc: "徹底清除異常狀態。" },
-      { name: "精神之盾",         type: "Party-Buff", rarity: "2★", effect: "+20% M.DEF party 12 min",             cooldown: "30 min", desc: "提高精神異常抗性。" },
-      { name: "審判者",            type: "Ativo",      rarity: "2★", effect: "Dano holy 250%",                      cooldown: "14s",    desc: "獲得審判者的神聖力量。" },
-      { name: "神聖打擊",           type: "Ativo",      rarity: "3★", effect: "Dano holy 320% + undead 2x",          cooldown: "18s",    desc: "施展神聖屬性攻擊。" },
-      { name: "神聖懲罰",     type: "Ativo",      rarity: "3★", effect: "Dano holy 360% + stun 3s",            cooldown: "22s",    desc: "以神聖力量懲罰敵人。" },
-      { name: "大型治癒",            type: "Ativo",      rarity: "3★", effect: "Cura 55% HP alvo",                    cooldown: "15s",    desc: "施展強力治療。" },
-      { name: "隊伍召回",          type: "Ativo",      rarity: "2★", effect: "Teleporta party para cidade",         cooldown: "300s",   desc: "將隊伍成員傳送回安全地點。" },
-      { name: "主教和諧",      type: "Self-Buff",  rarity: "3★", effect: "+35% Heal, +25% M.ATK, +20% M.DEF 25min",cooldown: "60 min",desc: "主教的戰鬥和諧。" },
-      { name: "魔力再生",     type: "Passivo",    rarity: "2★", effect: "+15% MP Regen",                       cooldown: "N/A",    desc: "提高 MP 自然恢復。" }
+      { name: "高級治癒",          type: "Ativo",      rarity: "2★", effect: "治癒 40% HP 目標",                    cooldown: "10s",    desc: "施展更強力的治療。" },
+      { name: "高級群體治癒",    type: "Ativo",      rarity: "3★", effect: "治癒 30% HP 隊伍",                   cooldown: "18s",    desc: "治療隊伍成員。" },
+      { name: "復活",          type: "Ativo",      rarity: "3★", effect: "復活 盟友 搭配 30% HP",        cooldown: "120s",   desc: "使倒下的目標復活。" },
+      { name: "高級力量",         type: "Party-Buff", rarity: "2★", effect: "+25% ATK 隊伍 12 分鐘",               cooldown: "30 min", desc: "賦予更強大的力量祝福。" },
+      { name: "高級盾牌",        type: "Party-Buff", rarity: "2★", effect: "+25% DEF 隊伍 12 分鐘",               cooldown: "30 min", desc: "賦予更強大的防護祝福。" },
+      { name: "祝福之軀",          type: "Party-Buff", rarity: "2★", effect: "+20% 最大 HP 隊伍 12 分鐘",            cooldown: "30 min", desc: "以祝福強化身體。" },
+      { name: "祝福之魂",          type: "Party-Buff", rarity: "2★", effect: "+20% 最大 MP 隊伍 12 分鐘",            cooldown: "30 min", desc: "以祝福強化靈魂。" },
+      { name: "神聖武器",           type: "Party-Buff", rarity: "2★", effect: "+15% 神聖 ATK 隊伍 12 分鐘",          cooldown: "30 min", desc: "賦予武器神聖力量。" },
+      { name: "淨化",                type: "Ativo",      rarity: "2★", effect: "移除 3 de增益 do 目標",            cooldown: "20s",    desc: "淨化負面狀態。" },
+      { name: "潔淨",               type: "Ativo",      rarity: "3★", effect: "移除 所有 de增益 do 目標",        cooldown: "45s",    desc: "徹底清除異常狀態。" },
+      { name: "精神之盾",         type: "Party-Buff", rarity: "2★", effect: "+20% M.DEF 隊伍 12 分鐘",             cooldown: "30 min", desc: "提高精神異常抗性。" },
+      { name: "審判者",            type: "Ativo",      rarity: "2★", effect: "傷害 神聖 250%",                      cooldown: "14s",    desc: "獲得審判者的神聖力量。" },
+      { name: "神聖打擊",           type: "Ativo",      rarity: "3★", effect: "傷害 神聖 320% + 不死族 2x",          cooldown: "18s",    desc: "施展神聖屬性攻擊。" },
+      { name: "神聖懲罰",     type: "Ativo",      rarity: "3★", effect: "傷害 神聖 360% + 暈眩 3 秒",            cooldown: "22s",    desc: "以神聖力量懲罰敵人。" },
+      { name: "大型治癒",            type: "Ativo",      rarity: "3★", effect: "治癒 55% HP 目標",                    cooldown: "15s",    desc: "施展強力治療。" },
+      { name: "隊伍召回",          type: "Ativo",      rarity: "2★", effect: "將隊伍傳送至城鎮",         cooldown: "300s",   desc: "將隊伍成員傳送回安全地點。" },
+      { name: "主教和諧",      type: "Self-Buff",  rarity: "3★", effect: "+35% 治癒, +25% M.ATK, +20% M.DEF 25 分鐘",cooldown: "60 min",desc: "主教的戰鬥和諧。" },
+      { name: "魔力再生",     type: "Passivo",    rarity: "2★", effect: "+15% MP 恢復",                       cooldown: "N/A",    desc: "提高 MP 自然恢復。" }
     ]
   },
 
@@ -600,21 +600,21 @@ const CLASSES_ECHO = {
     desc: '至高治療者，同時能以黑暗面姿態施展神聖傷害。保留先前學會的技能。',
     base: { atk: 12, def: 42, hp: 420, mp: 480, eva: 5, crit: 5, matk: 95, mdef: 98 },
     skills: [
-      { name: "奇蹟",                      type: "Ativo",      rarity: "4★", effect: "Cura party 80% HP + ressurge mortos",      cooldown: "300s",   desc: "施展至高治療並可復活盟友。" },
-      { name: "崇高自我犧牲",        type: "Ativo",      rarity: "4★", effect: "Morre para curar party 100% HP+MP",       cooldown: "300s",   desc: "以自身力量進行崇高犧牲。" },
-      { name: "生命平衡",                  type: "Ativo",      rarity: "3★", effect: "Equaliza HP de toda party",                cooldown: "60s",    desc: "重新平衡生命值。" },
-      { name: "群體復活",             type: "Ativo",      rarity: "4★", effect: "Ressuscita toda party com 40% HP",        cooldown: "300s",   desc: "使多名倒下的盟友復活。" },
-      { name: "吸血鬼領主",               type: "Party-Buff", rarity: "3★", effect: "+10% lifesteal para party 12 min",        cooldown: "30 min", desc: "獲得吸血鬼領主之力。" },
-      { name: "伊娃祝福",               type: "Party-Buff", rarity: "3★", effect: "+25% M.DEF e resist debuff party 12min",  cooldown: "30 min", desc: "獲得伊娃的祝福。" },
-      { name: "恍惚",                        type: "Ativo",      rarity: "3★", effect: "Channeling: cura 8%/s por 10s",           cooldown: "45s",    desc: "進入治療恍惚狀態。" },
-      { name: "黑暗面",                     type: "Toggle",     rarity: "3★", effect: "Troca: -60% Heal, +80% M.ATK holy",       cooldown: "N/A",    desc: "切換黑暗面姿態，讓治療者轉為輸出型態。" },
-      { name: "神聖爆發",                    type: "Ativo",      rarity: "3★", effect: "Dano holy AoE 400% (Dark Side only)",     cooldown: "20s",    desc: "在黑暗面姿態下釋放神聖爆炸。" },
-      { name: "神聖新星",                   type: "Ativo",      rarity: "3★", effect: "Dano holy AoE 450% + blind 5s",           cooldown: "25s",    desc: "釋放神聖新星，黑暗面姿態下效果更強。" },
-      { name: "超越神聖打擊",      type: "Ativo",      rarity: "4★", effect: "Dano holy 750% + stun 5s",                cooldown: "180s",   desc: "施展超越極限的神聖打擊。" },
-      { name: "樞機主教和諧",            type: "Self-Buff",  rarity: "4★", effect: "+55% Heal, +40% M.ATK, +30% M.DEF 30min",cooldown: "90 min", desc: "樞機主教的戰鬥和諧。" },
-      { name: "治癒大師",             type: "Passivo",    rarity: "3★", effect: "+15% Heal Power, +5% PvE",               cooldown: "N/A",    desc: "精通各式治療術。" },
-      { name: "樞機主教之魂",               type: "Passivo",    rarity: "3★", effect: "+12% holy magic ATK",                     cooldown: "N/A",    desc: "樞機主教的神聖精神。" },
-      { name: "樞機主教之軀",          type: "Passivo",    rarity: "3★", effect: "+12% Max MP, +10% M.DEF",                cooldown: "N/A",    desc: "獲得神聖強化的身軀。" }
+      { name: "奇蹟",                      type: "Ativo",      rarity: "4★", effect: "治癒隊伍 80% HP + 復活死亡成員",      cooldown: "300s",   desc: "施展至高治療並可復活盟友。" },
+      { name: "崇高自我犧牲",        type: "Ativo",      rarity: "4★", effect: "死亡給治癒r 隊伍 100% HP+MP",       cooldown: "300s",   desc: "以自身力量進行崇高犧牲。" },
+      { name: "生命平衡",                  type: "Ativo",      rarity: "3★", effect: "平均 HP的所有 隊伍",                cooldown: "60s",    desc: "重新平衡生命值。" },
+      { name: "群體復活",             type: "Ativo",      rarity: "4★", effect: "復活 所有 隊伍 搭配 40% HP",        cooldown: "300s",   desc: "使多名倒下的盟友復活。" },
+      { name: "吸血鬼領主",               type: "Party-Buff", rarity: "3★", effect: "+10% 吸血給隊伍 12 分鐘",        cooldown: "30 min", desc: "獲得吸血鬼領主之力。" },
+      { name: "伊娃祝福",               type: "Party-Buff", rarity: "3★", effect: "+25% M.DEF 和 抗性 減益 隊伍 12 分鐘",  cooldown: "30 min", desc: "獲得伊娃的祝福。" },
+      { name: "恍惚",                        type: "Ativo",      rarity: "3★", effect: "Channeling: 治癒 8%/s 持續 10 秒",           cooldown: "45s",    desc: "進入治療恍惚狀態。" },
+      { name: "黑暗面",                     type: "Toggle",     rarity: "3★", effect: "切換： -60% 治癒, +80% M.ATK 神聖",       cooldown: "N/A",    desc: "切換黑暗面姿態，讓治療者轉為輸出型態。" },
+      { name: "神聖爆發",                    type: "Ativo",      rarity: "3★", effect: "傷害 神聖 範圍 400% (黑暗 側 only)",     cooldown: "20s",    desc: "在黑暗面姿態下釋放神聖爆炸。" },
+      { name: "神聖新星",                   type: "Ativo",      rarity: "3★", effect: "傷害 神聖 範圍 450% + 致盲 5 秒",           cooldown: "25s",    desc: "釋放神聖新星，黑暗面姿態下效果更強。" },
+      { name: "超越神聖打擊",      type: "Ativo",      rarity: "4★", effect: "傷害 神聖 750% + 暈眩 5 秒",                cooldown: "180s",   desc: "施展超越極限的神聖打擊。" },
+      { name: "樞機主教和諧",            type: "Self-Buff",  rarity: "4★", effect: "+55% 治癒, +40% M.ATK, +30% M.DEF 30 分鐘",cooldown: "90 min", desc: "樞機主教的戰鬥和諧。" },
+      { name: "治癒大師",             type: "Passivo",    rarity: "3★", effect: "+15% 治癒威力, +5% PvE",               cooldown: "N/A",    desc: "精通各式治療術。" },
+      { name: "樞機主教之魂",               type: "Passivo",    rarity: "3★", effect: "+12% 神聖 magic ATK",                     cooldown: "N/A",    desc: "樞機主教的神聖精神。" },
+      { name: "樞機主教之軀",          type: "Passivo",    rarity: "3★", effect: "+12% 最大 MP, +10% M.DEF",                cooldown: "N/A",    desc: "獲得神聖強化的身軀。" }
     ]
   },
 
@@ -624,21 +624,21 @@ const CLASSES_ECHO = {
     desc: '精通各式增益魔法的先知。保留先前學會的技能。',
     base: { atk: 12, def: 25, hp: 280, mp: 200, eva: 4, crit: 4, matk: 42, mdef: 52 },
     skills: [
-      { name: "加速",              type: "Self-Buff",  rarity: "2★", effect: "+30% ATK Speed por 20 min",            cooldown: "50 min", desc: "提高行動與攻擊速度。" },
-      { name: "狂戰士之魂",    type: "Self-Buff",  rarity: "2★", effect: "+20% ATK, +20% M.ATK, -10% DEF 20min",cooldown: "50 min", desc: "喚醒狂戰士之魂。" },
-      { name: "吸血狂怒",      type: "Self-Buff",  rarity: "2★", effect: "+10% lifesteal por 20 min",            cooldown: "50 min", desc: "賦予吸血效果。" },
-      { name: "魔力強化",            type: "Self-Buff",  rarity: "2★", effect: "+25% M.ATK por 20 min",                cooldown: "50 min", desc: "提高魔法攻擊力。" },
-      { name: "靈活思緒",             type: "Self-Buff",  rarity: "2★", effect: "+25% Cast Speed por 20 min",           cooldown: "50 min", desc: "提高施法效率。" },
-      { name: "專注",      type: "Self-Buff",  rarity: "2★", effect: "+20% M.DEF por 20 min",                cooldown: "50 min", desc: "提高魔法專注力。" },
-      { name: "死亡低語",      type: "Self-Buff",  rarity: "2★", effect: "+20% Crit Damage por 20 min",          cooldown: "50 min", desc: "以死亡之力強化暴擊。" },
-      { name: "引導",           type: "Self-Buff",  rarity: "2★", effect: "+15% Accuracy por 20 min",             cooldown: "50 min", desc: "獲得神聖引導。" },
-      { name: "專注",              type: "Self-Buff",  rarity: "2★", effect: "+15% Crit Rate por 20 min",            cooldown: "50 min", desc: "提升戰鬥專注力。" },
-      { name: "祝福之盾",       type: "Self-Buff",  rarity: "2★", effect: "+25% Block Rate por 20 min",           cooldown: "50 min", desc: "賦予盾牌祝福。" },
-      { name: "火焰抗性",        type: "Self-Buff",  rarity: "2★", effect: "+20% Fire Resist por 20 min",          cooldown: "50 min", desc: "提高火屬性抗性。" },
-      { name: "水屬性抗性",       type: "Self-Buff",  rarity: "2★", effect: "+20% Water Resist por 20 min",         cooldown: "50 min", desc: "提高水屬性抗性。" },
-      { name: "風屬性抗性",        type: "Self-Buff",  rarity: "2★", effect: "+20% Wind Resist por 20 min",          cooldown: "50 min", desc: "提高風屬性抗性。" },
-      { name: "神聖打擊",        type: "Ativo",      rarity: "2★", effect: "Dano holy 280%",                       cooldown: "14s",    desc: "施展神聖攻擊。" },
-      { name: "先知和諧",  type: "Self-Buff",  rarity: "3★", effect: "+30% ATK, +25% M.ATK, +20% DEF 25min", cooldown: "60 min", desc: "先知的戰鬥和諧。" }
+      { name: "加速",              type: "Self-Buff",  rarity: "2★", effect: "+30% 攻擊速度 持續 20 分鐘",            cooldown: "50 min", desc: "提高行動與攻擊速度。" },
+      { name: "狂戰士之魂",    type: "Self-Buff",  rarity: "2★", effect: "+20% ATK, +20% M.ATK, -10% DEF 20 分鐘",cooldown: "50 min", desc: "喚醒狂戰士之魂。" },
+      { name: "吸血狂怒",      type: "Self-Buff",  rarity: "2★", effect: "+10% 吸血 持續 20 分鐘",            cooldown: "50 min", desc: "賦予吸血效果。" },
+      { name: "魔力強化",            type: "Self-Buff",  rarity: "2★", effect: "+25% M.ATK 持續 20 分鐘",                cooldown: "50 min", desc: "提高魔法攻擊力。" },
+      { name: "靈活思緒",             type: "Self-Buff",  rarity: "2★", effect: "+25% 施法速度 持續 20 分鐘",           cooldown: "50 min", desc: "提高施法效率。" },
+      { name: "專注",      type: "Self-Buff",  rarity: "2★", effect: "+20% M.DEF 持續 20 分鐘",                cooldown: "50 min", desc: "提高魔法專注力。" },
+      { name: "死亡低語",      type: "Self-Buff",  rarity: "2★", effect: "+20% 暴擊傷害 持續 20 分鐘",          cooldown: "50 min", desc: "以死亡之力強化暴擊。" },
+      { name: "引導",           type: "Self-Buff",  rarity: "2★", effect: "+15% Ac治癒cy 持續 20 分鐘",             cooldown: "50 min", desc: "獲得神聖引導。" },
+      { name: "專注",              type: "Self-Buff",  rarity: "2★", effect: "+15% 暴擊率 持續 20 分鐘",            cooldown: "50 min", desc: "提升戰鬥專注力。" },
+      { name: "祝福之盾",       type: "Self-Buff",  rarity: "2★", effect: "+25% 格擋率 持續 20 分鐘",           cooldown: "50 min", desc: "賦予盾牌祝福。" },
+      { name: "火焰抗性",        type: "Self-Buff",  rarity: "2★", effect: "+20% 火抗性 持續 20 分鐘",          cooldown: "50 min", desc: "提高火屬性抗性。" },
+      { name: "水屬性抗性",       type: "Self-Buff",  rarity: "2★", effect: "+20% 水抗性 持續 20 分鐘",         cooldown: "50 min", desc: "提高水屬性抗性。" },
+      { name: "風屬性抗性",        type: "Self-Buff",  rarity: "2★", effect: "+20% 風抗性 持續 20 分鐘",          cooldown: "50 min", desc: "提高風屬性抗性。" },
+      { name: "神聖打擊",        type: "Ativo",      rarity: "2★", effect: "傷害 神聖 280%",                       cooldown: "14s",    desc: "施展神聖攻擊。" },
+      { name: "先知和諧",  type: "Self-Buff",  rarity: "3★", effect: "+30% ATK, +25% M.ATK, +20% DEF 25 分鐘", cooldown: "60 min", desc: "先知的戰鬥和諧。" }
     ]
   },
 
@@ -648,18 +648,18 @@ const CLASSES_ECHO = {
     desc: '掌握預言與攻擊魔法的至高先知。保留先前學會的技能。',
     base: { atk: 15, def: 38, hp: 420, mp: 380, eva: 5, crit: 5, matk: 82, mdef: 82 },
     skills: [
-      { name: "火之預言",             type: "Party-Buff", rarity: "3★", effect: "+30% ATK, +15% Crit party 12 min",        cooldown: "30 min", desc: "施放火之預言。" },
-      { name: "風之預言",             type: "Party-Buff", rarity: "3★", effect: "+25% Speed, +20% EVA party 12 min",       cooldown: "30 min", desc: "施放風之預言。" },
-      { name: "水之預言",            type: "Party-Buff", rarity: "3★", effect: "+30% M.ATK, +20% M.DEF party 12 min",     cooldown: "30 min", desc: "施放水之預言。" },
-      { name: "群體預言",                type: "Party-Buff", rarity: "4★", effect: "Todas profecias de uma vez 8 min",        cooldown: "60 min", desc: "對隊伍施放群體預言。" },
-      { name: "神聖懲罰",              type: "Ativo",      rarity: "3★", effect: "Dano holy 400% + silence 5s",              cooldown: "22s",    desc: "以神聖力量懲罰敵人。" },
-      { name: "神秘免疫",              type: "Ativo",      rarity: "4★", effect: "Imune a magia 8s, não pode atacar",        cooldown: "180s",   desc: "獲得神秘力量保護。" },
-      { name: "貴族祝福",         type: "Party-Buff", rarity: "3★", effect: "+15% all stats party 10 min",             cooldown: "30 min", desc: "獲得貴族的祝福。" },
-      { name: "超越神聖爆發",      type: "Ativo",      rarity: "4★", effect: "Dano holy AoE 650% + stun 4s + purge",    cooldown: "180s",   desc: "施展超越極限的神聖爆發。" },
-      { name: "聖言者和諧",         type: "Self-Buff",  rarity: "4★", effect: "+50% ATK, +45% M.ATK, +35% DEF 30min",    cooldown: "90 min", desc: "聖言者的戰鬥和諧。" },
-      { name: "預言大師",           type: "Passivo",    rarity: "3★", effect: "+15% buff duration, +5% PvE",             cooldown: "N/A",    desc: "精通各式預言。" },
-      { name: "聖言者之魂",            type: "Passivo",    rarity: "3★", effect: "+12% holy ATK, +8% Heal",                  cooldown: "N/A",    desc: "聖言者的戰鬥精神。" },
-      { name: "聖言者之軀",       type: "Passivo",    rarity: "3★", effect: "+10% Max HP, +10% Max MP",                cooldown: "N/A",    desc: "強化聖言者的身軀。" }
+      { name: "火之預言",             type: "Party-Buff", rarity: "3★", effect: "+30% ATK, +15% 暴擊 隊伍 12 分鐘",        cooldown: "30 min", desc: "施放火之預言。" },
+      { name: "風之預言",             type: "Party-Buff", rarity: "3★", effect: "+25% 速度, +20% 迴避 隊伍 12 分鐘",       cooldown: "30 min", desc: "施放風之預言。" },
+      { name: "水之預言",            type: "Party-Buff", rarity: "3★", effect: "+30% M.ATK, +20% M.DEF 隊伍 12 分鐘",     cooldown: "30 min", desc: "施放水之預言。" },
+      { name: "群體預言",                type: "Party-Buff", rarity: "4★", effect: "所有 預言的一次 8 分鐘",        cooldown: "60 min", desc: "對隊伍施放群體預言。" },
+      { name: "神聖懲罰",              type: "Ativo",      rarity: "3★", effect: "傷害 神聖 400% + 沉默 5 秒",              cooldown: "22s",    desc: "以神聖力量懲罰敵人。" },
+      { name: "神秘免疫",              type: "Ativo",      rarity: "4★", effect: "免疫魔法 8 秒, 無法攻擊",        cooldown: "180s",   desc: "獲得神秘力量保護。" },
+      { name: "貴族祝福",         type: "Party-Buff", rarity: "3★", effect: "+15% 全屬性 隊伍 10 分鐘",             cooldown: "30 min", desc: "獲得貴族的祝福。" },
+      { name: "超越神聖爆發",      type: "Ativo",      rarity: "4★", effect: "傷害 神聖 範圍 650% + 暈眩 4 秒 + purge",    cooldown: "180s",   desc: "施展超越極限的神聖爆發。" },
+      { name: "聖言者和諧",         type: "Self-Buff",  rarity: "4★", effect: "+50% ATK, +45% M.ATK, +35% DEF 30 分鐘",    cooldown: "90 min", desc: "聖言者的戰鬥和諧。" },
+      { name: "預言大師",           type: "Passivo",    rarity: "3★", effect: "+15% 增益 持續時間, +5% PvE",             cooldown: "N/A",    desc: "精通各式預言。" },
+      { name: "聖言者之魂",            type: "Passivo",    rarity: "3★", effect: "+12% 神聖 ATK, +8% 治癒",                  cooldown: "N/A",    desc: "聖言者的戰鬥精神。" },
+      { name: "聖言者之軀",       type: "Passivo",    rarity: "3★", effect: "+10% 最大 HP, +10% 最大 MP",                cooldown: "N/A",    desc: "強化聖言者的身軀。" }
     ]
   },
 
@@ -672,12 +672,12 @@ const CLASSES_ECHO = {
     desc: '敏捷的精靈戰士。',
     base: { atk: 10, def: 8, hp: 90, mp: 35, eva: 10, crit: 6, matk: 0, mdef: 6 },
     skills: [
-      { name: "強力打擊",       type: "Ativo",    rarity: "1★", effect: "Dano físico 150%",               cooldown: "8s",     desc: "對目標施展集中打擊。" },
-      { name: "致命一擊",         type: "Ativo",    rarity: "1★", effect: "Dano 170% + chance crit 20%",    cooldown: "10s",    desc: "施展致命攻擊。" },
-      { name: "強力射擊",          type: "Ativo",    rarity: "1★", effect: "Dano à distância 140%",          cooldown: "9s",     desc: "進行集中射擊。" },
-      { name: "精靈之魂",        type: "Self-Buff",rarity: "1★", effect: "+10% EVA, +10% Speed por 15 min",cooldown: "30 min", desc: "獲得精靈之魂的力量。" },
-      { name: "HP 提升 Lv1",     type: "Passivo",  rarity: "1★", effect: "+5% Max HP",                     cooldown: "N/A",    desc: "強化精靈體質。" },
-      { name: "輕甲精通", type: "Passivo",  rarity: "1★", effect: "+8% DEF com armadura leve",      cooldown: "N/A",    desc: "精通輕型防具。" }
+      { name: "強力打擊",       type: "Ativo",    rarity: "1★", effect: "物理傷害 150%",               cooldown: "8s",     desc: "對目標施展集中打擊。" },
+      { name: "致命一擊",         type: "Ativo",    rarity: "1★", effect: "傷害 170% + 暴擊率 20%",    cooldown: "10s",    desc: "施展致命攻擊。" },
+      { name: "強力射擊",          type: "Ativo",    rarity: "1★", effect: "遠距傷害 140%",          cooldown: "9s",     desc: "進行集中射擊。" },
+      { name: "精靈之魂",        type: "Self-Buff",rarity: "1★", effect: "+10% 迴避, +10% 速度 持續 15 分鐘",cooldown: "30 min", desc: "獲得精靈之魂的力量。" },
+      { name: "HP 提升 Lv1",     type: "Passivo",  rarity: "1★", effect: "+5% 最大 HP",                     cooldown: "N/A",    desc: "強化精靈體質。" },
+      { name: "輕甲精通", type: "Passivo",  rarity: "1★", effect: "+8% DEF 裝備輕甲時",      cooldown: "N/A",    desc: "精通輕型防具。" }
     ]
   },
 
@@ -687,14 +687,14 @@ const CLASSES_ECHO = {
     desc: '使用盾牌作戰的精靈騎士。保留先前學會的技能。',
     base: { atk: 16, def: 30, hp: 230, mp: 55, eva: 8, crit: 4, mdef: 18 },
     skills: [
-      { name: "盾牌打擊",         type: "Ativo",    rarity: "1★", effect: "Dano 160% + taunt 5s",         cooldown: "10s",    desc: "以盾牌攻擊敵人。" },
-      { name: "仇恨",                  type: "Ativo",    rarity: "1★", effect: "Taunt + aggro forte",          cooldown: "8s",     desc: "激起敵人的仇恨。" },
-      { name: "力量削弱",           type: "Ativo",    rarity: "1★", effect: "Dano 150% + -20% ATK 8s",      cooldown: "14s",    desc: "削弱敵人的力量。" },
-      { name: "重甲精通",   type: "Passivo",  rarity: "1★", effect: "+15% DEF armadura pesada",     cooldown: "N/A",    desc: "精通重型防具。" },
-      { name: "盾牌精通",        type: "Passivo",  rarity: "1★", effect: "+15% Block Rate",              cooldown: "N/A",    desc: "精通盾牌防禦。" },
-      { name: "劍／鈍器精通",   type: "Passivo",  rarity: "1★", effect: "+10% ATK espada/blunt",        cooldown: "N/A",    desc: "精通劍與鈍器。" },
-      { name: "HP 提升 Lv2",       type: "Passivo",  rarity: "1★", effect: "+10% Max HP",                  cooldown: "N/A",    desc: "進一步強化體質。" },
-      { name: "箭矢偏轉",         type: "Passivo",  rarity: "1★", effect: "+10% desviar projéteis",       cooldown: "N/A",    desc: "提高對投射物的閃避能力。" }
+      { name: "盾牌打擊",         type: "Ativo",    rarity: "1★", effect: "傷害 160% + 嘲諷 5 秒",         cooldown: "10s",    desc: "以盾牌攻擊敵人。" },
+      { name: "仇恨",                  type: "Ativo",    rarity: "1★", effect: "嘲諷 + 高仇恨",          cooldown: "8s",     desc: "激起敵人的仇恨。" },
+      { name: "力量削弱",           type: "Ativo",    rarity: "1★", effect: "傷害 150% + -20% ATK 8 秒",      cooldown: "14s",    desc: "削弱敵人的力量。" },
+      { name: "重甲精通",   type: "Passivo",  rarity: "1★", effect: "+15% DEF 重甲",     cooldown: "N/A",    desc: "精通重型防具。" },
+      { name: "盾牌精通",        type: "Passivo",  rarity: "1★", effect: "+15% 格擋率",              cooldown: "N/A",    desc: "精通盾牌防禦。" },
+      { name: "劍／鈍器精通",   type: "Passivo",  rarity: "1★", effect: "+10% ATK 劍／鈍器",        cooldown: "N/A",    desc: "精通劍與鈍器。" },
+      { name: "HP 提升 Lv2",       type: "Passivo",  rarity: "1★", effect: "+10% 最大 HP",                  cooldown: "N/A",    desc: "進一步強化體質。" },
+      { name: "箭矢偏轉",         type: "Passivo",  rarity: "1★", effect: "+10% 閃避投射物",       cooldown: "N/A",    desc: "提高對投射物的閃避能力。" }
     ]
   },
 
@@ -704,19 +704,19 @@ const CLASSES_ECHO = {
     desc: '侍奉伊娃神殿的騎士。保留先前學會的技能。',
     base: { atk: 35, def: 62, hp: 500, mp: 100, eva: 8, crit: 5, mdef: 40 },
     skills: [
-      { name: "盾牌暈擊",           type: "Ativo",    rarity: "2★", effect: "Dano 200% + stun 3s",           cooldown: "18s",    desc: "以盾牌重擊使敵人暈眩。" },
-      { name: "審判",              type: "Ativo",    rarity: "2★", effect: "Dano 240% + -20% DEF 10s",      cooldown: "20s",    desc: "施展神殿的審判。" },
-      { name: "伊娃意志",            type: "Ativo",    rarity: "3★", effect: "+30% water resist + cura 15% HP",cooldown: "45s",   desc: "獲得伊娃的意志。" },
-      { name: "犧牲",             type: "Ativo",    rarity: "2★", effect: "Cura aliado 30% (gasta 10%)",    cooldown: "25s",    desc: "犧牲自身力量守護盟友。" },
-      { name: "神盾",                 type: "Ativo",    rarity: "2★", effect: "+60% Block Rate por 15s",        cooldown: "45s",    desc: "展開強力防禦。" },
-      { name: "神聖之刃",            type: "Ativo",    rarity: "2★", effect: "Dano sagrado 250%",              cooldown: "16s",    desc: "以神聖力量強化刀刃。" },
-      { name: "終極防禦",      type: "Ativo",    rarity: "3★", effect: "+80% DEF, -50% ATK por 15s",     cooldown: "120s",   desc: "進入近乎絕對的防禦狀態。" },
-      { name: "挑釁",               type: "Ativo",    rarity: "1★", effect: "Taunt + aggro",                  cooldown: "8s",     desc: "挑釁敵人並吸引其注意。" },
-      { name: "召喚生命晶體",     type: "Ativo",    rarity: "2★", effect: "Cubic que cura 5%/5s",           cooldown: "45s",    desc: "召喚具有生命恢復能力的晶體。" },
-      { name: "召喚風暴晶體",    type: "Ativo",    rarity: "2★", effect: "Cubic de dano lightning",        cooldown: "45s",    desc: "召喚風暴晶體協助戰鬥。" },
-      { name: "聖殿騎士和諧",          type: "Self-Buff",rarity: "3★", effect: "+35% DEF, +25% HP, +15% EVA 25min",cooldown: "60 min",desc: "聖殿騎士的戰鬥和諧。" },
-      { name: "HP 強化",              type: "Passivo",  rarity: "2★", effect: "+15% Max HP",                    cooldown: "N/A",    desc: "強化 HP。" },
-      { name: "水屬性抗性",           type: "Passivo",  rarity: "1★", effect: "+10% Water Resist",              cooldown: "N/A",    desc: "提高水屬性抗性。" }
+      { name: "盾牌暈擊",           type: "Ativo",    rarity: "2★", effect: "傷害 200% + 暈眩 3 秒",           cooldown: "18s",    desc: "以盾牌重擊使敵人暈眩。" },
+      { name: "審判",              type: "Ativo",    rarity: "2★", effect: "傷害 240% + -20% DEF 10 秒",      cooldown: "20s",    desc: "施展神殿的審判。" },
+      { name: "伊娃意志",            type: "Ativo",    rarity: "3★", effect: "+30% 水抗性 + 治癒 15% HP",cooldown: "45s",   desc: "獲得伊娃的意志。" },
+      { name: "犧牲",             type: "Ativo",    rarity: "2★", effect: "治癒盟友 30% (消耗 10%)",    cooldown: "25s",    desc: "犧牲自身力量守護盟友。" },
+      { name: "神盾",                 type: "Ativo",    rarity: "2★", effect: "+60% 格擋率 持續 15 秒",        cooldown: "45s",    desc: "展開強力防禦。" },
+      { name: "神聖之刃",            type: "Ativo",    rarity: "2★", effect: "傷害 神聖 250%",              cooldown: "16s",    desc: "以神聖力量強化刀刃。" },
+      { name: "終極防禦",      type: "Ativo",    rarity: "3★", effect: "+80% DEF, -50% ATK 持續 15 秒",     cooldown: "120s",   desc: "進入近乎絕對的防禦狀態。" },
+      { name: "挑釁",               type: "Ativo",    rarity: "1★", effect: "嘲諷 + 仇恨",                  cooldown: "8s",     desc: "挑釁敵人並吸引其注意。" },
+      { name: "召喚生命晶體",     type: "Ativo",    rarity: "2★", effect: "晶體 會 治癒 5%/5 秒",           cooldown: "45s",    desc: "召喚具有生命恢復能力的晶體。" },
+      { name: "召喚風暴晶體",    type: "Ativo",    rarity: "2★", effect: "晶體的傷害 雷電",        cooldown: "45s",    desc: "召喚風暴晶體協助戰鬥。" },
+      { name: "聖殿騎士和諧",          type: "Self-Buff",rarity: "3★", effect: "+35% DEF, +25% HP, +15% 迴避 25 分鐘",cooldown: "60 min",desc: "聖殿騎士的戰鬥和諧。" },
+      { name: "HP 強化",              type: "Passivo",  rarity: "2★", effect: "+15% 最大 HP",                    cooldown: "N/A",    desc: "強化 HP。" },
+      { name: "水屬性抗性",           type: "Passivo",  rarity: "1★", effect: "+10% 水抗性",              cooldown: "N/A",    desc: "提高水屬性抗性。" }
     ]
   },
 
@@ -726,18 +726,18 @@ const CLASSES_ECHO = {
     desc: '伊娃的神聖水系防禦騎士。保留先前學會的技能。',
     base: { atk: 68, def: 100, hp: 820, mp: 145, eva: 10, crit: 6, mdef: 65 },
     skills: [
-      { name: "伊娃之觸",                  type: "Ativo",    rarity: "3★", effect: "Cura AoE 25% HP party + cleanse 1 debuff", cooldown: "35s",    desc: "施展伊娃之觸。" },
-      { name: "伊娃之盾",                 type: "Ativo",    rarity: "3★", effect: "Absorve 5000 dano por 15s",               cooldown: "90s",    desc: "展開伊娃之盾。" },
-      { name: "天界之盾",              type: "Ativo",    rarity: "4★", effect: "Party imune a dano por 5s",               cooldown: "300s",   desc: "展開天界護盾。" },
-      { name: "水之打擊",                   type: "Ativo",    rarity: "3★", effect: "Dano water 380% + slow 40% 6s",           cooldown: "22s",    desc: "施展水屬性攻擊。" },
-      { name: "召喚守護亞加西翁",       type: "Ativo",    rarity: "3★", effect: "Invoca agathion protetor (+15% DEF)",     cooldown: "120s",   desc: "召喚守護型亞加西翁。" },
-      { name: "超越盾牌衝鋒",    type: "Ativo",    rarity: "4★", effect: "Rush + 480% dano + AoE taunt 10s",        cooldown: "160s",   desc: "施展超越極限的盾牌突進。" },
-      { name: "伊娃聖殿騎士和諧",         type: "Self-Buff",rarity: "4★", effect: "+55% DEF, +40% HP, +25% M.DEF 30min",     cooldown: "90 min", desc: "伊娃聖殿騎士的至高戰鬥和諧。" },
-      { name: "戰鬥大師",              type: "Passivo",  rarity: "3★", effect: "+10% ATK, +15% aggro, +5% PvE",           cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
-      { name: "伊娃聖殿騎士之魂",          type: "Passivo",  rarity: "3★", effect: "+15% water ATK, +10% Block",              cooldown: "N/A",    desc: "伊娃聖殿騎士的戰鬥精神。" },
-      { name: "伊娃聖殿騎士之軀",         type: "Passivo",  rarity: "3★", effect: "+15% Max HP, +10% DEF",                  cooldown: "N/A",    desc: "強化伊娃聖殿騎士的身軀。" },
-      { name: "伊娃守護",             type: "Passivo",  rarity: "3★", effect: "+15% water resist",                       cooldown: "N/A",    desc: "獲得伊娃的守護。" },
-      { name: "伊娃援助",                    type: "Passivo",  rarity: "3★", effect: "10% chance ao ser atacado: cura 5% HP",   cooldown: "N/A",    desc: "觸發伊娃的援助效果。" }
+      { name: "伊娃之觸",                  type: "Ativo",    rarity: "3★", effect: "治癒 範圍 25% HP 隊伍 + cleanse 1 減益", cooldown: "35s",    desc: "施展伊娃之觸。" },
+      { name: "伊娃之盾",                 type: "Ativo",    rarity: "3★", effect: "吸收 5000 傷害 持續 15 秒",               cooldown: "90s",    desc: "展開伊娃之盾。" },
+      { name: "天界之盾",              type: "Ativo",    rarity: "4★", effect: "隊伍 免疫 a 傷害 持續 5 秒",               cooldown: "300s",   desc: "展開天界護盾。" },
+      { name: "水之打擊",                   type: "Ativo",    rarity: "3★", effect: "傷害 水 380% + 緩速 40% 6 秒",           cooldown: "22s",    desc: "施展水屬性攻擊。" },
+      { name: "召喚守護亞加西翁",       type: "Ativo",    rarity: "3★", effect: "召喚 守護亞加西翁 (+15% DEF)",     cooldown: "120s",   desc: "召喚守護型亞加西翁。" },
+      { name: "超越盾牌衝鋒",    type: "Ativo",    rarity: "4★", effect: "Rush + 480% 傷害 + 範圍 嘲諷 10 秒",        cooldown: "160s",   desc: "施展超越極限的盾牌突進。" },
+      { name: "伊娃聖殿騎士和諧",         type: "Self-Buff",rarity: "4★", effect: "+55% DEF, +40% HP, +25% M.DEF 30 分鐘",     cooldown: "90 min", desc: "伊娃聖殿騎士的至高戰鬥和諧。" },
+      { name: "戰鬥大師",              type: "Passivo",  rarity: "3★", effect: "+10% ATK, +15% 仇恨, +5% PvE",           cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
+      { name: "伊娃聖殿騎士之魂",          type: "Passivo",  rarity: "3★", effect: "+15% 水 ATK, +10% Block",              cooldown: "N/A",    desc: "伊娃聖殿騎士的戰鬥精神。" },
+      { name: "伊娃聖殿騎士之軀",         type: "Passivo",  rarity: "3★", effect: "+15% 最大 HP, +10% DEF",                  cooldown: "N/A",    desc: "強化伊娃聖殿騎士的身軀。" },
+      { name: "伊娃守護",             type: "Passivo",  rarity: "3★", effect: "+15% 水抗性",                       cooldown: "N/A",    desc: "獲得伊娃的守護。" },
+      { name: "伊娃援助",                    type: "Passivo",  rarity: "3★", effect: "10% 機率對ser 受到攻擊: 治癒 5% HP",   cooldown: "N/A",    desc: "觸發伊娃的援助效果。" }
     ]
   },
 
@@ -747,21 +747,21 @@ const CLASSES_ECHO = {
     desc: '以歌聲強化隊伍的精靈吟遊詩人。保留先前學會的技能。',
     base: { atk: 38, def: 45, hp: 400, mp: 120, eva: 10, crit: 8, mdef: 35 },
     skills: [
-      { name: "大地之歌",         type: "Self-Buff", rarity: "2★", effect: "+20% DEF por 20 min",            cooldown: "50 min", desc: "吟唱大地之歌。" },
-      { name: "生命之歌",          type: "Self-Buff", rarity: "2★", effect: "+15% HP Regen por 20 min",       cooldown: "50 min", desc: "吟唱生命之歌。" },
-      { name: "水之歌",         type: "Self-Buff", rarity: "2★", effect: "+20% Water Resist por 20 min",   cooldown: "50 min", desc: "吟唱水之歌。" },
-      { name: "守護之歌",       type: "Self-Buff", rarity: "2★", effect: "+20% M.DEF por 20 min",          cooldown: "50 min", desc: "吟唱守護之歌。" },
-      { name: "風之歌",          type: "Self-Buff", rarity: "2★", effect: "+20% ATK Speed por 20 min",      cooldown: "50 min", desc: "吟唱風之歌。" },
-      { name: "獵人之歌",        type: "Self-Buff", rarity: "2★", effect: "+15% Crit Rate por 20 min",      cooldown: "50 min", desc: "吟唱獵人之歌。" },
-      { name: "召喚之歌",    type: "Self-Buff", rarity: "2★", effect: "+15% MP Regen por 20 min",       cooldown: "50 min", desc: "吟唱召喚之歌。" },
-      { name: "活力之歌",      type: "Self-Buff", rarity: "2★", effect: "+15% Max HP por 20 min",         cooldown: "50 min", desc: "吟唱活力之歌。" },
-      { name: "復仇之歌",     type: "Self-Buff", rarity: "2★", effect: "+8% reflect damage por 20 min",  cooldown: "50 min", desc: "吟唱復仇之歌。" },
-      { name: "火焰守護之歌",   type: "Self-Buff", rarity: "2★", effect: "+20% Fire Resist por 20 min",    cooldown: "50 min", desc: "吟唱火焰守護之歌。" },
-      { name: "冠軍之歌",      type: "Self-Buff", rarity: "3★", effect: "+20% ATK por 20 min",            cooldown: "50 min", desc: "吟唱冠軍之歌。" },
-      { name: "更新之歌",       type: "Self-Buff", rarity: "3★", effect: "+10% HP+MP Regen por 20 min",    cooldown: "50 min", desc: "吟唱更新之歌。" },
-      { name: "劍歌者和諧",          type: "Self-Buff", rarity: "3★", effect: "+30% ATK, +20% DEF, +15% Speed 25min",cooldown: "60 min",desc: "劍歌者的戰鬥和諧。" },
-      { name: "重甲精通",   type: "Passivo",  rarity: "1★", effect: "+12% DEF armadura pesada",        cooldown: "N/A",    desc: "精通重型防具。" },
-      { name: "HP 強化",              type: "Passivo",  rarity: "1★", effect: "+12% Max HP",                     cooldown: "N/A",    desc: "強化 HP。" }
+      { name: "大地之歌",         type: "Self-Buff", rarity: "2★", effect: "+20% DEF 持續 20 分鐘",            cooldown: "50 min", desc: "吟唱大地之歌。" },
+      { name: "生命之歌",          type: "Self-Buff", rarity: "2★", effect: "+15% HP 恢復 持續 20 分鐘",       cooldown: "50 min", desc: "吟唱生命之歌。" },
+      { name: "水之歌",         type: "Self-Buff", rarity: "2★", effect: "+20% 水抗性 持續 20 分鐘",   cooldown: "50 min", desc: "吟唱水之歌。" },
+      { name: "守護之歌",       type: "Self-Buff", rarity: "2★", effect: "+20% M.DEF 持續 20 分鐘",          cooldown: "50 min", desc: "吟唱守護之歌。" },
+      { name: "風之歌",          type: "Self-Buff", rarity: "2★", effect: "+20% 攻擊速度 持續 20 分鐘",      cooldown: "50 min", desc: "吟唱風之歌。" },
+      { name: "獵人之歌",        type: "Self-Buff", rarity: "2★", effect: "+15% 暴擊率 持續 20 分鐘",      cooldown: "50 min", desc: "吟唱獵人之歌。" },
+      { name: "召喚之歌",    type: "Self-Buff", rarity: "2★", effect: "+15% MP 恢復 持續 20 分鐘",       cooldown: "50 min", desc: "吟唱召喚之歌。" },
+      { name: "活力之歌",      type: "Self-Buff", rarity: "2★", effect: "+15% 最大 HP 持續 20 分鐘",         cooldown: "50 min", desc: "吟唱活力之歌。" },
+      { name: "復仇之歌",     type: "Self-Buff", rarity: "2★", effect: "+8% 反射傷害 持續 20 分鐘",  cooldown: "50 min", desc: "吟唱復仇之歌。" },
+      { name: "火焰守護之歌",   type: "Self-Buff", rarity: "2★", effect: "+20% 火抗性 持續 20 分鐘",    cooldown: "50 min", desc: "吟唱火焰守護之歌。" },
+      { name: "冠軍之歌",      type: "Self-Buff", rarity: "3★", effect: "+20% ATK 持續 20 分鐘",            cooldown: "50 min", desc: "吟唱冠軍之歌。" },
+      { name: "更新之歌",       type: "Self-Buff", rarity: "3★", effect: "+10% HP+MP 恢復 持續 20 分鐘",    cooldown: "50 min", desc: "吟唱更新之歌。" },
+      { name: "劍歌者和諧",          type: "Self-Buff", rarity: "3★", effect: "+30% ATK, +20% DEF, +15% 速度 25 分鐘",cooldown: "60 min",desc: "劍歌者的戰鬥和諧。" },
+      { name: "重甲精通",   type: "Passivo",  rarity: "1★", effect: "+12% DEF 重甲",        cooldown: "N/A",    desc: "精通重型防具。" },
+      { name: "HP 強化",              type: "Passivo",  rarity: "1★", effect: "+12% 最大 HP",                     cooldown: "N/A",    desc: "強化 HP。" }
     ]
   },
 
@@ -771,17 +771,17 @@ const CLASSES_ECHO = {
     desc: '兼具強力增益與輸出能力的至高劍歌者。保留先前學會的技能。',
     base: { atk: 72, def: 58, hp: 580, mp: 160, eva: 14, crit: 12, mdef: 48 },
     skills: [
-      { name: "淨化之歌",    type: "Self-Buff", rarity: "3★", effect: "+25% Debuff Resist por 20 min",     cooldown: "50 min", desc: "吟唱淨化之歌。" },
-      { name: "元素之歌",       type: "Self-Buff", rarity: "3★", effect: "+20% all elemental ATK por 20 min", cooldown: "50 min", desc: "吟唱元素之歌。" },
-      { name: "暴風守護之歌",     type: "Self-Buff", rarity: "3★", effect: "+20% Wind Resist por 20 min",       cooldown: "50 min", desc: "吟唱暴風守護之歌。" },
-      { name: "群體之歌",               type: "Party-Buff",rarity: "3★", effect: "Aplica todas Songs na party 8 min", cooldown: "60 min", desc: "對隊伍吟唱群體強化之歌。" },
-      { name: "終焉之歌",              type: "Ativo",     rarity: "4★", effect: "Party +50% all stats por 20s",       cooldown: "300s",   desc: "吟唱至高的終焉之歌。" },
-      { name: "音速斬",             type: "Ativo",     rarity: "3★", effect: "Dano 380% + AoE 5 alvos",           cooldown: "20s",    desc: "施展音速斬擊。" },
-      { name: "旋律打擊",           type: "Ativo",     rarity: "3★", effect: "Dano 350% + stun 2s",               cooldown: "18s",    desc: "以旋律之力攻擊敵人。" },
-      { name: "超越旋律",     type: "Ativo",     rarity: "4★", effect: "Dano AoE 550% + all songs refreshed",cooldown: "180s",  desc: "施展超越極限的旋律。" },
-      { name: "劍之繆思和諧",      type: "Self-Buff", rarity: "4★", effect: "+50% ATK, +40% DEF, +30% Song Power 30min",cooldown: "90 min",desc: "劍之繆思的戰鬥和諧。" },
-      { name: "劍之繆思之魂",       type: "Passivo",   rarity: "3★", effect: "+15% Song effectiveness",           cooldown: "N/A",    desc: "劍之繆思的戰鬥精神。" },
-      { name: "劍之繆思之軀",      type: "Passivo",   rarity: "3★", effect: "+10% Max HP, +10% Max MP",         cooldown: "N/A",    desc: "強化劍之繆思的身軀。" }
+      { name: "淨化之歌",    type: "Self-Buff", rarity: "3★", effect: "+25% 減益 抗性 持續 20 分鐘",     cooldown: "50 min", desc: "吟唱淨化之歌。" },
+      { name: "元素之歌",       type: "Self-Buff", rarity: "3★", effect: "+20% 全 元素 ATK 持續 20 分鐘", cooldown: "50 min", desc: "吟唱元素之歌。" },
+      { name: "暴風守護之歌",     type: "Self-Buff", rarity: "3★", effect: "+20% 風抗性 持續 20 分鐘",       cooldown: "50 min", desc: "吟唱暴風守護之歌。" },
+      { name: "群體之歌",               type: "Party-Buff",rarity: "3★", effect: "Aplica 所有 歌曲 na 隊伍 8 分鐘", cooldown: "60 min", desc: "對隊伍吟唱群體強化之歌。" },
+      { name: "終焉之歌",              type: "Ativo",     rarity: "4★", effect: "隊伍 +50% 全屬性 持續 20 秒",       cooldown: "300s",   desc: "吟唱至高的終焉之歌。" },
+      { name: "音速斬",             type: "Ativo",     rarity: "3★", effect: "傷害 380% + 範圍 5 目標",           cooldown: "20s",    desc: "施展音速斬擊。" },
+      { name: "旋律打擊",           type: "Ativo",     rarity: "3★", effect: "傷害 350% + 暈眩 2 秒",               cooldown: "18s",    desc: "以旋律之力攻擊敵人。" },
+      { name: "超越旋律",     type: "Ativo",     rarity: "4★", effect: "傷害 範圍 550% + 全 歌曲效果刷新",cooldown: "180s",  desc: "施展超越極限的旋律。" },
+      { name: "劍之繆思和諧",      type: "Self-Buff", rarity: "4★", effect: "+50% ATK, +40% DEF, +30% Song 威力 30 分鐘",cooldown: "90 min",desc: "劍之繆思的戰鬥和諧。" },
+      { name: "劍之繆思之魂",       type: "Passivo",   rarity: "3★", effect: "+15% 歌曲效果",           cooldown: "N/A",    desc: "劍之繆思的戰鬥精神。" },
+      { name: "劍之繆思之軀",      type: "Passivo",   rarity: "3★", effect: "+10% 最大 HP, +10% 最大 MP",         cooldown: "N/A",    desc: "強化劍之繆思的身軀。" }
     ]
   },
 
@@ -791,13 +791,13 @@ const CLASSES_ECHO = {
     desc: '使用匕首與弓的精靈斥候。保留先前學會的技能。',
     base: { atk: 20, def: 10, hp: 140, mp: 40, eva: 18, crit: 12, mdef: 8 },
     skills: [
-      { name: "雙重射擊",          type: "Ativo",    rarity: "1★", effect: "2 disparos, dano total 200%",   cooldown: "10s",    desc: "連續射擊兩次。" },
-      { name: "背刺",             type: "Ativo",    rarity: "2★", effect: "Dano 250% por trás + crit",     cooldown: "14s",    desc: "從背後施展致命一擊。" },
-      { name: "疾走",                 type: "Ativo",    rarity: "1★", effect: "+50% Speed por 8s",             cooldown: "20s",    desc: "短時間快速移動。" },
-      { name: "輕甲精通",  type: "Passivo",  rarity: "1★", effect: "+12% EVA com armadura leve",    cooldown: "N/A",    desc: "精通輕型防具。" },
-      { name: "匕首精通",       type: "Passivo",  rarity: "1★", effect: "+12% ATK com dagger",           cooldown: "N/A",    desc: "精通匕首武器。" },
-      { name: "弓精通",          type: "Passivo",  rarity: "1★", effect: "+12% ATK com arco",             cooldown: "N/A",    desc: "精通弓類武器。" },
-      { name: "暴擊機率",      type: "Passivo",  rarity: "1★", effect: "+8% Crit Rate",                 cooldown: "N/A",    desc: "提高暴擊感知能力。" }
+      { name: "雙重射擊",          type: "Ativo",    rarity: "1★", effect: "2 次射擊, 總傷害 200%",   cooldown: "10s",    desc: "連續射擊兩次。" },
+      { name: "背刺",             type: "Ativo",    rarity: "2★", effect: "傷害 250% 從背後 + 暴擊",     cooldown: "14s",    desc: "從背後施展致命一擊。" },
+      { name: "疾走",                 type: "Ativo",    rarity: "1★", effect: "+50% 速度 持續 8 秒",             cooldown: "20s",    desc: "短時間快速移動。" },
+      { name: "輕甲精通",  type: "Passivo",  rarity: "1★", effect: "+12% 迴避 裝備輕甲時",    cooldown: "N/A",    desc: "精通輕型防具。" },
+      { name: "匕首精通",       type: "Passivo",  rarity: "1★", effect: "+12% ATK 使用匕首時",           cooldown: "N/A",    desc: "精通匕首武器。" },
+      { name: "弓精通",          type: "Passivo",  rarity: "1★", effect: "+12% ATK 使用弓時",             cooldown: "N/A",    desc: "精通弓類武器。" },
+      { name: "暴擊機率",      type: "Passivo",  rarity: "1★", effect: "+8% 暴擊率",                 cooldown: "N/A",    desc: "提高暴擊感知能力。" }
     ]
   },
 
@@ -807,18 +807,18 @@ const CLASSES_ECHO = {
     desc: '擅長匕首與潛行的平原行者。保留先前學會的技能。',
     base: { atk: 52, def: 18, hp: 290, mp: 60, eva: 30, crit: 26, mdef: 14 },
     skills: [
-      { name: "致命打擊",       type: "Ativo",    rarity: "2★", effect: "Dano 280% + crit garantido",       cooldown: "14s",    desc: "施展強力致命攻擊。" },
-      { name: "致死打擊",       type: "Ativo",    rarity: "3★", effect: "Dano 350% + chance kill 5%",       cooldown: "22s",    desc: "施展具有致死可能的打擊。" },
-      { name: "沙塵炸彈",         type: "Ativo",    rarity: "2★", effect: "AoE blind 5s + dano 150%",         cooldown: "20s",    desc: "投擲沙塵炸彈。" },
-      { name: "致盲打擊",     type: "Ativo",    rarity: "2★", effect: "Dano 240% + blind 4s",             cooldown: "18s",    desc: "施展可使敵人失明的攻擊。" },
-      { name: "暗影步伐",       type: "Ativo",    rarity: "2★", effect: "Teleporta atrás do alvo",          cooldown: "15s",    desc: "瞬間移動到目標身後。" },
-      { name: "位置交換",            type: "Ativo",    rarity: "2★", effect: "Troca posição com alvo",           cooldown: "25s",    desc: "與目標交換位置。" },
-      { name: "假死",        type: "Ativo",    rarity: "2★", effect: "Finge morte, perde aggro",         cooldown: "60s",    desc: "偽裝死亡以解除敵人仇恨。" },
-      { name: "詭計",             type: "Ativo",    rarity: "2★", effect: "Remove alvo do inimigo",           cooldown: "20s",    desc: "以詭計擾亂敵人。" },
-      { name: "平原行者和諧",      type: "Self-Buff",rarity: "3★", effect: "+35% Crit, +25% EVA, +20% ATK 25min",cooldown: "60 min",desc: "平原行者的戰鬥和諧。" },
-      { name: "迴避",           type: "Passivo",  rarity: "2★", effect: "+12% EVA",                         cooldown: "N/A",    desc: "進一步提高迴避能力。" },
-      { name: "暴擊威力",    type: "Passivo",  rarity: "2★", effect: "+18% Crit Damage",                 cooldown: "N/A",    desc: "提高暴擊威力。" },
-      { name: "專注",             type: "Passivo",  rarity: "1★", effect: "+10% Crit Rate",                   cooldown: "N/A",    desc: "提升專注力。" }
+      { name: "致命打擊",       type: "Ativo",    rarity: "2★", effect: "傷害 280% + 必定暴擊",       cooldown: "14s",    desc: "施展強力致命攻擊。" },
+      { name: "致死打擊",       type: "Ativo",    rarity: "3★", effect: "傷害 350% + 即死機率 5%",       cooldown: "22s",    desc: "施展具有致死可能的打擊。" },
+      { name: "沙塵炸彈",         type: "Ativo",    rarity: "2★", effect: "範圍 致盲 5 秒 + 傷害 150%",         cooldown: "20s",    desc: "投擲沙塵炸彈。" },
+      { name: "致盲打擊",     type: "Ativo",    rarity: "2★", effect: "傷害 240% + 致盲 4 秒",             cooldown: "18s",    desc: "施展可使敵人失明的攻擊。" },
+      { name: "暗影步伐",       type: "Ativo",    rarity: "2★", effect: "傳送到目標背後",          cooldown: "15s",    desc: "瞬間移動到目標身後。" },
+      { name: "位置交換",            type: "Ativo",    rarity: "2★", effect: "與目標交換位置",           cooldown: "25s",    desc: "與目標交換位置。" },
+      { name: "假死",        type: "Ativo",    rarity: "2★", effect: "裝死, 失去 仇恨",         cooldown: "60s",    desc: "偽裝死亡以解除敵人仇恨。" },
+      { name: "詭計",             type: "Ativo",    rarity: "2★", effect: "移除 目標 do 敵人",           cooldown: "20s",    desc: "以詭計擾亂敵人。" },
+      { name: "平原行者和諧",      type: "Self-Buff",rarity: "3★", effect: "+35% 暴擊, +25% 迴避, +20% ATK 25 分鐘",cooldown: "60 min",desc: "平原行者的戰鬥和諧。" },
+      { name: "迴避",           type: "Passivo",  rarity: "2★", effect: "+12% 迴避",                         cooldown: "N/A",    desc: "進一步提高迴避能力。" },
+      { name: "暴擊威力",    type: "Passivo",  rarity: "2★", effect: "+18% 暴擊傷害",                 cooldown: "N/A",    desc: "提高暴擊威力。" },
+      { name: "專注",             type: "Passivo",  rarity: "1★", effect: "+10% 暴擊率",                   cooldown: "N/A",    desc: "提升專注力。" }
     ]
   },
 
@@ -828,16 +828,16 @@ const CLASSES_ECHO = {
     desc: '精通匕首的至高風之戰士。保留先前學會的技能。',
     base: { atk: 95, def: 30, hp: 480, mp: 85, eva: 55, crit: 44, mdef: 20 },
     skills: [
-      { name: "御風",                type: "Ativo",    rarity: "3★", effect: "+80% Speed + invisível 10s",         cooldown: "60s",    desc: "乘風高速移動。" },
-      { name: "刺激冒險",          type: "Self-Buff",rarity: "3★", effect: "+45% EVA, +30% Crit, +20% ATK 20min",cooldown: "55 min",desc: "進入精靈式的冒險戰鬥狀態。" },
-      { name: "幸運打擊",               type: "Ativo",    rarity: "3★", effect: "Dano 420% + chance loot 2x",         cooldown: "30s",    desc: "施展帶來額外收穫的幸運攻擊。" },
-      { name: "超越致命打擊",    type: "Ativo",    rarity: "4★", effect: "Dano 650% + ignora EVA + bleed 12s", cooldown: "150s",   desc: "施展超越極限的致命攻擊。" },
-      { name: "風騎士和諧",          type: "Self-Buff",rarity: "4★", effect: "+55% Crit, +45% EVA, +35% ATK 30min",cooldown: "90 min",desc: "風騎士的至高戰鬥和諧。" },
-      { name: "戰鬥大師",            type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% Crit, +5% PvE",      cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
-      { name: "暗影感知",                type: "Passivo",  rarity: "3★", effect: "+15% EVA à noite/dungeon",           cooldown: "N/A",    desc: "感知暗影中的動靜。" },
-      { name: "風騎士之魂",           type: "Passivo",  rarity: "3★", effect: "+12% dagger ATK",                    cooldown: "N/A",    desc: "風騎士的戰鬥精神。" },
-      { name: "風騎士之軀",          type: "Passivo",  rarity: "3★", effect: "+10% Max HP, +8% EVA",              cooldown: "N/A",    desc: "獲得風一般靈活的身軀。" },
-      { name: "最終狂熱",                type: "Passivo",  rarity: "3★", effect: "+25% ATK quando HP < 30%",           cooldown: "N/A",    desc: "在危急狀態下進入最終狂熱。" }
+      { name: "御風",                type: "Ativo",    rarity: "3★", effect: "+80% 速度 + 隱形 10 秒",         cooldown: "60s",    desc: "乘風高速移動。" },
+      { name: "刺激冒險",          type: "Self-Buff",rarity: "3★", effect: "+45% 迴避, +30% 暴擊, +20% ATK 20 分鐘",cooldown: "55 min",desc: "進入精靈式的冒險戰鬥狀態。" },
+      { name: "幸運打擊",               type: "Ativo",    rarity: "3★", effect: "傷害 420% + 2 倍掉落機率",         cooldown: "30s",    desc: "施展帶來額外收穫的幸運攻擊。" },
+      { name: "超越致命打擊",    type: "Ativo",    rarity: "4★", effect: "傷害 650% + 無視 迴避 + 流血 12 秒", cooldown: "150s",   desc: "施展超越極限的致命攻擊。" },
+      { name: "風騎士和諧",          type: "Self-Buff",rarity: "4★", effect: "+55% 暴擊, +45% 迴避, +35% ATK 30 分鐘",cooldown: "90 min",desc: "風騎士的至高戰鬥和諧。" },
+      { name: "戰鬥大師",            type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% 暴擊, +5% PvE",      cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
+      { name: "暗影感知",                type: "Passivo",  rarity: "3★", effect: "+15% 迴避 夜間/地城",           cooldown: "N/A",    desc: "感知暗影中的動靜。" },
+      { name: "風騎士之魂",           type: "Passivo",  rarity: "3★", effect: "+12% 匕首攻擊",                    cooldown: "N/A",    desc: "風騎士的戰鬥精神。" },
+      { name: "風騎士之軀",          type: "Passivo",  rarity: "3★", effect: "+10% 最大 HP, +8% 迴避",              cooldown: "N/A",    desc: "獲得風一般靈活的身軀。" },
+      { name: "最終狂熱",                type: "Passivo",  rarity: "3★", effect: "+25% ATK 當 HP < 30%",           cooldown: "N/A",    desc: "在危急狀態下進入最終狂熱。" }
     ]
   },
 
@@ -847,17 +847,17 @@ const CLASSES_ECHO = {
     desc: '精靈族的銀色弓箭手。保留先前學會的技能。',
     base: { atk: 58, def: 16, hp: 270, mp: 60, eva: 22, crit: 24, mdef: 12 },
     skills: [
-      { name: "雙重射擊",       type: "Ativo",    rarity: "2★", effect: "2 disparos, dano total 260%",     cooldown: "10s",    desc: "施展強化的雙重射擊。" },
-      { name: "爆裂射擊",        type: "Ativo",    rarity: "2★", effect: "Dano 280% + knockback",           cooldown: "14s",    desc: "發射具有爆炸威力的箭矢。" },
-      { name: "暈眩射擊",         type: "Ativo",    rarity: "2★", effect: "Dano 220% + stun 3s",            cooldown: "18s",    desc: "發射可使敵人暈眩的箭矢。" },
-      { name: "箭雨",        type: "Ativo",    rarity: "3★", effect: "AoE 320% (8 alvos)",             cooldown: "22s",    desc: "向範圍內降下大量箭矢。" },
-      { name: "快速射擊",        type: "Ativo",    rarity: "2★", effect: "+50% ATK Speed arco 15s",        cooldown: "45s",    desc: "短時間提高射擊速度。" },
-      { name: "銀月遊俠和諧",      type: "Self-Buff",rarity: "3★", effect: "+35% ATK, +25% Crit, +15% Range 25min",cooldown: "60 min",desc: "銀月遊俠的戰鬥和諧。" },
-      { name: "弓精通",       type: "Passivo",  rarity: "2★", effect: "+18% ATK com arco",              cooldown: "N/A",    desc: "精通弓類武器。" },
-      { name: "遠距射擊",         type: "Passivo",  rarity: "2★", effect: "+30% Range",                      cooldown: "N/A",    desc: "提高射擊距離。" },
-      { name: "專注",             type: "Passivo",  rarity: "1★", effect: "+10% Crit Rate",                  cooldown: "N/A",    desc: "提升專注力。" },
-      { name: "暴擊威力",    type: "Passivo",  rarity: "2★", effect: "+18% Crit Damage",                cooldown: "N/A",    desc: "提高暴擊威力。" },
-      { name: "迴避",           type: "Passivo",  rarity: "1★", effect: "+10% EVA",                        cooldown: "N/A",    desc: "提高迴避能力。" }
+      { name: "雙重射擊",       type: "Ativo",    rarity: "2★", effect: "2 次射擊, 總傷害 260%",     cooldown: "10s",    desc: "施展強化的雙重射擊。" },
+      { name: "爆裂射擊",        type: "Ativo",    rarity: "2★", effect: "傷害 280% + 擊退",           cooldown: "14s",    desc: "發射具有爆炸威力的箭矢。" },
+      { name: "暈眩射擊",         type: "Ativo",    rarity: "2★", effect: "傷害 220% + 暈眩 3 秒",            cooldown: "18s",    desc: "發射可使敵人暈眩的箭矢。" },
+      { name: "箭雨",        type: "Ativo",    rarity: "3★", effect: "範圍 320% (8 目標)",             cooldown: "22s",    desc: "向範圍內降下大量箭矢。" },
+      { name: "快速射擊",        type: "Ativo",    rarity: "2★", effect: "+50% 攻擊速度 弓 15 秒",        cooldown: "45s",    desc: "短時間提高射擊速度。" },
+      { name: "銀月遊俠和諧",      type: "Self-Buff",rarity: "3★", effect: "+35% ATK, +25% 暴擊, +15% 射程 25 分鐘",cooldown: "60 min",desc: "銀月遊俠的戰鬥和諧。" },
+      { name: "弓精通",       type: "Passivo",  rarity: "2★", effect: "+18% ATK 使用弓時",              cooldown: "N/A",    desc: "精通弓類武器。" },
+      { name: "遠距射擊",         type: "Passivo",  rarity: "2★", effect: "+30% 射程",                      cooldown: "N/A",    desc: "提高射擊距離。" },
+      { name: "專注",             type: "Passivo",  rarity: "1★", effect: "+10% 暴擊率",                  cooldown: "N/A",    desc: "提升專注力。" },
+      { name: "暴擊威力",    type: "Passivo",  rarity: "2★", effect: "+18% 暴擊傷害",                cooldown: "N/A",    desc: "提高暴擊威力。" },
+      { name: "迴避",           type: "Passivo",  rarity: "1★", effect: "+10% 迴避",                        cooldown: "N/A",    desc: "提高迴避能力。" }
     ]
   },
 
@@ -867,21 +867,21 @@ const CLASSES_ECHO = {
     desc: '精靈族的至高弓箭手月光守衛。保留先前學會的技能。',
     base: { atk: 108, def: 24, hp: 450, mp: 95, eva: 38, crit: 46, mdef: 18 },
     skills: [
-      { name: "七連矢",                  type: "Ativo",    rarity: "3★", effect: "7 flechas, dano total 480%",               cooldown: "25s",    desc: "連續射出七支箭矢。" },
-      { name: "死亡之眼",                     type: "Self-Buff",rarity: "3★", effect: "+50% ATK, +40% Range 20min",              cooldown: "55 min", desc: "進入致命瞄準狀態。" },
-      { name: "精準射擊",                type: "Ativo",    rarity: "3★", effect: "Dano 400% + ignora 50% DEF",              cooldown: "28s",    desc: "對要害施展精準射擊。" },
-      { name: "三重射擊",                  type: "Ativo",    rarity: "3★", effect: "3 disparos, dano total 360%",              cooldown: "14s",    desc: "連續射擊三次。" },
-      { name: "荊棘射擊",                   type: "Ativo",    rarity: "2★", effect: "Dano 260% + bleed 10s",                   cooldown: "12s",    desc: "發射帶有荊棘力量的箭矢。" },
-      { name: "束縛射擊",                 type: "Ativo",    rarity: "2★", effect: "Dano 220% + root 4s",                     cooldown: "18s",    desc: "發射可束縛敵人的箭矢。" },
-      { name: "冰凍射擊",                type: "Ativo",    rarity: "2★", effect: "Dano gelo 260% + slow 40% 6s",            cooldown: "16s",    desc: "發射冰凍箭矢。" },
-      { name: "寒冰箭雨",             type: "Ativo",    rarity: "3★", effect: "AoE GELO 380% (10 alvos) + freeze",         cooldown: "28s",    desc: "凝聚周圍冷氣，讓箭矢結冰後降下寒冰箭雨。" },
-      { name: "螺旋射擊",                  type: "Ativo",    rarity: "3★", effect: "Dano 420% + penetra alvos",               cooldown: "24s",    desc: "發射螺旋箭矢。" },
-      { name: "目標鎖定",                  type: "Ativo",    rarity: "3★", effect: "Marca alvo: +40% dano 12s",                cooldown: "30s",    desc: "鎖定目標以提高命中與傷害。" },
-      { name: "超越七連矢",     type: "Ativo",    rarity: "4★", effect: "Dano 700% + elemental + ignora DEF",      cooldown: "180s",   desc: "施展超越極限的七連箭攻擊。" },
-      { name: "月光守衛和諧",            type: "Self-Buff",rarity: "4★", effect: "+60% ATK, +50% Crit, +40% Range 30min",   cooldown: "90 min", desc: "月光守衛的戰鬥和諧。" },
-      { name: "戰鬥大師",             type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% Range, +5% PvE",          cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
-      { name: "月光守衛之魂",    type: "Passivo",  rarity: "3★", effect: "+15% Bow ATK",                            cooldown: "N/A",    desc: "月光守衛的戰鬥精神。" },
-      { name: "月光守衛之軀",   type: "Passivo",  rarity: "3★", effect: "+10% Max HP, +8% EVA",                   cooldown: "N/A",    desc: "強化月光守衛的身軀。" }
+      { name: "七連矢",                  type: "Ativo",    rarity: "3★", effect: "7 箭矢, 總傷害 480%",               cooldown: "25s",    desc: "連續射出七支箭矢。" },
+      { name: "死亡之眼",                     type: "Self-Buff",rarity: "3★", effect: "+50% ATK, +40% 射程 20 分鐘",              cooldown: "55 min", desc: "進入致命瞄準狀態。" },
+      { name: "精準射擊",                type: "Ativo",    rarity: "3★", effect: "傷害 400% + 無視 50% DEF",              cooldown: "28s",    desc: "對要害施展精準射擊。" },
+      { name: "三重射擊",                  type: "Ativo",    rarity: "3★", effect: "3 次射擊, 總傷害 360%",              cooldown: "14s",    desc: "連續射擊三次。" },
+      { name: "荊棘射擊",                   type: "Ativo",    rarity: "2★", effect: "傷害 260% + 流血 10 秒",                   cooldown: "12s",    desc: "發射帶有荊棘力量的箭矢。" },
+      { name: "束縛射擊",                 type: "Ativo",    rarity: "2★", effect: "傷害 220% + 定身 4 秒",                     cooldown: "18s",    desc: "發射可束縛敵人的箭矢。" },
+      { name: "冰凍射擊",                type: "Ativo",    rarity: "2★", effect: "傷害 冰 260% + 緩速 40% 6 秒",            cooldown: "16s",    desc: "發射冰凍箭矢。" },
+      { name: "寒冰箭雨",             type: "Ativo",    rarity: "3★", effect: "範圍 冰 380% (10 目標) + 凍結",         cooldown: "28s",    desc: "凝聚周圍冷氣，讓箭矢結冰後降下寒冰箭雨。" },
+      { name: "螺旋射擊",                  type: "Ativo",    rarity: "3★", effect: "傷害 420% + 穿透 目標",               cooldown: "24s",    desc: "發射螺旋箭矢。" },
+      { name: "目標鎖定",                  type: "Ativo",    rarity: "3★", effect: "標記目標: +40% 傷害 12 秒",                cooldown: "30s",    desc: "鎖定目標以提高命中與傷害。" },
+      { name: "超越七連矢",     type: "Ativo",    rarity: "4★", effect: "傷害 700% + 元素 + 無視 DEF",      cooldown: "180s",   desc: "施展超越極限的七連箭攻擊。" },
+      { name: "月光守衛和諧",            type: "Self-Buff",rarity: "4★", effect: "+60% ATK, +50% 暴擊, +40% 射程 30 分鐘",   cooldown: "90 min", desc: "月光守衛的戰鬥和諧。" },
+      { name: "戰鬥大師",             type: "Passivo",  rarity: "3★", effect: "+10% ATK, +10% 射程, +5% PvE",          cooldown: "N/A",    desc: "精通各式戰鬥技巧。" },
+      { name: "月光守衛之魂",    type: "Passivo",  rarity: "3★", effect: "+15% 弓攻擊",                            cooldown: "N/A",    desc: "月光守衛的戰鬥精神。" },
+      { name: "月光守衛之軀",   type: "Passivo",  rarity: "3★", effect: "+10% 最大 HP, +8% 迴避",                   cooldown: "N/A",    desc: "強化月光守衛的身軀。" }
     ]
   },
 
@@ -894,12 +894,12 @@ const CLASSES_ECHO = {
     desc: '操控自然力量的精靈法師。',
     base: { atk: 4, def: 5, hp: 65, mp: 85, eva: 8, crit: 3, matk: 14, mdef: 10 },
     skills: [
-      { name: "風之打擊",   type: "Ativo",    rarity: "1★", effect: "Dano vento 160%",             cooldown: "8s",     desc: "釋放風之衝擊。" },
-      { name: "冰箭",      type: "Ativo",    rarity: "1★", effect: "Dano gelo 155% + slow 15% 4s",cooldown: "8s",     desc: "發射冰之彈體。" },
-      { name: "自我治癒",     type: "Ativo",    rarity: "1★", effect: "Cura 20% HP",                 cooldown: "25s",    desc: "進行基礎自我治療。" },
-      { name: "睡眠",         type: "Ativo",    rarity: "1★", effect: "Adormece alvo 8s",             cooldown: "30s",    desc: "以魔法使目標陷入睡眠。" },
-      { name: "法袍精通",  type: "Passivo",  rarity: "1★", effect: "+10% M.DEF, +8% Cast Speed",   cooldown: "N/A",    desc: "精通法袍裝備。" },
-      { name: "MP 提升",   type: "Passivo",  rarity: "1★", effect: "+8% Max MP",                   cooldown: "N/A",    desc: "提高魔力儲備。" }
+      { name: "風之打擊",   type: "Ativo",    rarity: "1★", effect: "傷害 風 160%",             cooldown: "8s",     desc: "釋放風之衝擊。" },
+      { name: "冰箭",      type: "Ativo",    rarity: "1★", effect: "傷害 冰 155% + 緩速 15% 4 秒",cooldown: "8s",     desc: "發射冰之彈體。" },
+      { name: "自我治癒",     type: "Ativo",    rarity: "1★", effect: "治癒 20% HP",                 cooldown: "25s",    desc: "進行基礎自我治療。" },
+      { name: "睡眠",         type: "Ativo",    rarity: "1★", effect: "使其睡眠 目標 8 秒",             cooldown: "30s",    desc: "以魔法使目標陷入睡眠。" },
+      { name: "法袍精通",  type: "Passivo",  rarity: "1★", effect: "+10% M.DEF, +8% 施法速度",   cooldown: "N/A",    desc: "精通法袍裝備。" },
+      { name: "MP 提升",   type: "Passivo",  rarity: "1★", effect: "+8% 最大 MP",                   cooldown: "N/A",    desc: "提高魔力儲備。" }
     ]
   },
 
@@ -909,12 +909,12 @@ const CLASSES_ECHO = {
     desc: '精通元素魔法的精靈巫師。保留先前學會的技能。',
     base: { atk: 5, def: 7, hp: 95, mp: 135, eva: 6, crit: 4, matk: 33, mdef: 20 },
     skills: [
-      { name: "烈焰",              type: "Ativo",    rarity: "1★", effect: "Dano fogo 210%",                 cooldown: "10s",    desc: "釋放熾熱火焰。" },
-      { name: "水之漩渦",         type: "Ativo",    rarity: "1★", effect: "Dano água 200% + slow 20% 5s",   cooldown: "10s",    desc: "召喚水流漩渦。" },
-      { name: "光環燃燒",          type: "Ativo",    rarity: "2★", effect: "AoE fogo 180% ao redor",         cooldown: "14s",    desc: "以魔力燃燒周圍敵人。" },
-      { name: "生命吸取",         type: "Ativo",    rarity: "2★", effect: "Dano 190% + drena 25% HP",       cooldown: "15s",    desc: "吸取目標生命力。" },
-      { name: "精靈巫師和諧",   type: "Self-Buff",rarity: "2★", effect: "+25% M.ATK, +15% Cast Speed 20min",cooldown: "45 min",desc: "精靈巫師的戰鬥和諧。" },
-      { name: "MP 強化",         type: "Passivo",  rarity: "1★", effect: "+12% Max MP",                    cooldown: "N/A",    desc: "強化魔力儲備。" }
+      { name: "烈焰",              type: "Ativo",    rarity: "1★", effect: "傷害 火 210%",                 cooldown: "10s",    desc: "釋放熾熱火焰。" },
+      { name: "水之漩渦",         type: "Ativo",    rarity: "1★", effect: "傷害 水 200% + 緩速 20% 5 秒",   cooldown: "10s",    desc: "召喚水流漩渦。" },
+      { name: "光環燃燒",          type: "Ativo",    rarity: "2★", effect: "範圍 火 180% 周圍",         cooldown: "14s",    desc: "以魔力燃燒周圍敵人。" },
+      { name: "生命吸取",         type: "Ativo",    rarity: "2★", effect: "傷害 190% + 吸取 25% HP",       cooldown: "15s",    desc: "吸取目標生命力。" },
+      { name: "精靈巫師和諧",   type: "Self-Buff",rarity: "2★", effect: "+25% M.ATK, +15% 施法速度 20 分鐘",cooldown: "45 min",desc: "精靈巫師的戰鬥和諧。" },
+      { name: "MP 強化",         type: "Passivo",  rarity: "1★", effect: "+12% 最大 MP",                    cooldown: "N/A",    desc: "強化魔力儲備。" }
     ]
   },
 
@@ -924,16 +924,16 @@ const CLASSES_ECHO = {
     desc: '以水與風魔法為主的咒術詩人。保留先前學會的技能。',
     base: { atk: 7, def: 13, hp: 170, mp: 250, eva: 7, crit: 5, matk: 72, mdef: 42 },
     skills: [
-      { name: "水流爆裂",          type: "Ativo",    rarity: "2★", effect: "Dano água 300% + knockback",       cooldown: "15s",    desc: "釋放強力水流爆炸。" },
-      { name: "暴風雪",             type: "Ativo",    rarity: "3★", effect: "AoE gelo 340% + slow 30% 6s",      cooldown: "22s",    desc: "召喚暴風雪。" },
-      { name: "太陽耀斑",          type: "Ativo",    rarity: "3★", effect: "Dano fogo 360% + blind 4s",        cooldown: "25s",    desc: "釋放太陽能量爆炸。" },
-      { name: "元素交響曲",   type: "Ativo",    rarity: "3★", effect: "Dano multi-element 380%",          cooldown: "24s",    desc: "以多重元素奏出交響攻擊。" },
-      { name: "奧術之力",         type: "Self-Buff",rarity: "3★", effect: "+40% M.ATK por 30s",               cooldown: "90s",    desc: "凝聚奧術力量。" },
-      { name: "冰凍皮膚",        type: "Self-Buff",rarity: "2★", effect: "Atacantes recebem slow 20% 15s",   cooldown: "45s",    desc: "以冰霜強化皮膚。" },
-      { name: "解除",               type: "Ativo",    rarity: "3★", effect: "Remove 3 buffs do alvo",           cooldown: "40s",    desc: "解除魔法效果。" },
-      { name: "身心轉換",         type: "Ativo",    rarity: "2★", effect: "Converte 15% HP em 30% MP",        cooldown: "30s",    desc: "將生命力轉換為魔力。" },
-      { name: "咒術詩人和諧",         type: "Self-Buff",rarity: "3★", effect: "+35% M.ATK, +20% Cast Speed 25min",cooldown: "60 min", desc: "咒術詩人的戰鬥和諧。" },
-      { name: "元素突擊",    type: "Passivo",  rarity: "2★", effect: "+12% elemental damage",            cooldown: "N/A",    desc: "發動元素突擊。" }
+      { name: "水流爆裂",          type: "Ativo",    rarity: "2★", effect: "傷害 水 300% + 擊退",       cooldown: "15s",    desc: "釋放強力水流爆炸。" },
+      { name: "暴風雪",             type: "Ativo",    rarity: "3★", effect: "範圍 冰 340% + 緩速 30% 6 秒",      cooldown: "22s",    desc: "召喚暴風雪。" },
+      { name: "太陽耀斑",          type: "Ativo",    rarity: "3★", effect: "傷害 火 360% + 致盲 4 秒",        cooldown: "25s",    desc: "釋放太陽能量爆炸。" },
+      { name: "元素交響曲",   type: "Ativo",    rarity: "3★", effect: "傷害 多元素 380%",          cooldown: "24s",    desc: "以多重元素奏出交響攻擊。" },
+      { name: "奧術之力",         type: "Self-Buff",rarity: "3★", effect: "+40% M.ATK 持續 30 秒",               cooldown: "90s",    desc: "凝聚奧術力量。" },
+      { name: "冰凍皮膚",        type: "Self-Buff",rarity: "2★", effect: "Atacantes recebem 緩速 20% 15 秒",   cooldown: "45s",    desc: "以冰霜強化皮膚。" },
+      { name: "解除",               type: "Ativo",    rarity: "3★", effect: "移除 3 增益 do 目標",           cooldown: "40s",    desc: "解除魔法效果。" },
+      { name: "身心轉換",         type: "Ativo",    rarity: "2★", effect: "轉換 15% HP於30% MP",        cooldown: "30s",    desc: "將生命力轉換為魔力。" },
+      { name: "咒術詩人和諧",         type: "Self-Buff",rarity: "3★", effect: "+35% M.ATK, +20% 施法速度 25 分鐘",cooldown: "60 min", desc: "咒術詩人的戰鬥和諧。" },
+      { name: "元素突擊",    type: "Passivo",  rarity: "2★", effect: "+12% 元素 傷害",            cooldown: "N/A",    desc: "發動元素突擊。" }
     ]
   },
 
@@ -943,21 +943,21 @@ const CLASSES_ECHO = {
     desc: '精通水系魔法的神秘繆思。保留先前學會的技能。定位：水。',
     base: { atk: 9, def: 18, hp: 280, mp: 440, eva: 8, crit: 7, matk: 130, mdef: 68 },
     skills: [
-      { name: "水花爆發",                  type: "Ativo",    rarity: "3★", effect: "Dano water 420% + AoE splash",             cooldown: "22s",    desc: "釋放大範圍水流衝擊。" },
-      { name: "水之螺旋",                  type: "Ativo",    rarity: "3★", effect: "Dano water 400% + penetra alvos",         cooldown: "20s",    desc: "釋放具有穿透力的水流螺旋。" },
-      { name: "水流爆炸",                type: "Ativo",    rarity: "4★", effect: "Dano water AoE 680% + freeze 4s",         cooldown: "160s",   desc: "引發毀滅性的水元素爆炸。" },
-      { name: "水之種子",                 type: "Ativo",    rarity: "2★", effect: "Planta semente: explode 300% água após 5s",cooldown: "20s",   desc: "凝聚水元素種子。" },
-      { name: "元素爆發",               type: "Ativo",    rarity: "3★", effect: "Explode Seeds: dano 500%",                cooldown: "18s",    desc: "引爆元素力量，可與種子效果連動。" },
-      { name: "元素風暴",               type: "Ativo",    rarity: "3★", effect: "AoE multi-element 440% (8 alvos)",        cooldown: "30s",    desc: "召喚元素風暴。" },
-      { name: "神秘免疫",               type: "Ativo",    rarity: "4★", effect: "Imune a magia 8s",                        cooldown: "180s",   desc: "獲得神秘力量保護。" },
-      { name: "強化迴響",               type: "Ativo",    rarity: "3★", effect: "Próxima skill: +50% dano",                cooldown: "45s",    desc: "以迴響強化自身力量。" },
-      { name: "超越水流爆炸",   type: "Ativo",    rarity: "4★", effect: "Dano water 850% + freeze 6s + AoE",       cooldown: "200s",   desc: "施展超越極限的水元素爆炸。" },
-      { name: "神秘繆思和諧",           type: "Self-Buff",rarity: "4★", effect: "+55% M.ATK, +35% Cast Speed, +20% MP 30min",cooldown: "90 min",desc: "神秘繆思的戰鬥和諧。" },
-      { name: "魔法大師",               type: "Passivo",  rarity: "3★", effect: "+10% M.ATK, +10% water dmg, +5% PvE",    cooldown: "N/A",    desc: "精通各式魔法。" },
-      { name: "法術精通",                  type: "Passivo",  rarity: "3★", effect: "+12% M. Skill Power",                    cooldown: "N/A",    desc: "精通法術施放。" },
-      { name: "魔法專注",                    type: "Passivo",  rarity: "3★", effect: "+8% M. Crit Rate",                       cooldown: "N/A",    desc: "提高魔法專注力。" },
-      { name: "神秘繆思之魂",            type: "Passivo",  rarity: "3★", effect: "+15% water magic ATK",                    cooldown: "N/A",    desc: "神秘繆思的戰鬥精神。" },
-      { name: "神秘繆思之軀",       type: "Passivo",  rarity: "3★", effect: "+10% Max MP, +8% M.DEF",                 cooldown: "N/A",    desc: "強化神秘繆思的身軀。" }
+      { name: "水花爆發",                  type: "Ativo",    rarity: "3★", effect: "傷害 水 420% + 範圍 splash",             cooldown: "22s",    desc: "釋放大範圍水流衝擊。" },
+      { name: "水之螺旋",                  type: "Ativo",    rarity: "3★", effect: "傷害 水 400% + 穿透 目標",         cooldown: "20s",    desc: "釋放具有穿透力的水流螺旋。" },
+      { name: "水流爆炸",                type: "Ativo",    rarity: "4★", effect: "傷害 水 範圍 680% + 凍結 4 秒",         cooldown: "160s",   desc: "引發毀滅性的水元素爆炸。" },
+      { name: "水之種子",                 type: "Ativo",    rarity: "2★", effect: "種下種子: 爆炸 300% 水 後 5 秒",cooldown: "20s",   desc: "凝聚水元素種子。" },
+      { name: "元素爆發",               type: "Ativo",    rarity: "3★", effect: "引爆種子: 傷害 500%",                cooldown: "18s",    desc: "引爆元素力量，可與種子效果連動。" },
+      { name: "元素風暴",               type: "Ativo",    rarity: "3★", effect: "範圍 多元素 440% (8 目標)",        cooldown: "30s",    desc: "召喚元素風暴。" },
+      { name: "神秘免疫",               type: "Ativo",    rarity: "4★", effect: "免疫魔法 8 秒",                        cooldown: "180s",   desc: "獲得神秘力量保護。" },
+      { name: "強化迴響",               type: "Ativo",    rarity: "3★", effect: "下一個技能: +50% 傷害",                cooldown: "45s",    desc: "以迴響強化自身力量。" },
+      { name: "超越水流爆炸",   type: "Ativo",    rarity: "4★", effect: "傷害 水 850% + 凍結 6 秒 + 範圍",       cooldown: "200s",   desc: "施展超越極限的水元素爆炸。" },
+      { name: "神秘繆思和諧",           type: "Self-Buff",rarity: "4★", effect: "+55% M.ATK, +35% 施法速度, +20% MP 30 分鐘",cooldown: "90 min",desc: "神秘繆思的戰鬥和諧。" },
+      { name: "魔法大師",               type: "Passivo",  rarity: "3★", effect: "+10% M.ATK, +10% 水 傷害, +5% PvE",    cooldown: "N/A",    desc: "精通各式魔法。" },
+      { name: "法術精通",                  type: "Passivo",  rarity: "3★", effect: "+12% 魔法技能威力",                    cooldown: "N/A",    desc: "精通法術施放。" },
+      { name: "魔法專注",                    type: "Passivo",  rarity: "3★", effect: "+8% M. 暴擊率",                       cooldown: "N/A",    desc: "提高魔法專注力。" },
+      { name: "神秘繆思之魂",            type: "Passivo",  rarity: "3★", effect: "+15% 水 magic ATK",                    cooldown: "N/A",    desc: "神秘繆思的戰鬥精神。" },
+      { name: "神秘繆思之軀",       type: "Passivo",  rarity: "3★", effect: "+10% 最大 MP, +8% M.DEF",                 cooldown: "N/A",    desc: "強化神秘繆思的身軀。" }
     ]
   },
 
@@ -967,15 +967,15 @@ const CLASSES_ECHO = {
     desc: '精靈族的元素召喚師。保留先前學會的技能。定位：召喚。',
     base: { atk: 6, def: 14, hp: 185, mp: 245, eva: 6, crit: 4, matk: 60, mdef: 40 },
     skills: [
-      { name: "召喚拳鬥獨角獸",   type: "Ativo",    rarity: "2★", effect: "Invoca unicórnio fighter (ATK 50%)",  cooldown: "60s",    desc: "召喚擅長近戰的獨角獸。" },
-      { name: "召喚幻影獨角獸",  type: "Ativo",    rarity: "2★", effect: "Invoca unicórnio mago (M.ATK 50%)",  cooldown: "60s",    desc: "召喚具有幻影能力的獨角獸。" },
-      { name: "召喚梅洛獨角獸",  type: "Ativo",    rarity: "3★", effect: "Invoca merrow (ATK 65%, tank)",      cooldown: "90s",    desc: "召喚水元素獨角獸梅洛。" },
-      { name: "召喚獸治癒",          type: "Ativo",    rarity: "2★", effect: "Cura summon 35% HP",                 cooldown: "12s",    desc: "治療召喚獸。" },
-      { name: "召喚獸回復",      type: "Ativo",    rarity: "2★", effect: "Restaura 30% MP do summon",          cooldown: "15s",    desc: "恢復召喚獸的魔力。" },
-      { name: "痛苦轉移",          type: "Toggle",   rarity: "2★", effect: "50% dano recebido vai pro summon",   cooldown: "N/A",    desc: "將部分受到的傷害轉移給召喚獸。" },
-      { name: "召喚生命晶體",      type: "Ativo",    rarity: "2★", effect: "Cubic que cura 5%/5s",               cooldown: "45s",    desc: "召喚具有生命恢復能力的晶體。" },
-      { name: "元素召喚師和諧",           type: "Self-Buff",rarity: "3★", effect: "+30% M.ATK, +25% Summon ATK 25min",  cooldown: "60 min", desc: "元素召喚師的戰鬥和諧。" },
-      { name: "召喚獸物理攻擊",  type: "Passivo",  rarity: "2★", effect: "+15% Summon ATK",                    cooldown: "N/A",    desc: "提高召喚獸的物理攻擊能力。" }
+      { name: "召喚拳鬥獨角獸",   type: "Ativo",    rarity: "2★", effect: "召喚 戰鬥獨角獸 (ATK 50%)",  cooldown: "60s",    desc: "召喚擅長近戰的獨角獸。" },
+      { name: "召喚幻影獨角獸",  type: "Ativo",    rarity: "2★", effect: "召喚 魔法獨角獸 (M.ATK 50%)",  cooldown: "60s",    desc: "召喚具有幻影能力的獨角獸。" },
+      { name: "召喚梅洛獨角獸",  type: "Ativo",    rarity: "3★", effect: "召喚 merrow (ATK 65%, tank)",      cooldown: "90s",    desc: "召喚水元素獨角獸梅洛。" },
+      { name: "召喚獸治癒",          type: "Ativo",    rarity: "2★", effect: "治癒召喚物 35% HP",                 cooldown: "12s",    desc: "治療召喚獸。" },
+      { name: "召喚獸回復",      type: "Ativo",    rarity: "2★", effect: "恢復 30% MP do 召喚物",          cooldown: "15s",    desc: "恢復召喚獸的魔力。" },
+      { name: "痛苦轉移",          type: "Toggle",   rarity: "2★", effect: "50% 傷害 受到的 轉移給 召喚物",   cooldown: "N/A",    desc: "將部分受到的傷害轉移給召喚獸。" },
+      { name: "召喚生命晶體",      type: "Ativo",    rarity: "2★", effect: "晶體 會 治癒 5%/5 秒",               cooldown: "45s",    desc: "召喚具有生命恢復能力的晶體。" },
+      { name: "元素召喚師和諧",           type: "Self-Buff",rarity: "3★", effect: "+30% M.ATK, +25% 召喚物 ATK 25 分鐘",  cooldown: "60 min", desc: "元素召喚師的戰鬥和諧。" },
+      { name: "召喚獸物理攻擊",  type: "Passivo",  rarity: "2★", effect: "+15% 召喚物 ATK",                    cooldown: "N/A",    desc: "提高召喚獸的物理攻擊能力。" }
     ]
   },
 
@@ -984,16 +984,16 @@ const CLASSES_ECHO = {
     desc: '精靈族的至高元素召喚大師。保留先前學會的技能。',
     base: { atk: 9, def: 20, hp: 300, mp: 420, eva: 7, crit: 5, matk: 115, mdef: 62 },
     skills: [
-      { name: "召喚熾天使",                type: "Ativo",    rarity: "3★", effect: "Invoca Serafim (cura+suporte 60%)",        cooldown: "90s",    desc: "召喚天界熾天使。" },
-      { name: "召喚獸屏障",               type: "Ativo",    rarity: "3★", effect: "Summon ganha escudo 5000 HP 15s",          cooldown: "60s",    desc: "為召喚獸展開防護屏障。" },
-      { name: "群體召喚獸治癒",             type: "Ativo",    rarity: "3★", effect: "Cura todos summons 40% HP",               cooldown: "25s",    desc: "治療多個召喚獸。" },
-      { name: "最終召喚獸",                 type: "Ativo",    rarity: "4★", effect: "Summon sacrifica: AoE 600% + cura 50%",    cooldown: "180s",   desc: "犧牲召喚獸釋放最後力量。" },
-      { name: "超越召喚爆發",      type: "Ativo",    rarity: "4★", effect: "Todos summons atacam: 800% total",        cooldown: "200s",   desc: "引爆多重召喚力量。" },
-      { name: "元素大師和諧",       type: "Self-Buff",rarity: "4★", effect: "+50% M.ATK, +60% Summon Power 30min",     cooldown: "90 min", desc: "風騎士的至高戰鬥和諧。" },
-      { name: "獨角獸友誼",           type: "Passivo",  rarity: "3★", effect: "+20% Summon ATK/DEF",                     cooldown: "N/A",    desc: "獨角獸之間的友誼。" },
-      { name: "元素專注",        type: "Passivo",  rarity: "3★", effect: "+10% M.ATK, +10% Summon HP",              cooldown: "N/A",    desc: "提高元素專注力。" },
-      { name: "元素大師之魂",        type: "Passivo",  rarity: "3★", effect: "+12% M.ATK, +8% Summon Speed",            cooldown: "N/A",    desc: "元素大師的戰鬥精神。" },
-      { name: "元素大師之軀",   type: "Passivo",  rarity: "3★", effect: "+10% Max MP, +8% Max HP",                cooldown: "N/A",    desc: "強化元素大師的身軀。" }
+      { name: "召喚熾天使",                type: "Ativo",    rarity: "3★", effect: "召喚 Serafim (治癒+suporte 60%)",        cooldown: "90s",    desc: "召喚天界熾天使。" },
+      { name: "召喚獸屏障",               type: "Ativo",    rarity: "3★", effect: "召喚物 獲得護盾 5000 HP 15 秒",          cooldown: "60s",    desc: "為召喚獸展開防護屏障。" },
+      { name: "群體召喚獸治癒",             type: "Ativo",    rarity: "3★", effect: "治癒所有召喚物 40% HP",               cooldown: "25s",    desc: "治療多個召喚獸。" },
+      { name: "最終召喚獸",                 type: "Ativo",    rarity: "4★", effect: "召喚物 犧牲: 範圍 600% + 治癒 50%",    cooldown: "180s",   desc: "犧牲召喚獸釋放最後力量。" },
+      { name: "超越召喚爆發",      type: "Ativo",    rarity: "4★", effect: "所有 召喚物 攻擊: 800% 完全",        cooldown: "200s",   desc: "引爆多重召喚力量。" },
+      { name: "元素大師和諧",       type: "Self-Buff",rarity: "4★", effect: "+50% M.ATK, +60% 召喚物 威力 30 分鐘",     cooldown: "90 min", desc: "風騎士的至高戰鬥和諧。" },
+      { name: "獨角獸友誼",           type: "Passivo",  rarity: "3★", effect: "+20% 召喚物 ATK/DEF",                     cooldown: "N/A",    desc: "獨角獸之間的友誼。" },
+      { name: "元素專注",        type: "Passivo",  rarity: "3★", effect: "+10% M.ATK, +10% 召喚物 HP",              cooldown: "N/A",    desc: "提高元素專注力。" },
+      { name: "元素大師之魂",        type: "Passivo",  rarity: "3★", effect: "+12% M.ATK, +8% 召喚物 速度",            cooldown: "N/A",    desc: "元素大師的戰鬥精神。" },
+      { name: "元素大師之軀",   type: "Passivo",  rarity: "3★", effect: "+10% 最大 MP, +8% 最大 HP",                cooldown: "N/A",    desc: "強化元素大師的身軀。" }
     ]
   },
 
@@ -1003,13 +1003,13 @@ const CLASSES_ECHO = {
     desc: '精靈族的治癒神使。保留先前學會的技能。',
     base: { atk: 6, def: 12, hp: 110, mp: 115, eva: 5, crit: 3, matk: 20, mdef: 25 },
     skills: [
-      { name: "治癒",          type: "Ativo",      rarity: "1★", effect: "Cura 25% HP alvo",              cooldown: "8s",     desc: "進行基礎治療。" },
-      { name: "戰鬥治癒",   type: "Ativo",      rarity: "1★", effect: "Cura 20% HP + remove 1 debuff", cooldown: "10s",    desc: "在戰鬥中快速治療。" },
-      { name: "力量",         type: "Party-Buff", rarity: "1★", effect: "+15% ATK party 10 min",         cooldown: "25 min", desc: "賦予提升力量的祝福。" },
-      { name: "盾牌祝福", type: "Party-Buff", rarity: "1★", effect: "+15% DEF party 10 min",         cooldown: "25 min", desc: "賦予防護祝福。" },
-      { name: "解毒",   type: "Ativo",      rarity: "1★", effect: "Remove poison",                 cooldown: "5s",     desc: "解除中毒狀態。" },
-      { name: "止血",    type: "Ativo",      rarity: "1★", effect: "Remove bleed",                  cooldown: "5s",     desc: "解除流血狀態。" },
-      { name: "魔力回復",      type: "Ativo",      rarity: "1★", effect: "Restaura 20% MP alvo",          cooldown: "12s",    desc: "恢復魔力。" }
+      { name: "治癒",          type: "Ativo",      rarity: "1★", effect: "治癒 25% HP 目標",              cooldown: "8s",     desc: "進行基礎治療。" },
+      { name: "戰鬥治癒",   type: "Ativo",      rarity: "1★", effect: "治癒 20% HP + 移除 1 減益", cooldown: "10s",    desc: "在戰鬥中快速治療。" },
+      { name: "力量",         type: "Party-Buff", rarity: "1★", effect: "+15% ATK 隊伍 10 分鐘",         cooldown: "25 min", desc: "賦予提升力量的祝福。" },
+      { name: "盾牌祝福", type: "Party-Buff", rarity: "1★", effect: "+15% DEF 隊伍 10 分鐘",         cooldown: "25 min", desc: "賦予防護祝福。" },
+      { name: "解毒",   type: "Ativo",      rarity: "1★", effect: "移除 中毒",                 cooldown: "5s",     desc: "解除中毒狀態。" },
+      { name: "止血",    type: "Ativo",      rarity: "1★", effect: "移除 流血",                  cooldown: "5s",     desc: "解除流血狀態。" },
+      { name: "魔力回復",      type: "Ativo",      rarity: "1★", effect: "恢復 20% MP 目標",          cooldown: "12s",    desc: "恢復魔力。" }
     ]
   },
 
@@ -1018,19 +1018,19 @@ const CLASSES_ECHO = {
     desc: '精靈族的治療與增益職業長老。保留先前學會的技能。',
     base: { atk: 8, def: 25, hp: 240, mp: 210, eva: 5, crit: 3, matk: 45, mdef: 55 },
     skills: [
-      { name: "高級治癒",       type: "Ativo",      rarity: "2★", effect: "Cura 40% HP alvo",                    cooldown: "10s",    desc: "施展更強力的治療。" },
-      { name: "高級群體治癒", type: "Ativo",      rarity: "3★", effect: "Cura 30% HP party",                   cooldown: "18s",    desc: "治療隊伍成員。" },
-      { name: "復活",       type: "Ativo",      rarity: "3★", effect: "Ressuscita aliado 30% HP",            cooldown: "120s",   desc: "使倒下的目標復活。" },
-      { name: "淨化",             type: "Ativo",      rarity: "2★", effect: "Remove 3 debuffs",                    cooldown: "20s",    desc: "淨化負面狀態。" },
-      { name: "潔淨",            type: "Ativo",      rarity: "3★", effect: "Remove TODOS debuffs",                cooldown: "45s",    desc: "徹底清除異常狀態。" },
-      { name: "魔力強化",            type: "Self-Buff",  rarity: "2★", effect: "+25% M.ATK por 20 min",               cooldown: "50 min", desc: "提高魔法力量。" },
-      { name: "靈活思緒",             type: "Self-Buff",  rarity: "2★", effect: "+25% Cast Speed por 20 min",          cooldown: "50 min", desc: "提高施法效率。" },
-      { name: "加速",              type: "Self-Buff",  rarity: "2★", effect: "+30% ATK Speed por 20 min",           cooldown: "50 min", desc: "提高行動與攻擊速度。" },
-      { name: "清澈思緒",            type: "Self-Buff",  rarity: "2★", effect: "+20% MP Regen por 20 min",            cooldown: "50 min", desc: "提高魔法運用效率。" },
-      { name: "水之預言",  type: "Party-Buff", rarity: "3★", effect: "+30% M.ATK, +20% M.DEF party 12min",  cooldown: "30 min", desc: "施放水之預言。" },
-      { name: "精神之盾",      type: "Party-Buff", rarity: "2★", effect: "+20% M.DEF party 12 min",            cooldown: "30 min", desc: "提高精神異常抗性。" },
-      { name: "長老和諧",    type: "Self-Buff",  rarity: "3★", effect: "+35% Heal, +25% M.ATK 25min",        cooldown: "60 min", desc: "長老的戰鬥和諧。" },
-      { name: "水屬性抗性",        type: "Passivo",    rarity: "1★", effect: "+10% Water Resist",                   cooldown: "N/A",    desc: "提高水屬性抗性。" }
+      { name: "高級治癒",       type: "Ativo",      rarity: "2★", effect: "治癒 40% HP 目標",                    cooldown: "10s",    desc: "施展更強力的治療。" },
+      { name: "高級群體治癒", type: "Ativo",      rarity: "3★", effect: "治癒 30% HP 隊伍",                   cooldown: "18s",    desc: "治療隊伍成員。" },
+      { name: "復活",       type: "Ativo",      rarity: "3★", effect: "復活 盟友 30% HP",            cooldown: "120s",   desc: "使倒下的目標復活。" },
+      { name: "淨化",             type: "Ativo",      rarity: "2★", effect: "移除 3 de增益",                    cooldown: "20s",    desc: "淨化負面狀態。" },
+      { name: "潔淨",            type: "Ativo",      rarity: "3★", effect: "移除 所有 de增益",                cooldown: "45s",    desc: "徹底清除異常狀態。" },
+      { name: "魔力強化",            type: "Self-Buff",  rarity: "2★", effect: "+25% M.ATK 持續 20 分鐘",               cooldown: "50 min", desc: "提高魔法力量。" },
+      { name: "靈活思緒",             type: "Self-Buff",  rarity: "2★", effect: "+25% 施法速度 持續 20 分鐘",          cooldown: "50 min", desc: "提高施法效率。" },
+      { name: "加速",              type: "Self-Buff",  rarity: "2★", effect: "+30% 攻擊速度 持續 20 分鐘",           cooldown: "50 min", desc: "提高行動與攻擊速度。" },
+      { name: "清澈思緒",            type: "Self-Buff",  rarity: "2★", effect: "+20% MP 恢復 持續 20 分鐘",            cooldown: "50 min", desc: "提高魔法運用效率。" },
+      { name: "水之預言",  type: "Party-Buff", rarity: "3★", effect: "+30% M.ATK, +20% M.DEF 隊伍 12 分鐘",  cooldown: "30 min", desc: "施放水之預言。" },
+      { name: "精神之盾",      type: "Party-Buff", rarity: "2★", effect: "+20% M.DEF 隊伍 12 分鐘",            cooldown: "30 min", desc: "提高精神異常抗性。" },
+      { name: "長老和諧",    type: "Self-Buff",  rarity: "3★", effect: "+35% 治癒, +25% M.ATK 25 分鐘",        cooldown: "60 min", desc: "長老的戰鬥和諧。" },
+      { name: "水屬性抗性",        type: "Passivo",    rarity: "1★", effect: "+10% 水抗性",                   cooldown: "N/A",    desc: "提高水屬性抗性。" }
     ]
   },
 
@@ -1039,19 +1039,19 @@ const CLASSES_ECHO = {
     desc: '伊娃的至高聖者，精靈族最高階治癒職業。保留先前學會的技能。',
     base: { atk: 10, def: 40, hp: 400, mp: 470, eva: 6, crit: 4, matk: 90, mdef: 95 },
     skills: [
-      { name: "崇高自我犧牲",        type: "Ativo",      rarity: "4★", effect: "Morre para curar party 100% HP+MP",    cooldown: "300s",   desc: "進行自我犧牲。" },
-      { name: "生命平衡",                  type: "Ativo",      rarity: "3★", effect: "Equaliza HP de toda party",             cooldown: "60s",    desc: "重新平衡生命值。" },
-      { name: "群體復活",             type: "Ativo",      rarity: "4★", effect: "Ressuscita toda party 40% HP",         cooldown: "300s",   desc: "使多名倒下的盟友復活。" },
-      { name: "奇蹟",                       type: "Ativo",      rarity: "4★", effect: "Cura party 80% HP + ressurge mortos",  cooldown: "300s",   desc: "施展奇蹟之力。" },
-      { name: "伊娃祝福",               type: "Party-Buff", rarity: "3★", effect: "+25% M.DEF + resist debuff 12min",     cooldown: "30 min", desc: "獲得伊娃的祝福。" },
-      { name: "黑暗面",                     type: "Toggle",     rarity: "3★", effect: "Troca: -60% Heal, +80% M.ATK holy",    cooldown: "N/A",    desc: "切換黑暗面姿態。" },
-      { name: "水之打擊",                   type: "Ativo",      rarity: "3★", effect: "Dano water 380% + slow 40% 6s",        cooldown: "22s",    desc: "施展水屬性攻擊。" },
-      { name: "神聖新星",                   type: "Ativo",      rarity: "3★", effect: "Dano holy AoE 450% + blind 5s",        cooldown: "25s",    desc: "釋放神聖新星。" },
-      { name: "伊娃聖者和諧",           type: "Self-Buff",  rarity: "4★", effect: "+55% Heal, +40% M.ATK, +30% M.DEF 30min",cooldown: "90 min",desc: "風騎士的至高戰鬥和諧。" },
-      { name: "治癒大師",             type: "Passivo",    rarity: "3★", effect: "+15% Heal Power, +5% PvE",            cooldown: "N/A",    desc: "精通各式治療術。" },
-      { name: "伊娃聖者之魂",            type: "Passivo",    rarity: "3★", effect: "+12% holy magic ATK",                  cooldown: "N/A",    desc: "伊娃聖者的神聖精神。" },
-      { name: "伊娃聖者之軀",           type: "Passivo",    rarity: "3★", effect: "+12% Max MP, +10% M.DEF",             cooldown: "N/A",    desc: "強化伊娃聖者的身軀。" },
-      { name: "伊娃援助",                    type: "Passivo",    rarity: "3★", effect: "10% chance ao ser atacado: cura 5% HP",cooldown: "N/A",    desc: "觸發伊娃的援助效果。" }
+      { name: "崇高自我犧牲",        type: "Ativo",      rarity: "4★", effect: "死亡給治癒r 隊伍 100% HP+MP",    cooldown: "300s",   desc: "進行自我犧牲。" },
+      { name: "生命平衡",                  type: "Ativo",      rarity: "3★", effect: "平均 HP的所有 隊伍",             cooldown: "60s",    desc: "重新平衡生命值。" },
+      { name: "群體復活",             type: "Ativo",      rarity: "4★", effect: "復活 所有 隊伍 40% HP",         cooldown: "300s",   desc: "使多名倒下的盟友復活。" },
+      { name: "奇蹟",                       type: "Ativo",      rarity: "4★", effect: "治癒隊伍 80% HP + 復活死亡成員",  cooldown: "300s",   desc: "施展奇蹟之力。" },
+      { name: "伊娃祝福",               type: "Party-Buff", rarity: "3★", effect: "+25% M.DEF + 抗性 減益 12 分鐘",     cooldown: "30 min", desc: "獲得伊娃的祝福。" },
+      { name: "黑暗面",                     type: "Toggle",     rarity: "3★", effect: "切換： -60% 治癒, +80% M.ATK 神聖",    cooldown: "N/A",    desc: "切換黑暗面姿態。" },
+      { name: "水之打擊",                   type: "Ativo",      rarity: "3★", effect: "傷害 水 380% + 緩速 40% 6 秒",        cooldown: "22s",    desc: "施展水屬性攻擊。" },
+      { name: "神聖新星",                   type: "Ativo",      rarity: "3★", effect: "傷害 神聖 範圍 450% + 致盲 5 秒",        cooldown: "25s",    desc: "釋放神聖新星。" },
+      { name: "伊娃聖者和諧",           type: "Self-Buff",  rarity: "4★", effect: "+55% 治癒, +40% M.ATK, +30% M.DEF 30 分鐘",cooldown: "90 min",desc: "風騎士的至高戰鬥和諧。" },
+      { name: "治癒大師",             type: "Passivo",    rarity: "3★", effect: "+15% 治癒威力, +5% PvE",            cooldown: "N/A",    desc: "精通各式治療術。" },
+      { name: "伊娃聖者之魂",            type: "Passivo",    rarity: "3★", effect: "+12% 神聖 magic ATK",                  cooldown: "N/A",    desc: "伊娃聖者的神聖精神。" },
+      { name: "伊娃聖者之軀",           type: "Passivo",    rarity: "3★", effect: "+12% 最大 MP, +10% M.DEF",             cooldown: "N/A",    desc: "強化伊娃聖者的身軀。" },
+      { name: "伊娃援助",                    type: "Passivo",    rarity: "3★", effect: "10% 機率對ser 受到攻擊: 治癒 5% HP",cooldown: "N/A",    desc: "觸發伊娃的援助效果。" }
     ]
   },
 
@@ -1064,13 +1064,13 @@ name: '黑暗精靈戰士', race: 'darkelf', archetype: 'fighter', stage: 0,
 desc: '天生擅長暴擊傷害的黑暗精靈戰士。',
 base: { atk: 11, def: 6, hp: 85, mp: 32, eva: 8, crit: 8, mdef: 5 },
 skills: [
-{ name: "強力打擊", type: "Ativo", rarity: "1★", effect: "Dano físico 150%", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "致命一擊", type: "Ativo", rarity: "1★", effect: "Dano 130% + 20% crit bônus", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "強力射擊", type: "Ativo", rarity: "1★", effect: "Dano à distância 140%", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "包紮", type: "Ativo", rarity: "1★", effect: "Recupera 15% HP", cooldown: "30s", duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "HP 提升", type: "Passivo", rarity: "1★", effect: "+10% Max HP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "輕甲精通", type: "Passivo", rarity: "1★", effect: "+8% DEF com armadura leve", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "黑暗之魂", type: "Self-Buff", rarity: "1★", effect: "+10% ATK e +8% Crit por 15 min", cooldown: "30 min", duration: "15 min", note: "Skill permanece após trocar de classe" }
+{ name: "強力打擊", type: "Ativo", rarity: "1★", effect: "物理傷害 150%", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
+{ name: "致命一擊", type: "Ativo", rarity: "1★", effect: "傷害 130% + 20% 暴擊 加成", cooldown: "10s", duration: null, note: "轉職後技能仍會保留" },
+{ name: "強力射擊", type: "Ativo", rarity: "1★", effect: "遠距傷害 140%", cooldown: "10s", duration: null, note: "轉職後技能仍會保留" },
+{ name: "包紮", type: "Ativo", rarity: "1★", effect: "恢復 15% HP", cooldown: "30s", duration: null, note: "轉職後技能仍會保留" },
+{ name: "HP 提升", type: "Passivo", rarity: "1★", effect: "+10% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+{ name: "輕甲精通", type: "Passivo", rarity: "1★", effect: "+8% DEF 裝備輕甲時", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+{ name: "黑暗之魂", type: "Self-Buff", rarity: "1★", effect: "+10% ATK 並 +8% 暴擊 持續 15 分鐘", cooldown: "30 min", duration: "15 min", note: "轉職後技能仍會保留" }
 ]
 },
 
@@ -1080,13 +1080,13 @@ name: '帕魯斯騎士', parent: 'darkElfFighter', race: 'darkelf', archetype: '
 desc: '使用盾牌並操控黑暗力量的騎士。',
 base: { atk: 18, def: 26, hp: 210, mp: 52, eva: 10, crit: 6, mdef: 14 },
 skills: [
-{ name: "盾牌打擊", type: "Ativo", rarity: "1★", effect: "Dano 160% + taunt 8s", cooldown: "12s", duration: "8s", note: "Skill permanece após trocar de classe" },
-{ name: "仇恨", type: "Ativo", rarity: "1★", effect: "Taunt alvo + aggro máximo", cooldown: "10s", duration: "10s", note: "Skill permanece após trocar de classe" },
-{ name: "力量削弱", type: "Ativo", rarity: "1★", effect: "Dano 140% + reduz ATK 15%", cooldown: "14s", duration: "8s", note: "Skill permanece após trocar de classe" },
-{ name: "盾牌精通", type: "Passivo", rarity: "1★", effect: "+15% DEF com escudo", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "重甲精通", type: "Passivo", rarity: "1★", effect: "+15% DEF com armadura pesada", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "劍／鈍器精通", type: "Passivo", rarity: "1★", effect: "+12% ATK com espada/maça", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "箭矢偏轉", type: "Passivo", rarity: "1★", effect: "+15% chance esquivar projéteis", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" }
+{ name: "盾牌打擊", type: "Ativo", rarity: "1★", effect: "傷害 160% + 嘲諷 8 秒", cooldown: "12s", duration: "8s", note: "轉職後技能仍會保留" },
+{ name: "仇恨", type: "Ativo", rarity: "1★", effect: "嘲諷 目標 + 最高仇恨", cooldown: "10s", duration: "10s", note: "轉職後技能仍會保留" },
+{ name: "力量削弱", type: "Ativo", rarity: "1★", effect: "傷害 140% + 降低 ATK 15%", cooldown: "14s", duration: "8s", note: "轉職後技能仍會保留" },
+{ name: "盾牌精通", type: "Passivo", rarity: "1★", effect: "+15% DEF 搭配 護盾", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+{ name: "重甲精通", type: "Passivo", rarity: "1★", effect: "+15% DEF 裝備重甲時", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+{ name: "劍／鈍器精通", type: "Passivo", rarity: "1★", effect: "+12% ATK 使用劍／鈍器時", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+{ name: "箭矢偏轉", type: "Passivo", rarity: "1★", effect: "+15% 機率 閃避投射物", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
 ]
 },
 
@@ -1096,20 +1096,20 @@ name: '席琳騎士', parent: 'palusKnight', race: 'darkelf', archetype: 'tank',
 desc: '侍奉席琳、擅長吸取與恐懼能力的騎士。',
 base: { atk: 38, def: 58, hp: 430, mp: 82, eva: 12, crit: 8, mdef: 36 },
 skills: [
-{ name: "盾牌暈擊", type: "Ativo", rarity: "2★", effect: "Dano 200% + stun 3s", cooldown: "20s", duration: "3s stun", note: "Skill permanece após trocar de classe" },
-{ name: "審判", type: "Ativo", rarity: "3★", effect: "Dano dark 300% + reduz heal 50%", cooldown: "28s", duration: "8s", note: "Skill permanece após trocar de classe" },
-{ name: "黑暗火焰", type: "Ativo", rarity: "2★", effect: "Dano AoE dark 260%", cooldown: "22s", duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "生命吸取", type: "Ativo", rarity: "2★", effect: "Dano 220% + drain 30% HP", cooldown: "16s", duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "恐懼", type: "Ativo", rarity: "2★", effect: "Medo alvo 4s", cooldown: "30s", duration: "4s", note: "Skill permanece após trocar de classe" },
-{ name: "雷電打擊", type: "Ativo", rarity: "2★", effect: "Dano elétrico 240% + stun 1s", cooldown: "16s", duration: "1s stun", note: "Skill permanece após trocar de classe" },
-{ name: "死亡之觸", type: "Ativo", rarity: "2★", effect: "Dano dark 240% + poison", cooldown: "18s", duration: "6s poison", note: "Skill permanece após trocar de classe" },
-{ name: "犧牲", type: "Ativo", rarity: "2★", effect: "Transfere 30% HP para aliado", cooldown: "30s", duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "神盾", type: "Ativo", rarity: "2★", effect: "+50% Block Rate por 15s", cooldown: "45s", duration: "15s", note: "Skill permanece após trocar de classe" },
-{ name: "終極防禦", type: "Ativo", rarity: "3★", effect: "+80% DEF, imóvel, 10s", cooldown: "120s", duration: "10s", note: "Skill permanece após trocar de classe" },
-{ name: "挑釁", type: "Ativo", rarity: "1★", effect: "Taunt 10s", cooldown: "15s", duration: "10s", note: "Skill permanece após trocar de classe" },
-{ name: "召喚黑暗晶體", type: "Ativo", rarity: "2★", effect: "Cubo dark que ataca 130%/6s", cooldown: "45s", duration: "120s", note: "Skill permanece após trocar de classe" },
-{ name: "HP 強化", type: "Passivo", rarity: "1★", effect: "+15% Max HP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "席琳騎士和諧", type: "Self-Buff", rarity: "3★", effect: "+35% DEF, +25% ATK, +20% Dark Damage por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
+{ name: "盾牌暈擊", type: "Ativo", rarity: "2★", effect: "傷害 200% + 暈眩 3 秒", cooldown: "20s", duration: "3s stun", note: "轉職後技能仍會保留" },
+{ name: "審判", type: "Ativo", rarity: "3★", effect: "傷害 黑暗 300% + 降低 治癒 50%", cooldown: "28s", duration: "8s", note: "轉職後技能仍會保留" },
+{ name: "黑暗火焰", type: "Ativo", rarity: "2★", effect: "傷害 範圍 黑暗 260%", cooldown: "22s", duration: null, note: "轉職後技能仍會保留" },
+{ name: "生命吸取", type: "Ativo", rarity: "2★", effect: "傷害 220% + 吸取 30% HP", cooldown: "16s", duration: null, note: "轉職後技能仍會保留" },
+{ name: "恐懼", type: "Ativo", rarity: "2★", effect: "恐懼 目標 4 秒", cooldown: "30s", duration: "4s", note: "轉職後技能仍會保留" },
+{ name: "雷電打擊", type: "Ativo", rarity: "2★", effect: "傷害 雷電 240% + 暈眩 1 秒", cooldown: "16s", duration: "1s stun", note: "轉職後技能仍會保留" },
+{ name: "死亡之觸", type: "Ativo", rarity: "2★", effect: "傷害 黑暗 240% + 中毒", cooldown: "18s", duration: "6s poison", note: "轉職後技能仍會保留" },
+{ name: "犧牲", type: "Ativo", rarity: "2★", effect: "Transfere 30% HP給盟友", cooldown: "30s", duration: null, note: "轉職後技能仍會保留" },
+{ name: "神盾", type: "Ativo", rarity: "2★", effect: "+50% 格擋率 持續 15 秒", cooldown: "45s", duration: "15s", note: "轉職後技能仍會保留" },
+{ name: "終極防禦", type: "Ativo", rarity: "3★", effect: "+80% DEF, 無法移動, 10 秒", cooldown: "120s", duration: "10s", note: "轉職後技能仍會保留" },
+{ name: "挑釁", type: "Ativo", rarity: "1★", effect: "嘲諷 10 秒", cooldown: "15s", duration: "10s", note: "轉職後技能仍會保留" },
+{ name: "召喚黑暗晶體", type: "Ativo", rarity: "2★", effect: "晶體 黑暗 會 ataca 130%/6 秒", cooldown: "45s", duration: "120s", note: "轉職後技能仍會保留" },
+{ name: "HP 強化", type: "Passivo", rarity: "1★", effect: "+15% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+{ name: "席琳騎士和諧", type: "Self-Buff", rarity: "3★", effect: "+35% DEF, +25% ATK, +20% 黑暗 傷害 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
 ]
 },
 
@@ -1119,19 +1119,19 @@ name: '席琳聖殿騎士', parent: 'shillienKnight', race: 'darkelf', archetype
 desc: '席琳的黑暗聖殿騎士，擅長強力範圍攻擊。',
 base: { atk: 70, def: 92, hp: 720, mp: 120, eva: 16, crit: 10, mdef: 60 },
 skills: [
-{ name: "席琳之觸", type: "Ativo", rarity: "3★", effect: "Dano dark 350% + drain 35% HP", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "席琳之盾", type: "Ativo", rarity: "3★", effect: "Absorve 5000 dano + reflete 20% dark por 15s", cooldown: "60s", duration: "15s", note: "Skill permanece após trocar de classe" },
-{ name: "天界之盾", type: "Ativo", rarity: "4★", effect: "Imunidade total 7s + taunt AoE", cooldown: "180s", duration: "7s", note: "Skill permanece após trocar de classe" },
-{ name: "深淵打擊", type: "Ativo", rarity: "3★", effect: "Dano dark AoE 400% + slow 40%", cooldown: "25s", duration: "5s slow", note: "Skill permanece após trocar de classe" },
-{ name: "席琳詛咒", type: "Ativo", rarity: "3★", effect: "Dano dark AoE 360% + reduz DEF 20%", cooldown: "28s", duration: "8s", note: "Skill permanece após trocar de classe" },
-{ name: "召喚守護亞加西翁", type: "Ativo", rarity: "3★", effect: "Agathion protetor (+15% DEF party)", cooldown: "90s", duration: "120s", note: "Skill permanece após trocar de classe" },
-{ name: "超越深淵打擊", type: "Ativo", rarity: "4★", effect: "Dano dark AoE 600% + fear 3s + drain 30%", cooldown: "160s", duration: "3s fear", note: "Skill permanece após trocar de classe" },
-{ name: "席琳援助", type: "Passivo", rarity: "3★", effect: "Ao bloquear: 20% chance contra-ataque dark 200%", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "席琳聖殿騎士之魂", type: "Passivo", rarity: "3★", effect: "+25% DEF, +20% Max HP, +15% Dark Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "席琳聖殿騎士之軀", type: "Passivo", rarity: "3★", effect: "+20% Dark Resist, +15% HP Regen", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "席琳守護", type: "Passivo", rarity: "3★", effect: "+15% All Resist", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "戰鬥大師", type: "Passivo", rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-{ name: "席琳聖殿騎士和諧", type: "Self-Buff", rarity: "4★", effect: "+55% DEF, +40% Max HP, +30% Dark Damage por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
+{ name: "席琳之觸", type: "Ativo", rarity: "3★", effect: "傷害 黑暗 350% + 吸取 35% HP", cooldown: "25s", duration: null, note: "轉職後技能仍會保留" },
+{ name: "席琳之盾", type: "Ativo", rarity: "3★", effect: "吸收 5000 傷害 + 反射 20% 黑暗 持續 15 秒", cooldown: "60s", duration: "15s", note: "轉職後技能仍會保留" },
+{ name: "天界之盾", type: "Ativo", rarity: "4★", effect: "完全免疫 7 秒 + 嘲諷 範圍", cooldown: "180s", duration: "7s", note: "轉職後技能仍會保留" },
+{ name: "深淵打擊", type: "Ativo", rarity: "3★", effect: "傷害 黑暗 範圍 400% + 緩速 40%", cooldown: "25s", duration: "5s slow", note: "轉職後技能仍會保留" },
+{ name: "席琳詛咒", type: "Ativo", rarity: "3★", effect: "傷害 黑暗 範圍 360% + 降低 DEF 20%", cooldown: "28s", duration: "8s", note: "轉職後技能仍會保留" },
+{ name: "召喚守護亞加西翁", type: "Ativo", rarity: "3★", effect: "守護亞加西翁 (+15% DEF 隊伍)", cooldown: "90s", duration: "120s", note: "轉職後技能仍會保留" },
+{ name: "超越深淵打擊", type: "Ativo", rarity: "4★", effect: "傷害 黑暗 範圍 600% + 恐懼 3 秒 + 吸取 30%", cooldown: "160s", duration: "3s fear", note: "轉職後技能仍會保留" },
+{ name: "席琳援助", type: "Passivo", rarity: "3★", effect: "格擋時: 20% 機率 反擊 黑暗 200%", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+{ name: "席琳聖殿騎士之魂", type: "Passivo", rarity: "3★", effect: "+25% DEF, +20% 最大 HP, +15% 黑暗 傷害", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+{ name: "席琳聖殿騎士之軀", type: "Passivo", rarity: "3★", effect: "+20% 黑暗 抗性, +15% HP 恢復", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+{ name: "席琳守護", type: "Passivo", rarity: "3★", effect: "+15% 全 抗性", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+{ name: "戰鬥大師", type: "Passivo", rarity: "4★", effect: "+10% 全屬性, +15% PvE 傷害", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+{ name: "席琳聖殿騎士和諧", type: "Self-Buff", rarity: "4★", effect: "+55% DEF, +40% 最大 HP, +30% 黑暗 傷害 持續 30 分鐘", cooldown: "90 min", duration: "30 min", note: "轉職後技能仍會保留" }
 ]
 },
 
@@ -1141,22 +1141,22 @@ skills: [
     desc: '以舞蹈強化盟友的劍舞者。',
     base: { atk: 42, def: 38, hp: 340, mp: 115, eva: 14, crit: 10, mdef: 28 },
     skills: [
-      { name: "火焰之舞",          type: "Party-Buff", rarity: "2★", effect: "+20% ATK para o grupo", cooldown: "30s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "狂怒之舞",          type: "Party-Buff", rarity: "2★", effect: "+20% ATK Speed para o grupo", cooldown: "30s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "專注之舞", type: "Party-Buff", rarity: "2★", effect: "+20% Cast Speed para o grupo", cooldown: "30s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "光明之舞",         type: "Party-Buff", rarity: "2★", effect: "+15% Crit Rate para o grupo", cooldown: "30s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "神秘之舞",        type: "Party-Buff", rarity: "2★", effect: "+20% M.ATK para o grupo", cooldown: "30s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "戰士之舞",       type: "Party-Buff", rarity: "2★", effect: "+15% P.ATK e DEF para o grupo", cooldown: "30s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "水之守護舞",    type: "Party-Buff", rarity: "2★", effect: "+20% Water Resist para o grupo", cooldown: "30s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "靈感之舞",   type: "Party-Buff", rarity: "3★", effect: "+15% All Stats para o grupo", cooldown: "30s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "吸血鬼之舞",       type: "Party-Buff", rarity: "3★", effect: "Drain 8% dano causado como HP para o grupo", cooldown: "30s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "守護之舞",    type: "Party-Buff", rarity: "2★", effect: "+15% DEF para o grupo", cooldown: "30s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "暗影之舞",        type: "Party-Buff", rarity: "3★", effect: "+15% EVA para o grupo", cooldown: "30s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "海妖之舞",         type: "Party-Buff", rarity: "3★", effect: "+20% MP Regen para o grupo", cooldown: "30s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "雙武器精通",    type: "Passivo",    rarity: "1★", effect: "+15% ATK com dual swords", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "重甲精通",    type: "Passivo",    rarity: "1★", effect: "+15% DEF com armadura pesada", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "HP 強化",               type: "Passivo",    rarity: "1★", effect: "+15% Max HP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "劍舞者和諧", type: "Self-Buff",  rarity: "3★", effect: "+30% ATK, +20% ATK Speed, +15% EVA por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
+      { name: "火焰之舞",          type: "Party-Buff", rarity: "2★", effect: "+20% ATK給o 隊伍", cooldown: "30s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "狂怒之舞",          type: "Party-Buff", rarity: "2★", effect: "+20% 攻擊速度給o 隊伍", cooldown: "30s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "專注之舞", type: "Party-Buff", rarity: "2★", effect: "+20% 施法速度給o 隊伍", cooldown: "30s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "光明之舞",         type: "Party-Buff", rarity: "2★", effect: "+15% 暴擊率給o 隊伍", cooldown: "30s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "神秘之舞",        type: "Party-Buff", rarity: "2★", effect: "+20% M.ATK給o 隊伍", cooldown: "30s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "戰士之舞",       type: "Party-Buff", rarity: "2★", effect: "+15% P.ATK 和 DEF給o 隊伍", cooldown: "30s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "水之守護舞",    type: "Party-Buff", rarity: "2★", effect: "+20% 水抗性給o 隊伍", cooldown: "30s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "靈感之舞",   type: "Party-Buff", rarity: "3★", effect: "+15% 全屬性給o 隊伍", cooldown: "30s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "吸血鬼之舞",       type: "Party-Buff", rarity: "3★", effect: "吸取 8% 傷害 造成do為 HP給o 隊伍", cooldown: "30s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "守護之舞",    type: "Party-Buff", rarity: "2★", effect: "+15% DEF給o 隊伍", cooldown: "30s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "暗影之舞",        type: "Party-Buff", rarity: "3★", effect: "+15% 迴避給o 隊伍", cooldown: "30s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "海妖之舞",         type: "Party-Buff", rarity: "3★", effect: "+20% MP 恢復給o 隊伍", cooldown: "30s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "雙武器精通",    type: "Passivo",    rarity: "1★", effect: "+15% ATK 搭配 dual swords", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "重甲精通",    type: "Passivo",    rarity: "1★", effect: "+15% DEF 裝備重甲時", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "HP 強化",               type: "Passivo",    rarity: "1★", effect: "+15% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "劍舞者和諧", type: "Self-Buff",  rarity: "3★", effect: "+30% ATK, +20% 攻擊速度, +15% 迴避 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1166,17 +1166,17 @@ skills: [
     desc: '施展至高舞蹈與毀滅攻擊的幽靈舞者。',
     base: { atk: 78, def: 55, hp: 520, mp: 180, eva: 22, crit: 16, mdef: 42 },
     skills: [
-      { name: "狂戰士之舞",          type: "Party-Buff", rarity: "3★", effect: "+25% ATK, +20% ATK Speed, -10% DEF para o grupo", cooldown: "30s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "劍刃風暴之舞",        type: "Party-Buff", rarity: "3★", effect: "+20% Crit Power para o grupo", cooldown: "30s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "群體之舞",                  type: "Ativo",      rarity: "3★", effect: "Ativa todas as danças ativas por 60s", cooldown: "120s", duration: "60s", note: "Skill permanece após trocar de classe" },
-      { name: "終焉之舞",                 type: "Ativo",      rarity: "4★", effect: "Todas as danças em potência máxima por 30s + imunidade debuff", cooldown: "300s", duration: "30s", note: "Skill permanece após trocar de classe" },
-      { name: "暗影斬",                type: "Ativo",      rarity: "3★", effect: "Dano dark 380% + bleed 6s", cooldown: "18s", duration: "6s bleed", note: "Skill permanece após trocar de classe" },
-      { name: "黑暗舞擊",           type: "Ativo",      rarity: "3★", effect: "Dano AoE dark 420% + slow 40% 5s", cooldown: "25s", duration: "5s slow", note: "Skill permanece após trocar de classe" },
-      { name: "超越之舞",          type: "Ativo",      rarity: "4★", effect: "Dano AoE dark 580% + silence 4s", cooldown: "160s", duration: "4s silence", note: "Skill permanece após trocar de classe" },
-      { name: "幽靈舞者之魂",      type: "Passivo",    rarity: "3★", effect: "+20% ATK, +15% EVA, +15% Dark Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "幽靈舞者之軀",     type: "Passivo",    rarity: "3★", effect: "+15% Crit Rate, +10% HP Regen", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "戰鬥大師",            type: "Passivo",    rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "幽靈舞者和諧",     type: "Self-Buff",  rarity: "4★", effect: "+50% ATK, +35% ATK Speed, +30% EVA por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
+      { name: "狂戰士之舞",          type: "Party-Buff", rarity: "3★", effect: "+25% ATK, +20% 攻擊速度, -10% DEF給o 隊伍", cooldown: "30s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "劍刃風暴之舞",        type: "Party-Buff", rarity: "3★", effect: "+20% 暴擊威力給o 隊伍", cooldown: "30s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "群體之舞",                  type: "Ativo",      rarity: "3★", effect: "啟用 所有 舞蹈效果 啟用s 持續 60 秒", cooldown: "120s", duration: "60s", note: "轉職後技能仍會保留" },
+      { name: "終焉之舞",                 type: "Ativo",      rarity: "4★", effect: "所有 舞蹈效果於最大威力 持續 30 秒 + 免疫 減益", cooldown: "300s", duration: "30s", note: "轉職後技能仍會保留" },
+      { name: "暗影斬",                type: "Ativo",      rarity: "3★", effect: "傷害 黑暗 380% + 流血 6 秒", cooldown: "18s", duration: "6s bleed", note: "轉職後技能仍會保留" },
+      { name: "黑暗舞擊",           type: "Ativo",      rarity: "3★", effect: "傷害 範圍 黑暗 420% + 緩速 40% 5 秒", cooldown: "25s", duration: "5s slow", note: "轉職後技能仍會保留" },
+      { name: "超越之舞",          type: "Ativo",      rarity: "4★", effect: "傷害 範圍 黑暗 580% + 沉默 4 秒", cooldown: "160s", duration: "4s silence", note: "轉職後技能仍會保留" },
+      { name: "幽靈舞者之魂",      type: "Passivo",    rarity: "3★", effect: "+20% ATK, +15% 迴避, +15% 黑暗 傷害", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "幽靈舞者之軀",     type: "Passivo",    rarity: "3★", effect: "+15% 暴擊率, +10% HP 恢復", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "戰鬥大師",            type: "Passivo",    rarity: "4★", effect: "+10% 全屬性, +15% PvE 傷害", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "幽靈舞者和諧",     type: "Self-Buff",  rarity: "4★", effect: "+50% ATK, +35% 攻擊速度, +30% 迴避 持續 30 分鐘", cooldown: "90 min", duration: "30 min", note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1186,12 +1186,12 @@ skills: [
     desc: '精通伏擊與毒術的暗影刺客。',
     base: { atk: 24, def: 10, hp: 140, mp: 42, eva: 18, crit: 14, mdef: 6 },
     skills: [
-      { name: "雙重打擊",           type: "Ativo",   rarity: "1★", effect: "Dano duplo 170% (2 hits)", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "背刺",              type: "Ativo",   rarity: "1★", effect: "Dano 200% por trás + crit garantido", cooldown: "14s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "疾走",                  type: "Ativo",   rarity: "1★", effect: "+60% Move Speed por 6s", cooldown: "20s", duration: "6s", note: "Skill permanece após trocar de classe" },
-      { name: "輕甲精通",   type: "Passivo", rarity: "1★", effect: "+10% EVA com armadura leve", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "匕首精通",        type: "Passivo", rarity: "1★", effect: "+12% ATK com adagas", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "暴擊機率",       type: "Passivo", rarity: "1★", effect: "+10% Crit Rate", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" }
+      { name: "雙重打擊",           type: "Ativo",   rarity: "1★", effect: "傷害 duplo 170% (2 次命中)", cooldown: "10s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "背刺",              type: "Ativo",   rarity: "1★", effect: "傷害 200% 從背後 + 必定暴擊", cooldown: "14s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "疾走",                  type: "Ativo",   rarity: "1★", effect: "+60% 移動速度 持續 6 秒", cooldown: "20s", duration: "6s", note: "轉職後技能仍會保留" },
+      { name: "輕甲精通",   type: "Passivo", rarity: "1★", effect: "+10% 迴避 裝備輕甲時", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "匕首精通",        type: "Passivo", rarity: "1★", effect: "+12% ATK 搭配 adagas", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "暴擊機率",       type: "Passivo", rarity: "1★", effect: "+10% 暴擊率", cooldown: null, duration: null, note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1201,18 +1201,18 @@ skills: [
     desc: '在暗影中施展致命打擊的深淵行者。',
     base: { atk: 52, def: 18, hp: 260, mp: 68, eva: 32, crit: 26, mdef: 14 },
     skills: [
-      { name: "致命打擊",      type: "Ativo",   rarity: "2★", effect: "Dano 280% + crit garantido por trás", cooldown: "14s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "致死打擊",      type: "Ativo",   rarity: "3★", effect: "Dano 350% + 10% chance kill instantâneo (PvE)", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "沙塵炸彈",        type: "Ativo",   rarity: "2★", effect: "Blind AoE 5s", cooldown: "25s", duration: "5s", note: "Skill permanece após trocar de classe" },
-      { name: "致盲打擊",    type: "Ativo",   rarity: "2★", effect: "Dano 240% + blind 4s", cooldown: "18s", duration: "4s", note: "Skill permanece após trocar de classe" },
-      { name: "位置交換",           type: "Ativo",   rarity: "2★", effect: "Teleporta atrás do alvo", cooldown: "20s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "暗影步伐",      type: "Ativo",   rarity: "2★", effect: "Teleporta para alvo + dano 180%", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "詭計",            type: "Ativo",   rarity: "2★", effect: "Remove alvo de mob + reduz aggro", cooldown: "20s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "無聲移動",      type: "Toggle",  rarity: "2★", effect: "Invisibilidade (move lento), cancela ao atacar", cooldown: "5s", duration: "Toggle", note: "Skill permanece após trocar de classe" },
-      { name: "迴避",          type: "Passivo", rarity: "1★", effect: "+12% EVA", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "暴擊威力",   type: "Passivo", rarity: "2★", effect: "+20% Crit Power", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "專注",            type: "Passivo", rarity: "1★", effect: "+10% Crit Rate", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "深淵行者和諧", type: "Self-Buff", rarity: "3★", effect: "+35% ATK, +25% Crit, +20% EVA por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
+      { name: "致命打擊",      type: "Ativo",   rarity: "2★", effect: "傷害 280% + 必定暴擊 從背後", cooldown: "14s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "致死打擊",      type: "Ativo",   rarity: "3★", effect: "傷害 350% + 10% 即死機率 立即 (PvE)", cooldown: "25s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "沙塵炸彈",        type: "Ativo",   rarity: "2★", effect: "致盲 範圍 5 秒", cooldown: "25s", duration: "5s", note: "轉職後技能仍會保留" },
+      { name: "致盲打擊",    type: "Ativo",   rarity: "2★", effect: "傷害 240% + 致盲 4 秒", cooldown: "18s", duration: "4s", note: "轉職後技能仍會保留" },
+      { name: "位置交換",           type: "Ativo",   rarity: "2★", effect: "傳送到目標背後", cooldown: "20s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "暗影步伐",      type: "Ativo",   rarity: "2★", effect: "傳送至目標 + 傷害 180%", cooldown: "15s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "詭計",            type: "Ativo",   rarity: "2★", effect: "移除 目標的mob + 降低 仇恨", cooldown: "20s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "無聲移動",      type: "Toggle",  rarity: "2★", effect: "隱形 (移動緩慢), 取消對atacar", cooldown: "5s", duration: "Toggle", note: "轉職後技能仍會保留" },
+      { name: "迴避",          type: "Passivo", rarity: "1★", effect: "+12% 迴避", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "暴擊威力",   type: "Passivo", rarity: "2★", effect: "+20% 暴擊威力", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "專注",            type: "Passivo", rarity: "1★", effect: "+10% 暴擊率", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "深淵行者和諧", type: "Self-Buff", rarity: "3★", effect: "+35% ATK, +25% 暴擊, +20% 迴避 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1222,16 +1222,16 @@ skills: [
     desc: '暗影中的至高刺客幽靈獵人。',
     base: { atk: 98, def: 28, hp: 420, mp: 105, eva: 52, crit: 42, mdef: 22 },
     skills: [
-      { name: "刺激冒險",       type: "Ativo",    rarity: "3★", effect: "Dano 380% + reset cooldown de Deadly Blow", cooldown: "28s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "御風",              type: "Ativo",    rarity: "3★", effect: "+80% Move Speed + invisibilidade 8s", cooldown: "60s", duration: "8s", note: "Skill permanece após trocar de classe" },
-      { name: "幸運打擊",             type: "Ativo",    rarity: "3★", effect: "Dano 420% + 20% chance drop extra", cooldown: "30s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "超越致命打擊",  type: "Ativo",    rarity: "4★", effect: "Dano 620% + ignore DEF + bleed 8s", cooldown: "160s", duration: "8s bleed", note: "Skill permanece após trocar de classe" },
-      { name: "暗影感知",             type: "Passivo",  rarity: "3★", effect: "+25% Crit Rate à noite ou em dungeon", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "最終狂熱",             type: "Passivo",  rarity: "3★", effect: "+30% ATK quando HP < 30%", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "幽靈獵人之魂",      type: "Passivo",  rarity: "3★", effect: "+20% ATK, +20% Crit Power, +15% EVA", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "幽靈獵人之軀",     type: "Passivo",  rarity: "3★", effect: "+15% Max HP, +10% HP Regen", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "戰鬥大師",         type: "Passivo",  rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "幽靈獵人和諧",     type: "Self-Buff", rarity: "4★", effect: "+55% ATK, +45% Crit, +35% EVA por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
+      { name: "刺激冒險",       type: "Ativo",    rarity: "3★", effect: "傷害 380% + reset cooldown的Deadly Blow", cooldown: "28s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "御風",              type: "Ativo",    rarity: "3★", effect: "+80% 移動速度 + 隱形 8 秒", cooldown: "60s", duration: "8s", note: "轉職後技能仍會保留" },
+      { name: "幸運打擊",             type: "Ativo",    rarity: "3★", effect: "傷害 420% + 20% 機率 drop extra", cooldown: "30s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "超越致命打擊",  type: "Ativo",    rarity: "4★", effect: "傷害 620% + 無視 DEF + 流血 8 秒", cooldown: "160s", duration: "8s bleed", note: "轉職後技能仍會保留" },
+      { name: "暗影感知",             type: "Passivo",  rarity: "3★", effect: "+25% 暴擊率 夜間 ou於地城", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "最終狂熱",             type: "Passivo",  rarity: "3★", effect: "+30% ATK 當 HP < 30%", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "幽靈獵人之魂",      type: "Passivo",  rarity: "3★", effect: "+20% ATK, +20% 暴擊威力, +15% 迴避", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "幽靈獵人之軀",     type: "Passivo",  rarity: "3★", effect: "+15% 最大 HP, +10% HP 恢復", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "戰鬥大師",         type: "Passivo",  rarity: "4★", effect: "+10% 全屬性, +15% PvE 傷害", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "幽靈獵人和諧",     type: "Self-Buff", rarity: "4★", effect: "+55% ATK, +45% 暴擊, +35% 迴避 持續 30 分鐘", cooldown: "90 min", duration: "30 min", note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1241,18 +1241,18 @@ skills: [
     desc: '使用精準毒箭的幽靈遊俠。',
     base: { atk: 58, def: 15, hp: 230, mp: 62, eva: 22, crit: 22, mdef: 10 },
     skills: [
-      { name: "雙重射擊",      type: "Ativo",   rarity: "2★", effect: "Dano 220% (2 hits)", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "爆裂射擊",       type: "Ativo",   rarity: "2★", effect: "Dano 260% + knockback", cooldown: "14s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "暈眩射擊",        type: "Ativo",   rarity: "2★", effect: "Dano 200% + stun 2s", cooldown: "18s", duration: "2s", note: "Skill permanece após trocar de classe" },
-      { name: "快速射擊",       type: "Ativo",   rarity: "2★", effect: "+50% ATK Speed por 15s", cooldown: "45s", duration: "15s", note: "Skill permanece após trocar de classe" },
-      { name: "箭雨",       type: "Ativo",   rarity: "3★", effect: "Dano AoE 300%", cooldown: "22s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "詛咒射擊",         type: "Ativo",   rarity: "2★", effect: "Dano 220% + curse (reduz DEF 20%)", cooldown: "16s", duration: "8s", note: "Skill permanece após trocar de classe" },
-      { name: "弓精通",      type: "Passivo", rarity: "1★", effect: "+15% ATK com arco", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "遠距射擊",        type: "Passivo", rarity: "2★", effect: "+30% Range", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "專注",            type: "Passivo", rarity: "1★", effect: "+10% Crit Rate", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "暴擊威力",   type: "Passivo", rarity: "2★", effect: "+20% Crit Power", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "迴避",          type: "Passivo", rarity: "1★", effect: "+12% EVA", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "幽靈遊俠和諧", type: "Self-Buff", rarity: "3★", effect: "+35% ATK, +25% Crit, +20% Range por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
+      { name: "雙重射擊",      type: "Ativo",   rarity: "2★", effect: "傷害 220% (2 次命中)", cooldown: "10s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "爆裂射擊",       type: "Ativo",   rarity: "2★", effect: "傷害 260% + 擊退", cooldown: "14s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "暈眩射擊",        type: "Ativo",   rarity: "2★", effect: "傷害 200% + 暈眩 2 秒", cooldown: "18s", duration: "2s", note: "轉職後技能仍會保留" },
+      { name: "快速射擊",       type: "Ativo",   rarity: "2★", effect: "+50% 攻擊速度 持續 15 秒", cooldown: "45s", duration: "15s", note: "轉職後技能仍會保留" },
+      { name: "箭雨",       type: "Ativo",   rarity: "3★", effect: "傷害 範圍 300%", cooldown: "22s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "詛咒射擊",         type: "Ativo",   rarity: "2★", effect: "傷害 220% + curse (降低 DEF 20%)", cooldown: "16s", duration: "8s", note: "轉職後技能仍會保留" },
+      { name: "弓精通",      type: "Passivo", rarity: "1★", effect: "+15% ATK 使用弓時", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "遠距射擊",        type: "Passivo", rarity: "2★", effect: "+30% 射程", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "專注",            type: "Passivo", rarity: "1★", effect: "+10% 暴擊率", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "暴擊威力",   type: "Passivo", rarity: "2★", effect: "+20% 暴擊威力", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "迴避",          type: "Passivo", rarity: "1★", effect: "+12% 迴避", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "幽靈遊俠和諧", type: "Self-Buff", rarity: "3★", effect: "+35% ATK, +25% 暴擊, +20% 射程 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1262,20 +1262,20 @@ skills: [
     desc: '使用元素箭矢的菁英射手幽靈守衛。',
     base: { atk: 108, def: 22, hp: 380, mp: 95, eva: 38, crit: 45, mdef: 18 },
     skills: [
-      { name: "七連矢",                   type: "Ativo",   rarity: "3★", effect: "Dano 420% (7 hits)", cooldown: "28s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "死亡之眼",                      type: "Self-Buff", rarity: "3★", effect: "+50% ATK, +40% Range por 18 min", cooldown: "55 min", duration: "18 min", note: "Skill permanece após trocar de classe" },
-      { name: "精準射擊",                 type: "Ativo",   rarity: "3★", effect: "Dano 380% + ignore DEF", cooldown: "22s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "三重射擊",                   type: "Ativo",   rarity: "3★", effect: "Dano 340% (3 hits rápidos)", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "荊棘射擊",                    type: "Ativo",   rarity: "2★", effect: "Dano 260% + bleed 6s", cooldown: "12s", duration: "6s bleed", note: "Skill permanece após trocar de classe" },
-      { name: "束縛射擊",                  type: "Ativo",   rarity: "2★", effect: "Dano 220% + root 4s", cooldown: "18s", duration: "4s root", note: "Skill permanece após trocar de classe" },
-      { name: "風之射擊",                     type: "Ativo",   rarity: "2★", effect: "Dano vento 280% + knockback", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "螺旋射擊",                   type: "Ativo",   rarity: "3★", effect: "Dano 400% + penetra múltiplos alvos", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "目標鎖定",                   type: "Ativo",   rarity: "3★", effect: "Marca alvo: +30% dano contra ele por 10s", cooldown: "35s", duration: "10s", note: "Skill permanece após trocar de classe" },
-      { name: "超越七連矢",      type: "Ativo",   rarity: "4★", effect: "Dano 650% (7 hits) + elemental AoE", cooldown: "160s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "幽靈守衛之魂",         type: "Passivo", rarity: "3★", effect: "+20% ATK, +20% Crit Power, +15% Range", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "幽靈守衛之軀",        type: "Passivo", rarity: "3★", effect: "+15% Max HP, +10% EVA", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "戰鬥大師",              type: "Passivo", rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "幽靈守衛和諧",        type: "Self-Buff", rarity: "4★", effect: "+55% ATK, +45% Crit, +35% Range por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
+      { name: "七連矢",                   type: "Ativo",   rarity: "3★", effect: "傷害 420% (7 次命中)", cooldown: "28s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "死亡之眼",                      type: "Self-Buff", rarity: "3★", effect: "+50% ATK, +40% 射程 持續 18 分鐘", cooldown: "55 min", duration: "18 min", note: "轉職後技能仍會保留" },
+      { name: "精準射擊",                 type: "Ativo",   rarity: "3★", effect: "傷害 380% + 無視 DEF", cooldown: "22s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "三重射擊",                   type: "Ativo",   rarity: "3★", effect: "傷害 340% (3 次命中 快速)", cooldown: "15s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "荊棘射擊",                    type: "Ativo",   rarity: "2★", effect: "傷害 260% + 流血 6 秒", cooldown: "12s", duration: "6s bleed", note: "轉職後技能仍會保留" },
+      { name: "束縛射擊",                  type: "Ativo",   rarity: "2★", effect: "傷害 220% + 定身 4 秒", cooldown: "18s", duration: "4s root", note: "轉職後技能仍會保留" },
+      { name: "風之射擊",                     type: "Ativo",   rarity: "2★", effect: "傷害 風 280% + 擊退", cooldown: "15s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "螺旋射擊",                   type: "Ativo",   rarity: "3★", effect: "傷害 400% + 穿透 多個 目標", cooldown: "25s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "目標鎖定",                   type: "Ativo",   rarity: "3★", effect: "標記目標: +30% 傷害 對該目標 持續 10 秒", cooldown: "35s", duration: "10s", note: "轉職後技能仍會保留" },
+      { name: "超越七連矢",      type: "Ativo",   rarity: "4★", effect: "傷害 650% (7 次命中) + 元素 範圍", cooldown: "160s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "幽靈守衛之魂",         type: "Passivo", rarity: "3★", effect: "+20% ATK, +20% 暴擊威力, +15% 射程", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "幽靈守衛之軀",        type: "Passivo", rarity: "3★", effect: "+15% 最大 HP, +10% 迴避", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "戰鬥大師",              type: "Passivo", rarity: "4★", effect: "+10% 全屬性, +15% PvE 傷害", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "幽靈守衛和諧",        type: "Self-Buff", rarity: "4★", effect: "+55% ATK, +45% 暴擊, +35% 射程 持續 30 分鐘", cooldown: "90 min", duration: "30 min", note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1287,13 +1287,13 @@ skills: [
     desc: '擁有強大黑暗魔法的黑暗精靈法師。',
     base: { atk: 5, def: 5, hp: 65, mp: 95, matk: 14, mdef: 8, eva: 4, crit: 4 },
     skills: [
-      { name: "風之打擊",    type: "Ativo",   rarity: "1★", effect: "Dano vento mágico 150%", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "自我治癒",      type: "Ativo",   rarity: "1★", effect: "Recupera 20% HP", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "冰箭",       type: "Ativo",   rarity: "1★", effect: "Dano gelo 140% + slow 15% 3s", cooldown: "10s", duration: "3s", note: "Skill permanece após trocar de classe" },
-      { name: "睡眠",          type: "Ativo",   rarity: "1★", effect: "Adormece alvo 8s (cancela ao tomar dano)", cooldown: "25s", duration: "8s", note: "Skill permanece após trocar de classe" },
-      { name: "法袍精通",   type: "Passivo", rarity: "1★", effect: "+10% M.ATK com robe", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "MP 提升",    type: "Passivo", rarity: "1★", effect: "+10% Max MP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "黑暗法師意志", type: "Self-Buff", rarity: "1★", effect: "+10% M.ATK e +8% Cast Speed por 15 min", cooldown: "30 min", duration: "15 min", note: "Skill permanece após trocar de classe" }
+      { name: "風之打擊",    type: "Ativo",   rarity: "1★", effect: "傷害 風 魔法 150%", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "自我治癒",      type: "Ativo",   rarity: "1★", effect: "恢復 20% HP", cooldown: "15s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "冰箭",       type: "Ativo",   rarity: "1★", effect: "傷害 冰 140% + 緩速 15% 3 秒", cooldown: "10s", duration: "3s", note: "轉職後技能仍會保留" },
+      { name: "睡眠",          type: "Ativo",   rarity: "1★", effect: "使其睡眠 目標 8 秒 (取消對tomar 傷害)", cooldown: "25s", duration: "8s", note: "轉職後技能仍會保留" },
+      { name: "法袍精通",   type: "Passivo", rarity: "1★", effect: "+10% M.ATK 搭配 法袍", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "MP 提升",    type: "Passivo", rarity: "1★", effect: "+10% 最大 MP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "黑暗法師意志", type: "Self-Buff", rarity: "1★", effect: "+10% M.ATK 並 +8% 施法速度 持續 15 分鐘", cooldown: "30 min", duration: "15 min", note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1303,11 +1303,11 @@ skills: [
     desc: '擅長元素魔法與生命吸取的黑暗巫師。',
     base: { atk: 6, def: 8, hp: 95, mp: 145, matk: 28, mdef: 16, eva: 5, crit: 4 },
     skills: [
-      { name: "龍捲",          type: "Ativo",   rarity: "1★", effect: "Dano vento 190%", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "火焰打擊",     type: "Ativo",   rarity: "2★", effect: "Dano fogo 240%", cooldown: "14s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "生命吸取",       type: "Ativo",   rarity: "2★", effect: "Dano dark 200% + drain 25% como HP", cooldown: "14s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "MP 強化",       type: "Passivo", rarity: "1★", effect: "+15% Max MP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "黑暗巫師和諧", type: "Self-Buff", rarity: "2★", effect: "+20% M.ATK, +15% Cast Speed por 20 min", cooldown: "50 min", duration: "20 min", note: "Skill permanece após trocar de classe" }
+      { name: "龍捲",          type: "Ativo",   rarity: "1★", effect: "傷害 風 190%", cooldown: "10s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "火焰打擊",     type: "Ativo",   rarity: "2★", effect: "傷害 火 240%", cooldown: "14s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "生命吸取",       type: "Ativo",   rarity: "2★", effect: "傷害 黑暗 200% + 吸取 25%為 HP", cooldown: "14s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "MP 強化",       type: "Passivo", rarity: "1★", effect: "+15% 最大 MP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "黑暗巫師和諧", type: "Self-Buff", rarity: "2★", effect: "+20% M.ATK, +15% 施法速度 持續 20 分鐘", cooldown: "50 min", duration: "20 min", note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1317,13 +1317,13 @@ skills: [
     desc: '以風元素造成毀滅傷害的黑暗法師。',
     base: { atk: 8, def: 14, hp: 160, mp: 260, matk: 68, mdef: 38, eva: 8, crit: 6 },
     skills: [
-      { name: "元素風暴",          type: "Ativo",   rarity: "3★", effect: "Dano vento AoE 320%", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "颶風",        type: "Ativo",   rarity: "2★", effect: "Dano vento 280%", cooldown: "18s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "奧術之力",     type: "Self-Buff", rarity: "3★", effect: "+30% M.ATK, -15% Cast Time por 60s", cooldown: "120s", duration: "60s", note: "Skill permanece após trocar de classe" },
-      { name: "解除",           type: "Ativo",   rarity: "3★", effect: "Remove 3 buffs do alvo", cooldown: "45s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "身心轉換",     type: "Ativo",   rarity: "2★", effect: "Converte 20% HP em MP", cooldown: "30s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "元素突擊",type: "Passivo", rarity: "2★", effect: "+15% Elemental Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "狂咒術士和諧", type: "Self-Buff", rarity: "3★", effect: "+35% M.ATK, +25% Cast Speed, +15% Wind Damage por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
+      { name: "元素風暴",          type: "Ativo",   rarity: "3★", effect: "傷害 風 範圍 320%", cooldown: "25s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "颶風",        type: "Ativo",   rarity: "2★", effect: "傷害 風 280%", cooldown: "18s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "奧術之力",     type: "Self-Buff", rarity: "3★", effect: "+30% M.ATK, -15% Cast Time 持續 60 秒", cooldown: "120s", duration: "60s", note: "轉職後技能仍會保留" },
+      { name: "解除",           type: "Ativo",   rarity: "3★", effect: "移除 3 增益 do 目標", cooldown: "45s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "身心轉換",     type: "Ativo",   rarity: "2★", effect: "轉換 20% HP於MP", cooldown: "30s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "元素突擊",type: "Passivo", rarity: "2★", effect: "+15% 元素 傷害", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "狂咒術士和諧", type: "Self-Buff", rarity: "3★", effect: "+35% M.ATK, +25% 施法速度, +15% 風 傷害 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1333,21 +1333,21 @@ skills: [
     desc: '以風與雷霆造成毀滅傷害的暴風狂嘯者。',
     base: { atk: 12, def: 22, hp: 280, mp: 420, matk: 122, mdef: 62, eva: 12, crit: 8 },
     skills: [
-      { name: "惡魔之風",                  type: "Ativo",   rarity: "3★", effect: "Dano vento 400% + knockback", cooldown: "28s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "元素爆發",              type: "Ativo",   rarity: "3★", effect: "Dano elemental 380% + explode seed", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "元素風暴",              type: "Ativo",   rarity: "4★", effect: "Dano AoE 480% + all elements", cooldown: "45s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "風之種子",                 type: "Ativo",   rarity: "3★", effect: "Marca alvo: +25% Wind Damage recebido 10s", cooldown: "20s", duration: "10s", note: "Skill permanece após trocar de classe" },
-      { name: "風之螺旋",                  type: "Ativo",   rarity: "3★", effect: "Dano vento 360% + penetra alvos em linha", cooldown: "22s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "雷霆爆炸",            type: "Ativo",   rarity: "4★", effect: "Dano trovão AoE 520% (2 hits) + stun 2s", cooldown: "35s", duration: "2s stun", note: "Skill permanece após trocar de classe" },
-      { name: "神秘免疫",              type: "Ativo",   rarity: "4★", effect: "Imunidade a magia 8s", cooldown: "180s", duration: "8s", note: "Skill permanece após trocar de classe" },
-      { name: "強化迴響",              type: "Ativo",   rarity: "3★", effect: "+40% M.ATK por 20s após kill", cooldown: "60s", duration: "20s", note: "Skill permanece após trocar de classe" },
-      { name: "超越雷霆爆炸", type: "Ativo", rarity: "4★", effect: "Dano trovão AoE 720% (3 hits) + paralysis 3s", cooldown: "180s", duration: "3s paralysis", note: "Skill permanece após trocar de classe" },
-      { name: "法術精通",                type: "Passivo", rarity: "3★", effect: "+15% M.ATK, +10% Magic Crit Rate", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "魔法專注",                  type: "Passivo", rarity: "3★", effect: "+5% M.Skill Power, +10% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "精通（稀有）",               type: "Passivo", rarity: "4★", effect: "+10% M.Skill Power, +15% PvE Damage, +15% Max MP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "暴風狂嘯者之魂",        type: "Passivo", rarity: "3★", effect: "+20% M.ATK, +15% Wind Damage, +10% Cast Speed", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "暴風狂嘯者之軀",       type: "Passivo", rarity: "3★", effect: "+15% Max MP, +10% MP Regen", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "暴風狂嘯者和諧",       type: "Self-Buff", rarity: "4★", effect: "+55% M.ATK, +40% Cast Speed, +30% Wind Damage por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
+      { name: "惡魔之風",                  type: "Ativo",   rarity: "3★", effect: "傷害 風 400% + 擊退", cooldown: "28s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "元素爆發",              type: "Ativo",   rarity: "3★", effect: "傷害 元素 380% + 爆炸 seed", cooldown: "25s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "元素風暴",              type: "Ativo",   rarity: "4★", effect: "傷害 範圍 480% + 全元素", cooldown: "45s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "風之種子",                 type: "Ativo",   rarity: "3★", effect: "標記目標: +25% 風 傷害 受到的 10 秒", cooldown: "20s", duration: "10s", note: "轉職後技能仍會保留" },
+      { name: "風之螺旋",                  type: "Ativo",   rarity: "3★", effect: "傷害 風 360% + 穿透 目標於linha", cooldown: "22s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "雷霆爆炸",            type: "Ativo",   rarity: "4★", effect: "傷害 雷電 範圍 520% (2 次命中) + 暈眩 2 秒", cooldown: "35s", duration: "2s stun", note: "轉職後技能仍會保留" },
+      { name: "神秘免疫",              type: "Ativo",   rarity: "4★", effect: "免疫魔法 8 秒", cooldown: "180s", duration: "8s", note: "轉職後技能仍會保留" },
+      { name: "強化迴響",              type: "Ativo",   rarity: "3★", effect: "+40% M.ATK 持續 20 秒 後 kill", cooldown: "60s", duration: "20s", note: "轉職後技能仍會保留" },
+      { name: "超越雷霆爆炸", type: "Ativo", rarity: "4★", effect: "傷害 雷電 範圍 720% (3 次命中) + 麻痺 3 秒", cooldown: "180s", duration: "3s paralysis", note: "轉職後技能仍會保留" },
+      { name: "法術精通",                type: "Passivo", rarity: "3★", effect: "+15% M.ATK, +10% 魔法暴擊率", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "魔法專注",                  type: "Passivo", rarity: "3★", effect: "+5% M.技能威力, +10% PvE 傷害", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "精通（稀有）",               type: "Passivo", rarity: "4★", effect: "+10% M.技能威力, +15% PvE 傷害, +15% 最大 MP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "暴風狂嘯者之魂",        type: "Passivo", rarity: "3★", effect: "+20% M.ATK, +15% 風 傷害, +10% 施法速度", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "暴風狂嘯者之軀",       type: "Passivo", rarity: "3★", effect: "+15% 最大 MP, +10% MP 恢復", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "暴風狂嘯者和諧",       type: "Self-Buff", rarity: "4★", effect: "+55% M.ATK, +40% 施法速度, +30% 風 傷害 持續 30 分鐘", cooldown: "90 min", duration: "30 min", note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1357,16 +1357,16 @@ skills: [
     desc: '召喚黑暗生物作戰的幽靈召喚師。',
     base: { atk: 8, def: 16, hp: 180, mp: 240, matk: 58, mdef: 35, eva: 6, crit: 4 },
     skills: [
-      { name: "召喚夢魘",       type: "Ativo",   rarity: "2★", effect: "Invoca Nightmare (ATK alto, tanque médio)", cooldown: "45s", duration: "Permanente", note: "Skill permanece após trocar de classe" },
-      { name: "召喚怨靈",          type: "Ativo",   rarity: "2★", effect: "Invoca Wraith (ATK médio, drain HP)", cooldown: "45s", duration: "Permanente", note: "Skill permanece após trocar de classe" },
-      { name: "召喚幽靈領主",   type: "Ativo",   rarity: "3★", effect: "Invoca Spectral Lord (AoE + tanque)", cooldown: "60s", duration: "Permanente", note: "Skill permanece após trocar de classe" },
-      { name: "召喚獸治癒",          type: "Ativo",   rarity: "1★", effect: "Cura summon 30% HP", cooldown: "12s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "召喚獸回復",      type: "Ativo",   rarity: "1★", effect: "Restaura MP do summon", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "痛苦轉移",          type: "Toggle",  rarity: "2★", effect: "50% dano recebido transferido ao summon", cooldown: "5s", duration: "Toggle", note: "Skill permanece após trocar de classe" },
-      { name: "召喚束縛晶體",   type: "Ativo",   rarity: "2★", effect: "Cubo que dá root 3s a cada 10s", cooldown: "45s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "召喚幻影晶體",   type: "Ativo",   rarity: "2★", effect: "Cubo dark que ataca 150%/8s", cooldown: "45s", duration: "120s", note: "Skill permanece após trocar de classe" },
-      { name: "召喚獸物理攻擊", type: "Passivo", rarity: "2★", effect: "+20% ATK dos summons", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "幽靈召喚師和諧", type: "Self-Buff", rarity: "3★", effect: "+35% Summon Power, +20% M.ATK por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
+      { name: "召喚夢魘",       type: "Ativo",   rarity: "2★", effect: "召喚 夢魘 (ATK 高, 坦克 中)", cooldown: "45s", duration: "Permanente", note: "轉職後技能仍會保留" },
+      { name: "召喚怨靈",          type: "Ativo",   rarity: "2★", effect: "召喚 怨靈 (ATK 中, 吸取 HP)", cooldown: "45s", duration: "Permanente", note: "轉職後技能仍會保留" },
+      { name: "召喚幽靈領主",   type: "Ativo",   rarity: "3★", effect: "召喚 幽靈領主 (範圍 + 坦克)", cooldown: "60s", duration: "Permanente", note: "轉職後技能仍會保留" },
+      { name: "召喚獸治癒",          type: "Ativo",   rarity: "1★", effect: "治癒召喚物 30% HP", cooldown: "12s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "召喚獸回復",      type: "Ativo",   rarity: "1★", effect: "恢復 MP do 召喚物", cooldown: "15s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "痛苦轉移",          type: "Toggle",  rarity: "2★", effect: "50% 傷害 受到的 transferido對召喚物", cooldown: "5s", duration: "Toggle", note: "轉職後技能仍會保留" },
+      { name: "召喚束縛晶體",   type: "Ativo",   rarity: "2★", effect: "晶體 會 dá 定身 3 秒 每 10 秒", cooldown: "45s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "召喚幻影晶體",   type: "Ativo",   rarity: "2★", effect: "晶體 黑暗 會 ataca 150%/8 秒", cooldown: "45s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "召喚獸物理攻擊", type: "Passivo", rarity: "2★", effect: "+20% ATK dos 召喚物", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "幽靈召喚師和諧", type: "Self-Buff", rarity: "3★", effect: "+35% 召喚物 威力, +20% M.ATK 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1376,15 +1376,15 @@ skills: [
     desc: '操控至高黑暗召喚獸的幽靈大師。',
     base: { atk: 12, def: 24, hp: 300, mp: 380, matk: 105, mdef: 58, eva: 10, crit: 6 },
     skills: [
-      { name: "召喚強化幽靈領主", type: "Ativo", rarity: "3★", effect: "Spectral Lord aprimorado (+50% ATK/HP)", cooldown: "90s", duration: "Permanente", note: "Skill permanece após trocar de classe" },
-      { name: "召喚獸屏障",            type: "Ativo",    rarity: "3★", effect: "Escudo no summon: absorve 3000 dano", cooldown: "45s", duration: "30s", note: "Skill permanece após trocar de classe" },
-      { name: "群體召喚獸治癒",          type: "Ativo",    rarity: "3★", effect: "Cura todos os summons 40%", cooldown: "18s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "最終召喚獸",              type: "Ativo",    rarity: "4★", effect: "Summon sacrifica-se: dano AoE 600% + heal dono 50%", cooldown: "180s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "超越召喚爆發",   type: "Ativo",    rarity: "4★", effect: "Todos os summons atacam juntos: dano 700% AoE", cooldown: "180s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "幽靈大師之魂",      type: "Passivo",  rarity: "3★", effect: "+25% Summon Power, +15% M.ATK", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "幽靈大師之軀", type: "Passivo",  rarity: "3★", effect: "+15% Max HP/MP, +10% MP Regen", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "戰鬥大師",            type: "Passivo",  rarity: "4★", effect: "+10% All Stats, +15% PvE Damage", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "幽靈大師和諧",     type: "Self-Buff", rarity: "4★", effect: "+60% Summon Power, +40% M.ATK por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
+      { name: "召喚強化幽靈領主", type: "Ativo", rarity: "3★", effect: "幽靈領主 強化 (+50% ATK/HP)", cooldown: "90s", duration: "Permanente", note: "轉職後技能仍會保留" },
+      { name: "召喚獸屏障",            type: "Ativo",    rarity: "3★", effect: "護盾在召喚物: 吸收 3000 傷害", cooldown: "45s", duration: "30s", note: "轉職後技能仍會保留" },
+      { name: "群體召喚獸治癒",          type: "Ativo",    rarity: "3★", effect: "治癒 所有 召喚物 40%", cooldown: "18s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "最終召喚獸",              type: "Ativo",    rarity: "4★", effect: "召喚物 犧牲: 傷害 範圍 600% + 治癒 主人 50%", cooldown: "180s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "超越召喚爆發",   type: "Ativo",    rarity: "4★", effect: "所有 召喚物 一同攻擊: 傷害 700% 範圍", cooldown: "180s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "幽靈大師之魂",      type: "Passivo",  rarity: "3★", effect: "+25% 召喚物 威力, +15% M.ATK", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "幽靈大師之軀", type: "Passivo",  rarity: "3★", effect: "+15% 最大 HP/MP, +10% MP 恢復", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "戰鬥大師",            type: "Passivo",  rarity: "4★", effect: "+10% 全屬性, +15% PvE 傷害", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "幽靈大師和諧",     type: "Self-Buff", rarity: "4★", effect: "+60% 召喚物 威力, +40% M.ATK 持續 30 分鐘", cooldown: "90 min", duration: "30 min", note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1394,13 +1394,13 @@ skills: [
     desc: '提供治癒與黑暗守護的席琳神使。',
     base: { atk: 6, def: 12, hp: 110, mp: 130, matk: 22, mdef: 22, eva: 5, crit: 4 },
     skills: [
-      { name: "治癒",            type: "Ativo",   rarity: "1★", effect: "Cura 250% M.ATK", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "戰鬥治癒",     type: "Ativo",   rarity: "1★", effect: "Cura rápida 180% M.ATK", cooldown: "5s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "力量",           type: "Party-Buff", rarity: "1★", effect: "+10% ATK para o grupo", cooldown: "20s", duration: "300s", note: "Skill permanece após trocar de classe" },
-      { name: "盾牌",          type: "Party-Buff", rarity: "1★", effect: "+10% DEF para o grupo", cooldown: "20s", duration: "300s", note: "Skill permanece após trocar de classe" },
-      { name: "解毒",     type: "Ativo",   rarity: "1★", effect: "Remove poison", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "止血",      type: "Ativo",   rarity: "1★", effect: "Remove bleed", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "魔力回復",        type: "Ativo",   rarity: "1★", effect: "Restaura 20% MP do alvo", cooldown: "12s", duration: null, note: "Skill permanece após trocar de classe" }
+      { name: "治癒",            type: "Ativo",   rarity: "1★", effect: "治癒 250% M.ATK", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "戰鬥治癒",     type: "Ativo",   rarity: "1★", effect: "快速治癒 180% M.ATK", cooldown: "5s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "力量",           type: "Party-Buff", rarity: "1★", effect: "+10% ATK給o 隊伍", cooldown: "20s", duration: "300s", note: "轉職後技能仍會保留" },
+      { name: "盾牌",          type: "Party-Buff", rarity: "1★", effect: "+10% DEF給o 隊伍", cooldown: "20s", duration: "300s", note: "轉職後技能仍會保留" },
+      { name: "解毒",     type: "Ativo",   rarity: "1★", effect: "移除 中毒", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "止血",      type: "Ativo",   rarity: "1★", effect: "移除 流血", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "魔力回復",        type: "Ativo",   rarity: "1★", effect: "恢復 20% MP do 目標", cooldown: "12s", duration: null, note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1410,19 +1410,19 @@ skills: [
     desc: '兼具治療、增益與黑暗攻擊魔法的席琳長老。',
     base: { atk: 8, def: 22, hp: 200, mp: 260, matk: 48, mdef: 50, eva: 8, crit: 4 },
     skills: [
-      { name: "高級治癒",     type: "Ativo",     rarity: "2★", effect: "Cura forte 400% M.ATK", cooldown: "10s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "高級群體治癒", type: "Ativo",   rarity: "3★", effect: "Cura grupo 300% M.ATK", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "復活",     type: "Ativo",     rarity: "3★", effect: "Ressuscita aliado com 30% HP/MP", cooldown: "120s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "淨化",           type: "Ativo",     rarity: "2★", effect: "Remove 2 debuffs", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "潔淨",          type: "Ativo",     rarity: "3★", effect: "Remove todos os debuffs", cooldown: "30s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "魔力強化",          type: "Party-Buff", rarity: "2★", effect: "+20% M.ATK para o grupo", cooldown: "30s", duration: "300s", note: "Skill permanece após trocar de classe" },
-      { name: "靈活思緒",           type: "Party-Buff", rarity: "2★", effect: "+20% Cast Speed para o grupo", cooldown: "30s", duration: "300s", note: "Skill permanece após trocar de classe" },
-      { name: "吸血狂怒",    type: "Party-Buff", rarity: "2★", effect: "Drain 8% dano como HP para o grupo", cooldown: "30s", duration: "300s", note: "Skill permanece após trocar de classe" },
-      { name: "祝福之盾",     type: "Party-Buff", rarity: "2★", effect: "+15% Block Rate para o grupo", cooldown: "30s", duration: "300s", note: "Skill permanece após trocar de classe" },
-      { name: "精神之盾",    type: "Party-Buff", rarity: "2★", effect: "+15% M.DEF para o grupo", cooldown: "30s", duration: "300s", note: "Skill permanece após trocar de classe" },
-      { name: "席琳烙印", type: "Ativo",   rarity: "3★", effect: "Marca alvo: recebe +25% dano por 10s", cooldown: "30s", duration: "10s", note: "Skill permanece após trocar de classe" },
-      { name: "水之預言", type: "Party-Buff", rarity: "3★", effect: "+15% M.ATK, +10% Cast Speed, +10% M.DEF para o grupo", cooldown: "60s", duration: "600s", note: "Skill permanece após trocar de classe" },
-      { name: "席琳長老和諧", type: "Self-Buff", rarity: "3★", effect: "+30% Heal Power, +25% M.ATK, +20% M.DEF por 25 min", cooldown: "60 min", duration: "25 min", note: "Skill permanece após trocar de classe" }
+      { name: "高級治癒",     type: "Ativo",     rarity: "2★", effect: "治癒 forte 400% M.ATK", cooldown: "10s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "高級群體治癒", type: "Ativo",   rarity: "3★", effect: "治癒 隊伍 300% M.ATK", cooldown: "15s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "復活",     type: "Ativo",     rarity: "3★", effect: "復活 盟友 搭配 30% HP/MP", cooldown: "120s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "淨化",           type: "Ativo",     rarity: "2★", effect: "移除 2 de增益", cooldown: "15s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "潔淨",          type: "Ativo",     rarity: "3★", effect: "移除 所有 de增益", cooldown: "30s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "魔力強化",          type: "Party-Buff", rarity: "2★", effect: "+20% M.ATK給o 隊伍", cooldown: "30s", duration: "300s", note: "轉職後技能仍會保留" },
+      { name: "靈活思緒",           type: "Party-Buff", rarity: "2★", effect: "+20% 施法速度給o 隊伍", cooldown: "30s", duration: "300s", note: "轉職後技能仍會保留" },
+      { name: "吸血狂怒",    type: "Party-Buff", rarity: "2★", effect: "吸取 8% 傷害為 HP給o 隊伍", cooldown: "30s", duration: "300s", note: "轉職後技能仍會保留" },
+      { name: "祝福之盾",     type: "Party-Buff", rarity: "2★", effect: "+15% 格擋率給o 隊伍", cooldown: "30s", duration: "300s", note: "轉職後技能仍會保留" },
+      { name: "精神之盾",    type: "Party-Buff", rarity: "2★", effect: "+15% M.DEF給o 隊伍", cooldown: "30s", duration: "300s", note: "轉職後技能仍會保留" },
+      { name: "席琳烙印", type: "Ativo",   rarity: "3★", effect: "標記目標: receb並 +25% 傷害 持續 10 秒", cooldown: "30s", duration: "10s", note: "轉職後技能仍會保留" },
+      { name: "水之預言", type: "Party-Buff", rarity: "3★", effect: "+15% M.ATK, +10% 施法速度, +10% M.DEF給o 隊伍", cooldown: "60s", duration: "600s", note: "轉職後技能仍會保留" },
+      { name: "席琳長老和諧", type: "Self-Buff", rarity: "3★", effect: "+30% 治癒威力, +25% M.ATK, +20% M.DEF 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
     ]
   },
 
@@ -1432,19 +1432,19 @@ skills: [
     desc: '席琳的至高聖者，兼具最高階治療與黑暗面攻擊模式。',
     base: { atk: 14, def: 38, hp: 340, mp: 420, matk: 88, mdef: 92, eva: 12, crit: 6 },
     skills: [
-      { name: "崇高自我犧牲",      type: "Ativo",    rarity: "4★", effect: "Sacrifica 90% HP próprio: cura total + remove debuffs de todo o grupo", cooldown: "300s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "生命平衡",                type: "Ativo",    rarity: "3★", effect: "Equaliza HP do grupo (média)", cooldown: "60s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "群體復活",           type: "Ativo",    rarity: "4★", effect: "Ressuscita todos aliados mortos com 40% HP/MP", cooldown: "300s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "席琳祝福",        type: "Party-Buff", rarity: "3★", effect: "+25% All Stats para o grupo por 10 min", cooldown: "60s", duration: "600s", note: "Skill permanece após trocar de classe" },
-      { name: "吸血鬼領主",             type: "Party-Buff", rarity: "3★", effect: "Drain 12% dano como HP para o grupo", cooldown: "60s", duration: "300s", note: "Skill permanece após trocar de classe" },
-      { name: "奇蹟",                     type: "Ativo",    rarity: "4★", effect: "Invencibilidade grupo 7s + cura 30%", cooldown: "300s", duration: "7s", note: "Skill permanece após trocar de classe" },
-      { name: "黑暗面",                   type: "Toggle",   rarity: "3★", effect: "ON: -50% Heal, +80% M.ATK dark, skills mudam para ofensivo", cooldown: "10s toggle", duration: "Toggle", note: "Skill permanece após trocar de classe" },
-      { name: "黑暗擾亂",             type: "Ativo",    rarity: "3★", effect: "Dano dark 360% (só em Dark Side)", cooldown: "15s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "席琳援助",             type: "Passivo",  rarity: "3★", effect: "Ao curar: 15% chance buff +10% ATK ao curado 10s", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "神聖新星",                 type: "Ativo",    rarity: "3★", effect: "Dano dark AoE 320% + heal aliados 15%", cooldown: "25s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "席琳聖者之魂",       type: "Passivo",  rarity: "3★", effect: "+25% Heal Power, +20% M.ATK, +15% M.DEF", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "席琳聖者之軀",      type: "Passivo",  rarity: "3★", effect: "+20% Max MP, +15% MP Regen, +10% Max HP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "席琳聖者和諧",      type: "Self-Buff", rarity: "4★", effect: "+50% Heal Power, +40% M.ATK, +30% M.DEF por 30 min", cooldown: "90 min", duration: "30 min", note: "Skill permanece após trocar de classe" }
+      { name: "崇高自我犧牲",      type: "Ativo",    rarity: "4★", effect: "犧牲 90% HP 自身: 治癒 完全 + 移除 de增益的todo o 隊伍", cooldown: "300s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "生命平衡",                type: "Ativo",    rarity: "3★", effect: "平均 HP do 隊伍 (平均值)", cooldown: "60s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "群體復活",           type: "Ativo",    rarity: "4★", effect: "復活 所有 盟友 死亡成員 搭配 40% HP/MP", cooldown: "300s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "席琳祝福",        type: "Party-Buff", rarity: "3★", effect: "+25% 全屬性給o 隊伍 持續 10 分鐘", cooldown: "60s", duration: "600s", note: "轉職後技能仍會保留" },
+      { name: "吸血鬼領主",             type: "Party-Buff", rarity: "3★", effect: "吸取 12% 傷害為 HP給o 隊伍", cooldown: "60s", duration: "300s", note: "轉職後技能仍會保留" },
+      { name: "奇蹟",                     type: "Ativo",    rarity: "4★", effect: "Invencibilidade 隊伍 7 秒 + 治癒 30%", cooldown: "300s", duration: "7s", note: "轉職後技能仍會保留" },
+      { name: "黑暗面",                   type: "Toggle",   rarity: "3★", effect: "ON: -50% 治癒, +80% M.ATK 黑暗, skills mudam給ofensivo", cooldown: "10s toggle", duration: "Toggle", note: "轉職後技能仍會保留" },
+      { name: "黑暗擾亂",             type: "Ativo",    rarity: "3★", effect: "傷害 黑暗 360% (só於黑暗 側)", cooldown: "15s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "席琳援助",             type: "Passivo",  rarity: "3★", effect: "Ao 治癒r: 15% 機率 增益 +10% ATK對治癒do 10 秒", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "神聖新星",                 type: "Ativo",    rarity: "3★", effect: "傷害 黑暗 範圍 320% + 治癒 盟友 15%", cooldown: "25s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "席琳聖者之魂",       type: "Passivo",  rarity: "3★", effect: "+25% 治癒威力, +20% M.ATK, +15% M.DEF", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "席琳聖者之軀",      type: "Passivo",  rarity: "3★", effect: "+20% 最大 MP, +15% MP 恢復, +10% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
+      { name: "席琳聖者和諧",      type: "Self-Buff", rarity: "4★", effect: "+50% 治癒威力, +40% M.ATK, +30% M.DEF 持續 30 分鐘", cooldown: "90 min", duration: "30 min", note: "轉職後技能仍會保留" }
     ]
   },
     // ═══════════════════════════════════════════
@@ -1455,9 +1455,9 @@ skills: [
     desc: '擁有強大力量與高 HP 的半獸人戰士。',
     base: { atk: 14, def: 10, hp: 110, mp: 28, eva: 3, crit: 6, mdef: 4 },
     skills: [
-      { name: "強力打擊",   type: "Ativo",   rarity: "1★", effect: "Dano físico 150%", cooldown: "8s", duration: null, note: "Skill permanece após trocar de classe" },
-      { name: "鐵拳",     type: "Ativo",   rarity: "1★", effect: "Dano 140% + stun 1s", cooldown: "10s", duration: "1s", note: "Skill permanece após trocar de classe" },
-      { name: "包紮",        type: "Ativo",   rarity: "1★", effect: "Recupera 15% HP", cooldown: "30s", duration: null, note: "Skill permanece após trocar de classe" },
+      { name: "強力打擊",   type: "Ativo",   rarity: "1★", effect: "物理傷害 150%", cooldown: "8s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "鐵拳",     type: "Ativo",   rarity: "1★", effect: "傷害 140% + 暈眩 1 秒", cooldown: "10s", duration: "1s", note: "轉職後技能仍會保留" },
+      { name: "包紮",        type: "Ativo",   rarity: "1★", effect: "恢復 15% HP", cooldown: "30s", duration: null, note: "Skill permanece após trocar de classe" },
       { name: "HP 提升",    type: "Passivo", rarity: "1★", effect: "+12% Max HP", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
       { name: "輕甲精通", type: "Passivo", rarity: "1★", effect: "+8% DEF com armadura leve", cooldown: null, duration: null, note: "Skill permanece após trocar de classe" },
       { name: "半獸人之魂",     type: "Self-Buff", rarity: "1★", effect: "+12% ATK e +10% HP por 15 min", cooldown: "30 min", duration: "15 min", note: "Skill permanece após trocar de classe" }
