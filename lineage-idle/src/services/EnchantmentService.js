@@ -34,11 +34,11 @@ export const ENCHANT_STATES = {
 };
 
 const CRYSTAL_MAP = {
-  'D': { id: 'crystal_d', name: 'Cristal: Grau D', base: 25, mult: 5 },
-  'C': { id: 'crystal_c', name: 'Cristal: Grau C', base: 35, mult: 8 },
-  'B': { id: 'crystal_b', name: 'Cristal: Grau B', base: 50, mult: 12 },
-  'A': { id: 'crystal_a', name: 'Cristal: Grau A', base: 80, mult: 15 },
-  'S': { id: 'crystal_s', name: 'Cristal: Grau S', base: 120, mult: 20 }
+  'D': { id: 'crystal_d', name: 'D 級水晶', base: 25, mult: 5 },
+  'C': { id: 'crystal_c', name: 'C 級水晶', base: 35, mult: 8 },
+  'B': { id: 'crystal_b', name: 'B 級水晶', base: 50, mult: 12 },
+  'A': { id: 'crystal_a', name: 'A 級水晶', base: 80, mult: 15 },
+  'S': { id: 'crystal_s', name: 'S 級水晶', base: 120, mult: 20 }
 };
 
 /**
@@ -166,21 +166,21 @@ export function getEnchantPreview(state, targetUid, scrollUid) {
   // Impacto Real de Poder Estimado
   const realPowerDeltaPct = Number((cpDelta / Math.max(100, targetDef.atk || targetDef.def || 100) * 1.5).toFixed(1));
 
-  let failureResultText = 'Nível mantido (100% Seguro)';
+  let failureResultText = '強化等級維持（100% 安全）';
   let isCrystallizable = false;
   let crystalYield = 0;
   let crystalName = '';
 
   if (scrollInfo.isBlessed) {
-    failureResultText = '🛡️ Protegido por Bênção: Mantém o nível de encantamento atual intacto em caso de falha.';
+    failureResultText = '🛡️ 祝福保護：強化失敗時維持目前強化等級。';
   } else if (currentEnchant >= safeLimit && grade !== 'NG') {
     isCrystallizable = true;
     const cInfo = CRYSTAL_MAP[grade] || CRYSTAL_MAP['D'];
     crystalYield = cInfo.base + currentEnchant * cInfo.mult;
     crystalName = cInfo.name;
-    failureResultText = `💥 Quebra Crítica: O item será destruído e cristalizado em ${crystalYield}x ${crystalName}.`;
+    failureResultText = `💥 嚴重失敗：物品將被破壞並轉化為 ${crystalYield}x ${crystalName}。`;
   } else if (currentEnchant >= safeLimit) {
-    failureResultText = '💥 Falha: O nível de encantamento será reduzido em -1 nível.';
+    failureResultText = '💥 失敗：強化等級下降 1 級。';
   }
 
   return {
@@ -210,7 +210,7 @@ export function getEnchantPreview(state, targetUid, scrollUid) {
       grade: scrollInfo.grade
     },
     successChance,
-    successChanceFormatted: currentEnchant < safeLimit ? `100% Seguro (Até +${safeLimit})` : `${Math.round(successChance * 100)}%`,
+    successChanceFormatted: currentEnchant < safeLimit ? `100% 安全（至 +${safeLimit}）` : `${Math.round(successChance * 100)}%`,
     safeLimit,
     failureResultText,
     isCrystallizable,
@@ -246,7 +246,7 @@ export function getEnchantPreview(state, targetUid, scrollUid) {
  */
 export function executeAtomicEnchant(state, targetUid, scrollUid, callbacks = {}) {
   if (!state || !state.inventory) {
-    return { ok: false, state: ENCHANT_STATES.INVALID, reason: 'Estado de inventário inválido.' };
+    return { ok: false, state: ENCHANT_STATES.INVALID, reason: '背包狀態無效。' };
   }
 
   const allItems = D()?.ALL_ITEMS || ALL_ITEMS || {};
@@ -254,10 +254,10 @@ export function executeAtomicEnchant(state, targetUid, scrollUid, callbacks = {}
   const scrollIndex = state.inventory.findIndex(i => i.uid === scrollUid);
 
   if (targetIndex < 0) {
-    return { ok: false, state: ENCHANT_STATES.INVALID, reason: 'Equipamento alvo não encontrado na mochila.' };
+    return { ok: false, state: ENCHANT_STATES.INVALID, reason: '背包中找不到目標裝備。' };
   }
   if (scrollIndex < 0) {
-    return { ok: false, state: ENCHANT_STATES.INVALID, reason: 'Pergaminho de encantamento não encontrado na mochila.' };
+    return { ok: false, state: ENCHANT_STATES.INVALID, reason: '背包中找不到強化卷軸。' };
   }
 
   const targetItem = state.inventory[targetIndex];
@@ -290,16 +290,16 @@ export function executeAtomicEnchant(state, targetUid, scrollUid, callbacks = {}
     outcomeType = 'SUCCESS';
     targetItem.enchant = currentEnchant + 1;
     if (callbacks.log) {
-      callbacks.log(`✨ ENCHANT SUCCESS! ${targetDef.name} agora está +${targetItem.enchant}!`, 'rarity-legendary');
+      callbacks.log(`✨ 強化成功！${targetDef.name} 現在為 +${targetItem.enchant}！`, 'rarity-legendary');
     }
     if (callbacks.floatText) {
-      callbacks.floatText(`✨ +${targetItem.enchant} SUCESSO!`, 'float-jackpot');
+      callbacks.floatText(`✨ +${targetItem.enchant} 成功！`, 'float-jackpot');
     }
   } else {
     if (scrollInfo.isBlessed) {
       outcomeType = 'PROTECTED';
       if (callbacks.log) {
-        callbacks.log(`🛡️ [BLESSED PROTECTED] A tentativa falhou, mas ${targetDef.name} manteve o nível +${currentEnchant} intacto!`, 'rarity-epic');
+        callbacks.log(`🛡️ [祝福保護] 強化失敗，但 ${targetDef.name} 維持 +${currentEnchant} 不變！`, 'rarity-epic');
       }
       if (callbacks.floatText) {
         callbacks.floatText(`🛡️ PROTEGIDO (+${currentEnchant})`, 'float-jackpot');
@@ -336,7 +336,7 @@ export function executeAtomicEnchant(state, targetUid, scrollUid, callbacks = {}
       }
 
       if (callbacks.log) {
-        callbacks.log(`💥 CRISTALIZADO! ${targetDef.name} +${currentEnchant} falhou e foi destruído em ${crystalsAwarded}x ${cInfo.name}!`, 'rarity-legendary');
+        callbacks.log(`💥 已結晶化！${targetDef.name} +${currentEnchant} 強化失敗並破壞，轉化為 ${crystalsAwarded}x ${cInfo.name}！`, 'rarity-legendary');
       }
       if (callbacks.floatText) {
         callbacks.floatText(`💥 CRISTALIZADO (+${crystalsAwarded}x)`, 'float-crit');
@@ -345,7 +345,7 @@ export function executeAtomicEnchant(state, targetUid, scrollUid, callbacks = {}
       outcomeType = 'FAILURE';
       targetItem.enchant = Math.max(0, currentEnchant - 1);
       if (callbacks.log) {
-        callbacks.log(`💥 Encantamento falhou! ${targetDef.name} reduziu para +${targetItem.enchant}.`, 'system');
+        callbacks.log(`💥 強化失敗！${targetDef.name} 降至 +${targetItem.enchant}。`, 'system');
       }
       if (callbacks.floatText) {
         callbacks.floatText(`💥 FALHOU (-1)`, 'float-crit');
