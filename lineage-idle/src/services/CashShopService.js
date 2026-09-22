@@ -452,7 +452,7 @@ export class CashShopService {
           count: 5
         });
       }
-      if (callbacks.log) callbacks.log('🧪 **5x 活力靈藥** 已送入背包！', 'system');
+      if (callbacks.log) callbacks.log('🧪 **5× 活力靈藥** 已送入背包！', 'system');
     } else {
       const targetId = utilityId;
       const isStackable = targetId.startsWith('scroll_') || targetId.startsWith('elixir_') || targetId.startsWith('pack_');
