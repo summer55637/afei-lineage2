@@ -168,7 +168,7 @@ export function processAutoRecycleItem(item, def, state, callbacks = {}) {
 
     const matName = gData?.ALL_ITEMS?.[matId]?.name || matId;
     if (callbacks.log) {
-      callbacks.log(`🔨 [Auto-Recycle AFK] ${def.name} desmanchado em +${matAmount}x ${matName}`, 'loot');
+      callbacks.log(`🔨 [掛機自動回收] ${def.name} 已分解為 +${matAmount}x ${matName}`, 'loot');
     }
     return true;
   }
