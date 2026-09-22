@@ -155,7 +155,7 @@ export function renderGatheringUI(state) {
         <div style="flex:1;">
           <div style="display:flex; align-items:center; gap:6px;">
             <strong style="font-size:12px; color:${isSelected ? '#6ee7b7' : '#f4d58a'};">${pDef.icon} ${pDef.name}</strong>
-            <span style="font-size:10px; color:#ffd877; font-weight:bold;">x${count}</span>
+            <span style="font-size:10px; color:#ffd877; font-weight:bold;">×${count}</span>
           </div>
           <div style="font-size:10px; color:#94a3b8; margin-top:2px;">
             ${pDef.desc}（每個 ${pDef.buyPrice} 金幣）
