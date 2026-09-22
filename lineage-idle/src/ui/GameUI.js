@@ -3293,12 +3293,12 @@ export function updateCharacterUI(state) {
     };
 
     primContainer.innerHTML = `
-      ${renderTablet('STR', '力量', baseAttrs.str || 40, state.primaryStats?.str || 40, setPrim.str || 0, tatStr, 'STR：每點提高物理攻擊 0.5%，並強化物理技能成長')}
-      ${renderTablet('DEX', 'Destreza', baseAttrs.dex || 30, state.primaryStats?.dex || 30, setPrim.dex || 0, tatDex, 'DEX：提高攻擊速度、物理暴擊率與迴避')}
-      ${renderTablet('CON', 'Vigor', baseAttrs.con || 43, state.primaryStats?.con || 43, setPrim.con || 0, tatCon, 'CON：每點提高最大生命值 1.0%，並提升生命恢復')}
-      ${renderTablet('INT', '魔法', baseAttrs.int || 21, state.primaryStats?.int || 21, setPrim.int || 0, tatInt, 'INT：每點提高魔法攻擊 0.5%，並提升法術傷害')}
-      ${renderTablet('WIT', '靈巧', baseAttrs.wit || 11, state.primaryStats?.wit || 11, setPrim.wit || 0, tatWit, 'WIT：提高施法速度與魔法暴擊率')}
-      ${renderTablet('MEN', '精神', baseAttrs.men || 25, state.primaryStats?.men || 25, setPrim.men || 0, tatMen, 'MEN：每點提高魔法防禦 0.5%、最大魔力 0.2% 與抗性')}
+      ${renderTablet('力', '力量', baseAttrs.str || 40, state.primaryStats?.str || 40, setPrim.str || 0, tatStr, '力量：每點提高物理攻擊 0.5%，並強化物理技能成長')}
+      ${renderTablet('敏', '敏捷', baseAttrs.dex || 30, state.primaryStats?.dex || 30, setPrim.dex || 0, tatDex, '敏捷：提高攻擊速度、物理暴擊率與迴避')}
+      ${renderTablet('體', '體質', baseAttrs.con || 43, state.primaryStats?.con || 43, setPrim.con || 0, tatCon, '體質：每點提高最大生命值 1.0%，並提升生命恢復')}
+      ${renderTablet('智', '智力', baseAttrs.int || 21, state.primaryStats?.int || 21, setPrim.int || 0, tatInt, '智力：每點提高魔法攻擊 0.5%，並提升法術傷害')}
+      ${renderTablet('慧', '智慧', baseAttrs.wit || 11, state.primaryStats?.wit || 11, setPrim.wit || 0, tatWit, '智慧：提高施法速度與魔法暴擊率')}
+      ${renderTablet('精', '精神', baseAttrs.men || 25, state.primaryStats?.men || 25, setPrim.men || 0, tatMen, '精神：每點提高魔法防禦 0.5%、最大魔力 0.2% 與抗性')}
     `;
   }
 
@@ -3460,7 +3460,7 @@ export function updateCharacterUI(state) {
 
     equipContainer.innerHTML = equipCards.length > 0 
       ? equipCards.join('') 
-      : '<div style="font-size:11px; color:#94a3b8; font-style:italic; padding:10px;">目前沒有裝備物品。請從背包裝備物品以提升戰鬥力（CP）。</div>';
+      : '<div style="font-size:11px; color:#94a3b8; font-style:italic; padding:10px;">目前沒有裝備物品。請從背包裝備物品以提升戰鬥力。</div>';
 
     // Bônus de Set Ativos
     const setContainer = root.querySelector('#char-set-bonuses-container');
@@ -7844,12 +7844,12 @@ export function renderForgeTattoos(container, state) {
   }).join('');
 
   const catalog = [
-    { key: 'dye_str_con', name: '戰士染料（+STR / -CON）', stat: 'str' },
-    { key: 'dye_dex_con', name: '刺客染料（+DEX / -CON）', stat: 'dex' },
-    { key: 'dye_con_str', name: '守護者染料（+CON / -STR）', stat: 'con' },
-    { key: 'dye_wit_men', name: '施法染料（+WIT / -MEN）', stat: 'wit' },
-    { key: 'dye_int_men', name: '法師染料（+INT / -MEN）', stat: 'int' },
-    { key: 'dye_men_int', name: '智慧染料（+MEN / -INT）', stat: 'men' }
+    { key: 'dye_str_con', name: '戰士染料（+力量 / -體質）', stat: 'str' },
+    { key: 'dye_dex_con', name: '刺客染料（+敏捷 / -體質）', stat: 'dex' },
+    { key: 'dye_con_str', name: '守護者染料（+體質 / -力量）', stat: 'con' },
+    { key: 'dye_wit_men', name: '施法染料（+智慧 / -精神）', stat: 'wit' },
+    { key: 'dye_int_men', name: '法師染料（+智力 / -精神）', stat: 'int' },
+    { key: 'dye_men_int', name: '精神染料（+精神 / -智力）', stat: 'men' }
   ];
 
   const catalogHtml = catalog.map(c => `
@@ -8690,9 +8690,9 @@ export function renderAutoRecycleModal(container, state, callbacks = {}) {
       <!-- Header -->
       <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(212,167,68,0.3); padding-bottom:12px; margin-bottom:16px;">
         <div>
-          <h3 style="margin:0; font-size:18px; color:#ffd877;">⚙️ AFK 掉落過濾與自動回收</h3>
+          <h3 style="margin:0; font-size:18px; color:#ffd877;">⚙️ 掛機掉落過濾與自動回收</h3>
           <div style="font-size:11px; color:#94a3b8; font-family:sans-serif; margin-top:2px;">
-            在 AFK 狩獵期間，自動管理並回收可淘汰的一般裝備。
+            在掛機狩獵期間，自動管理並回收可淘汰的一般裝備。
           </div>
         </div>
       </div>
@@ -8845,7 +8845,7 @@ export function renderAutoRecycleModal(container, state, callbacks = {}) {
       saveSettings();
       closeAutoRecycleModal();
       if (callbacks.log) {
-        callbacks.log(`⚙️ AFK 過濾設定已儲存：${st.autoRecycle.enabled ? '已啟用（' + (st.autoRecycle.mode === 'sell' ? '自動出售' : '分解') + '）' : '已停用'}`, 'system');
+        callbacks.log(`⚙️ 掛機過濾設定已儲存：${st.autoRecycle.enabled ? '已啟用（' + (st.autoRecycle.mode === 'sell' ? '自動出售' : '分解') + '）' : '已停用'}`, 'system');
       }
     };
   }
@@ -9035,14 +9035,14 @@ export function renderCashShopModal(container) {
             ${p.badge ? `<span style="position:absolute; top:-10px; right:12px; background:${p.id === 'starter_pack_tier3' ? '#ffd700' : '#38bdf8'}; color:#000; font-weight:bold; font-size:10px; padding:2px 8px; border-radius:10px;">${p.badge}</span>` : ''}
             <div>
               <h4 style="margin:0 0 6px 0; color:#ffd700; font-size:14px; font-family:'Cinzel',serif;">${p.name}</h4>
-              <div style="font-size:11px; color:#38bdf8; font-weight:bold; margin-bottom:8px;">${p.brlEquivalent} · <span style="color:#ffd700;">🪙 ${p.priceAC} AC</span></div>
+              <div style="font-size:11px; color:#38bdf8; font-weight:bold; margin-bottom:8px;">${p.brlEquivalent} · <span style="color:#ffd700;">🪙 ${p.priceAC} 亞丁幣</span></div>
               <p style="font-size:11px; color:#ccc; line-height:1.4; margin:0 0 10px 0;">${p.desc}</p>
             </div>
             <button
               onclick="window.executeCashShopBuy('starter_pack', '${p.id}')"
               style="width:100%; padding:10px; font-family:'Cinzel',serif; font-weight:bold; font-size:12px; background:linear-gradient(180deg,#ffd700,#b45309); border:1px solid #fef08a; border-radius:6px; color:#000; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.5);"
             >
-              🪙 購買（${p.priceAC} AC）
+              🪙 購買（${p.priceAC} 亞丁幣）
             </button>
           </div>
         `).join('')}
@@ -9059,14 +9059,14 @@ export function renderCashShopModal(container) {
           <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(168,85,247,0.4); border-radius:8px; padding:12px; display:flex; flex-direction:column; justify-content:space-between;">
             <div>
               <h4 style="margin:0 0 4px 0; color:#c084fc; font-size:13px; font-family:'Cinzel',serif;">${s.name}</h4>
-              <div style="font-size:11px; color:#ffd700; font-weight:bold; margin-bottom:6px;">🪙 ${s.priceAC} AC</div>
+              <div style="font-size:11px; color:#ffd700; font-weight:bold; margin-bottom:6px;">🪙 ${s.priceAC} 亞丁幣</div>
               <p style="font-size:11px; color:#bbb; line-height:1.3; margin:0 0 8px 0;">${s.desc}</p>
             </div>
             <button
               onclick="window.executeCashShopBuy('cosmetic', '${s.id}')"
               style="width:100%; padding:8px; font-family:'Cinzel',serif; font-weight:bold; font-size:11px; background:linear-gradient(180deg,#a855f7,#6b21a8); border:1px solid #c084fc; border-radius:4px; color:#fff; cursor:pointer;"
             >
-              🎨 裝備造型（${s.priceAC} AC）
+              🎨 裝備造型（${s.priceAC} 亞丁幣）
             </button>
           </div>
         `).join('')}
@@ -9083,14 +9083,14 @@ export function renderCashShopModal(container) {
           <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,215,0,0.3); border-radius:8px; padding:12px; display:flex; flex-direction:column; justify-content:space-between;">
             <div>
               <h4 style="margin:0 0 4px 0; color:${t.color || '#ffd700'}; font-size:13px; font-family:'Cinzel',serif;">${t.name}</h4>
-              <div style="font-size:11px; color:#ffd700; font-weight:bold; margin-bottom:6px;">🪙 ${t.priceAC} AC</div>
+              <div style="font-size:11px; color:#ffd700; font-weight:bold; margin-bottom:6px;">🪙 ${t.priceAC} 亞丁幣</div>
               <p style="font-size:11px; color:#bbb; line-height:1.3; margin:0 0 8px 0;">${t.desc}</p>
             </div>
             <button
               onclick="window.executeCashShopBuy('title', '${t.id}')"
               style="width:100%; padding:8px; font-family:'Cinzel',serif; font-weight:bold; font-size:11px; background:linear-gradient(180deg,#eab308,#a16207); border:1px solid #fde047; border-radius:4px; color:#000; cursor:pointer;"
             >
-              🏷️ 解鎖（${t.priceAC} AC）
+              🏷️ 解鎖（${t.priceAC} 亞丁幣）
             </button>
           </div>
         `).join('')}
@@ -9107,14 +9107,14 @@ export function renderCashShopModal(container) {
           <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(56,189,248,0.4); border-radius:8px; padding:12px; display:flex; flex-direction:column; justify-content:space-between;">
             <div>
               <h4 style="margin:0 0 4px 0; color:#38bdf8; font-size:13px; font-family:'Cinzel',serif;">${u.name}</h4>
-              <div style="font-size:11px; color:#ffd700; font-weight:bold; margin-bottom:6px;">🪙 ${u.priceAC} AC</div>
+              <div style="font-size:11px; color:#ffd700; font-weight:bold; margin-bottom:6px;">🪙 ${u.priceAC} 亞丁幣</div>
               <p style="font-size:11px; color:#bbb; line-height:1.3; margin:0 0 8px 0;">${u.desc}</p>
             </div>
             <button
               onclick="window.executeCashShopBuy('utility', '${u.id}')"
               style="width:100%; padding:8px; font-family:'Cinzel',serif; font-weight:bold; font-size:11px; background:linear-gradient(180deg,#0284c7,#0369a1); border:1px solid #38bdf8; border-radius:4px; color:#fff; cursor:pointer;"
             >
-              🧪 購買（${u.priceAC} AC）
+              🧪 購買（${u.priceAC} 亞丁幣）
             </button>
           </div>
         `).join('')}
@@ -9131,7 +9131,7 @@ export function renderCashShopModal(container) {
           <div style="background:rgba(0,0,0,0.5); border:1px solid ${d.popular ? '#ffd700' : 'rgba(255,215,0,0.3)'}; border-radius:10px; padding:14px; display:flex; flex-direction:column; justify-content:space-between; position:relative;">
             ${d.popular ? `<span style="position:absolute; top:-10px; right:12px; background:#ffd700; color:#000; font-weight:bold; font-size:10px; padding:2px 8px; border-radius:10px;">熱銷</span>` : ''}
             <div>
-              <h4 style="margin:0 0 4px 0; color:#ffd700; font-size:15px; font-family:'Cinzel',serif;">🪙 ${d.totalAC || d.amountAC} AC</h4>
+              <h4 style="margin:0 0 4px 0; color:#ffd700; font-size:15px; font-family:'Cinzel',serif;">🪙 ${d.totalAC || d.amountAC} 亞丁幣</h4>
               <div style="font-size:12px; color:#34d399; font-weight:bold; margin-bottom:6px;">${d.priceBRL}</div>
               <p style="font-size:11px; color:#bbb; line-height:1.3; margin:0 0 8px 0;">${d.desc}</p>
             </div>
@@ -9153,7 +9153,7 @@ export function renderCashShopModal(container) {
         <div style="display:flex; align-items:center; gap:10px;">
           <h3 style="margin:0; font-family:'Cinzel',serif; color:#ffd700; font-size:20px;">🪙 亞丁商店</h3>
           <span style="background:rgba(0,0,0,0.5); border:1px solid #ffd700; padding:3px 10px; border-radius:20px; font-size:12px; color:#ffd700; font-weight:bold;">
-            Saldo: ${balanceAC.toLocaleString()} AC
+            餘額：${balanceAC.toLocaleString()} 亞丁幣
           </span>
         </div>
         <button onclick="window.closeCashShopModal()" style="background:none; border:none; color:#aaa; font-size:22px; cursor:pointer;">✕</button>
@@ -9202,7 +9202,7 @@ export function uiOpenPixCheckoutModal(tierId, state) {
       <div style="background:rgba(0,0,0,0.6); border:1px solid rgba(255,215,0,0.3); border-radius:8px; padding:12px 16px; margin-bottom:16px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
           <span style="font-size:13px; color:#cbd5e1; font-weight:600;">已選擇套組：</span>
-          <span style="font-family:'Cinzel',serif; color:#ffd700; font-weight:bold; font-size:15px;">🪙 ${totalAC.toLocaleString()} AC</span>
+          <span style="font-family:'Cinzel',serif; color:#ffd700; font-weight:bold; font-size:15px;">🪙 ${totalAC.toLocaleString()} 亞丁幣</span>
         </div>
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
           <span style="font-size:13px; color:#cbd5e1; font-weight:600;">捐獻金額：</span>
@@ -9476,7 +9476,7 @@ export function uiOpenReferralModal(state, defaultTab) {
               🎯 綁定導師（等級 20 前可用）：
             </div>
             <div style="font-size: 10.5px; color: #94a3b8; margin-bottom: 8px; line-height: 1.4;">
-              綁定導師後，你會立即獲得 <strong style="color:#6ee7b7;">永久 +10% 經驗值</strong>、<strong>1,000 魂彈</strong> 與 <strong>10 瓶生命藥水</strong>！達到等級 40 時，雙方都可獲得 <strong>50 AC</strong> 與 <strong>5 張祝福卷軸</strong>。
+              綁定導師後，你會立即獲得 <strong style="color:#6ee7b7;">永久 +10% 經驗值</strong>、<strong>1,000 魂彈</strong> 與 <strong>10 瓶生命藥水</strong>！達到等級 40 時，雙方都可獲得 <strong>50 亞丁幣</strong> 與 <strong>5 張祝福卷軸</strong>。
             </div>
             <div style="display: flex; gap: 8px;">
               <input id="ref-friend-code-input" type="text" placeholder="輸入你的導師名稱..." style="flex: 1; background: #0b0d13; border: 1px solid #334155; border-radius: 4px; padding: 7px 10px; color: #fff; font-size: 11px;" />
@@ -9517,7 +9517,7 @@ export function uiOpenReferralModal(state, defaultTab) {
 
         <div style="margin-bottom: 10px;">
           <button id="ref-check-rewards-btn" onclick="window.claimReferralRewardsAction && window.claimReferralRewardsAction()" style="width: 100%; padding: 9px 14px; background: linear-gradient(180deg, #059669, #047857); border: 1px solid #34d399; border-radius: 6px; color: #fff; font-weight: bold; font-size: 11px; cursor: pointer; font-family: 'Cinzel', serif; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 0 12px rgba(16,185,129,0.25);">
-            🔄 檢查並領取獎勵（每位達 Lv.40 的學員：50 AC + 5 張卷軸）
+            🔄 檢查並領取獎勵（每位達 等級 40 的學員：50 亞丁幣 + 5 張卷軸）
           </button>
         </div>
 
@@ -10531,7 +10531,7 @@ export function renderClanTab(container, state) {
             📜 血盟格言： <span style="font-style:italic; color:#e2e8f0;">"${motto}"</span>
           </div>
           <div style="font-size:11.5px; color:#94a3b8; display:flex; gap:16px; flex-wrap:wrap;">
-            <span>🛡️ 血盟聲望： <strong style="color:#fde047;">${rep.toLocaleString()} CRP</strong></span>
+            <span>🛡️ 血盟聲望： <strong style="color:#fde047;">${rep.toLocaleString()} 血盟聲望</strong></span>
             <span>💰 金幣總捐獻： <strong style="color:#a3e635;">${adenaDonated.toLocaleString()}</strong></span>
             <span>✨ 技能點總捐獻： <strong style="color:#38bdf8;">${spDonated.toLocaleString()}</strong></span>
           </div>
@@ -10903,7 +10903,7 @@ export function openAugmentModal(state) {
           onclick="window.augmentWeaponAction('${activeStoneId}')"
           style="flex:1; padding:10px; font-size:12px; font-weight:bold; background:linear-gradient(180deg,#0891b2,#0e7490); border:1px solid #22d3ee; color:#fff; border-radius:6px; cursor:pointer; box-shadow:0 0 10px rgba(34,211,238,0.4);"
         >
-          💎 Infundir Life Stone
+          💎 灌注生命石
         </button>
         ${currentAug ? `
           <button
@@ -10936,7 +10936,7 @@ export function renderSevenSignsTab(container, state) {
               🏛️ 七封印－封印之戰
             </h2>
             <div style="font-size:12px; color:#c084fc; margin-top:4px;">
-              目前陣營： <strong>${ss.faction ? FACTIONS[ss.faction].name : '無（請選擇陣營）'}</strong> | 古代金幣: <strong style="color:#fef08a;">${(ss.ancientAdena || 0).toLocaleString()} AA</strong>
+              目前陣營： <strong>${ss.faction ? FACTIONS[ss.faction].name : '無（請選擇陣營）'}</strong> | 古代金幣: <strong style="color:#fef08a;">${(ss.ancientAdena || 0).toLocaleString()} 古代金幣</strong>
             </div>
           </div>
           <div style="display:flex; gap:12px; align-items:center;">
@@ -10958,10 +10958,10 @@ export function renderSevenSignsTab(container, state) {
             📜 陣營與石頭
           </button>
           <button onclick="window.setSevenSignsSubTab('bosses')" style="padding:6px 14px; font-size:12px; border-radius:6px; cursor:pointer; font-weight:bold; ${activeSubTab === 'bosses' ? 'background:#9333ea; color:#fff; border:1px solid #c084fc;' : 'background:rgba(0,0,0,0.4); color:#c084fc; border:1px solid rgba(168,85,247,0.3);'}">
-            👑 Lilith & Anakim
+            👑 莉莉絲與安娜金
           </button>
           <button onclick="window.setSevenSignsSubTab('mammon')" style="padding:6px 14px; font-size:12px; border-radius:6px; cursor:pointer; font-weight:bold; ${activeSubTab === 'mammon' ? 'background:#9333ea; color:#fff; border:1px solid #c084fc;' : 'background:rgba(0,0,0,0.4); color:#c084fc; border:1px solid rgba(168,85,247,0.3);'}">
-            🧙‍♂️ Mammon 商人
+            🧙‍♂️ 瑪門商人
           </button>
         </div>
       </div>
@@ -11010,13 +11010,13 @@ function renderSevenSignsStatusView(ss, state) {
               <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px; display:flex; justify-content:space-between; align-items:center;">
                 <div>
                   <div style="font-weight:bold; color:#f3e8ff; font-size:13px;">${st.name}</div>
-                  <div style="font-size:11px; color:#c084fc;">背包中： <strong>${count}x</strong> （每個價值 ${st.aaValue} AA）</div>
+                  <div style="font-size:11px; color:#c084fc;">背包中： <strong>${count}x</strong> （每個價值 ${st.aaValue} 古代金幣）</div>
                 </div>
                 <button
                   onclick="window.depositSealStonesAction('${st.id}', ${count > 0 ? count : 1})"
                   ${count === 0 ? 'disabled style="opacity:0.4; cursor:not-allowed; padding:6px 12px; font-size:11px; border-radius:6px;"' : 'style="padding:6px 12px; font-size:11px; font-weight:bold; background:#9333ea; border:1px solid #c084fc; color:#fff; border-radius:6px; cursor:pointer;"'}
                 >
-                  Entregar Todas
+                  全部繳交
                 </button>
               </div>
             `;
@@ -11044,14 +11044,14 @@ function renderSevenSignsBossesView(ss, state) {
               onclick="window.executeSevenSignsBossTurnAction()"
               style="padding:10px 24px; font-size:13px; font-weight:bold; background:#dc2626; border:1px solid #ef4444; color:#fff; border-radius:8px; cursor:pointer;"
             >
-              ⚔️ Desferir Ataque Supremo!
+              ⚔️ 發動終極攻擊！
             </button>
           </div>
           <!-- Barra de HP do Chefe -->
           <div style="margin-top:14px; background:rgba(0,0,0,0.6); border:1px solid #ef4444; border-radius:8px; height:20px; position:relative; overflow:hidden;">
             <div style="width:${Math.max(0, Math.min(100, (activeFight.bossHp / activeFight.maxHp) * 100))}%; height:100%; background:linear-gradient(90deg, #dc2626, #f87171); transition:width 0.3s ease;"></div>
             <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:bold; color:#fff;">
-              ${activeFight.bossHp.toLocaleString()} / ${activeFight.maxHp.toLocaleString()} HP
+              ${activeFight.bossHp.toLocaleString()} / ${activeFight.maxHp.toLocaleString()} 生命值
             </div>
           </div>
         </div>
@@ -11072,13 +11072,13 @@ function renderSevenSignsBossesView(ss, state) {
                 </span>
               </div>
               <p style="font-size:12px; color:#9ca3af; margin:8px 0;">${boss.desc}</p>
-              <div style="font-size:11px; color:#fde047;">開啟費用： <strong>${boss.reqAA.toLocaleString()} AA</strong></div>
+              <div style="font-size:11px; color:#fde047;">開啟費用： <strong>${boss.reqAA.toLocaleString()} 古代金幣</strong></div>
             </div>
             <button
               onclick="window.startSevenSignsBossFightAction('${boss.id}')"
               style="padding:8px 16px; font-size:12px; font-weight:bold; background:#7e22ce; border:1px solid #a855f7; color:#fff; border-radius:6px; cursor:pointer;"
             >
-              🚪 Abrir Portal & Desafiar
+              🚪 開啟傳送門並挑戰
             </button>
           </div>
         `).join('')}
@@ -11113,7 +11113,7 @@ function renderSevenSignsMammonView(ss, state) {
               <div>
                 <div style="font-weight:bold; color:#f3e8ff; font-size:12px;">${srv.name}</div>
                 <div style="font-size:10px; color:#9ca3af; margin-top:2px;">${srv.desc}</div>
-                <div style="font-size:11px; color:#fde047; font-weight:bold; margin-top:2px;">${srv.costAA.toLocaleString()} AA</div>
+                <div style="font-size:11px; color:#fde047; font-weight:bold; margin-top:2px;">${srv.costAA.toLocaleString()} 古代金幣</div>
               </div>
               <button
                 ${accessCheck.allowed ? 'onclick="window.unsealArmorAction()"' : 'disabled'}
@@ -11135,7 +11135,7 @@ function renderSevenSignsMammonView(ss, state) {
               <div>
                 <div style="font-weight:bold; color:#f3e8ff; font-size:12px;">${it.name}</div>
                 <div style="font-size:10px; color:#9ca3af; margin-top:2px;">${it.desc}</div>
-                <div style="font-size:11px; color:#fde047; font-weight:bold; margin-top:2px;">${it.costAA.toLocaleString()} AA</div>
+                <div style="font-size:11px; color:#fde047; font-weight:bold; margin-top:2px;">${it.costAA.toLocaleString()} 古代金幣</div>
               </div>
               <button
                 onclick="window.buyMammonItemAction('${it.id}')"
@@ -11299,20 +11299,20 @@ export function renderColosseumTab(container, state) {
         <div style="background:linear-gradient(135deg, rgba(40,15,15,0.95), rgba(20,5,5,0.98)); border:2px solid #ef4444; border-radius:10px; padding:16px;">
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
             <div>
-              <h3 style="margin:0; color:#fca5a5; font-family:'Cinzel',serif; font-size:18px;">⚔️ 1v1 決鬥：${activeDuel.opponentName}</h3>
+              <h3 style="margin:0; color:#fca5a5; font-family:'Cinzel',serif; font-size:18px;">⚔️ 一對一決鬥：${activeDuel.opponentName}</h3>
               <div style="font-size:12px; color:#f87171;">${activeDuel.opponentTitle} | 賭注：${(activeDuel.bet * 2).toLocaleString()} 金幣 正在競逐！</div>
             </div>
             <button
               onclick="window.executeDuelTurnAction()"
               style="padding:10px 24px; font-size:13px; font-weight:bold; background:#dc2626; border:1px solid #ef4444; color:#fff; border-radius:8px; cursor:pointer;"
             >
-              ⚔️ Desferir Golpe de Duelo!
+              ⚔️ 發動決鬥攻擊！
             </button>
           </div>
           <div style="margin-top:12px; background:rgba(0,0,0,0.6); border:1px solid #ef4444; border-radius:8px; height:18px; position:relative; overflow:hidden;">
             <div style="width:${Math.max(0, Math.min(100, (activeDuel.hp / activeDuel.maxHp) * 100))}%; height:100%; background:linear-gradient(90deg, #dc2626, #f87171);"></div>
             <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:bold; color:#fff;">
-              ${activeDuel.hp.toLocaleString()} / ${activeDuel.maxHp.toLocaleString()} HP
+              ${activeDuel.hp.toLocaleString()} / ${activeDuel.maxHp.toLocaleString()} 生命值
             </div>
           </div>
         </div>
@@ -11336,7 +11336,7 @@ export function renderColosseumTab(container, state) {
           <div style="margin-top:12px; background:rgba(0,0,0,0.6); border:1px solid #f59e0b; border-radius:8px; height:18px; position:relative; overflow:hidden;">
             <div style="width:${Math.max(0, Math.min(100, (activeSurvival.currentHp / activeSurvival.maxHp) * 100))}%; height:100%; background:linear-gradient(90deg, #d97706, #fde047);"></div>
             <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:bold; color:#fff;">
-              ${activeSurvival.currentHp.toLocaleString()} / ${activeSurvival.maxHp.toLocaleString()} HP
+              ${activeSurvival.currentHp.toLocaleString()} / ${activeSurvival.maxHp.toLocaleString()} 生命值
             </div>
           </div>
         </div>
@@ -11346,7 +11346,7 @@ export function renderColosseumTab(container, state) {
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:14px;">
         <!-- Duelos com Apostas -->
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(239,68,68,0.3); border-radius:8px; padding:14px;">
-          <h3 style="margin:0 0 10px 0; color:#fca5a5; font-family:'Cinzel',serif; font-size:15px;">⚔️ 1v1 賭注決鬥</h3>
+          <h3 style="margin:0 0 10px 0; color:#fca5a5; font-family:'Cinzel',serif; font-size:15px;">⚔️ 一對一賭注決鬥</h3>
           <div style="display:flex; flex-direction:column; gap:10px;">
             ${DUEL_BET_TIERS.map(tier => `
               <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:12px; display:flex; justify-content:space-between; align-items:center;">
@@ -11913,7 +11913,7 @@ export function openEnchantFlowModal(initialTargetUid = null, initialScrollUid =
               </div>
               <div>
                 <div style="color:#94a3b8; font-size:10px;">戰鬥力增益</div>
-                <div style="color:#ffd700; font-weight:bold;">+${(d.cp || 0).toLocaleString()} CP</div>
+                <div style="color:#ffd700; font-weight:bold;">+${(d.cp || 0).toLocaleString()} 戰鬥力</div>
               </div>
             </div>
 
