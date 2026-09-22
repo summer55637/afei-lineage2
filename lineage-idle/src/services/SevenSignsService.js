@@ -117,7 +117,7 @@ export class SevenSignsService {
   static executeBossTurn(state, hooks = {}) {
     const ss = this.ensureState(state);
     const fight = ss.activeBossFight;
-    if (!fight) return { success: false, message: 'Nenhum confronto de selo ativo.' };
+    if (!fight) return { success: false, message: '目前沒有進行中的封印爭奪戰。' };
 
     const boss = SEVEN_SIGNS_BOSSES[fight.bossId];
     const playerStats = state.stats || { atk: 2500, matk: 2500, def: 2000, mdef: 2000 };
@@ -165,7 +165,7 @@ export class SevenSignsService {
   static buyMammonItem(state, itemId, hooks = {}) {
     const ss = this.ensureState(state);
     const item = MAMMON_MERCHANT_CATALOG.find(i => i.id === itemId);
-    if (!item) return { success: false, message: 'Item de Mammon não encontrado.' };
+    if (!item) return { success: false, message: '找不到瑪門物品。' };
 
     if (ss.ancientAdena < item.costAA) {
       return { success: false, message: `古代金幣 insuficiente. Requer ${item.costAA.toLocaleString()} AA.` };
@@ -200,7 +200,7 @@ export class SevenSignsService {
     if (ss.ancientAdena < cost) {
       return { success: false, message: `古代金幣 insuficiente. Requer ${cost.toLocaleString()} AA para deselar armadura.` };
     }
-    if (!armorItem) return { success: false, message: 'Selecione uma armadura selada.' };
+    if (!armorItem) return { success: false, message: '請選擇一件封印防具。' };
 
     ss.ancientAdena -= cost;
     armorItem.isUnsealed = true;
@@ -225,27 +225,27 @@ export class SevenSignsService {
     if (phase === 'competition') {
       return {
         allowed: false,
-        message: 'O Ferreiro dos Selos está em transe sagrado durante o período de competição das Seven Signs.'
+        message: '七封印競賽期間，封印鐵匠正處於神聖冥想狀態。'
       };
     }
 
     if (!ss.faction) {
       return {
         allowed: false,
-        message: 'Acesso Negado: Você não jurou fidelidade a nenhuma facção das Seven Signs.'
+        message: '拒絕進入：你尚未向任何七封印陣營宣誓效忠。'
       };
     }
 
     if (ss.faction !== winner) {
       return {
         allowed: false,
-        message: `Acesso Restrito: Apenas membros da facção vitoriosa [${winner.toUpperCase()}] têm a bênção do Ferreiro Oculto de Mammon nesta semana.`
+        message: `限制進入：本週只有勝利陣營【${winner.toUpperCase()}】的成員能獲得瑪門隱藏鐵匠的祝福。`
       };
     }
 
     return {
       allowed: true,
-      message: `Acesso Concedido: Bem-vindo à Forja Oculta de Mammon, nobre campeão de [${winner.toUpperCase()}].`
+      message: `允許進入：歡迎來到瑪門隱藏鍛造所，【${winner.toUpperCase()}】陣營的尊貴勇士。`
     };
   }
 
