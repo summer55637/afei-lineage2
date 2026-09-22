@@ -15,7 +15,7 @@ export const CLAN_LEVEL_DATA = {
     reqItem: null,
     maxMembers: 15,
     unlockedSkills: ['clan_imperium'],
-    desc: '血盟創立階段。解鎖盟徽與血盟帝國技能（+生命值／CP）。'
+    desc: '血盟創立階段。解鎖盟徽與血盟帝國技能（+生命值／戰鬥力）。'
   },
   2: {
     level: 2,
@@ -69,7 +69,7 @@ export const CLAN_SKILLS = {
     name: '血盟帝國 🛡️',
     levelReq: 1,
     icon: 'gradespecial/scrolls/scroll_blessed_armor_s.png',
-    desc: '成員最大 生命值 +10%、最大 CP +15%。',
+    desc: '成員最大生命值 +10%、最大戰鬥力 +15%。',
     stats: { hpPercent: 0.10, cpPercent: 0.15 }
   },
   clan_might: {
