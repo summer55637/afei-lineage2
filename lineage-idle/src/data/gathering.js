@@ -114,7 +114,7 @@ export const GATHERING_TACTICS = {
 
 export const BOTANICAL_HAZARDS = {
   none: '無危險。',
-  thorn: '尖銳荊棘（若使用快速收割且處理不慎，會損失 5% HP）。',
+  thorn: '尖銳荊棘（若使用快速收割且處理不慎，會損失 5% 生命值）。',
   toxin: '有毒孢子（純度降低 25%，並造成暫時性負面狀態）。',
   resin: '濃稠樹脂（若處理不慎會黏住鐮刀，額外消耗 1 點耐久度）。'
 };
