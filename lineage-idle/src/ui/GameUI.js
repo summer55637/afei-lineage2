@@ -153,19 +153,19 @@ export function getItemGrade(itemDef) {
   const code = getItemGradeCode(itemDef);
   switch (code) {
     case 'd':
-      return { code: 'd', label: 'D-Grade', color: '#60a5fa' };
+      return { code: 'd', label: 'D 級', color: '#60a5fa' };
     case 'c':
-      return { code: 'c', label: 'C-Grade', color: '#4ade80' };
+      return { code: 'c', label: 'C 級', color: '#4ade80' };
     case 'b':
-      return { code: 'b', label: 'B-Grade', color: '#f59e0b' };
+      return { code: 'b', label: 'B 級', color: '#f59e0b' };
     case 'a':
-      return { code: 'a', label: 'A-Grade', color: '#a855f7' };
+      return { code: 'a', label: 'A 級', color: '#a855f7' };
     case 's':
-      return { code: 's', label: 'S-Grade', color: '#ef4444' };
+      return { code: 's', label: 'S 級', color: '#ef4444' };
     case 'boss':
       return { code: 'boss', label: '首領／史詩', color: '#ec4899' };
     case 'frostlord':
-      return { code: 'frostlord', label: 'Frost Lord', color: '#38bdf8' };
+      return { code: 'frostlord', label: '霜之領主', color: '#38bdf8' };
     case 'ng':
     default:
       return { code: 'ng', label: '無品級', color: '#9ca3af' };
@@ -3558,7 +3558,7 @@ export function renderZoneMap(state, callbacks = {}) {
   container.appendChild(capWidget);
 
   // Seletor de Dificuldade de Caça Progressiva (NÍVEL 15.4 / 15.5)
-  const currentDiff = MonsterAIEngine.getDifficulty(state) || { id: 'normal', name: 'Normal', icon: '🟢', color: '#10b981', xpMult: 1, dropMult: 1, minLvl: 1 };
+  const currentDiff = MonsterAIEngine.getDifficulty(state) || { id: 'normal', name: '一般', icon: '🟢', color: '#10b981', xpMult: 1, dropMult: 1, minLvl: 1 };
   const diffBar = document.createElement('div');
   diffBar.className = 'hunting-difficulty-banner-wrap';
   diffBar.style.cssText = 'margin: 10px 0 14px 0; padding: 10px 14px; background: rgba(0,0,0,0.45); border: 1px solid rgba(212,167,68,0.3); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;';
@@ -7867,7 +7867,7 @@ export function renderForgeTattoos(container, state) {
       <div class="l2-workshop-altar">
         <h3 class="l2-workshop-title">🖊️ 神聖刺青祭壇（Symbol Maker）</h3>
         <p class="l2-workshop-subtitle">
-          Grave até 3 símbolos rúnicos de Henna. Inicie no Estágio 1 (+1/-1) e aprimore até o Estágio 5 (+5/-5). Teto estrito de +5 por atributo líquido!
+          最多可刻印 3 個染料符文。從第 1 階（+1／-1）開始，可提升至第 5 階（+5／-5）。每項淨屬性加成上限嚴格限制為 +5！
         </p>
       </div>
 
@@ -9004,8 +9004,8 @@ export function renderCashShopModal(container) {
 
   // Render Tabs Header
   const tabs = [
-    { id: 'starter_packs', name: '⭐ Starter Packs' },
-    { id: 'costumes_and_skins', name: '🎨 Trajes & Skins' },
+    { id: 'starter_packs', name: '⭐ 新手禮包' },
+    { id: 'costumes_and_skins', name: '🎨 服裝與造型' },
     { id: 'titles_and_effects', name: '🏷️ 稱號與效果' },
     { id: 'utility_and_passes', name: '🧪 實用道具與通行證' },
     { id: 'donation_tiers', name: '🪙 取得亞丁幣' }
