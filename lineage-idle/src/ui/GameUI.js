@@ -10261,7 +10261,7 @@ export function renderOlympiadTab(container, state) {
               <span>🏆 大奧林匹亞 與職業英雄</span>
             </h2>
             <p style="margin:0; font-size:12px; color:#cbd5e1; line-height:1.4;">
-              貴族專屬 1v1 排名決鬥（<strong>等級 76+ 且已取得貴族資格</strong>）。爭奪 <strong>英雄</strong> 王冠、<strong>黃金光環</strong> 與 <strong>無限武器</strong>！
+              貴族專屬一對一排名決鬥（<strong>等級 76+ 且已取得貴族資格</strong>）。爭奪 <strong>英雄</strong> 王冠、<strong>黃金光環</strong> 與 <strong>無限武器</strong>！
             </p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
