@@ -256,10 +256,10 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
         reservedCharId = reservation.characterId;
         if (reservation.accountId) reservedAccId = reservation.accountId;
       } else {
-        console.error('[CharacterCreation] Falha ao registrar personagem canônico:', reservation.reason);
+        console.error('[CharacterCreation] 註冊正式角色失敗：', reservation.reason);
         alert(
-          `❌ Não foi possível criar o personagem no Firestore:\n\n${reservation.reason}\n\n` +
-          `Aviso de Segurança: Certifique-se de que as Regras do Firestore (firestore.rules) foram publicadas na aba "Regras" do Firebase Console.`
+          `❌ 無法在 Firestore 建立角色：\n\n${reservation.reason}\n\n` +
+          `安全提醒：請確認 Firestore 規則（firestore.rules）已發布到 Firebase Console 的「規則」頁面。`
         );
         return;
       }
@@ -332,11 +332,11 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
       }
     } catch (err: any) {
       if (err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential') {
-        setError('E-mail ou senha incorretos.');
+        setError('電子郵件或密碼錯誤。');
       } else if (err.code === 'auth/invalid-email') {
-        setError('E-mail inválido.');
+        setError('電子郵件格式無效。');
       } else {
-        setError(err.message || 'Erro ao realizar login.');
+        setError(err.message || '登入時發生錯誤。');
       }
     } finally {
       setLoading(false);
@@ -348,11 +348,11 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
     setError(null);
 
     if (password.length < 6) {
-      setError('A senha deve ter pelo menos 6 caracteres.');
+      setError('密碼至少需要 6 個字元。');
       return;
     }
     if (password !== confirmPassword) {
-      setError('As senhas não coincidem.');
+      setError('兩次輸入的密碼不一致。');
       return;
     }
 
@@ -362,11 +362,11 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
       setShowCreation(true);
     } catch (err: any) {
       if (err.code === 'auth/email-already-in-use') {
-        setError('Este e-mail já está cadastrado.');
+        setError('這個電子郵件已經註冊。');
       } else if (err.code === 'auth/weak-password') {
-        setError('Senha muito fraca. Use pelo menos 6 caracteres.');
+        setError('密碼強度不足，請至少使用 6 個字元。');
       } else {
-        setError(err.message || 'Erro ao criar conta.');
+        setError(err.message || '建立帳號時發生錯誤。');
       }
     } finally {
       setLoading(false);
@@ -385,7 +385,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
         setShowCreation(true);
       }
     } catch (err: any) {
-      setError(err.message || 'Erro ao entrar com Google.');
+      setError(err.message || '使用 Google 登入時發生錯誤。');
     } finally {
       setLoading(false);
     }
@@ -431,7 +431,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
         />
         <div className="relative z-10 flex flex-col items-center gap-3 p-6 rounded-2xl bg-amber-950/80 border-2 border-amber-600 shadow-2xl backdrop-blur-md">
           <div className="w-10 h-10 border-4 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
-          <p className="font-serif text-sm font-bold uppercase tracking-widest text-amber-300">Conectando a Aden...</p>
+          <p className="font-serif text-sm font-bold uppercase tracking-widest text-amber-300">正在連線至亞丁...</p>
         </div>
       </div>
     );
@@ -447,7 +447,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
   }
 
   // Dados reais do herói extraídos diretamente do Firebase
-  const heroName = cloudState?.charName || cloudState?.heroName || cloudState?.name || 'Aventureiro';
+  const heroName = cloudState?.charName || cloudState?.heroName || cloudState?.name || '冒險者';
   const heroLevel = cloudState?.level || 1;
   const heroClass = (cloudState?.class || 'FIGHTER').toUpperCase();
   const heroGold = cloudState?.gold !== undefined ? cloudState.gold : 0;
@@ -479,28 +479,28 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
           <div className="bg-gradient-to-b from-[#1c2230] to-[#10141d] p-4 text-center relative border-b border-[#c5a059]/30">
             <div className="relative z-10">
               <div className="text-[#c5a059] text-[10px] sm:text-xs font-bold tracking-[0.28em] mb-1 uppercase font-serif">
-                ✦ CHRONICLES OF ADEN · TEMPORADA 1 ✦
+                ✦ 亞丁編年史 · 第 1 賽季 ✦
               </div>
               <h1 className="text-3xl sm:text-4xl font-black text-[#f5df93] drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] tracking-wider" style={{ fontFamily: 'Cinzel, serif' }}>
-                ADEN ARENA
+                亞丁競技場
               </h1>
               <div className="text-[#c5a059] text-xs sm:text-sm font-black tracking-[0.25em] uppercase font-serif mt-0.5">
-                IDLE CHRONICLES
+                放置編年史
               </div>
               <div className="text-[#94a3b8] text-[10px] sm:text-[11px] mt-1 font-sans">
-                Aventura Épica no Universo Clássico de Aden
+                經典亞丁世界的史詩冒險
               </div>
 
               {/* Badges de Destaque */}
               <div className="mt-3 flex flex-wrap items-center justify-center gap-1.5 text-[10px]">
                 <span className="bg-[#0b0e14]/90 border border-[#c5a059]/40 text-[#f5df93] px-2.5 py-0.5 rounded font-semibold shadow-sm font-serif">
-                  ⚡ 100% Navegador
+                  ⚡ 100% 瀏覽器遊玩
                 </span>
                 <span className="bg-[#0b0e14]/90 border border-[#c5a059]/40 text-[#f5df93] px-2.5 py-0.5 rounded font-semibold shadow-sm font-serif">
-                  🛡️ 20+ Classes & Forja
+                  🛡️ 20+ 職業與鍛造
                 </span>
                 <span className="bg-[#0b0e14]/90 border border-[#c5a059]/40 text-[#f5df93] px-2.5 py-0.5 rounded font-semibold shadow-sm font-serif">
-                  🌙 Caça Offline
+                  🌙 離線狩獵
                 </span>
               </div>
             </div>
@@ -513,7 +513,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
               <div className="space-y-4">
                 <div className="text-center">
                   <div className="inline-block p-1 rounded-full bg-[#c5a059]/10 border border-[#c5a059]/30 text-[#f5df93] text-xs px-3 font-serif">
-                    👑 BEM-VINDO DE VOLTA
+                    👑 歡迎回來
                   </div>
                   <p className="text-xs text-[#94a3b8] font-mono truncate mt-1">
                     {user.email}
@@ -527,7 +527,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
                     <div className="heraldic-cameo-inner">
                       <img 
                         src={getHeroAvatar(cloudState)} 
-                        alt="Avatar do Herói" 
+                        alt="角色頭像" 
                       />
                     </div>
                   </div>
@@ -535,7 +535,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
                   {/* Informações da Conta */}
                   <div className="flex-1 min-w-0 text-xs space-y-1">
                     <div className="truncate">
-                      <span className="text-[#94a3b8] text-[11px] font-sans">Herói: </span>
+                      <span className="text-[#94a3b8] text-[11px] font-sans">角色：</span>
                       <span className="text-[#f5df93] font-bold font-serif text-sm">
                         {heroName}
                       </span>
@@ -549,23 +549,23 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
                           className="w-4 h-4 object-contain rounded bg-black/60 border border-[#c5a059]/40 p-0.5"
                           onError={(e) => { e.currentTarget.style.display = 'none'; }}
                         />
-                        <span>Nv. {heroLevel} · {heroClass}</span>
+                        <span>等級 {heroLevel} · {heroClass}</span>
                       </span>
                       <span className={isPrivileged ? "text-amber-400 font-bold" : "text-[#94a3b8]"}>
-                        {isPrivileged ? "👑 Admin" : "👤 Jogador"}
+                        {isPrivileged ? "👑 管理員" : "👤 玩家"}
                       </span>
                     </div>
 
                     <div className="flex justify-between items-center text-[11px] pt-0.5">
                       <div>
-                        <span className="text-[#64748b]">Adena: </span>
+                        <span className="text-[#64748b]">金幣：</span>
                         <span className="text-amber-400 font-bold font-mono">
                           🪙 {heroGold.toLocaleString()}
                         </span>
                       </div>
                       {highestFloor > 0 && (
                         <div>
-                          <span className="text-[#64748b]">Torre: </span>
+                          <span className="text-[#64748b]">高塔：</span>
                           <span className="text-sky-300 font-bold font-mono">
                             🏰 F{highestFloor}
                           </span>
@@ -575,34 +575,34 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
                   </div>
                 </div>
 
-                {/* Botão de Entrar Forjado em Ouro */}
+                {/* Botão de 登入 Forjado em Ouro */}
                 <button
                   onClick={handleStartLoggedGame}
                   className="w-full forged-gold-btn py-3.5 px-6 rounded-lg font-black text-sm tracking-wider uppercase flex items-center justify-center gap-2"
                 >
-                  <span>⚔️ ENTRAR NO JOGO ▶</span>
+                  <span>⚔️ 進入遊戲 ▶</span>
                 </button>
 
                 {/* Botões Secundários */}
                 <div className="flex gap-2">
                   <button
                     onClick={() => {
-                      if (confirm('Deseja criar um novo personagem ou escolher uma nova classe? O personagem atual será substituído após concluir a criação.')) {
+                      if (confirm('確定要建立新角色或選擇新的職業嗎？完成建立後，目前角色會被取代。')) {
                         setShowCreation(true);
                       }
                     }}
                     className="flex-1 bg-[#1a1710] hover:bg-[#2a2416] text-[#e8c870] hover:text-[#fde047] font-semibold py-2 px-3 rounded-lg text-xs border border-[#c5a059]/30 transition-all cursor-pointer font-serif flex items-center justify-center gap-1.5"
-                    title="Escolha uma nova raça e classe criando um novo herói"
+                    title="建立新角色並選擇新的種族與職業"
                   >
                     <span>✨</span>
-                    <span>Novo Personagem</span>
+                    <span>新角色</span>
                   </button>
 
                   <button
                     onClick={handleLogout}
                     className="flex-1 bg-[#121620] hover:bg-[#1a202d] text-[#94a3b8] hover:text-[#ece4d3] font-semibold py-2 px-3 rounded-lg text-xs border border-white/5 transition-all cursor-pointer font-serif"
                   >
-                    Trocar de Conta
+                    切換帳號
                   </button>
                 </div>
 
@@ -615,7 +615,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
                     className="w-full bg-[#5865F2]/20 hover:bg-[#5865F2]/30 border border-[#5865F2]/40 text-[#c7d2fe] hover:text-white font-semibold py-2 px-4 rounded-lg flex items-center justify-center gap-2 text-xs transition-all cursor-pointer text-decoration-none"
                   >
                     <span>💬</span>
-                    <span>Comunidade no Discord Oficial</span>
+                    <span>官方 Discord 社群</span>
                   </a>
                 </div>
               </div>
@@ -628,10 +628,10 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
                     onClick={handlePlayGuest}
                     className="w-full forged-gold-btn py-3.5 px-6 rounded-lg font-black text-base sm:text-lg tracking-wider uppercase flex items-center justify-center gap-2"
                   >
-                    <span>⚔️ JOGAR AGORA GRÁTIS ▶</span>
+                    <span>⚔️ 立即免費遊玩 ▶</span>
                   </button>
                   <p className="text-[11px] text-[#94a3b8] font-medium mt-2.5">
-                    Sem cadastro · Jogue direto no navegador · Salva automaticamente
+                    免註冊 · 瀏覽器直接遊玩 · 自動儲存
                   </p>
                 </div>
 
@@ -639,7 +639,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
                 <div className="flex items-center justify-center py-0.5">
                   <div className="h-px bg-[#c5a059]/25 flex-1"></div>
                   <div className="mx-3 text-[#c5a059]/80 text-[10px] font-bold uppercase tracking-widest font-serif">
-                    Ou sincronize em Nuvem
+                    或同步至雲端
                   </div>
                   <div className="h-px bg-[#c5a059]/25 flex-1"></div>
                 </div>
@@ -656,7 +656,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
                     <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.17 0 10.03 0 12s.46 3.83 1.26 5.42l4.02-3.15z"/>
                     <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.37 0 3.26 2.7 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
                   </svg>
-                  <span className="font-serif">Sincronizar com Google</span>
+                  <span className="font-serif">使用 Google 同步</span>
                 </button>
 
                 {/* Alternar login com E-mail / Senha */}
@@ -666,24 +666,24 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
                     onClick={() => setShowCloudLogin(!showCloudLogin)}
                     className="w-full text-center text-xs text-[#94a3b8] hover:text-[#f5df93] font-medium py-1 flex items-center justify-center gap-1 cursor-pointer transition font-serif"
                   >
-                    <span>{showCloudLogin ? '▲ Ocultar login por E-mail' : '▼ Entrar ou criar conta com E-mail / Senha'}</span>
+                    <span>{showCloudLogin ? '▲ 收起電子郵件登入' : '▼ 使用電子郵件／密碼登入或建立帳號'}</span>
                   </button>
 
                   {showCloudLogin && (
                     <div className="mt-3 pt-3 border-t border-[#c5a059]/20 space-y-3">
-                      {/* Abas Entrar / Criar Conta */}
+                      {/* Abas 登入 / 建立帳號 */}
                       <div className="flex border-b border-[#c5a059]/30 mb-2">
                         <button
                           className={`flex-1 py-1.5 text-xs font-bold border-b-2 transition font-serif ${tab === 'login' ? 'border-[#c5a059] text-[#f5df93]' : 'border-transparent text-[#64748b] hover:text-[#94a3b8]'}`}
                           onClick={() => { setTab('login'); setError(null); }}
                         >
-                          Entrar
+                          登入
                         </button>
                         <button
                           className={`flex-1 py-1.5 text-xs font-bold border-b-2 transition font-serif ${tab === 'register' ? 'border-[#c5a059] text-[#f5df93]' : 'border-transparent text-[#64748b] hover:text-[#94a3b8]'}`}
                           onClick={() => { setTab('register'); setError(null); }}
                         >
-                          Criar Conta
+                          建立帳號
                         </button>
                       </div>
 
@@ -697,7 +697,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
                       <form onSubmit={tab === 'login' ? handleLogin : handleRegister} className="space-y-2.5 text-left">
                         <div>
                           <label className="block text-[11px] font-semibold text-[#94a3b8] mb-1 font-serif">
-                            📧 E-mail
+                            📧 電子郵件
                           </label>
                           <input 
                             type="email"
@@ -711,7 +711,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
 
                         <div>
                           <label className="block text-[11px] font-semibold text-[#94a3b8] mb-1 font-serif">
-                            🔒 Senha
+                            🔒 密碼
                           </label>
                           <input 
                             type="password"
@@ -726,7 +726,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
                         {tab === 'register' && (
                           <div>
                             <label className="block text-[11px] font-semibold text-[#94a3b8] mb-1 font-serif">
-                              🔒 Confirmar Senha
+                              🔒 確認密碼
                             </label>
                             <input 
                               type="password"
@@ -744,7 +744,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
                           disabled={loading}
                           className="w-full bg-[#1c2436] hover:bg-[#253046] text-[#f5df93] border border-[#c5a059]/50 hover:border-[#c5a059] font-bold py-2.5 px-4 rounded-lg shadow disabled:opacity-50 text-xs cursor-pointer mt-2 font-serif uppercase tracking-wider transition-all"
                         >
-                          {loading ? 'PROCESSANDO...' : (tab === 'login' ? 'ENTRAR COM E-MAIL' : 'CRIAR CONTA')}
+                          {loading ? '處理中...' : (tab === 'login' ? '使用電子郵件登入' : '建立帳號')}
                         </button>
                       </form>
                     </div>
@@ -760,7 +760,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
                     className="w-full bg-[#5865F2]/20 hover:bg-[#5865F2]/30 border border-[#5865F2]/40 text-[#c7d2fe] hover:text-white font-semibold py-2 px-4 rounded-lg flex items-center justify-center gap-2 text-xs transition-all cursor-pointer text-decoration-none"
                   >
                     <span>💬</span>
-                    <span>Comunidade no Discord Oficial</span>
+                    <span>官方 Discord 社群</span>
                   </a>
                 </div>
               </div>
@@ -791,7 +791,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
               <span className="runic-glyph">ᛁ</span>
             </div>
             <div className="text-[#64748b] text-[9px] mt-1 font-serif">
-              © 2026 Aden Arena: Idle Chronicles · Aventura Clássica
+              © 2026 亞丁競技場：放置編年史 · 經典冒險
             </div>
           </div>
         </div>
