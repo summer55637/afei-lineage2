@@ -1192,11 +1192,18 @@ export class Game {
           const col = RARITY_COLOR[it.rarity];
           const res = this.equipItem(it);
           this.spawnText(this.px * S, 1.75, this.py * S, it.icon + " " + it.name, col);
+          const rarityLabel = ({
+            common: "一般",
+            uncommon: "非凡",
+            rare: "稀有",
+            epic: "史詩",
+            legendary: "傳說",
+          } as const)[it.rarity] || it.rarity;
           this.spawnText(
             this.px * S,
             1.5,
             this.py * S,
-            "[" + it.rarity.toUpperCase() + "] " + res,
+            "[" + rarityLabel + "] " + res,
             col
           );
           this.spawnParticles(this.px, this.py, col, 18, 4);
@@ -1330,9 +1337,9 @@ export class Game {
     if (upgrade) {
       this.equipped[item.slot] = item;
       this.recalcEquip();
-      return cur ? "upgraded" : "equipped";
+      return cur ? "已升級" : "已裝備";
     }
-    return "kept " + (cur?.name ?? item.name);
+    return "保留 " + (cur?.name ?? item.name);
   }
 
   makeItemOrb(color: string): THREE.Mesh {
@@ -1364,7 +1371,7 @@ export class Game {
       e.x * S,
       1.3,
       e.y * S,
-      (crit ? "CRIT " : "") + String(Math.round(d)),
+      (crit ? "暴擊 " : "") + String(Math.round(d)),
       crit ? "#ffd24a" : "#ffffff"
     );
     if (crit) {
@@ -2208,7 +2215,7 @@ export class Game {
 
     ctx.font = "bold 9px Inter, sans-serif";
     ctx.fillStyle = "#ffffff";
-    ctx.fillText(`HP ${Math.ceil(this.hp)} / ${this.maxHp}`, barX + 6, hpY + 9);
+    ctx.fillText(`生命 ${Math.ceil(this.hp)} / ${this.maxHp}`, barX + 6, hpY + 9);
 
     // MP Bar
     const mpRatio = clamp(this.mana / this.manaMax, 0, 1);
@@ -2231,14 +2238,14 @@ export class Game {
 
     ctx.font = "bold 8px Inter, sans-serif";
     ctx.fillStyle = "#ffffff";
-    ctx.fillText(`MP ${Math.ceil(this.mana)} / ${this.manaMax}`, barX + 6, mpY + 8);
+    ctx.fillText(`魔力 ${Math.ceil(this.mana)} / ${this.manaMax}`, barX + 6, mpY + 8);
 
     // --- Bottom Centered Graveyard Keeper Action Hotbar ---
     const slots = [
       { key: "1", icon: "⚔️", label: "攻擊", cd: 0, maxCd: 1 },
       { key: "2", icon: this.skills[0]?.emoji || "🔮", label: this.skills[0]?.name || "技能 1", cd: this.skillCd[0] || 0, maxCd: this.skills[0]?.cooldown || 1 },
       { key: "3", icon: this.skills[1]?.emoji || "⚡", label: this.skills[1]?.name || "技能 2", cd: this.skillCd[1] || 0, maxCd: this.skills[1]?.cooldown || 1 },
-      { key: "4", icon: "🧪", label: "HP 藥水", count: 12 },
+      { key: "4", icon: "🧪", label: "生命藥水", count: 12 },
       { key: "5", icon: "🍖", label: "食物", count: 5 },
     ];
 
