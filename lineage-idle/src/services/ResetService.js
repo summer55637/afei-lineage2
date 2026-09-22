@@ -22,7 +22,7 @@ export class ResetService {
     if (level < this.MAX_LEVEL_REQ) {
       return {
         canReset: false,
-        error: `Você precisa atingir o Nível Máximo (${this.MAX_LEVEL_REQ}) para transcender e resetar.`
+        error: `你必須達到最高等級（${this.MAX_LEVEL_REQ}）才能進行超越重置。`
       };
     }
     return { canReset: true };
@@ -47,7 +47,7 @@ export class ResetService {
     characterState.statPoints = (characterState.statPoints || 0) + this.BONUS_POINTS_PER_RESET;
 
     hooks.log?.(
-      `🌌 **TRANSCENDÊNCIA CONCLUÍDA!** O herói retornou ao Nível 1 com +${this.BONUS_POINTS_PER_RESET} Pontos de Atributos Permanentes! (Reset #${characterState.resetsCount})`,
+      `🌌 **超越完成！** 角色回到等級 1，並獲得 +${this.BONUS_POINTS_PER_RESET} 永久屬性點！（第 ${characterState.resetsCount} 次重置）`,
       'victory'
     );
     hooks.onUpdate?.();
