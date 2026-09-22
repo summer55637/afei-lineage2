@@ -176,7 +176,7 @@ export class CommunityCapService {
             </span>
           </div>
           <span style="font-size:11px; padding:2px 8px; border-radius:12px; font-weight:bold; ${goal.unlocked ? 'background:rgba(34,197,94,0.2); color:#4ade80; border:1px solid rgba(34,197,94,0.4);' : 'background:rgba(212,175,55,0.15); color:#fde047; border:1px solid rgba(212,175,55,0.3);'}">
-            ${goal.unlocked ? 'CAP 45 ATIVO' : `CAP ATUAL: ${goal.baseCap}`}
+            ${goal.unlocked ? '等級上限 45 已啟用' : `目前上限：${goal.baseCap}`}
           </span>
         </div>
 
