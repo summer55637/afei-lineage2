@@ -59,7 +59,7 @@ export const ALCHEMY_RECIPES = {
     id: 'elixir_arcanist',
     name: '奧術師靈藥',
     icon: '🔮',
-    desc: '+20% 魔法攻擊、+50% MP 恢復，持續 1 小時',
+    desc: '+20% 魔法攻擊、+50% 魔力恢復，持續 1 小時',
     cost: { water: 15, fire: 10 },
     gold: 2500,
     duration: 3600000
@@ -77,7 +77,7 @@ export const ALCHEMY_RECIPES = {
     id: 'elixir_titan',
     name: '泰坦靈藥',
     icon: '🛡️',
-    desc: '+25% 最大 HP、+20% 物理防禦，持續 1 小時',
+    desc: '+25% 最大生命值、+20% 物理防禦，持續 1 小時',
     cost: { earth: 25, fire: 15 },
     gold: 5000,
     duration: 3600000
@@ -86,7 +86,7 @@ export const ALCHEMY_RECIPES = {
     id: 'elixir_transcendence',
     name: '超越靈藥',
     icon: '✨',
-    desc: '+20% EXP、+20% SP 獲得量，持續 1 小時',
+    desc: '+20% 經驗值、+20% 技能點獲得量，持續 1 小時',
     cost: { water: 25, wind: 20 },
     gold: 10000,
     duration: 3600000
