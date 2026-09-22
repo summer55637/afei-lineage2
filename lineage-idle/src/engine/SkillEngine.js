@@ -54,7 +54,7 @@ export function spendSP(state, skillId, callbacks = {}) {
   const max = def.max || def.maxLevel || 5;
 
   if (lvl >= max) {
-    if (callbacks.log) callbacks.log(`${def.name} já atingiu o nível máximo.`, 'system');
+    if (callbacks.log) callbacks.log(`${def.name} 已達最高等級。`, 'system');
     return false;
   }
 
@@ -63,28 +63,28 @@ export function spendSP(state, skillId, callbacks = {}) {
     const visibility = getSkillVisibility(state, def);
     if (visibility === 'LOCKED') {
       const reqLvl = def.requiredLevel || def.reqLvl || 1;
-      if (callbacks.log) callbacks.log(`🔒 Habilidade bloqueada. Exige Nível ${reqLvl} e estágio de progressão compatível.`, 'system');
+      if (callbacks.log) callbacks.log(`🔒 技能尚未解鎖，需要等級 ${reqLvl} 並符合相應的職業進階階段。`, 'system');
     } else {
-      if (callbacks.log) callbacks.log(`❌ Esta habilidade não pertence à linhagem ou classe do seu personagem.`, 'system');
+      if (callbacks.log) callbacks.log(`❌ 此技能不屬於目前角色的職業或血統路線。`, 'system');
     }
     return false;
   }
 
   const cost = getSkillCost(skillId, lvl);
   if (state.sp < cost) {
-    if (callbacks.log) callbacks.log(`SP insuficiente (${cost} SP necessário).`, 'system');
+    if (callbacks.log) callbacks.log(`技能點不足（需要 ${cost} SP）。`, 'system');
     return false;
   }
 
   if (state.level < (def.reqLvl || 1)) {
-    if (callbacks.log) callbacks.log(`Nível ${def.reqLvl || 1} necessário para esta habilidade.`, 'system');
+    if (callbacks.log) callbacks.log(`此技能需要等級 ${def.reqLvl || 1}。`, 'system');
     return false;
   }
 
   // Validate every prerequisite before consuming resources.
   const reqs = (typeof window !== 'undefined' && window.EchoData) ? window.EchoData.SKILL_REQS_ECHO[skillId] : D()?.SKILL_REQS?.[skillId];
   if (reqs && !Object.entries(reqs).every(([s, v]) => s === 'level' || s === 'sp' || s === 'reqLvl' || (state.skills[s] || 0) >= v)) {
-    if (callbacks.log) callbacks.log('Pré-requisitos de habilidades não preenchidos.', 'system');
+    if (callbacks.log) callbacks.log('尚未滿足技能前置條件。', 'system');
     return false;
   }
 
@@ -94,14 +94,14 @@ export function spendSP(state, skillId, callbacks = {}) {
     const bookItem = state.inventory?.find(i => (i.itemId === reqBookId || (reqBookId === 'book_4star' && i.itemId === 'spellbook_4star')) && (i.count ?? 1) > 0);
     if (!bookItem) {
       const bookNames = {
-        'book_1star': 'Tomo Sagrado: 1★ (Comum)',
-        'book_2star': 'Tomo Sagrado: 2★ (Raro)',
-        'book_3star': 'Tomo Sagrado: 3★ (Épico)',
-        'book_4star': 'Tomo Sagrado: 4★ (Lendário Divino)',
-        'book_5star': 'Tomo Sagrado: 5★ (Transcendente Primordial)'
+        'book_1star': '神聖魔法書：1★（一般）',
+        'book_2star': '神聖魔法書：2★（稀有）',
+        'book_3star': '神聖魔法書：3★（史詩）',
+        'book_4star': '神聖魔法書：4★（神聖傳奇）',
+        'book_5star': '神聖魔法書：5★（原初超越）'
       };
       const bName = bookNames[reqBookId] || reqBookId;
-      if (callbacks.log) callbacks.log(`🔒 Exige o **${bName}** na mochila para desbloquear esta habilidade! (Encontre em caçadas/instâncias ou compre no Mercado Global)`, 'warning');
+      if (callbacks.log) callbacks.log(`🔒 背包中需要 **${bName}** 才能解鎖此技能！（可從狩獵／副本取得，或在全球市場購買）`, 'warning');
       return false;
     }
     const countBefore = bookItem.count ?? 1;
@@ -109,13 +109,13 @@ export function spendSP(state, skillId, callbacks = {}) {
     else removeFromInventory(state, bookItem.uid, 1);
     const countAfter = state.inventory.find(i => i.uid === bookItem.uid)?.count ?? (state.inventory.includes(bookItem) ? 1 : 0);
     if (countAfter !== countBefore - 1) return false;
-    if (callbacks.log) callbacks.log(`📖 **${def.name}** desbloqueada com sucesso! (${bookItem.itemId} consumido)`, 'rarity-legendary');
+    if (callbacks.log) callbacks.log(`📖 **${def.name}** 已成功解鎖！（消耗 ${bookItem.itemId}）`, 'rarity-legendary');
   }
 
   state.sp -= cost;
   state.skills[skillId] = lvl + 1;
   const newLvl = state.skills[skillId];
-  const TIER_NAMES = ['Foundation', 'Discipline', 'Mastery', 'Ascendancy', 'Legend'];
+  const TIER_NAMES = ['基礎', '修練', '精通', '昇華', '傳奇'];
   const tier = TIER_NAMES[def.tier] || '';
 
   if (callbacks.log) callbacks.log(`✦ ${def.name} → Lv.${newLvl} [${tier}] (-${cost} SP)`, newLvl === max ? 'saga' : 'xp');
@@ -152,7 +152,7 @@ export function resetSP(state, callbacks = {}) {
 
   state.sp += totalRefunded;
 
-  if (callbacks.log) callbacks.log(`🔄 Skills reset! Refunded ${totalRefunded.toLocaleString()} SP.`, 'rarity-legendary');
+  if (callbacks.log) callbacks.log(`🔄 技能已重置！返還 ${totalRefunded.toLocaleString()} SP。`, 'rarity-legendary');
   if (callbacks.floatText) callbacks.floatText(`+${totalRefunded.toLocaleString()} SP`, 'float-jackpot');
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
