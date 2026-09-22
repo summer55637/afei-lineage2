@@ -55,7 +55,7 @@ export class AugmentationService {
     const crystalCount = crystalItem ? (crystalItem.count || 1) : 0;
 
     if (crystalCount < reqCrystals) {
-      log(`⚠️ 寶石不足！鐵匠需要 ${reqCrystals}x ${stone.gemstoneGrade || 'D'} 級水晶／寶石才能灌注生命石。`, 'error');
+      log(`⚠️ 寶石不足！鐵匠需要 ${reqCrystals}× ${stone.gemstoneGrade || 'D'} 級水晶／寶石才能灌注生命石。`, 'error');
       return { success: false, reason: 'insufficient_gemstones' };
     }
 
