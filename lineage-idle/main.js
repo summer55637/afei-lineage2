@@ -6650,7 +6650,7 @@ function applyServerRatePreset(presetKey) {
   });
   
   log(`🚀 [管理員] 已套用預設：**${preset.name}**！所有倍率已即時更新。`, 'rarity-legendary');
-  if (typeof floatText === 'function') floatText(`🚀 預設 ${presetKey.toUpperCase()} 已啟用！`, 'float-jackpot');
+  if (typeof floatText === 'function') floatText(`🚀 預設 ${preset.name} 已啟用！`, 'float-jackpot');
   
   try {
     if (typeof localStorage !== 'undefined') {
