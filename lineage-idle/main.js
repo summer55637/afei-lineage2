@@ -10595,68 +10595,68 @@ export function init() {
       if (tab === 'journey') {
         contentEl.innerHTML = `
           <div style="background:rgba(0,0,0,0.35); padding:12px; border-radius:8px; border:1px solid rgba(212,175,55,0.2); margin-bottom:10px;">
-            <h4 style="color:#fbbf24; margin:0 0 6px 0;">🐣 Nível 1 a 20 — Os Primeiros Passos (No-Grade)</h4>
-            <p style="margin:0 0 4px 0;">• <strong>Zonas:</strong> Talking Island, Elven Forest, Dark Forest, Orc Village, Dwarven Mine, Kamael Lair, Ruined Outpost, Howling Moor.</p>
+            <h4 style="color:#fbbf24; margin:0 0 6px 0;">🐣 等級 1～20 — 初次冒險（無級別）</h4>
+            <p style="margin:0 0 4px 0;">• <strong>區域：</strong>說話之島、精靈森林、黑暗森林、半獸人村莊、矮人礦坑、卡麥爾巢穴、荒廢前哨、呼嘯荒原。</p>
             <p style="margin:0 0 4px 0;">• <strong>該怎麼做：</strong> 裝備你的職業新手套裝。技能需要正確武器才能使用（例如弓手使用弓、刺客使用匕首）。把多餘裝備送到鍛造系統拆解，以提升帳號鍛造等級。</p>
-            <p style="margin:0; color:#34d399; font-weight:bold;">🏆 Marco: 第一次轉職 no Nível 20 (Desbloqueia Grau D e Saga Prelude of War).</p>
+            <p style="margin:0; color:#34d399; font-weight:bold;">🏆 里程碑：等級 20 完成第一次轉職（解鎖 D 級與「戰爭序曲」史詩任務）。</p>
           </div>
 
           <div style="background:rgba(0,0,0,0.35); padding:12px; border-radius:8px; border:1px solid rgba(212,175,55,0.2); margin-bottom:10px;">
-            <h4 style="color:#fbbf24; margin:0 0 6px 0;">🛡️ Nível 20 a 40 — Grau D &amp; Primeiro Raid Boss</h4>
-            <p style="margin:0 0 4px 0;">• <strong>Zonas:</strong> Giran Outskirts, Orcen Ruins, Forsaken Crypt, Black Citadel.</p>
-            <p style="margin:0 0 4px 0;">• <strong>Raid Boss:</strong> Enfrente a <strong>Queen Ant 👑 (Lv. 40)</strong> para dropar o <em>Ring of Queen Ant</em> e a <em>Queen Ant Doll</em> (Codex).</p>
-            <p style="margin:0 0 4px 0;">• <strong>Sete Selos:</strong> Colete Seal Stones (Red, Green, Blue) caídas dos monstros para contribuir na vitória semanal da sua facção.</p>
-            <p style="margin:0; color:#34d399; font-weight:bold;">🏆 Marco: 第二次轉職 no Nível 40 (Desbloqueia Grau C e Saga The Awakening).</p>
+            <h4 style="color:#fbbf24; margin:0 0 6px 0;">🛡️ 等級 20～40 — D 級與首位團隊首領</h4>
+            <p style="margin:0 0 4px 0;">• <strong>區域：</strong>奇岩郊區、歐肯遺跡、遺忘墓穴、黑色城塞。</p>
+            <p style="margin:0 0 4px 0;">• <strong>團隊首領：</strong>挑戰<strong>蟻后 👑（Lv.40）</strong>，有機會獲得<em>蟻后戒指</em>與<em>蟻后娃娃</em>（圖鑑）。</p>
+            <p style="margin:0 0 4px 0;">• <strong>七封印：</strong>蒐集怪物掉落的紅／綠／藍封印石，為陣營每週勝利累積貢獻。</p>
+            <p style="margin:0; color:#34d399; font-weight:bold;">🏆 里程碑：等級 40 完成第二次轉職（解鎖 C 級與「覺醒」史詩任務）。</p>
           </div>
 
           <div style="background:rgba(0,0,0,0.35); padding:12px; border-radius:8px; border:1px solid rgba(212,175,55,0.2); margin-bottom:10px;">
-            <h4 style="color:#fbbf24; margin:0 0 6px 0;">⚔️ Nível 40 a 75 — Grau C/B/A, Barreira de Forja &amp; Noblesse</h4>
-            <p style="margin:0 0 4px 0;">• <strong>Zonas:</strong> Gludio Castle, Wolf Mountain, Rift of the Void, Emerald Grove, Gates of the Underworld, Valley of Saints, Swamp of Screams.</p>
-            <p style="margin:0 0 4px 0;">• <strong>Raid Bosses:</strong> Core (Lv. 50), Orfen (Lv. 55), Zaken (Lv. 60).</p>
+            <h4 style="color:#fbbf24; margin:0 0 6px 0;">⚔️ 等級 40～75 — C／B／A 級、鍛造門檻與貴族</h4>
+            <p style="margin:0 0 4px 0;">• <strong>區域：</strong>古魯丁城堡、狼山、虛空裂隙、翡翠樹林、冥界之門、聖者之谷、悲鳴沼澤。</p>
+            <p style="margin:0 0 4px 0;">• <strong>團隊首領：</strong>核心（Lv.50）、歐爾芬（Lv.55）、札肯（Lv.60）。</p>
             <p style="margin:0 0 4px 0;">• <strong>鍛造等級 10：</strong>鍛造達到等級 10 後，將解鎖<strong>全球市場</strong>，可自由交易物品。</p>
             <p style="margin:0 0 4px 0;">• <strong>貴族任務（Lv.75）：</strong>完成 4 個階段，前往聖者之谷與悲鳴沼澤，並擊敗<strong>團隊首領巴拉基爾</strong>，即可正式成為貴族！</p>
-            <p style="margin:0; color:#34d399; font-weight:bold;">🏆 Marco: 3ª Troca de Classe no Nível 76 (Sagas Ancestrais e Grau S).</p>
+            <p style="margin:0; color:#34d399; font-weight:bold;">🏆 里程碑：等級 76 完成第三次轉職（解鎖遠古史詩任務與 S 級）。</p>
           </div>
 
           <div style="background:rgba(0,0,0,0.35); padding:12px; border-radius:8px; border:1px solid rgba(212,175,55,0.2);">
-            <h4 style="color:#fbbf24; margin:0 0 6px 0;">👑 Nível 76 a 95+ — Endgame, Dragões &amp; Transcendência (Reset)</h4>
-            <p style="margin:0 0 4px 0;">• <strong>Zonas:</strong> Aden City, Dragon Valley, Imperial Tomb, Antharas' Lair, Forge of the Gods.</p>
-            <p style="margin:0 0 4px 0;">• <strong>Raid Bosses Épicos:</strong> Imperador Baium (Lv. 75), Frintezza (Lv. 85), Antharas (Lv. 95) e Valakas (Lv. 100).</p>
-            <p style="margin:0 0 4px 0;">• <strong>Grand Olympiad:</strong> Nobres disputam o título de Herói Supremo todo fim de semana.</p>
-            <p style="margin:0; color:#ffd700; font-weight:bold;">♾️ Rebirth / Reset: Ao atingir o Nível 85, você pode Transcender (Reset) para o Nível 1 acumulando +60 Pontos de Atributos Permanentes!</p>
+            <h4 style="color:#fbbf24; margin:0 0 6px 0;">👑 等級 76～95+ — 後期內容、巨龍與超越（重置）</h4>
+            <p style="margin:0 0 4px 0;">• <strong>區域：</strong>亞丁城、龍之谷、帝國陵墓、安塔瑞斯巢穴、諸神熔爐。</p>
+            <p style="margin:0 0 4px 0;">• <strong>史詩團隊首領：</strong>皇帝巴溫（Lv.75）、弗林泰沙（Lv.85）、安塔瑞斯（Lv.95）、巴拉卡斯（Lv.100）。</p>
+            <p style="margin:0 0 4px 0;">• <strong>大奧林匹亞：</strong>貴族玩家每週末爭奪至高英雄稱號。</p>
+            <p style="margin:0; color:#ffd700; font-weight:bold;">♾️ 重生／重置：達到等級 85 後可進行超越，重置回等級 1，並累積 +60 永久屬性點數！</p>
           </div>
         `;
       } else if (tab === 'forge') {
         contentEl.innerHTML = `
-          <h4 style="color:#fbbf24; margin-top:0;">🔨 Nível de Forja da Conta &amp; Economia Circular</h4>
-          <p>• <strong>Como subir o Nível de Forja:</strong> Ao desmanchar equipamentos sobressalentes na mochila ou forjar receitas, você ganha <strong>EXP de Forja</strong>.</p>
+          <h4 style="color:#fbbf24; margin-top:0;">🔨 帳號鍛造等級與循環經濟</h4>
+          <p>• <strong>如何提升鍛造等級：</strong>拆解背包中的多餘裝備或製作配方，都可獲得<strong>鍛造 EXP</strong>。</p>
           <p>• <strong>為什麼鍛造很重要：</strong>更高的鍛造等級會提高製作名匠裝備（普希金）的機率、降低成本，並解鎖 A 級、S 級與至尊級配方。</p>
-          <p>• <strong>Desbloqueio do Mercado Global (Lv. 10):</strong> Para combater bots e valorizar os jogadores dedicados, o Mercado Global exige Nível 10 de Forja da Conta.</p>
-          <p>• <strong>Item Sinks Massivos:</strong> No Endgame, você pode sacrificar armas antigas no Ferreiro Oculto para condensar Energia Ancestral e forjar Relíquias Soberanas.</p>
+          <p>• <strong>全球市場解鎖（Lv.10）：</strong>為降低機器人濫用並鼓勵正常遊玩，帳號鍛造等級需達 10 才能使用全球市場。</p>
+          <p>• <strong>大量物品消耗機制：</strong>後期可在隱藏鐵匠處犧牲舊武器，凝聚遠古能量並打造至尊遺物。</p>
         `;
       } else if (tab === 'codex') {
         contentEl.innerHTML = `
-          <h4 style="color:#fbbf24; margin-top:0;">🃏 Codex de Coleções &amp; Cartas de Monstros</h4>
-          <p>• <strong>Coleções de Itens:</strong> Registre armas e armaduras de treino para desbloquear bônus passivos permanentes de ATK, DEF e HP para toda a sua conta.</p>
-          <p>• <strong>Cartas de Monstros &amp; Boss Dolls:</strong> Ao derrotar Chefes de Raid (Queen Ant, Core, Orfen, Zaken, Baium, Antharas, Valakas), você tem chance de dropar suas Cartas Raras.</p>
+          <h4 style="color:#fbbf24; margin-top:0;">🃏 收藏圖鑑與怪物卡片</h4>
+          <p>• <strong>物品收藏：</strong>登錄訓練武器與防具，可為整個帳號解鎖永久 ATK、DEF、HP 被動加成。</p>
+          <p>• <strong>怪物卡與首領娃娃：</strong>擊敗團隊首領（蟻后、核心、歐爾芬、札肯、巴溫、安塔瑞斯、巴拉卡斯）時，有機會掉落對應稀有卡片。</p>
           <p>• <strong>吸收到圖鑑：</strong>將卡片吸收到圖鑑後，可為帳號永久增加屬性（P.ATK、M.ATK、吸血等）。</p>
-          <p>• <strong>Engaste em Equipamentos:</strong> Você também pode engastar cartas em slots de armas para potencializar seu dano elemental e crítico.</p>
+          <p>• <strong>裝備鑲嵌：</strong>也可將卡片鑲嵌到武器欄位，提高元素傷害與暴擊能力。</p>
         `;
       } else if (tab === 'combat') {
         contentEl.innerHTML = `
-          <h4 style="color:#fbbf24; margin-top:0;">⚔️ Restrições de Combate, Movesets &amp; Grimórios 4★</h4>
-          <p>• <strong>Moveset por Arma:</strong> Habilidades físicas exigem o arquétipo correto de arma equipado (ex: Habilidades de tiro exigem Arco, Danças exigem Espadas Duplas, etc.).</p>
-          <p>• <strong>Fraquezas Elementais:</strong> Monstros e chefes possuem elementos (Fogo, Água, Vento, Terra, Sagrado, Trevas). Usar a fraqueza oposta concede até +50% de dano bônus.</p>
-          <p>• <strong>Habilidades Supremas (4★):</strong> Habilidades 4-Star exigem o respectivo <em>Spellbook: 4-Star</em> na mochila para serem aprendidas pela 1ª vez. Uma vez aprendida, o livro é consumido e a habilidade pode ser usada para sempre!</p>
-          <p>• <strong>Hard DPS Check:</strong> Chefes de Raid possuem temporizadores de Enrage. Se o grupo não causar dano suficiente dentro do tempo limite, o Boss entra em fúria mortal.</p>
+          <h4 style="color:#fbbf24; margin-top:0;">⚔️ 戰鬥限制、武器招式與 4★ 魔法書</h4>
+          <p>• <strong>武器招式限制：</strong>物理技能需要裝備正確武器類型（例如射擊技能需要弓、劍舞技能需要雙劍等）。</p>
+          <p>• <strong>元素弱點：</strong>怪物與首領具有火、水、風、地、神聖、黑暗等屬性。使用相剋屬性最高可獲得 +50% 額外傷害。</p>
+          <p>• <strong>終極技能（4★）：</strong>首次學習 4★ 技能時，背包必須持有對應的<em>4★ 魔法書</em>。學會後魔法書會消耗，但技能可永久使用。</p>
+          <p>• <strong>硬性 DPS 檢定：</strong>團隊首領具有狂暴倒數。若隊伍無法在期限內造成足夠傷害，首領將進入致命狂暴狀態。</p>
         `;
       } else if (tab === 'sevensigns') {
         contentEl.innerHTML = `
-          <h4 style="color:#fbbf24; margin-top:0;">🏛️ Sete Selos (Seven Signs), Mammon &amp; Noblesse</h4>
-          <p>• <strong>Ciclo Semanal das Seven Signs:</strong> Escolha entre <strong>Senhores do Amanhecer (Dawn)</strong> ou <strong>Revolucionários do Crepúsculo (Dusk)</strong>. Entregue Seal Stones obtidas nas caças para acumular pontos de vitória.</p>
-          <p>• <strong>Ferreiro &amp; Mercador de Mammon:</strong> A facção vencedora ganha acesso exclusivo ao Ferreiro de Mammon para remoção de selos, trocas de armas Grau A/S e serviços sem perda de encanto usando Ancient Adena.</p>
+          <h4 style="color:#fbbf24; margin-top:0;">🏛️ 七封印、馬門與貴族</h4>
+          <p>• <strong>七封印每週循環：</strong>選擇<strong>黎明領主</strong>或<strong>黃昏革命軍</strong>陣營，繳交狩獵取得的封印石來累積勝利點數。</p>
+          <p>• <strong>馬門鐵匠與商人：</strong>勝利陣營可使用馬門服務，包括解除封印、A／S 級武器交換，以及使用古代金幣進行不降低強化值的特殊服務。</p>
           <p>• <strong>貴族任務線（珍貴靈魂的擁有者）：</strong>達到等級 75 後，完成聖者之谷與悲鳴沼澤的 4 個階段，並擊敗團隊首領<strong>巴拉基爾</strong>，即可取得貴族資格。</p>
-          <p>• <strong>Grand Olympiad:</strong> Nobres Nível 76+ podem lutar na arena 1v1 pelas cobiçadas Armas da Infinidade e o manto de Herói Supremo de Aden!</p>
+          <p>• <strong>大奧林匹亞：</strong>等級 76 以上貴族可參加 1 對 1 競技，爭奪無限武器與亞丁至高英雄披風！</p>
         `;
       }
     };
@@ -11226,31 +11226,31 @@ export function init() {
         contentEl.innerHTML = `
           <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(234,179,8,0.3); border-radius:8px; padding:14px; margin-bottom:14px;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-              <span style="font-weight:bold; color:#fde047; font-size:14px;">Status do Evento:</span>
-              <span style="background:rgba(34,197,94,0.2); color:#4ade80; border:1px solid #22c55e; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:bold;">● ATIVO AGORA</span>
+              <span style="font-weight:bold; color:#fde047; font-size:14px;">活動狀態：</span>
+              <span style="background:rgba(34,197,94,0.2); color:#4ade80; border:1px solid #22c55e; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:bold;">● 目前啟用</span>
             </div>
             <p style="margin:0 0 10px 0; font-size:12px; color:#cbd5e1;">${evt.desc}</p>
             <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:8px;">
               <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:6px; text-align:center; border:1px solid rgba(255,255,255,0.1);">
-                <div style="font-size:11px; color:#94a3b8;">Bônus Adena</div>
+                <div style="font-size:11px; color:#94a3b8;">金幣加成</div>
                 <div style="font-size:15px; font-weight:bold; color:#facc15;">+${Math.round((evt.modifiers.goldMult - 1) * 100)}%</div>
               </div>
               <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:6px; text-align:center; border:1px solid rgba(255,255,255,0.1);">
-                <div style="font-size:11px; color:#94a3b8;">Bônus EXP</div>
+                <div style="font-size:11px; color:#94a3b8;">EXP 加成</div>
                 <div style="font-size:15px; font-weight:bold; color:#38bdf8;">+${Math.round((evt.modifiers.xpMult - 1) * 100)}%</div>
               </div>
               <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:6px; text-align:center; border:1px solid rgba(255,255,255,0.1);">
-                <div style="font-size:11px; color:#94a3b8;">Bônus SP</div>
+                <div style="font-size:11px; color:#94a3b8;">SP 加成</div>
                 <div style="font-size:15px; font-weight:bold; color:#c084fc;">+${Math.round((evt.modifiers.spMult - 1) * 100)}%</div>
               </div>
               <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:6px; text-align:center; border:1px solid rgba(255,255,255,0.1);">
-                <div style="font-size:11px; color:#94a3b8;">Forja / Síntese</div>
+                <div style="font-size:11px; color:#94a3b8;">鍛造／合成</div>
                 <div style="font-size:15px; font-weight:bold; color:#fb923c;">+${Math.round(evt.modifiers.enchantBonus * 100)}%</div>
               </div>
             </div>
           </div>
           <div style="font-size:11px; color:#94a3b8; text-align:center; font-style:italic;">
-            Os eventos de Live-Ops atualizam automaticamente em tempo real com base no calendário do reino.
+            Live-Ops 活動會依王國行事曆自動即時更新。
           </div>
         `;
       }
@@ -11272,7 +11272,7 @@ export function init() {
         overviewEl.innerHTML = `
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
             <span style="font-weight:bold; color:#fef08a; font-size:14px; font-family:'Cinzel',serif;">7 個步驟進度：</span>
-            <span style="font-weight:bold; color:#38bdf8; font-size:13px;">${status.claimedCount} / 7 Concluídos (${pct}%)</span>
+            <span style="font-weight:bold; color:#38bdf8; font-size:13px;">${status.claimedCount} / 7 已完成（${pct}%）</span>
           </div>
           <div style="width:100%; height:8px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;">
             <div style="width:${pct}%; height:100%; background:linear-gradient(90deg, #eab308, #22c55e); transition:width 0.3s;"></div>
@@ -11302,7 +11302,7 @@ export function init() {
                 <div style="font-size:26px; width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.3); border-radius:8px; border:1px solid rgba(255,255,255,0.1);">${step.icon}</div>
                 <div style="flex:1;">
                   <div style="display:flex; align-items:center; gap:8px;">
-                    <span style="font-size:11px; background:rgba(234,179,8,0.2); color:#fde047; padding:1px 6px; border-radius:4px; font-weight:bold;">Passo ${step.stepNumber}</span>
+                    <span style="font-size:11px; background:rgba(234,179,8,0.2); color:#fde047; padding:1px 6px; border-radius:4px; font-weight:bold;">步驟 ${step.stepNumber}</span>
                     <span style="font-weight:bold; color:#f8fafc; font-size:14px; font-family:'Cinzel',serif;">${step.title}</span>
                   </div>
                   <div style="font-size:12px; color:#94a3b8; margin:3px 0 6px 0;">${step.desc}</div>
@@ -11869,11 +11869,11 @@ export function init() {
           <div>
             ${status.isActive ? `
               <button onclick="window.joinWorldBossFightAction()" style="padding:10px 20px; font-family:'Cinzel',serif; font-weight:bold; font-size:14px; background:linear-gradient(180deg,#ef4444,#991b1b); border:1px solid #fca5a5; color:#fff; border-radius:6px; cursor:pointer; box-shadow:0 0 16px rgba(239,68,68,0.6); animation:pulse 1.5s infinite;">
-                ⚔️ ENTRAR NA INCURSÃO AGORA!
+                ⚔️ 立即加入世界入侵！
               </button>
             ` : `
               <button disabled style="padding:10px 18px; font-family:'Cinzel',serif; font-size:12px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); color:#9ca3af; border-radius:6px; cursor:not-allowed;">
-                Aguardando Invasão (A cada 3h)
+                等待世界入侵（每 3 小時一次）
               </button>
             `}
           </div>
