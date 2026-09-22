@@ -1946,6 +1946,8 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
 
   const isGear = isEquipmentItem(def);
   const targetSlot = isGear ? resolveEquipSlot(def.slot, state?.equipment || {}) : null;
+  const detailSlotLabels = { weapon: '主武器', weapon2: '副武器', shield: '盾牌／符印', helmet: '頭盔', armor: '胸甲', chest: '胸甲', fullbody: '全身甲', legs: '腿甲', gloves: '手套', boots: '靴子', necklace: '項鍊', earring1: '耳環 1', earring2: '耳環 2', ring1: '戒指 1', ring2: '戒指 2', cloak: '披風', belt: '腰帶', hair: '頭飾' };
+  const targetSlotLabel = targetSlot ? (detailSlotLabels[targetSlot] || targetSlot) : '';
   const currentEquippedUid = (isGear && targetSlot) ? state?.equipment?.[targetSlot] : null;
   const currentEquippedItem = currentEquippedUid ? (state?.inventory || []).find(i => i.uid === currentEquippedUid) : null;
   const currentEquippedDef = currentEquippedItem ? (getItemDef(currentEquippedItem.itemId) || currentEquippedItem) : null;
@@ -1996,7 +1998,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
       <div class="detail-dock-title">
         <span>🔎</span>
         <span>${isComparing ? '智慧裝備比較' : '物品詳情'}</span>
-        ${targetSlot ? `<span style="font-size:10px; color:#94a3b8; font-weight:normal;">[欄位：${targetSlot}]</span>` : ''}
+        ${targetSlot ? `<span style="font-size:10px; color:#94a3b8; font-weight:normal;">[欄位：${targetSlotLabel}]</span>` : ''}
       </div>
       <button class="detail-dock-close-btn" id="dock-close-btn" title="關閉詳細資訊面板">✕</button>
     </div>
@@ -2020,7 +2022,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
                 ${(currentEquippedItem.enchant ? `+${currentEquippedItem.enchant} ` : '') + currentEquippedDef.name}
               </div>
               <div class="detail-item-submeta">
-                <span>${currentEquippedItem.rarity ? currentEquippedItem.rarity.toUpperCase() : '一般'}</span>
+                <span>${currentEquippedItem.rarity ? (D()?.RARITY?.[currentEquippedItem.rarity]?.name || currentEquippedItem.rarity) : '一般'}</span>
                 <span>• 等級 ${currentEquippedDef.req?.level || currentEquippedDef.level || 1}</span>
               </div>
             </div>
@@ -2043,7 +2045,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
                 ${(item.enchant ? `+${item.enchant} ` : '') + def.name}
               </div>
               <div class="detail-item-submeta">
-                <span>${item.rarity ? item.rarity.toUpperCase() : '一般'}</span>
+                <span>${item.rarity ? (D()?.RARITY?.[item.rarity]?.name || item.rarity) : '一般'}</span>
                 <span>• 等級 ${def.req?.level || def.level || 1}</span>
               </div>
             </div>
@@ -2075,7 +2077,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
               ${(item.enchant ? `+${item.enchant} ` : '') + def.name}
             </div>
             <div class="detail-item-submeta">
-              <span>${item.rarity ? item.rarity.toUpperCase() : '一般'}</span>
+              <span>${item.rarity ? (D()?.RARITY?.[item.rarity]?.name || item.rarity) : '一般'}</span>
               <span>• 數量：${item.count || 1}</span>
               ${def.req?.level ? `<span>• 等級 ${def.req.level}</span>` : ''}
             </div>
