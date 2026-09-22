@@ -66,7 +66,7 @@ export const SPELLBOOK_ITEMS = {
     level: 90,
     req: { level: 90 },
     icon: 'spellbooks/spellbook_4star.png',
-    desc: '蘊含太古與宇宙之力的最高技能書，用於覺醒 Master Ultimate（Lv.90）。',
+    desc: '蘊含太古與宇宙之力的最高技能書，用於覺醒大師終極技能（Lv.90）。',
     price: 5000000,
     stackable: true
   }
