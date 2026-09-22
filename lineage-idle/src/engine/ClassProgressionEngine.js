@@ -9,6 +9,12 @@ import { CanonicalClassGraph } from '../data/classes/CanonicalClassGraph.js';
 import { SeasonAvailabilityService } from '../services/SeasonAvailabilityService.js';
 import EventBus from '../core/EventBus.js';
 
+const RACE_DISPLAY_NAMES = {
+  human: '人類', elf: '精靈', darkelf: '黑暗精靈', dark_elf: '黑暗精靈',
+  orc: '半獸人', dwarf: '矮人', kamael: '闇天使', sylph: '風精靈',
+  highelf: '高等精靈', high_elf: '高等精靈', ertheia: '艾爾提亞'
+};
+
 export class ClassProgressionEngine {
   /**
    * Evaluates all structural successors in the DAG and determines their promotion status.
@@ -47,7 +53,7 @@ export class ClassProgressionEngine {
       const effectiveRace = playerRace || currentNode.race;
       if (effectiveRace && targetNode.race !== effectiveRace) {
         isEligible = false;
-        reasons.push(`種族限制：此職業屬於 ${targetNode.race}。`);
+        reasons.push(`種族限制：此職業屬於 ${RACE_DISPLAY_NAMES[targetNode.race] || '指定種族'}。`);
       }
 
       // 3. Season Rule
