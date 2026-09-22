@@ -1780,12 +1780,12 @@ export const IDLE_MARKUP = `
                 🚀 伺服器快速倍率預設（一鍵）
               </div>
               <div class="admin-btn-group" style="display:flex; flex-wrap:wrap; gap:6px;">
-                <button class="admin-preset-btn" data-rate-preset="classic">🛡️ 經典原始倍率（1x）</button>
-                <button class="admin-preset-btn" data-rate-preset="aden">⚔️ 亞丁動態倍率（3x）</button>
-                <button class="admin-preset-btn" data-rate-preset="mid">🔥 中倍率（10x）</button>
-                <button class="admin-preset-btn" data-rate-preset="high">👑 高倍率（50x）</button>
+                <button class="admin-preset-btn" data-rate-preset="classic">🛡️ 經典原始倍率（1×）</button>
+                <button class="admin-preset-btn" data-rate-preset="aden">⚔️ 亞丁動態倍率（3×）</button>
+                <button class="admin-preset-btn" data-rate-preset="mid">🔥 中倍率（10×）</button>
+                <button class="admin-preset-btn" data-rate-preset="high">👑 高倍率（50×）</button>
                 <button class="admin-preset-btn" data-rate-preset="turbo">⚡ 極速玩家對戰（100×）</button>
-                <button class="admin-preset-btn danger" data-rate-preset="reset" style="margin-left:auto;">🔄 重設（1x）</button>
+                <button class="admin-preset-btn danger" data-rate-preset="reset" style="margin-left:auto;">🔄 重設（1×）</button>
               </div>
             </div>
 
@@ -1798,13 +1798,13 @@ export const IDLE_MARKUP = `
                   <span id="rate-val-xp" class="rate-badge">x1.0</span>
                 </div>
                 <div class="rate-btn-row">
-                  <button class="rate-pill-btn" data-rate-set="xp:1">1x</button>
-                  <button class="rate-pill-btn" data-rate-set="xp:2">2x</button>
-                  <button class="rate-pill-btn" data-rate-set="xp:5">5x</button>
-                  <button class="rate-pill-btn" data-rate-set="xp:10">10x</button>
-                  <button class="rate-pill-btn" data-rate-set="xp:20">20x</button>
-                  <button class="rate-pill-btn" data-rate-set="xp:50">50x</button>
-                  <button class="rate-pill-btn" data-rate-set="xp:100">100x</button>
+                  <button class="rate-pill-btn" data-rate-set="xp:1">1×</button>
+                  <button class="rate-pill-btn" data-rate-set="xp:2">2×</button>
+                  <button class="rate-pill-btn" data-rate-set="xp:5">5×</button>
+                  <button class="rate-pill-btn" data-rate-set="xp:10">10×</button>
+                  <button class="rate-pill-btn" data-rate-set="xp:20">20×</button>
+                  <button class="rate-pill-btn" data-rate-set="xp:50">50×</button>
+                  <button class="rate-pill-btn" data-rate-set="xp:100">100×</button>
                 </div>
                 <div class="rate-custom-row">
                   <input type="number" id="admin-rate-inp-xp" class="admin-num-input" placeholder="倍率（例如：15）" min="0.1" max="1000" step="0.5" />
@@ -1819,13 +1819,13 @@ export const IDLE_MARKUP = `
                   <span id="rate-val-sp" class="rate-badge">x1.0</span>
                 </div>
                 <div class="rate-btn-row">
-                  <button class="rate-pill-btn" data-rate-set="sp:1">1x</button>
-                  <button class="rate-pill-btn" data-rate-set="sp:2">2x</button>
-                  <button class="rate-pill-btn" data-rate-set="sp:5">5x</button>
-                  <button class="rate-pill-btn" data-rate-set="sp:10">10x</button>
-                  <button class="rate-pill-btn" data-rate-set="sp:20">20x</button>
-                  <button class="rate-pill-btn" data-rate-set="sp:50">50x</button>
-                  <button class="rate-pill-btn" data-rate-set="sp:100">100x</button>
+                  <button class="rate-pill-btn" data-rate-set="sp:1">1×</button>
+                  <button class="rate-pill-btn" data-rate-set="sp:2">2×</button>
+                  <button class="rate-pill-btn" data-rate-set="sp:5">5×</button>
+                  <button class="rate-pill-btn" data-rate-set="sp:10">10×</button>
+                  <button class="rate-pill-btn" data-rate-set="sp:20">20×</button>
+                  <button class="rate-pill-btn" data-rate-set="sp:50">50×</button>
+                  <button class="rate-pill-btn" data-rate-set="sp:100">100×</button>
                 </div>
                 <div class="rate-custom-row">
                   <input type="number" id="admin-rate-inp-sp" class="admin-num-input" placeholder="倍率（例如：15）" min="0.1" max="1000" step="0.5" />
@@ -1840,13 +1840,13 @@ export const IDLE_MARKUP = `
                   <span id="rate-val-adena" class="rate-badge">x1.0</span>
                 </div>
                 <div class="rate-btn-row">
-                  <button class="rate-pill-btn" data-rate-set="adena:1">1x</button>
-                  <button class="rate-pill-btn" data-rate-set="adena:2">2x</button>
-                  <button class="rate-pill-btn" data-rate-set="adena:5">5x</button>
-                  <button class="rate-pill-btn" data-rate-set="adena:10">10x</button>
-                  <button class="rate-pill-btn" data-rate-set="adena:25">25x</button>
-                  <button class="rate-pill-btn" data-rate-set="adena:50">50x</button>
-                  <button class="rate-pill-btn" data-rate-set="adena:100">100x</button>
+                  <button class="rate-pill-btn" data-rate-set="adena:1">1×</button>
+                  <button class="rate-pill-btn" data-rate-set="adena:2">2×</button>
+                  <button class="rate-pill-btn" data-rate-set="adena:5">5×</button>
+                  <button class="rate-pill-btn" data-rate-set="adena:10">10×</button>
+                  <button class="rate-pill-btn" data-rate-set="adena:25">25×</button>
+                  <button class="rate-pill-btn" data-rate-set="adena:50">50×</button>
+                  <button class="rate-pill-btn" data-rate-set="adena:100">100×</button>
                 </div>
                 <div class="rate-custom-row">
                   <input type="number" id="admin-rate-inp-adena" class="admin-num-input" placeholder="倍率（例如：20）" min="0.1" max="1000" step="0.5" />
@@ -1861,13 +1861,13 @@ export const IDLE_MARKUP = `
                   <span id="rate-val-drop" class="rate-badge">x1.0</span>
                 </div>
                 <div class="rate-btn-row">
-                  <button class="rate-pill-btn" data-rate-set="drop:1">1x</button>
-                  <button class="rate-pill-btn" data-rate-set="drop:2">2x</button>
-                  <button class="rate-pill-btn" data-rate-set="drop:3">3x</button>
-                  <button class="rate-pill-btn" data-rate-set="drop:5">5x</button>
-                  <button class="rate-pill-btn" data-rate-set="drop:10">10x</button>
-                  <button class="rate-pill-btn" data-rate-set="drop:20">20x</button>
-                  <button class="rate-pill-btn" data-rate-set="drop:50">50x</button>
+                  <button class="rate-pill-btn" data-rate-set="drop:1">1×</button>
+                  <button class="rate-pill-btn" data-rate-set="drop:2">2×</button>
+                  <button class="rate-pill-btn" data-rate-set="drop:3">3×</button>
+                  <button class="rate-pill-btn" data-rate-set="drop:5">5×</button>
+                  <button class="rate-pill-btn" data-rate-set="drop:10">10×</button>
+                  <button class="rate-pill-btn" data-rate-set="drop:20">20×</button>
+                  <button class="rate-pill-btn" data-rate-set="drop:50">50×</button>
                 </div>
                 <div class="rate-custom-row">
                   <input type="number" id="admin-rate-inp-drop" class="admin-num-input" placeholder="倍率（例如：5）" min="0.1" max="1000" step="0.5" />
@@ -1882,12 +1882,12 @@ export const IDLE_MARKUP = `
                   <span id="rate-val-spoil" class="rate-badge">x1.0</span>
                 </div>
                 <div class="rate-btn-row">
-                  <button class="rate-pill-btn" data-rate-set="spoil:1">1x</button>
-                  <button class="rate-pill-btn" data-rate-set="spoil:2">2x</button>
-                  <button class="rate-pill-btn" data-rate-set="spoil:3">3x</button>
-                  <button class="rate-pill-btn" data-rate-set="spoil:5">5x</button>
-                  <button class="rate-pill-btn" data-rate-set="spoil:10">10x</button>
-                  <button class="rate-pill-btn" data-rate-set="spoil:20">20x</button>
+                  <button class="rate-pill-btn" data-rate-set="spoil:1">1×</button>
+                  <button class="rate-pill-btn" data-rate-set="spoil:2">2×</button>
+                  <button class="rate-pill-btn" data-rate-set="spoil:3">3×</button>
+                  <button class="rate-pill-btn" data-rate-set="spoil:5">5×</button>
+                  <button class="rate-pill-btn" data-rate-set="spoil:10">10×</button>
+                  <button class="rate-pill-btn" data-rate-set="spoil:20">20×</button>
                 </div>
                 <div class="rate-custom-row">
                   <input type="number" id="admin-rate-inp-spoil" class="admin-num-input" placeholder="倍率（例如：5）" min="0.1" max="1000" step="0.5" />
@@ -1902,11 +1902,11 @@ export const IDLE_MARKUP = `
                   <span id="rate-val-enchant" class="rate-badge">x1.0</span>
                 </div>
                 <div class="rate-btn-row">
-                  <button class="rate-pill-btn" data-rate-set="enchant:1">1.0x（標準）</button>
-                  <button class="rate-pill-btn" data-rate-set="enchant:1.2">1.2x (+20%)</button>
-                  <button class="rate-pill-btn" data-rate-set="enchant:1.5">1.5x (+50%)</button>
-                  <button class="rate-pill-btn" data-rate-set="enchant:2">2.0x (2x)</button>
-                  <button class="rate-pill-btn" data-rate-set="enchant:3">3.0x（極高）</button>
+                  <button class="rate-pill-btn" data-rate-set="enchant:1">1.0×（標準）</button>
+                  <button class="rate-pill-btn" data-rate-set="enchant:1.2">1.2× （+20%）</button>
+                  <button class="rate-pill-btn" data-rate-set="enchant:1.5">1.5× （+50%）</button>
+                  <button class="rate-pill-btn" data-rate-set="enchant:2">2.0× (2×)</button>
+                  <button class="rate-pill-btn" data-rate-set="enchant:3">3.0×（極高）</button>
                 </div>
                 <div class="rate-custom-row">
                   <input type="number" id="admin-rate-inp-enchant" class="admin-num-input" placeholder="倍率（例如：1.5）" min="0.1" max="10" step="0.1" />
@@ -1921,11 +1921,11 @@ export const IDLE_MARKUP = `
                   <span id="rate-val-book" class="rate-badge">x1.0</span>
                 </div>
                 <div class="rate-btn-row">
-                  <button class="rate-pill-btn" data-rate-set="book:1">1x</button>
-                  <button class="rate-pill-btn" data-rate-set="book:2">2x</button>
-                  <button class="rate-pill-btn" data-rate-set="book:5">5x</button>
-                  <button class="rate-pill-btn" data-rate-set="book:10">10x</button>
-                  <button class="rate-pill-btn" data-rate-set="book:20">20x</button>
+                  <button class="rate-pill-btn" data-rate-set="book:1">1×</button>
+                  <button class="rate-pill-btn" data-rate-set="book:2">2×</button>
+                  <button class="rate-pill-btn" data-rate-set="book:5">5×</button>
+                  <button class="rate-pill-btn" data-rate-set="book:10">10×</button>
+                  <button class="rate-pill-btn" data-rate-set="book:20">20×</button>
                 </div>
                 <div class="rate-custom-row">
                   <input type="number" id="admin-rate-inp-book" class="admin-num-input" placeholder="倍率（例如：5）" min="0.1" max="100" step="0.5" />
