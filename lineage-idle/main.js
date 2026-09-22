@@ -2098,6 +2098,15 @@ function updateDetailedEquipStatsUI() {
     helmet: '⛑️', armor: '🛡️', chest: '🛡️', legs: '👖', shield: '🛡️', boots: '👢',
     hair2: '🎭', earring1: '💎', earring2: '💎', ring2: '💍', cloak: '🧥', talisman: '🔮', agathion: '🧚‍♂️', brooch: '❇️', talisman_bracelet: '🔮', agathion_bracelet: '🧚‍♂️'
   };
+  const defaultSlotLabels = {
+    hair: '頭飾 1', hair2: '頭飾 2', helmet: '頭盔', necklace: '項鍊',
+    earring1: '耳環 1', earring2: '耳環 2', armor: '防具', chest: '防具',
+    gloves: '手套', belt: '腰帶', legs: '褲子', boots: '靴子',
+    weapon: '主手武器', weapon2: '副手武器', shield: '盾牌',
+    ring: '戒指 1', ring2: '戒指 2', cloak: '披風', talisman: '護符',
+    agathion: '阿加希翁', brooch: '胸針', talisman_bracelet: '護符手鐲',
+    agathion_bracelet: '阿加希翁手鐲'
+  };
 
   for (const slot of ALL_EQUIP_SLOTS) {
     if (slot === 'armor') continue; // chest é o slot canônico do paperdoll
@@ -2113,11 +2122,11 @@ function updateDetailedEquipStatsUI() {
     if (!uid) {
       if (pdSlot) { 
         pdSlot.className = `l2inv-pd-slot equip-slot`; 
-        pdSlot.title = `${slot} · 空`; 
+        pdSlot.title = `${defaultSlotLabels[slot] || slot} · 空`; 
         pdSlot.innerHTML = `<span class="l2inv-pd-icon">${defaultEmoji}</span><span class="l2inv-pd-item" id="pd-item-${slot}"></span>`;
       }
       if (elem) { elem.textContent = '空'; elem.style.color = ''; elem.title = ''; }
-      if (wrap) { wrap.style.borderColor = ''; wrap.title = slot + ' · 空'; }
+      if (wrap) { wrap.style.borderColor = ''; wrap.title = (defaultSlotLabels[slot] || slot) + ' · 空'; }
       continue;
     }
 
@@ -2126,11 +2135,11 @@ function updateDetailedEquipStatsUI() {
       state.equipment[slot] = null;
       if (pdSlot) { 
         pdSlot.className = `l2inv-pd-slot equip-slot`; 
-        pdSlot.title = `${slot} · 空`; 
+        pdSlot.title = `${defaultSlotLabels[slot] || slot} · 空`; 
         pdSlot.innerHTML = `<span class="l2inv-pd-icon">${defaultEmoji}</span><span class="l2inv-pd-item" id="pd-item-${slot}"></span>`;
       }
       if (elem) { elem.textContent = '空'; elem.style.color = ''; elem.title = ''; }
-      if (wrap) { wrap.style.borderColor = ''; wrap.title = slot + ' · 空'; }
+      if (wrap) { wrap.style.borderColor = ''; wrap.title = (defaultSlotLabels[slot] || slot) + ' · 空'; }
       continue;
     }
 
@@ -2142,7 +2151,7 @@ function updateDetailedEquipStatsUI() {
 
     if (pdSlot) {
       pdSlot.className = `l2inv-pd-slot equip-slot has-item rarity-${rarity}`;
-      pdSlot.title = `${enchantStr ? enchantStr + ' ' : ''}${def.name} (${slot})`;
+      pdSlot.title = `${enchantStr ? enchantStr + ' ' : ''}${def.name}（${defaultSlotLabels[slot] || slot}）`;
       pdSlot.innerHTML = `${getItemIcon(def)}<span class="l2inv-pd-item" id="pd-item-${slot}">${enchantStr}</span>`;
       pdSlot.onmouseenter = (e) => { cancelHideTooltip(); showItemTooltip(item, e); };
       pdSlot.onmouseleave = scheduleHideTooltip;
