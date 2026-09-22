@@ -66,7 +66,7 @@ export const MERCENARY_TRAITS = {
     id: 'greedy',
     name: '貪婪',
     icon: '💰',
-    desc: '掠奪金幣 +20%、獲得 XP -5%',
+    desc: '掠奪金幣 +20%、獲得 經驗值 -5%',
     goldBonusPct: 0.20,
     xpBonusPct: -0.05,
     color: '#f59e0b'
@@ -84,7 +84,7 @@ export const MERCENARY_TRAITS = {
     id: 'disciplined',
     name: '自律',
     icon: '📜',
-    desc: '傭兵遠征 XP +15%',
+    desc: '傭兵遠征 經驗值 +15%',
     xpBonusPct: 0.15,
     color: '#8b5cf6'
   },
@@ -158,7 +158,7 @@ export const MERCENARY_SPECIALIZATIONS = {
     role: '神聖治療與支援',
     desc: '治療戰傷、維持士氣並驅散詛咒。',
     synergyName: '伊娃祝福',
-    synergyDesc: '小隊 XP +30%（車隊殘餘傷害 -25%）',
+    synergyDesc: '小隊 經驗值 +30%（車隊殘餘傷害 -25%）',
     extraXpPct: 0.30,
     residualMitigation: 0.25
   }
