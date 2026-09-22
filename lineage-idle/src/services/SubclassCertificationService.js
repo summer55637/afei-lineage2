@@ -28,7 +28,7 @@ export const EMERGENT_ABILITIES = {
     id: 'emergent_patk',
     name: '副職業：物理攻擊',
     icon: '⚔️',
-    desc: '+35 P.Atk 與永久物理攻擊 +2.5%',
+    desc: '+35 物理攻擊 與永久物理攻擊 +2.5%',
     stats: { pAtk: 35, pAtkPercent: 0.025 },
     cp: 1500
   },
@@ -36,7 +36,7 @@ export const EMERGENT_ABILITIES = {
     id: 'emergent_pdef',
     name: '副職業：物理防禦',
     icon: '🛡️',
-    desc: '+30 P.Def 與永久物理防禦 +2.5%',
+    desc: '+30 物理防禦 與永久物理防禦 +2.5%',
     stats: { pDef: 30, pDefPercent: 0.025 },
     cp: 1500
   },
@@ -44,7 +44,7 @@ export const EMERGENT_ABILITIES = {
     id: 'emergent_matk',
     name: '副職業：魔法攻擊',
     icon: '🔮',
-    desc: '+45 M.Atk 與永久魔法攻擊 +3.0%',
+    desc: '+45 魔法攻擊 與永久魔法攻擊 +3.0%',
     stats: { mAtk: 45, mAtkPercent: 0.03 },
     cp: 1500
   },
@@ -88,10 +88,10 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
     },
     {
       id: 'master_boost_cp',
-      name: '提升 CP',
+      name: '提升戰鬥力',
       icon: '🛡️',
-      badge: '最大 CP',
-      desc: '+18% 最大 CP、+35% CP 恢復率',
+      badge: '最大戰鬥力',
+      desc: '+18% 最大戰鬥力、+35% 戰鬥力恢復率',
       stats: { maxCpPercent: 0.18, regenCpPercent: 0.35 },
       cp: 3500
     }
@@ -108,10 +108,10 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
     },
     {
       id: 'master_boost_hp',
-      name: '提升 HP',
+      name: '提升生命值',
       icon: '❤️',
-      badge: '最大 HP',
-      desc: '+14% 最大 HP、+25% HP 恢復率',
+      badge: '最大生命值',
+      desc: '+14% 最大生命值、+25% 生命值恢復率',
       stats: { maxHpPercent: 0.14, regenHpPercent: 0.25 },
       cp: 3500
     }
@@ -157,10 +157,10 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
     },
     {
       id: 'master_boost_mp',
-      name: '提升 MP 與靈敏',
+      name: '提升魔力 與靈敏',
       icon: '💙',
-      badge: '最大 MP',
-      desc: '+16% 最大 MP、+30 施法速度、+25% MP 恢復率',
+      badge: '最大魔力',
+      desc: '+16% 最大魔力、+30 施法速度、+25% 魔力恢復率',
       stats: { maxMpPercent: 0.16, castSpd: 30, regenMpPercent: 0.25 },
       cp: 3500
     }
@@ -177,10 +177,10 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
     },
     {
       id: 'master_boost_hp_mp',
-      name: '提升 HP 與 MP',
+      name: '提升生命值與魔力',
       icon: '💖',
-      badge: 'HP 與 MP',
-      desc: '永久 +10% 最大 HP、+12% 最大 MP',
+      badge: '生命值與魔力',
+      desc: '永久 +10% 最大生命值、+12% 最大魔力',
       stats: { maxHpPercent: 0.10, maxMpPercent: 0.12 },
       cp: 3500
     }
@@ -191,7 +191,7 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       name: '祈禱與神聖恩典',
       icon: '🕊️',
       badge: '受到治療',
-      desc: '+18% 受到治癒效果、+6% 最大 HP',
+      desc: '+18% 受到治癒效果、+6% 最大生命值',
       stats: { healReceivePercent: 0.18, maxHpPercent: 0.06 },
       cp: 3500
     },
@@ -219,8 +219,8 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       id: 'master_boost_mana',
       name: '大師魔力澄明',
       icon: '📜',
-      badge: 'MP 效率',
-      desc: '所有技能 MP 消耗 -10%，最大 MP +10%',
+      badge: '魔力效率',
+      desc: '所有技能魔力消耗 -10%，最大魔力 +10%',
       stats: { mpCostReduction: 0.10, maxMpPercent: 0.10 },
       cp: 3500
     }
@@ -244,7 +244,7 @@ export const DIVINE_TRANSFORMATIONS = {
     name: '變身：神聖騎士',
     icon: '🛡️',
     title: '亞丁神聖堡壘',
-    desc: '解鎖神聖騎士形態（終極防禦 +100% 防禦、仇恨光環），並永久獲得 +8% 物理防禦、+8% 魔法防禦與 +5% 最大 HP 光環。',
+    desc: '解鎖神聖騎士形態（終極防禦 +100% 防禦、仇恨光環），並永久獲得 +8% 物理防禦、+8% 魔法防禦與 +5% 最大生命值 光環。',
     passiveStats: { pDefPercent: 0.08, mDefPercent: 0.08, maxHpPercent: 0.05 },
     transformationBuffs: { pDefPercent: 0.50, mDefPercent: 0.50 },
     cp: 6500
@@ -274,7 +274,7 @@ export const DIVINE_TRANSFORMATIONS = {
     name: '變身：神聖召喚師',
     icon: '🦄',
     title: '天界神秘召喚師',
-    desc: '解鎖神聖召喚師形態（轉移傷害、終極使魔），並永久獲得 +8% 最大 HP 與 +5% 吸血光環。',
+    desc: '解鎖神聖召喚師形態（轉移傷害、終極使魔），並永久獲得 +8% 最大生命值 與 +5% 吸血光環。',
     passiveStats: { maxHpPercent: 0.08, lifestealPercent: 0.05 },
     transformationBuffs: { maxHpPercent: 0.20, lifestealPercent: 0.10 },
     cp: 6500
@@ -284,7 +284,7 @@ export const DIVINE_TRANSFORMATIONS = {
     name: '變身：神聖治癒師',
     icon: '🕊️',
     title: '神聖光之祭司',
-    desc: '解鎖神聖治療者形態（強效治療、淨化、70% 復活），並永久獲得 M.Def +10%、受到治療 +12%。',
+    desc: '解鎖神聖治療者形態（強效治療、淨化、70% 復活），並永久獲得 魔法防禦 +10%、受到治療 +12%。',
     passiveStats: { mDefPercent: 0.10, healReceivePercent: 0.12 },
     transformationBuffs: { mDefPercent: 0.25, regenHpPercent: 0.50 },
     cp: 6500
