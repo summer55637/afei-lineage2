@@ -1,5 +1,5 @@
 /**
- * AlchemyService.js — Módulo de Alquimia, Cadinho de Almas & Invocação do Chefe do Caos.
+ * AlchemyService.js — Módulo de 鍊金術, Cadinho de Almas & Invocação do Chefe do Caos.
  */
 
 import { D } from '../core/GameConfig.js';
@@ -132,7 +132,7 @@ export function getEssenceTypeForItem(def) {
 }
 
 /**
- * Retorna o grau do item normalizado para Alquimia.
+ * Retorna o grau do item normalizado para 鍊金術.
  */
 export function getGradeForItem(def, inv) {
   if (inv && inv.rarity) {
@@ -206,12 +206,12 @@ export function dissolveItem(state, uid, callbacks = {}) {
 
   const equippedUids = Object.values(state.equipment || {}).filter(Boolean);
   if (equippedUids.includes(uid) || inv.equipped) {
-    log('⚠️ Não é possível dissolver um equipamento em uso!', 'warning');
+    log('⚠️ 無法分解正在使用中的裝備！', 'warning');
     return false;
   }
 
   if (state.lockedItems && state.lockedItems.includes(uid)) {
-    log('🔒 Este item está bloqueado contra venda/dissolução!', 'warning');
+    log('🔒 此物品已鎖定，無法出售／分解！', 'warning');
     return false;
   }
 
@@ -239,8 +239,8 @@ export function dissolveItem(state, uid, callbacks = {}) {
   }
   state.essences[yieldData.essenceType] = (state.essences[yieldData.essenceType] || 0) + yieldData.count;
 
-  const typeLabels = { fire: 'Fogo 🔥', earth: 'Terra 🛡️', wind: 'Vento 🍃', water: 'Água 💧' };
-  log(`🔥 Cadinho de Almas: Desintegrou [${def.name}] (+${yieldData.count} Essência de ${typeLabels[yieldData.essenceType] || yieldData.essenceType})!`, 'loot');
+  const typeLabels = { fire: '火 🔥', earth: '地 🛡️', wind: '風 🍃', water: '水 💧' };
+  log(`🔥 靈魂熔爐：已分解 [${def.name}]（+${yieldData.count} ${typeLabels[yieldData.essenceType] || yieldData.essenceType} 精華）！`, 'loot');
 
   updateAllUI();
   save();
@@ -306,7 +306,7 @@ export function dissolveItemsByGrade(state, targetGrade = 'all', callbacks = {})
   }
 
   if (count === 0) {
-    log('⚠️ Ouro insuficiente para processar a dissolução em lote!', 'warning');
+    log('⚠️ 金幣不足，無法進行批次分解！', 'warning');
     return 0;
   }
 
@@ -352,7 +352,7 @@ export function craftElixir(state, recipeId, qty = 1, callbacks = {}) {
   const totalGold = recipe.gold * count;
 
   if ((state.gold || 0) < totalGold) {
-    log(`⚠️ Adena insuficiente! Requer ${totalGold.toLocaleString()}g.`, 'warning');
+    log(`⚠️ 金幣不足！需要 ${totalGold.toLocaleString()}g。`, 'warning');
     return false;
   }
 
@@ -364,7 +364,7 @@ export function craftElixir(state, recipeId, qty = 1, callbacks = {}) {
   for (const [type, amt] of Object.entries(recipe.cost)) {
     const required = amt * count;
     if ((state.essences[type] || 0) < required) {
-      log(`⚠️ Essências insuficientes! Requer ${required} Essências de ${type.toUpperCase()}.`, 'warning');
+      log(`⚠️ 精華不足！需要 ${required} 個 ${type.toUpperCase()} 精華。`, 'warning');
       return false;
     }
   }
@@ -376,7 +376,7 @@ export function craftElixir(state, recipeId, qty = 1, callbacks = {}) {
 
   if (recipe.isItem) {
     addToInventory(state, recipe.itemId || recipeId, count, 'rare', false, { log, updateAllUI, save }, true);
-    log(`🧪 Alquimia: Fabricou ${count}x [${recipe.name}] e guardou na mochila!`, 'loot');
+    log(`🧪 鍊金：製作了 ${count}x [${recipe.name}] 並放入背包！`, 'loot');
   } else {
     if (!state.activeElixirs) state.activeElixirs = {};
     if (!state.buffs) state.buffs = {};
@@ -394,7 +394,7 @@ export function craftElixir(state, recipeId, qty = 1, callbacks = {}) {
       until: finalExpiry,
       isElixir: true
     };
-    log(`🧪 Ativou ${recipe.name} por ${count} hora(s)! Bônus ativo em Active Buffs e Atributos!`, 'rarity-legendary');
+    log(`🧪 已啟用 ${recipe.name} ${count} 小時！加成已套用至狀態效果與屬性！`, 'rarity-legendary');
   }
 
   updateAllUI();
@@ -413,7 +413,7 @@ export function useChaosBossSummonStone(state, callbacks = {}) {
 
   const stoneCount = getInventoryCount(state, 'boss_summon_stone');
   if (stoneCount <= 0) {
-    log('⚠️ Você não possui nenhuma [Pedra de Convocação Abissal] na mochila! Fabrique-a na Alquimia.', 'warning');
+    log('⚠️ Você não possui nenhuma [Pedra de Convocação Abissal] na mochila! Fabrique-a na 鍊金術.', 'warning');
     return false;
   }
 
@@ -436,8 +436,8 @@ export function useChaosBossSummonStone(state, callbacks = {}) {
     { id: 'baium', name: 'Imperador Baium', level: 75, hp: 1200000, atk: 2200, def: 900, exp: 450000, sp: 120000, gold: 400000, icon: 'monsters/baium.png' },
     { id: 'barakiel', name: 'Flame of Splendor Barakiel', level: 80, hp: 1800000, atk: 2800, def: 1200, exp: 700000, sp: 200000, gold: 600000, icon: 'monsters/barakiel.png' },
     { id: 'frintezza', name: 'Príncipe Frintezza & Halisha', level: 85, hp: 2500000, atk: 3600, def: 1500, exp: 1100000, sp: 320000, gold: 900000, icon: 'monsters/frintezza.png' },
-    { id: 'antharas', name: 'Dragão da Terra Antharas', level: 90, hp: 4000000, atk: 5000, def: 2000, exp: 2000000, sp: 600000, gold: 1500000, icon: 'monsters/antharas.png' },
-    { id: 'valakas', name: 'Dragão do Fogo Valakas', level: 95, hp: 6000000, atk: 6800, def: 2600, exp: 3500000, sp: 1000000, gold: 2500000, icon: 'monsters/valakas.png' }
+    { id: 'antharas', name: 'Dragão da 地 Antharas', level: 90, hp: 4000000, atk: 5000, def: 2000, exp: 2000000, sp: 600000, gold: 1500000, icon: 'monsters/antharas.png' },
+    { id: 'valakas', name: 'Dragão do 火 Valakas', level: 95, hp: 6000000, atk: 6800, def: 2600, exp: 3500000, sp: 1000000, gold: 2500000, icon: 'monsters/valakas.png' }
   ];
 
   // Escala com o nível atual do jogador
