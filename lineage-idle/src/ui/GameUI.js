@@ -5870,7 +5870,7 @@ export function renderForgeDialogueView(state, callbacks = {}) {
       <button class="l2chat-option-btn" data-forge-target="soulcrystal">
         <span class="l2chat-bubble-icon">🗨️</span>
         <div style="flex:1;">
-          <div class="l2chat-option-text">為武器／防具賦予靈魂水晶效果或變更 SA</div>
+          <div class="l2chat-option-text">為武器／防具賦予靈魂水晶效果或變更特殊能力</div>
           <div class="l2chat-option-hint">在武器上啟用專注、靈敏、生命或力量效果</div>
         </div>
         <span style="color:#ffd877; font-size:12px;">➔</span>
@@ -7552,7 +7552,7 @@ export function renderForgeSoulCrystals(container, state) {
       <div class="l2-workshop-altar">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
           <div>
-            <h3 class="l2-workshop-title">🔮 靈魂水晶共鳴室（SA）</h3>
+            <h3 class="l2-workshop-title">🔮 靈魂水晶共鳴室（特殊能力）</h3>
             <p class="l2-workshop-subtitle">
               Mantenha o cristal na bolsa durante as caçadas para absorver almas e evoluir do Estágio 1 ao 15.
               可為主武器與副武器（雙武裝系統）賦予特殊能力（SA）。
@@ -7605,7 +7605,7 @@ export function renderForgeSoulCrystals(container, state) {
 
       <!-- Bancada de Engaste de Habilidade Especial (SA) -->
       <div class="l2-workshop-altar">
-        <h4 class="l2-workshop-title">🗡️ 特殊能力（SA）鑲嵌鐵砧</h4>
+        <h4 class="l2-workshop-title">🗡️ 特殊能力鑲嵌鐵砧</h4>
         
         <div style="display:flex; align-items:center; gap:12px; background:rgba(8,11,16,0.85); border:1px solid rgba(212,167,68,0.2); border-radius:6px; padding:10px 14px; margin-bottom:12px; flex-wrap:wrap;">
           <div class="l2-anvil-slot">
@@ -7619,7 +7619,7 @@ export function renderForgeSoulCrystals(container, state) {
             </div>
             <div style="font-size:11px; color:#94a3b8; margin-top:3px;">
               ${selectedWpn?.soulCrystal
-                ? `<span style="color:#34d399; font-weight:bold;">[已啟用 SA： ${selectedWpn.soulCrystal.name} （等級 ${selectedWpn.soulCrystal.level || 1}）]</span> <span style="color:#a7f3d0;">${selectedWpn.soulCrystal.desc}</span>`
+                ? `<span style="color:#34d399; font-weight:bold;">[已啟用特殊能力： ${selectedWpn.soulCrystal.name} （等級 ${selectedWpn.soulCrystal.level || 1}）]</span> <span style="color:#a7f3d0;">${selectedWpn.soulCrystal.desc}</span>`
                 : '此武器尚未鑲嵌特殊能力。'}
             </div>
             <div style="font-size:10px; color:#cbd5e1; margin-top:4px;">
@@ -8772,7 +8772,7 @@ export function renderAutoRecycleModal(container, state, callbacks = {}) {
           <div>✓ ⚡ <strong>魂彈與彈藥：</strong>100% 保護</div>
           <div>✓ 📜 <strong>卷軸與書籍：</strong> 100% 保護</div>
           <div>✓ 👑 <strong>傳承物品：</strong>100% 保護</div>
-          <div>✓ ✨ <strong>帶強化／SA 物品：</strong>100% 保護</div>
+          <div>✓ ✨ <strong>帶強化／特殊能力物品：</strong>100% 保護</div>
         </div>
       </div>
 
@@ -10461,7 +10461,7 @@ export function renderClanTab(container, state) {
           <!-- Barra de Progresso da Fase -->
           <div style="margin-bottom:12px;">
             <div style="display:flex; justify-content:space-between; font-size:11px; color:#cbd5e1; margin-bottom:4px;">
-              <span>${siege.phase === 3 ? '神聖封印進度' : '目標 HP'}</span>
+              <span>${siege.phase === 3 ? '神聖封印進度' : '目標生命值'}</span>
               <span>${hpCurrent.toLocaleString()} / ${hpMax.toLocaleString()} (${hpPercent}%)</span>
             </div>
             <div style="width:100%; height:12px; background:#18181b; border-radius:6px; overflow:hidden; border:1px solid #3f3f46;">
@@ -11093,7 +11093,7 @@ function renderSevenSignsMammonView(ss, state) {
       ${accessCheck.allowed ? `
         <div style="grid-column:1/-1; background:rgba(34,197,94,0.15); border:1px solid #22c55e; border-radius:8px; padding:10px 14px; font-size:12px; color:#86efac; display:flex; align-items:center; gap:8px;">
           <span>✅</span>
-          <div><strong>封印祝福已啟用：</strong>你的陣營【${(ss.winnerFaction || ss.faction || 'DAWN').toUpperCase()}】主宰本週循環！瑪門鐵匠已開放 SA 與防具解封功能。</div>
+          <div><strong>封印祝福已啟用：</strong>你的陣營【${(ss.winnerFaction || ss.faction || 'DAWN').toUpperCase()}】主宰本週循環！瑪門鐵匠已開放特殊能力與防具解封功能。</div>
         </div>
       ` : `
         <div style="grid-column:1/-1; background:rgba(239,68,68,0.15); border:1px solid #ef4444; border-radius:8px; padding:10px 14px; font-size:12px; color:#fca5a5; display:flex; align-items:center; gap:8px;">
