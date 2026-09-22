@@ -13,7 +13,7 @@ function formatPassiveLabel(statKey, val) {
     pAtkPct: `+${val}% P.Atk`,
     mAtkPct: `+${val}% M.Atk`,
     mDefPct: `+${val}% M.Def`,
-    critChance: `+${val}% Crit`,
+    critChance: `+${val}% 暴擊率`,
     critDmgPct: `+${val}% Crit Dmg`,
     atkSpd: `+${val}% Atk.Spd`,
     castSpd: `+${val}% Cast.Spd`,
@@ -407,7 +407,7 @@ export const GUIDES_DATA = {
         tip: '每日重置前記得領完所有每日獎勵！'
       },
       {
-        heading: '🎫 戰鬥通行證（Adena Pass）',
+        heading: '🎫 戰鬥通行證（亞丁通行證）',
         text: '遊玩時累積通行證點數即可提升等級，解鎖免費獎勵；升級為高級通行證後可獲得更稀有的獎勵。',
         tip: '高級通行證可獲得祝福強化卷軸！'
       }
