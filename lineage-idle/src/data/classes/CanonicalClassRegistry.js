@@ -2649,7 +2649,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "elemental_summoner": Object.freeze({
     "id": "elemental_summoner",
-    "name": "Elemental Summoner",
+    "name": "元素召喚師",
     "race": "elf",
     "raceName": "Elfo (Elf)",
     "stage": 2,
@@ -2687,7 +2687,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "elemental_master": Object.freeze({
     "id": "elemental_master",
-    "name": "Elemental Master",
+    "name": "元素大師",
     "race": "elf",
     "raceName": "Elfo (Elf)",
     "stage": 3,
@@ -2740,7 +2740,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "oracle": Object.freeze({
     "id": "oracle",
-    "name": "Elven Oracle",
+    "name": "精靈神使",
     "race": "elf",
     "raceName": "Elfo (Elf)",
     "stage": 1,
@@ -2789,7 +2789,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "elder": Object.freeze({
     "id": "elder",
-    "name": "Elven Elder",
+    "name": "精靈長老",
     "race": "elf",
     "raceName": "Elfo (Elf)",
     "stage": 2,
@@ -2844,7 +2844,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "evas_saint": Object.freeze({
     "id": "evas_saint",
-    "name": "Eva's Saint",
+    "name": "伊娃聖者's Saint",
     "race": "elf",
     "raceName": "Elfo (Elf)",
     "stage": 3,
@@ -2902,7 +2902,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "elf_deathknight_0": Object.freeze({
     "id": "elf_deathknight_0",
-    "name": "Elven Death Pilgrim",
+    "name": "精靈死亡朝聖者",
     "race": "elf",
     "raceName": "Elfo (Elf)",
     "stage": 0,
@@ -2931,7 +2931,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "elf_deathknight_1": Object.freeze({
     "id": "elf_deathknight_1",
-    "name": "Frost Blade",
+    "name": "冰霜之刃",
     "race": "elf",
     "raceName": "Elfo (Elf)",
     "stage": 1,
@@ -2970,7 +2970,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "elf_deathknight_2": Object.freeze({
     "id": "elf_deathknight_2",
-    "name": "Elven Death Knight",
+    "name": "精靈死亡騎士",
     "race": "elf",
     "raceName": "Elfo (Elf)",
     "stage": 2,
@@ -3016,7 +3016,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "elf_deathknight_3": Object.freeze({
     "id": "elf_deathknight_3",
-    "name": "Elven Death Knight (Master)",
+    "name": "精靈死亡騎士（大師）",
     "race": "elf",
     "raceName": "Elfo (Elf)",
     "stage": 3,
@@ -3071,7 +3071,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "dark_fighter": Object.freeze({
     "id": "dark_fighter",
-    "name": "Dark Fighter",
+    "name": "黑暗精靈戰士",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 0,
@@ -3100,7 +3100,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "palus_knight": Object.freeze({
     "id": "palus_knight",
-    "name": "Palus Knight",
+    "name": "帕魯斯騎士",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 1,
@@ -3141,7 +3141,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "shillien_knight": Object.freeze({
     "id": "shillien_knight",
-    "name": "Shillien Knight",
+    "name": "席琳騎士",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 2,
@@ -3190,7 +3190,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "shillien_templar": Object.freeze({
     "id": "shillien_templar",
-    "name": "Shillien Templar",
+    "name": "席琳聖殿騎士",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 3,
@@ -3252,7 +3252,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "bladedancer": Object.freeze({
     "id": "bladedancer",
-    "name": "Blade Dancer",
+    "name": "劍舞者",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 2,
@@ -3299,7 +3299,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "spectral_dancer": Object.freeze({
     "id": "spectral_dancer",
-    "name": "Spectral Dancer",
+    "name": "幽靈舞者",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 3,
@@ -3349,7 +3349,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "assassin": Object.freeze({
     "id": "assassin",
-    "name": "Assassin",
+    "name": "刺客",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 1,
@@ -3390,7 +3390,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "abyss_walker": Object.freeze({
     "id": "abyss_walker",
-    "name": "Abyss Walker",
+    "name": "深淵行者",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 2,
@@ -3432,7 +3432,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "ghost_hunter": Object.freeze({
     "id": "ghost_hunter",
-    "name": "Ghost Hunter",
+    "name": "幽靈獵人",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 3,
@@ -3486,7 +3486,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "phantom_ranger": Object.freeze({
     "id": "phantom_ranger",
-    "name": "Phantom Ranger",
+    "name": "幽靈遊俠",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 2,
@@ -3525,7 +3525,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "ghost_sentinel": Object.freeze({
     "id": "ghost_sentinel",
-    "name": "Ghost Sentinel",
+    "name": "幽靈守衛",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 3,
@@ -3581,7 +3581,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "dark_mage": Object.freeze({
     "id": "dark_mage",
-    "name": "Dark Mystic",
+    "name": "黑暗精靈法師",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 0,
@@ -3615,7 +3615,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "dark_wizard": Object.freeze({
     "id": "dark_wizard",
-    "name": "Dark Wizard",
+    "name": "黑暗巫師",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 1,
@@ -3657,7 +3657,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "spellhowler": Object.freeze({
     "id": "spellhowler",
-    "name": "Spellhowler",
+    "name": "狂咒術士",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 2,
@@ -3701,7 +3701,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "storm_screamer": Object.freeze({
     "id": "storm_screamer",
-    "name": "Storm Screamer",
+    "name": "暴風狂嘯者",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 3,
@@ -3757,7 +3757,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "phantom_summoner": Object.freeze({
     "id": "phantom_summoner",
-    "name": "Phantom Summoner",
+    "name": "幽靈召喚師",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 2,
@@ -3807,7 +3807,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "spectral_master": Object.freeze({
     "id": "spectral_master",
-    "name": "Spectral Master",
+    "name": "幽靈大師",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 3,
@@ -3863,7 +3863,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "shillien_oracle": Object.freeze({
     "id": "shillien_oracle",
-    "name": "Shillien Oracle",
+    "name": "席琳神使",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 1,
@@ -3912,7 +3912,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "shillien_elder": Object.freeze({
     "id": "shillien_elder",
-    "name": "Shillien Elder",
+    "name": "席琳長老",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 2,
@@ -3964,7 +3964,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "shillien_saint": Object.freeze({
     "id": "shillien_saint",
-    "name": "Shillien Saint",
+    "name": "席琳聖者",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 3,
@@ -4025,7 +4025,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "delf_deathknight_0": Object.freeze({
     "id": "delf_deathknight_0",
-    "name": "Dark Death Pilgrim",
+    "name": "黑暗死亡朝聖者",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 0,
@@ -4054,7 +4054,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "delf_deathknight_1": Object.freeze({
     "id": "delf_deathknight_1",
-    "name": "Abyssal Blade",
+    "name": "深淵之刃",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 1,
@@ -4093,7 +4093,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "delf_deathknight_2": Object.freeze({
     "id": "delf_deathknight_2",
-    "name": "Dark Death Knight",
+    "name": "黑暗死亡騎士",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 2,
@@ -4139,7 +4139,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "delf_deathknight_3": Object.freeze({
     "id": "delf_deathknight_3",
-    "name": "Dark Death Knight (Master)",
+    "name": "黑暗死亡騎士（大師）",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 3,
@@ -4194,7 +4194,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "secret_assassin_female_0": Object.freeze({
     "id": "secret_assassin_female_0",
-    "name": "Assassin (Female)",
+    "name": "刺客（女性）",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 0,
@@ -4223,7 +4223,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "secret_assassin_female_1": Object.freeze({
     "id": "secret_assassin_female_1",
-    "name": "Venom Assassin",
+    "name": "毒刃刺客",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 1,
@@ -4260,7 +4260,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "secret_assassin_female_2": Object.freeze({
     "id": "secret_assassin_female_2",
-    "name": "Nightstalker",
+    "name": "夜行者",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 2,
@@ -4304,7 +4304,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "secret_assassin_female_3": Object.freeze({
     "id": "secret_assassin_female_3",
-    "name": "Grand Assassin (Female)",
+    "name": "大刺客（女性）",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 3,
@@ -4355,7 +4355,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "rose_vain_0": Object.freeze({
     "id": "rose_vain_0",
-    "name": "Rose Initiate",
+    "name": "玫瑰使徒",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 0,
@@ -4384,7 +4384,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "rose_vain_1": Object.freeze({
     "id": "rose_vain_1",
-    "name": "Blood Rose",
+    "name": "血玫瑰",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 1,
@@ -4421,7 +4421,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "rose_vain_2": Object.freeze({
     "id": "rose_vain_2",
-    "name": "Crimson Thorn",
+    "name": "緋紅荊棘",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 2,
@@ -4463,7 +4463,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "rose_vain_3": Object.freeze({
     "id": "rose_vain_3",
-    "name": "Rose Vain",
+    "name": "玫瑰虛華",
     "race": "darkelf",
     "raceName": "Elfo Negro (Dark Elf)",
     "stage": 3,
@@ -4513,7 +4513,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "orc_fighter": Object.freeze({
     "id": "orc_fighter",
-    "name": "Orc Fighter",
+    "name": "半獸人戰士",
     "race": "orc",
     "raceName": "Orc (Orc)",
     "stage": 0,
@@ -4543,7 +4543,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "orc_raider": Object.freeze({
     "id": "orc_raider",
-    "name": "Orc Raider",
+    "name": "掠奪者",
     "race": "orc",
     "raceName": "Orc (Orc)",
     "stage": 1,
@@ -4587,7 +4587,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "destroyer": Object.freeze({
     "id": "destroyer",
-    "name": "Destroyer",
+    "name": "破壞者",
     "race": "orc",
     "raceName": "Orc (Orc)",
     "stage": 2,
@@ -4635,7 +4635,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "titan": Object.freeze({
     "id": "titan",
-    "name": "Titan",
+    "name": "泰坦",
     "race": "orc",
     "raceName": "Orc (Orc)",
     "stage": 3,
@@ -4696,7 +4696,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "orc_monk": Object.freeze({
     "id": "orc_monk",
-    "name": "Orc Monk",
+    "name": "武僧",
     "race": "orc",
     "raceName": "Orc (Orc)",
     "stage": 1,
@@ -4738,7 +4738,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "tyrant": Object.freeze({
     "id": "tyrant",
-    "name": "Tyrant",
+    "name": "暴君",
     "race": "orc",
     "raceName": "Orc (Orc)",
     "stage": 2,
@@ -4788,7 +4788,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "grand_khavatari": Object.freeze({
     "id": "grand_khavatari",
-    "name": "Grand Khavatari",
+    "name": "大卡巴塔里",
     "race": "orc",
     "raceName": "Orc (Orc)",
     "stage": 3,
@@ -4846,7 +4846,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "orc_mage": Object.freeze({
     "id": "orc_mage",
-    "name": "Orc Mystic",
+    "name": "半獸人法師",
     "race": "orc",
     "raceName": "Orc (Orc)",
     "stage": 0,
@@ -4878,7 +4878,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "orc_shaman": Object.freeze({
     "id": "orc_shaman",
-    "name": "Orc Shaman",
+    "name": "薩滿",
     "race": "orc",
     "raceName": "Orc (Orc)",
     "stage": 1,
@@ -4920,7 +4920,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "overlord": Object.freeze({
     "id": "overlord",
-    "name": "Overlord",
+    "name": "霸主",
     "race": "orc",
     "raceName": "Orc (Orc)",
     "stage": 2,
@@ -4974,7 +4974,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "dominator": Object.freeze({
     "id": "dominator",
-    "name": "Dominator",
+    "name": "支配者",
     "race": "orc",
     "raceName": "Orc (Orc)",
     "stage": 3,
@@ -5035,7 +5035,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "warcryer": Object.freeze({
     "id": "warcryer",
-    "name": "Warcryer",
+    "name": "戰狂",
     "race": "orc",
     "raceName": "Orc (Orc)",
     "stage": 2,
@@ -5085,7 +5085,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "doomcryer": Object.freeze({
     "id": "doomcryer",
-    "name": "Doomcryer",
+    "name": "末日戰狂",
     "race": "orc",
     "raceName": "Orc (Orc)",
     "stage": 3,
@@ -5140,7 +5140,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "orc_rider_0": Object.freeze({
     "id": "orc_rider_0",
-    "name": "Vanguard Rider",
+    "name": "騎乘戰士",
     "race": "orc",
     "raceName": "Orc (Orc)",
     "stage": 0,
@@ -5171,7 +5171,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "orc_rider_1": Object.freeze({
     "id": "orc_rider_1",
-    "name": "Dragoon",
+    "name": "龍騎兵",
     "race": "orc",
     "raceName": "Orc (Orc)",
     "stage": 1,
