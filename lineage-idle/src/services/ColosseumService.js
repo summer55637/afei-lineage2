@@ -72,7 +72,7 @@ export class ColosseumService {
       turn: 1
     };
 
-    hooks.log?.(`⚔️ 決鬥 iniciado na Arena de Giran contra **${oppName}**! 賭注: ${tier.bet.toLocaleString()}g`, 'warning');
+    hooks.log?.(`⚔️ 已在奇岩競技場與 **${oppName}** 開始決鬥！賭注：${tier.bet.toLocaleString()}g`, 'warning');
     hooks.onUpdate?.();
     return { success: true, duel: colState.activeDuel };
   }
