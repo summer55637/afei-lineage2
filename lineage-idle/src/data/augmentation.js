@@ -132,7 +132,7 @@ export const ITEM_SKILLS = [
     id: 'item_skill_passive_duel',
     name: '物品技能：被動決鬥之力 🏆',
     type: 'passive',
-    desc: '大奧林匹亞決鬥與 PvP 傷害 +12%。',
+    desc: '大奧林匹亞決鬥與玩家對戰傷害 +12%。',
     stats: { pvpDamagePercent: 0.12 }
   },
   {
