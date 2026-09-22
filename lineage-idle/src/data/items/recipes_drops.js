@@ -1736,7 +1736,7 @@ const STATIC_CRAFTING_RECIPES = {
   "recipe_greater_healing_potion": {
     "id": "recipe_greater_healing_potion",
     "itemId": "greater_healing_potion",
-    "name": "配方：高級治癒藥水（GHP）［10 個］",
+    "name": "配方：高級治癒藥水［10 個］",
     "level": 20,
     "craftLevel": 1,
     "gold": 1200,
