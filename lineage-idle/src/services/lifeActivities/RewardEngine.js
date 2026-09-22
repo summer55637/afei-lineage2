@@ -8,20 +8,20 @@
 import { resolveCanonicalResourceId } from './ResourceDictionary.js';
 
 export const QUALITY_TIERS = {
-  POOR: { id: 'poor', name: 'Inferior', mult: 0.7, color: '#94a3b8' },
-  NORMAL: { id: 'normal', name: 'Comum', mult: 1.0, color: '#e2e8f0' },
-  GOOD: { id: 'good', name: 'Boa Qualidade', mult: 1.3, color: '#60a5fa' },
-  EXCELLENT: { id: 'excellent', name: 'Excelente', mult: 1.6, color: '#a855f7' },
-  PERFECT: { id: 'perfect', name: 'Impecável / Perfeita', mult: 2.0, color: '#fbbf24' }
+  POOR: { id: 'poor', name: '劣質', mult: 0.7, color: '#94a3b8' },
+  NORMAL: { id: 'normal', name: '普通', mult: 1.0, color: '#e2e8f0' },
+  GOOD: { id: 'good', name: '優良', mult: 1.3, color: '#60a5fa' },
+  EXCELLENT: { id: 'excellent', name: '優秀', mult: 1.6, color: '#a855f7' },
+  PERFECT: { id: 'perfect', name: '無瑕／完美', mult: 2.0, color: '#fbbf24' }
 };
 
 export const FISH_SIZES = {
-  TINY: { id: 'tiny', name: 'Diminuto', weightMult: 0.6, valueMult: 0.7 },
-  SMALL: { id: 'small', name: 'Pequeno', weightMult: 0.8, valueMult: 0.85 },
-  MEDIUM: { id: 'medium', name: 'Médio', weightMult: 1.0, valueMult: 1.0 },
-  LARGE: { id: 'large', name: 'Grande', weightMult: 1.3, valueMult: 1.4 },
-  HUGE: { id: 'huge', name: 'Enorme', weightMult: 1.7, valueMult: 1.9 },
-  RECORD: { id: 'record', name: 'Troféu Recorde 🏆', weightMult: 2.2, valueMult: 2.8 }
+  TINY: { id: 'tiny', name: '微小', weightMult: 0.6, valueMult: 0.7 },
+  SMALL: { id: 'small', name: '小型', weightMult: 0.8, valueMult: 0.85 },
+  MEDIUM: { id: 'medium', name: '中型', weightMult: 1.0, valueMult: 1.0 },
+  LARGE: { id: 'large', name: '大型', weightMult: 1.3, valueMult: 1.4 },
+  HUGE: { id: 'huge', name: '巨大', weightMult: 1.7, valueMult: 1.9 },
+  RECORD: { id: 'record', name: '紀錄級獎盃 🏆', weightMult: 2.2, valueMult: 2.8 }
 };
 
 export const RewardEngine = {
@@ -118,7 +118,7 @@ export const RewardEngine = {
         success: false,
         reason: 'escaped_or_failed',
         pityActive: isPity,
-        message: 'A tentativa falhou. O recurso escapou ou a extração foi imperfeita.'
+        message: '嘗試失敗。資源逃脫或採集不完整。'
       };
     }
 
@@ -155,7 +155,7 @@ export const RewardEngine = {
         count: primaryCount
       },
       secondaryDrop,
-      message: `Sucesso! Extraído em qualidade ${quality.name}.`
+      message: `成功！取得品質：${quality.name}。`
     };
   }
 };
