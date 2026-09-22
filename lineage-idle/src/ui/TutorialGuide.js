@@ -14,16 +14,16 @@ function formatPassiveLabel(statKey, val) {
     mAtkPct: `+${val}% 魔法攻擊`,
     mDefPct: `+${val}% 魔法防禦`,
     critChance: `+${val}% 暴擊率`,
-    critDmgPct: `+${val}% Crit Dmg`,
-    atkSpd: `+${val}% Atk.Spd`,
-    castSpd: `+${val}% Cast.Spd`,
+    critDmgPct: `+${val}% 暴擊傷害`,
+    atkSpd: `+${val}% 攻擊速度`,
+    castSpd: `+${val}% 施法速度`,
     eva: `+${val} 迴避`,
-    staggerDmgPct: `+${val}% Stagger`,
+    staggerDmgPct: `+${val}% 失衡傷害`,
     bossDmgPct: `+${val}% 首領傷害`,
-    lifeDrain: `+${val}% Life Drain`,
+    lifeDrain: `+${val}% 生命汲取`,
     healBoostPct: `+${val}% 治癒`,
     damageReductionPct: `-${val}% 受到傷害`,
-    mCrit: `+${val}% M.Crit`
+    mCrit: `+${val}% 魔法暴擊率`
   };
   return map[statKey] || `+${val} ${statKey}`;
 }
