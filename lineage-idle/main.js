@@ -4135,7 +4135,7 @@ export function renderSubclassesUI() {
   }
 
   if (summaryEl) {
-    const activeTransStr = state.activeTransformation ? `<div style="margin-top:4px; color:#fde047; font-weight:bold;">👼 神聖變身已啟用：${Object.values(DIVINE_TRANSFORMATIONS).find(d => d.id === state.activeTransformation)?.name || ({ divineWarrior: '神聖戰士', divineKnight: '神聖騎士', divineRogue: '神聖遊俠', divineWizard: '神聖巫師', divineSummoner: '神聖召喚師', divineHealer: '神聖治癒師', divineEnchanter: '神聖賦予師' })[state.activeTransformation] || state.activeTransformation}</div>` : '';
+    const activeTransStr = state.activeTransformation ? `<div style="margin-top:4px; color:#fde047; font-weight:bold;">👼 神聖變身已啟用：${Object.values(DIVINE_TRANSFORMATIONS).find(d => d.id === state.activeTransformation)?.name || ({ divineWarrior: '神聖戰士', divineKnight: '神聖騎士', divineRogue: '神聖遊俠', divineWizard: '神聖巫師', divineSummoner: '神聖召喚師', divineHealer: '神聖治癒師', divineEnchanter: '神聖賦予師' })[state.activeTransformation] || '未知變身'}</div>` : '';
     
     if (certBonuses.totalCertCount === 0) {
       summaryEl.innerHTML = `目前尚未學習任何認證。將副職業提升至等級 65、70、75、80 即可累積永久加成！`;
