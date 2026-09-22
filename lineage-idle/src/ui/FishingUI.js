@@ -110,7 +110,7 @@ export function renderFishingUI(state) {
       <div style="display:flex; justify-content:space-between; align-items:center; padding:5px 8px; background:rgba(0,0,0,0.3); border-radius:6px; margin-bottom:4px; border:1px solid ${isEquipped ? 'rgba(96,165,250,0.4)' : 'rgba(255,255,255,0.05)'};">
         <div>
           <span style="font-size:11px; font-weight:bold; color:${isEquipped ? '#93c5fd' : '#e2e8f0'};">${rDef.icon} ${rDef.name}</span>
-          <span style="font-size:9px; color:#94a3b8; margin-left:4px;">(Bônus: +${Math.round((rDef.catchBonus - 1) * 100)}%)</span>
+          <span style="font-size:9px; color:#94a3b8; margin-left:4px;">（加成：+${Math.round((rDef.catchBonus - 1) * 100)}%）</span>
         </div>
         <div>${rodActionBtn}</div>
       </div>
@@ -145,7 +145,7 @@ export function renderFishingUI(state) {
             onclick="window.buyFishingBait('${bId}', 10)"
             ${!canAfford10 ? 'disabled' : ''}
             style="flex:1; padding:3px 6px; font-size:10px; font-weight:bold; background:${canAfford10 ? 'linear-gradient(180deg,#eab308,#a16207)' : '#27272a'}; border:1px solid ${canAfford10 ? '#fde047' : '#52525b'}; color:${canAfford10 ? '#000' : '#71717a'}; border-radius:4px; cursor:${canAfford10 ? 'pointer' : 'not-allowed'};"
-            title="購買 10x por ${(bDef.buyPrice * 10).toLocaleString()} Adena"
+            title="購買 10x，花費 ${(bDef.buyPrice * 10).toLocaleString()} 金幣"
           >
             +10 (${(bDef.buyPrice * 10).toLocaleString()}a)
           </button>
@@ -174,7 +174,7 @@ export function renderFishingUI(state) {
     let tensionPulse = '';
     if (tensionPct >= 90) {
       tensionColor = '#ef4444';
-      tensionStatus = '⚠️ PERIGO CRÍTICO DE QUEBRA!';
+      tensionStatus = '⚠️ 魚線即將斷裂！';
       tensionPulse = 'animation: pulse 0.6s infinite;';
     } else if (tensionPct >= 75) {
       tensionColor = '#f97316';
@@ -212,7 +212,7 @@ export function renderFishingUI(state) {
           <!-- 1. 耐力 do Peixe -->
           <div style="background:rgba(0,0,0,0.4); padding:8px 12px; border-radius:6px; border:1px solid rgba(255,255,255,0.05);">
             <div style="display:flex; justify-content:space-between; font-size:11px; margin-bottom:4px;">
-              <span style="color:#f87171; font-weight:bold;">🐟 Resistência / 耐力 do Peixe:</span>
+              <span style="color:#f87171; font-weight:bold;">🐟 魚的耐力：</span>
               <span style="font-family:monospace; color:#fca5a5; font-weight:bold;">${fight.fish耐力} / ${fight.max耐力} (${staminaPct}%)</span>
             </div>
             <div style="background:#1e293b; height:10px; border-radius:5px; overflow:hidden;">
@@ -434,8 +434,8 @@ export function renderFishingUI(state) {
     ownedFishCards = `
       <div style="text-align:center; padding:24px; color:#94a3b8; font-size:12px; border:1px dashed rgba(212,167,68,0.25); border-radius:8px;">
         <div style="font-size:32px; margin-bottom:6px;">🐟</div>
-        Você ainda não possui pescados em sua mochila.<br>
-        Lance sua linha nas águas de Aden para obter peixes e trocá-los por valiosos insumos de Forja e Alquimia!
+        你的背包中目前沒有任何漁獲。<br>
+        在亞丁水域拋竿捕魚，再把漁獲兌換成珍貴的鍛造與鍊金材料！
       </div>
     `;
   }
@@ -463,7 +463,7 @@ export function renderFishingUI(state) {
           </div>
           <div style="text-align:right;">
             <div style="font-size:11px; color:#aaa;">Pescados Totais: <strong style="color:#ffd877;">${stats.totalCaught}</strong></div>
-            <div style="font-size:11px; color:#aaa;">Espécies Descobertas: <strong style="color:#60a5fa;">${stats.speciesDiscovered} / ${stats.totalSpecies}</strong></div>
+            <div style="font-size:11px; color:#aaa;">已發現魚種： <strong style="color:#60a5fa;">${stats.speciesDiscovered} / ${stats.totalSpecies}</strong></div>
           </div>
         </div>
 
@@ -495,9 +495,9 @@ export function renderFishingUI(state) {
         <!-- Card da 釣竿 -->
         <div style="background:rgba(18,22,34,0.85); border:1px solid rgba(212,167,68,0.25); border-radius:10px; padding:12px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <h4 style="margin:0; font-family:'Cinzel',serif; font-size:12px; color:#f4d58a;">🎣 釣竿s de Pesca</h4>
+            <h4 style="margin:0; font-family:'Cinzel',serif; font-size:12px; color:#f4d58a;">🎣 釣魚竿</h4>
             <div style="font-size:10px; color:${isRodBroken ? '#f87171' : '#34d399'}; font-weight:bold;">
-              Durabilidade: ${rodDurability} / ${maxRodDurability}
+              耐久度：${rodDurability} / ${maxRodDurability}
             </div>
           </div>
           ${rodOptionsHtml}
@@ -506,7 +506,7 @@ export function renderFishingUI(state) {
               onclick="window.repairFishingRod('${activeRodId}')"
               style="width:100%; margin-top:6px; padding:6px; font-size:10px; font-weight:bold; background:rgba(212,167,68,0.15); border:1px solid #d4a744; color:#ffd700; border-radius:4px; cursor:pointer;"
             >
-              🔨 Restaurar Durabilidade (${activeRod.name})
+              🔨 修復耐久度（${activeRod.name}）
             </button>
           ` : ''}
         </div>
@@ -522,7 +522,7 @@ export function renderFishingUI(state) {
 
       <!-- Seletor de Zonas -->
       <div style="background:rgba(18,22,34,0.85); border:1px solid rgba(212,167,68,0.25); border-radius:10px; padding:12px; margin-bottom:16px;">
-        <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; font-size:12px; color:#f4d58a;">🗺️ Zonas de Pesca de Aden</h4>
+        <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; font-size:12px; color:#f4d58a;">🗺️ 亞丁釣魚區</h4>
         <div style="display:flex; flex-wrap:wrap; gap:8px;">
           ${zonesHtml}
         </div>
@@ -532,7 +532,7 @@ export function renderFishingUI(state) {
       <div style="background:rgba(18,22,34,0.85); border:1px solid rgba(212,167,68,0.25); border-radius:10px; padding:12px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
           <h4 style="margin:0; font-family:'Cinzel',serif; font-size:12px; color:#f4d58a;">⚖️ Feira de Pescados (Troca por Materiais de Forja)</h4>
-          <span style="font-size:10px; color:#94a3b8;">Entregue seus cardumes aos artesãos locais</span>
+          <span style="font-size:10px; color:#94a3b8;">將漁獲交給當地工匠</span>
         </div>
         ${ownedFishCards}
       </div>
