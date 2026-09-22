@@ -472,11 +472,11 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
       baseVal = 0.06 + (lvl * 0.02);
     } else if (sName.includes('crit') || sName.includes('fury') || sName.includes('stance') || sName.includes('focus') || sName.includes('precision') || sName.includes('deadly')) {
       statKey = 'crit';
-      statLabel = 'Taxa Crítica';
+      statLabel = '暴擊率';
       baseVal = 0.04 + (lvl * 0.015);
     } else if (sName.includes('eva') || sName.includes('dodge') || sName.includes('shadow') || sName.includes('acrobat')) {
       statKey = 'eva';
-      statLabel = 'Evasão';
+      statLabel = '迴避';
       baseVal = 0.04 + (lvl * 0.015);
     } else if (sName.includes('speed') || sName.includes('dash') || sName.includes('step') || sName.includes('haste') || sName.includes('agility') || sName.includes('sprint')) {
       statKey = 'speed';
