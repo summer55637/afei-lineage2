@@ -75,7 +75,7 @@ export const REFINERY_RECIPES = [
   },
   {
     id: 'refine_crafted_leather',
-    name: '加工皮革（Crafted Leather）',
+    name: '加工皮革',
     desc: '以繩線縫製強化的鞣製皮革，是輕甲與腰帶的基礎材料。',
     category: 'leather',
     icon: 'materials/crafted_leather.png',
@@ -176,7 +176,7 @@ export const REFINERY_RECIPES = [
   },
   {
     id: 'refine_enria',
-    name: 'Enria（奧術試劑）',
+    name: '恩里亞試劑',
     desc: '具有極高魔力傳導性的流體材料，用於 C 級與 B 級武器。',
     category: 'alchemy',
     icon: 'materials/enria.png',
