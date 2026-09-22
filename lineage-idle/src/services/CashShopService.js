@@ -202,7 +202,7 @@ export class CashShopService {
       state.activeAgathion = 'agathion_golden_dragon';
 
       if (callbacks.log) {
-        callbacks.log(`✨ **君主至尊套組已啟用！**你獲得完整的 ${archetype === 'heavy' ? '重甲' : archetype === 'light' ? '輕甲' : archetype === 'robe' ? '法袍' : archetype} 動態傳承套裝（等級 1～40）、職業傳承武器、飾品、披風、腰帶、王冠、15,000 發彈藥、30 天 VIP 通行證、黃金巨龍亞加西翁，以及稱號 **【君主至尊】**！`, 'system');
+        callbacks.log(`✨ **君主至尊套組已啟用！**你獲得完整的 ${archetype === 'heavy' ? '重甲' : archetype === 'light' ? '輕甲' : archetype === 'robe' ? '法袍' : archetype} 動態傳承套裝（等級 1～40）、職業傳承武器、飾品、披風、腰帶、王冠、15,000 發彈藥、30 天貴賓通行證、黃金巨龍亞加西翁，以及稱號 **【君主至尊】**！`, 'system');
       }
     }
 
@@ -440,7 +440,7 @@ export class CashShopService {
           count: 1
         });
       }
-      if (callbacks.log) callbacks.log('🌟 **VIP 傳送通行證（30 天）** 已放入背包並啟用！已開啟免費傳送。', 'system');
+      if (callbacks.log) callbacks.log('🌟 **貴賓傳送通行證（30 天）** 已放入背包並啟用！已開啟免費傳送。', 'system');
     } else if (utilityId === 'elixir_vigor_bundle_5') {
       const existing = state.inventory.find(i => i.itemId === 'elixir_vigor_1h');
       if (existing) {
