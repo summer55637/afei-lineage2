@@ -383,7 +383,7 @@ export function formatItemDisplayName(item, def) {
   const itemObj = (typeof item === 'string') ? { itemId: item } : item;
   const gData = D();
   const itemDef = def || (gData?.ALL_ITEMS ? gData.ALL_ITEMS[itemObj.itemId || itemObj.id] : null);
-  const baseName = itemDef ? itemDef.name : (itemObj.itemId || itemObj.id || '物品');
+  const baseName = itemDef ? itemDef.name : '未知物品';
 
   const enchant = Number(itemObj.enchant) || 0;
   const enchantStr = enchant > 0 ? `+${enchant} ` : '';
@@ -2442,7 +2442,7 @@ export function openBatchSalvageModal(state, callbacks = {}, uids) {
         ${Object.entries(preview.yieldSummary).map(([matId, amt]) => `
           <div class="preview-yield-pill">
             <span>📦</span>
-            <span>+${amt}× ${allItems[matId]?.name || matId}</span>
+            <span>+${amt}× ${allItems[matId]?.name || '未知材料'}</span>
           </div>
         `).join('')}
       </div>
@@ -2539,7 +2539,7 @@ export function openBatchCrystallizeModal(state, callbacks = {}, uids) {
         ${Object.entries(preview.yieldSummary).map(([cId, amt]) => `
           <div class="preview-yield-pill" style="border-color:#60a5fa; color:#93c5fd;">
             <span>💎</span>
-            <span>+${amt}× ${allItems[cId]?.name || cId}</span>
+            <span>+${amt}× ${allItems[cId]?.name || '未知水晶'}</span>
           </div>
         `).join('')}
       </div>
@@ -3404,7 +3404,7 @@ export function updateCharacterUI(state) {
             ${tattoosHtml}
           </div>
           <div class="l2-mystic-sa">
-            ${socket ? `🔮 武器特殊能力： <strong style="color:#38bdf8;">${({ focus: '專注', acumen: '靈敏', health: '生命', empower: '魔力增幅', guidance: '導引' })[socket.effect] || socket.effect} （階段 ${socket.stage}）</strong>` : '🔮 武器特殊能力：尚未鑲嵌靈魂水晶。'}
+            ${socket ? `🔮 武器特殊能力： <strong style="color:#38bdf8;">${({ focus: '專注', acumen: '靈敏', health: '生命', empower: '魔力增幅', guidance: '導引' })[socket.effect] || '未知效果'} （階段 ${socket.stage}）</strong>` : '🔮 武器特殊能力：尚未鑲嵌靈魂水晶。'}
           </div>
         </div>
       </div>
@@ -3661,7 +3661,7 @@ export function renderZoneMap(state, callbacks = {}) {
 
     if (validCards.length === 0) continue;
 
-    const sagaName = saga.name || saga.id || '章節';
+    const sagaName = saga.name || '未知章節';
     const sagaReq = saga.unlocksAt || saga.reqLvl || 1;
 
     block.innerHTML = `
@@ -6543,7 +6543,7 @@ export function renderAlchemyUI(state) {
           <div style="display:flex; align-items:center; gap:10px;">
             <span style="font-size:22px; filter:drop-shadow(0 0 6px rgba(212,167,68,0.4));">${recipe?.icon || '🧪'}</span>
             <div>
-              <div style="font-family:'Cinzel',serif; font-weight:700; color:#ffd877; font-size:13px;">${recipe?.name || rId}</div>
+              <div style="font-family:'Cinzel',serif; font-weight:700; color:#ffd877; font-size:13px;">${recipe?.name || '未知配方'}</div>
               <div style="font-size:11px; color:#cbd5e1;">${recipe?.desc || ''}</div>
             </div>
           </div>
@@ -8127,7 +8127,7 @@ export function renderForgeSynthesis(container, state) {
             }
             renderForgeSynthesis(document.getElementById('craft-recipes-container') || document.getElementById('craft-list'), window.state);
           "
-          title="${def?.name || itemEntry.name || itemEntry.itemId} （點擊選擇）"
+          title="${def?.name || itemEntry.name || '未知物品'}（點擊選擇）"
         >
           <div class="equip-icon" style="font-size:22px;">${getItemIcon(def || itemEntry)}</div>
           ${itemEntry.count && itemEntry.count > 1 ? `<span class="l2comp-mat-count">${itemEntry.count}</span>` : ''}
@@ -8564,7 +8564,7 @@ export function showDropLocatorModal(matId) {
     const hasInZone = directMats.includes(matId) || tierMats.includes(matId) || directEquips.includes(matId) || tierEquips.includes(matId);
     if (hasInZone) {
       const monsterNames = (zDef.monsters || [])
-        .map(mId => (monsters[mId]?.name || mId))
+        .map(mId => (monsters[mId]?.name || '未知怪物'))
         .filter(Boolean);
       const bossName = zDef.boss ? (monsters[zDef.boss]?.name || zDef.boss) : null;
 
