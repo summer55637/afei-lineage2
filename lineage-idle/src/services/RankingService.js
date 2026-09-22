@@ -8,7 +8,7 @@
 import { CombatPowerService } from './CombatPowerService.js';
 import { D } from '../core/GameConfig.js';
 
-let _cached排行榜s = {
+let _cachedRankings = {
   cp: [],
   olympiad: [],
   duels: [],
@@ -17,7 +17,7 @@ let _cached排行榜s = {
 };
 let _lastProfileSync = 0;
 
-export const 排行榜Service = {
+export const RankingService = {
   /**
    * Extrai o perfil público completo e seguro do jogador para sincronização
    * @param {Object} state - Estado atual do jogo
@@ -107,11 +107,11 @@ export const 排行榜Service = {
    * @returns {Object} Dicionário de leaderboards por categoria
    */
   getLeaderboards(state) {
-    const cpList = _cached排行榜s.cp?.length ? _cached排行榜s.cp : [];
-    const olyList = _cached排行榜s.olympiad?.length ? _cached排行榜s.olympiad : [];
-    const duelList = _cached排行榜s.duels?.length ? _cached排行榜s.duels : [];
-    const wealthList = _cached排行榜s.wealth?.length ? _cached排行榜s.wealth : [];
-    const clansList = _cached排行榜s.clans?.length ? _cached排行榜s.clans : [];
+    const cpList = _cachedRankings.cp?.length ? _cachedRankings.cp : [];
+    const olyList = _cachedRankings.olympiad?.length ? _cachedRankings.olympiad : [];
+    const duelList = _cachedRankings.duels?.length ? _cachedRankings.duels : [];
+    const wealthList = _cachedRankings.wealth?.length ? _cachedRankings.wealth : [];
+    const clansList = _cachedRankings.clans?.length ? _cachedRankings.clans : [];
 
     return {
       cp: this._mergeCurrentPlayer(cpList, state, 'cp'),
@@ -120,7 +120,7 @@ export const 排行榜Service = {
       duels: this._mergeCurrentPlayer(duelList, state, 'duels'),
       wealth: this._mergeCurrentPlayer(wealthList, state, 'wealth'),
       clans: this._mergeCurrentPlayer(clansList, state, 'clans'),
-      castles: (_cached排行榜s.castles && _cached排行榜s.castles.length > 0) ? _cached排行榜s.castles : [
+      castles: (_cachedRankings.castles && _cachedRankings.castles.length > 0) ? _cachedRankings.castles : [
         { castle: '亞丁城堡', lord: 'LordValen', clan: 'BloodThorn', tax: '15%' },
         { castle: '奇岩城堡', lord: 'SirAres', clan: 'GloryKnights', tax: '10%' },
         { castle: '狄恩城堡', lord: 'LadyElena', clan: 'SilverDawn', tax: '5%' }
@@ -210,8 +210,8 @@ export const 排行榜Service = {
   async getLeaderboard(category = 'cp', state = null) {
     const now = Date.now();
     // Cache de 30 segundos
-    if (_cached排行榜s[category] && _cached排行榜s[category].length > 0 && (now - _cached排行榜s.lastFetchTime < 30000)) {
-      return this._mergeCurrentPlayer(_cached排行榜s[category], state, category);
+    if (_cachedRankings[category] && _cachedRankings[category].length > 0 && (now - _cachedRankings.lastFetchTime < 30000)) {
+      return this._mergeCurrentPlayer(_cachedRankings[category], state, category);
     }
 
     let remoteList = [];
@@ -224,8 +224,8 @@ export const 排行榜Service = {
     }
 
     remoteList = remoteList || [];
-    _cached排行榜s[category] = remoteList;
-    _cached排行榜s.lastFetchTime = now;
+    _cachedRankings[category] = remoteList;
+    _cachedRankings.lastFetchTime = now;
 
     return this._mergeCurrentPlayer(remoteList, state, category);
   },
