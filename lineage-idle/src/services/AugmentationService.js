@@ -131,9 +131,9 @@ export class AugmentationService {
       .join(', ');
 
     const skillText = acquiredSkill ? ` 並獲得稀有技能 [${acquiredSkill.name}]` : '';
-    const glowText = hasGlow ? ` ✨ Concedeu Brilho (${glowColor})!` : '';
+    const glowText = hasGlow ? ` ✨ 獲得光效（${glowColor}）！` : '';
 
-    const triumphMsg = `💎 增幅成功！ ${weapon.name || '你的武器'} recebeu: [${statSummary}]${skillText}${glowText}`;
+    const triumphMsg = `💎 增幅成功！${weapon.name || '你的武器'} 獲得：[${statSummary}]${skillText}${glowText}`;
     log(triumphMsg, 'success');
 
     onUpdate();
