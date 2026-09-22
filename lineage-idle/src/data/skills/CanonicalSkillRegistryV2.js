@@ -265,7 +265,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "hp_recovery": {
         "id": "hp_recovery",
-        "name": "HP 恢復",
+        "name": "生命值恢復",
         "slug": "hp_recovery",
         "type": "passive",
         "rawType": "Passive",
@@ -277,7 +277,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers HP every 9.9 sec.",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "提高自然 HP 恢復速度。",
+        "desc": "提高自然生命值恢復速度。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -913,7 +913,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "mp_recovery": {
         "id": "mp_recovery",
-        "name": "MP 恢復",
+        "name": "魔力恢復",
         "slug": "mp_recovery",
         "type": "passive",
         "rawType": "Passive",
@@ -925,7 +925,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers MP every 9.9 sec.",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "提高自然 MP 恢復速度。",
+        "desc": "提高自然魔力恢復速度。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -15203,7 +15203,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "summon_lord_raise": {
         "id": "summon_lord_raise",
-        "name": "召喚領主 Raise",
+        "name": "召喚領主萊茲",
         "slug": "summon_lord_raise",
         "type": "active",
         "rawType": "Ativo",
@@ -15215,7 +15215,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summon Lord Raise effect",
         "canonicalCooldown": ".-",
         "canonicalCooldownMs": 1000,
-        "desc": "召喚 Lord Raise。",
+        "desc": "召喚領主萊茲。",
         "balance": {
             "mpCost": 186,
             "pwr": 20,
@@ -25285,7 +25285,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "boost_hp": {
         "id": "boost_hp",
-        "name": "HP 強化",
+        "name": "生命值強化",
         "slug": "boost_hp",
         "type": "passive",
         "rawType": "Passive",
@@ -25297,7 +25297,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max HP +500",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "永久提高最大 HP。",
+        "desc": "永久提高最大生命值。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25319,7 +25319,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "boost_mana": {
         "id": "boost_mana",
-        "name": "MP 強化",
+        "name": "魔力強化",
         "slug": "boost_mana",
         "type": "passive",
         "rawType": "Passive",
@@ -25331,7 +25331,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max MP +300",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "永久提高最大 MP。",
+        "desc": "永久提高最大魔力。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25347,7 +25347,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "fast_hp_recovery": {
         "id": "fast_hp_recovery",
-        "name": "快速 HP 恢復",
+        "name": "快速生命值恢復",
         "slug": "fast_hp_recovery",
         "type": "passive",
         "rawType": "Passive",
@@ -25359,7 +25359,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "HP Recovery Rate +15%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "提高自然 HP 恢復速度。",
+        "desc": "提高自然生命值恢復速度。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25375,7 +25375,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "fast_mana_recovery": {
         "id": "fast_mana_recovery",
-        "name": "快速 MP 恢復",
+        "name": "快速魔力恢復",
         "slug": "fast_mana_recovery",
         "type": "passive",
         "rawType": "Passive",
@@ -25387,7 +25387,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "MP Recovery Rate +15%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "提高自然 MP 恢復速度。",
+        "desc": "提高自然魔力恢復速度。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
