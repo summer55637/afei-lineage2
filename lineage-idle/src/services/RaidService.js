@@ -199,7 +199,7 @@ export function processRaidBossMechanics(state, callbacks = {}) {
         }
 
         if (callbacks.log) {
-          callbacks.log(`⚠️ **[致命蓄力]** ${m.name} prepara **${m.fatalSkill.name}**! Quebre sua postura em ${Math.round(fatalDuration / 1000)}s com Stagger Break!`, 'rarity-legendary');
+          callbacks.log(`⚠️ **[致命蓄力]** ${m.name} 正在準備 **${m.fatalSkill.name}**！請在 ${Math.round(fatalDuration / 1000)} 秒內使用破勢攻擊中斷！`, 'rarity-legendary');
         }
         if (callbacks.floatText) {
           callbacks.floatText(`⚠️ 致命蓄力! (${Math.round(fatalDuration / 1000)}s)`, 'sf-crit');
