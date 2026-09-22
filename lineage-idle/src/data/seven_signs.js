@@ -11,7 +11,7 @@ export const FACTIONS = {
     name: '黎明君主 ☀️',
     icon: '☀️',
     desc: '追求神聖秩序與秘法祝福的殷海薩貴族與信徒。',
-    bonusDesc: '+10% 神聖傷害與 +5% XP'
+    bonusDesc: '+10% 神聖傷害與 +5% 經驗值'
   },
   dusk: {
     id: 'dusk',
