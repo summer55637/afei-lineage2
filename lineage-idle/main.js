@@ -7442,7 +7442,7 @@ function renderMonsterCardsCodex(container, summaryEl) {
     </div>
     <div style="display:flex; flex-wrap:wrap; gap:4px;">
       ${['all', 'common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic'].map(r => {
-        const labels = { all: '全部', common: '一般', uncommon: '優良', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話以上' };
+        const labels = { all: '全部', common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話以上' };
         const isActive = rarityFilter === r;
         return `
           <button 
@@ -9226,7 +9226,7 @@ function upgradeItemToMasterwork(itemUid) {
 
   state.gold -= req.adena;
   item.isMasterwork = true;
-  item.name = item.name ? (item.name.includes('[Foundation MW]') ? item.name : `${item.name} [Foundation MW]`) : `${itemDef.name} [Foundation MW]`;
+  item.name = item.name ? ((item.name.includes('[Foundation MW]') || item.name.includes('[名匠]')) ? item.name.replace('[Foundation MW]', '[名匠]') : `${item.name} [名匠]`) : `${itemDef.name} [名匠]`;
 
   log(`✨ 鐵匠大師普希金打造了 ${item.name.toUpperCase()}（稀有名匠裝備）！`, 'rarity-legendary');
   floatText('稀有名匠裝備！', 'float-gold');
