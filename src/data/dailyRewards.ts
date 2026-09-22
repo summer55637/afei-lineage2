@@ -38,7 +38,7 @@ export const DAILY_REWARDS_28: DailyRewardDay[] = [
 
   // Semana 3: Grau B & Habilidades Nobres
   { day: 15, name: '亞丁財富', icon: '💰', desc: '300,000 金幣', rewardType: 'adena', count: 300000, rarity: 'common' },
-  { day: 16, name: '超大型藥水包', icon: '🧪', desc: '250 瓶 XL 生命藥水 + 250 瓶 XL 魔力藥水', rewardType: 'item', itemId: 'hp_potion_xl', count: 250, rarity: 'uncommon' },
+  { day: 16, name: '超大型藥水包', icon: '🧪', desc: '250 瓶特大生命藥水 + 250 瓶特大魔力藥水', rewardType: 'item', itemId: 'hp_potion_xl', count: 250, rarity: 'uncommon' },
   { day: 17, name: '古代技能書頁', icon: '📖', desc: '5 張古代技能書頁', rewardType: 'item', itemId: 'ancient_spellbook_page', count: 5, rarity: 'rare' },
   { day: 18, name: 'B 級武器強化卷軸', icon: '📜', desc: '3 張 B 級武器強化卷軸', rewardType: 'item', itemId: 'scroll_enchant_weapon_b', count: 3, rarity: 'rare' },
   { day: 19, name: 'B 級防具強化卷軸', icon: '🛡️', desc: '5 張 B 級防具強化卷軸', rewardType: 'item', itemId: 'scroll_enchant_armor_b', count: 5, rarity: 'rare' },
