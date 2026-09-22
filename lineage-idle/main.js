@@ -4536,7 +4536,7 @@ export function switchSubclass(targetIndex) {
       state.equipment = restoredEquip;
     }
 
-    log(`👑 已切換至主職業 (**${getClass(state.class).name}**)!`, 'system');
+    log(`👑 已切換至主職業（**${getClass(state.class).name}**）！`, 'system');
   } else {
     const targetSub = state.subclasses[resolvedTarget];
     if (targetSub) {
@@ -5694,7 +5694,7 @@ export function attackMonster() {
         const buffObj = { amount: buffAmt, until: realNow + buffDuration, effect: 'warcry' };
         state.buffs[skill.id] = buffObj;
         state.buffs['warcry'] = buffObj;
-        log(`🗣 ${skill.def.name}! ${skill.def.info || '增益效果持續 60 秒'}`, 'rarity-rare');
+        log(`🗣 ${skill.def.name}！${skill.def.info || '增益效果持續 60 秒'}`, 'rarity-rare');
         floatText(skill.def.name, 'float-epic');
 
         // Dispara VFX Premium de Aura de Buff (ancorado aos pés do herói)
