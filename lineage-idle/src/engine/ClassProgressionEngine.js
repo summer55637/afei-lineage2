@@ -40,14 +40,14 @@ export class ClassProgressionEngine {
       // 1. Level Rule
       if (playerLevel < targetNode.minLevel) {
         isEligible = false;
-        reasons.push(`Nível insuficiente. Requer nível ${targetNode.minLevel} (atual: ${playerLevel}).`);
+        reasons.push(`等級不足。需要等級 ${targetNode.minLevel}（目前：${playerLevel}）。`);
       }
 
       // 2. Race Rule
       const effectiveRace = playerRace || currentNode.race;
       if (effectiveRace && targetNode.race !== effectiveRace) {
         isEligible = false;
-        reasons.push(`Restrição de raça. Classe pertence a ${targetNode.race}.`);
+        reasons.push(`種族限制：此職業屬於 ${targetNode.race}。`);
       }
 
       // 3. Season Rule
@@ -55,7 +55,7 @@ export class ClassProgressionEngine {
       const isSeasonGated = !seasonCheck.available;
       if (isSeasonGated) {
         isEligible = false;
-        reasons.push(`Bloqueado na Temporada ${season}: Disponível em temporadas futuras (Nível 76+).`);
+        reasons.push(`第 ${season} 賽季尚未開放：將於後續賽季開放（等級 76+）。`);
       }
 
       return {
@@ -94,7 +94,7 @@ export class ClassProgressionEngine {
     const targetOption = options.find(opt => opt.targetClass.id === targetClassId);
 
     if (!targetOption) {
-      return { canPromote: false, reason: 'Classe alvo não é sucessora direta no grafo canônico.' };
+      return { canPromote: false, reason: '目標職業不是目前職業的直接進階分支。' };
     }
 
     if (!targetOption.isEligible) {
