@@ -1,8 +1,8 @@
 /**
- * TutorialGuide.js — Guia e Tutorial para Jogadores Iniciantes
+ * TutorialGuide.js — 指南 e Tutorial para Jogadores Iniciantes
  *
  * Exibe automaticamente uma tela explicativa interativa na PRIMEIRA VEZ que o jogador abre qualquer aba.
- * Mantém um botão permanente ("❓ Guia da Aba") no canto de cada painel para tirar dúvidas a qualquer momento.
+ * Mantém um botão permanente ("❓ 指南 da Aba") no canto de cada painel para tirar dúvidas a qualquer momento.
  */
 
 import { RESONANCE_DEFINITIONS } from '../services/WeaponResonanceService.js';
@@ -17,12 +17,12 @@ function formatPassiveLabel(statKey, val) {
     critDmgPct: `+${val}% Crit Dmg`,
     atkSpd: `+${val}% Atk.Spd`,
     castSpd: `+${val}% Cast.Spd`,
-    eva: `+${val} Evasão`,
+    eva: `+${val} 迴避`,
     staggerDmgPct: `+${val}% Stagger`,
     bossDmgPct: `+${val}% Boss Dmg`,
     lifeDrain: `+${val}% Life Drain`,
     healBoostPct: `+${val}% Cura`,
-    damageReductionPct: `-${val}% Dano Recebido`,
+    damageReductionPct: `-${val}% 受到傷害`,
     mCrit: `+${val}% M.Crit`
   };
   return map[statKey] || `+${val} ${statKey}`;
@@ -30,7 +30,7 @@ function formatPassiveLabel(statKey, val) {
 
 function renderResonancesCatalogHtml() {
   const entries = Object.values(RESONANCE_DEFINITIONS || {});
-  if (!entries.length) return '<p style="color:#aaa;">Nenhuma ressonância cadastrada.</p>';
+  if (!entries.length) return '<p style="color:#aaa;">尚未登錄任何共鳴。</p>';
 
   const cards = entries.map((res, idx) => {
     const passives = res.passives || {};
@@ -74,10 +74,10 @@ function renderResonancesCatalogHtml() {
     <div style="margin-top: 4px;">
       <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; padding: 6px 10px; background: rgba(212,167,68,0.1); border: 1px solid rgba(212,167,68,0.25); border-radius: 6px; flex-wrap: wrap; gap: 6px;">
         <span style="font-size: 11px; color: #f5df93; font-weight: 600;">
-          Total: <strong>27 Combinações de Armas</strong> balanceadas para combate 1v1
+          總計： <strong>27 武器組合</strong> 針對 1 對 1 戰鬥平衡
         </span>
         <span style="font-size: 10px; color: #38bdf8; background: rgba(56,189,248,0.1); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(56,189,248,0.25);">
-          +1.240 CP Canônico por par ativo
+          +1.240 每組啟用組合的標準 CP
         </span>
       </div>
       <input type="text" placeholder="🔍 Filtrar por nome da ressonância ou arma (ex: Arco, Cajado, Lança, Adaga)..." oninput="const q = this.value.toLowerCase(); this.parentElement.querySelectorAll('.res-guide-card').forEach(c => { c.style.display = c.textContent.toLowerCase().includes(q) ? 'block' : 'none'; });" style="width: 100%; box-sizing: border-box; padding: 7px 10px; font-size: 11px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212,167,68,0.3); border-radius: 6px; color: #fff; margin-bottom: 8px; font-family: sans-serif; outline: none;" />
@@ -91,19 +91,19 @@ function renderResonancesCatalogHtml() {
 export const GUIDES_DATA = {
   zones: {
     id: 'zones',
-    title: '⚔️ Zonas de Caça & Combate Automático',
-    subtitle: 'Aprenda como evoluir seu personagem e gerenciar suas caçadas em Aden Arena: Idle Chronicles.',
+    title: '⚔️ 狩獵區與自動戰鬥',
+    subtitle: '了解如何培養角色並管理亞丁競技場：放置編年史中的狩獵。',
     icon: '⚔️',
     color: '#e8c39a',
     sections: [
       {
-        heading: '🎯 Escolha da Zona de Caça',
-        text: 'Navegue pelo mapa ou lista de zonas. Cada área possui um requisito de Nível Recomendado. Enfrentar monstros de nível muito alto reduz sua precisão e aumenta o dano recebido.',
-        tip: 'Dica: Zonas marcadas em verde garantem taxa máxima de XP sem risco de morte!'
+        heading: '🎯 選擇狩獵區',
+        text: '從地圖或區域列表選擇狩獵地點。每個區域都有建議等級；挑戰等級過高的怪物會降低命中並提高受到的傷害。',
+        tip: '提示：綠色標示的區域能提供最高 XP 效率，風險也較低！'
       },
       {
         heading: '⚡ Combat Power (CP) Canônico & Gates',
-        text: 'Cada zona de caça possui uma meta de Poder de Combate (CP). Se o seu CP estiver abaixo do recomendado, o combate será muito perigoso. Suba seu CP aprimorando armas, conjuntos de armadura, Soul Crystals e elixires.',
+        text: 'Cada zona de caça possui uma meta de Poder de 戰鬥 (CP). Se o seu CP estiver abaixo do recomendado, o combate será muito perigoso. Suba seu CP aprimorando armas, conjuntos de armadura, Soul Crystals e elixires.',
         tip: 'O CP considera 15 pilares do seu personagem para refletir seu verdadeiro poder de batalha.'
       },
       {
@@ -114,14 +114,14 @@ export const GUIDES_DATA = {
       {
         heading: '🎁 Drops de Caça & Streak',
         text: 'Ao derrotar monstros, você ganha XP, SP, Adena e pode dropar consumíveis, materiais e equipamentos raros. Matar vários monstros em sequência ativa o Bônus de Streak!',
-        tip: 'Equipamentos têm taxa de drop rara (0.3% a 0.6%). Monstros Elites e Chefes têm taxas multiplicadas!'
+        tip: '裝備 têm taxa de drop rara (0.3% a 0.6%). Monstros Elites e Chefes têm taxas multiplicadas!'
       }
     ]
   },
 
   character: {
     id: 'character',
-    title: '👤 Personagem, Atributos & Subclasses',
+    title: '👤 角色, Atributos & Subclasses',
     subtitle: 'Entenda como funcionam os atributos primários, avanço de classes e certificações de subclasse.',
     icon: '👤',
     color: '#ffd877',
@@ -137,8 +137,8 @@ export const GUIDES_DATA = {
         tip: 'Ao evoluir subclasses até os níveis 65, 75 e 80, você conquista Certificados de Subclasse que transferem atributos permanentes para sua classe principal!'
       },
       {
-        heading: '💎 Poder de Combate Canônico (CP)',
-        text: 'O CP do herói reflete fielmente a soma de:\n1. Atributos Base por Raça/Classe\n2. Nível do Herói\n3. Poder de Ataque & Magia das Armas\n4. Defesa Física & Mágica do Set\n5. Níveis de Encantamento (+1 a +16)\n6. Soul Crystals (SA - Focus, Health, Acumen)\n7. Joias Épicas de Boss (Queen Ant, Baium, Valakas)\n8. Atributos Elementais de Arma e Armadura\n9. Habilidades Passivas e Mestrias de Arma\n10. Maestria Astral (Dragão & Fênix)\n11. Elixires Permanentes de Alquimia\n12. Habilidades de Clã (Imperium, Might, Shield)\n13. Coleções Completas no Codex\n14. Boss Dolls Equipadas & Sintetizadas\n15. Certificações de Subclasse',
+        heading: '💎 Poder de 戰鬥 Canônico (CP)',
+        text: 'O CP do herói reflete fielmente a soma de:\n1. Atributos Base por Raça/Classe\n2. Nível do Herói\n3. Poder de Ataque & Magia das Armas\n4. Defesa Física & Mágica do Set\n5. Níveis de Encantamento (+1 a +16)\n6. Soul Crystals (SA - Focus, Health, Acumen)\n7. Joias Épicas de Boss (Queen Ant, Baium, Valakas)\n8. Atributos Elementais de Arma e Armadura\n9. 技能 Passivas e Mestrias de Arma\n10. Maestria Astral (Dragão & Fênix)\n11. Elixires Permanentes de Alquimia\n12. 技能 de 血盟 (Imperium, Might, Shield)\n13. Coleções Completas no Codex\n14. Boss Dolls Equipadas & Sintetizadas\n15. Certificações de Subclasse',
         tip: 'Foque em equilibrar todos os 15 pilares para alcançar os tiers Prata, Ouro, Platina e Diamante!'
       }
     ]
@@ -152,7 +152,7 @@ export const GUIDES_DATA = {
     color: '#a855f7',
     sections: [
       {
-        heading: '🗡️ Equipamentos & Graus (Grades)',
+        heading: '🗡️ 裝備 & Graus (Grades)',
         text: 'Os itens são divididos em Graus pelo seu Nível:\n• **No-Grade**: Nível 1 ao 19\n• **D-Grade**: Nível 20 ao 39\n• **C-Grade**: Nível 40 ao 51\n• **B-Grade**: Nível 52 ao 61\n• **A-Grade**: Nível 62 ao 75\n• **S-Grade / Frost Lord**: Nível 76 ao 85+',
         tip: 'Equipe sempre o melhor Grau compatível com seu nível atual para ter bônus de Set!'
       },
@@ -183,7 +183,7 @@ export const GUIDES_DATA = {
     sections: [
       {
         heading: '⚔️ Como Funciona a Ressonância de Armas?',
-        text: 'O sistema de **Dual Arsenal** permite que o herói equipe uma arma primária no **Slot 1 (Arma)** e uma arma secundária ou escudo no **Slot 2 (Secundária / Escudo)**.\n\nQuando as armas equipadas formam uma combinação compatível, a Ressonância é ativada instantaneamente:\n• **+1.240 Pontos de Combat Power (CP)** no cálculo canônico do personagem.\n• **Bônus de Atributos Passivos** (+20% P.Def, +15% Atk.Spd, +12% Cast.Spd, Evasão, Chance Crítica, etc.).\n• **Procs Táticos de Combate** aplicados no monstro em tempo real (Fratura Tática, Estocada Perfurante, Lentidão, Detonação de Toxinas, Redução de Armadura e Dano Elemental Híbrido).\n• **Balanceamento Focado 1v1**: Todas as 27 ressonâncias foram calibradas para combate individual focado, sem habilidades de área (AoE) quebradas.',
+        text: 'O sistema de **Dual Arsenal** permite que o herói equipe uma arma primária no **Slot 1 (Arma)** e uma arma secundária ou escudo no **Slot 2 (Secundária / Escudo)**.\n\nQuando as armas equipadas formam uma combinação compatível, a Ressonância é ativada instantaneamente:\n• **+1.240 Pontos de Combat Power (CP)** no cálculo canônico do personagem.\n• **Bônus de Atributos Passivos** (+20% P.Def, +15% Atk.Spd, +12% Cast.Spd, Evasão, Chance Crítica, etc.).\n• **Procs Táticos de 戰鬥** aplicados no monstro em tempo real (Fratura Tática, Estocada Perfurante, Lentidão, Detonação de Toxinas, Redução de Armadura e Dano Elemental Híbrido).\n• **Balanceamento Focado 1v1**: Todas as 27 ressonâncias foram calibradas para combate individual focado, sem habilidades de área (AoE) quebradas.',
         tip: 'Verifique sua ressonância ativa no banner dourado no topo da Mochila (Inventário)!'
       },
       {
@@ -216,15 +216,15 @@ export const GUIDES_DATA = {
 
   skills: {
     id: 'skills',
-    title: '⚡ Habilidades, Cargas & Almas Kamael',
+    title: '⚡ 技能, Cargas & Almas Kamael',
     subtitle: 'Domine suas habilidades ativas, passivas, cargas e almas de combate.',
     icon: '⚡',
     color: '#38bdf8',
     sections: [
       {
-        heading: '📖 Árvore de Habilidades',
-        text: 'Gaste seus Pontos de Habilidade (SP) para aprender e evoluir habilidades ativas e passivas da sua classe. Habilidades passivas concedem bônus permanentes.',
-        tip: 'Habilidades de dano utilizam a autêntica fórmula de dano físico de RPG clássico (Multiplicador de constante 77/70).'
+        heading: '📖 Árvore de 技能',
+        text: 'Gaste seus Pontos de Habilidade (SP) para aprender e evoluir habilidades ativas e passivas da sua classe. 技能 passivas concedem bônus permanentes.',
+        tip: '技能 de dano utilizam a autêntica fórmula de dano físico de RPG clássico (Multiplicador de constante 77/70).'
       },
       {
         heading: '⚡ Cargas de Habilidade (Charge Lv. 1-8)',
@@ -241,7 +241,7 @@ export const GUIDES_DATA = {
 
   shop: {
     id: 'shop',
-    title: '🛍️ Mercador & Mercado da Cidade',
+    title: '🛍️ 市場r & 市場 da Cidade',
     subtitle: 'Compre poções, soulshots, insumos de criação e joias.',
     icon: '🛍️',
     color: '#facc15',
@@ -252,9 +252,9 @@ export const GUIDES_DATA = {
         tip: 'Poções de tamanho XL restauram uma grande quantidade de HP de forma instantânea durante Raids!'
       },
       {
-        heading: '🔮 Mercado Místico Rotativo',
-        text: 'O Mercado Místico atualiza ofertas especiais contendo Joias de Boss e materiais raros em intervalos de tempo.',
-        tip: 'Fique atento aos estoques limitados do Mercado Místico para adquirir fragmentos de joias épicas!'
+        heading: '🔮 市場 Místico Rotativo',
+        text: 'O 市場 Místico atualiza ofertas especiais contendo Joias de Boss e materiais raros em intervalos de tempo.',
+        tip: 'Fique atento aos estoques limitados do 市場 Místico para adquirir fragmentos de joias épicas!'
       }
     ]
   },
@@ -267,7 +267,7 @@ export const GUIDES_DATA = {
     color: '#f59e0b',
     sections: [
       {
-        heading: '⚒️ Crafting de Equipamentos',
+        heading: '⚒️ Crafting de 裝備',
         text: 'Crie armas, armaduras, capas, cintos e joias utilizando matérias-primas como Iron Ore, Oriharukon, Adamantite e Leather.',
         tip: 'Subir seu Nível de Forja desbloqueia receitas de Graus mais elevados (Grade A e S).'
       },
@@ -367,7 +367,7 @@ export const GUIDES_DATA = {
     color: '#34d399',
     sections: [
       {
-        heading: '📚 Coleções de Equipamentos',
+        heading: '📚 Coleções de 裝備',
         text: 'Ao obter equipamentos e joias repetidas, registre-os no Codex. Completar um conjunto de coleção concede bônus permanentes como +P.Atk, +M.Atk, +HP ou +Def.',
         tip: 'Mesmo itens de No-Grade concedem bônus valiosos quando a coleção é completada!'
       }
@@ -396,13 +396,13 @@ export const GUIDES_DATA = {
 
   quests: {
     id: 'quests',
-    title: '📜 Missões, Bounties & Passe de Batalha',
+    title: '📜 任務, Bounties & Passe de Batalha',
     subtitle: 'Cumpra objetivos diários para ganhar Adena, SP e itens exclusivos.',
     icon: '📜',
     color: '#fbbf24',
     sections: [
       {
-        heading: '🎯 Missões Diárias & Caçadas',
+        heading: '🎯 任務 Diárias & Caçadas',
         text: 'Derrote uma quantidade estipulada de monstros ou chefes diariamente para resgatar baús de suprimentos e cupons de teleporte.',
         tip: 'Reivindique todas as recompensas diárias antes do reset da meia-noite!'
       },
@@ -453,7 +453,7 @@ export const GUIDES_DATA = {
       },
       {
         heading: '🎫 Ingressos Diários de Raid',
-        text: 'Você recebe 3 Ingressos Diários de Raid a cada reset diário. Ingressos extras podem ser obtidos na Jornada dos Pioneiros, Missões Diárias ou no Passe de Batalha.',
+        text: 'Você recebe 3 Ingressos Diários de Raid a cada reset diário. Ingressos extras podem ser obtidos na Jornada dos Pioneiros, 任務 Diárias ou no Passe de Batalha.',
         tip: 'Mantenha os ingressos sempre em uso para maximizar seus fragmentos de Joias de Boss!'
       }
     ]
@@ -481,15 +481,15 @@ export const GUIDES_DATA = {
 
   clan: {
     id: 'clan',
-    title: '🛡️ Clãs, Alianças & Habilidades de Clã',
+    title: '🛡️ 血盟s, Alianças & 技能 de 血盟',
     subtitle: 'Junte-se a uma irmandade para dominar Aden e desbloquear bônus passivos de equipe.',
     icon: '🛡️',
     color: '#3b82f6',
     sections: [
       {
-        heading: '🏰 Níveis de Clã & Habilidades Passivas',
-        text: 'Conforme os membros doam Adena e SP, o nível do Clã sobe (Nv. 1 ao Nv. 5), desbloqueando habilidades para TODOS os membros:\n• **Nv. 1 Clan Imperium**: +10% Max HP\n• **Nv. 2 Clan Might**: +8% P.Atk\n• **Nv. 3 Clan Shield**: +10% P.Def\n• **Nv. 4 Clan Empower**: +10% M.Atk e +12% M.Def\n• **Nv. 5 Clan Vitality**: +20% Regen MP e +5 Velocidade',
-        tip: 'Participar de um Clã ativo é um dos maiores saltos de poder para o seu Combat Power (CP)!'
+        heading: '🏰 Níveis de 血盟 & 技能 Passivas',
+        text: 'Conforme os membros doam Adena e SP, o nível do 血盟 sobe (Nv. 1 ao Nv. 5), desbloqueando habilidades para TODOS os membros:\n• **Nv. 1 Clan Imperium**: +10% Max HP\n• **Nv. 2 Clan Might**: +8% P.Atk\n• **Nv. 3 Clan Shield**: +10% P.Def\n• **Nv. 4 Clan Empower**: +10% M.Atk e +12% M.Def\n• **Nv. 5 Clan Vitality**: +20% Regen MP e +5 Velocidade',
+        tip: 'Participar de um 血盟 ativo é um dos maiores saltos de poder para o seu Combat Power (CP)!'
       },
       {
         heading: '💎 Doações Diárias & Reputação',
@@ -508,7 +508,7 @@ export const GUIDES_DATA = {
     sections: [
       {
         heading: '👥 Gerenciador de Contatos & Lista de Amigos',
-        text: 'O menu de Contatos permite gerenciar sua rede social completa dentro do Aden Arena:\n• **Adicionar Amigos (+ Adicionar):** Registre até 128 amigos pelo nome de personagem para acompanhar seu nível, classe e status (Online/Offline).\n• **Comunicação Direta:** Envie **Sussurros instantâneos (💬 Msg)** ou envie cartas via **Correio Expresso (✉️ Mail)**.\n• **Ações Rápidas de Grupo e Clã:** Convide facilmente seus companheiros para seu **Grupo (Party)** de caça ou para o seu **Clã**.\n• **Lista de Bloqueados:** Bloqueie até 64 jogadores indesejados para manter seu foco e tranquilidade nas batalhas.',
+        text: 'O menu de Contatos permite gerenciar sua rede social completa dentro do Aden Arena:\n• **Adicionar Amigos (+ Adicionar):** Registre até 128 amigos pelo nome de personagem para acompanhar seu nível, classe e status (Online/Offline).\n• **Comunicação Direta:** Envie **Sussurros instantâneos (💬 Msg)** ou envie cartas via **Correio Expresso (✉️ Mail)**.\n• **Ações Rápidas de Grupo e 血盟:** Convide facilmente seus companheiros para seu **Grupo (Party)** de caça ou para o seu **血盟**.\n• **Lista de Bloqueados:** Bloqueie até 64 jogadores indesejados para manter seu foco e tranquilidade nas batalhas.',
         tip: 'Acesse o menu a qualquer momento clicando no botão "👥 Contatos" na barra superior ou na aba "Glória & Sociedade"!'
       },
       {
@@ -573,7 +573,7 @@ export function checkTabGuide(tabKey, state, saveStateFn) {
 }
 
 /**
- * Abre a janela Modal com o Guia da Aba informada
+ * Abre a janela Modal com o 指南 da Aba informada
  */
 export function openTabGuideModal(guideKey) {
   const data = GUIDES_DATA[guideKey] || GUIDES_DATA.zones;
@@ -659,7 +659,7 @@ export function openTabGuideModal(guideKey) {
       <!-- Footer -->
       <div style="padding: 12px 20px; border-top: 1px solid rgba(212, 167, 68, 0.2); background: rgba(0, 0, 0, 0.4); border-radius: 0 0 14px 14px; display: flex; justify-content: space-between; align-items: center;">
         <span style="font-size: 11px; color: #888;">
-          ❓ Você pode reabrir este guia a qualquer momento no botão <strong>Guia da Aba</strong> ou no topo da tela.
+          ❓ Você pode reabrir este guia a qualquer momento no botão <strong>指南 da Aba</strong> ou no topo da tela.
         </span>
         <button onclick="window.closeTabGuideModal()" style="padding: 8px 20px; font-family: 'Cinzel', serif; font-weight: bold; font-size: 12px; background: linear-gradient(180deg, #d4a744, #8a641c); border: 1px solid #ffe699; color: #000; border-radius: 6px; cursor: pointer; box-shadow: 0 2px 10px rgba(212, 167, 68, 0.3);">
           ENTENDI, CONTINUAR JOGO!
@@ -686,7 +686,7 @@ export function closeTabGuideModal() {
 }
 
 /**
- * Renderiza/atualiza o botão flutuante "❓ Guia da Aba" no canto do painel ativo.
+ * Renderiza/atualiza o botão flutuante "❓ 指南 da Aba" no canto do painel ativo.
  * @param {string} tabKey - chave da aba (ex: 'craft')
  * @param {string} [resolvedGuideKey] - chave resolvida do guia (ex: 'craft'); usa tabKey se omitido
  */
@@ -708,7 +708,7 @@ export function renderPersistentHelpButton(tabKey, resolvedGuideKey) {
   if (topGuideBtn) {
     const guideData = GUIDES_DATA[guideKey];
     topGuideBtn.style.display = 'inline-flex';
-    topGuideBtn.title = `Guia: ${guideData?.title || tabKey}`;
+    topGuideBtn.title = `指南: ${guideData?.title || tabKey}`;
     topGuideBtn.onclick = (e) => {
       e.preventDefault();
       e.stopPropagation();
