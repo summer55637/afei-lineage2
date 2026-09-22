@@ -2846,7 +2846,7 @@ function ensureHeroStructure() {
   if (!name || !level || !hpBar || !mpBar || !sprite) {
     heroCard.innerHTML = `
       <div id="hero-name" class="stage-entity-name stage-hero-name">—</div>
-      <div id="hero-level" class="stage-entity-level stage-hero-level">Level 1</div>
+      <div id="hero-level" class="stage-entity-level stage-hero-level">等級 1</div>
       <div id="hero-hp-bar" class="stage-hp-bar stage-hp-bar-hero">
         <div id="hero-hp-fill" class="stage-hp-fill stage-hp-fill-hero"></div>
         <span id="hero-hp-text" class="stage-hp-text stage-hp-text-hero">HP: 0 / 0</span>
@@ -2881,7 +2881,7 @@ function ensureMonsterStructure() {
   if (!name || !level || !hpBar || !sprite || !staggerBar) {
     monsterCard.innerHTML = `
       <div id="monster-name" class="stage-entity-name">—</div>
-      <div id="monster-level" class="stage-entity-level stage-monster-level">Level 1</div>
+      <div id="monster-level" class="stage-entity-level stage-monster-level">等級 1</div>
       <div id="monster-hp-bar" class="stage-hp-bar">
         <div id="monster-hp-fill" class="stage-hp-fill"></div>
         <span id="monster-hp-text" class="stage-hp-text">HP: 0 / 0</span>
@@ -2915,7 +2915,7 @@ export function renderStageHero(state) {
   }
 
   if (structure.level) {
-    structure.level.textContent = `Level ${heroLevel}`;
+    structure.level.textContent = `等級 ${heroLevel}`;
   }
 
   if (state.hp !== undefined && state.hp <= 0 && state.maxHp > 0 && (!state.activeMonster || state.activeMonster.hp <= 0)) {
@@ -3273,8 +3273,8 @@ export function updateCharacterUI(state) {
       const bonusVal = finalVal - baseVal;
       const bonusStr = bonusVal >= 0 ? `+${bonusVal}` : `${bonusVal}`;
       const badges = [];
-      if (setVal) badges.push(`<span class="l2-stat-chip-set">Set +${setVal}</span>`);
-      if (dyeVal) badges.push(dyeVal > 0 ? `<span class="l2-stat-chip-pos">Dye +${dyeVal}</span>` : `<span class="l2-stat-chip-neg">Dye ${dyeVal}</span>`);
+      if (setVal) badges.push(`<span class="l2-stat-chip-set">套裝 +${setVal}</span>`);
+      if (dyeVal) badges.push(dyeVal > 0 ? `<span class="l2-stat-chip-pos">染料 +${dyeVal}</span>` : `<span class="l2-stat-chip-neg">染料 ${dyeVal}</span>`);
       const badgesHtml = badges.length > 0 ? `<div class="l2-stat-badges">${badges.join('')}</div>` : '';
       return `
         <div class="l2-stat-tablet" title="${desc}">
@@ -3586,7 +3586,7 @@ export function renderZoneMap(state, callbacks = {}) {
   diffBar.innerHTML = `
     <div style="display: flex; align-items: center; gap: 10px;">
       <span style="font-family: 'Cinzel', serif; font-size: 12px; font-weight: 800; color: #ffd877; letter-spacing: 0.05em;">⚡ 狩獵難度：</span>
-      <span style="font-size: 11px; color: ${currentDiff.color || '#10b981'}; font-weight: bold;">${currentDiff.icon || '🟢'} ${currentDiff.name || 'Normal'} (${currentDiff.xpMult || 1}x XP/Gold, ${currentDiff.dropMult || 1}x Drops)</span>
+      <span style="font-size: 11px; color: ${currentDiff.color || '#10b981'}; font-weight: bold;">${currentDiff.icon || '🟢'} ${currentDiff.name || '普通'}（${currentDiff.xpMult || 1}x 經驗/金幣，${currentDiff.dropMult || 1}x 掉落）</span>
     </div>
     <div style="display: flex; gap: 6px; flex-wrap: wrap;">
       ${diffButtonsHtml}
@@ -3702,7 +3702,7 @@ function renderLoadoutBar(state) {
 
     if (!isUnlocked) {
       return `
-        <div class="loadout-slot is-locked" data-slot="${slotName}" title="${slotLabel} — Desbloqueia no 等級 ${unlockLvl}">
+        <div class="loadout-slot is-locked" data-slot="${slotName}" title="${slotLabel} — 於等級 ${unlockLvl} 解鎖">
           <div class="loadout-slot-frame">
             <span class="loadout-lock-icon">🔒</span>
           </div>
@@ -6658,7 +6658,7 @@ export function renderAlchemyUI(state) {
             </div>
             <div>
               <div style="font-weight:700; color:#f4d58a; font-size:13px; font-family:'Cinzel',serif;">${selectedDef?.name || '物品'}</div>
-              <div style="font-size:11px; color:#94a3b8;">在熔爐分解的預估產出（費用： 🪙 ${yields.fee}g):</div>
+              <div style="font-size:11px; color:#94a3b8;">在熔爐分解的預估產出（費用：🪙 ${yields.fee}g）：</div>
             </div>
           </div>
           <div style="display:flex; gap:10px; font-size:12px; font-weight:700; font-family:'IBM Plex Mono',monospace;">
@@ -7195,7 +7195,7 @@ export function renderExpeditionsUI(state) {
                 box-shadow: ${isSelected ? '0 0 6px rgba(52,211,153,0.4)' : 'none'};
               "
             >
-              ${specDef.icon} ${merc.name} (Nv. ${merc.level || 1}) ${isSelected ? '✓' : ''}
+              ${specDef.icon} ${merc.name} (Lv.${merc.level || 1}) ${isSelected ? '✓' : ''}
             </button>
           `;
         }
@@ -7506,7 +7506,7 @@ export function renderForgeSoulCrystals(container, state) {
   }
   if (w2Uid && w2Uid !== w1Uid) {
     const it = inv.find(i => i.uid === w2Uid);
-    if (it) candidateWeapons.push({ ...it, equipSlotLabel: '🗡️ 副武器 (Slot 2)' });
+    if (it) candidateWeapons.push({ ...it, equipSlotLabel: '🗡️ 副武器（欄位 2）' });
   }
   inv.forEach(i => {
     const s = getItemDef(i.itemId)?.slot || i.slot;
@@ -7842,12 +7842,12 @@ export function renderForgeTattoos(container, state) {
   }).join('');
 
   const catalog = [
-    { key: 'dye_str_con', name: 'Dye do Guerreiro (+STR / -CON)', stat: 'str' },
-    { key: 'dye_dex_con', name: 'Dye do Assassino (+DEX / -CON)', stat: 'dex' },
-    { key: 'dye_con_str', name: 'Dye do Guardião (+CON / -STR)', stat: 'con' },
-    { key: 'dye_wit_men', name: 'Dye da Conjuração (+WIT / -MEN)', stat: 'wit' },
-    { key: 'dye_int_men', name: 'Dye do Mago (+INT / -MEN)', stat: 'int' },
-    { key: 'dye_men_int', name: 'Dye da Sabedoria (+MEN / -INT)', stat: 'men' }
+    { key: 'dye_str_con', name: '戰士染料（+STR / -CON）', stat: 'str' },
+    { key: 'dye_dex_con', name: '刺客染料（+DEX / -CON）', stat: 'dex' },
+    { key: 'dye_con_str', name: '守護者染料（+CON / -STR）', stat: 'con' },
+    { key: 'dye_wit_men', name: '施法染料（+WIT / -MEN）', stat: 'wit' },
+    { key: 'dye_int_men', name: '法師染料（+INT / -MEN）', stat: 'int' },
+    { key: 'dye_men_int', name: '智慧染料（+MEN / -INT）', stat: 'men' }
   ];
 
   const catalogHtml = catalog.map(c => `
@@ -8607,7 +8607,7 @@ export function showDropLocatorModal(matId) {
             </div>
             <div style="display:flex; align-items:center; gap:6px;">
               <span style="background:rgba(34,197,94,0.15); border:1px solid #22c55e; color:#86efac; padding:3px 8px; border-radius:4px; font-size:10px; font-weight:bold; white-space:nowrap;">${s.type}</span>
-              <button onclick="window.travelToZoneFromLocator('${s.zoneKey}')" class="inv-batch-btn" style="background:linear-gradient(180deg,#d4a744,#8a641c); border:1px solid #ffe699; color:#000; padding:4px 8px; border-radius:4px; font-size:10px; font-weight:bold; cursor:pointer; white-space:nowrap;" title="Viajar e iniciar caçada nesta zona imediatamente">
+              <button onclick="window.travelToZoneFromLocator('${s.zoneKey}')" class="inv-batch-btn" style="background:linear-gradient(180deg,#d4a744,#8a641c); border:1px solid #ffe699; color:#000; padding:4px 8px; border-radius:4px; font-size:10px; font-weight:bold; cursor:pointer; white-space:nowrap;" title="立即前往此區域並開始狩獵">
                 ⚔️ Caçar Aqui
               </button>
             </div>
@@ -9716,7 +9716,7 @@ export function uiOpenReferralModal(state, defaultTab) {
     b.onclick = (e) => {
       e.stopPropagation();
       const n = b.dataset.name;
-      if (window.showMarketToast) window.showMarketToast(`💬 Sussurro enviado para ${n}: "Olá companheiro!"`, 'info');
+      if (window.showMarketToast) window.showMarketToast(`💬 已向 ${n} 發送私訊：「你好，夥伴！」`, 'info');
     };
   });
 
@@ -9724,7 +9724,7 @@ export function uiOpenReferralModal(state, defaultTab) {
     b.onclick = (e) => {
       e.stopPropagation();
       const n = b.dataset.name;
-      if (window.showMarketToast) window.showMarketToast(`✉️ Correio expresso enviado para ${n}!`, 'gold');
+      if (window.showMarketToast) window.showMarketToast(`✉️ 已向 ${n} 發送快速郵件！`, 'gold');
     };
   });
 
@@ -10034,7 +10034,7 @@ export function renderOlympiadTab(container, state) {
         npc: '👤 Talien (Giran)',
         dialog: '"高貴的戰士，若要證明你的靈魂價值，請前往 Valley of Saints 從怪物身上找回 25 頁伊娃之詩。"',
         desc: '與奇岩的 Talien 調查古代英雄傳承，並在聖者之谷找回 25 頁伊娃之詩。',
-        progressText: `${prog.part1Kills || 0}/25 monstros em Valley of Saints`,
+        progressText: `${prog.part1Kills || 0}/25 聖者之谷怪物`,
         travelBtn: (state.level || 1) >= 72
           ? `<button onclick="window.teleportToQuestZone('valleyOfSaints')" style="padding:4px 10px; font-size:10.5px; font-weight:bold; background:#1e3a8a; border:1px solid #60a5fa; color:#93c5fd; border-radius:4px; cursor:pointer; margin-top:4px;">🗺️ 前往聖者之谷</button>`
           : `<span style="display:inline-block; margin-top:4px; padding:3px 8px; font-size:10.5px; font-weight:bold; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.35); color:#fca5a5; border-radius:4px;">🔒 需要等級 72+（目前：${state.level || 1}）</span>`,
@@ -10048,8 +10048,8 @@ export function renderOlympiadTab(container, state) {
         title: 'Parte 2: Ritual de Virgil em Rune',
         npc: '👤 Virgil (Rune Township)',
         dialog: '「悲鳴沼澤的靈魂渴望解放。前往 Swamp of Screams 淨化 30 個墮落靈魂，完成精華祝聖。」',
-        desc: 'Leve a carta sagrada a Virgil em Rune Township e purifique 30 espíritos no pântano sombrio de Swamp of Screams.',
-        progressText: `${prog.part2Kills || 0}/30 almas em Swamp of Screams`,
+        desc: '將神聖信件交給魯因城鎮的 Virgil，並在悲鳴沼澤淨化 30 個靈魂。',
+        progressText: `${prog.part2Kills || 0}/30 悲鳴沼澤靈魂`,
         travelBtn: (state.level || 1) >= 74
           ? `<button onclick="window.teleportToQuestZone('swampOfScreams')" style="padding:4px 10px; font-size:10.5px; font-weight:bold; background:#1e3a8a; border:1px solid #60a5fa; color:#93c5fd; border-radius:4px; cursor:pointer; margin-top:4px;">🗺️ 前往悲鳴沼澤</button>`
           : `<span style="display:inline-block; margin-top:4px; padding:3px 8px; font-size:10.5px; font-weight:bold; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.35); color:#fca5a5; border-radius:4px;">🔒 需要等級 74+（目前：${state.level || 1}）</span>`,
@@ -10176,7 +10176,7 @@ export function renderOlympiadTab(container, state) {
     } else {
       claimBtnHtml = `
         <div style="text-align:center; padding:10px; background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:8px; color:#94a3b8; font-size:12px;">
-          達到 <strong>1,500 奧林匹亞積分</strong> 即可成為該職業英雄！（目前：${olyStatus.points} pts）
+          達到 <strong>1,500 奧林匹亞積分</strong> 即可成為該職業英雄！（目前：${olyStatus.points} 點）
         </div>
       `;
     }
@@ -10234,7 +10234,7 @@ export function renderOlympiadTab(container, state) {
       <div style="background:rgba(15,23,42,0.6); border:1px solid rgba(255,215,0,0.25); border-radius:10px; padding:16px; margin-bottom:16px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
           <div>
-            <h3 style="margin:0 0 4px 0; font-family:'Cinzel',serif; color:#fde047; font-size:17px;">🛍️ 奧林匹亞代幣商店（Noblesse Gate Pass）</h3>
+            <h3 style="margin:0 0 4px 0; font-family:'Cinzel',serif; color:#fde047; font-size:17px;">🛍️ 奧林匹亞代幣商店（貴族通行證）</h3>
             <p style="margin:0; font-size:12px; color:#cbd5e1;">使用代幣購買 Giant's Codex、S 級祝福卷軸與稀有補給品。</p>
           </div>
           <div style="background:rgba(0,0,0,0.6); border:1px solid #fde047; border-radius:8px; padding:6px 14px; font-weight:bold; color:#fde047; font-size:13px;">
@@ -10271,7 +10271,7 @@ export function renderOlympiadTab(container, state) {
             </div>
             <div style="background:rgba(0,0,0,0.55); border:1px solid #ffd700; border-radius:8px; padding:6px 12px; text-align:center;">
               <div style="font-size:9.5px; color:#cbd5e1; text-transform:uppercase;">ELO 積分</div>
-              <div style="font-size:13px; font-weight:bold; color:#fde047;">🏆 ${olyStatus.points} pts</div>
+              <div style="font-size:13px; font-weight:bold; color:#fde047;">🏆 ${olyStatus.points} 點</div>
             </div>
             <div style="background:rgba(0,0,0,0.55); border:1px solid #38bdf8; border-radius:8px; padding:6px 12px; text-align:center;">
               <div style="font-size:9.5px; color:#cbd5e1; text-transform:uppercase;">代幣</div>
@@ -10434,7 +10434,7 @@ export function renderClanTab(container, state) {
       `;
     } else {
       const phaseNames = {
-        1: 'Fase 1: Destruição dos Portões Exteriores',
+        1: '階段 1：摧毀外圍城門',
         2: '階段 2：迎戰城堡皇家衛隊',
         3: '階段 3：王座之間－引導 Seal of Ruler'
       };
@@ -10513,7 +10513,7 @@ export function renderClanTab(container, state) {
     const rosterRows = roster.map(m => `
       <tr style="border-bottom:1px solid rgba(255,255,255,0.06); font-size:12px;">
         <td style="padding:10px 8px; font-weight:bold; color:${m.isPlayer ? '#fde047' : '#e2e8f0'}; display:flex; align-items:center; gap:6px;">
-          ${m.isPlayer ? '👑 ' : ''}${m.name} ${m.isPlayer ? '<span style="font-size:10px; background:rgba(234,179,8,0.25); color:#fde047; padding:1px 5px; border-radius:4px;">Você</span>' : ''}
+          ${m.isPlayer ? '👑 ' : ''}${m.name} ${m.isPlayer ? '<span style="font-size:10px; background:rgba(234,179,8,0.25); color:#fde047; padding:1px 5px; border-radius:4px;">你</span>' : ''}
         </td>
         <td style="padding:10px 8px; color:#cbd5e1;">${m.rank}</td>
         <td style="padding:10px 8px; color:#94a3b8;">Lv. ${m.level} (${m.className})</td>
@@ -10847,7 +10847,7 @@ export function openAugmentModal(state) {
         <div style="font-size:32px; margin-bottom:8px;">⚠️</div>
         <div style="font-family:'Cinzel',serif; font-size:15px; margin-bottom:6px;">目前未裝備武器</div>
         <div style="font-size:11.5px; color:#cbd5e1; margin-bottom:14px;">前往附魔改造鐵匠前，請先讓角色裝備一把武器。</div>
-        <button onclick="document.querySelector('#idle-host')?.shadowRoot?.querySelector('#augment-modal')?.remove()" style="padding:6px 14px; background:#27272a; border:1px solid #3f3f46; color:#fff; border-radius:6px; cursor:pointer;">Fechar</button>
+        <button onclick="document.querySelector('#idle-host')?.shadowRoot?.querySelector('#augment-modal')?.remove()" style="padding:6px 14px; background:#27272a; border:1px solid #3f3f46; color:#fff; border-radius:6px; cursor:pointer;">關閉</button>
       </div>
     `;
     return;
@@ -10990,7 +10990,7 @@ function renderSevenSignsStatusView(ss, state) {
                 onclick="window.joinFactionAction('${fac.id}')"
                 style="padding:6px 12px; font-size:11px; font-weight:bold; border-radius:6px; cursor:pointer; ${ss.faction === fac.id ? 'background:#22c55e; color:#fff; border:none;' : 'background:#6b21a8; color:#fff; border:1px solid #a855f7;'}"
               >
-                ${ss.faction === fac.id ? '✓ Membro' : '加入陣營'}
+                ${ss.faction === fac.id ? '✓ 已加入' : '加入陣營'}
               </button>
             </div>
           `).join('')}
@@ -11168,7 +11168,7 @@ export function renderFortressTab(container, state) {
               ⚔️ Fortalezas & Braceletes com 護符
             </h2>
             <div style="font-size:12px; color:#d1d5db; margin-top:4px;">
-              已征服要塞： <strong>${fState.owned?.length || 0}/5</strong> | 騎士肩章: <strong style="color:#f59e0b;">${(fState.epaulettes || 0).toLocaleString()} 🎖️</strong>
+              已征服要塞： <strong>${fState.owned?.length || 0}/5</strong> | 騎士肩章： <strong style="color:#f59e0b;">${(fState.epaulettes || 0).toLocaleString()} 🎖️</strong>
             </div>
           </div>
           <div style="background:rgba(0,0,0,0.5); border:1px solid #d4a744; border-radius:8px; padding:8px 14px; text-align:center;">
@@ -11870,7 +11870,7 @@ export function openEnchantFlowModal(initialTargetUid = null, initialScrollUid =
           riskLabel = '✨ 祝福保護（失敗時維持目前強化等級）';
           riskColor = '#a855f7';
         } else {
-          riskLabel = `⚠️ Risco de Cristalização (Em caso de falha, se estilhaça em cristais)`;
+          riskLabel = `⚠️ 結晶化風險（失敗時裝備會碎裂成水晶）`;
           riskColor = '#ef4444';
         }
 
