@@ -205,8 +205,8 @@ export const IDLE_MARKUP = `
             <div class="stage-zone" id="stage-zone">—</div>
             <div class="combat-controls-bar">
               <button id="combat-toggle-btn" class="combat-ctrl-btn active" title="暫停或開始自動狩獵（P 鍵）"><span class="combat-stance-gem"></span> <span>⚔️ 狩獵中</span></button>
-              <button id="soulshot-toggle-btn" class="combat-ctrl-btn" title="戰鬥中啟用魂彈（傷害 +100%）"><span>⚡ SS</span> <span style="font-size:9px; color:#ffd877;">(OFF)</span></button>
-              <button id="autopotion-toggle-btn" class="combat-ctrl-btn" title="HP 低於 50% 時自動使用 HP 藥水"><span>🧪 自動補血</span> <span style="font-size:9px; color:#ffd877;">(OFF)</span></button>
+              <button id="soulshot-toggle-btn" class="combat-ctrl-btn" title="戰鬥中啟用魂彈（傷害 +100%）"><span>⚡ SS</span> <span style="font-size:9px; color:#ffd877;">（關閉）</span></button>
+              <button id="autopotion-toggle-btn" class="combat-ctrl-btn" title="HP 低於 50% 時自動使用 HP 藥水"><span>🧪 自動補血</span> <span style="font-size:9px; color:#ffd877;">（關閉）</span></button>
               <button id="speed-toggle-btn" class="combat-ctrl-btn" title="戰鬥速度（1x 一般／2x 加速）"><span>⏩ 1x</span></button>
               <button id="macro-settings-btn" class="combat-ctrl-btn" onclick="window.openMacroSettingsModal && window.openMacroSettingsModal()" title="放置巨集設定：HP／MP 觸發、技能循環與自動回收"><span>⚙️ 巨集</span></button>
               <label class="combat-ctrl-btn combat-ctrl-vfx" style="display:inline-flex; align-items:center; gap:4px; cursor:pointer;" title="視覺效果品質">
@@ -567,7 +567,7 @@ export const IDLE_MARKUP = `
               <div class="l2-section-header">
                 <span class="l2-section-icon">📜</span>
                 <h3>亞丁副職業與認證</h3>
-                <span id="subclass-count-badge" class="l2-section-tag">Lv. 52+ Requerido</span>
+                <span id="subclass-count-badge" class="l2-section-tag">需要 Lv.52+</span>
               </div>
               <p class="l2-section-desc">最多培養 3 個高階副職業，解鎖可永久套用於主職業的被動認證能力。</p>
               
@@ -631,7 +631,7 @@ export const IDLE_MARKUP = `
             <div class="l2inv-header-frame">
               <div class="l2inv-title-group">
                 <span class="l2inv-window-icon">🎒</span>
-                <span class="l2inv-window-title">Inventory</span>
+                <span class="l2inv-window-title">背包</span>
                 <span class="l2inv-counter" id="l2inv-counter">(<span id="inv-slots-count">0</span>/<span id="max-inv-slots">150</span>)</span>
               </div>
               <div class="inv-capacity-pressure-widget" id="inv-capacity-pressure-widget" style="display:flex; align-items:center; gap:8px; margin-left:auto; margin-right:12px;" title="背包容量壓力">
@@ -1162,12 +1162,12 @@ export const IDLE_MARKUP = `
                 <div style="display:flex; gap:5px; flex-wrap:wrap; margin-top:10px; width:100%; border-top:1px solid rgba(212,167,68,0.2); padding-top:10px;" id="forge-subtab-buttons">
                   <button onclick="window.setForgeSubTab('craft')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="craft" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px;">⚒️ 一般製作</button>
                   <button onclick="window.setForgeSubTab('refinery')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="refinery" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px; color:#a7f3d0; border-color:rgba(52,211,153,0.4);">⚗️ 精煉工作台</button>
-                  <button onclick="window.setForgeSubTab('soulcrystal')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="soulcrystal" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px;">🔮 Soul Crystals (SA)</button>
+                  <button onclick="window.setForgeSubTab('soulcrystal')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="soulcrystal" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px;">🔮 靈魂水晶（SA）</button>
                   <button onclick="window.setForgeSubTab('elemental')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="elemental" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px; color:#fdba74;">🔥 元素屬性</button>
                   <button onclick="window.setForgeSubTab('masterwork')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="masterwork" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px;">✨ Pushkin MW</button>
                   <button onclick="window.setForgeSubTab('tattoos')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="tattoos" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px;">🖊️ Tatuagens &amp; Dyes</button>
                   <button onclick="window.setForgeSubTab('synthesis')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="synthesis" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px;">🔨 帝國合成</button>
-                  <button onclick="window.setForgeSubTab('lifestones')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="lifestones" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px;">💎 Life Stones</button>
+                  <button onclick="window.setForgeSubTab('lifestones')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="lifestones" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px;">💎 生命石</button>
                   <button onclick="window.setForgeSubTab('randomcraft')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="randomcraft" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px; color:#e9d5ff;">🎲 Random Craft</button>
                 </div>
               </div>
