@@ -1957,7 +1957,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
   let cpDelta = 0;
   let cpPct = '0.0';
   let impactClass = 'impact-neutral';
-  let impactLabel = '◆ EQUIVALENTE';
+  let impactLabel = '◆ 戰力相當';
 
   if (isComparing) {
     const curCp = CombatPowerService.calculateCombatPower(state);
@@ -1988,7 +1988,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
     cpDelta = simCp - curCp;
     cpPct = curCp > 0 ? ((cpDelta / curCp) * 100).toFixed(1) : '0.0';
     impactClass = 'impact-upgrade';
-    impactLabel = `▲ SLOT VAZIO: GANHO DIRETO (+${cpDelta.toLocaleString()} CP / +${cpPct}% 實際影響)`;
+    impactLabel = `▲ 空欄位：直接提升 (+${cpDelta.toLocaleString()} CP / +${cpPct}% 實際影響)`;
   }
 
   let html = `
@@ -1996,7 +1996,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
       <div class="detail-dock-title">
         <span>🔎</span>
         <span>${isComparing ? '智慧裝備比較' : '物品詳情'}</span>
-        ${targetSlot ? `<span style="font-size:10px; color:#94a3b8; font-weight:normal;">[Slot: ${targetSlot}]</span>` : ''}
+        ${targetSlot ? `<span style="font-size:10px; color:#94a3b8; font-weight:normal;">[欄位：${targetSlot}]</span>` : ''}
       </div>
       <button class="detail-dock-close-btn" id="dock-close-btn" title="關閉詳細資訊面板">✕</button>
     </div>
@@ -2062,7 +2062,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
       <div class="detail-card candidate" style="max-width:100%;">
         <div class="detail-card-badge-row">
           <span class="detail-card-role ${isCurrentItemEquipped ? 'equipped' : 'selected'}">
-            ${isCurrentItemEquipped ? '🛡️ Equipado' : '🎒 在背包中'}
+            ${isCurrentItemEquipped ? '🛡️ 已裝備' : '🎒 在背包中'}
           </span>
           ${def.grade ? `<span class="tier-badge">${def.grade.toUpperCase()}</span>` : ''}
         </div>
@@ -2076,7 +2076,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
             </div>
             <div class="detail-item-submeta">
               <span>${item.rarity ? item.rarity.toUpperCase() : '一般'}</span>
-              <span>• Qtd: ${item.count || 1}</span>
+              <span>• 數量：${item.count || 1}</span>
               ${def.req?.level ? `<span>• 等級 ${def.req.level}</span>` : ''}
             </div>
           </div>
@@ -2108,13 +2108,13 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
   html += `
     <div class="detail-actions-row">
       ${isGear && !isCurrentItemEquipped ? `
-        <button class="detail-action-btn equip" id="dock-btn-equip">⚡ Equipar Agora</button>
+        <button class="detail-action-btn equip" id="dock-btn-equip">⚡ 立即裝備</button>
       ` : ''}
       ${isCurrentItemEquipped ? `
-        <button class="detail-action-btn unequip" id="dock-btn-unequip">❌ Desequipar</button>
+        <button class="detail-action-btn unequip" id="dock-btn-unequip">❌ 卸下</button>
       ` : ''}
       ${isEnchantScrollItem ? `
-        <button class="detail-action-btn equip" id="dock-btn-enchant-scroll" style="background:linear-gradient(135deg, #7e22ce, #b45309); color:#fff; border:1px solid #f59e0b; font-weight:bold;">✨ Encantar Equipamento</button>
+        <button class="detail-action-btn equip" id="dock-btn-enchant-scroll" style="background:linear-gradient(135deg, #7e22ce, #b45309); color:#fff; border:1px solid #f59e0b; font-weight:bold;">✨ 強化裝備</button>
       ` : (isConsumable ? `
         <button class="detail-action-btn equip" id="dock-btn-use">🧪 使用消耗品</button>
       ` : '')}
@@ -2122,7 +2122,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
         <button class="detail-action-btn enchant" id="dock-btn-enchant" style="background:linear-gradient(135deg, #0284c7, #2563eb); color:#fff; border:1px solid #38bdf8; font-weight:bold;">✨ 強化</button>
       ` : ''}
       <button class="detail-action-btn favorite ${isFav ? 'active' : ''}" id="dock-btn-favorite" title="${isFav ? '移除收藏' : '保護，避免出售／分解'}">
-        ${isFav ? '⭐ Favorito (Protegido)' : '☆ Favoritar'}
+        ${isFav ? '⭐ 已收藏（受保護）' : '☆ 加入收藏'}
       </button>
       ${!isCurrentItemEquipped && isGear ? `
         <button class="detail-action-btn salvage" id="dock-btn-salvage" title="分解為材料">🔨 分解</button>
@@ -2184,7 +2184,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
     item.isFavorite = !item.isFavorite;
     item.favorite = item.isFavorite;
     if (callbacks.log) {
-      callbacks.log(item.isFavorite ? `⭐ "${def.name}" marcado como Favorito (Protegido).` : `☆ "${def.name}" desmarcado de Favorito.`, 'system');
+      callbacks.log(item.isFavorite ? `⭐「${def.name}」已加入收藏並受到保護。` : `☆「${def.name}」已取消收藏。`, 'system');
     }
     renderItemDetailAndComparison(item, state, callbacks);
     updateInventoryUI(state, callbacks);
@@ -2268,11 +2268,11 @@ export function openAutoEquipPreviewModal(state, callbacks = {}) {
       <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:4px; padding:6px 10px; display:flex; align-items:center; justify-content:space-between; font-size:11px;">
         <span style="font-weight:bold; color:var(--gilt); text-transform:uppercase; font-size:10px; min-width:80px;">${chg.slot}:</span>
         <span style="color:#94a3b8; flex:1; text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
-          ${curDef ? curDef.name : '<span style="color:#64748b;">(Vazio)</span>'}
+          ${curDef ? curDef.name : '<span style="color:#64748b;">（空）</span>'}
         </span>
         <span style="margin:0 8px; color:var(--gilt-bright);">➔</span>
         <span style="color:#86efac; font-weight:600; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
-          ${propDef ? propDef.name : `<span style="color:#f87171;">${chg.reason || 'Desequipado'}</span>`}
+          ${propDef ? propDef.name : `<span style="color:#f87171;">${chg.reason || '已卸下'}</span>`}
         </span>
       </div>
     `;
@@ -2322,7 +2322,7 @@ export function openBatchSellModal(state, callbacks = {}, uids) {
 
   if (!overlay || !body) return;
 
-  if (title) title.innerHTML = `💰 Venda em Lote (${preview.totalCount} itens)`;
+  if (title) title.innerHTML = `💰 批次出售（${preview.totalCount} 件物品）`;
 
   let bodyHtml = '';
 
@@ -2345,7 +2345,7 @@ export function openBatchSellModal(state, callbacks = {}, uids) {
   if (preview.protectedCount > 0) {
     bodyHtml += `
       <div style="font-size:10px; color:#38bdf8; margin-bottom:8px;">
-        🛡️ ${preview.protectedCount} item(ns) protegidos foram automaticamente preservados.
+        🛡️ ${preview.protectedCount} 件受保護物品已自動保留。
       </div>
     `;
   }
@@ -2355,9 +2355,9 @@ export function openBatchSellModal(state, callbacks = {}, uids) {
       <table style="width:100%; border-collapse:collapse; font-size:11px;">
         <thead>
           <tr style="background:rgba(0,0,0,0.4); border-bottom:1px solid rgba(212,167,68,0.2);">
-            <th style="padding:6px; text-align:left;">Item</th>
-            <th style="padding:6px; text-align:center;">Qtd</th>
-            <th style="padding:6px; text-align:right;">Valor</th>
+            <th style="padding:6px; text-align:left;">物品</th>
+            <th style="padding:6px; text-align:center;">數量</th>
+            <th style="padding:6px; text-align:right;">價值</th>
           </tr>
         </thead>
         <tbody>
@@ -3575,7 +3575,7 @@ export function renderZoneMap(state, callbacks = {}) {
               ${isLocked ? 'disabled' : ''}
               onclick="window.setHuntingDifficulty && window.setHuntingDifficulty('${d.id}')"
               style="background:${activeBg}; border:${activeBorder}; color:${isLocked ? '#64748b' : (isSelected ? '#fff' : (d.color || '#fff'))}; padding: 5px 12px; border-radius: 6px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: ${isLocked ? 'not-allowed' : 'pointer'}; display: inline-flex; align-items: center; gap: 5px; box-shadow: ${isSelected ? `0 0 10px ${d.color || '#ffd877'}44` : 'none'}; transition: all 0.2s;"
-              title="${isLocked ? `Requer 等級 ${d.minLvl || 1}+` : (d.desc || '')}">
+              title="${isLocked ? `需要等級 ${d.minLvl || 1}+` : (d.desc || '')}">
         <span>${d.icon || '⚔️'}</span>
         <span>${d.name || d.id}</span>
         <span style="font-size: 10px; opacity: 0.85;">${isLocked ? `🔒 (Lv.${d.minLvl || 1})` : `(${d.xpMult || 1}x)`}</span>
@@ -3641,7 +3641,7 @@ export function renderZoneMap(state, callbacks = {}) {
               ${monsterCount} espécie${monsterCount === 1 ? '' : 's'} · 👑 ${bossName}
             </div>
             <button class="select-zone-btn" ${isLocked || isCurrent ? 'disabled' : ''}>
-              ${isCurrent ? '★ 目前在此狩獵' : isLvlLocked ? `🔒 Requer Lv.${reqLvl}` : isCpLocked ? `🔒 Requer ${(zoneProg?.minCp || 0).toLocaleString()} CP` : '在此區域狩獵'}
+              ${isCurrent ? '★ 目前在此狩獵' : isLvlLocked ? `🔒 需要 Lv.${reqLvl}` : isCpLocked ? `🔒 Requer ${(zoneProg?.minCp || 0).toLocaleString()} CP` : '在此區域狩獵'}
             </button>
           </div>
         </div>
@@ -3739,7 +3739,7 @@ function renderLoadoutBar(state) {
         <div class="loadout-slot-frame">
           <img src="${iconUrl}" class="loadout-skill-icon" alt="${def.name}" onerror="this.onerror=null; this.src='${NEUTRAL_SKILL_PLACEHOLDER}'; this.style.opacity='0.4';" />
           ${skillLevel > 1 ? `<span class="loadout-skill-lvl">${skillLevel}</span>` : ''}
-          <button class="loadout-slot-unequip-btn" data-slot="${slotName}" title="Desequipar ${def.name}">×</button>
+          <button class="loadout-slot-unequip-btn" data-slot="${slotName}" title="卸下 ${def.name}">×</button>
         </div>
         <span class="loadout-slot-label">${slotLabel}</span>
         ${condBadgeHtml}
@@ -3755,7 +3755,7 @@ function renderLoadoutBar(state) {
           <span class="loadout-progress">${progressLabel} · ${unlockedSlots.length}/7 Slots</span>
         </div>
         <div class="loadout-header-actions">
-          <button class="loadout-btn-action loadout-btn-auto" type="button" title="自動將已學習的最佳技能裝入可用欄位">⚡ Auto-Equipar</button>
+          <button class="loadout-btn-action loadout-btn-auto" type="button" title="自動將已學習的最佳技能裝入可用欄位">⚡ 自動裝備</button>
           <button class="loadout-btn-action loadout-btn-clear" type="button" title="卸下配置中的所有技能">✕ 清除</button>
         </div>
       </div>
@@ -3806,7 +3806,7 @@ function renderSkillCard(skill, state, activeLoadoutSlot = null) {
     : '';
 
   const slotPill = equippedSlot
-    ? `<span class="skill-slot-pill" title="Equipado no slot ${SKILL_LOADOUT_SLOT_LABELS[equippedSlot] || equippedSlot}">
+    ? `<span class="skill-slot-pill" title="已裝備於欄位 ${SKILL_LOADOUT_SLOT_LABELS[equippedSlot] || equippedSlot}">
          ${SKILL_LOADOUT_SLOT_ICONS[equippedSlot] || '⚔️'} ${SKILL_LOADOUT_SLOT_LABELS[equippedSlot] || equippedSlot}
        </span>`
     : '';
@@ -3840,7 +3840,7 @@ function renderSkillCard(skill, state, activeLoadoutSlot = null) {
          role="button"
          tabindex="0"
          draggable="${isDraggable ? 'true' : 'false'}"
-         title="${skill.name} (${skill.element})${equippedSlot ? ` — Equipado no Loadout: ${SKILL_LOADOUT_SLOT_LABELS[equippedSlot] || equippedSlot}` : ''}">
+         title="${skill.name} (${skill.element})${equippedSlot ? ` — 已裝備於配置： ${SKILL_LOADOUT_SLOT_LABELS[equippedSlot] || equippedSlot}` : ''}">
       <div class="skill-icon-frame-48">
         <img src="${iconUrl}" class="skill-icon-img" alt="${skill.name}" onerror="this.onerror=null; this.src='${NEUTRAL_SKILL_PLACEHOLDER}'; this.style.opacity='0.4';" />
         ${starPill}
@@ -3987,7 +3987,7 @@ export function updateSkillUI(state, callbacks = {}) {
           <div class="locked-icon-large">🌟</div>
           <h4 class="locked-title">終極與超凡技能</h4>
           <p class="locked-desc">
-            O despertar transcendental é concedido aos guerreiros que alcançam o <strong>等級 80</strong> (Estágio 4 — Despertar Supremo) e <strong>等級 90</strong> (Estágio 5 — Mestre Supremo).
+            達到 <strong>等級 80</strong>（階段 4－至尊覺醒）與 <strong>等級 90</strong>（階段 5－至尊大師）的戰士，可獲得超凡覺醒。
           </p>
           <div class="locked-progress-wrap">
             <div class="locked-progress-bar">
@@ -3995,7 +3995,7 @@ export function updateSkillUI(state, callbacks = {}) {
             </div>
             <div class="locked-progress-labels">
               <span>目前等級： <strong>Lv. ${state.level || 1}</strong></span>
-              <span>Requisito: <strong>Lv. 80</strong></span>
+              <span>需求：<strong>Lv. 80</strong></span>
             </div>
           </div>
         </div>
@@ -4098,7 +4098,7 @@ export function updateSkillUI(state, callbacks = {}) {
       updateSkillUI(state, callbacks);
       updateSkillInfoPanel(state, callbacks);
       if (typeof window !== 'undefined' && typeof window.floatText === 'function') {
-        window.floatText('⚡ Loadout Auto-Equipado!', 'float-epic');
+        window.floatText('⚡ 技能配置已自動裝備！', 'float-epic');
       }
     };
   }
@@ -4159,7 +4159,7 @@ export function updateSkillUI(state, callbacks = {}) {
           updateSkillInfoPanel(state, callbacks);
           if (typeof window !== 'undefined' && typeof window.floatText === 'function') {
             const slotLabel = SKILL_LOADOUT_SLOT_LABELS[slotName] || slotName;
-            window.floatText(`Equipado em [${slotLabel}]!`, 'sf-heal');
+            window.floatText(`已裝備至［${slotLabel}］！`, 'sf-heal');
           }
         } else if (typeof window !== 'undefined' && typeof window.floatText === 'function') {
           window.floatText(res.error || '無法裝備', 'float-warning');
@@ -4335,7 +4335,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
     star4BoxHtml = `
       <div style="background:rgba(245,158,11,0.1); border:1px solid #f59e0b; border-radius:6px; padding:8px; margin:8px 0; font-size:11px;">
         <div style="display:flex; justify-content:space-between; align-items:center;">
-          <span style="color:#fbbf24; font-weight:bold;">📖 Requisito: ${bName}</span>
+          <span style="color:#fbbf24; font-weight:bold;">📖 需求：${bName}</span>
           <span style="background:rgba(0,0,0,0.4); padding:2px 6px; border-radius:4px; color:${hasRequiredBook ? '#34d399' : '#f87171'}; font-weight:bold;">
             ${hasRequiredBook ? '✓ 背包中可用' : '✗ 背包中缺少'}
           </span>
@@ -4380,8 +4380,8 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
       loadoutSectionHtml = `
         <div class="si-loadout-panel" style="margin-top:12px; padding:10px; background:rgba(15,23,42,0.7); border:1px solid rgba(212,167,68,0.4); border-radius:6px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <span style="color:#d4a744; font-size:12px; font-weight:bold;">⚡ Equipado no Loadout: <strong style="color:#34d399;">${SKILL_LOADOUT_SLOT_LABELS[curSlot] || curSlot}</strong></span>
-            <button class="si-btn-unequip" data-slot="${curSlot}" style="padding:3px 10px; font-size:11px; background:#ef4444; border:none; border-radius:4px; color:#fff; cursor:pointer; font-weight:bold;">Desequipar</button>
+            <span style="color:#d4a744; font-size:12px; font-weight:bold;">⚡ 已裝備於配置： <strong style="color:#34d399;">${SKILL_LOADOUT_SLOT_LABELS[curSlot] || curSlot}</strong></span>
+            <button class="si-btn-unequip" data-slot="${curSlot}" style="padding:3px 10px; font-size:11px; background:#ef4444; border:none; border-radius:4px; color:#fff; cursor:pointer; font-weight:bold;">卸下</button>
           </div>
           <div style="font-size:11px; color:#94a3b8; margin-bottom:6px; font-weight:bold;">⚙️ 自動戰鬥條件：</div>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:11px;">
@@ -4424,7 +4424,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
             <select class="si-equip-slot-choice" style="flex:1; background:#1e293b; color:#f8fafc; border:1px solid #475569; border-radius:4px; padding:4px 8px; font-size:12px;">
               ${slotOptions}
             </select>
-            <button class="si-btn-do-equip" data-skill="${id}" style="padding:4px 12px; font-size:12px; background:linear-gradient(180deg,#10b981,#059669); color:#fff; border:none; border-radius:4px; cursor:pointer; font-weight:bold;">Equipar</button>
+            <button class="si-btn-do-equip" data-skill="${id}" style="padding:4px 12px; font-size:12px; background:linear-gradient(180deg,#10b981,#059669); color:#fff; border:none; border-radius:4px; cursor:pointer; font-weight:bold;">裝備</button>
           </div>
         </div>
       `;
@@ -4477,7 +4477,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
         updateSkillInfoPanel(state, callbacks);
         if (typeof window !== 'undefined' && typeof window.floatText === 'function') {
           const slotLabel = SKILL_LOADOUT_SLOT_LABELS[targetSlot] || targetSlot;
-          window.floatText(`Equipado em [${slotLabel}]!`, 'sf-heal');
+          window.floatText(`已裝備至［${slotLabel}］！`, 'sf-heal');
         }
       } else if (typeof window !== 'undefined' && typeof window.floatText === 'function') {
         window.floatText(res.error || '裝備時發生錯誤', 'float-warning');
@@ -4525,13 +4525,13 @@ export const SHOP_CATEGORY_TREE = {
     icon: '⚔️',
     dialoguePrompt: '你想為亞丁狩獵尋找哪種類型的武器？',
     subcategories: [
-      { id: 'all', name: 'Todas as Armas', icon: '⚔️' },
+      { id: 'all', name: '全部武器', icon: '⚔️' },
       { id: 'bows', name: 'Arcos & Bestas', icon: '🏹' },
       { id: 'swords', name: 'Espadas & 雙刀s', icon: '🗡️' },
       { id: 'staves', name: '法杖與魔法權杖', icon: '🪄' },
       { id: 'daggers', name: 'Adagas & Facas', icon: '🗡' },
       { id: 'blunts', name: '鈍器s, Martelos & Machados', icon: '🔨' },
-      { id: 'polearms', name: '長槍s & Armas de Haste', icon: '🔱' },
+      { id: 'polearms', name: '長槍與長柄武器', icon: '🔱' },
       { id: 'fists', name: 'Punhos & Garras', icon: '🥊' }
     ]
   },
@@ -4541,9 +4541,9 @@ export const SHOP_CATEGORY_TREE = {
     icon: '🛡️',
     dialoguePrompt: '一套好防具往往決定榮耀或死亡。你正在找什麼？',
     subcategories: [
-      { id: 'all', name: 'Todas as Armaduras', icon: '🛡️' },
-      { id: 'heavy', name: 'Armaduras Pesadas (Heavy)', icon: '🛡️' },
-      { id: 'light', name: 'Armaduras Leves (Light)', icon: '🥋' },
+      { id: 'all', name: '全部防具', icon: '🛡️' },
+      { id: 'heavy', name: '重型防具（Heavy）', icon: '🛡️' },
+      { id: 'light', name: '輕型防具（Light）', icon: '🥋' },
       { id: 'robe', name: '長袍與魔法法袍', icon: '👘' },
       { id: 'shields', name: 'Escudos & Sigilos', icon: '🔰' },
       { id: 'parts', name: 'Elmos, Luvas & Botas', icon: '🪖' }
@@ -4572,7 +4572,7 @@ export const SHOP_CATEGORY_TREE = {
       { id: 'shots', name: 'SoulShots & SpiritShots', icon: '✨' },
       { id: 'potions', name: '治療、魔力與增益藥水', icon: '🍷' },
       { id: 'scrolls', name: '強化與傳送卷軸', icon: '📜' },
-      { id: 'books', name: 'Livros & Tomos Sagrados', icon: '📖' }
+      { id: 'books', name: '書籍與神聖典籍', icon: '📖' }
     ]
   },
   others: {
@@ -4812,7 +4812,7 @@ function renderDialogueView(state, callbacks) {
         <span class="l2chat-bubble-icon" style="color:#f87171;">🗨️</span>
         <div style="flex:1;">
           <div class="l2chat-option-text" style="color:#fca5a5;">出售背包物品</div>
-          <div class="l2chat-option-hint">Venda itens comuns pelo valor de 50% de 金幣</div>
+          <div class="l2chat-option-hint">以物品金幣價值的 50% 出售一般物品</div>
         </div>
         <span style="color:#fca5a5; font-size:12px;">➔</span>
       </button>
@@ -5122,7 +5122,7 @@ function renderStoreBuyTab(state, callbacks) {
       const isLvlOk = charLvl >= reqLvl;
       const price = isMystic ? Math.floor((def.price || 500) * (gData?.RARITY?.[rarity]?.mult || 1) * 2) : (def.price || 100);
       const stats = buildShopStatsSummary(def);
-      const tooltip = `${def.name} [${gradeInfo.label}]\n${stats ? stats + '\n' : ''}價格： ${price.toLocaleString()} 金幣${!isLvlOk ? `\n🔒 Requer Lv. ${reqLvl}` : ''}`;
+      const tooltip = `${def.name} [${gradeInfo.label}]\n${stats ? stats + '\n' : ''}價格： ${price.toLocaleString()} 金幣${!isLvlOk ? `\n🔒 需要 Lv. ${reqLvl}` : ''}`;
 
       return `
         <div class="l2store-slot ${!isLvlOk ? 'locked' : ''}" data-add-cart="${def.id}" data-rarity="${rarity}" title="${tooltip}">
@@ -5330,7 +5330,7 @@ function renderStoreSellTab(state, callbacks) {
       const isLocked = selectedSet.has(item.uid);
 
       return `
-        <div class="l2store-slot ${isEquipped || isLocked ? 'locked' : ''}" data-sell-item="${item.uid}" title="${item.enchant > 0 ? `+${item.enchant} ` : ''}${def.name}\nValor de Venda: ${sellUnit.toLocaleString()}g">
+        <div class="l2store-slot ${isEquipped || isLocked ? 'locked' : ''}" data-sell-item="${item.uid}" title="${item.enchant > 0 ? `+${item.enchant} ` : ''}${def.name}\n出售價值： ${sellUnit.toLocaleString()}g">
           <span class="l2store-slot-grade grade-${gradeInfo.code}">${gradeInfo.code.toUpperCase()}</span>
           ${getItemIcon(def)}
           ${count > 1 ? `<span class="l2store-slot-qty">${count}</span>` : ''}
@@ -5578,7 +5578,7 @@ function buildShopComparisonDelta(def, state) {
   if (diffs.length === 0) return '';
   return `
     <div class="imp-comparison-box">
-      <span style="color:var(--imp-text-muted); font-size:10px; font-weight:bold; margin-right:4px;">VS EQUIPADO:</span>
+      <span style="color:var(--imp-text-muted); font-size:10px; font-weight:bold; margin-right:4px;">與目前裝備比較：</span>
       ${diffs.join(' ')}
     </div>
   `;
@@ -5870,7 +5870,7 @@ export function renderForgeDialogueView(state, callbacks = {}) {
       <button class="l2chat-option-btn" data-forge-target="soulcrystal">
         <span class="l2chat-bubble-icon">🗨️</span>
         <div style="flex:1;">
-          <div class="l2chat-option-text">Imbue a weapon/armor with Soul Crystal Effect or change SA</div>
+          <div class="l2chat-option-text">為武器／防具賦予靈魂水晶效果或變更 SA</div>
           <div class="l2chat-option-hint">Despertar Focus, Acumen, Health ou Might na arma</div>
         </div>
         <span style="color:#ffd877; font-size:12px;">➔</span>
@@ -5879,7 +5879,7 @@ export function renderForgeDialogueView(state, callbacks = {}) {
       <button class="l2chat-option-btn" data-forge-target="soulcrystal" style="border-color:rgba(239,68,68,0.35);">
         <span class="l2chat-bubble-icon" style="color:#f87171;">🗨️</span>
         <div style="flex:1;">
-          <div class="l2chat-option-text" style="color:#fca5a5;">Revoke the Soul Crystal Effect from a weapon/armor</div>
+          <div class="l2chat-option-text" style="color:#fca5a5;">移除武器／防具上的靈魂水晶效果</div>
           <div class="l2chat-option-hint">移除並淨化武器上的靈魂水晶效果</div>
         </div>
         <span style="color:#fca5a5; font-size:12px;">➔</span>
@@ -5897,8 +5897,8 @@ export function renderForgeDialogueView(state, callbacks = {}) {
       <button class="l2chat-option-btn" data-forge-target="masterwork">
         <span class="l2chat-bubble-icon">🗨️</span>
         <div style="flex:1;">
-          <div class="l2chat-option-text">Upgrade items of R-grade or higher (Masterwork &amp; Troca)</div>
-          <div class="l2chat-option-hint">Restauração Pushkin, Masterwork e troca de armas de mesmo grau</div>
+          <div class="l2chat-option-text">升級 R 級以上物品（Masterwork 與交換）</div>
+          <div class="l2chat-option-hint">Pushkin 修復、Masterwork 與同階武器交換</div>
         </div>
         <span style="color:#ffd877; font-size:12px;">➔</span>
       </button>
@@ -5907,7 +5907,7 @@ export function renderForgeDialogueView(state, callbacks = {}) {
         <span class="l2chat-bubble-icon" style="color:#fdba74;">🗨️</span>
         <div style="flex:1;">
           <div class="l2chat-option-text" style="color:#fed7aa;">Atributos Elementais (Fire, Water, Wind, Earth, Holy, Dark)</div>
-          <div class="l2chat-option-hint">Engastes de pedras elementais em armas e armaduras</div>
+          <div class="l2chat-option-hint">在武器與防具上鑲嵌元素石</div>
         </div>
         <span style="color:#fdba74; font-size:12px;">➔</span>
       </button>
@@ -5952,7 +5952,7 @@ export function renderForgeDialogueView(state, callbacks = {}) {
         <span class="l2chat-bubble-icon">🗨️</span>
         <div style="flex:1;">
           <div class="l2chat-option-text" style="color:#cbd5e1;">Ask about local governor and taxes</div>
-          <div class="l2chat-option-hint">Saber sobre o Lorde do Castelo e as taxas da guilda</div>
+          <div class="l2chat-option-hint">了解城堡領主與公會稅率</div>
         </div>
         <span style="color:#94a3b8; font-size:12px;">➔</span>
       </button>
@@ -6306,7 +6306,7 @@ export function updateCraftUI(state, callbacks = {}) {
 
     let buttonText = '🔨 鍛造物品';
     if (!isForgeLvlOk) buttonText = `🔒 需要鍛造 Lv.${reqForgeLvl}`;
-    else if (!isLvlOk) buttonText = `⚠️ Requer Lv.${itemReqLevel} p/ Usar`;
+    else if (!isLvlOk) buttonText = `⚠️ 需要 Lv.${itemReqLevel} 才能使用`;
 
     return `
       <div class="l2-blueprint-card ${craftable ? 'craftable' : ''}" data-open-craft="${itemId}">
@@ -6678,17 +6678,17 @@ export function renderAlchemyUI(state) {
       <div class="imp-alchemy-dashboard">
         <div class="imp-essence-orb orb-fire">
           <div style="font-size:22px; filter: drop-shadow(0 0 6px rgba(239,68,68,0.5));">🔥</div>
-          <div style="font-size:10px; text-transform:uppercase; color:#fca5a5; font-weight:700; font-family:'Cinzel',serif;">Fogo</div>
+          <div style="font-size:10px; text-transform:uppercase; color:#fca5a5; font-weight:700; font-family:'Cinzel',serif;">火</div>
           <div style="font-size:18px; font-weight:700; color:#fff; font-family:'IBM Plex Mono',monospace;">${(essences.fire || 0).toLocaleString()}</div>
         </div>
         <div class="imp-essence-orb orb-earth">
           <div style="font-size:22px; filter: drop-shadow(0 0 6px rgba(34,197,94,0.5));">🛡️</div>
-          <div style="font-size:10px; text-transform:uppercase; color:#86efac; font-weight:700; font-family:'Cinzel',serif;">Terra</div>
+          <div style="font-size:10px; text-transform:uppercase; color:#86efac; font-weight:700; font-family:'Cinzel',serif;">地</div>
           <div style="font-size:18px; font-weight:700; color:#fff; font-family:'IBM Plex Mono',monospace;">${(essences.earth || 0).toLocaleString()}</div>
         </div>
         <div class="imp-essence-orb orb-wind">
           <div style="font-size:22px; filter: drop-shadow(0 0 6px rgba(56,189,248,0.5));">🍃</div>
-          <div style="font-size:10px; text-transform:uppercase; color:#7dd3fc; font-weight:700; font-family:'Cinzel',serif;">Vento</div>
+          <div style="font-size:10px; text-transform:uppercase; color:#7dd3fc; font-weight:700; font-family:'Cinzel',serif;">風</div>
           <div style="font-size:18px; font-weight:700; color:#fff; font-family:'IBM Plex Mono',monospace;">${(essences.wind || 0).toLocaleString()}</div>
         </div>
         <div class="imp-essence-orb orb-water">
@@ -6725,7 +6725,7 @@ export function renderAlchemyUI(state) {
           class="imp-btn-primary"
           style="width:100%; padding:10px 16px; font-size:13px; background:${chaosStoneCount > 0 ? 'linear-gradient(180deg, #ef4444, #991b1b)' : 'rgba(80,40,40,0.5)'}; border-color:${chaosStoneCount > 0 ? '#fca5a5' : 'rgba(120,60,60,0.4)'}; color:#fff; display:flex; align-items:center; justify-content:center; gap:8px;"
         >
-          🌀 INVOCAÇÃO ABISSAL: ABRIR FENDA DO CAOS
+          🌀 深淵召喚：開啟混沌裂隙
         </button>
       </div>
 
@@ -6735,7 +6735,7 @@ export function renderAlchemyUI(state) {
       <!-- Fast Dissolve Controls -->
       <div style="background:var(--imp-surface-panel, rgba(15,20,32,0.85)); border:1px solid var(--imp-border-subtle, rgba(255,255,255,0.08)); border-radius:10px; padding:12px; margin-bottom:16px;">
         <h4 style="margin:0 0 10px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:14px; display:flex; align-items:center; gap:6px;">
-          🔥 Dissolução em Lote no Cadinho de Almas
+          🔥 靈魂熔爐批次溶解
         </h4>
         <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:8px;">
           <button
@@ -6897,7 +6897,7 @@ export function renderAstralMasteryUI(state) {
           </div>
 
           <div style="background:rgba(0,0,0,0.6); border:1px solid rgba(168,85,247,0.5); padding:8px 16px; border-radius:10px; text-align:right;">
-            <div style="font-size:10px; color:#aaa; text-transform:uppercase;">Saldo de Fragmentos</div>
+            <div style="font-size:10px; color:#aaa; text-transform:uppercase;">碎片餘額</div>
             <div style="font-size:20px; font-weight:bold; color:#d8b4fe; display:flex; align-items:center; justify-content:flex-end; gap:6px;">
               ✨ <span>${astralShards.toLocaleString()}</span>
             </div>
@@ -7118,7 +7118,7 @@ export function renderExpeditionsUI(state) {
             onclick="window.claimExpeditionReward('${active.id}')"
             style="padding:10px 16px; font-weight:bold; font-size:12px; background:linear-gradient(180deg,#34d399,#059669); border:1px solid #6ee7b7; color:#000; border-radius:6px; cursor:pointer; box-shadow:0 0 12px rgba(52,211,153,0.5);"
           >
-            🎁 COLETAR SAQUE
+            🎁 領取戰利品
           </button>
         `;
       } else {
@@ -7152,7 +7152,7 @@ export function renderExpeditionsUI(state) {
             cursor:${isUnlocked && canAfford ? 'pointer' : 'not-allowed'};
           "
         >
-          ${!isUnlocked ? `🔒 Nv. ${dDef.minLevel}+` : `🧭 ENVIAR (${(dDef.cost / 1000).toFixed(0)}k)`}
+          ${!isUnlocked ? `🔒 Nv. ${dDef.minLevel}+` : `🧭 派遣（${(dDef.cost / 1000).toFixed(0)}k）`}
         </button>
       `;
     }
@@ -7168,8 +7168,8 @@ export function renderExpeditionsUI(state) {
         squadSelectorHtml = `
           <div style="margin-top:8px; padding-top:8px; border-top:1px solid rgba(212,167,68,0.2);">
             <div style="font-size:11px; color:#f4d58a; margin-bottom:4px; display:flex; justify-content:space-between;">
-              <span>Escalar Mercenários (${selectedUids.length}/3):</span>
-              <span style="color:#6ee7b7; font-weight:bold;">Poder do Esquadrão: ${synergies.totalSquadPower}</span>
+              <span>編入傭兵（${selectedUids.length}/3）：</span>
+              <span style="color:#6ee7b7; font-weight:bold;">小隊戰力： ${synergies.totalSquadPower}</span>
             </div>
             <div style="display:flex; gap:6px; flex-wrap:wrap;">
         `;
@@ -7205,7 +7205,7 @@ export function renderExpeditionsUI(state) {
         if (synergies.activePerks.length > 0) {
           squadSelectorHtml += `
             <div style="margin-top:6px; font-size:10px; color:#6ee7b7; background:rgba(52,211,153,0.1); border:1px solid rgba(52,211,153,0.25); border-radius:4px; padding:3px 6px;">
-              ⚡ Sinergias: ${synergies.activePerks.join(' | ')}
+              ⚡ 協同效果： ${synergies.activePerks.join(' | ')}
             </div>
           `;
         }
@@ -7221,7 +7221,7 @@ export function renderExpeditionsUI(state) {
       const activeMercs = active.squad.map(uid => MercenaryService.getMercenaryByUid(state, uid)).filter(Boolean);
       squadSelectorHtml = `
         <div style="margin-top:8px; font-size:10px; color:#94a3b8; border-top:1px solid rgba(212,167,68,0.15); padding-top:6px;">
-          Mercenários na vanguarda: <strong style="color:#6ee7b7;">${activeMercs.map(m => m.name).join(', ')}</strong>
+          前鋒傭兵： <strong style="color:#6ee7b7;">${activeMercs.map(m => m.name).join(', ')}</strong>
           ${active.synergies?.activePerks?.length ? `<span style="color:#ffd877; margin-left:6px;">(${active.synergies.activePerks.join(', ')})</span>` : ''}
         </div>
       `;
@@ -7230,7 +7230,7 @@ export function renderExpeditionsUI(state) {
     const minG = dDef.minGold ? (dDef.minGold / 1000).toFixed(0) + 'k' : '20k';
     const maxG = dDef.maxGold ? (dDef.maxGold / 1000).toFixed(0) + 'k' : '30k';
     const shards = dDef.shards || 3;
-    const chestName = dDef.rewardDesc || 'Baú de Espólios';
+    const chestName = dDef.rewardDesc || '戰利品寶箱';
 
     let phasesHtml = '';
     if (active) {
@@ -7239,9 +7239,9 @@ export function renderExpeditionsUI(state) {
       phasesHtml = `
         <div style="margin-top:8px; background:rgba(0,0,0,0.4); border-radius:6px; padding:8px 10px; border:1px solid rgba(212,167,68,0.2);">
           <div style="display:flex; justify-content:space-between; font-size:10px; font-weight:bold; margin-bottom:4px;">
-            <span style="color:${progress >= 0.33 ? '#34d399' : '#94a3b8'};">1. Infiltração ${progress >= 0.33 ? '✓' : '⏳'}</span>
-            <span style="color:${progress >= 0.66 ? '#34d399' : (progress >= 0.33 ? '#fbbf24' : '#94a3b8')};">2. Perigo & Combate ${progress >= 0.66 ? '✓' : (progress >= 0.33 ? '⚡' : '⏳')}</span>
-            <span style="color:${progress >= 1.0 ? '#34d399' : (progress >= 0.66 ? '#fbbf24' : '#94a3b8')};">3. Câmara do Tesouro ${progress >= 1.0 ? '✓' : (progress >= 0.66 ? '🗝️' : '⏳')}</span>
+            <span style="color:${progress >= 0.33 ? '#34d399' : '#94a3b8'};">1. 潛入 ${progress >= 0.33 ? '✓' : '⏳'}</span>
+            <span style="color:${progress >= 0.66 ? '#34d399' : (progress >= 0.33 ? '#fbbf24' : '#94a3b8')};">2. 危機與戰鬥 ${progress >= 0.66 ? '✓' : (progress >= 0.33 ? '⚡' : '⏳')}</span>
+            <span style="color:${progress >= 1.0 ? '#34d399' : (progress >= 0.66 ? '#fbbf24' : '#94a3b8')};">3. 寶物庫 ${progress >= 1.0 ? '✓' : (progress >= 0.66 ? '🗝️' : '⏳')}</span>
           </div>
           <div style="width:100%; height:5px; background:rgba(255,255,255,0.1); border-radius:3px; overflow:hidden;">
             <div style="width:${Math.floor(progress * 100)}%; height:100%; background:linear-gradient(90deg,#38bdf8,#34d399);"></div>
@@ -7254,13 +7254,13 @@ export function renderExpeditionsUI(state) {
     if (!active && isUnlocked) {
       const currentDir = (window._selectedExpeditionDirective && window._selectedExpeditionDirective[dId]) || 'balanced';
       const dirs = [
-        { id: 'cautious', icon: '🛡️', name: 'Cautelosa' },
-        { id: 'balanced', icon: '⚖️', name: 'Equilibrada' },
-        { id: 'reckless', icon: '🔥', name: 'Audaciosa' }
+        { id: 'cautious', icon: '🛡️', name: '謹慎' },
+        { id: 'balanced', icon: '⚖️', name: '均衡' },
+        { id: 'reckless', icon: '🔥', name: '冒險' }
       ];
       directiveHtml = `
         <div style="margin-top:12px; padding-top:8px; border-top:1px solid rgba(212,167,68,0.2);">
-          <div style="font-size:11px; color:#f4d58a; margin-bottom:6px;">Diretriz de Risco:</div>
+          <div style="font-size:11px; color:#f4d58a; margin-bottom:6px;">風險方針：</div>
           <div style="display:flex; gap:8px;">
             ${dirs.map(d => `
               <button 
@@ -7283,7 +7283,7 @@ export function renderExpeditionsUI(state) {
         dilemmaHtml = `
           <div style="margin-top:12px; padding:10px; background:radial-gradient(circle, rgba(50,20,10,0.85) 0%, rgba(20,10,5,0.95) 100%); border:1px solid #ef4444; border-radius:8px; box-shadow:0 0 10px rgba(239,68,68,0.3);">
             <div style="font-family:'Cinzel',serif; font-size:13px; font-weight:bold; color:#fca5a5; margin-bottom:4px;">
-              ⚠️ Dilema de Marcha: ${dDef.name}
+              ⚠️ 行軍抉擇： ${dDef.name}
             </div>
             <p style="font-size:10px; color:#aaa; margin:0 0 8px 0;">${dDef.desc}</p>
             <div style="display:flex; gap:6px; flex-wrap:wrap;">
@@ -7311,12 +7311,12 @@ export function renderExpeditionsUI(state) {
             </div>
             <p style="margin:4px 0 6px 0; font-size:11px; color:#aaa; line-height:1.3;">${dDef.desc}</p>
             <div style="font-size:10px; color:#fca5a5; margin-bottom:6px;">
-              <strong>⚠️ Ameaça:</strong> ${dDef.threat || 'Perigos Ancestrais'}
-              <span style="color:#94a3b8; margin-left:6px;">(Recomendados: ${dDef.recommendedSpecs?.map(s => MERCENARY_SPECIALIZATIONS[s]?.name || s).join(', ') || 'Qualquer'})</span>
+              <strong>⚠️ 威脅：</strong> ${dDef.threat || 'Perigos Ancestrais'}
+              <span style="color:#94a3b8; margin-left:6px;">（推薦： ${dDef.recommendedSpecs?.map(s => MERCENARY_SPECIALIZATIONS[s]?.name || s).join(', ') || '不限'})</span>
             </div>
             <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
               <span style="font-size:10px; background:rgba(212,167,68,0.15); border:1px solid rgba(212,167,68,0.3); padding:2px 8px; border-radius:6px; color:#ffd877; font-weight:bold;">🪙 ${minG}-${maxG} 金幣</span>
-              <span style="font-size:10px; background:rgba(168,85,247,0.15); border:1px solid rgba(168,85,247,0.3); padding:2px 8px; border-radius:6px; color:#d8b4fe; font-weight:bold;">✨ +${shards} Cacos Astrais</span>
+              <span style="font-size:10px; background:rgba(168,85,247,0.15); border:1px solid rgba(168,85,247,0.3); padding:2px 8px; border-radius:6px; color:#d8b4fe; font-weight:bold;">✨ +${shards} 星界碎片</span>
               <span style="font-size:10px; background:rgba(59,130,246,0.15); border:1px solid rgba(59,130,246,0.3); padding:2px 8px; border-radius:6px; color:#93c5fd; font-weight:bold;">📦 ${chestName}</span>
             </div>
           </div>
@@ -7351,7 +7351,7 @@ export function renderExpeditionsUI(state) {
           ${!canClaim ? 'disabled' : ''}
           style="padding:8px 14px; font-weight:bold; font-size:11px; background:${canClaim ? 'linear-gradient(180deg,#fbbf24,#b45309)' : 'rgba(60,50,40,0.5)'}; border:1px solid ${canClaim ? '#fde047' : 'rgba(100,80,60,0.3)'}; color:${canClaim ? '#000' : '#777'}; border-radius:6px; cursor:${canClaim ? 'pointer' : 'not-allowed'};"
         >
-          🪙 IMPOSTOS (+${accumGold.toLocaleString()}g)
+          🪙 稅收 (+${accumGold.toLocaleString()}g)
         </button>
       `;
     } else {
@@ -7362,7 +7362,7 @@ export function renderExpeditionsUI(state) {
           ${!canChallenge ? 'disabled' : ''}
           style="padding:8px 14px; font-family:'Cinzel',serif; font-weight:bold; font-size:11px; background:${canChallenge ? 'linear-gradient(180deg,#ef4444,#991b1b)' : 'rgba(60,50,40,0.5)'}; border:1px solid ${canChallenge ? '#fca5a5' : 'rgba(100,80,60,0.3)'}; color:${canChallenge ? '#fff' : '#777'}; border-radius:6px; cursor:${canChallenge ? 'pointer' : 'not-allowed'};"
         >
-          ${canChallenge ? '⚔️ DOMINAR' : `🔒 Lv. ${cDef.reqLevel}+`}
+          ${canChallenge ? '⚔️ 征服' : `🔒 Lv. ${cDef.reqLevel}+`}
         </button>
       `;
     }
@@ -7393,7 +7393,7 @@ export function renderExpeditionsUI(state) {
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
           <div>
             <h4 style="margin:0; font-family:'Cinzel',serif; color:#f4d58a; font-size:14px;">🌾 ${sDef.name} (Lv. ${sDef.level})</h4>
-            <div style="font-size:11px; color:#aaa;">Colheita Acumulada: <strong style="color:#34d399;">${cropsCount}x Crops</strong></div>
+            <div style="font-size:11px; color:#aaa;">累積收成： <strong style="color:#34d399;">${cropsCount}x 作物</strong></div>
           </div>
           <button
             onclick="window.buyManorSeed('${sId}', 10)"
@@ -7409,14 +7409,14 @@ export function renderExpeditionsUI(state) {
             ${!canExchange1 ? 'disabled' : ''}
             style="flex:1; padding:6px; font-size:11px; font-weight:bold; background:${canExchange1 ? 'rgba(52,211,153,0.2)' : 'rgba(50,50,50,0.3)'}; border:1px solid ${canExchange1 ? '#34d399' : '#555'}; color:${canExchange1 ? '#6ee7b7' : '#777'}; border-radius:6px; cursor:${canExchange1 ? 'pointer' : 'not-allowed'};"
           >
-            🔄 Trocar ${sDef.ratio1}x Crops ➔ +1 ${sDef.reward1.toUpperCase()}
+            🔄 Trocar ${sDef.ratio1}x 作物 ➔ +1 ${sDef.reward1.toUpperCase()}
           </button>
           <button
             onclick="window.exchangeManorCrop('${sId}', 2)"
             ${!canExchange2 ? 'disabled' : ''}
             style="flex:1; padding:6px; font-size:11px; font-weight:bold; background:${canExchange2 ? 'rgba(168,85,247,0.2)' : 'rgba(50,50,50,0.3)'}; border:1px solid ${canExchange2 ? '#a855f7' : '#555'}; color:${canExchange2 ? '#d8b4fe' : '#777'}; border-radius:6px; cursor:${canExchange2 ? 'pointer' : 'not-allowed'};"
           >
-            🔄 Trocar ${sDef.ratio2}x Crops ➔ +1 ${sDef.reward2.toUpperCase()}
+            🔄 Trocar ${sDef.ratio2}x 作物 ➔ +1 ${sDef.reward2.toUpperCase()}
           </button>
         </div>
       </div>
@@ -7439,13 +7439,13 @@ export function renderExpeditionsUI(state) {
       <div style="margin-bottom:22px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
           <h4 style="margin:0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px; display:flex; align-items:center; gap:6px;">
-            🍺 Taverna dos Mercenários (Contratos Disponíveis)
+            🍺 傭兵酒館（可用契約）
           </h4>
           <button
             onclick="window.refreshMercenaryTavern()"
             style="padding:5px 12px; font-size:11px; font-weight:bold; background:rgba(212,167,68,0.15); border:1px solid rgba(212,167,68,0.4); color:#ffd877; border-radius:6px; cursor:pointer;"
           >
-            🔄 Renovar Contratos (10.000g)
+            🔄 更新契約（10,000g）
           </button>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
@@ -7456,7 +7456,7 @@ export function renderExpeditionsUI(state) {
       <!-- 2. Quartel dos Mercenários -->
       <div style="margin-bottom:22px;">
         <h4 style="margin:0 0 10px 0; font-family:'Cinzel',serif; color:#6ee7b7; font-size:15px; display:flex; align-items:center; gap:6px;">
-          🛡️ Seu Quartel de Mercenários (${mState.owned.length}/12)
+          🛡️ 你的傭兵營舍 (${mState.owned.length}/12)
         </h4>
         ${rosterHtml}
       </div>
