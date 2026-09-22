@@ -33,7 +33,7 @@ export class NextActionAdvisor {
         priority: ADVISOR_PRIORITIES.MILESTONE,
         category: 'MILESTONE',
         title: 'Boas-vindas a Aden',
-        description: 'Explore as zonas de caça e inicie sua jornada épica.',
+        description: '探索狩獵區並展開你的史詩旅程。',
         actionText: '⚔️ Explorar Zonas',
         actionTab: 'zones',
         actionType: 'NAVIGATE',
@@ -57,8 +57,8 @@ export class NextActionAdvisor {
           return {
             priority: ADVISOR_PRIORITIES.UPGRADE,
             category: 'UPGRADE',
-            title: '⬆️ Melhoria de Equipamento Disponível',
-            description: 'Equipamentos superiores encontrados na mochila! Substitua itens inferiores para maximizar o CP.',
+            title: '⬆️ 有可升級的裝備',
+            description: '背包中發現更好的裝備！替換較弱裝備以提升戰力。',
             actionText: `⬆️ Equipar Melhoria (+${proposal.deltas.cpDelta.toLocaleString()} CP)`,
             actionTab: 'inventory',
             actionType: 'AUTO_EQUIP',
@@ -71,8 +71,8 @@ export class NextActionAdvisor {
           return {
             priority: ADVISOR_PRIORITIES.AUTO_EQUIP,
             category: 'AUTO_EQUIP',
-            title: '⚡ Equipamento Pendente Detectado',
-            description: 'Você possui equipamentos na mochila prontos para ocupar slots vazios e fortalecer o herói.',
+            title: '⚡ 偵測到可裝備物品',
+            description: '背包中有可填補空裝備欄位的物品，可立即提升角色實力。',
             actionText: `⚡ Auto-Equipar Agora (+${proposal.deltas.cpDelta.toLocaleString()} CP)`,
             actionTab: 'inventory',
             actionType: 'AUTO_EQUIP',
@@ -117,7 +117,7 @@ export class NextActionAdvisor {
                 priority: ADVISOR_PRIORITIES.ENCHANT,
                 category: 'ENCHANT',
                 title: '✨ Oportunidade de Encantamento',
-                description: `Você possui ${scrollDef.name || 'Scroll'} pronto para reforçar ${eqDef.name} (+${currentEnc} → +${currentEnc + 1}).`,
+                description: `你有 ${scrollDef.name || '卷軸'} 可強化 ${eqDef.name}（+${currentEnc} → +${currentEnc + 1}）。`,
                 actionText: `✨ Encantar ${eqDef.name} (${chance}% Chance)`,
                 actionTab: 'inventory',
                 actionType: 'ENCHANT',
@@ -161,8 +161,8 @@ export class NextActionAdvisor {
           return {
             priority: ADVISOR_PRIORITIES.FORGE,
             category: 'FORGE',
-            title: '⚒️ Forja Imperial: Criação Pronta',
-            description: `Você coletou materiais suficientes para criar ${targetDef.name}!`,
+            title: '⚒️ 帝國鍛造：可製作',
+            description: `你已收集足夠材料，可以製作 ${targetDef.name}！`,
             actionText: `⚒️ Criar ${targetDef.name} na Forja`,
             actionTab: 'craft',
             actionType: 'NAVIGATE',
@@ -180,25 +180,25 @@ export class NextActionAdvisor {
     // 4. PRIORIDADE 5: POWER MILESTONE & DESBLOQUEIO DE CONTEÚDO
     const level = Number(state.level) || 1;
     let targetCp = 1500;
-    let targetName = '1ª Transferência de Classe (Lv. 20)';
+    let targetName = '第一次轉職（Lv.20）';
     let actionTab = 'zones';
 
     if (level < 20) {
       targetCp = 1500;
-      targetName = '1ª Troca de Classe & Armas D-Grade';
+      targetName = '第一次轉職與 D 級武器';
       actionTab = 'zones';
     } else if (level < 40) {
       targetCp = 6000;
-      targetName = '2ª Troca de Classe & Armas C-Grade';
+      targetName = '第二次轉職與 C 級武器';
       actionTab = 'zones';
     } else if (level < 76) {
       targetCp = 25000;
-      targetName = '3ª Troca de Classe & Despertar Ancestral';
+      targetName = '第三次轉職與古代覺醒';
       actionTab = 'zones';
     } else {
       const towerFloor = (state.tower?.highestFloor || 0) + 1;
       targetCp = towerFloor * 850 + 20000;
-      targetName = `Torre da Insolência: Andar ${towerFloor}`;
+      targetName = `傲慢之塔：第 ${towerFloor} 層`;
       actionTab = 'tower';
     }
 
@@ -208,11 +208,11 @@ export class NextActionAdvisor {
     return {
       priority: ADVISOR_PRIORITIES.MILESTONE,
       category: 'MILESTONE',
-      title: `🎯 Próximo Marco: ${targetName}`,
+      title: `🎯 下一個里程碑：${targetName}`,
       description: cpRemaining > 0
-        ? `Faltam ${cpRemaining.toLocaleString()} CP para atingir o marco de poder com segurança (${progressPct}% Concluído).`
-        : `Você atingiu o Poder de Combate recomendado (${currentCp.toLocaleString()} CP)! Avance para o próximo desafio.`,
-      actionText: cpRemaining > 0 ? '⚔️ Caçar & Subir Nível' : '🏆 Desafiar Conteúdo',
+        ? `距離安全達成此戰力里程碑還差 ${cpRemaining.toLocaleString()} CP（完成 ${progressPct}%）。`
+        : `你已達到建議戰力（${currentCp.toLocaleString()} CP）！可以前往下一個挑戰。`,
+      actionText: cpRemaining > 0 ? '⚔️ 狩獵與升級' : '🏆 挑戰內容',
       actionTab,
       actionType: 'NAVIGATE',
       currentCp,
