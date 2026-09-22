@@ -53,7 +53,7 @@ export function buyItem(state, itemId, qty = 1, rarity = 'common', callbacks = {
   }
 
   state.gold -= cost;
-  if (callbacks.log) callbacks.log(`🎁 已購買 ${cleanQty}x ${def.name}，花費 💰 ${cost.toLocaleString()} 金幣！`, 'loot');
+  if (callbacks.log) callbacks.log(`🎁 已購買 ${cleanQty}× ${def.name}，花費 💰 ${cost.toLocaleString()} 金幣！`, 'loot');
 
   if (callbacks.updateAllUI) callbacks.updateAllUI(state);
   if (callbacks.save) callbacks.save(true, true);
@@ -164,7 +164,7 @@ export function sellItem(state, uid, qty = 1, callbacks = {}) {
   state.gold = (state.gold || 0) + totalAdena;
 
   if (callbacks.log) {
-    callbacks.log(`💰 已出售 ${sellCount}x ${def?.name || '物品'}，獲得 +${totalAdena.toLocaleString()} 金幣！`, 'loot');
+    callbacks.log(`💰 已出售 ${sellCount}× ${def?.name || '物品'}，獲得 +${totalAdena.toLocaleString()} 金幣！`, 'loot');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI(state);
