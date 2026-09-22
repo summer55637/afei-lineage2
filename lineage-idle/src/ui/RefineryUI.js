@@ -101,7 +101,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
                 <img src="/img/icons/${outDef.icon}" style="width:28px; height:28px; object-fit:contain; border:1px solid rgba(212,167,68,0.4); border-radius:4px; background:rgba(0,0,0,0.5); padding:2px;" onerror="this.src='/img/icons/materials/steel.png'" />
                 <div>
                   <h4 style="margin: 0; font-family: 'Cinzel', serif; font-size: 13px; color: #f4d58a;">${rec.name}</h4>
-                  <div style="font-size: 9px; color: #94a3b8;">庫存：<strong style="color:#ffd877;">${currentOutputCount}</strong> | +${rec.forgeExp} 鍛造 EXP</div>
+                  <div style="font-size: 9px; color: #94a3b8;">庫存：<strong style="color:#ffd877;">${currentOutputCount}</strong> ｜+${rec.forgeExp} 鍛造經驗值</div>
                 </div>
               </div>
               <span style="font-size: 10px; color: #ffd877; background: rgba(212,167,68,0.15); border: 1px solid rgba(212,167,68,0.3); border-radius: 4px; padding: 2px 6px; font-weight: bold;">
