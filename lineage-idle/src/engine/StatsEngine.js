@@ -70,9 +70,9 @@ export const ASTRAL_NODES = {
   dragon_4: { id: 'dragon_4', const: 'dragon', name: '至高之刃', icon: '💥', desc: '每級暴擊傷害 +5%', max: 10, cost: 2, stat: 'critDmg', val: 0.05 },
 
   // Constelação da Fênix (Resistência)
-  phoenix_1: { id: 'phoenix_1', const: 'phoenix', name: '鳳凰之血', icon: '❤️', desc: '每級最大 HP +5%', max: 10, cost: 1, stat: 'hpMult', val: 0.05 },
-  phoenix_2: { id: 'phoenix_2', const: 'phoenix', name: '啟明之心', icon: '🔵', desc: '每級最大 MP +5%', max: 10, cost: 1, stat: 'mpMult', val: 0.05 },
-  phoenix_3: { id: 'phoenix_3', const: 'phoenix', name: '神聖以太', icon: '🌿', desc: '每級 MP 恢復 +10%', max: 10, cost: 1, stat: 'mpRegen', val: 0.10 },
+  phoenix_1: { id: 'phoenix_1', const: 'phoenix', name: '鳳凰之血', icon: '❤️', desc: '每級最大生命值 +5%', max: 10, cost: 1, stat: 'hpMult', val: 0.05 },
+  phoenix_2: { id: 'phoenix_2', const: 'phoenix', name: '啟明之心', icon: '🔵', desc: '每級最大魔力 +5%', max: 10, cost: 1, stat: 'mpMult', val: 0.05 },
+  phoenix_3: { id: 'phoenix_3', const: 'phoenix', name: '神聖以太', icon: '🌿', desc: '每級魔力恢復 +10%', max: 10, cost: 1, stat: 'mpRegen', val: 0.10 },
   phoenix_4: { id: 'phoenix_4', const: 'phoenix', name: '神聖護盾', icon: '🛡️', desc: '每級物理防禦與魔法防禦 +3%', max: 10, cost: 2, stat: 'defMult', val: 0.03 },
 
   // Constelação de Midas (Economia)
