@@ -127,7 +127,7 @@ export const GatheringService = {
     const totalCost = pouch.buyPrice * count;
 
     if ((state.gold || 0) < totalCost) {
-      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！購買 ${count}x ${pouch.name} 需要 ${totalCost.toLocaleString()} 金幣。`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！購買 ${count}× ${pouch.name} 需要 ${totalCost.toLocaleString()} 金幣。`, 'warning');
       return false;
     }
 
@@ -139,7 +139,7 @@ export const GatheringService = {
       gState.activePouch = pouchId;
     }
 
-    if (callbacks.log) callbacks.log(`🎒 已用 ${totalCost.toLocaleString()} 金幣購買 ${count}x **${pouch.name}**。`, 'loot');
+    if (callbacks.log) callbacks.log(`🎒 已用 ${totalCost.toLocaleString()} 金幣購買 ${count}× **${pouch.name}**。`, 'loot');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
