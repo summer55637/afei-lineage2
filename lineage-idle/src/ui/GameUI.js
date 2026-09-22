@@ -10063,7 +10063,7 @@ export function renderOlympiadTab(container, state) {
         title: 'Parte 3: O Julgamento de Barakiel',
         npc: '👤 Caradine (Goddard)',
         dialog: '「女神的神聖權杖落在阿爾戈斯之壁的光輝火焰巴拉基爾手中。擊敗他並取回權杖！」',
-        desc: '協助 Wall of Argos 的 Caradine，並擊敗傳說 Raid Boss「Flame of Splendor Barakiel」，取回女神之杖。',
+        desc: '協助阿爾戈斯之壁的卡拉丁，並擊敗傳說團隊首領「光輝火焰巴拉基爾」，取回女神之杖。',
         progressText: prog.barakielKilled ? '✓ 已擊敗 Barakiel' : '擊敗 Raid Boss Barakiel',
         travelBtn: `<button onclick="window.startRaidBossAction('barakiel')" style="padding:4px 10px; font-size:10.5px; font-weight:bold; background:#7f1d1d; border:1px solid #f87171; color:#fca5a5; border-radius:4px; cursor:pointer; margin-top:4px;">⚔️ 挑戰 Barakiel 團隊首領</button>`,
         isDone: nobStatus.isNoblesse || (state.noblesseStep || 1) > 3,
