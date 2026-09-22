@@ -321,7 +321,7 @@ export class CosmeticService {
         return { success: false, reason: 'locked' };
       }
       state.cosmetics.activeAura = itemId;
-      log(`光環 alterada para "${catalog[itemId]?.name || 'Nenhuma'}".`, 'system');
+      log(`光環已變更為「${catalog[itemId]?.name || '無'}」。`, 'system');
     } else if (category === 'frame') {
       catalog = ITEM_FRAMES_CATALOG;
       unlockedList = state.cosmetics.unlockedFrames;
@@ -339,7 +339,7 @@ export class CosmeticService {
         return { success: false, reason: 'locked' };
       }
       state.cosmetics.activeTitle = itemId;
-      log(`稱號 alterado para "${catalog[itemId]?.titleText || 'Nenhum'}".`, 'system');
+      log(`稱號已變更為「${catalog[itemId]?.titleText || '無'}」。`, 'system');
     }
 
     if (typeof save === 'function') save();
