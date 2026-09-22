@@ -29,7 +29,7 @@ export class AugmentationService {
     }
 
     if (weapon.augmentation) {
-      log('Esta arma já possui uma Augmentação ativa. Remova a anterior com o Ferreiro antes de aplicar uma nova.', 'warning');
+      log('此武器已有附魔改造效果。請先找鐵匠移除原有效果，再套用新的附魔改造。', 'warning');
       return { success: false, reason: 'already_augmented' };
     }
 
@@ -40,7 +40,7 @@ export class AugmentationService {
     });
 
     if (stoneIdx === -1) {
-      log(`⚠️ Você precisa de 1x ${stone.name} em seu inventário para que o Ferreiro realize a Augmentação.`, 'error');
+      log(`⚠️ 你的背包需要 1x ${stone.name}，鐵匠才能進行附魔改造。`, 'error');
       return { success: false, reason: 'missing_life_stone' };
     }
 
