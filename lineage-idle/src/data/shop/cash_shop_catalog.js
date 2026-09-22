@@ -16,7 +16,7 @@ export const CASH_SHOP_CATALOG = {
       id: 'starter_pack_tier1',
       name: '新手冒險者禮包（第 1 階）',
       priceAC: 100,
-      brlEquivalent: 'R$ 7,50',
+      brlEquivalent: '7.50 巴西雷亞爾',
       badge: '熱門',
       icon: 'gradec/weapons/weapon_berserker_blade.png',
       desc: '適合從等級 1 開始的基礎禮包，不受裝備階級懲罰。內含傳承防具套裝（重甲、輕甲或法袍）＋職業傳承武器（可隨 等級 1～40 成長）＋2,000 發彈藥與藥水。',
@@ -38,7 +38,7 @@ export const CASH_SHOP_CATALOG = {
       id: 'starter_pack_tier2',
       name: '亞丁冠軍禮包（第 2 階）',
       priceAC: 250,
-      brlEquivalent: 'R$ 15,00',
+      brlEquivalent: '15.00 巴西雷亞爾',
       badge: '推薦',
       icon: 'gradec/weapons/weapon_samurai_longsword.png',
       desc: '高性價比禮包。內含傳承防具套裝（5 件）、職業傳承武器、5 件完整傳承飾品套組（等級 1 即可裝備）、5,000 發彈藥與［先鋒］稱號。',
@@ -63,7 +63,7 @@ export const CASH_SHOP_CATALOG = {
       id: 'starter_pack_tier3',
       name: '至尊領主禮包（第 3 階－傳承）',
       priceAC: 500,
-      brlEquivalent: 'R$ 29,90',
+      brlEquivalent: '29.90 巴西雷亞爾',
       badge: '至尊',
       icon: 'acessories/noble_gold_crown.png',
       desc: '最高階傳承禮包。內含依職業配置的完整傳承裝備（5 件防具＋武器＋5 件飾品＋皇家披風＋腰帶＋翼冠＋神盾），可啟動至尊加成 +60% 經驗值／金幣，另含黃金龍阿加西翁、15,000 發彈藥、30 天 貴賓通行證與金色［至尊領主］稱號。',
@@ -246,7 +246,7 @@ export const CASH_SHOP_CATALOG = {
       amountAC: 100,
       bonusAC: 0,
       firstPurchaseBonusAC: 100,
-      priceBRL: 'R$ 7,50',
+      priceBRL: '7.50 巴西雷亞爾',
       label: '小型禮包',
       desc: '適合購買 第 1 階新手禮包或實用通行證。🎁 首次儲值：額外 +100 亞丁幣！'
     },
@@ -255,7 +255,7 @@ export const CASH_SHOP_CATALOG = {
       amountAC: 250,
       bonusAC: 0,
       firstPurchaseBonusAC: 250,
-      priceBRL: 'R$ 15,00',
+      priceBRL: '15.00 巴西雷亞爾',
       label: '中型禮包',
       desc: '適合購買 第 2 階冠軍禮包或武器外觀。🎁 首次儲值：額外 +250 亞丁幣！'
     },
@@ -265,7 +265,7 @@ export const CASH_SHOP_CATALOG = {
       bonusAC: 50,
       firstPurchaseBonusAC: 500,
       totalAC: 550,
-      priceBRL: 'R$ 30,00',
+      priceBRL: '30.00 巴西雷亞爾',
       label: '領主禮包（+10% 加成）',
       popular: true,
       desc: '可購買 第 3 階完整傳承新手禮包＋稱號＋阿加西翁。🎁 首次儲值：額外 +500 亞丁幣！'
@@ -276,7 +276,7 @@ export const CASH_SHOP_CATALOG = {
       bonusAC: 200,
       firstPurchaseBonusAC: 1000,
       totalAC: 1200,
-      priceBRL: 'R$ 60,00',
+      priceBRL: '60.00 巴西雷亞爾',
       label: '皇家寶庫（+20% 加成）',
       desc: '提供更高額度與額外加成，適合解鎖服裝與光環。🎁 首次儲值：額外 +1,000 亞丁幣！'
     }
