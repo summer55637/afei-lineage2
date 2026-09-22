@@ -38,7 +38,7 @@ export const EXPEDITION_DESTINATIONS = {
     maxGold: 16000,
     shards: 2,
     recommendedSpecs: ['tracker', 'guardian'],
-    threat: 'Emboscadas Gnoll e Armadilhas de Fogo',
+    threat: '豺狼人伏擊與火焰陷阱',
     rewardDesc: '基礎材料（皮革、骨頭）、金幣與 D 級卷軸',
     desc: '被豺狼人與掠奪者占據的廢墟，非常適合訓練年輕傭兵。',
     materialRewards: [
@@ -63,7 +63,7 @@ export const EXPEDITION_DESTINATIONS = {
     maxGold: 38000,
     shards: 4,
     recommendedSpecs: ['healer', 'thief'],
-    threat: 'Mortos-Vivos & Armadilhas Antigas',
+    threat: '不死生物與古代陷阱',
     rewardDesc: '粗骨粉、通用卷軸與星界碎片',
     desc: '充斥不死生物的地下墓穴，盜賊負責拆除陷阱，治療者負責驅散詛咒。',
     materialRewards: [
@@ -88,7 +88,7 @@ export const EXPEDITION_DESTINATIONS = {
     maxGold: 105000,
     shards: 6,
     recommendedSpecs: ['guardian', 'tracker'],
-    threat: 'Desmoronamentos e Golens de Pedra',
+    threat: '坍塌與石魔像',
     rewardDesc: '鋼鐵、米索莉礦石、煤炭與通用卷軸',
     desc: '數百年前開鑿的深層坑道，失控魔像守護著富含鋼與米索莉的礦脈。',
     materialRewards: [
@@ -113,7 +113,7 @@ export const EXPEDITION_DESTINATIONS = {
     maxGold: 175000,
     shards: 9,
     recommendedSpecs: ['healer', 'mage'],
-    threat: 'Labirinto das Sombras & Ecos Malditos',
+    threat: '暗影迷宮與詛咒回音',
     rewardDesc: '精製皮革、編織線、碎片與通用卷軸',
     desc: '曾獻祭狂熱祭司的黑暗聖域，需要神聖與秘法力量應對。',
     materialRewards: [
@@ -138,7 +138,7 @@ export const EXPEDITION_DESTINATIONS = {
     maxGold: 420000,
     shards: 14,
     recommendedSpecs: ['mage', 'guardian'],
-    threat: 'Dragões de Sangue & Chuva Sulfúrica',
+    threat: '血龍與硫磺雨',
     rewardDesc: '恩尼亞、合成焦炭、星界碎片與通用卷軸',
     desc: '由安塔瑞斯幼龍盤踞的灼熱峽谷，守護者抵擋火焰，法師負責擊破龍鱗。',
     materialRewards: [
@@ -163,7 +163,7 @@ export const EXPEDITION_DESTINATIONS = {
     maxGold: 980000,
     shards: 22,
     recommendedSpecs: ['mage', 'healer', 'thief'],
-    threat: 'Magia de Sangue, Demônios Maiores & Barreiras Seladas',
+    threat: '血魔法、上位惡魔與封印屏障',
     rewardDesc: '金屬纖維、恩尼亞、祝福卷軸與星界遺物',
     desc: '第 1 賽季探索的最高難度區域，埋藏著亞丁最珍貴遺物的褻瀆要塞。',
     materialRewards: [
