@@ -2072,7 +2072,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "evas_templar": Object.freeze({
     "id": "evas_templar",
-    "name": "伊娃聖殿騎士's Templar",
+    "name": "伊娃聖殿騎士",
     "race": "elf",
     "raceName": "Elfo (Elf)",
     "stage": 3,
@@ -2844,7 +2844,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "evas_saint": Object.freeze({
     "id": "evas_saint",
-    "name": "伊娃聖者's Saint",
+    "name": "伊娃聖者",
     "race": "elf",
     "raceName": "Elfo (Elf)",
     "stage": 3,
