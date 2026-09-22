@@ -6462,7 +6462,7 @@ export function openCraftModal(itemId, state, callbacks = {}) {
 
       <div style="display:flex; gap:8px;">
         <button id="craft-modal-submit" ${!craftable ? 'disabled' : ''} style="flex:1; padding:12px; font-family:'Cinzel',serif; font-weight:bold; font-size:14px; background:${craftable ? 'linear-gradient(180deg,#d4a744,#8a641c)' : 'rgba(60,50,40,0.5)'}; border:1px solid ${craftable ? '#ffe699' : 'rgba(100,80,60,0.3)'}; color:${craftable ? '#000' : '#777'}; border-radius:6px; cursor:${craftable ? 'pointer' : 'not-allowed'}; box-shadow:${craftable ? '0 4px 12px rgba(212,175,55,0.3)' : 'none'};">
-          🔨 鍛造物品 ${currentQty > 1 ? `(${currentQty}x)` : ''}
+          🔨 鍛造物品 ${currentQty > 1 ? `（${currentQty}×）` : ''}
         </button>
       </div>
     `;
@@ -7137,7 +7137,7 @@ export function renderExpeditionsUI(state) {
         const hours = Math.floor(secondsLeft / 3600);
         const mins = Math.floor((secondsLeft % 3600) / 60);
         const secs = secondsLeft % 60;
-        const timeStr = `${hours}h ${mins}m ${secs < 10 ? '0' : ''}${secs}s`;
+        const timeStr = `${hours} 小時 ${mins} 分 ${secs < 10 ? '0' : ''}${secs} 秒`;
 
         statusBtn = `
           <span style="font-family:monospace; font-weight:bold; color:#fbbf24; background:rgba(0,0,0,0.6); padding:8px 14px; border-radius:6px; border:1px solid rgba(251,191,36,0.4); font-size:12px;">
@@ -7163,7 +7163,7 @@ export function renderExpeditionsUI(state) {
             cursor:${isUnlocked && canAfford ? 'pointer' : 'not-allowed'};
           "
         >
-          ${!isUnlocked ? `🔒 等級 ${dDef.minLevel}+` : `🧭 派遣（${(dDef.cost / 1000).toFixed(0)}k）`}
+          ${!isUnlocked ? `🔒 等級 ${dDef.minLevel}+` : `🧭 派遣（${dDef.cost.toLocaleString()} 金幣）`}
         </button>
       `;
     }
@@ -8434,7 +8434,7 @@ export function renderForgeRandomCraft(container, state, callbacks = {}) {
               </div>
               <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:2px; width:100%;">
                 <div style="font-weight:700; font-size:11px; color:#f5df93; font-family:'Cinzel',serif; min-height:28px; display:flex; align-items:center; justify-content:center; line-height:1.2;">
-                  ${def.name} ${s.count > 1 ? `(${s.count}x)` : ''}
+                  ${def.name} ${s.count > 1 ? `（${s.count}×）` : ''}
                 </div>
                 <div style="display:flex; align-items:center; justify-content:center; gap:4px;">
                   <span class="imp-item-grade-tag" style="background:${gradeInfo.color}; font-size:9px;">
