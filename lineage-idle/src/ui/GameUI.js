@@ -2005,7 +2005,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
   if (isComparing) {
     html += `
       <div class="detail-comparison-grid">
-        <!-- Card 1: Equipado Atualmente -->
+        <!-- 卡片 1：目前已裝備 -->
         <div class="detail-card current">
           <div class="detail-card-badge-row">
             <span class="detail-card-role equipped">🛡️ 目前裝備</span>
@@ -3382,7 +3382,7 @@ export function updateCharacterUI(state) {
         </div>
       </div>
 
-      <!-- Card Místico: Refinamentos, Tatuagens & Soul Crystal (SA) -->
+      <!-- 神秘卡片：精煉、刺青與靈魂水晶（SA） -->
       <div class="l2-mystic-card">
         <div class="l2-mystic-header">
           <span class="l2-mystic-icon">🔮</span>
@@ -6706,7 +6706,7 @@ export function renderAlchemyUI(state) {
         </div>
       ` : ''}
 
-      <!-- Chaos Boss Summoning Portal -->
+      <!-- 混沌首領召喚傳送門 -->
       <div style="background:linear-gradient(135deg, rgba(50,15,25,0.92), rgba(20,8,16,0.95)); border:1px solid rgba(239,68,68,0.5); border-radius:10px; padding:14px; margin-bottom:16px; box-shadow:0 4px 18px rgba(239,68,68,0.2);">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
           <h4 style="margin:0; font-family:'Cinzel',serif; color:#fca5a5; font-size:15px; display:flex; align-items:center; gap:8px;">
@@ -7784,7 +7784,7 @@ export function renderForgeMasterwork(container, state) {
         ${sealedHtml || '<div style="font-size:11px; color:#64748b; background:rgba(8,11,16,0.85); padding:10px 12px; border-radius:6px; border:1px dashed rgba(255,255,255,0.1);">背包中沒有封印裝備。</div>'}
       </div>
 
-      <!-- Masterwork Section -->
+      <!-- 名匠區塊 -->
       <div style="margin-bottom:14px;">
         <h4 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#f5df93; font-size:13px; font-weight:700;">👑 名匠精工（基礎裝備）</h4>
         ${foundationHtml || '<div style="font-size:11px; color:#64748b; background:rgba(8,11,16,0.85); padding:10px 12px; border-radius:6px; border:1px dashed rgba(255,255,255,0.1);">背包中沒有基礎裝備。請在一般製作分頁鍛造物品以取得基礎裝備！</div>'}
@@ -8695,7 +8695,7 @@ export function renderAutoRecycleModal(container, state, callbacks = {}) {
         </div>
       </div>
 
-      <!-- Master Switch -->
+      <!-- 主開關 -->
       <div style="background:rgba(0,0,0,0.4); border:1px solid ${isEnabled ? '#22c55e' : 'rgba(255,255,255,0.1)'}; border-radius:10px; padding:14px; margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;">
         <div>
           <div style="font-weight:bold; font-size:14px; color:${isEnabled ? '#86efac' : '#cbd5e1'};">
