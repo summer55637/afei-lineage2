@@ -714,7 +714,7 @@ export const MarketService = {
 
     return {
       ok: true,
-      msg: `購買成功！你獲得 ${listing.quantity}x ${listing.item.name}。`,
+      msg: `購買成功！你獲得 ${listing.quantity}× ${listing.item.name}。`,
       item: boughtItem
     };
   },
@@ -805,7 +805,7 @@ export const MarketService = {
 
     return {
       ok: true,
-      msg: `刊登已成功取消！${listing.quantity}x ${listing.item.name} 已退回背包。`
+      msg: `刊登已成功取消！${listing.quantity}× ${listing.item.name} 已退回背包。`
     };
   },
 
