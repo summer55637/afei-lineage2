@@ -159,7 +159,7 @@ export class SynthesisService {
 
     const currentRank = this.getItemSynthesisRank(primaryItem);
     if (currentRank >= 5) {
-      log('此物品已達合成最高階級（Rank 5 ★★★★★）！', 'warning');
+      log('此物品已達合成最高階級（階級 5 ★★★★★）！', 'warning');
       return { success: false, reason: 'max_rank' };
     }
 
@@ -245,7 +245,7 @@ export class SynthesisService {
       }
 
       const stars = '★'.repeat(targetRank);
-      log(`✨ 合成成功！「${itemName}」提升至 Rank ${targetRank} ${stars}！（基礎屬性 +${targetRank * 10}%）`, 'rarity-legendary');
+      log(`✨ 合成成功！「${itemName}」提升至階級 ${targetRank} ${stars}！（基礎屬性 +${targetRank * 10}%）`, 'rarity-legendary');
 
       try {
         playCombatVFX('buff_aura', { color: '#ffd700', duration: 800 });
@@ -264,7 +264,7 @@ export class SynthesisService {
         primaryItem.compoundRank = primaryItem.synthesisRank;
         primaryItem.compoundLevel = primaryItem.synthesisRank;
         regressed = true;
-        log(`💥 合成嚴重失敗！材料已消耗，且不穩定效果使「${itemName}」降至 Rank ${primaryItem.synthesisRank}！`, 'warning');
+        log(`💥 合成嚴重失敗！材料已消耗，且不穩定效果使「${itemName}」降至階級 ${primaryItem.synthesisRank}！`, 'warning');
       } else {
         log(`💥 合成失敗！祭品材料被鍛爐火焰摧毀，但主物品保持完好。`, 'system');
       }
