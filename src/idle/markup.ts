@@ -221,7 +221,7 @@ export const IDLE_MARKUP = `
           </div>
           <div class="stage-vs" aria-hidden="true">&#9876;</div>
           <div class="stage-hero" id="stage-hero">
-            <div class="stage-entity-name stage-hero-name" id="hero-name">Tristan</div>
+            <div class="stage-entity-name stage-hero-name" id="hero-name">冒險者</div>
             <div class="stage-entity-level stage-hero-level" id="hero-level">等級 1</div>
             <div class="stage-hp-bar stage-hp-bar-hero" id="hero-hp-bar">
               <div class="stage-hp-fill stage-hp-fill-hero" id="hero-hp-fill"></div>
