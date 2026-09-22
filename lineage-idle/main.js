@@ -1114,7 +1114,7 @@ function salvageItem(uid) {
 
   if (isHighValueItem(item)) {
     const rarityName = D().RARITY?.[item.rarity]?.name || item.rarity;
-    if (!confirm(`⚠️ Deseja realmente SUCATEAR o item valioso "${def.name}" [${rarityName}]?`)) {
+    if (!confirm(`⚠️ 確定要拆解珍貴物品「${def.name}」[${rarityName}] 嗎？`)) {
       return;
     }
   }
@@ -3203,7 +3203,7 @@ if (typeof window !== 'undefined') {
         const installBtn = document.getElementById('btn-pwa-install');
         if (installBtn) installBtn.style.display = 'none';
       } else {
-        alert('Para instalar o Aden Arena no celular:\n\n• No Chrome (Android): Toque nos 3 pontinhos e escolha "Instalar aplicativo"\n• No Safari (iOS): Toque no botão Compartilhar e escolha "Adicionar à Tela de Início" 📲');
+        alert('要在手機安裝亞丁競技場：\n\n• Chrome（Android）：點右上角三個點，選擇「安裝應用程式」\n• Safari（iOS）：點「分享」按鈕，再選擇「加入主畫面」📲');
       }
     };
   });
@@ -3993,7 +3993,7 @@ export function renderSubclassesUI() {
   const isUnlocked = isSeasonUnlocked && (state.fateWhisperQuest || activeMainLevel >= 52);
 
   if (countBadge) {
-    countBadge.textContent = !isSeasonUnlocked ? '副職業（第 1／2 季尚未解鎖）' : `Subclasses (${(state.subclasses || []).length}/3)`;
+    countBadge.textContent = !isSeasonUnlocked ? '副職業（第 1／2 季尚未解鎖）' : `副職業（${(state.subclasses || []).length}/3）`;
   }
 
   if (addBtn) {
@@ -4008,7 +4008,7 @@ export function renderSubclassesUI() {
       if (!isSeasonUnlocked) {
         log('副職業系統需要第 3 賽季（第三編年史－七封印）。', 'warning');
       } else if (!state.fateWhisperQuest && activeMainLevel < 52) {
-        log('需要等級 52+ para iniciar a jornada de Subclasses.', 'system');
+        log('需要等級 52 以上才能開始副職業旅程。', 'system');
       } else if (!state.fateWhisperQuest) {
         completeFateWhisperQuest();
       } else {
@@ -6778,7 +6778,7 @@ function populateAdminItemSelect(query = '') {
   if (list.length === 0) {
     const opt = mkEl('option');
     opt.value = '';
-    opt.textContent = `⚠️ Nenhum item encontrado para "${query}"`;
+    opt.textContent = `⚠️ 找不到「${query}」相關物品`;
     opt.disabled = true;
     sel.appendChild(opt);
     return;
@@ -7249,7 +7249,7 @@ function unequipAll() {
     }
   }
   if (count > 0) {
-    log(`🛡️ Desequipou todos os ${count} itens da armadura.`, 'system');
+    log(`🛡️ 已卸下全部 ${count} 件防具。`, 'system');
     floatText('🛡️ 已卸下！', 'sf-heal');
     updateAllUI();
     save();
@@ -7795,10 +7795,10 @@ function synthesizeDolls() {
 
   if (roll < chance) {
     d1.level += 1;
-    log(`🎉 SÍNTESE DE SUCESSO! Sua **${BOSS_DOLLS[d1.dollId]?.name}** evoluiu para o **Nível ${d1.level}**!`, 'rarity-legendary');
+    log(`🎉 合成成功！你的 **${BOSS_DOLLS[d1.dollId]?.name}** 已提升至 **等級 ${d1.level}**！`, 'rarity-legendary');
     floatText('✨ 合成成功！', 'float-jackpot');
   } else {
-    log(`💔 SÍNTESE FALHOU! A Doll de material foi consumida, mas a Doll base foi mantida.`, 'system');
+    log(`💔 合成失敗！材料娃娃已消耗，但基底娃娃保留。`, 'system');
     floatText('💔 FALHOU', 'float-gold');
   }
 
@@ -9466,7 +9466,7 @@ function renderDailyRewardModal() {
     claimBtn.style.cursor = status.canClaim ? 'pointer' : 'not-allowed';
     claimBtn.textContent = status.canClaim
       ? `✨ Resgatar Presente do Dia ${status.currentDay}`
-      : `✓ Dia ${status.currentDay > 1 ? status.currentDay - 1 : 28} Resgatado (Volte Amanhã)`;
+      : `✓ 第 ${status.currentDay > 1 ? status.currentDay - 1 : 28} 天已領取（明天再來）`;
   }
 
   if (!grid) return;
@@ -10375,7 +10375,7 @@ export function init() {
         }
       }
 
-      log(`✨ **Vínculo Confirmado!** Você foi indicado por **${code}**! Bônus de novato ativado: **+10% EXP permanente** e **+1.000 Shots** concedidos!`, 'rarity-legendary');
+      log(`✨ **推薦綁定成功！** 你已由 **${code}** 推薦！新手加成已啟用：**永久 +10% EXP**，並獲得 **1,000 發魂彈**！`, 'rarity-legendary');
       if (typeof floatText === 'function') floatText('✨ 推薦連結已啟用（EXP +10%）！', 'float-jackpot');
       updateAllUI();
       save();
@@ -10597,7 +10597,7 @@ export function init() {
           <div style="background:rgba(0,0,0,0.35); padding:12px; border-radius:8px; border:1px solid rgba(212,175,55,0.2); margin-bottom:10px;">
             <h4 style="color:#fbbf24; margin:0 0 6px 0;">🐣 Nível 1 a 20 — Os Primeiros Passos (No-Grade)</h4>
             <p style="margin:0 0 4px 0;">• <strong>Zonas:</strong> Talking Island, Elven Forest, Dark Forest, Orc Village, Dwarven Mine, Kamael Lair, Ruined Outpost, Howling Moor.</p>
-            <p style="margin:0 0 4px 0;">• <strong>O que fazer:</strong> Equipe o Starter Kit da sua classe. Suas habilidades exigem a arma correta (ex: Arco para arqueiros, Adaga para assassinos). Desmanche itens sobressalentes na Forja para subir o Nível de Forja da Conta.</p>
+            <p style="margin:0 0 4px 0;">• <strong>該怎麼做：</strong> 裝備你的職業新手套裝。技能需要正確武器才能使用（例如弓手使用弓、刺客使用匕首）。把多餘裝備送到鍛造系統拆解，以提升帳號鍛造等級。</p>
             <p style="margin:0; color:#34d399; font-weight:bold;">🏆 Marco: 第一次轉職 no Nível 20 (Desbloqueia Grau D e Saga Prelude of War).</p>
           </div>
 
@@ -10613,7 +10613,7 @@ export function init() {
             <h4 style="color:#fbbf24; margin:0 0 6px 0;">⚔️ Nível 40 a 75 — Grau C/B/A, Barreira de Forja &amp; Noblesse</h4>
             <p style="margin:0 0 4px 0;">• <strong>Zonas:</strong> Gludio Castle, Wolf Mountain, Rift of the Void, Emerald Grove, Gates of the Underworld, Valley of Saints, Swamp of Screams.</p>
             <p style="margin:0 0 4px 0;">• <strong>Raid Bosses:</strong> Core (Lv. 50), Orfen (Lv. 55), Zaken (Lv. 60).</p>
-            <p style="margin:0 0 4px 0;">• <strong>Forja Nível 10:</strong> Ao atingir o Nível 10 de Forja, o <strong>Mercado Global</strong> é desbloqueado para comercializar itens livremente.</p>
+            <p style="margin:0 0 4px 0;">• <strong>鍛造等級 10：</strong>鍛造達到等級 10 後，將解鎖<strong>全球市場</strong>，可自由交易物品。</p>
             <p style="margin:0 0 4px 0;">• <strong>Saga de Noblesse (Lv. 75):</strong> Complete as 4 partes da quest em Valley of Saints, Swamp of Screams e derrote o <strong>Raid Boss Barakiel</strong> para se consagrar Noblesse!</p>
             <p style="margin:0; color:#34d399; font-weight:bold;">🏆 Marco: 3ª Troca de Classe no Nível 76 (Sagas Ancestrais e Grau S).</p>
           </div>
@@ -10630,7 +10630,7 @@ export function init() {
         contentEl.innerHTML = `
           <h4 style="color:#fbbf24; margin-top:0;">🔨 Nível de Forja da Conta &amp; Economia Circular</h4>
           <p>• <strong>Como subir o Nível de Forja:</strong> Ao desmanchar equipamentos sobressalentes na mochila ou forjar receitas, você ganha <strong>EXP de Forja</strong>.</p>
-          <p>• <strong>Por que a Forja é essencial:</strong> Níveis mais altos aumentam a chance de criar itens Masterwork (Pushkin), reduzem custos e liberam receitas de Grau A, S e Soberanas.</p>
+          <p>• <strong>為什麼鍛造很重要：</strong>更高的鍛造等級會提高製作名匠裝備（普希金）的機率、降低成本，並解鎖 A 級、S 級與至尊級配方。</p>
           <p>• <strong>Desbloqueio do Mercado Global (Lv. 10):</strong> Para combater bots e valorizar os jogadores dedicados, o Mercado Global exige Nível 10 de Forja da Conta.</p>
           <p>• <strong>Item Sinks Massivos:</strong> No Endgame, você pode sacrificar armas antigas no Ferreiro Oculto para condensar Energia Ancestral e forjar Relíquias Soberanas.</p>
         `;
@@ -10639,7 +10639,7 @@ export function init() {
           <h4 style="color:#fbbf24; margin-top:0;">🃏 Codex de Coleções &amp; Cartas de Monstros</h4>
           <p>• <strong>Coleções de Itens:</strong> Registre armas e armaduras de treino para desbloquear bônus passivos permanentes de ATK, DEF e HP para toda a sua conta.</p>
           <p>• <strong>Cartas de Monstros &amp; Boss Dolls:</strong> Ao derrotar Chefes de Raid (Queen Ant, Core, Orfen, Zaken, Baium, Antharas, Valakas), você tem chance de dropar suas Cartas Raras.</p>
-          <p>• <strong>Absorver no Codex:</strong> Absorver a carta no Álbum concede atributos perpétuos na conta (P.ATK, M.ATK, Vampirismo, etc.).</p>
+          <p>• <strong>吸收到圖鑑：</strong>將卡片吸收到圖鑑後，可為帳號永久增加屬性（P.ATK、M.ATK、吸血等）。</p>
           <p>• <strong>Engaste em Equipamentos:</strong> Você também pode engastar cartas em slots de armas para potencializar seu dano elemental e crítico.</p>
         `;
       } else if (tab === 'combat') {
@@ -11136,7 +11136,7 @@ export function init() {
               ♻️ Filtro de Descarte &amp; Auto-Recycle AFK
             </div>
             <div style="font-size:11px; color:#94a3b8;">
-              Status atual: <strong>${state.autoRecycle?.enabled ? '🟢 ATIVADO (' + (state.autoRecycle.mode === 'sell' ? 'Auto-Venda' : 'Desmanche em Cristais') + ')' : '⚪ DESATIVADO'}</strong>. Suporta No-Grade até Grade A com salvaguarda inviolável de itens +enchant e raros.
+              目前狀態：<strong>${state.autoRecycle?.enabled ? '🟢 已啟用（' + (state.autoRecycle.mode === 'sell' ? '自動出售' : '分解成水晶') + '）' : '⚪ 已停用'}</strong>。支援無級別至 A 級，並會強制保護有強化值與稀有物品。
             </div>
           </div>
           <button onclick="window.openAutoRecycleModal()" style="background:linear-gradient(180deg,#d4a744,#8a641c); border:1px solid #ffe699; color:#000; font-family:'Cinzel',serif; font-weight:bold; font-size:12px; border-radius:6px; padding:8px 16px; cursor:pointer;">
@@ -11289,7 +11289,7 @@ export function init() {
 
           let btnHtml = '';
           if (isClaimed) {
-            btnHtml = `<button disabled style="background:rgba(255,255,255,0.05); color:#9ca3af; border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:6px 12px; font-size:12px; cursor:default;">✅ Resgatado</button>`;
+            btnHtml = `<button disabled style="background:rgba(255,255,255,0.05); color:#9ca3af; border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:6px 12px; font-size:12px; cursor:default;">✅ 已領取</button>`;
           } else if (canClaim) {
             btnHtml = `<button onclick="window.claimStarterJourneyStepAction('${step.id}')" style="background:linear-gradient(180deg, #22c55e, #16a34a); color:#fff; border:1px solid #4ade80; border-radius:6px; padding:6px 14px; font-size:12px; font-weight:bold; cursor:pointer; box-shadow:0 0 10px rgba(34,197,94,0.4);">🎁 Resgatar</button>`;
           } else {
@@ -11738,7 +11738,7 @@ export function init() {
         const primary = pUid || el('belt-primary-select')?.value || window._synthesisTargetUid;
         const secondary = sUid || el('belt-secondary-select')?.value || window._synthesisIngredientUid;
         if (!primary || !secondary) {
-          log('Selecione os dois itens para a síntese!', 'system');
+          log('請選擇兩件物品進行合成！', 'system');
           return;
         }
         return window.executeSynthesisAction(primary, secondary);
