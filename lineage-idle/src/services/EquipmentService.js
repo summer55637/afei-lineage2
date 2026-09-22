@@ -89,7 +89,7 @@ export function equipItem(state, uid, targetSlotOrCallbacks = null, maybeCallbac
 
   // Validate level
   if (def.req?.level && state.level < def.req.level) {
-    if (callbacks.log) callbacks.log(`等級不足，無法裝備 ${def.name}。（需求：Lv.${def.req.level}）`, 'system');
+    if (callbacks.log) callbacks.log(`等級不足，無法裝備 ${def.name}。（需求：等級 ${def.req.level}）`, 'system');
     return;
   }
   // Validate class / armor type
