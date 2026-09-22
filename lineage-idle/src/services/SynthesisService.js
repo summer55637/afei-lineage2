@@ -159,7 +159,7 @@ export class SynthesisService {
 
     const currentRank = this.getItemSynthesisRank(primaryItem);
     if (currentRank >= 5) {
-      log('Este item já alcançou o Rank Máximo de 合成 (Rank 5 ★★★★★)!', 'warning');
+      log('此物品已達合成最高階級（Rank 5 ★★★★★）！', 'warning');
       return { success: false, reason: 'max_rank' };
     }
 
@@ -174,7 +174,7 @@ export class SynthesisService {
     const finalReqForge = Math.max(config.reqForgeLvl, reqGradeForge);
 
     if (forgeLvl < finalReqForge) {
-      log(`Nível de Forja insuficiente! Requer Forja Imperial Lv. ${finalReqForge} para forjar este item (Atual: Lv. ${forgeLvl}).`, 'error');
+      log(`鍛造等級不足！製作此物品需要帝國鍛造 Lv.${finalReqForge}（目前：Lv.${forgeLvl}）。`, 'error');
       return { success: false, reason: 'forge_level_too_low' };
     }
 
@@ -182,7 +182,7 @@ export class SynthesisService {
     const cost = config.costAdena;
     const currentGold = (state.gold !== undefined ? state.gold : (state.adena || 0));
     if (currentGold < cost) {
-      log(`Adena insuficiente! A síntese requer ${cost.toLocaleString()} Adena (você tem ${currentGold.toLocaleString()}).`, 'error');
+      log(`金幣不足！合成需要 ${cost.toLocaleString()} 金幣（目前擁有 ${currentGold.toLocaleString()}）。`, 'error');
       return { success: false, reason: 'insufficient_funds' };
     }
 
@@ -245,7 +245,7 @@ export class SynthesisService {
       }
 
       const stars = '★'.repeat(targetRank);
-      log(`✨ SÍNTESE BEM-SUCEDIDA! "${itemName}" ascendeu ao Rank ${targetRank} ${stars}! (+${targetRank * 10}% Atributos Base)`, 'rarity-legendary');
+      log(`✨ 合成成功！「${itemName}」提升至 Rank ${targetRank} ${stars}！（基礎屬性 +${targetRank * 10}%）`, 'rarity-legendary');
 
       try {
         playCombatVFX('buff_aura', { color: '#ffd700', duration: 800 });
@@ -264,9 +264,9 @@ export class SynthesisService {
         primaryItem.compoundRank = primaryItem.synthesisRank;
         primaryItem.compoundLevel = primaryItem.synthesisRank;
         regressed = true;
-        log(`💥 FALHA CRÍTICA NA SÍNTESE! O ingrediente foi consumido e a instabilidade fez "${itemName}" regredir para o Rank ${primaryItem.synthesisRank}!`, 'warning');
+        log(`💥 合成嚴重失敗！材料已消耗，且不穩定效果使「${itemName}」降至 Rank ${primaryItem.synthesisRank}！`, 'warning');
       } else {
-        log(`💥 FALHA NA SÍNTESE! O ingrediente sacrifício foi destruído pelas chamas da forja, mas o item principal foi preservado.`, 'system');
+        log(`💥 合成失敗！祭品材料被鍛爐火焰摧毀，但主物品保持完好。`, 'system');
       }
 
       try {
