@@ -9,6 +9,16 @@
  * 4. Hard DPS Check: Milestone Bosses com temporizador de enrage inadiável e checagem de DPS e barreira elemental.
  */
 
+const WEAPON_TYPE_LABELS = {
+  bare_hands: '空手', bow: '弓', dagger: '匕首', katana: '武士刀',
+  two_hand_sword: '雙手劍', twohand: '雙手劍', dual_swords: '雙劍', dual: '雙劍',
+  blunt: '鈍器', fists: '拳套', fist: '拳套', staff: '法杖', sword: '劍', any: '任意武器'
+};
+
+function weaponTypeLabel(type) {
+  return WEAPON_TYPE_LABELS[String(type || '').toLowerCase()] || '指定武器';
+}
+
 export const WEAPON_SKILL_MAP = {
   bow: ['archery', 'bow', 'ranged', 'shot', 'arrow', 'snipe', 'double_shot'],
   dagger: ['dagger', 'stab', 'backstab', 'shadow', 'bleed', 'deadly_blow', 'assassin'],
@@ -70,7 +80,7 @@ export class CombatValidatorEngine {
 
     if (weaponList.length === 0) {
       const req = skillDef.requiredWeaponType || skillDef.requiredWeapon;
-      return { valid: false, error: `需要裝備 ${req ? req.toUpperCase() : '武器'}。` };
+      return { valid: false, error: `需要裝備 ${req ? weaponTypeLabel(req) : '武器'}。` };
     }
 
     const currentTypes = weaponList.map(w => this.getWeaponType(w));
@@ -89,7 +99,7 @@ export class CombatValidatorEngine {
       if (match) return { valid: true };
       return {
         valid: false,
-        error: `武器不相容：[${skillDef.name}] 需要 [${req.toUpperCase()}]，目前裝備為 [${currentTypes.join(', ').toUpperCase()}]。`
+        error: `武器不相容：[${skillDef.name}] 需要【${weaponTypeLabel(req)}】，目前裝備為【${currentTypes.map(weaponTypeLabel).join('、')}】。`
       };
     }
 
