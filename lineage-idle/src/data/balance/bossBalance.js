@@ -69,7 +69,7 @@ export const RAID_BOSS_BALANCE = {
     },
     mechanics: [
       { name: '電磁屏障', triggerHp: 0.60, damagePercent: 0.12, text: '⚡ 核心啟動反射屏障，造成範圍電擊！' },
-      { name: '電漿超載', triggerHp: 0.25, damagePercent: 0.15, text: '💥 電漿超載 de Alta Voltagem disparada!' }
+      { name: '電漿超載', triggerHp: 0.25, damagePercent: 0.15, text: '💥 高壓電漿超載已觸發！' }
     ],
     targetMetrics: { ttkMin: 60, ttkMax: 120, ttdBase: 35 }
   },
@@ -191,7 +191,7 @@ export const RAID_BOSS_BALANCE = {
       damageHeroPercent: 0.35
     },
     mechanics: [
-      { name: '雷霆粉碎拳', triggerHp: 0.70, damagePercent: 0.15, text: '⚡ Baium desferiu o 雷霆粉碎拳!' },
+      { name: '雷霆粉碎拳', triggerHp: 0.70, damagePercent: 0.15, text: '⚡ 巴溫施展了雷霆粉碎拳！' },
       { name: '被囚神祇之怒', triggerHp: 0.30, damagePercent: 0.18, text: '🌩️ 帝王之怒：巴溫大幅提升了攻擊力！' }
     ],
     targetMetrics: { ttkMin: 75, ttkMax: 150, ttdBase: 30 }
@@ -253,7 +253,7 @@ export const RAID_BOSS_BALANCE = {
       damageHeroPercent: 0.35
     },
     mechanics: [
-      { name: '化石地震', triggerHp: 0.70, damagePercent: 0.14, text: '🌋 化石地震: O chão estremece causando dano maciço!' },
+      { name: '化石地震', triggerHp: 0.70, damagePercent: 0.14, text: '🌋 化石地震：地面劇烈震動，造成巨大傷害！' },
       { name: '遠古恐懼咆哮', triggerHp: 0.35, damagePercent: 0.16, text: '🐉 安塔瑞斯的恐懼咆哮撕裂了防禦！' }
     ],
     targetMetrics: { ttkMin: 90, ttkMax: 180, ttdBase: 25 }
