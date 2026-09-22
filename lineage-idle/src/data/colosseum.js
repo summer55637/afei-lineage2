@@ -77,14 +77,14 @@ export const COLOSSEUM_SHOP_CATALOG = [
     name: '角鬥士冠軍頭冠 👑',
     costBadges: 250,
     icon: '👑',
-    desc: '競技場至尊冠軍頭冠（P.Def +100、M.Def +100、PvP 傷害 +5%）。'
+    desc: '競技場至尊冠軍頭冠（物理防禦 +100、魔法防禦 +100、玩家對戰傷害 +5%）。'
   },
   {
     id: 'potion_heroic_cp',
-    name: '大型英雄 CP 藥水（x20）🧪',
+    name: '大型英雄戰鬥力藥水（20 瓶）🧪',
     costBadges: 50,
     icon: '🧪',
-    desc: '高濃度戰鬥藥水，立即恢復 2,000 CP。'
+    desc: '高濃度戰鬥藥水，立即恢復 2,000 戰鬥力。'
   },
   {
     id: 'giants_codex_mastery',
