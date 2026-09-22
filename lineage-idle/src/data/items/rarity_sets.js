@@ -14,7 +14,7 @@ export const SLOT = {
   weapon: '武器', armor: '防具', helmet: '頭盔', boots: '靴子',
   gloves: '手套', ring: '戒指', legs: '腿甲', shield: '盾牌',
   necklace: '項鍊', earring: '耳環', belt: '腰帶', cloak: '披風',
-  sigil: '符印', hair: '頭飾', agathion: '阿加西翁', consumable: '消耗品', material: 'Material'
+  sigil: '符印', hair: '頭飾', agathion: '阿加西翁', consumable: '消耗品', material: '材料'
 };
 
 export const ARMOR_SETS = {
