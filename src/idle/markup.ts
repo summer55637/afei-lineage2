@@ -20,7 +20,7 @@ export const IDLE_MARKUP = `
         <span id="season-badge" class="tb-pill tb-pill--season" title="第 1 賽季：亞丁覺醒（等級上限 60）">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M12 2l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1z"/></svg> 第 1 季：等級上限 60
         </span>
-        <span id="liveops-event-badge" class="tb-pill tb-pill--event" onclick="window.openLiveOpsModal && window.openLiveOpsModal()" title="點擊查看目前進行中的 即時活動 活動">
+        <span id="liveops-event-badge" class="tb-pill tb-pill--event" onclick="window.openLiveOpsModal && window.openLiveOpsModal()" title="點擊查看目前進行中的即時活動">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> 活動
         </span>
         <span id="worldboss-top-badge" class="tb-pill tb-pill--boss" onclick="window.openWorldBossModal && window.openWorldBossModal()" title="全球世界首領突襲（安塔瑞斯、巴拉卡斯、巴溫）">
@@ -206,9 +206,9 @@ export const IDLE_MARKUP = `
             <div class="combat-controls-bar">
               <button id="combat-toggle-btn" class="combat-ctrl-btn active" title="暫停或開始自動狩獵（P 鍵）"><span class="combat-stance-gem"></span> <span>⚔️ 狩獵中</span></button>
               <button id="soulshot-toggle-btn" class="combat-ctrl-btn" title="戰鬥中啟用魂彈（傷害 +100%）"><span>⚡ 魂彈</span> <span style="font-size:9px; color:#ffd877;">（關閉）</span></button>
-              <button id="autopotion-toggle-btn" class="combat-ctrl-btn" title="生命值 低於 50% 時自動使用 生命值 藥水"><span>🧪 自動補血</span> <span style="font-size:9px; color:#ffd877;">（關閉）</span></button>
+              <button id="autopotion-toggle-btn" class="combat-ctrl-btn" title="生命值低於 50% 時自動使用生命藥水"><span>🧪 自動補血</span> <span style="font-size:9px; color:#ffd877;">（關閉）</span></button>
               <button id="speed-toggle-btn" class="combat-ctrl-btn" title="戰鬥速度（1× 一般／2× 加速）"><span>⏩ 1×</span></button>
-              <button id="macro-settings-btn" class="combat-ctrl-btn" onclick="window.openMacroSettingsModal && window.openMacroSettingsModal()" title="放置巨集設定：生命值／魔力 觸發、技能循環與自動回收"><span>⚙️ 巨集</span></button>
+              <button id="macro-settings-btn" class="combat-ctrl-btn" onclick="window.openMacroSettingsModal && window.openMacroSettingsModal()" title="放置巨集設定：生命值／魔力觸發、技能循環與自動回收"><span>⚙️ 巨集</span></button>
               <label class="combat-ctrl-btn combat-ctrl-vfx" style="display:inline-flex; align-items:center; gap:4px; cursor:pointer;" title="視覺效果品質">
                 <span>視覺效果</span>
                 <select id="vfx-quality-select" title="視覺效果品質">
@@ -225,11 +225,11 @@ export const IDLE_MARKUP = `
             <div class="stage-entity-level stage-hero-level" id="hero-level">等級 1</div>
             <div class="stage-hp-bar stage-hp-bar-hero" id="hero-hp-bar">
               <div class="stage-hp-fill stage-hp-fill-hero" id="hero-hp-fill"></div>
-              <span class="stage-hp-text stage-hp-text-hero" id="hero-hp-text">生命值: 100 / 100</span>
+              <span class="stage-hp-text stage-hp-text-hero" id="hero-hp-text">生命值：100 / 100</span>
             </div>
             <div class="stage-mp-bar stage-mp-bar-hero" id="hero-mp-bar">
               <div class="stage-mp-fill stage-mp-fill-hero" id="hero-mp-fill"></div>
-              <span class="stage-mp-text stage-mp-text-hero" id="hero-mp-text">魔力: 50 / 50</span>
+              <span class="stage-mp-text stage-mp-text-hero" id="hero-mp-text">魔力：50 / 50</span>
             </div>
             <div class="hero-sprite-host" id="hero-sprite-container"></div>
           </div>
@@ -238,7 +238,7 @@ export const IDLE_MARKUP = `
             <div class="stage-entity-level stage-monster-level" id="monster-level">等級 1</div>
             <div class="stage-hp-bar" id="monster-hp-bar">
               <div class="stage-hp-fill" id="monster-hp-fill"></div>
-              <span class="stage-hp-text" id="monster-hp-text">生命值: 0 / 0</span>
+              <span class="stage-hp-text" id="monster-hp-text">生命值：0 / 0</span>
             </div>
             <div class="stage-stagger-bar" id="monster-stagger-bar" style="display:none;">
               <div class="stage-stagger-fill" id="monster-stagger-fill"></div>
