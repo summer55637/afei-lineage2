@@ -518,7 +518,7 @@ export function commitAutoEquipProposal(state, proposal, callbacks = {}) {
       }
       const def = allItems[item.itemId] || item;
       if (!isEquippableItem(def)) {
-        return { success: false, appliedChanges: 0, reason: `偵測到無法裝備的物品：${def.name || item.itemId}` };
+        return { success: false, appliedChanges: 0, reason: `偵測到無法裝備的物品：${def.name || '未知物品'}` };
       }
     }
   }
