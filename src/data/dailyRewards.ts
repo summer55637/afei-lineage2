@@ -19,38 +19,38 @@ export interface DailyRewardDay {
 
 export const DAILY_REWARDS_28: DailyRewardDay[] = [
   // Semana 1: Suprimentos & Primeiros Encantos
-  { day: 1, name: 'Bolsa de Adena', icon: '💰', desc: '50.000 Adena', rewardType: 'adena', count: 50000, rarity: 'common' },
-  { day: 2, name: 'Soulshots No-Grade', icon: '⚡', desc: '1.000x Soulshot No-Grade', rewardType: 'item', itemId: 'soulshot_ng', count: 1000, rarity: 'common' },
-  { day: 3, name: 'Poções de Cura XL', icon: '🧪', desc: '100x Poções de Vida XL', rewardType: 'item', itemId: 'hp_potion_xl', count: 100, rarity: 'uncommon' },
-  { day: 4, name: 'Pergaminho de Arma (D)', icon: '📜', desc: '3x Scroll: Enchant Weapon (D-Grade)', rewardType: 'item', itemId: 'scroll_enchant_weapon_d', count: 3, rarity: 'rare' },
-  { day: 5, name: 'Pergaminho de Armadura (D)', icon: '🛡️', desc: '5x Scroll: Enchant Armor (D-Grade)', rewardType: 'item', itemId: 'scroll_enchant_armor_d', count: 5, rarity: 'rare' },
-  { day: 6, name: 'Lâmpada Mágica de XP', icon: '🪔', desc: '1x Magic Lamp da Sorte', rewardType: 'special', count: 1, rarity: 'rare' },
-  { day: 7, name: '⭐ Bênção da 1ª Semana', icon: '🎁', desc: '1x Blessed Scroll Weapon (D) + 100.000 Adena', isMilestone: true, rewardType: 'item', itemId: 'scroll_enchant_weapon_d', count: 5, rarity: 'epic' },
+  { day: 1, name: '金幣袋', icon: '💰', desc: '50,000 金幣', rewardType: 'adena', count: 50000, rarity: 'common' },
+  { day: 2, name: '無等級魂彈', icon: '⚡', desc: '1,000 個無等級魂彈', rewardType: 'item', itemId: 'soulshot_ng', count: 1000, rarity: 'common' },
+  { day: 3, name: 'XL 治癒藥水', icon: '🧪', desc: '100 瓶 XL 生命藥水', rewardType: 'item', itemId: 'hp_potion_xl', count: 100, rarity: 'uncommon' },
+  { day: 4, name: 'D 級武器強化卷軸', icon: '📜', desc: '3 張 D 級武器強化卷軸', rewardType: 'item', itemId: 'scroll_enchant_weapon_d', count: 3, rarity: 'rare' },
+  { day: 5, name: 'D 級防具強化卷軸', icon: '🛡️', desc: '5 張 D 級防具強化卷軸', rewardType: 'item', itemId: 'scroll_enchant_armor_d', count: 5, rarity: 'rare' },
+  { day: 6, name: '經驗魔法神燈', icon: '🪔', desc: '1 個幸運魔法神燈', rewardType: 'special', count: 1, rarity: 'rare' },
+  { day: 7, name: '⭐ 第一週祝福', icon: '🎁', desc: '1 張 D 級祝福武器強化卷軸 + 100,000 金幣', isMilestone: true, rewardType: 'item', itemId: 'scroll_enchant_weapon_d', count: 5, rarity: 'epic' },
 
   // Semana 2: Forja e Grau C
-  { day: 8, name: 'Tesouro de Adena', icon: '💰', desc: '150.000 Adena', rewardType: 'adena', count: 150000, rarity: 'common' },
-  { day: 9, name: 'Spiritshots de Batalha', icon: '✨', desc: '1.000x Spiritshot No-Grade', rewardType: 'item', itemId: 'spiritshot_ng', count: 1000, rarity: 'common' },
-  { day: 10, name: 'Frasco de SP Místico', icon: '🔮', desc: '500 Pontos de SP', rewardType: 'sp', count: 500, rarity: 'uncommon' },
-  { day: 11, name: 'Pergaminho de Arma (C)', icon: '📜', desc: '3x Scroll: Enchant Weapon (C-Grade)', rewardType: 'item', itemId: 'scroll_enchant_weapon_c', count: 3, rarity: 'rare' },
-  { day: 12, name: 'Pergaminho de Armadura (C)', icon: '🛡️', desc: '5x Scroll: Enchant Armor (C-Grade)', rewardType: 'item', itemId: 'scroll_enchant_armor_c', count: 5, rarity: 'rare' },
-  { day: 13, name: 'Cristais de Alma Místicos', icon: '💎', desc: '50x Soul Crystal Shards', rewardType: 'item', itemId: 'soul_crystal_stage_1', count: 2, rarity: 'rare' },
-  { day: 14, name: '⭐⭐ Tesouro da 2ª Semana', icon: '🏆', desc: '1x Boss Doll Box + 300.000 Adena', isMilestone: true, rewardType: 'special', count: 1, rarity: 'epic' },
+  { day: 8, name: '金幣寶藏', icon: '💰', desc: '150,000 金幣', rewardType: 'adena', count: 150000, rarity: 'common' },
+  { day: 9, name: '戰鬥魔靈彈', icon: '✨', desc: '1,000 個無等級魔靈彈', rewardType: 'item', itemId: 'spiritshot_ng', count: 1000, rarity: 'common' },
+  { day: 10, name: '神秘技能點藥瓶', icon: '🔮', desc: '500 技能點', rewardType: 'sp', count: 500, rarity: 'uncommon' },
+  { day: 11, name: 'C 級武器強化卷軸', icon: '📜', desc: '3 張 C 級武器強化卷軸', rewardType: 'item', itemId: 'scroll_enchant_weapon_c', count: 3, rarity: 'rare' },
+  { day: 12, name: 'C 級防具強化卷軸', icon: '🛡️', desc: '5 張 C 級防具強化卷軸', rewardType: 'item', itemId: 'scroll_enchant_armor_c', count: 5, rarity: 'rare' },
+  { day: 13, name: '神秘靈魂水晶', icon: '💎', desc: '50 個靈魂水晶碎片', rewardType: 'item', itemId: 'soul_crystal_stage_1', count: 2, rarity: 'rare' },
+  { day: 14, name: '⭐⭐ 第二週寶藏', icon: '🏆', desc: '1 個首領娃娃箱 + 300,000 金幣', isMilestone: true, rewardType: 'special', count: 1, rarity: 'epic' },
 
   // Semana 3: Grau B & Habilidades Nobres
-  { day: 15, name: 'Fortuna de Aden', icon: '💰', desc: '300.000 Adena', rewardType: 'adena', count: 300000, rarity: 'common' },
-  { day: 16, name: 'Mega Pacote de Poções', icon: '🧪', desc: '250x Poções de Vida XL + 250x MP XL', rewardType: 'item', itemId: 'hp_potion_xl', count: 250, rarity: 'uncommon' },
-  { day: 17, name: 'Páginas de Spellbook Ancestrais', icon: '📖', desc: '5x Ancient Spellbook Page', rewardType: 'item', itemId: 'ancient_spellbook_page', count: 5, rarity: 'rare' },
-  { day: 18, name: 'Pergaminho de Arma (B)', icon: '📜', desc: '3x Scroll: Enchant Weapon (B-Grade)', rewardType: 'item', itemId: 'scroll_enchant_weapon_b', count: 3, rarity: 'rare' },
-  { day: 19, name: 'Pergaminho de Armadura (B)', icon: '🛡️', desc: '5x Scroll: Enchant Armor (B-Grade)', rewardType: 'item', itemId: 'scroll_enchant_armor_b', count: 5, rarity: 'rare' },
-  { day: 20, name: 'Grande Reserva de SP', icon: '🔮', desc: '1.500 Pontos de SP', rewardType: 'sp', count: 1500, rarity: 'epic' },
-  { day: 21, name: '⭐⭐⭐ Glória da 3ª Semana', icon: '👑', desc: '10x Páginas de Spellbook 4★ + 500.000 Adena', isMilestone: true, rewardType: 'item', itemId: 'ancient_spellbook_page', count: 10, rarity: 'epic' },
+  { day: 15, name: '亞丁財富', icon: '💰', desc: '300,000 金幣', rewardType: 'adena', count: 300000, rarity: 'common' },
+  { day: 16, name: '超大型藥水包', icon: '🧪', desc: '250 瓶 XL 生命藥水 + 250 瓶 XL 魔力藥水', rewardType: 'item', itemId: 'hp_potion_xl', count: 250, rarity: 'uncommon' },
+  { day: 17, name: '古代技能書頁', icon: '📖', desc: '5 張古代技能書頁', rewardType: 'item', itemId: 'ancient_spellbook_page', count: 5, rarity: 'rare' },
+  { day: 18, name: 'B 級武器強化卷軸', icon: '📜', desc: '3 張 B 級武器強化卷軸', rewardType: 'item', itemId: 'scroll_enchant_weapon_b', count: 3, rarity: 'rare' },
+  { day: 19, name: 'B 級防具強化卷軸', icon: '🛡️', desc: '5 張 B 級防具強化卷軸', rewardType: 'item', itemId: 'scroll_enchant_armor_b', count: 5, rarity: 'rare' },
+  { day: 20, name: '大量技能點補給', icon: '🔮', desc: '1.500 技能點', rewardType: 'sp', count: 1500, rarity: 'epic' },
+  { day: 21, name: '⭐⭐⭐ 第三週榮耀', icon: '👑', desc: '10 張 4★ 技能書頁 + 500,000 金幣', isMilestone: true, rewardType: 'item', itemId: 'ancient_spellbook_page', count: 10, rarity: 'epic' },
 
   // Semana 4: Grau A/S & Glória Suprema
-  { day: 22, name: 'Cofre Real de Adena', icon: '💰', desc: '750.000 Adena', rewardType: 'adena', count: 750000, rarity: 'common' },
-  { day: 23, name: 'Suprimento Imperial', icon: '⚡', desc: '5.000x Soulshot / Spiritshot', rewardType: 'item', itemId: 'soulshot_ng', count: 5000, rarity: 'uncommon' },
-  { day: 24, name: 'Pergaminho de Arma (A)', icon: '📜', desc: '3x Scroll: Enchant Weapon (A-Grade)', rewardType: 'item', itemId: 'scroll_enchant_weapon_a', count: 3, rarity: 'rare' },
-  { day: 25, name: 'Pergaminho de Armadura (A)', icon: '🛡️', desc: '5x Scroll: Enchant Armor (A-Grade)', rewardType: 'item', itemId: 'scroll_enchant_armor_a', count: 5, rarity: 'rare' },
-  { day: 26, name: 'Pergaminho de Arma (S)', icon: '📜', desc: '2x Scroll: Enchant Weapon (S-Grade)', rewardType: 'item', itemId: 'scroll_enchant_weapon_s', count: 2, rarity: 'epic' },
-  { day: 27, name: 'Pergaminho de Armadura (S)', icon: '🛡️', desc: '4x Scroll: Enchant Armor (S-Grade)', rewardType: 'item', itemId: 'scroll_enchant_armor_s', count: 4, rarity: 'epic' },
-  { day: 28, name: '👑 COROA SUPREMA DE ADEN', icon: '💎', desc: '1x Relíquia Épica Lendária + 1.500.000 Adena + 3x Magic Lamps', isMilestone: true, rewardType: 'special', count: 1, rarity: 'legendary' }
+  { day: 22, name: '皇家金幣寶箱', icon: '💰', desc: '750,000 金幣', rewardType: 'adena', count: 750000, rarity: 'common' },
+  { day: 23, name: '帝國補給', icon: '⚡', desc: '5,000 個魂彈／魔靈彈', rewardType: 'item', itemId: 'soulshot_ng', count: 5000, rarity: 'uncommon' },
+  { day: 24, name: 'A 級武器強化卷軸', icon: '📜', desc: '3 張 A 級武器強化卷軸', rewardType: 'item', itemId: 'scroll_enchant_weapon_a', count: 3, rarity: 'rare' },
+  { day: 25, name: 'A 級防具強化卷軸', icon: '🛡️', desc: '5 張 A 級防具強化卷軸', rewardType: 'item', itemId: 'scroll_enchant_armor_a', count: 5, rarity: 'rare' },
+  { day: 26, name: 'S 級武器強化卷軸', icon: '📜', desc: '2 張 S 級武器強化卷軸', rewardType: 'item', itemId: 'scroll_enchant_weapon_s', count: 2, rarity: 'epic' },
+  { day: 27, name: 'S 級防具強化卷軸', icon: '🛡️', desc: '4 張 S 級防具強化卷軸', rewardType: 'item', itemId: 'scroll_enchant_armor_s', count: 4, rarity: 'epic' },
+  { day: 28, name: '👑 亞丁至尊王冠', icon: '💎', desc: '1 件傳說史詩遺物 + 1,500,000 金幣 + 3 個魔法神燈', isMilestone: true, rewardType: 'special', count: 1, rarity: 'legendary' }
 ];
