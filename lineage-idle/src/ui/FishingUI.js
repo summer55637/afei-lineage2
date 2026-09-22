@@ -101,7 +101,7 @@ export function renderFishingUI(state) {
           ${(!canUse || !canAfford) ? 'disabled' : ''}
           style="padding:3px 8px; font-size:10px; font-weight:bold; background:${canUse && canAfford ? 'linear-gradient(180deg,#d4a744,#8a641c)' : '#27272a'}; border:1px solid ${canUse && canAfford ? '#ffe699' : '#52525b'}; color:${canUse && canAfford ? '#000' : '#71717a'}; border-radius:4px; cursor:${canUse && canAfford ? 'pointer' : 'not-allowed'};"
         >
-          ${canUse ? `🪙 ${(rDef.buyPrice/1000).toFixed(0)}k` : `🔒 釣魚等級 ${rDef.minFishingLevel}`}
+          ${canUse ? `🪙 ${rDef.buyPrice.toLocaleString()} 金幣` : `🔒 釣魚等級 ${rDef.minFishingLevel}`}
         </button>
       `;
     }
@@ -145,7 +145,7 @@ export function renderFishingUI(state) {
             onclick="window.buyFishingBait('${bId}', 10)"
             ${!canAfford10 ? 'disabled' : ''}
             style="flex:1; padding:3px 6px; font-size:10px; font-weight:bold; background:${canAfford10 ? 'linear-gradient(180deg,#eab308,#a16207)' : '#27272a'}; border:1px solid ${canAfford10 ? '#fde047' : '#52525b'}; color:${canAfford10 ? '#000' : '#71717a'}; border-radius:4px; cursor:${canAfford10 ? 'pointer' : 'not-allowed'};"
-            title="購買 10x，花費 ${(bDef.buyPrice * 10).toLocaleString()} 金幣"
+            title="購買 10×，花費 ${(bDef.buyPrice * 10).toLocaleString()} 金幣"
           >
             +10（${(bDef.buyPrice * 10).toLocaleString()} 金幣）
           </button>
@@ -424,7 +424,7 @@ export function renderFishingUI(state) {
             cursor:${canExchange ? 'pointer' : 'not-allowed'};
           "
         >
-          ${canExchange ? `📦 兌換（${packages}x）` : `還差 ${rate - count}`}
+          ${canExchange ? `📦 兌換（${packages}×）` : `還差 ${rate - count}`}
         </button>
       </div>
     `;
