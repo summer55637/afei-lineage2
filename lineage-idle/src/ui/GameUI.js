@@ -4274,7 +4274,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
   let reqHtml = (reqs && Object.keys(reqs).filter(s => s !== 'level' && s !== 'sp' && s !== 'reqLvl').length > 0)
     ? Object.entries(reqs).filter(([s]) => s !== 'level' && s !== 'sp' && s !== 'reqLvl').map(([s, v]) => {
         const ok = (state.skills[s] || 0) >= v;
-        return `<span class="req ${ok ? 'ok' : 'no'}">${SKILL_DEFS[s]?.name || s} ${v}</span>`;
+        return `<span class="req ${ok ? 'ok' : 'no'}">${SKILL_DEFS[s]?.name || '未知技能'} ${v}</span>`;
       }).join('')
     : '';
   reqHtml += `<span class="req ${lvlOk ? 'ok' : 'no'}">等級 ${def.reqLvl || 1}</span>`;
@@ -4391,7 +4391,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
       loadoutSectionHtml = `
         <div class="si-loadout-panel" style="margin-top:12px; padding:10px; background:rgba(15,23,42,0.7); border:1px solid rgba(212,167,68,0.4); border-radius:6px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <span style="color:#d4a744; font-size:12px; font-weight:bold;">⚡ 已裝備於配置： <strong style="color:#34d399;">${SKILL_LOADOUT_SLOT_LABELS[curSlot] || curSlot}</strong></span>
+            <span style="color:#d4a744; font-size:12px; font-weight:bold;">⚡ 已裝備於配置： <strong style="color:#34d399;">${SKILL_LOADOUT_SLOT_LABELS[curSlot] || '其他欄位'}</strong></span>
             <button class="si-btn-unequip" data-slot="${curSlot}" style="padding:3px 10px; font-size:11px; background:#ef4444; border:none; border-radius:4px; color:#fff; cursor:pointer; font-weight:bold;">卸下</button>
           </div>
           <div style="font-size:11px; color:#94a3b8; margin-bottom:6px; font-weight:bold;">⚙️ 自動戰鬥條件：</div>
@@ -4427,7 +4427,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
         </div>
       `;
     } else {
-      const slotOptions = unlocked.map(s => `<option value="${s}">${SKILL_LOADOUT_SLOT_LABELS[s] || s}</option>`).join('');
+      const slotOptions = unlocked.map(s => `<option value="${s}">${SKILL_LOADOUT_SLOT_LABELS[s] || '其他欄位'}</option>`).join('');
       loadoutSectionHtml = `
         <div class="si-loadout-panel" style="margin-top:12px; padding:10px; background:rgba(15,23,42,0.7); border:1px dashed rgba(212,167,68,0.4); border-radius:6px;">
           <div style="color:#d4a744; font-size:12px; font-weight:bold; margin-bottom:6px;">⚡ 裝入戰鬥配置：</div>
