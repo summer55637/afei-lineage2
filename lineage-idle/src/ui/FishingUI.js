@@ -36,7 +36,7 @@ export function renderFishingUI(state) {
   for (const z of zonesList) {
     const isUnlocked = playerLvl >= z.minLevel;
     const isSelected = z.id === activeZoneId;
-    const reqBaitName = z.requiredBait ? (BAIT_CATALOG[z.requiredBait]?.name || z.requiredBait) : '任意魚餌';
+    const reqBaitName = z.requiredBait ? (BAIT_CATALOG[z.requiredBait]?.name || '未知魚餌') : '任意魚餌';
 
     let diffStars = '⭐'.repeat(z.difficulty);
 
