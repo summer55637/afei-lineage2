@@ -64,7 +64,7 @@ export const LIVE_OPS_EVENTS = {
     id: 'imperial_blessing',
     days: [2, 4], // Terça e Quinta
     title: '🕊️ 伊娃女神的帝國祝福',
-    desc: '王國正享受天界的和平與繁榮（+10% EXP）。',
+    desc: '王國正享受天界的和平與繁榮（+10% 經驗值）。',
     badge: '帝國祝福',
     icon: '🕊️',
     color: '#38bdf8',
