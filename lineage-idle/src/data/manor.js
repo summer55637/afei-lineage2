@@ -13,7 +13,7 @@ export const MANOR_PROVINCES = {
       cropId: 'crop_gludio',
       cropName: '收成的冰霜小麥',
       rewardItem: 'var_of_purity',
-      rewardItemName: 'Varnish of Purity',
+      rewardItemName: '純化研磨劑',
       exchangeRate: 5 // 5 colheitas = 1 Varnish of Purity
     }
   },
@@ -30,7 +30,7 @@ export const MANOR_PROVINCES = {
       cropId: 'crop_dion',
       cropName: '收成的魔法南瓜',
       rewardItem: 'mithril_alloy',
-      rewardItemName: 'Mithril Alloy',
+      rewardItemName: '米索莉合金',
       exchangeRate: 6 // 6 colheitas = 1 Mithril Alloy
     }
   },
@@ -47,7 +47,7 @@ export const MANOR_PROVINCES = {
       cropId: 'crop_giran',
       cropName: '收成的黃金葡萄',
       rewardItem: 'enria',
-      rewardItemName: 'Enria',
+      rewardItemName: '恩尼亞',
       exchangeRate: 8 // 8 colheitas = 1 Enria
     }
   }
