@@ -11,42 +11,42 @@ export const CODEX_SETS = {
   // ─── COLEÇÕES INICIAIS (NO-GRADE) ───
   novice_weapons: {
     name:  '⚔️ Armamento de Recruta',
-    desc:  'Registre as armas iniciais de caça dos novatos.',
+    desc:  '登錄新手使用的初期狩獵武器。',
     items: ['knight_sword', 'crucifix_of_blessing_magicblunt', 'hunting_bow'],
     bonus: { atk: 25, matk: 25 },
     label: '+25 P. Atk & +25 M. Atk'
   },
   novice_armors: {
     name:  '🛡️ Vestimentas de Tecido & Couro',
-    desc:  'Registre os trajes defensivos básicos de treino.',
+    desc:  '登錄基礎訓練用防具。',
     items: ['bone_breastplate', 'leather_vest_light', 'devotion_armor_robe'],
     bonus: { def: 30, mdef: 30 },
     label: '+30 P. Def & +30 M. Def'
   },
   novice_heavy: {
-    name:  '🛡️ Infantaria Básica de Gludio',
+    name:  '🛡️ 古魯丁基礎步兵',
     desc:  'Armaduras pesadas dos primeiros combatentes.',
     items: ['bone_breastplate', 'bronze_breastplate_heavy'],
     bonus: { def: 20, hp: 50 },
     label: '+20 P. Def & +50 Max HP'
   },
   novice_light: {
-    name:  '🥋 Caçadores da Floresta',
-    desc:  'Trajes leves e machados rústicos dos caçadores novatos.',
+    name:  '🥋 森林獵人',
+    desc:  '新手獵人的輕裝與簡易斧頭。',
     items: ['leather_vest_light', 'tomahawk_axe'],
     bonus: { def: 15, eva: 6 },
     label: '+15 P. Def & +6 Evasion'
   },
   novice_robe: {
-    name:  '🔮 Discípulos de Einhovant',
-    desc:  'Túnicas e maças sagradas dos noviços dos templos.',
+    name:  '🔮 艾因霍凡特門徒',
+    desc:  '神殿新人的法袍與神聖鈍器。',
     items: ['devotion_armor_robe', 'crucifix_of_blessing_magicblunt'],
     bonus: { mdef: 25, mp: 60 },
     label: '+25 M. Def & +60 Max MP'
   },
   novice_jewels: {
     name:  '📿 Joias Elegantes de Aden',
-    desc:  'Registre joias de treino com propriedades místicas.',
+    desc:  '登錄具有神秘力量的訓練珠寶。',
     items: ['blue_coral_ring', 'magic_ring'],
     bonus: { hp: 100, mp: 50 },
     label: '+100 Max HP & +50 Max MP'
@@ -54,7 +54,7 @@ export const CODEX_SETS = {
 
   // ─── COLEÇÕES D-GRADE (Season 1 Core) ───
   d_grade_infantry: {
-    name:  '🛡️ Legião de Ferro Brigandine',
+    name:  '🛡️ 鎖子甲鋼鐵軍團',
     desc:  'O conjunto pesado completo dos defensores de Dion.',
     items: ['brigandine_armor_heavy', 'brigandine_pants_heavy', 'brigandine_helmet_heavy'],
     bonus: { def: 45, hp: 120 },
@@ -62,49 +62,49 @@ export const CODEX_SETS = {
   },
   d_grade_scouts: {
     name:  '🏹 Patrulheiros Manticore',
-    desc:  'Armaduras de couro reforçado para batedores rápidos.',
+    desc:  '適合敏捷斥候的強化皮甲。',
     items: ['manticore_armor_light', 'manticore_pants_light'],
     bonus: { def: 30, eva: 10, crit: 4 },
     label: '+30 P. Def, +10 Eva & +4% Crit'
   },
   d_grade_scholars: {
-    name:  '✨ Círculo Arcano de Mithril',
-    desc:  'Vestes mágicas tecidas com fios de mithril e prata.',
+    name:  '✨ 米索莉秘法環',
+    desc:  '以米索莉與銀絲編織的魔法服裝。',
     items: ['mithril_tunic_robe', 'mithril_pants_robe'],
     bonus: { mdef: 40, matk: 25, mp: 100 },
     label: '+40 M. Def, +25 M. Atk & +100 Max MP'
   },
   d_grade_swords: {
     name:  '⚔️ Mestres da Espada D-Grade',
-    desc:  'Lâminas consagradas dos cavaleiros de Gludio.',
+    desc:  '古魯丁騎士的祝聖刀劍。',
     items: ['crimson_sword', 'saber_sword', 'dual_bastard_sword'],
     bonus: { atk: 50, crit: 6 },
     label: '+50 P. Atk & +6% Crit Rate'
   },
   d_grade_archery: {
-    name:  '🎯 Arquearia Élfica dos Ermos',
+    name:  '🎯 荒野精靈弓術',
     desc:  'Arcos nobres empregados nas patrulhas de Talking Island.',
     items: ['elven_bow', 'bow_of_silence'],
     bonus: { atk: 45, crit: 8 },
     label: '+45 P. Atk & +8% Ranged Crit'
   },
   d_grade_mystic: {
-    name:  '🔮 Bastões de Poder Elemental',
+    name:  '🔮 元素力量法杖',
     desc:  'Armamentos dos feiticeiros e sacerdotes de Dion.',
     items: ['mystic_staff', 'staff_of_magic', 'bronze_mace'],
     bonus: { matk: 55, mp: 80 },
     label: '+55 M. Atk & +80 Max MP'
   },
   d_grade_blunt: {
-    name:  '🔨 Martelos de Guerra Anões',
+    name:  '🔨 矮人戰鎚',
     desc:  'Pesadas armas de impacto forjadas nas cavernas de Mithril.',
     items: ['warhammer', 'titan_hammer', 'wepoan_war_mace'],
     bonus: { atk: 45, hp: 140 },
     label: '+45 P. Atk & +140 Max HP'
   },
   d_grade_jewelry: {
-    name:  '💎 Conjunto de Joias Élficas',
-    desc:  'Amuletos ornamentados que amplificam a resistência mágica.',
+    name:  '💎 精靈珠寶套裝',
+    desc:  '能提升魔法抗性的華麗護身符。',
     items: ['jewel_elven_ring', 'jewel_elven_earring', 'jewel_elven_necklace'],
     bonus: { mdef: 50, hp: 100, mp: 60 },
     label: '+50 M. Def, +100 Max HP & +60 Max MP'
