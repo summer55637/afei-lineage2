@@ -11,7 +11,7 @@ import {
 import { addToInventory } from './InventoryService.js';
 import { LifeActivityCore } from './lifeActivities/LifeActivityCore.js';
 import { RewardEngine } from './lifeActivities/RewardEngine.js';
-import { resolveCanonicalResourceId } from './lifeActivities/ResourceDictionary.js';
+import { resolveCanonicalResourceId, getCanonicalResourceDef } from './lifeActivities/ResourceDictionary.js';
 
 export const HuntingService = {
   getHuntingState(state) {
@@ -445,15 +445,18 @@ export const HuntingService = {
     hState.isHunting = false;
     hState.trackedPreyId = null;
 
+    const primaryDisplayName = getCanonicalResourceDef(primaryMat)?.name || primaryMat;
+    const secondaryDisplayName = secMat ? (getCanonicalResourceDef(secMat)?.name || secMat) : null;
+
     if (callbacks.log) {
       const qualityPrefix = quality.tier === 'perfect' ? '🌟 **完美剝皮！**'
         : quality.tier === 'excellent' ? '✨ **優秀剝皮！**'
         : '✓ 剝皮完成：';
-      callbacks.log(`🐾 ${qualityPrefix} 擊倒 **${prey.name}** [${quality.name}]！獲得 +${primaryQty}x ${primaryMat.toUpperCase()}${secMat && secQty > 0 ? ` 與 +${secQty}x ${secMat.toUpperCase()}` : ''}！（+${finalXp} 狩獵 XP）`, 'loot');
+      callbacks.log(`🐾 ${qualityPrefix} 擊倒 **${prey.name}** [${quality.name}]！獲得 +${primaryQty}x ${primaryDisplayName}${secMat && secQty > 0 ? ` 與 +${secQty}x ${secondaryDisplayName}` : ''}！（+${finalXp} 狩獵 XP）`, 'loot');
     }
 
     if (callbacks.floatText) {
-      callbacks.floatText(`+${primaryQty}x ${primaryMat.toUpperCase()}`, 'float-gold');
+      callbacks.floatText(`+${primaryQty}x ${primaryDisplayName}`, 'float-gold');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
