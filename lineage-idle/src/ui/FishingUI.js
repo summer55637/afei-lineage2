@@ -165,12 +165,12 @@ export function renderFishingUI(state) {
     const fDef = fight.fishDef || {};
     const profile = fight.profile || {};
 
-    const staminaPct = Math.max(0, Math.min(100, Math.round((fight.fish耐力 / (fight.max耐力 || 1)) * 100)));
+    const staminaPct = Math.max(0, Math.min(100, Math.round((fight.fishStamina / (fight.maxStamina || 1)) * 100)));
     const tensionPct = Math.max(0, Math.min(100, fight.lineTension));
     const controlPct = Math.max(0, Math.min(100, fight.playerControl));
 
     let tensionColor = '#22c55e';
-    let tensionStatus = 'Segura';
+    let tensionStatus = '安全';
     let tensionPulse = '';
     if (tensionPct >= 90) {
       tensionColor = '#ef4444';
@@ -181,11 +181,11 @@ export function renderFishingUI(state) {
       tensionStatus = '張力 Elevada';
     } else if (tensionPct >= 50) {
       tensionColor = '#eab308';
-      tensionStatus = 'Moderada';
+      tensionStatus = '中等';
     }
 
     let controlColor = controlPct > 50 ? '#3b82f6' : controlPct >= 25 ? '#eab308' : '#ef4444';
-    let controlStatus = controlPct > 50 ? 'Firme' : controlPct >= 25 ? 'Sob Disputa' : '⚠️ PEIXE ESCAPANDO!';
+    let controlStatus = controlPct > 50 ? '穩定' : controlPct >= 25 ? '拉扯中' : '⚠️ 魚快要逃脫了！';
     let controlPulse = controlPct < 25 ? 'animation: pulse 0.6s infinite;' : '';
 
     fishingActionContent = `
@@ -196,13 +196,13 @@ export function renderFishingUI(state) {
             <div style="font-size:32px; filter:drop-shadow(0 0 8px rgba(96,165,250,0.5));">${fDef.icon || '🐟'}</div>
             <div>
               <div style="font-family:'Cinzel',serif; font-size:15px; font-weight:bold; color:#f8fafc;">
-                ${fDef.name || 'Peixe Misterioso'} <span style="font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(59,130,246,0.2); border:1px solid #60a5fa; color:#93c5fd;">${profile.name || '預設'}</span>
+                ${fDef.name || '神秘魚種'} <span style="font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(59,130,246,0.2); border:1px solid #60a5fa; color:#93c5fd;">${profile.name || '預設'}</span>
               </div>
               <div style="font-size:11px; color:#94a3b8;">${profile.desc || '正在分析水中動態'}</div>
             </div>
           </div>
           <div style="text-align:right;">
-            <div style="font-size:10px; color:#94a3b8;">Turno de Disputa</div>
+            <div style="font-size:10px; color:#94a3b8;">拉扯回合</div>
             <div style="font-size:14px; font-weight:bold; color:#ffd700; font-family:monospace;">#${(fight.turns || 0) + 1}</div>
           </div>
         </div>
@@ -213,7 +213,7 @@ export function renderFishingUI(state) {
           <div style="background:rgba(0,0,0,0.4); padding:8px 12px; border-radius:6px; border:1px solid rgba(255,255,255,0.05);">
             <div style="display:flex; justify-content:space-between; font-size:11px; margin-bottom:4px;">
               <span style="color:#f87171; font-weight:bold;">🐟 魚的耐力：</span>
-              <span style="font-family:monospace; color:#fca5a5; font-weight:bold;">${fight.fish耐力} / ${fight.max耐力} (${staminaPct}%)</span>
+              <span style="font-family:monospace; color:#fca5a5; font-weight:bold;">${fight.fishStamina} / ${fight.maxStamina} (${staminaPct}%)</span>
             </div>
             <div style="background:#1e293b; height:10px; border-radius:5px; overflow:hidden;">
               <div style="background:linear-gradient(90deg, #ef4444, #f87171); width:${staminaPct}%; height:100%; transition:width 0.2s ease;"></div>
