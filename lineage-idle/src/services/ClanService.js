@@ -1,5 +1,5 @@
 /**
- * ClanService.js — Gerenciamento de Clãs, Guerras de Cerco (Castle Sieges) e Renda de Castelos.
+ * ClanService.js — Gerenciamento de 血盟s, Guerras de 攻城 (Castle Sieges) e Renda de 城堡s.
  */
 
 import { CLAN_LEVEL_DATA, CLAN_SKILLS } from '../data/clan.js';
@@ -7,12 +7,12 @@ import { CASTLES, CASTLE_SHOP_CATALOG } from '../data/castles.js';
 
 export class ClanService {
   /**
-   * Retorna o estado do Clã do jogador e seus atributos agregados.
+   * Retorna o estado do 血盟 do jogador e seus atributos agregados.
    */
   static getClanStatus(state) {
     if (!state.clan) {
       state.clan = {
-        name: 'Os Guardiões de Aden',
+        name: '亞丁守護者',
         level: 1,
         castles: [],
         lastTaxTimestamp: Date.now(),
@@ -33,7 +33,7 @@ export class ClanService {
 
     const activeSkills = unlockedSkillIds.map(id => CLAN_SKILLS[id]).filter(Boolean);
 
-    // Calcular bônus totais de Clã
+    // Calcular bônus totais de 血盟
     let pAtkBonusPercent = 0;
     let pDefBonusPercent = 0;
     let mAtkBonusPercent = 0;
@@ -74,14 +74,14 @@ export class ClanService {
   }
 
   /**
-   * Evolui o Clã para o próximo nível.
+   * Evolui o 血盟 para o próximo nível.
    */
   static upgradeClan(state, callbacks = {}) {
     const { log = console.log, onUpdate = () => {} } = callbacks;
     const status = this.getClanStatus(state);
 
     if (!status.nextLevelData) {
-      log('Seu Clã já alcançou o nível máximo (Nível 5 - Ordem Imperial)!', 'warning');
+      log('你的血盟已達最高等級（等級 5－帝國騎士團）！', 'warning');
       return { success: false, reason: 'max_level' };
     }
 
@@ -89,17 +89,17 @@ export class ClanService {
     const playerLevel = state.level || 1;
 
     if (playerLevel < next.reqCharLevel) {
-      log(`Requer Nível de Personagem ${next.reqCharLevel}+ para elevar o Clã ao Nível ${next.level}.`, 'error');
+      log(`角色需要達到 ${next.reqCharLevel} 級以上，才能將血盟提升至 ${next.level} 級。`, 'error');
       return { success: false, reason: 'level_low' };
     }
 
     if ((state.gold || 0) < next.costAdena) {
-      log(`Adena insuficiente. Requer ${next.costAdena.toLocaleString()} Adena para o upgrade do Clã.`, 'error');
+      log(`金幣不足。血盟升級需要 ${next.costAdena.toLocaleString()} 金幣。`, 'error');
       return { success: false, reason: 'gold_low' };
     }
 
     if ((state.sp || 0) < next.costSp) {
-      log(`Pontos de SP insuficientes. Requer ${next.costSp.toLocaleString()} SP para o upgrade do Clã.`, 'error');
+      log(`SP 不足。血盟升級需要 ${next.costSp.toLocaleString()} SP。`, 'error');
       return { success: false, reason: 'sp_low' };
     }
 
@@ -108,15 +108,15 @@ export class ClanService {
     state.sp -= next.costSp;
     state.clan.level = next.level;
 
-    log(`🎉 Parabéns! Seu Clã ascendeu para o Nível ${next.level} (${next.title})!`, 'success');
-    log(`✨ Novas Habilidades de Clã desbloqueadas: ${next.unlockedSkills.map(id => CLAN_SKILLS[id]?.name).join(', ')}`, 'info');
+    log(`🎉 恭喜！你的血盟已提升至 ${next.level} 級（${next.title}）！`, 'success');
+    log(`✨ 已解鎖新的血盟技能：${next.unlockedSkills.map(id => CLAN_SKILLS[id]?.name).join(', ')}`, 'info');
 
     onUpdate();
     return { success: true, newLevel: next.level };
   }
 
   /**
-   * Inicia o Cerco a um Castelo (Castle Siege).
+   * Inicia o 攻城 a um 城堡 (Castle Siege).
    */
   static startSiege(state, castleId, callbacks = {}) {
     const { log = console.log, onUpdate = () => {} } = callbacks;
@@ -127,12 +127,12 @@ export class ClanService {
     }
 
     if ((state.clan?.level || 1) < castle.reqClanLevel) {
-      log(`Apenas Clãs de Nível ${castle.reqClanLevel}+ podem declarar Cerco a ${castle.name}.`, 'error');
+      log(`只有 ${castle.reqClanLevel} 級以上血盟才能對 ${castle.name} 宣戰。`, 'error');
       return { success: false, reason: 'clan_level_low' };
     }
 
     if ((state.level || 1) < castle.reqCharLevel) {
-      log(`Nível de personagem insuficiente. Requer Nível ${castle.reqCharLevel}+ para cercar ${castle.name}.`, 'error');
+      log(`角色等級不足。攻城 ${castle.name} 需要 ${castle.reqCharLevel} 級以上。`, 'error');
       return { success: false, reason: 'char_level_low' };
     }
 
@@ -147,16 +147,16 @@ export class ClanService {
       castRounds: 0,
       reqCastRounds: castle.siege.castRoundsRequired,
       isCompleted: false,
-      logs: [`⚔️ Cerco a ${castle.name} declarado! Fase 1: Ataque aos Portões Exteriores.`]
+      logs: [`⚔️ 已向 ${castle.name} 宣布攻城！第 1 階段：攻擊外城門。`]
     };
 
-    log(`🏰 As trombetas de guerra ecoam! O cerco a ${castle.name} começou!`, 'warning');
+    log(`🏰 戰爭號角響起！${castle.name} 攻城戰開始！`, 'warning');
     onUpdate();
     return { success: true, siege: state.activeSiege };
   }
 
   /**
-   * Executa uma rodada de ação do Cerco (Phase-based progression).
+   * Executa uma rodada de ação do 攻城 (Phase-based progression).
    */
   static executeSiegeTurn(state, callbacks = {}) {
     const { log = console.log, onUpdate = () => {} } = callbacks;
@@ -178,7 +178,7 @@ export class ClanService {
       const dmgToGate = Math.max(100, Math.round(totalDmg * 2.2)); // Bônus de aríete/golem de cerco
       siege.gateHp = Math.max(0, siege.gateHp - dmgToGate);
 
-      const msg = `💥 Aríetes e catapultas do Clã causaram -${dmgToGate.toLocaleString()} de dano aos Portões! (HP: ${siege.gateHp.toLocaleString()}/${siege.maxGateHp.toLocaleString()})`;
+      const msg = `💥 血盟攻城槌與投石機對城門造成 ${dmgToGate.toLocaleString()} 傷害！（HP：${siege.gateHp.toLocaleString()}/${siege.maxGateHp.toLocaleString()}）`;
       siege.logs.unshift(msg);
       log(msg, 'info');
 
@@ -222,7 +222,7 @@ export class ClanService {
         const victoryReward = 5000000;
         state.gold = (state.gold || 0) + victoryReward;
 
-        const triumphMsg = `🏆 VITÓRIA SUPREMA! O Selo foi gravado no Altar Sagrado! ${state.name || 'Seu Clã'} é agora o legítimo Senhor de ${castle.name}! (+${victoryReward.toLocaleString()} Adena do Tesouro)`;
+        const triumphMsg = `🏆 VITÓRIA SUPREMA! O Selo foi gravado no Altar Sagrado! ${state.name || 'Seu 血盟'} é agora o legítimo Senhor de ${castle.name}! (+${victoryReward.toLocaleString()} Adena do Tesouro)`;
         siege.logs.unshift(triumphMsg);
         log(triumphMsg, 'success');
       }
@@ -240,7 +240,7 @@ export class ClanService {
     const castle = CASTLES[castleId];
 
     if (!castle || !(state.clan?.castles || []).includes(castleId)) {
-      log('Seu Clã não governa este castelo para recolher taxas.', 'error');
+      log('Seu 血盟 não governa este castelo para recolher taxas.', 'error');
       return { success: false, reason: 'not_owner' };
     }
 
@@ -282,19 +282,19 @@ export class ClanService {
   }
 
   /**
-   * Compra um item da Loja Exclusiva do Castelo.
+   * Compra um item da Loja Exclusiva do 城堡.
    */
   static buyCastleShopItem(state, itemId, callbacks = {}) {
     const { log = console.log, onUpdate = () => {} } = callbacks;
     const item = CASTLE_SHOP_CATALOG.find(i => i.id === itemId);
 
     if (!item) {
-      log('Item não encontrado na Loja do Castelo.', 'error');
+      log('Item não encontrado na Loja do 城堡.', 'error');
       return { success: false, reason: 'item_not_found' };
     }
 
     if (!state.clan?.castles || state.clan.castles.length === 0) {
-      log('Apenas Lordes de Castelo podem adquirir itens da Loja Real.', 'error');
+      log('Apenas Lordes de 城堡 podem adquirir itens da Loja Real.', 'error');
       return { success: false, reason: 'no_castle' };
     }
 
@@ -324,25 +324,25 @@ export class ClanService {
       });
     }
 
-    log(`✨ Você adquiriu ${item.name} da Loja do Castelo!`, 'success');
+    log(`✨ Você adquiriu ${item.name} da Loja do 城堡!`, 'success');
     onUpdate();
     return { success: true };
   }
 
   /**
-   * Cria ou edita as informações do Clã (Nome, Lema, Brasão).
+   * Cria ou edita as informações do 血盟 (Nome, Lema, Brasão).
    */
   static createOrEditClan(state, name, motto, callbacks = {}) {
     const { log = console.log, onUpdate = () => {}, floatText = () => {} } = callbacks;
     const cleanName = String(name || '').trim();
     if (!cleanName || cleanName.length < 3) {
-      log('O nome do Clã deve ter pelo menos 3 caracteres.', 'error');
+      log('O nome do 血盟 deve ter pelo menos 3 caracteres.', 'error');
       return { success: false, reason: 'name_too_short' };
     }
-    const isNew = !state.clan || !state.clan.name || state.clan.name === 'Os Guardiões de Aden';
+    const isNew = !state.clan || !state.clan.name || state.clan.name === '亞丁守護者';
     const cost = isNew ? 100000 : 250000;
     if ((state.gold || 0) < cost) {
-      log(`Adena insuficiente para fundar/renomear o Clã (${cost.toLocaleString()} Adena necessária).`, 'error');
+      log(`Adena insuficiente para fundar/renomear o 血盟 (${cost.toLocaleString()} Adena necessária).`, 'error');
       return { success: false, reason: 'gold_low' };
     }
     state.gold -= cost;
@@ -356,14 +356,14 @@ export class ClanService {
     state.clan.donationsAdena = state.clan.donationsAdena || 0;
     state.clan.donationsSp = state.clan.donationsSp || 0;
 
-    log(`🏰 Clã **[${cleanName}]** ${isNew ? 'fundado com sucesso' : 'atualizado'}! Lema: "${state.clan.motto}"`, 'rarity-legendary');
+    log(`🏰 血盟 **[${cleanName}]** ${isNew ? 'fundado com sucesso' : 'atualizado'}! Lema: "${state.clan.motto}"`, 'rarity-legendary');
     floatText(`🏰 CLÃ FUNDADO!`, 'float-jackpot');
     onUpdate();
     return { success: true, clan: state.clan };
   }
 
   /**
-   * Realiza doação de Adena/SP para o avanço da Reputação e EXP do Clã.
+   * Realiza doação de Adena/SP para o avanço da 聲望 e EXP do 血盟.
    */
   static donateToClan(state, adenaAmt = 0, spAmt = 0, callbacks = {}) {
     const { log = console.log, onUpdate = () => {}, floatText = () => {} } = callbacks;
@@ -387,8 +387,8 @@ export class ClanService {
     state.clan.donationsAdena = (state.clan.donationsAdena || 0) + adenaAmt;
     state.clan.donationsSp = (state.clan.donationsSp || 0) + spAmt;
 
-    log(`🛡️ Doação de Clã concluída: +${adenaAmt.toLocaleString()} Adena, +${spAmt.toLocaleString()} SP. Reputação do Clã: **+${repGained}**!`, 'rarity-epic');
-    floatText(`+${repGained} Reputação`, 'float-epic');
+    log(`🛡️ Doação de 血盟 concluída: +${adenaAmt.toLocaleString()} Adena, +${spAmt.toLocaleString()} SP. 聲望 do 血盟: **+${repGained}**!`, 'rarity-epic');
+    floatText(`+${repGained} 聲望`, 'float-epic');
     onUpdate();
     return { success: true, repGained };
   }
@@ -421,16 +421,16 @@ export class ClanService {
   }
 
   /**
-   * Retorna os membros do Clã (incluindo o jogador e veteranos simulados).
+   * Retorna os membros do 血盟 (incluindo o jogador e veteranos simulados).
    */
   static getClanRoster(state) {
-    const clan = (state && state.clan) ? state.clan : { name: 'Os Guardiões de Aden', level: 1, reputation: 100 };
+    const clan = (state && state.clan) ? state.clan : { name: '亞丁守護者', level: 1, reputation: 100 };
     const pName = state?.name || 'Tristan';
     const pLvl = state?.level || 1;
     const pClass = state?.className || state?.class || 'Guerreiro';
 
     return [
-      { name: pName, rank: '👑 Líder do Clã', level: pLvl, className: pClass, contribution: (clan.donationsAdena || 0) + (clan.donationsSp || 0) * 10, isPlayer: true },
+      { name: pName, rank: '👑 Líder do 血盟', level: pLvl, className: pClass, contribution: (clan.donationsAdena || 0) + (clan.donationsSp || 0) * 10, isPlayer: true },
       { name: 'SirGalahad', rank: '⚔️ General', level: Math.max(40, pLvl + 2), className: 'Paladin', contribution: 350000, isPlayer: false },
       { name: 'ElenaMoonsong', rank: '🔮 Feiticeira Real', level: Math.max(38, pLvl + 1), className: 'Spellsinger', contribution: 280000, isPlayer: false },
       { name: 'KaelenShadow', rank: '🗡️ Assassino Sênior', level: Math.max(35, pLvl), className: 'Abyss Walker', contribution: 210000, isPlayer: false },
@@ -470,7 +470,7 @@ export const CLAN_HALL_BUFFS = {
   },
   royal_teleport: {
     id: 'royal_teleport',
-    name: 'Portal Arcano do Clã',
+    name: 'Portal Arcano do 血盟',
     icon: '🌀',
     desc: 'Viagem instantânea com custo reduzido e +10 Velocidade',
     costAdena: 60000,
