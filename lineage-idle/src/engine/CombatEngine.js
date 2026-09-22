@@ -100,7 +100,7 @@ export function startCombat(state, callbacks = {}) {
   if (zoneProg && zoneProg.minCp && playerCp < zoneProg.minCp && state.zone !== 'talkingIsland') {
     const safeTown = getNearestTown(state.zone, state);
     if (callbacks.log) {
-      callbacks.log(`🔒 Poder de Combate Insuficiente para ${ZONES[state.zone]?.name || state.zone}! Requer ${zoneProg.minCp.toLocaleString()} CP (Seu CP: ${playerCp.toLocaleString()}). Retornando para ${ZONES[safeTown]?.name || safeTown}...`, 'warning');
+      callbacks.log(`🔒 戰鬥力不足，無法進入 ${ZONES[state.zone]?.name || state.zone}！需要 ${zoneProg.minCp.toLocaleString()} CP（目前：${playerCp.toLocaleString()} CP）。返回 ${ZONES[safeTown]?.name || safeTown}……`, 'warning');
     }
     state.zone = safeTown;
     state.currentZone = safeTown;
@@ -110,7 +110,7 @@ export function startCombat(state, callbacks = {}) {
   }
 
   if (!state.activeMonster && state.zone && ZONES[state.zone]) {
-    if (callbacks.log) callbacks.log(`Entering ${ZONES[state.zone].name}...`, 'system');
+    if (callbacks.log) callbacks.log(`正在進入 ${ZONES[state.zone].name}……`, 'system');
     pickRandomMonster(state, callbacks);
   }
   state._cds = state._cds || {};
@@ -231,15 +231,15 @@ export function pickRandomMonster(state, callbacks = {}) {
     const diffBadge = (difficulty && difficulty.id !== 'normal') ? ` [${difficulty.icon} ${difficulty.name}]` : '';
 
     if (isBossSpawn) {
-      if (callbacks.log) callbacks.log(`🚨 CHEFÃO DA ZONA DESPERTADO! 👑 ${template.name}${diffBadge} apareceu!`, 'boss', 'system');
-      if (callbacks.floatText) callbacks.floatText(`🚨 CHEFÃO APARECEU!`, 'float-jackpot');
+      if (callbacks.log) callbacks.log(`🚨 區域首領覺醒！👑 ${template.name}${diffBadge} 出現了！`, 'boss', 'system');
+      if (callbacks.floatText) callbacks.floatText(`🚨 區域首領出現！`, 'float-jackpot');
     } else if (champion) {
-      if (callbacks.log) callbacks.log(`${champion.namePrefix}! ${template.name}${diffBadge} [${archInfo.icon} ${archInfo.label}] surgiu!`, 'boss', 'system');
+      if (callbacks.log) callbacks.log(`${champion.namePrefix}！${template.name}${diffBadge}【${archInfo.icon} ${archInfo.label}】出現了！`, 'boss', 'system');
       if (callbacks.floatText) callbacks.floatText(champion.namePrefix, 'float-jackpot');
     } else if (isElite) {
-      if (callbacks.log) callbacks.log(`⚡ Monstro Élite ${template.name}${diffBadge} [${archInfo.icon} ${archInfo.label}] surgiu!`, 'boss', 'system');
+      if (callbacks.log) callbacks.log(`⚡ 菁英怪物 ${template.name}${diffBadge}【${archInfo.icon} ${archInfo.label}】出現了！`, 'boss', 'system');
     } else {
-      if (callbacks.log) callbacks.log(`Um [${archInfo.icon} ${archInfo.label}] ${template.name}${diffBadge} selvagem apareceu!`, 'combat', 'combat');
+      if (callbacks.log) callbacks.log(`野生【${archInfo.icon} ${archInfo.label}】${template.name}${diffBadge} 出現了！`, 'combat', 'combat');
     }
 
     if (callbacks.renderStageMonster) callbacks.renderStageMonster();
@@ -258,14 +258,14 @@ export function selectZone(state, zoneId, callbacks = {}) {
   const zone = ZONES[zoneId];
   if (!zone) return false;
   if (zone.level > state.level) {
-    if (callbacks.log) callbacks.log(`Level ${zone.level} required.`, 'system');
+    if (callbacks.log) callbacks.log(`需要等級 ${zone.level}。`, 'system');
     return false;
   }
   const zoneProg = getZoneProgression(zoneId);
   const playerCp = state.stats?.combatPower || state.combatPower || 0;
   if (zoneProg && zoneProg.minCp && playerCp < zoneProg.minCp && zoneId !== 'talkingIsland') {
-    if (callbacks.log) callbacks.log(`🔒 Poder de Combate Insuficiente para ${zone.name}! Requer no mínimo ${zoneProg.minCp.toLocaleString()} CP (Seu CP: ${playerCp.toLocaleString()}).`, 'warning');
-    if (callbacks.floatText) callbacks.floatText(`🔒 REQUER ${zoneProg.minCp.toLocaleString()} CP`, 'float-warning');
+    if (callbacks.log) callbacks.log(`🔒 戰鬥力不足，無法進入 ${zone.name}！最低需要 ${zoneProg.minCp.toLocaleString()} CP（目前：${playerCp.toLocaleString()} CP）。`, 'warning');
+    if (callbacks.floatText) callbacks.floatText(`🔒 需要 ${zoneProg.minCp.toLocaleString()} CP`, 'float-warning');
     return false;
   }
   state.zone = zoneId;
@@ -302,8 +302,8 @@ export function updateSagaProgress(state, silent = true, callbacks = {}) {
     const newSaga = SAGAS[highestSaga];
     state.currentSaga = highestSaga;
     if (!silent && callbacks.showSagaModal) callbacks.showSagaModal(newSaga);
-    if (callbacks.log) callbacks.log(`🗺️ NOVA SAGA DESBLOQUEADA: **${newSaga.name}**! Novas áreas de caça Lv.${newSaga.unlocksAt}+ disponíveis!`, 'rarity-legendary');
-    if (callbacks.floatText) callbacks.floatText(`🗺️ SAGA DESBLOQUEADA!`, 'float-jackpot');
+    if (callbacks.log) callbacks.log(`🗺️ 新篇章解鎖：**${newSaga.name}**！已開放等級 ${newSaga.unlocksAt}+ 的新狩獵區域！`, 'rarity-legendary');
+    if (callbacks.floatText) callbacks.floatText(`🗺️ 新篇章解鎖！`, 'float-jackpot');
   } else if (state.currentSaga === undefined || state.currentSaga === null) {
     state.currentSaga = highestSaga;
   }
@@ -328,7 +328,7 @@ export function playerDeath(state, monster, callbacks = {}) {
       scroll.equipped = false;
       state.inventory.splice(state.inventory.indexOf(scroll), 1);
     }
-    if (callbacks.log) callbacks.log('Scroll of Rebirth used! No XP loss!', 'loot');
+    if (callbacks.log) callbacks.log('已使用重生卷軸！不會損失經驗值！', 'loot');
   } else {
     const resScroll = state.inventory?.find(i => i.itemId === 'scroll_of_resurrection' && (i.count || 1) > 0);
     if (resScroll) {
@@ -338,7 +338,7 @@ export function playerDeath(state, monster, callbacks = {}) {
         resScroll.equipped = false;
         state.inventory.splice(state.inventory.indexOf(resScroll), 1);
       }
-      if (callbacks.log) callbacks.log('Scroll of Resurrection used! 10% XP loss.', 'loot');
+      if (callbacks.log) callbacks.log('已使用復活卷軸！損失 10% 經驗值。', 'loot');
     }
   }
 
@@ -393,7 +393,7 @@ export function resurrect(state, useScroll = false, callbacks = {}) {
 
   if (callbacks.log) {
     const zoneName = ZONES[state.zone]?.name || state.zone;
-    callbacks.log(`Ressuscitou em ${zoneName}!`, 'system');
+    callbacks.log(`已在 ${zoneName} 復活！`, 'system');
   }
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save();
@@ -405,7 +405,7 @@ export function resurrect(state, useScroll = false, callbacks = {}) {
 export function toggleSoulshot(state, callbacks = {}) {
   state.soulshotActive = !state.soulshotActive;
   if (callbacks.updateCombatControlsUI) callbacks.updateCombatControlsUI();
-  if (callbacks.log) callbacks.log(`Soulshots ${state.soulshotActive ? 'ATIVADOS (Consome soulshots para +100% DANO)' : 'DESATIVADOS'}.`, 'system');
+  if (callbacks.log) callbacks.log(`魂彈${state.soulshotActive ? '已啟用（消耗魂彈，傷害 +100%）' : '已停用'}。`, 'system');
   if (callbacks.save) callbacks.save();
 }
 
@@ -413,7 +413,7 @@ export function toggleSoulshot(state, callbacks = {}) {
 export function toggleAutoPotion(state, callbacks = {}) {
   state.autoPotionActive = !state.autoPotionActive;
   if (callbacks.updateCombatControlsUI) callbacks.updateCombatControlsUI();
-  if (callbacks.log) callbacks.log(`Auto-Poção ${state.autoPotionActive ? 'ATIVADA (Bebe poção quando HP < 50%)' : 'DESATIVADA'}.`, 'system');
+  if (callbacks.log) callbacks.log(`自動藥水${state.autoPotionActive ? '已啟用（HP 低於 50% 時自動使用）' : '已停用'}。`, 'system');
   if (callbacks.save) callbacks.save();
 }
 
@@ -475,9 +475,9 @@ export function resolveSoulshotEffect(state, weaponDef = null, isMage = null) {
 
   if (isMageClass) {
     if (shotItem.itemId === 'blessed_spiritshot_universal') soulshotCritBonus = 5;
-    label = isUniversal ? 'SPS Univ (+30%)' : 'SPS (+100%)';
+    label = isUniversal ? '魔靈彈 通用（+30%）' : '魔靈彈（+100%）';
   } else {
-    label = isUniversal ? 'SS Univ (+30%)' : 'SS (+100%)';
+    label = isUniversal ? '魂彈 通用（+30%）' : '魂彈（+100%）';
   }
 
   return {
