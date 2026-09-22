@@ -273,8 +273,8 @@ export function renderFishingUI(state) {
             onclick="window.fishingAction('rest')"
             style="padding:10px 8px; font-family:'Cinzel',serif; font-size:11px; font-weight:bold; background:linear-gradient(180deg,#059669,#047857); border:1px solid #6ee7b7; color:#fff; border-radius:6px; cursor:pointer; text-align:center;"
           >
-            🧘 Estabilizar (Rest)
-            <div style="font-size:9px; color:#d1fae5; font-family:sans-serif; margin-top:2px; font-weight:normal;">-張力 moderada</div>
+            🧘 穩定魚線（休息）
+            <div style="font-size:9px; color:#d1fae5; font-family:sans-serif; margin-top:2px; font-weight:normal;">－適度降低張力</div>
           </button>
         </div>
       </div>
@@ -287,10 +287,10 @@ export function renderFishingUI(state) {
     fishingActionContent = `
       <div style="text-align:center; padding:20px 10px;">
         <div style="font-size:42px; margin-bottom:8px; animation:bounce 1s infinite;">
-          ${isBiting ? '🌊🐟 💥 FISGOU!' : '🌊🎣 ... Aguardando ...'}
+          ${isBiting ? '🌊🐟 💥 上鉤了！' : '🌊🎣 ... 等待中 ...'}
         </div>
         <div style="font-family:'Cinzel',serif; font-size:14px; font-weight:bold; color:${isBiting ? '#fde047' : '#93c5fd'}; margin-bottom:12px;">
-          ${isBiting ? 'A BOIA AFUNDOU! INICIE A DISPUTA AGORA!' : 'A linha repousa sobre a correnteza...'}
+          ${isBiting ? '浮標沉下去了！立即開始搏魚！' : '魚線靜靜漂在水流上...'}
         </div>
         <button 
           onclick="window.reelInFishingLine(1.0)"
@@ -320,7 +320,7 @@ export function renderFishingUI(state) {
           🌊🎣
         </div>
         <div style="font-family:'Cinzel',serif; font-size:13px; color:#cbd5e1; margin-bottom:14px;">
-          目前地點： <strong style="color:#f5df93;">${activeZone.name}</strong> | 釣竿: <strong style="color:#93c5fd;">${activeRod.name}</strong> | 魚餌: <strong style="color:#fde047;">${activeBait ? activeBait.name : '無'}</strong>
+          目前地點： <strong style="color:#f5df93;">${activeZone.name}</strong> | 釣竿： <strong style="color:#93c5fd;">${activeRod.name}</strong> | 魚餌： <strong style="color:#fde047;">${activeBait ? activeBait.name : '無'}</strong>
         </div>
         <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
           <button 
@@ -360,7 +360,7 @@ export function renderFishingUI(state) {
               box-shadow:${isAutoFishing ? '0 0 16px rgba(34,197,94,0.5)' : 'none'};
             "
           >
-            ${!canAutoFish ? '🔒 AFK (Nv. 5+)' : isAutoFishing ? '🤖 AFK ATIVO (PARAR)' : '🤖 ATIVAR AFK'}
+            ${!canAutoFish ? '🔒 自動釣魚（Lv.5+）' : isAutoFishing ? '🤖 自動釣魚中（停止）' : '🤖 開啟自動釣魚'}
           </button>
         </div>
       </div>
@@ -405,7 +405,7 @@ export function renderFishingUI(state) {
               ${fDef.name} <span style="font-size:10px; color:${rarityBadgeColor}; text-transform:uppercase;">[${fDef.rarity}]</span>
             </div>
             <div style="font-size:10px; color:#cbd5e1;">
-              Em posse: <strong style="color:#38bdf8;">${count}x</strong> | Troca: <strong>${rate}x</strong> ➔ <span style="color:#ffd700; font-weight:bold;">1x ${fDef.materialName}</span>
+              持有：<strong style="color:#38bdf8;">${count}x</strong> | 兌換：<strong>${rate}x</strong> ➔ <span style="color:#ffd700; font-weight:bold;">1x ${fDef.materialName}</span>
             </div>
           </div>
         </div>
@@ -424,7 +424,7 @@ export function renderFishingUI(state) {
             cursor:${canExchange ? 'pointer' : 'not-allowed'};
           "
         >
-          ${canExchange ? `📦 Trocar (${packages}x)` : `Faltam ${rate - count}`}
+          ${canExchange ? `📦 兌換（${packages}x）` : `還差 ${rate - count}`}
         </button>
       </div>
     `;
