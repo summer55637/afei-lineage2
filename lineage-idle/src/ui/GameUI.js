@@ -625,8 +625,16 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
           if (bObj.crit) parts.push(`+${bObj.crit}% 暴擊`);
           if (bObj.speed) parts.push(`+${bObj.speed} 速度`);
           if (bObj.primary) {
+            const primaryStatLabels = {
+              str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神',
+              atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦',
+              matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值',
+              mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度',
+              spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害',
+              hpRegen: '生命恢復', mpRegen: '魔力恢復'
+            };
             for (const [pk, pv] of Object.entries(bObj.primary)) {
-              parts.push(`+${pv} ${pk.toUpperCase()}`);
+              parts.push(`+${pv} ${primaryStatLabels[pk] || '其他屬性'}`);
             }
           }
           bonusLines.push(`<div style="color:${color}; font-size:10px; margin:1px 0;">•（${reqP} 件）：${parts.join(', ')}</div>`);
@@ -7398,6 +7406,8 @@ export function renderExpeditionsUI(state) {
     const cropsCount = ownedCrops[sId] || 0;
     const canExchange1 = cropsCount >= sDef.ratio1;
     const canExchange2 = cropsCount >= sDef.ratio2;
+    const reward1Name = getItemDef(sDef.reward1)?.name || '未知材料';
+    const reward2Name = getItemDef(sDef.reward2)?.name || '未知材料';
 
     manorHtml += `
       <div style="background:rgba(18,22,34,0.85); border:1px solid rgba(212,167,68,0.25); border-radius:10px; padding:12px; margin-bottom:8px;">
@@ -7420,14 +7430,14 @@ export function renderExpeditionsUI(state) {
             ${!canExchange1 ? 'disabled' : ''}
             style="flex:1; padding:6px; font-size:11px; font-weight:bold; background:${canExchange1 ? 'rgba(52,211,153,0.2)' : 'rgba(50,50,50,0.3)'}; border:1px solid ${canExchange1 ? '#34d399' : '#555'}; color:${canExchange1 ? '#6ee7b7' : '#777'}; border-radius:6px; cursor:${canExchange1 ? 'pointer' : 'not-allowed'};"
           >
-            🔄 交換 ${sDef.ratio1}x 作物 ➔ +1 ${sDef.reward1.toUpperCase()}
+            🔄 交換 ${sDef.ratio1}× 作物 ➔ +1 ${reward1Name}
           </button>
           <button
             onclick="window.exchangeManorCrop('${sId}', 2)"
             ${!canExchange2 ? 'disabled' : ''}
             style="flex:1; padding:6px; font-size:11px; font-weight:bold; background:${canExchange2 ? 'rgba(168,85,247,0.2)' : 'rgba(50,50,50,0.3)'}; border:1px solid ${canExchange2 ? '#a855f7' : '#555'}; color:${canExchange2 ? '#d8b4fe' : '#777'}; border-radius:6px; cursor:${canExchange2 ? 'pointer' : 'not-allowed'};"
           >
-            🔄 交換 ${sDef.ratio2}x 作物 ➔ +1 ${sDef.reward2.toUpperCase()}
+            🔄 交換 ${sDef.ratio2}× 作物 ➔ +1 ${reward2Name}
           </button>
         </div>
       </div>
