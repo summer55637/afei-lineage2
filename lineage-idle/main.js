@@ -9275,7 +9275,7 @@ function applyTattoo(plusStat = 'str', minusStat = 'con', val = 4) {
 function removeTattoo(index) {
   if (!state.tattoos || !state.tattoos[index]) return false;
   const removed = state.tattoos.splice(index, 1);
-  log(`🖋️ 已移除刺青（+${removed[0]?.plusVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[removed[0]?.plusStat] || removed[0]?.plusStat?.toUpperCase()}）。`, 'loot');
+  log(`🖋️ 已移除刺青（+${removed[0]?.plusVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[removed[0]?.plusStat] || '其他屬性'}）。`, 'loot');
   updateAllUI();
   save();
   return true;
