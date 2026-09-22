@@ -223,7 +223,7 @@ export function renderHuntingUI(state) {
           </span>
         </h3>
         <p style="margin:0 0 12px 0; font-size:11px; color:#aaa;">
-          預估重量：<strong style="color:#f4d58a;">${prey?.weightRange}</strong> | 主要產出：<strong style="color:#cbd5e1;">${RESOURCE_DICTIONARY[prey?.skinYield?.primary]?.name || prey?.skinYield?.primary || '未知材料'}</strong>
+          預估重量：<strong style="color:#f4d58a;">${prey?.weightRange}</strong> | 主要產出：<strong style="color:#cbd5e1;">${RESOURCE_DICTIONARY[prey?.skinYield?.primary]?.name || '未知材料'}</strong>
         </p>
 
         <div style="margin-bottom:12px; display:flex; justify-content:center; gap:16px;">
