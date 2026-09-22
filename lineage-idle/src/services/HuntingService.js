@@ -517,7 +517,7 @@ export const HuntingService = {
     hState.slainPreyData = null;
 
     if (callbacks.log) {
-      callbacks.log(`🔪 處理獵物（${choice === 'pelt' ? '偏重皮革' : '偏重骨材'}）：獲得 ${primaryQty}x ${primaryMat.toUpperCase()}！（+${finalXp} XP）`, 'loot');
+      callbacks.log(`🔪 處理獵物（${choice === 'pelt' ? '偏重皮革' : '偏重骨材'}）：獲得 ${primaryQty}× ${primaryDisplayName}！（+${finalXp} 經驗值）`, 'loot');
     }
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
