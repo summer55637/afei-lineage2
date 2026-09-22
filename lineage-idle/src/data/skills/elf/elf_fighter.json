@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "aqua_arrow",
-        "name": "Flecha Aquática",
+        "name": "水之箭",
         "classId": "elf_fighter",
         "race": "elf",
         "tier": "core_1",
@@ -15,7 +15,7 @@
           "Water",
           "Physical"
         ],
-        "description": "Flecha Aquática — Habilidade Especialista de elf_fighter."
+        "description": "水之箭——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -167,7 +167,7 @@
     {
       "identity": {
         "id": "tide_step",
-        "name": "Passo da Maré",
+        "name": "潮汐步伐",
         "classId": "elf_fighter",
         "race": "elf",
         "tier": "core_2",
@@ -177,7 +177,7 @@
         "tags": [
           "Water"
         ],
-        "description": "Passo da Maré — Habilidade Especialista de elf_fighter."
+        "description": "潮汐步伐——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -329,7 +329,7 @@
     {
       "identity": {
         "id": "mist_guard",
-        "name": "Guarda de Névoa",
+        "name": "霧之守護",
         "classId": "elf_fighter",
         "race": "elf",
         "tier": "specialization",
@@ -339,7 +339,7 @@
         "tags": [
           "Water"
         ],
-        "description": "Guarda de Névoa — Habilidade Especialista de elf_fighter."
+        "description": "霧之守護——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -491,7 +491,7 @@
     {
       "identity": {
         "id": "riptide_volley",
-        "name": "Rajada de Correnteza",
+        "name": "激流齊射",
         "classId": "elf_fighter",
         "race": "elf",
         "tier": "elemental_specialization",
@@ -502,7 +502,7 @@
           "Water",
           "Physical"
         ],
-        "description": "Rajada de Correnteza — Habilidade Especialista de elf_fighter."
+        "description": "激流齊射——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -672,7 +672,7 @@
     {
       "identity": {
         "id": "tidal_ascension",
-        "name": "Tidal Ascension",
+        "name": "潮汐昇華",
         "classId": "elf_fighter",
         "race": "elf",
         "tier": "ultimate",
@@ -682,7 +682,7 @@
         "tags": [
           "Water"
         ],
-        "description": "Tidal Ascension — Habilidade Ultimate (★★★★) de elf_fighter."
+        "description": "潮汐昇華——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -867,7 +867,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "TIDAL ASCENSION!",
+          "text": "潮汐昇華！",
           "style": "gold_banner",
           "banner": true
         }
@@ -888,7 +888,7 @@
     {
       "identity": {
         "id": "master_tidal_ascension",
-        "name": "Master: Tidal Ascension",
+        "name": "大師：潮汐昇華",
         "classId": "elf_fighter",
         "race": "elf",
         "tier": "master_ultimate",
@@ -898,7 +898,7 @@
         "tags": [
           "Water"
         ],
-        "description": "Master: Tidal Ascension — Habilidade Master Ultimate (★★★★★) de elf_fighter."
+        "description": "大師：潮汐昇華——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1084,7 +1084,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: TIDAL ASCENSION!",
+          "text": "大師：潮汐昇華！",
           "style": "mythic_banner",
           "banner": true
         }
