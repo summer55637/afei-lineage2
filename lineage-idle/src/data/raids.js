@@ -350,8 +350,8 @@ export const RAID_BOSSES = {
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: '太陽烈焰爆發', triggerHp: 0.60, damagePercent: 0.20, text: '🔥 Barakiel 施放太陽烈焰爆發！' },
-      { name: '純淨火焰屏障', triggerHp: 0.25, healPercent: 0.15, text: '🛡️ Barakiel 召喚純淨火焰屏障！' }
+      { name: '太陽烈焰爆發', triggerHp: 0.60, damagePercent: 0.20, text: '🔥 巴拉基艾爾施放太陽烈焰爆發！' },
+      { name: '純淨火焰屏障', triggerHp: 0.25, healPercent: 0.15, text: '🛡️ 巴拉基艾爾召喚純淨火焰屏障！' }
     ],
     drops: [
       { itemId: 'staff_goddess_rain_song', name: '女神法杖：雨之歌', chance: 1.0 },
