@@ -3,7 +3,7 @@
 export const HUNTING_ZONES = {
   zone_talking_forest: {
     id: 'zone_talking_forest',
-    name: 'Bosques de Talking Island',
+    name: '說話之島林地',
     icon: '🌲',
     minLevel: 15,
     difficulty: 1,
@@ -14,7 +14,7 @@ export const HUNTING_ZONES = {
   },
   zone_gludio_plains: {
     id: 'zone_gludio_plains',
-    name: 'Planícies de Gludio',
+    name: '古魯丁平原',
     icon: '🌾',
     minLevel: 18,
     difficulty: 2,
@@ -25,7 +25,7 @@ export const HUNTING_ZONES = {
   },
   zone_dion_hills: {
     id: 'zone_dion_hills',
-    name: 'Colinas e Pântanos de Dion',
+    name: '狄恩丘陵與沼澤',
     icon: '🌿',
     minLevel: 22,
     difficulty: 3,
@@ -36,7 +36,7 @@ export const HUNTING_ZONES = {
   },
   zone_giran_wilderness: {
     id: 'zone_giran_wilderness',
-    name: 'Selva Litorânea de Giran',
+    name: '奇岩海岸叢林',
     icon: '🌴',
     minLevel: 26,
     difficulty: 4,
@@ -47,7 +47,7 @@ export const HUNTING_ZONES = {
   },
   zone_oren_snowlands: {
     id: 'zone_oren_snowlands',
-    name: 'Terras Nevadas de Oren',
+    name: '歐瑞雪原',
     icon: '❄️',
     minLevel: 32,
     difficulty: 5,
@@ -58,7 +58,7 @@ export const HUNTING_ZONES = {
   },
   zone_goddard_peaks: {
     id: 'zone_goddard_peaks',
-    name: 'Picos Rochosos de Goddard',
+    name: '高達特岩峰',
     icon: '⛰️',
     minLevel: 38,
     difficulty: 6,
@@ -76,9 +76,9 @@ export function getHuntingZonesList() {
 export const APPROACH_TACTICS = {
   stalk: {
     id: 'stalk',
-    name: 'Aproximação Furtiva',
+    name: '隱密接近',
     icon: '👣',
-    desc: 'Move-se contra o vento. +15% de chance de captura, alerta sobe devagar (+10).',
+    desc: '逆風接近，捕獲率 +15%，警戒值緩慢上升（+10）。',
     timeMult: 1.2,
     qualityBonus: 0.15,
     durabilityCost: 1,
@@ -86,9 +86,9 @@ export const APPROACH_TACTICS = {
   },
   ambush: {
     id: 'ambush',
-    name: 'Emboscada nas Sombras',
+    name: '暗影伏擊',
     icon: '🎯',
-    desc: 'Espera paciente. Reduz alerta em 20, golpe crítico se alerta < 40.',
+    desc: '耐心等待，警戒值 -20；若警戒低於 40，可發動暴擊。',
     timeMult: 1.3,
     qualityBonus: 0.0,
     durabilityCost: 1,
@@ -96,9 +96,9 @@ export const APPROACH_TACTICS = {
   },
   rush: {
     id: 'rush',
-    name: 'Investida Imediata',
+    name: '立即衝鋒',
     icon: '⚡',
-    desc: 'Dispara com ímpeto. -35% de tempo de rastreio, mas alerta salta (+45).',
+    desc: '迅速突進，追蹤時間 -35%，但警戒值大幅上升（+45）。',
     timeMult: 0.65,
     qualityBonus: -0.15,
     durabilityCost: 1,
@@ -106,9 +106,9 @@ export const APPROACH_TACTICS = {
   },
   lure: {
     id: 'lure',
-    name: 'Lançar Atrativo/Isca',
+    name: '投放誘餌',
     icon: '🥩',
-    desc: 'Consome 1 atrativo. Reduz alerta em 35 e estabiliza vento para Contra o Vento.',
+    desc: '消耗 1 個誘餌，警戒值 -35，並穩定風向以利逆風接近。',
     timeMult: 1.0,
     qualityBonus: 0.0,
     durabilityCost: 0,
@@ -117,36 +117,36 @@ export const APPROACH_TACTICS = {
 };
 
 export const WIND_DIRECTIONS = {
-  headwind: { id: 'headwind', name: 'Contra o Vento', icon: '🌬️⬇️', desc: 'Ruído reduzido 50%, presas calmas, alerta sobe devagar.', alertMult: 0.5 },
-  crosswind: { id: 'crosswind', name: 'Vento Lateral', icon: '🌬️➡️', desc: 'Vento equilibrado, sem bônus ou penalidade.', alertMult: 1.0 },
-  tailwind: { id: 'tailwind', name: 'A Favor do Vento', icon: '🌬️⬆️', desc: 'O cheiro avança; alerta da presa sobe 35% mais rápido.', alertMult: 1.35 }
+  headwind: { id: 'headwind', name: '逆風', icon: '🌬️⬇️', desc: '噪音降低 50%，獵物較平靜，警戒值上升較慢。', alertMult: 0.5 },
+  crosswind: { id: 'crosswind', name: '側風', icon: '🌬️➡️', desc: '風向平衡，沒有額外加成或懲罰。', alertMult: 1.0 },
+  tailwind: { id: 'tailwind', name: '順風', icon: '🌬️⬆️', desc: '氣味會傳向獵物，警戒值上升速度 +35%。', alertMult: 1.35 }
 };
 
 export const PREY_CATALOG = {
   // Comum (Talking Island & Gludio)
   prey_hare: {
-    id: 'prey_hare', name: 'Lebre das Colinas', icon: '🐇', rarity: 'common', behavior: 'elusive',
+    id: 'prey_hare', name: '丘陵野兔', icon: '🐇', rarity: 'common', behavior: 'elusive',
     weightRange: '1-3 kg', xpReward: 6, sellPrice: 15,
     skinYield: { primary: 'leather', primaryQty: 2, secondary: 'cord', secondaryQty: 1 },
     exchangeRate: 5, exchangeReward: 'leather', exchangeRewardName: 'Couro Curtido',
     zones: ['zone_talking_forest']
   },
   prey_fox: {
-    id: 'prey_fox', name: 'Raposa Astuta de Aden', icon: '🦊', rarity: 'common', behavior: 'elusive',
+    id: 'prey_fox', name: '亞丁狡狐', icon: '🦊', rarity: 'common', behavior: 'elusive',
     weightRange: '4-8 kg', xpReward: 8, sellPrice: 25,
     skinYield: { primary: 'leather', primaryQty: 3, secondary: 'cotton_thread', secondaryQty: 2 },
     exchangeRate: 5, exchangeReward: 'leather', exchangeRewardName: 'Couro Curtido',
     zones: ['zone_talking_forest']
   },
   prey_young_boar: {
-    id: 'prey_young_boar', name: 'Javali Jovem', icon: '🐗', rarity: 'common', behavior: 'calm',
+    id: 'prey_young_boar', name: '幼年野豬', icon: '🐗', rarity: 'common', behavior: 'calm',
     weightRange: '15-30 kg', xpReward: 10, sellPrice: 35,
     skinYield: { primary: 'leather', primaryQty: 4, secondary: 'bone', secondaryQty: 2 },
     exchangeRate: 5, exchangeReward: 'bone', exchangeRewardName: 'Osso Animal',
     zones: ['zone_talking_forest']
   },
   prey_grey_wolf: {
-    id: 'prey_grey_wolf', name: 'Lobo Cinzento de Gludio', icon: '🐺', rarity: 'common', behavior: 'aggressive',
+    id: 'prey_grey_wolf', name: '古魯丁灰狼', icon: '🐺', rarity: 'common', behavior: 'aggressive',
     weightRange: '20-40 kg', xpReward: 12, sellPrice: 40,
     skinYield: { primary: 'leather', primaryQty: 5, secondary: 'bone', secondaryQty: 3 },
     exchangeRate: 5, exchangeReward: 'bone', exchangeRewardName: 'Osso Animal',
@@ -155,28 +155,28 @@ export const PREY_CATALOG = {
 
   // Incomum
   prey_stag: {
-    id: 'prey_stag', name: 'Cervo Nobre de Elven', icon: '🦌', rarity: 'uncommon', behavior: 'elusive',
+    id: 'prey_stag', name: '精靈貴族鹿', icon: '🦌', rarity: 'uncommon', behavior: 'elusive',
     weightRange: '50-90 kg', xpReward: 18, sellPrice: 80,
     skinYield: { primary: 'leather', primaryQty: 2, secondary: 'bone', secondaryQty: 3 },
     exchangeRate: 3, exchangeReward: 'leather', exchangeRewardName: 'Couro Curtido',
     zones: ['zone_talking_forest']
   },
   prey_plains_boar: {
-    id: 'prey_plains_boar', name: 'Javali Couraçado', icon: '🐗', rarity: 'uncommon', behavior: 'tenacious',
+    id: 'prey_plains_boar', name: '鎧甲野豬', icon: '🐗', rarity: 'uncommon', behavior: 'tenacious',
     weightRange: '60-110 kg', xpReward: 20, sellPrice: 95,
     skinYield: { primary: 'leather', primaryQty: 2, secondary: 'cokes', secondaryQty: 1 },
     exchangeRate: 3, exchangeReward: 'leather', exchangeRewardName: 'Couro Curtido',
     zones: ['zone_gludio_plains']
   },
   prey_wasteland_hyena: {
-    id: 'prey_wasteland_hyena', name: 'Hiena dos Ermos', icon: '🐕', rarity: 'uncommon', behavior: 'aggressive',
+    id: 'prey_wasteland_hyena', name: '荒野鬣狗', icon: '🐕', rarity: 'uncommon', behavior: 'aggressive',
     weightRange: '30-55 kg', xpReward: 22, sellPrice: 110,
     skinYield: { primary: 'leather', primaryQty: 2, secondary: 'braided_hemp', secondaryQty: 2 },
     exchangeRate: 3, exchangeReward: 'suede', exchangeRewardName: 'Camurça',
     zones: ['zone_gludio_plains']
   },
   prey_hunting_hawk: {
-    id: 'prey_hunting_hawk', name: 'Falcão Caçador de Dion', icon: '🦅', rarity: 'uncommon', behavior: 'elusive',
+    id: 'prey_hunting_hawk', name: '狄恩獵鷹', icon: '🦅', rarity: 'uncommon', behavior: 'elusive',
     weightRange: '3-6 kg', xpReward: 25, sellPrice: 125,
     skinYield: { primary: 'leather', primaryQty: 2, secondary: 'cord', secondaryQty: 3 },
     exchangeRate: 3, exchangeReward: 'braided_hemp', exchangeRewardName: 'Cânhamo Trançado',
@@ -185,42 +185,42 @@ export const PREY_CATALOG = {
 
   // Raro
   prey_alpha_wolf: {
-    id: 'prey_alpha_wolf', name: 'Lobo Alfa da Presa Negra', icon: '🐺', rarity: 'rare', behavior: 'aggressive',
+    id: 'prey_alpha_wolf', name: '黑牙狼王', icon: '🐺', rarity: 'rare', behavior: 'aggressive',
     weightRange: '55-80 kg', xpReward: 40, sellPrice: 250,
     skinYield: { primary: 'crafted_leather', primaryQty: 1, secondary: 'bone', secondaryQty: 5 },
     exchangeRate: 2, exchangeReward: 'crafted_leather', exchangeRewardName: 'Couro Trabalhado',
     zones: ['zone_gludio_plains']
   },
   prey_brown_bear: {
-    id: 'prey_brown_bear', name: 'Urso Pardo das Colinas', icon: '🐻', rarity: 'rare', behavior: 'tenacious',
+    id: 'prey_brown_bear', name: '丘陵棕熊', icon: '🐻', rarity: 'rare', behavior: 'tenacious',
     weightRange: '180-320 kg', xpReward: 45, sellPrice: 300,
     skinYield: { primary: 'crafted_leather', primaryQty: 1, secondary: 'cokes', secondaryQty: 2 },
     exchangeRate: 2, exchangeReward: 'crafted_leather', exchangeRewardName: 'Couro Trabalhado',
     zones: ['zone_dion_hills']
   },
   prey_marsh_panther: {
-    id: 'prey_marsh_panther', name: 'Pantera do Pântano', icon: '🐆', rarity: 'rare', behavior: 'elusive',
+    id: 'prey_marsh_panther', name: '沼澤黑豹', icon: '🐆', rarity: 'rare', behavior: 'elusive',
     weightRange: '70-100 kg', xpReward: 50, sellPrice: 350,
     skinYield: { primary: 'crafted_leather', primaryQty: 2, secondary: 'suede', secondaryQty: 4 },
     exchangeRate: 2, exchangeReward: 'crafted_leather', exchangeRewardName: 'Couro Trabalhado',
     zones: ['zone_dion_hills']
   },
   prey_swamp_alligator: {
-    id: 'prey_swamp_alligator', name: 'Jacaré Blindado de Dion', icon: '🐊', rarity: 'rare', behavior: 'tenacious',
+    id: 'prey_swamp_alligator', name: '狄恩鎧甲鱷魚', icon: '🐊', rarity: 'rare', behavior: 'tenacious',
     weightRange: '120-220 kg', xpReward: 55, sellPrice: 400,
     skinYield: { primary: 'crafted_leather', primaryQty: 2, secondary: 'bone', secondaryQty: 8 },
     exchangeRate: 2, exchangeReward: 'steel', exchangeRewardName: 'Aço Refinado',
     zones: ['zone_dion_hills']
   },
   prey_savanna_lion: {
-    id: 'prey_savanna_lion', name: 'Leão Imperial da Savana', icon: '🦁', rarity: 'rare', behavior: 'aggressive',
+    id: 'prey_savanna_lion', name: '草原帝國獅', icon: '🦁', rarity: 'rare', behavior: 'aggressive',
     weightRange: '150-250 kg', xpReward: 60, sellPrice: 450,
     skinYield: { primary: 'crafted_leather', primaryQty: 2, secondary: 'cord', secondaryQty: 5 },
     exchangeRate: 2, exchangeReward: 'crafted_leather', exchangeRewardName: 'Couro Trabalhado',
     zones: ['zone_giran_wilderness']
   },
   prey_snow_wolf: {
-    id: 'prey_snow_wolf', name: 'Lobo Polar das Geleiras', icon: '🐺', rarity: 'rare', behavior: 'aggressive',
+    id: 'prey_snow_wolf', name: '冰原極地狼', icon: '🐺', rarity: 'rare', behavior: 'aggressive',
     weightRange: '60-90 kg', xpReward: 65, sellPrice: 500,
     skinYield: { primary: 'crafted_leather', primaryQty: 2, secondary: 'varnish', secondaryQty: 5 },
     exchangeRate: 2, exchangeReward: 'mithril_alloy', exchangeRewardName: 'Liga de Mithril',
@@ -229,28 +229,28 @@ export const PREY_CATALOG = {
 
   // Épico
   prey_shadow_panther: {
-    id: 'prey_shadow_panther', name: 'Pantera das Sombras de Giran', icon: '🐈‍⬛', rarity: 'epic', behavior: 'elusive',
+    id: 'prey_shadow_panther', name: '奇岩暗影豹', icon: '🐈‍⬛', rarity: 'epic', behavior: 'elusive',
     weightRange: '90-140 kg', xpReward: 100, sellPrice: 1000,
     skinYield: { primary: 'crafted_leather', primaryQty: 4, secondary: 'enria', secondaryQty: 1 },
     exchangeRate: 1, exchangeReward: 'enria', exchangeRewardName: 'Enria',
     zones: ['zone_giran_wilderness']
   },
   prey_giant_viper: {
-    id: 'prey_giant_viper', name: 'Víbora Titânica da Selva', icon: '🐍', rarity: 'epic', behavior: 'aggressive',
+    id: 'prey_giant_viper', name: '叢林泰坦巨蛇', icon: '🐍', rarity: 'epic', behavior: 'aggressive',
     weightRange: '100-200 kg', xpReward: 110, sellPrice: 1200,
     skinYield: { primary: 'crafted_leather', primaryQty: 4, secondary: 'metallic_thread', secondaryQty: 2 },
     exchangeRate: 1, exchangeReward: 'metallic_thread', exchangeRewardName: 'Fio Metálico',
     zones: ['zone_giran_wilderness']
   },
   prey_frost_tiger: {
-    id: 'prey_frost_tiger', name: 'Tigre Dentes-de-Sabre Glacial', icon: '🐅', rarity: 'epic', behavior: 'aggressive',
+    id: 'prey_frost_tiger', name: '冰霜劍齒虎', icon: '🐅', rarity: 'epic', behavior: 'aggressive',
     weightRange: '180-280 kg', xpReward: 125, sellPrice: 1400,
     skinYield: { primary: 'crafted_leather', primaryQty: 5, secondary: 'mold_lubricant', secondaryQty: 2 },
     exchangeRate: 1, exchangeReward: 'durable_metal_plate', exchangeRewardName: 'Placa de Metal Durável',
     zones: ['zone_oren_snowlands']
   },
   prey_cave_bear: {
-    id: 'prey_cave_bear', name: 'Urso Ancião das Cavernas', icon: '🐻‍❄️', rarity: 'epic', behavior: 'tenacious',
+    id: 'prey_cave_bear', name: '洞穴古熊', icon: '🐻‍❄️', rarity: 'epic', behavior: 'tenacious',
     weightRange: '350-550 kg', xpReward: 140, sellPrice: 1600,
     skinYield: { primary: 'crafted_leather', primaryQty: 5, secondary: 'oriharukon_ore', secondaryQty: 2 },
     exchangeRate: 1, exchangeReward: 'oriharukon_ore', exchangeRewardName: 'Minério de Oriharukon',
@@ -259,28 +259,28 @@ export const PREY_CATALOG = {
 
   // Lendário (Oren & Goddard)
   prey_tundra_mammoth: {
-    id: 'prey_tundra_mammoth', name: 'Mamute Colossal da Tundra', icon: '🦣', rarity: 'legendary', behavior: 'tenacious',
+    id: 'prey_tundra_mammoth', name: '凍原巨型猛獁', icon: '🦣', rarity: 'legendary', behavior: 'tenacious',
     weightRange: '2000-4500 kg', xpReward: 250, sellPrice: 3500,
     skinYield: { primary: 'crafted_leather', primaryQty: 10, secondary: 'durable_metal_plate', secondaryQty: 3 },
     exchangeRate: 1, exchangeReward: 'durable_metal_plate', exchangeRewardName: 'Placa de Metal Durável x2',
     zones: ['zone_oren_snowlands']
   },
   prey_mountain_chimera: {
-    id: 'prey_mountain_chimera', name: 'Quimera Real dos Picos', icon: '🦁', rarity: 'legendary', behavior: 'aggressive',
+    id: 'prey_mountain_chimera', name: '岩峰皇家奇美拉', icon: '🦁', rarity: 'legendary', behavior: 'aggressive',
     weightRange: '400-750 kg', xpReward: 300, sellPrice: 4500,
     skinYield: { primary: 'crafted_leather', primaryQty: 12, secondary: 'enria', secondaryQty: 3 },
     exchangeRate: 1, exchangeReward: 'enria', exchangeRewardName: 'Enria x3',
     zones: ['zone_goddard_peaks']
   },
   prey_wild_gryphon: {
-    id: 'prey_wild_gryphon', name: 'Grifo Selvagem de Goddard', icon: '🦅', rarity: 'legendary', behavior: 'elusive',
+    id: 'prey_wild_gryphon', name: '高達特野生獅鷲', icon: '🦅', rarity: 'legendary', behavior: 'elusive',
     weightRange: '300-600 kg', xpReward: 320, sellPrice: 5000,
     skinYield: { primary: 'crafted_leather', primaryQty: 15, secondary: 'oriharukon_ore', secondaryQty: 4 },
     exchangeRate: 1, exchangeReward: 'oriharukon_ore', exchangeRewardName: 'Minério de Oriharukon x3',
     zones: ['zone_goddard_peaks']
   },
   prey_young_wyvern: {
-    id: 'prey_young_wyvern', name: 'Wyvern Alfa da Cordilheira', icon: '🐉', rarity: 'legendary', behavior: 'aggressive',
+    id: 'prey_young_wyvern', name: '山脈翼龍王', icon: '🐉', rarity: 'legendary', behavior: 'aggressive',
     weightRange: '600-1200 kg', xpReward: 400, sellPrice: 7500,
     skinYield: { primary: 'crafted_leather', primaryQty: 20, secondary: 'metallic_thread', secondaryQty: 6 },
     exchangeRate: 1, exchangeReward: 'durable_metal_plate', exchangeRewardName: 'Placa de Metal Durável x4',
@@ -291,7 +291,7 @@ export const PREY_CATALOG = {
 export const KNIVES_CATALOG = {
   knife_none: {
     id: 'knife_none',
-    name: 'Faca Rústica de Caça',
+    name: '粗製獵刀',
     grade: 'none',
     icon: '🔪',
     minHuntingLevel: 1,
@@ -303,7 +303,7 @@ export const KNIVES_CATALOG = {
   },
   knife_d: {
     id: 'knife_d',
-    name: 'Faca de Aço de Gludio',
+    name: '古魯丁鋼製獵刀',
     grade: 'd',
     icon: '🗡️',
     minHuntingLevel: 3,
@@ -315,7 +315,7 @@ export const KNIVES_CATALOG = {
   },
   knife_c: {
     id: 'knife_c',
-    name: 'Faca de Mithril Élfico',
+    name: '精靈米索莉獵刀',
     grade: 'c',
     icon: '✨',
     minHuntingLevel: 8,
@@ -327,7 +327,7 @@ export const KNIVES_CATALOG = {
   },
   knife_b: {
     id: 'knife_b',
-    name: 'Faca do Predador de Giran',
+    name: '奇岩掠食者獵刀',
     grade: 'b',
     icon: '⚔️',
     minHuntingLevel: 15,
@@ -339,7 +339,7 @@ export const KNIVES_CATALOG = {
   },
   knife_a: {
     id: 'knife_a',
-    name: 'Lâmina Imperial do Mestre Caçador',
+    name: '帝國狩獵大師之刃',
     grade: 'a',
     icon: '👑',
     minHuntingLevel: 25,
@@ -354,7 +354,7 @@ export const KNIVES_CATALOG = {
 export const LURES_CATALOG = {
   lure_meat: {
     id: 'lure_meat',
-    name: 'Carne Fresca',
+    name: '新鮮肉塊',
     icon: '🥩',
     buyPrice: 100,
     rarityBoost: 'uncommon',
@@ -363,7 +363,7 @@ export const LURES_CATALOG = {
   },
   lure_scent: {
     id: 'lure_scent',
-    name: 'Feromônio Silvestre',
+    name: '野性費洛蒙',
     icon: '🧪',
     buyPrice: 350,
     rarityBoost: 'rare',
@@ -372,7 +372,7 @@ export const LURES_CATALOG = {
   },
   lure_blood: {
     id: 'lure_blood',
-    name: 'Isca de Sangue Alfa',
+    name: '王者血餌',
     icon: '🩸',
     buyPrice: 1000,
     rarityBoost: 'epic',
@@ -381,7 +381,7 @@ export const LURES_CATALOG = {
   },
   lure_crystal: {
     id: 'lure_crystal',
-    name: 'Essência Ancestral da Fera',
+    name: '古代野獸精華',
     icon: '🔮',
     buyPrice: 3000,
     rarityBoost: 'legendary',
