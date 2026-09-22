@@ -383,7 +383,7 @@ export function formatItemDisplayName(item, def) {
   const itemObj = (typeof item === 'string') ? { itemId: item } : item;
   const gData = D();
   const itemDef = def || (gData?.ALL_ITEMS ? gData.ALL_ITEMS[itemObj.itemId || itemObj.id] : null);
-  const baseName = itemDef ? itemDef.name : (itemObj.itemId || itemObj.id || 'Item');
+  const baseName = itemDef ? itemDef.name : (itemObj.itemId || itemObj.id || '物品');
 
   const enchant = Number(itemObj.enchant) || 0;
   const enchantStr = enchant > 0 ? `+${enchant} ` : '';
@@ -636,7 +636,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
       setBonusStr = `<div style="margin-top:6px; padding-top:4px; border-top:1px dashed rgba(212,167,68,0.4);">
         <div style="font-size:11px; font-weight:bold; color:#f4d58a; display:flex; justify-content:space-between; margin-bottom:2px;">
           <span>🛡️ Set ${setDef.name}</span>
-          <span style="color:${equippedCount >= 2 ? '#4ade80' : '#d4a744'}; font-size:10px;">(${equippedCount}/${totalReq} equipados)</span>
+          <span style="color:${equippedCount >= 2 ? '#4ade80' : '#d4a744'}; font-size:10px;">（${equippedCount}/${totalReq} 已裝備）</span>
         </div>
         ${bonusLines.join('')}
       </div>`;
@@ -659,7 +659,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
     }).filter(Boolean);
     if (affixLines.length > 0) {
       affixesStr = `<div style="margin-top:6px;padding-top:4px;border-top:1px dashed ${rarityColor}50;">`
-        + `<div style="font-size:9px;font-weight:bold;color:${rarityColor};text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">✦ Afixos Especiais</div>`
+        + `<div style="font-size:9px;font-weight:bold;color:${rarityColor};text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">✦ 特殊詞綴</div>`
         + affixLines.join('')
         + `</div>`;
     }
@@ -691,32 +691,32 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
 
     if (isEquipSlot || isItemEquipped) {
       if (isItemEquipped) {
-        const slotLabel = equippedSlot === 'weapon2' ? 'Slot 2' : (equippedSlot === 'weapon' ? 'Slot 1' : (equippedSlot || 'Item'));
+        const slotLabel = equippedSlot === 'weapon2' ? '欄位 2' : (equippedSlot === 'weapon' ? '欄位 1' : (equippedSlot || '物品'));
         actionsHtml += `<button data-tt-action="unequip" data-uid="${item.uid}" data-slot="${equippedSlot || def?.slot || ''}"
           style="flex:1;padding:5px 8px;background:linear-gradient(180deg,#5a4020,#2a1a08);border:1px solid #a07030;
-          border-radius:4px;color:#e8c870;font-size:11px;cursor:pointer;font-weight:600;">⬆ Desequipar (${slotLabel})</button>`;
+          border-radius:4px;color:#e8c870;font-size:11px;cursor:pointer;font-weight:600;">⬆ 卸下（${slotLabel}）</button>`;
       } else if (isWeapon) {
         actionsHtml += `<button data-tt-action="equip" data-slot-target="weapon" data-uid="${item.uid}"
           style="flex:1;padding:5px 6px;background:linear-gradient(180deg,#1a3a5a,#0a1a2a);border:1px solid #3a7ab0;
-          border-radius:4px;color:#70c8f8;font-size:10.5px;cursor:pointer;font-weight:600;" title="裝備到武器欄位 1">⚔ Slot 1</button>`;
+          border-radius:4px;color:#70c8f8;font-size:10.5px;cursor:pointer;font-weight:600;" title="裝備到武器欄位 1">⚔ 欄位 1</button>`;
         actionsHtml += `<button data-tt-action="equip" data-slot-target="weapon2" data-uid="${item.uid}"
           style="flex:1;padding:5px 6px;background:linear-gradient(180deg,#3a1a5a,#1a0a2a);border:1px solid #7a3ab0;
-          border-radius:4px;color:#c870f8;font-size:10.5px;cursor:pointer;font-weight:600;" title="裝備到武器欄位 2">🗡 Slot 2</button>`;
+          border-radius:4px;color:#c870f8;font-size:10.5px;cursor:pointer;font-weight:600;" title="裝備到武器欄位 2">🗡 欄位 2</button>`;
       } else {
         actionsHtml += `<button data-tt-action="equip" data-uid="${item.uid}"
           style="flex:1;padding:5px 8px;background:linear-gradient(180deg,#1a3a5a,#0a1a2a);border:1px solid #3a7ab0;
-          border-radius:4px;color:#70c8f8;font-size:11px;cursor:pointer;font-weight:600;">🛡 Equipar</button>`;
+          border-radius:4px;color:#70c8f8;font-size:11px;cursor:pointer;font-weight:600;">🛡 裝備</button>`;
       }
     }
     const sMeta = parseEnchantScroll(def);
     if (sMeta && sMeta.isScroll) {
       actionsHtml += `<button data-tt-action="enchant-flow" data-uid="${item.uid}"
         style="flex:1;padding:5px 8px;background:linear-gradient(180deg,#7e22ce,#4c1d95);border:1px solid #c084fc;
-        border-radius:4px;color:#f3e8ff;font-size:11px;cursor:pointer;font-weight:600;">✨ Encantar</button>`;
+        border-radius:4px;color:#f3e8ff;font-size:11px;cursor:pointer;font-weight:600;">✨ 強化</button>`;
     } else if (isConsumable) {
       actionsHtml += `<button data-tt-action="use" data-uid="${item.uid}"
         style="flex:1;padding:5px 8px;background:linear-gradient(180deg,#1a4a2a,#0a2010);border:1px solid #3ab070;
-        border-radius:4px;color:#70e898;font-size:11px;cursor:pointer;font-weight:600;">▶ Usar</button>`;
+        border-radius:4px;color:#70e898;font-size:11px;cursor:pointer;font-weight:600;">▶ 使用</button>`;
     }
     if (!isItemEquipped) {
       const sellPrice = Math.floor((def.price || 10) * 0.4 * mult);
@@ -735,7 +735,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
   tooltip.style.borderColor = rarityColor + '60';
 
   const tierNum = def.tier || 0;
-  const GRADE_MAP = { 0: '', 1: 'No Grade', 2: 'D Grade', 3: 'C Grade', 4: 'B Grade', 5: 'S Grade', 6: 'Frost Lord Grade' };
+  const GRADE_MAP = { 0: '', 1: '無等級', 2: 'D 級', 3: 'C 級', 4: 'B 級', 5: 'S 級', 6: 'Frost Lord 級' };
   const GRADE_COLOR = { 0: '#888', 1: '#9e9e9e', 2: '#4fc3f7', 3: '#81c784', 4: '#7986cb', 5: '#ffd54f', 6: '#80deea' };
   const gradeLabel = GRADE_MAP[tierNum] || '';
   const gradeColor = GRADE_COLOR[tierNum] || '#888';
@@ -761,13 +761,13 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
   let heirloomPhaseText = '';
   let heirloomNextEvolution = '';
   if (currentHeroLvl <= 19) {
-    heirloomPhaseText = '✦ Fase 1 (Lv. 1–19): +50% superior a No-Grade';
+    heirloomPhaseText = '✦ 階段 1（Lv.1～19）：比 No-Grade 高 +50%';
     heirloomNextEvolution = '✦ 下一階段：等級 20（D 級 +50%）';
   } else if (currentHeroLvl <= 39) {
-    heirloomPhaseText = '✦ Fase 2 (Lv. 20–39): +50% superior a D-Grade';
+    heirloomPhaseText = '✦ 階段 2（Lv.20～39）：比 D 級高 +50%';
     heirloomNextEvolution = '✦ 下一階段：等級 40（完整 C 級 +4 光效）';
   } else {
-    heirloomPhaseText = '✦ Fase 3 (Lv. 40+): Maturidade C-Grade Pleno (+4 Glow)';
+    heirloomPhaseText = '✦ 階段 3（Lv.40+）：完整 C 級成熟型態（+4 光效）';
     heirloomNextEvolution = '✦ 已達傳承最高等級！';
   }
 
@@ -792,7 +792,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
   } else if (heirloomCount >= 8) {
     heirloomSetBonusText = '<span style="color:#4ade80;">👑 君王加成（8/12）：</span> +45% XP/金幣, +10% Stats';
   } else if (heirloomCount >= 5) {
-    heirloomSetBonusText = '<span style="color:#4ade80;">🛡️ 防具套裝（5/5）：</span> +25% XP/金幣, +60 Atk/Matk, +80 Def/Mdef';
+    heirloomSetBonusText = '<span style="color:#4ade80;">🛡️ 防具套裝（5/5）：</span> +25% XP/金幣, +60 Atk／Matk, +80 Def／Mdef';
   } else {
     heirloomSetBonusText = `<span style="color:#fde047;">👑 君王套裝:</span> ${heirloomCount}/12 已裝備 (裝備 5 件以上可獲得 XP／金幣加成)`;
   }
@@ -823,14 +823,14 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
       ${gradeHtml}
     </div>
     <div style="color:${rarityColor};font-size:11px;font-weight:600;margin-bottom:2px;">${rarityName}</div>
-    <div style="color:#888;font-size:10px;text-transform:uppercase;margin-bottom:4px;">${def.slot ? def.slot.toUpperCase() : 'ITEM'}${def.req?.level ? ` · Req Lv.${def.req.level}` : ''}</div>
+    <div style="color:#888;font-size:10px;text-transform:uppercase;margin-bottom:4px;">${def.slot ? def.slot.toUpperCase() : '物品'}${def.req?.level ? ` · 需求 Lv.${def.req.level}` : ''}</div>
     ${heirloomHtml}
     ${penaltyWarningHtml}
     ${statsStr}
     ${affixesStr}
     ${setBonusStr}
     <div style="color:#777;font-size:10px;margin-top:4px;font-style:italic;">${escapeHTML(def.desc || '')}</div>
-    <div style="color:#aaa;font-size:10px;margin-top:4px;">💰 Valor: <span style="color:#e8c870;font-weight:600;">${(def.price || 0).toLocaleString()}g</span></div>
+    <div style="color:#aaa;font-size:10px;margin-top:4px;">💰 價值： <span style="color:#e8c870;font-weight:600;">${(def.price || 0).toLocaleString()}g</span></div>
     ${protectionBadge}
     ${actionsHtml}
   `;
@@ -1872,7 +1872,7 @@ function renderItemStatsTable(item, def) {
     { label: '暴擊', val: def?.crit || 0 },
   ].filter(r => r.val > 0);
 
-  if (rows.length === 0) return '<div style="font-size:10px; color:#64748b;">Sem atributos base adicionais</div>';
+  if (rows.length === 0) return '<div style="font-size:10px; color:#64748b;">沒有額外基礎屬性</div>';
 
   return `
     <table class="stat-comparison-table">
@@ -1900,7 +1900,7 @@ function renderComparisonStatsTable(curItem, curDef, candItem, candDef) {
     { label: '暴擊', cur: curDef?.crit || 0, cand: candDef?.crit || 0 },
   ].filter(s => s.cur > 0 || s.cand > 0);
 
-  if (statsList.length === 0) return '<div style="font-size:10px; color:#64748b;">Sem atributos para comparar</div>';
+  if (statsList.length === 0) return '<div style="font-size:10px; color:#64748b;">沒有可比較的屬性</div>';
 
   return `
     <table class="stat-comparison-table">
@@ -2119,7 +2119,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
         <button class="detail-action-btn equip" id="dock-btn-use">🧪 使用消耗品</button>
       ` : '')}
       ${hasCompatibleEnchantScroll ? `
-        <button class="detail-action-btn enchant" id="dock-btn-enchant" style="background:linear-gradient(135deg, #0284c7, #2563eb); color:#fff; border:1px solid #38bdf8; font-weight:bold;">✨ Encantar</button>
+        <button class="detail-action-btn enchant" id="dock-btn-enchant" style="background:linear-gradient(135deg, #0284c7, #2563eb); color:#fff; border:1px solid #38bdf8; font-weight:bold;">✨ 強化</button>
       ` : ''}
       <button class="detail-action-btn favorite ${isFav ? 'active' : ''}" id="dock-btn-favorite" title="${isFav ? '移除收藏' : '保護，避免出售／分解'}">
         ${isFav ? '⭐ Favorito (Protegido)' : '☆ Favoritar'}
@@ -6657,7 +6657,7 @@ export function renderAlchemyUI(state) {
               ${getItemIcon(selectedDef)}
             </div>
             <div>
-              <div style="font-weight:700; color:#f4d58a; font-size:13px; font-family:'Cinzel',serif;">${selectedDef?.name || 'Item'}</div>
+              <div style="font-weight:700; color:#f4d58a; font-size:13px; font-family:'Cinzel',serif;">${selectedDef?.name || '物品'}</div>
               <div style="font-size:11px; color:#94a3b8;">Rendimento estimado ao dissolver no Cadinho (Taxa: 🪙 ${yields.fee}g):</div>
             </div>
           </div>
@@ -8901,7 +8901,7 @@ export function renderCompoundModal(container, state) {
       <div onclick="window._compoundTargetUid='${t.uid}'; window._compoundIngredientUid=null; window.renderCompoundModal(document.getElementById('compound-modal'))"
         style="padding:10px; border-radius:8px; background:${isSel ? 'rgba(168,85,247,0.25)' : 'rgba(255,255,255,0.05)'}; border:1px solid ${isSel ? '#a855f7' : 'rgba(255,255,255,0.15)'}; cursor:pointer; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
         <div>
-          <strong style="color:#f4d58a; font-size:13px;">${t.name || def?.name || 'Item'}</strong>
+          <strong style="color:#f4d58a; font-size:13px;">${t.name || def?.name || '物品'}</strong>
           <div style="font-size:11px; color:#aaa;">目前等級： Lv.${t.compoundLevel || 1}</div>
         </div>
         <span style="font-size:11px; color:#34d399;">Qtd: ${t.count || 1}x</span>
@@ -8932,7 +8932,7 @@ export function renderCompoundModal(container, state) {
           <div>
             <h4 style="margin:0 0 8px 0; font-size:13px; color:#f4d58a;">🔮 升級預覽</h4>
             ${targetItem ? `
-              <div style="font-size:12px; color:#fff; margin-bottom:4px;"><strong>${targetItem.name || 'Item'}</strong></div>
+              <div style="font-size:12px; color:#fff; margin-bottom:4px;"><strong>${targetItem.name || '物品'}</strong></div>
               <div style="font-size:11px; color:#34d399;">Lv.${curLv} ➔ <strong style="color:#ffd877;">Lv.${curLv + 1}</strong> （+15% 屬性）</div>
               <div style="font-size:11px; color:#a855f7; margin-top:6px;">成功率： <strong>${rate}%</strong></div>
               <div style="font-size:11px; color:#fbbf24; margin-top:2px;">Custo em 金幣: <strong>${cost.toLocaleString()}g</strong></div>
