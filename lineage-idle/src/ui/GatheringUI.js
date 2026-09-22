@@ -271,10 +271,10 @@ export function renderGatheringUI(state) {
           🧺
         </div>
         <h3 style="margin:0 0 12px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:16px;">
-          Clareira Botânica em ${activeZone.name}
+          ${activeZone.name} 植物採集地
         </h3>
         
-        ${targetCardHtml || `<p style="color:#888; font-size:12px; margin-bottom:16px;">Nenhum broto na mira. Clique em Buscar Outro.</p>`}
+        ${targetCardHtml || `<p style="color:#888; font-size:12px; margin-bottom:16px;">目前沒有選定植物。點擊「尋找其他」重新搜尋。</p>`}
 
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
           <button onclick="window.inspectGatheringNode()" style="padding:10px; background:rgba(30,40,50,0.8); border:1px solid #60a5fa; color:#93c5fd; border-radius:6px; cursor:pointer; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">🔍 Examinar Broto</button>
@@ -341,7 +341,7 @@ export function renderGatheringUI(state) {
         <!-- Coluna Esquerda: Palco de Ação -->
         <div>
           <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#6ee7b7; font-size:15px;">
-            🌾 Clareira de Poda & Extração
+            🌾 修剪與採集區
           </h4>
           ${stageHtml}
 
@@ -351,7 +351,7 @@ export function renderGatheringUI(state) {
               <div style="display:flex; align-items:center; gap:6px;">
                 <strong style="font-size:13px; color:#f4d58a;">🌿 自動採集 (AFK)</strong>
                 <span style="font-size:10px; background:${isAfkUnlocked ? 'rgba(52,211,153,0.2)' : 'rgba(239,68,68,0.2)'}; color:${isAfkUnlocked ? '#34d399' : '#fca5a5'}; padding:1px 6px; border-radius:4px; font-weight:bold;">
-                  ${isAfkUnlocked ? 'DESBLOQUEADO' : 'NV. 5 COLETA REQUERIDO'}
+                  ${isAfkUnlocked ? '已解鎖' : '需要採集等級 5'}
                 </span>
               </div>
               <p style="margin:2px 0 0 0; font-size:10px; color:#aaa;">
@@ -381,7 +381,7 @@ export function renderGatheringUI(state) {
         <!-- Coluna Direita: Foice Atual & Manutenção -->
         <div>
           <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px;">
-            🌾 Foice de Poda & Manutenção
+            🌾 採集鐮刀與維護
           </h4>
           <div style="background:rgba(18,22,32,0.85); border:1px solid rgba(212,167,68,0.3); border-radius:10px; padding:12px; margin-bottom:12px;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
@@ -401,7 +401,7 @@ export function renderGatheringUI(state) {
             <!-- Barra de Durabilidade -->
             <div style="margin-top:8px;">
               <div style="display:flex; justify-content:space-between; font-size:10px; color:#94a3b8; margin-bottom:4px;">
-                <span>Fio da Lâmina: <strong style="color:${durPct > 20 ? '#34d399' : '#ef4444'};">${sickleDurability} / ${maxSickleDurability}</strong></span>
+                <span>刀刃鋒利度： <strong style="color:${durPct > 20 ? '#34d399' : '#ef4444'};">${sickleDurability} / ${maxSickleDurability}</strong></span>
                 <span>${durPct}%</span>
               </div>
               <div style="width:100%; height:6px; background:rgba(0,0,0,0.6); border-radius:3px; overflow:hidden; border:1px solid rgba(212,167,68,0.2);">
@@ -412,7 +412,7 @@ export function renderGatheringUI(state) {
 
           <!-- Arsenal de Foices -->
           <h5 style="margin:12px 0 6px 0; font-family:'Cinzel',serif; color:#ffd877; font-size:13px;">
-            Oficina de Foices Botânicas
+            植物採集鐮刀工坊
           </h5>
           <div style="max-height:180px; overflow-y:auto; padding-right:4px;">
             ${sicklesHtml}
@@ -423,7 +423,7 @@ export function renderGatheringUI(state) {
       <!-- Seção Inferior: Cestos & Bolsas de Conservação -->
       <div style="background:rgba(18,22,32,0.85); border:1px solid rgba(212,167,68,0.25); border-radius:10px; padding:12px;">
         <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px;">
-          🧺 Cestos & Bolsas de Conservação de Ervas
+          🧺 草藥保存籃與收納袋
         </h4>
         <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:10px;">
           ${pouchesHtml}
