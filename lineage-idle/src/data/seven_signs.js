@@ -11,14 +11,14 @@ export const FACTIONS = {
     name: '黎明君主 ☀️',
     icon: '☀️',
     desc: '追求神聖秩序與秘法祝福的殷海薩貴族與信徒。',
-    bonusDesc: '+10% Dano Sagrado e +5% XP'
+    bonusDesc: '+10% 神聖傷害與 +5% XP'
   },
   dusk: {
     id: 'dusk',
     name: '黃昏革命軍 🌒',
     icon: '🌒',
     desc: '效忠席琳、企圖打破帝國枷鎖的叛軍與地下戰士。',
-    bonusDesc: '+10% Dano Sombrio e +5% Drop Rate'
+    bonusDesc: '+10% 黑暗傷害與 +5% 掉落率'
   }
 };
 
