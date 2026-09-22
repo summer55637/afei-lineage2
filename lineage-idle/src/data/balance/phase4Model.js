@@ -55,28 +55,28 @@ export const PREPARATION_PROFILES = {
   POOR: {
     id: 'POOR',
     ps: 75,
-    desc: 'Preparação deficiente',
+    desc: '準備不足',
     components: { equipment: 83.3, consumables: 60, buffs: 60, skills: 80, rotation: 80 },
     defaultPotionStock: 18
   },
   STANDARD: {
     id: 'STANDARD',
     ps: 100,
-    desc: 'Baseline oficial',
+    desc: '官方基準',
     components: { equipment: 100, consumables: 100, buffs: 100, skills: 100, rotation: 100 },
     defaultPotionStock: 25
   },
   FULL: {
     id: 'FULL',
     ps: 125,
-    desc: 'Preparação completa',
+    desc: '準備完整',
     components: { equipment: 110, consumables: 140, buffs: 130, skills: 125, rotation: 132.5 },
     defaultPotionStock: 35
   },
   OPTIMIZED: {
     id: 'OPTIMIZED',
     ps: 150,
-    desc: 'Preparação excepcional',
+    desc: '準備極佳',
     components: { equipment: 130, consumables: 170, buffs: 160, skills: 150, rotation: 157.5 },
     defaultPotionStock: 50
   }
@@ -158,11 +158,11 @@ export function calculateSurvivalMargin(pst, scenarioMedianTtk) {
  */
 export function classifySurvivalMargin(sm) {
   const val = Number(sm) || 0;
-  if (val < 0.95) return { tier: 'CRITICAL', status: 'FAIL', desc: 'Sobrevivência insuficiente' };
-  if (val < 1.25) return { tier: 'VERY HARD', status: 'PASS_MINIMUM', desc: 'Sobrevivência viável com alta pressão' };
-  if (val < 1.50) return { tier: 'CHALLENGING', status: 'PASS_CHALLENGE', desc: 'Desafiador porém administrável' };
-  if (val < 2.00) return { tier: 'COMFORTABLE', status: 'PASS_RECOMMENDED', desc: 'Confortável e consistente' };
-  return { tier: 'DOMINATED', status: 'PASS_FARM', desc: 'Totalmente dominado' };
+  if (val < 0.95) return { tier: 'CRITICAL', status: 'FAIL', desc: '生存能力不足' };
+  if (val < 1.25) return { tier: 'VERY HARD', status: 'PASS_MINIMUM', desc: '可生存，但壓力很高' };
+  if (val < 1.50) return { tier: 'CHALLENGING', status: 'PASS_CHALLENGE', desc: '具有挑戰性，但仍可應對' };
+  if (val < 2.00) return { tier: 'COMFORTABLE', status: 'PASS_RECOMMENDED', desc: '舒適且穩定' };
+  return { tier: 'DOMINATED', status: 'PASS_FARM', desc: '完全壓制' };
 }
 
 // 5. COMBAT OUTCOMES & RATES (Sections 35 to 47)
@@ -263,54 +263,54 @@ export const ACCEPTANCE_MATRIX = {
 };
 
 export const CANONICAL_VARIABLES = Object.freeze({
-  C: { name: 'Content', desc: 'Content being tested' },
-  K: { name: 'Class', desc: 'Player class' },
-  L: { name: 'Level', desc: 'Player level' },
-  CP: { name: 'Combat Power', unit: 'CP' },
-  PS: { name: 'Preparation Score', unit: 'PS' },
-  B: { name: 'Build', desc: 'Loadout configuration' },
-  R: { name: 'Ruleset Version', desc: 'Balance ruleset version' },
-  S: { name: 'Random Seed', desc: 'Simulation seed' },
-  N: { name: 'Run Count', desc: 'Number of simulation runs' },
+  C: { name: '內容', desc: '正在測試的內容' },
+  K: { name: '職業', desc: '玩家職業' },
+  L: { name: '等級', desc: '玩家等級' },
+  CP: { name: '戰鬥力', unit: 'CP' },
+  PS: { name: '準備分數', unit: 'PS' },
+  B: { name: '配置', desc: '裝備與技能配置' },
+  R: { name: '規則版本', desc: '平衡規則版本' },
+  S: { name: '隨機種子', desc: '模擬隨機種子' },
+  N: { name: '執行次數', desc: '模擬執行次數' },
   // Offensive
-  PATK: { name: 'Physical Attack', unit: 'stat points' },
-  MATK: { name: 'Magic Attack', unit: 'stat points' },
-  CR: { name: 'Crit Rate', unit: '%' },
-  CM: { name: 'Crit Multiplier', unit: '×' },
-  AS: { name: 'Attack Speed', unit: 'actions/s' },
-  CS: { name: 'Cast Speed', unit: 'actions/s' },
-  ACC: { name: 'Accuracy', unit: 'rating' },
+  PATK: { name: '物理攻擊', unit: '屬性點' },
+  MATK: { name: '魔法攻擊', unit: '屬性點' },
+  CR: { name: '暴擊率', unit: '%' },
+  CM: { name: '暴擊倍率', unit: '×' },
+  AS: { name: '攻擊速度', unit: '次／秒' },
+  CS: { name: '施法速度', unit: '次／秒' },
+  ACC: { name: '命中', unit: '數值' },
   // Defensive
-  PDEF: { name: 'Physical Defense', unit: 'stat points' },
-  MDEF: { name: 'Magic Defense', unit: 'stat points' },
-  HP: { name: 'Current HP', unit: 'HP' },
-  MaxHP: { name: 'Maximum HP', unit: 'HP' },
-  MP: { name: 'Current MP', unit: 'MP' },
-  MaxMP: { name: 'Maximum MP', unit: 'MP' },
-  EVA: { name: 'Evasion', unit: 'rating' },
-  RES: { name: 'Resistance', unit: 'rating' },
-  DR: { name: 'Damage Reduction', unit: '%' },
-  SH: { name: 'Shield Absorption', unit: 'HP' },
+  PDEF: { name: '物理防禦', unit: '屬性點' },
+  MDEF: { name: '魔法防禦', unit: '屬性點' },
+  HP: { name: '目前生命值', unit: 'HP' },
+  MaxHP: { name: '最大生命值', unit: 'HP' },
+  MP: { name: '目前魔力', unit: 'MP' },
+  MaxMP: { name: '最大魔力', unit: 'MP' },
+  EVA: { name: '迴避', unit: '數值' },
+  RES: { name: '抗性', unit: '數值' },
+  DR: { name: '傷害減免', unit: '%' },
+  SH: { name: '護盾吸收量', unit: 'HP' },
   // Temporal
-  TTK: { name: 'Time to Kill', unit: 's' },
-  TTD: { name: 'Time to Die', unit: 's' },
-  PST_VAR: { name: 'Projected Survival Time', unit: 's' },
-  CT: { name: 'Combat Duration', unit: 's' },
+  TTK: { name: '擊殺時間', unit: 's' },
+  TTD: { name: '存活時間', unit: 's' },
+  PST_VAR: { name: '預估存活時間', unit: 's' },
+  CT: { name: '戰鬥持續時間', unit: 's' },
   // Combat
-  D: { name: 'Total Damage', unit: 'damage' },
-  H: { name: 'Effective Healing', unit: 'HP' },
-  DPS: { name: 'Sustained DPS', unit: 'damage/s' },
-  HPS: { name: 'Effective HPS', unit: 'HP/s' },
+  D: { name: '總傷害', unit: '傷害' },
+  H: { name: '有效治療量', unit: 'HP' },
+  DPS: { name: '持續傷害輸出', unit: '傷害／秒' },
+  HPS: { name: '有效每秒治療量', unit: 'HP/s' },
   // Resources
-  MPSpent: { name: 'MP Spent', unit: 'MP' },
-  PotionUsed: { name: 'Potions Consumed', unit: 'potions/combat' },
-  PotionStock: { name: 'Initial Potion Inventory', unit: 'potions' },
-  PotionCost: { name: 'Consumable Cost', unit: 'Adena/combat' },
+  MPSpent: { name: '消耗魔力', unit: 'MP' },
+  PotionUsed: { name: '藥水消耗量', unit: '瓶／戰鬥' },
+  PotionStock: { name: '初始藥水庫存', unit: '瓶' },
+  PotionCost: { name: '消耗品成本', unit: '金幣／戰鬥' },
   // Rewards
-  XP: { name: 'Experience', unit: 'XP' },
-  Adena: { name: 'Adena', unit: 'Adena' },
-  RewardValue: { name: 'Normalized Reward Value', unit: 'Adena' },
-  GuaranteedReward: { name: 'Minimum Guaranteed Reward', unit: 'Adena' }
+  XP: { name: '經驗值', unit: 'XP' },
+  Adena: { name: '金幣', unit: '金幣' },
+  RewardValue: { name: '標準化獎勵價值', unit: '金幣' },
+  GuaranteedReward: { name: '最低保證獎勵', unit: '金幣' }
 });
 
 export function statisticalMedian(arr) {
