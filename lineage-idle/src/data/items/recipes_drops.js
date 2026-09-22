@@ -1381,7 +1381,7 @@ const STATIC_CRAFTING_RECIPES = {
   "recipe_soulshot_d": {
     "id": "recipe_soulshot_d",
     "itemId": "soulshot_d",
-    "name": "Soulshot: D-Grade (Pacote 500x)",
+    "name": "D 級靈魂彈（500 個）",
     "level": 20,
     "craftLevel": 2,
     "gold": 2500,
@@ -1393,7 +1393,7 @@ const STATIC_CRAFTING_RECIPES = {
   "recipe_spiritshot_d": {
     "id": "recipe_spiritshot_d",
     "itemId": "spiritshot_d",
-    "name": "Spiritshot: D-Grade (Pacote 500x)",
+    "name": "D 級魔靈彈（500 個）",
     "level": 20,
     "craftLevel": 2,
     "gold": 4000,
@@ -1405,7 +1405,7 @@ const STATIC_CRAFTING_RECIPES = {
   "recipe_soulshot_c": {
     "id": "recipe_soulshot_c",
     "itemId": "soulshot_c",
-    "name": "Soulshot: C-Grade (Pacote 500x)",
+    "name": "C 級靈魂彈（500 個）",
     "level": 40,
     "craftLevel": 3,
     "gold": 6000,
@@ -1417,7 +1417,7 @@ const STATIC_CRAFTING_RECIPES = {
   "recipe_spiritshot_c": {
     "id": "recipe_spiritshot_c",
     "itemId": "spiritshot_c",
-    "name": "Spiritshot: C-Grade (Pacote 500x)",
+    "name": "C 級魔靈彈（500 個）",
     "level": 40,
     "craftLevel": 3,
     "gold": 9000,
@@ -1431,7 +1431,7 @@ const STATIC_CRAFTING_RECIPES = {
   "recipe_stew_fish": {
     "id": "recipe_stew_fish",
     "itemId": "stew_fish",
-    "name": "Guisado de Peixe de Gludio",
+    "name": "古魯丁魚燉湯",
     "level": 15,
     "craftLevel": 1,
     "gold": 200,
@@ -1443,7 +1443,7 @@ const STATIC_CRAFTING_RECIPES = {
   "recipe_greater_healing_potion": {
     "id": "recipe_greater_healing_potion",
     "itemId": "greater_healing_potion",
-    "name": "Greater Healing Potion (Lote 5x)",
+    "name": "高級治癒藥水（5 個）",
     "level": 20,
     "craftLevel": 1,
     "gold": 500,
@@ -1457,7 +1457,7 @@ const STATIC_CRAFTING_RECIPES = {
   "weapon_crimson_sword": {
     "id": "weapon_crimson_sword",
     "itemId": "weapon_crimson_sword",
-    "name": "Crimson Sword (D-Grade)",
+    "name": "緋紅之劍（D 級）",
     "level": 20,
     "craftLevel": 2,
     "gold": 7500,
@@ -1468,7 +1468,7 @@ const STATIC_CRAFTING_RECIPES = {
   "weapon_elven_bow": {
     "id": "weapon_elven_bow",
     "itemId": "weapon_elven_bow",
-    "name": "Elven Bow (D-Grade)",
+    "name": "精靈弓（D 級）",
     "level": 20,
     "craftLevel": 2,
     "gold": 8500,
@@ -1479,7 +1479,7 @@ const STATIC_CRAFTING_RECIPES = {
   "weapon_mystic_staff": {
     "id": "weapon_mystic_staff",
     "itemId": "weapon_mystic_staff",
-    "name": "Mystic Staff (D-Grade)",
+    "name": "神秘法杖（D 級）",
     "level": 20,
     "craftLevel": 2,
     "gold": 8000,
@@ -1490,7 +1490,7 @@ const STATIC_CRAFTING_RECIPES = {
   "weapon_saber_sword": {
     "id": "weapon_saber_sword",
     "itemId": "weapon_saber_sword",
-    "name": "Saber Sword (D-Grade)",
+    "name": "軍刀（D 級）",
     "level": 20,
     "craftLevel": 2,
     "gold": 7000,
@@ -1501,7 +1501,7 @@ const STATIC_CRAFTING_RECIPES = {
   "weapon_warhammer": {
     "id": "weapon_warhammer",
     "itemId": "weapon_warhammer",
-    "name": "Warhammer (D-Grade)",
+    "name": "戰鎚（D 級）",
     "level": 20,
     "craftLevel": 2,
     "gold": 7500,
@@ -1514,7 +1514,7 @@ const STATIC_CRAFTING_RECIPES = {
   "armor_brigandine_armor_heavy": {
     "id": "armor_brigandine_armor_heavy",
     "itemId": "armor_brigandine_armor_heavy",
-    "name": "Brigandine Armor Heavy",
+    "name": "布里剛汀重甲",
     "level": 20,
     "craftLevel": 2,
     "gold": 9500,
@@ -1525,7 +1525,7 @@ const STATIC_CRAFTING_RECIPES = {
   "armor_brigandine_pants_heavy": {
     "id": "armor_brigandine_pants_heavy",
     "itemId": "armor_brigandine_pants_heavy",
-    "name": "Brigandine Pants Heavy",
+    "name": "布里剛汀重型下衣",
     "level": 20,
     "craftLevel": 2,
     "gold": 6500,
@@ -1536,7 +1536,7 @@ const STATIC_CRAFTING_RECIPES = {
   "armor_brigandine_helmet_heavy": {
     "id": "armor_brigandine_helmet_heavy",
     "itemId": "armor_brigandine_helmet_heavy",
-    "name": "Brigandine Helmet Heavy",
+    "name": "布里剛汀重型頭盔",
     "level": 20,
     "craftLevel": 2,
     "gold": 4500,
@@ -1547,7 +1547,7 @@ const STATIC_CRAFTING_RECIPES = {
   "armor_brigandine_boots_heavy": {
     "id": "armor_brigandine_boots_heavy",
     "itemId": "armor_brigandine_boots_heavy",
-    "name": "Brigandine Boots Heavy",
+    "name": "布里剛汀重型長靴",
     "level": 20,
     "craftLevel": 2,
     "gold": 4000,
@@ -1558,7 +1558,7 @@ const STATIC_CRAFTING_RECIPES = {
   "armor_brigandine_gloves_heavy": {
     "id": "armor_brigandine_gloves_heavy",
     "itemId": "armor_brigandine_gloves_heavy",
-    "name": "Brigandine Gloves Heavy",
+    "name": "布里剛汀重型手套",
     "level": 20,
     "craftLevel": 2,
     "gold": 4000,
@@ -1571,7 +1571,7 @@ const STATIC_CRAFTING_RECIPES = {
   "armor_manticore_armor_light": {
     "id": "armor_manticore_armor_light",
     "itemId": "armor_manticore_armor_light",
-    "name": "Manticore Armor Light",
+    "name": "蠍獅輕甲",
     "level": 20,
     "craftLevel": 2,
     "gold": 8500,
@@ -1582,7 +1582,7 @@ const STATIC_CRAFTING_RECIPES = {
   "armor_manticore_pants_light": {
     "id": "armor_manticore_pants_light",
     "itemId": "armor_manticore_pants_light",
-    "name": "Manticore Pants Light",
+    "name": "蠍獅輕型下衣",
     "level": 20,
     "craftLevel": 2,
     "gold": 5500,
@@ -1595,7 +1595,7 @@ const STATIC_CRAFTING_RECIPES = {
   "armor_mithril_tunic_robe": {
     "id": "armor_mithril_tunic_robe",
     "itemId": "armor_mithril_tunic_robe",
-    "name": "Mithril Tunic Robe",
+    "name": "米索莉法袍",
     "level": 20,
     "craftLevel": 2,
     "gold": 8500,
@@ -1606,7 +1606,7 @@ const STATIC_CRAFTING_RECIPES = {
   "armor_mithril_pants_robe": {
     "id": "armor_mithril_pants_robe",
     "itemId": "armor_mithril_pants_robe",
-    "name": "Mithril Pants Robe",
+    "name": "米索莉法袍下衣",
     "level": 20,
     "craftLevel": 2,
     "gold": 5500,
@@ -1619,7 +1619,7 @@ const STATIC_CRAFTING_RECIPES = {
   "weapon_samurai_longsword": {
     "id": "weapon_samurai_longsword",
     "itemId": "weapon_samurai_longsword",
-    "name": "Samurai Longsword (C-Grade)",
+    "name": "武士長劍（C 級）",
     "level": 40,
     "craftLevel": 3,
     "gold": 25000,
@@ -1630,7 +1630,7 @@ const STATIC_CRAFTING_RECIPES = {
   "weapon_eminence_bow": {
     "id": "weapon_eminence_bow",
     "itemId": "weapon_eminence_bow",
-    "name": "Eminence Bow (C-Grade)",
+    "name": "卓越之弓（C 級）",
     "level": 40,
     "craftLevel": 3,
     "gold": 28000,
@@ -1641,7 +1641,7 @@ const STATIC_CRAFTING_RECIPES = {
   "weapon_homunkuluss_magic_sword": {
     "id": "weapon_homunkuluss_magic_sword",
     "itemId": "weapon_homunkuluss_magic_sword",
-    "name": "Homunkuluss Magic Sword (C-Grade)",
+    "name": "荷姆克魯斯魔法劍（C 級）",
     "level": 40,
     "craftLevel": 3,
     "gold": 26000,
@@ -1652,7 +1652,7 @@ const STATIC_CRAFTING_RECIPES = {
   "armor_theca_light_armor": {
     "id": "armor_theca_light_armor",
     "itemId": "armor_theca_light_armor",
-    "name": "Theca Light Armor (C-Grade)",
+    "name": "特卡輕甲（C 級）",
     "level": 40,
     "craftLevel": 3,
     "gold": 24000,
@@ -1663,7 +1663,7 @@ const STATIC_CRAFTING_RECIPES = {
   "armor_karmian_robe_armor": {
     "id": "armor_karmian_robe_armor",
     "itemId": "armor_karmian_robe_armor",
-    "name": "Karmian Robe Armor (C-Grade)",
+    "name": "卡米安法袍（C 級）",
     "level": 40,
     "craftLevel": 3,
     "gold": 24000,
@@ -1676,7 +1676,7 @@ const STATIC_CRAFTING_RECIPES = {
   "recipe_soulshot_d": {
     "id": "recipe_soulshot_d",
     "itemId": "soulshot_d",
-    "name": "Receita: Soulshot (D-Grade) [500x]",
+    "name": "配方：D 級靈魂彈［500 個］",
     "level": 20,
     "craftLevel": 1,
     "gold": 1500,
@@ -1688,7 +1688,7 @@ const STATIC_CRAFTING_RECIPES = {
   "recipe_spiritshot_d": {
     "id": "recipe_spiritshot_d",
     "itemId": "spiritshot_d",
-    "name": "Receita: Spiritshot (D-Grade) [500x]",
+    "name": "配方：D 級魔靈彈［500 個］",
     "level": 20,
     "craftLevel": 1,
     "gold": 2500,
@@ -1700,7 +1700,7 @@ const STATIC_CRAFTING_RECIPES = {
   "recipe_soulshot_c": {
     "id": "recipe_soulshot_c",
     "itemId": "soulshot_c",
-    "name": "Receita: Soulshot (C-Grade) [500x]",
+    "name": "配方：C 級靈魂彈［500 個］",
     "level": 40,
     "craftLevel": 2,
     "gold": 3000,
@@ -1712,7 +1712,7 @@ const STATIC_CRAFTING_RECIPES = {
   "recipe_spiritshot_c": {
     "id": "recipe_spiritshot_c",
     "itemId": "spiritshot_c",
-    "name": "Receita: Spiritshot (C-Grade) [500x]",
+    "name": "配方：C 級魔靈彈［500 個］",
     "level": 40,
     "craftLevel": 2,
     "gold": 5000,
@@ -1724,7 +1724,7 @@ const STATIC_CRAFTING_RECIPES = {
   "recipe_stew_fish": {
     "id": "recipe_stew_fish",
     "itemId": "stew_fish",
-    "name": "Receita: Ensopado de Peixe do Pescador",
+    "name": "配方：漁夫魚燉湯",
     "level": 15,
     "craftLevel": 1,
     "gold": 800,
@@ -1736,7 +1736,7 @@ const STATIC_CRAFTING_RECIPES = {
   "recipe_greater_healing_potion": {
     "id": "recipe_greater_healing_potion",
     "itemId": "greater_healing_potion",
-    "name": "Receita: Poção Maior de Vida (GHP) [10x]",
+    "name": "配方：高級治癒藥水（GHP）［10 個］",
     "level": 20,
     "craftLevel": 1,
     "gold": 1200,
@@ -1750,7 +1750,7 @@ const STATIC_CRAFTING_RECIPES = {
   "book_1star": {
     "id": "book_1star",
     "itemId": "book_1star",
-    "name": "Tomo Sagrado: 1★ (Comum)",
+    "name": "神聖技能書：1★（普通）",
     "reqLvl": 40,
     "level": 40,
     "craftLevel": 4,
@@ -1762,7 +1762,7 @@ const STATIC_CRAFTING_RECIPES = {
   "book_2star": {
     "id": "book_2star",
     "itemId": "book_2star",
-    "name": "Tomo Sagrado: 2★ (Raro)",
+    "name": "神聖技能書：2★（稀有）",
     "reqLvl": 48,
     "level": 48,
     "craftLevel": 5,
@@ -1774,7 +1774,7 @@ const STATIC_CRAFTING_RECIPES = {
   "book_3star": {
     "id": "book_3star",
     "itemId": "book_3star",
-    "name": "Tomo Sagrado: 3★ (Épico)",
+    "name": "神聖技能書：3★（史詩）",
     "reqLvl": 56,
     "level": 56,
     "craftLevel": 6,
