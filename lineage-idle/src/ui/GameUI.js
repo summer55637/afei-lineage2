@@ -691,7 +691,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
 
     if (isEquipSlot || isItemEquipped) {
       if (isItemEquipped) {
-        const slotLabel = equippedSlot === 'weapon2' ? '欄位 2' : (equippedSlot === 'weapon' ? '欄位 1' : (equippedSlot || '物品'));
+        const slotLabel = equippedSlot === 'weapon2' ? '欄位 2' : (equippedSlot === 'weapon' ? '欄位 1' : (equippedSlot ? '其他欄位' : '物品'));
         actionsHtml += `<button data-tt-action="unequip" data-uid="${item.uid}" data-slot="${equippedSlot || def?.slot || ''}"
           style="flex:1;padding:5px 8px;background:linear-gradient(180deg,#5a4020,#2a1a08);border:1px solid #a07030;
           border-radius:4px;color:#e8c870;font-size:11px;cursor:pointer;font-weight:600;">⬆ 卸下（${slotLabel}）</button>`;
@@ -3817,8 +3817,8 @@ function renderSkillCard(skill, state, activeLoadoutSlot = null) {
     : '';
 
   const slotPill = equippedSlot
-    ? `<span class="skill-slot-pill" title="已裝備於欄位 ${SKILL_LOADOUT_SLOT_LABELS[equippedSlot] || equippedSlot}">
-         ${SKILL_LOADOUT_SLOT_ICONS[equippedSlot] || '⚔️'} ${SKILL_LOADOUT_SLOT_LABELS[equippedSlot] || equippedSlot}
+    ? `<span class="skill-slot-pill" title="已裝備於欄位 ${SKILL_LOADOUT_SLOT_LABELS[equippedSlot] || '其他欄位'}">
+         ${SKILL_LOADOUT_SLOT_ICONS[equippedSlot] || '⚔️'} ${SKILL_LOADOUT_SLOT_LABELS[equippedSlot] || '其他欄位'}
        </span>`
     : '';
 
@@ -3851,7 +3851,7 @@ function renderSkillCard(skill, state, activeLoadoutSlot = null) {
          role="button"
          tabindex="0"
          draggable="${isDraggable ? 'true' : 'false'}"
-         title="${skill.name}（${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗', physical: '物理', none: '無屬性' })[String(skill.element || 'physical').toLowerCase()] || '其他屬性'}）${equippedSlot ? ` — 已裝備於配置： ${SKILL_LOADOUT_SLOT_LABELS[equippedSlot] || equippedSlot}` : ''}">
+         title="${skill.name}（${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗', physical: '物理', none: '無屬性' })[String(skill.element || 'physical').toLowerCase()] || '其他屬性'}）${equippedSlot ? ` — 已裝備於配置： ${SKILL_LOADOUT_SLOT_LABELS[equippedSlot] || '其他欄位'}` : ''}">
       <div class="skill-icon-frame-48">
         <img src="${iconUrl}" class="skill-icon-img" alt="${skill.name}" onerror="this.onerror=null; this.src='${NEUTRAL_SKILL_PLACEHOLDER}'; this.style.opacity='0.4';" />
         ${starPill}
@@ -3861,7 +3861,7 @@ function renderSkillCard(skill, state, activeLoadoutSlot = null) {
       <div class="skill-card-body">
         <div class="skill-card-title">${skill.name}</div>
         <div class="skill-card-tags">
-          <span class="skill-grade-tag grade-${String(skill.grade || 'common').toLowerCase()}">${D()?.RARITY?.[String(skill.grade || 'common').toLowerCase()]?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說' })[String(skill.grade || 'common').toLowerCase()] || skill.grade || '一般'}</span>
+          <span class="skill-grade-tag grade-${String(skill.grade || 'common').toLowerCase()}">${D()?.RARITY?.[String(skill.grade || 'common').toLowerCase()]?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說' })[String(skill.grade || 'common').toLowerCase()] || '一般'}</span>
           <span class="skill-element-tag ${elemClass}">${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗', physical: '物理', none: '無屬性' })[String(skill.element || 'physical').toLowerCase()] || '其他屬性'}</span>
           <span class="skill-role-tag">${({ physical: '物理', magic: '魔法', buff: '增益', debuff: '減益', heal: '治療', healing: '治療', control: '控制', passive: '被動', active: '主動', summon: '召喚', aoe: '範圍', utility: '輔助' })[String(skill.role || '').toLowerCase()] || '技能'}</span>
         </div>
@@ -6427,7 +6427,7 @@ export function openCraftModal(itemId, state, callbacks = {}) {
             <h3 style="margin:0; font-family:'Cinzel',serif; color:#f3c669; font-size:18px;">${def.name}</h3>
             <span style="background:${gradeInfo.color}; color:#fff; font-size:11px; font-weight:bold; padding:2px 8px; border-radius:4px;">${gradeInfo.label}</span>
           </div>
-          <div style="font-size:12px; color:#aaa; margin-top:2px;">需要鍛造等級 ${reqForgeLvl} · 欄位：${({ weapon: '武器', weapon2: '副武器', shield: '盾牌', helmet: '頭盔', head: '頭盔', armor: '胸甲', chest: '胸甲', fullbody: '全身甲', legs: '腿甲', gloves: '手套', boots: '靴子', necklace: '項鍊', earring: '耳環', earring1: '耳環 1', earring2: '耳環 2', ring: '戒指', ring1: '戒指 1', ring2: '戒指 2', cloak: '披風', belt: '腰帶', hair: '頭飾', hair1: '頭飾 1', hair2: '頭飾 2', consumable: '消耗品', material: '材料', scroll: '卷軸', crystal: '水晶' })[def.slot] || def.slot || '一般'}</div>
+          <div style="font-size:12px; color:#aaa; margin-top:2px;">需要鍛造等級 ${reqForgeLvl} · 欄位：${({ weapon: '武器', weapon2: '副武器', shield: '盾牌', helmet: '頭盔', head: '頭盔', armor: '胸甲', chest: '胸甲', fullbody: '全身甲', legs: '腿甲', gloves: '手套', boots: '靴子', necklace: '項鍊', earring: '耳環', earring1: '耳環 1', earring2: '耳環 2', ring: '戒指', ring1: '戒指 1', ring2: '戒指 2', cloak: '披風', belt: '腰帶', hair: '頭飾', hair1: '頭飾 1', hair2: '頭飾 2', consumable: '消耗品', material: '材料', scroll: '卷軸', crystal: '水晶' })[def.slot] || '其他'}</div>
         </div>
       </div>
 
@@ -8342,7 +8342,7 @@ export function renderForgeLifestones(container, state) {
           </div>
 
           <div class="l2comp-status-text">
-            ${!selectedWeapon ? '加入要強化的物品。' : aug ? `附魔改造：+${aug.atkBonus || 0} 物理攻擊、+${aug.critBonus || 0} 暴擊 ${aug.skill ? `[${aug.skill.name}]` : ''}` : `${def?.name || selectedWeapon.itemId} 已準備進行生命石覺醒`}
+            ${!selectedWeapon ? '加入要強化的物品。' : aug ? `附魔改造：+${aug.atkBonus || 0} 物理攻擊、+${aug.critBonus || 0} 暴擊 ${aug.skill ? `[${aug.skill.name}]` : ''}` : `${def?.name || '未知武器'} 已準備進行生命石覺醒`}
           </div>
         </div>
 
@@ -9224,7 +9224,7 @@ export function uiOpenPixCheckoutModal(tierId, state) {
       </div>
 
       <div style="margin-bottom:16px;">
-        <label style="display:block; font-size:11px; font-weight:bold; color:#ffd877; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.05em;">官方 Pix 金鑰（E-mail）：</label>
+        <label style="display:block; font-size:11px; font-weight:bold; color:#ffd877; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.05em;">官方 Pix 金鑰（電子郵件）：</label>
         <div style="display:flex; gap:8px;">
           <input id="pix-key-input" type="text" readonly value="${pixKey}" style="flex:1; background:#0f172a; border:1px solid #334155; border-radius:6px; padding:8px 12px; color:#38bdf8; font-family:monospace; font-size:13px; font-weight:bold; outline:none;" />
           <button id="pix-copy-btn" onclick="navigator.clipboard.writeText('${pixKey}').then(() => { const b = document.getElementById('pix-copy-btn'); b.textContent = '✅ 已複製！'; b.style.background = '#10b981'; setTimeout(() => { b.textContent = '📋 複製'; b.style.background = '#d97706'; }, 3000); })" style="padding:8px 16px; background:#d97706; border:1px solid #f59e0b; border-radius:6px; color:#fff; font-weight:bold; font-size:12px; cursor:pointer; font-family:'Cinzel',serif; white-space:nowrap; transition:background 0.2s;">
