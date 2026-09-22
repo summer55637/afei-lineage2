@@ -260,7 +260,7 @@ export function checkClassAdvancement(state, callbacks = {}) {
   if (state.level >= 20 && currentStage === 0) {
     canAdvance = true;
     advTitle = '⚡ 第一次轉職已開放！';
-    advSub = `達到等級 ${state.level}！請為 ${currentClassDef?.name || state.class} 選擇進階路線。`;
+    advSub = `達到等級 ${state.level}！請為 ${currentClassDef?.name || '目前職業'} 選擇進階路線。`;
   } else if (state.level >= 40 && currentStage === 1) {
     canAdvance = true;
     advTitle = '⚔️ 第二次轉職已開放！';
@@ -343,7 +343,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
 
   const newClassDef = getClass(newClassId) || getClass(resolveCanonicalClassId(newClassId));
   if (!newClassDef) {
-    if (callbacks.log) callbacks.log(`❌ 目標職業無效：${newClassId}`, 'warning');
+    if (callbacks.log) callbacks.log(`❌ 目標職業無效。`, 'warning');
     return false;
   }
 
@@ -366,14 +366,14 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
     callbacks.allowAdminOverride;
 
   if (!isAuthorizedSuccessor) {
-    if (callbacks.log) callbacks.log(`❌ 無效轉職：${newClassId} 不是 ${currentClass} 血統路線中允許的進階職業。`, 'warning');
+    if (callbacks.log) callbacks.log(`❌ 無效轉職：所選職業不屬於目前血統路線可晉升的職業。`, 'warning');
     return false;
   }
 
   // 2. Validação de 等級 de Requisito de Avanço
   const reqLevel = Number(newClassDef.minLevel || (newClassDef.stage === 1 ? 20 : newClassDef.stage === 2 ? 40 : newClassDef.stage === 3 ? 76 : 1)) || 1;
   if (!callbacks.allowAdminOverride && state.level < reqLevel) {
-    if (callbacks.log) callbacks.log(`🔒 等級不足（${state.level}），無法晉升為 ${newClassDef.name || newClassId}。需要等級 ${reqLevel}。`, 'warning');
+    if (callbacks.log) callbacks.log(`🔒 等級不足（${state.level}），無法晉升為 ${newClassDef.name || '目標職業'}。需要等級 ${reqLevel}。`, 'warning');
     return false;
   }
 
@@ -388,7 +388,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
       resolveCanonicalDagClassId(e.sourceClassId, currentRace) === canonNew
     );
     if (!isLevelEligible && !isCanonicalChild) {
-      if (callbacks.log) callbacks.log(`🔒 等級不足（${state.level}），無法晉升為 ${newClassDef.name || newClassId}。`, 'warning');
+      if (callbacks.log) callbacks.log(`🔒 等級不足（${state.level}），無法晉升為 ${newClassDef.name || '目標職業'}。`, 'warning');
       return false;
     }
   }
