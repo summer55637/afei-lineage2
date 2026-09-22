@@ -161,7 +161,7 @@ export class ColosseumService {
         colState.highestWave = s.waveIndex + 1;
       }
 
-      hooks.log?.(`✨ Onda ${s.waveIndex + 1} superada! (+${waveEarnedBadges} Badges do 競技場)`, 'gain');
+      hooks.log?.(`✨ 已突破第 ${s.waveIndex + 1} 波！（+${waveEarnedBadges} 枚競技場徽章）`, 'gain');
 
       if (s.waveIndex + 1 >= SURVIVAL_WAVES.length) {
         // Concluiu as 10 ondas
