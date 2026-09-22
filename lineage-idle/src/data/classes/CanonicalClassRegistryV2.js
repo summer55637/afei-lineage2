@@ -2289,7 +2289,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "samuraiBase": {
         "id": "samuraiBase",
-        "name": "Bushi (Samurai)",
+        "name": "武士學徒",
         "lineageId": "samurai",
         "lineageName": "Samurai",
         "stage": 0,
@@ -2297,7 +2297,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Bushi — aprendiz do caminho da lâmina e técnicas de Katana.",
+        "desc": "學習刀之道與太刀技法的武士學徒。",
         "skillIds": [
             "single_flash",
             "power_strike",
@@ -2308,7 +2308,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "hatamoto": {
         "id": "hatamoto",
-        "name": "Hatamoto",
+        "name": "旗本",
         "lineageId": "samurai",
         "lineageName": "Samurai",
         "stage": 1,
@@ -2316,7 +2316,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "samuraiBase",
-        "desc": "Hatamoto — guerreiro de elite da lâmina com disciplina marcial.",
+        "desc": "擁有嚴格武道紀律的菁英劍士。",
         "skillIds": [
             "pursuit",
             "wind",
@@ -2327,7 +2327,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "ronin": {
         "id": "ronin",
-        "name": "Ronin",
+        "name": "浪人",
         "lineageId": "samurai",
         "lineageName": "Samurai",
         "stage": 2,
@@ -2335,7 +2335,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "hatamoto",
-        "desc": "Ronin — espadachim solitário com técnicas devastadoras de corte.",
+        "desc": "獨自行走的劍士，精通強力斬擊技巧。",
         "skillIds": [
             "strike",
             "fire",
@@ -2346,7 +2346,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "samurai": {
         "id": "samurai",
-        "name": "Samurai",
+        "name": "武士",
         "lineageId": "samurai",
         "lineageName": "Samurai",
         "stage": 3,
@@ -2354,7 +2354,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "ronin",
-        "desc": "Samurai — mestre supremo da lâmina com técnicas lendárias de Kenjutsu.",
+        "desc": "精通傳說劍術的最高階武士。",
         "skillIds": [
             "battojutsu",
             "thousand_wounds",
@@ -2365,7 +2365,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "sylphGunner": {
         "id": "sylphGunner",
-        "name": "Sylph Gunner",
+        "name": "風精靈槍手",
         "lineageId": "stormBlaster",
         "lineageName": "Storm Blaster",
         "stage": 0,
@@ -2373,7 +2373,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Atirador elemental Sylph.",
+        "desc": "操控元素力量的風精靈射手。",
         "skillIds": [
             "dual_blow",
             "elemental_care",
@@ -2384,7 +2384,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "sharpshooter": {
         "id": "sharpshooter",
-        "name": "Sharpshooter",
+        "name": "神射手",
         "lineageId": "stormBlaster",
         "lineageName": "Storm Blaster",
         "stage": 1,
@@ -2403,7 +2403,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "windSniper": {
         "id": "windSniper",
-        "name": "Wind Sniper",
+        "name": "風之狙擊手",
         "lineageId": "stormBlaster",
         "lineageName": "Storm Blaster",
         "stage": 2,
@@ -2422,7 +2422,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "stormBlaster": {
         "id": "stormBlaster",
-        "name": "Storm Blaster",
+        "name": "暴風砲手",
         "lineageId": "stormBlaster",
         "lineageName": "Storm Blaster",
         "stage": 3,
@@ -2430,7 +2430,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "windSniper",
-        "desc": "Atirador da tempestade — devastação à distância com armas de fogo.",
+        "desc": "使用火器進行遠距離毀滅攻擊的暴風射手。",
         "skillIds": [
             "greater_wind_shot",
             "frosty_sting",
@@ -2441,7 +2441,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "lightTemplar": {
         "id": "lightTemplar",
-        "name": "Light Templar",
+        "name": "光之聖殿騎士",
         "lineageId": "divineTemplar",
         "lineageName": "Divine Templar",
         "stage": 1,
@@ -2460,7 +2460,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "holyTemplar": {
         "id": "holyTemplar",
-        "name": "Holy Templar",
+        "name": "神聖聖殿騎士",
         "lineageId": "divineTemplar",
         "lineageName": "Divine Templar",
         "stage": 2,
@@ -2479,7 +2479,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "divineTemplar": {
         "id": "divineTemplar",
-        "name": "Divine Templar",
+        "name": "神聖聖騎士",
         "lineageId": "divineTemplar",
         "lineageName": "Divine Templar",
         "stage": 3,
@@ -2487,7 +2487,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "holyTemplar",
-        "desc": "Templário Divino — tanque sagrado com poder ofensivo e defesa suprema.",
+        "desc": "兼具神聖攻擊力與頂級防禦能力的坦克。",
         "skillIds": [
             "holy_circle",
             "judgment",
@@ -2498,7 +2498,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elementWeaverS1": {
         "id": "elementWeaverS1",
-        "name": "Element Weaver",
+        "name": "元素編織者",
         "lineageId": "elementWeaver",
         "lineageName": "Element Weaver",
         "stage": 1,
@@ -2517,7 +2517,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elementWeaverS2": {
         "id": "elementWeaverS2",
-        "name": "Element Weaver",
+        "name": "元素編織者",
         "lineageId": "elementWeaver",
         "lineageName": "Element Weaver",
         "stage": 2,
@@ -2536,7 +2536,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elementWeaver": {
         "id": "elementWeaver",
-        "name": "Element Weaver",
+        "name": "元素編織者",
         "lineageId": "elementWeaver",
         "lineageName": "Element Weaver",
         "stage": 3,
@@ -2544,7 +2544,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "elementWeaverS2",
-        "desc": "Tecelão elemental — mestre supremo dos elementos.",
+        "desc": "掌控各種元素力量的最高階施法者。",
         "skillIds": [
             "sephiroth",
             "blazing_tempest",
@@ -2555,7 +2555,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "marauderBase": {
         "id": "marauderBase",
-        "name": "Ertheia Fighter",
+        "name": "艾爾提亞戰士",
         "lineageId": "eviscerator",
         "lineageName": "Eviscerator",
         "stage": 0,
@@ -2563,7 +2563,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Lutadora Ertheia — mestre veloz de combate corporal com ventos de Sayha.",
+        "desc": "運用賽哈之風進行高速近身戰鬥的艾爾提亞戰士。",
         "skillIds": [
             "iron_punch",
             "kamael_s_dignity",
@@ -2574,7 +2574,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "marauder": {
         "id": "marauder",
-        "name": "Marauder",
+        "name": "掠襲者",
         "lineageId": "eviscerator",
         "lineageName": "Eviscerator",
         "stage": 1,
@@ -2582,7 +2582,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "marauderBase",
-        "desc": "Saqueadora — especialista em combos rápidos de vento e golpes aéreos.",
+        "desc": "擅長高速風系連段與空中攻擊。",
         "skillIds": [
             "soul_smash",
             "increase_power",
@@ -2593,7 +2593,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "ertheiaWarrior": {
         "id": "ertheiaWarrior",
-        "name": "Eviscerator",
+        "name": "裂空者",
         "lineageId": "eviscerator",
         "lineageName": "Eviscerator",
         "stage": 2,
@@ -2601,7 +2601,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "marauder",
-        "desc": "Evisceradora — guerreira marcial letal que corta o ar e destrói defesas.",
+        "desc": "以武術切裂空氣並破壞敵方防禦的致命戰士。",
         "skillIds": [
             "soul_impulse",
             "enuma_elish",
@@ -2612,7 +2612,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "eviscerator": {
         "id": "eviscerator",
-        "name": "Eviscerator",
+        "name": "裂空者",
         "lineageId": "eviscerator",
         "lineageName": "Eviscerator",
         "stage": 3,
@@ -2620,7 +2620,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "ertheiaWarrior",
-        "desc": "Evisceradora Imperial — mestre suprema de combate corporal com poder dimensional de Sayha.",
+        "desc": "運用賽哈次元力量的最高階近戰大師。",
         "skillIds": [
             "overwhelming_power",
             "powerful_rush",
@@ -2631,7 +2631,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "sayhaMageBase": {
         "id": "sayhaMageBase",
-        "name": "Sayha Mage",
+        "name": "賽哈法師",
         "lineageId": "sayhaSeeker",
         "lineageName": "Sayha Seeker",
         "stage": 0,
@@ -2639,7 +2639,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Mística Ertheia — invocadora elemental dos vendavais de Sayha.",
+        "desc": "召喚賽哈風暴元素力量的艾爾提亞秘術師。",
         "skillIds": [
             "fireball",
             "wind_strike",
@@ -2650,7 +2650,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "sayhaSeer": {
         "id": "sayhaSeer",
-        "name": "Sayha Seeker",
+        "name": "賽哈追尋者",
         "lineageId": "sayhaSeeker",
         "lineageName": "Sayha Seeker",
         "stage": 1,
@@ -2658,7 +2658,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "sayhaMageBase",
-        "desc": "Buscadora de Sayha — canalizadora de correntes de ar e tempestades.",
+        "desc": "引導氣流與暴風的賽哈追尋者。",
         "skillIds": [
             "aqua_swirl",
             "concentration",
@@ -2669,7 +2669,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "windRiderErth": {
         "id": "windRiderErth",
-        "name": "Sayha Seeker",
+        "name": "賽哈追尋者",
         "lineageId": "sayhaSeeker",
         "lineageName": "Sayha Seeker",
         "stage": 2,
@@ -2677,7 +2677,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "sayhaSeer",
-        "desc": "Condutora dos Ventos — maga que comanda tufões devastadores.",
+        "desc": "操控毀滅性颱風的風之法師。",
         "skillIds": [
             "hydro_blast",
             "aqua_splash",
@@ -2688,7 +2688,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "sayhaSeeker": {
         "id": "sayhaSeeker",
-        "name": "Sayha Seeker",
+        "name": "賽哈追尋者",
         "lineageId": "sayhaSeeker",
         "lineageName": "Sayha Seeker",
         "stage": 3,
@@ -2696,7 +2696,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "windRiderErth",
-        "desc": "Mestra Suprema de Sayha — soberana dos vendavais e tempestades de Aden.",
+        "desc": "統御亞丁暴風與風暴的最高階賽哈法師。",
         "skillIds": [
             "ice_vortex",
             "mystic_explosion",
