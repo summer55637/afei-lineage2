@@ -178,7 +178,7 @@ export const 排行榜Service = {
       const scrollItem = {
         uid: 'b_scrl_' + Date.now(),
         itemId: 'scrl_enchant_wp_b',
-        name: 'Scroll: Enchant Weapon (Grade B)',
+        name: '武器強化卷軸（B 級）',
         grade: 'b',
         qty: scrolls,
         type: 'scroll'
@@ -186,7 +186,7 @@ export const 排行榜Service = {
       state.inventory.push(scrollItem);
     }
 
-    log(`🏆 **[每日排行榜獎勵－排名 #${rank}]** 你獲得 ${coins} 亞丁幣、${adena.toLocaleString()} 金幣${scrolls > 0 ? ` e ${scrolls}x Enchant Scrolls` : ''}!`, 'rarity-legendary');
+    log(`🏆 **[每日排行榜獎勵－排名 #${rank}]** 你獲得 ${coins} 亞丁幣、${adena.toLocaleString()} 金幣${scrolls > 0 ? `、${scrolls}x 強化卷軸` : ''}!`, 'rarity-legendary');
     floatText(`+${coins} COINS!`, 'float-jackpot');
 
     onUpdate();
