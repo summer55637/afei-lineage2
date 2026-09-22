@@ -36,7 +36,7 @@ export const HEIRLOOM_ITEMS = {
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: '會隨英雄等級提升而成長的傳說騎戰長槍（Lv.1～40）。',
+    desc: '會隨英雄等級提升而成長的傳說騎戰長槍（等級 1～40）。',
     icon: 'gradec/weapons/weapon_spiked_spear.png',
     base: { atk: 138, crit: 6, hit: 10, aoeTargets: 4 },
     heirloomScaling: {
@@ -54,7 +54,7 @@ export const HEIRLOOM_ITEMS = {
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: '以星辰鋼鍛造的精準刀刃，會隨 Lv.1～40 成長並提升致命能力。',
+    desc: '以星辰鋼鍛造的精準刀刃，會隨等級 1～40 成長並提升致命能力。',
     icon: 'gradec/weapons/weapon_darkelven_dagger.png',
     base: { atk: 118, crit: 18, hit: 15, eva: 8 },
     heirloomScaling: {
