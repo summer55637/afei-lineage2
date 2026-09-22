@@ -295,8 +295,8 @@ export class VFXOrchestrator {
   showUltimateBanner(def) {
     if (!this.stageElement) return;
     const isMaster = def.identity?.tier === 'master_ultimate' || def.tier === 5;
-    const tierBadgeText = isMaster ? '★★★★★ MASTER ULTIMATE' : '★★★★ ULTIMATE';
-    const skillName = def.identity?.name || def.name || 'ULTIMATE';
+    const tierBadgeText = isMaster ? '★★★★★ 大師終極技' : '★★★★ 終極技';
+    const skillName = def.identity?.name || def.name || '終極技';
     const doc = this.stageElement.ownerDocument || (typeof document !== 'undefined' ? document : null);
     if (!doc) return;
 
@@ -349,7 +349,7 @@ export class VFXOrchestrator {
       duration: options.duration || 4000,
       life: 0,
       color: options.color || '#ef4444',
-      label: options.label || 'GOLPE FATAL',
+      label: options.label || '致命攻擊',
       onComplete: options.onComplete || null
     };
     this._activeTelegraphs.push(telegraph);
@@ -372,7 +372,7 @@ export class VFXOrchestrator {
       duration: options.duration || 3500,
       life: 0,
       color: options.color || '#f59e0b',
-      label: options.label || 'SOPRO DEVASTADOR',
+      label: options.label || '毀滅吐息',
       onComplete: options.onComplete || null
     };
     this._activeTelegraphs.push(telegraph);
@@ -426,8 +426,8 @@ export class VFXOrchestrator {
    */
   triggerBossIntro(boss) {
     if (!boss) return;
-    const bossName = boss.name || 'CHEFE ÉPICO';
-    const bossTitle = boss.title || 'Lorde Ancestral';
+    const bossName = boss.name || '史詩首領';
+    const bossTitle = boss.title || '遠古領主';
 
     // 1. Camera punch zoom & trauma
     this.camera.punchZoom(1.16, 900);
@@ -460,7 +460,7 @@ export class VFXOrchestrator {
         if (this._bannerElement) {
           this._bannerElement.innerHTML = `
             <div class="vfx-ultimate-content boss-intro">
-              <div class="vfx-ultimate-badge">🐉 ENCONTRO DE CHEFE MUNDIAL</div>
+              <div class="vfx-ultimate-badge">🐉 世界首領遭遇</div>
               <div class="vfx-ultimate-title">${bossName}</div>
               <div class="vfx-boss-subtitle" style="font-size:12px; color:#fde68a; letter-spacing:0.12em; text-transform:uppercase; margin-top:2px;">${bossTitle}</div>
               <div class="vfx-ultimate-flare"></div>
@@ -509,7 +509,7 @@ export class VFXOrchestrator {
 
     // 4. Enrage floating banner on stage
     this.pool.floatingText.acquire({
-      text: '🔥 ENRAGE! (ATK +30%, VEL +25%)',
+      text: '🔥 狂暴！（攻擊 +30%、速度 +25%）',
       x: targetPos.x,
       y: targetPos.y - 70,
       color: '#ef4444',
@@ -566,7 +566,7 @@ export class VFXOrchestrator {
       if (!badge) {
         badge = doc.createElement('div');
         badge.className = 'vfx-profiler-badge';
-        badge.title = 'VFX 60FPS Profiler (Clique para alternar)';
+        badge.title = 'VFX 60FPS 效能監控（點擊切換）';
         badge.onclick = () => this.toggleProfiler(false);
         this.stageElement.appendChild(badge);
       }
@@ -1164,7 +1164,7 @@ export class VFXOrchestrator {
         ctx.shadowColor = tg.color;
         ctx.shadowBlur = 8;
         ctx.globalAlpha = 0.95;
-        ctx.fillText(`⚠️ ${tg.label} [${remainingSec}s]`, tg.x, tg.y - tg.radius * 0.45 - 8);
+        ctx.fillText(`⚠️ ${tg.label}【${remainingSec} 秒】`, tg.x, tg.y - tg.radius * 0.45 - 8);
         ctx.restore();
 
       } else if (tg.type === 'cone') {
@@ -1205,7 +1205,7 @@ export class VFXOrchestrator {
         ctx.fillStyle = '#ffffff';
         ctx.shadowColor = tg.color;
         ctx.shadowBlur = 8;
-        ctx.fillText(`⚠️ ${tg.label} [${remainingSec}s]`, midX, midY);
+        ctx.fillText(`⚠️ ${tg.label}【${remainingSec} 秒】`, midX, midY);
         ctx.restore();
       }
       ctx.restore();
