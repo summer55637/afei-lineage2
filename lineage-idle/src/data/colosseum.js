@@ -23,7 +23,7 @@ export const DUEL_OPPONENT_ARCHETYPES = [
   {
     type: 'archer',
     name: '幽靈弓手 🏹',
-    title: 'Silver Ranger 菁英射手',
+    title: '銀月遊俠菁英射手',
     icon: '🏹',
     hpMult: 0.9,
     pAtkMult: 1.3,
@@ -41,7 +41,7 @@ export const DUEL_OPPONENT_ARCHETYPES = [
   {
     type: 'dagger',
     name: '暗影刺客 🗡️',
-    title: '致命 Abyss Walker',
+    title: '致命深淵行者',
     icon: '🗡️',
     hpMult: 0.85,
     pAtkMult: 1.25,
@@ -50,7 +50,7 @@ export const DUEL_OPPONENT_ARCHETYPES = [
   {
     type: 'tank',
     name: '帝國聖騎士 🛡️',
-    title: 'Phoenix Knight 鐵壁',
+    title: '鳳凰騎士鐵壁',
     icon: '🛡️',
     hpMult: 1.6,
     pDefMult: 1.5,
