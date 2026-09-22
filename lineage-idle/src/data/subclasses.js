@@ -18,21 +18,21 @@ export const EMERGENT_SKILLS = {
 };
 
 export const MASTER_ABILITIES = {
-  boostHp: { id: 'boostHp', name: '強化 HP', icon: '❤️', desc: '最大 HP +8%、HP 恢復 +20%' },
-  boostMp: { id: 'boostMp', name: '強化 MP', icon: '💙', desc: '最大 MP +12%、MP 恢復 +20%' },
+  boostHp: { id: 'boostHp', name: '強化生命值', icon: '❤️', desc: '最大 生命值 +8%、生命值 恢復 +20%' },
+  boostMp: { id: 'boostMp', name: '強化魔力', icon: '💙', desc: '最大 魔力 +12%、魔力 恢復 +20%' },
   evasion: { id: 'evasion', name: '迴避', icon: '👟', desc: '迴避 +5、技能迴避 +5%' },
   longShot: { id: 'longShot', name: '遠射', icon: '🏹', desc: '弓射程 +100／弩射程 +50' },
   prayer: { id: 'prayer', name: '祈禱', icon: '✨', desc: '受到治療效果 +15%' },
   resistTrait: { id: 'resistTrait', name: '異常抗性', icon: '🛡️', desc: '減益與解除抗性 +10%' },
-  haste: { id: 'haste', name: '急速觸發', icon: '⚡', desc: '攻擊時有 2% 機率獲得 Atk.Spd +32%' },
-  defence: { id: 'defence', name: '防禦觸發', icon: '🛡️', desc: '受到攻擊時有 2% 機率獲得 P.Def／M.Def +24%' },
+  haste: { id: 'haste', name: '急速觸發', icon: '⚡', desc: '攻擊時有 2% 機率獲得 攻擊速度 +32%' },
+  defence: { id: 'defence', name: '防禦觸發', icon: '🛡️', desc: '受到攻擊時有 2% 機率獲得 物理防禦／魔法防禦 +24%' },
   criticalChance: { id: 'criticalChance', name: '暴擊觸發', icon: '💥', desc: '攻擊時有 2% 機率獲得暴擊率 +32%' },
   barrier: { id: 'barrier', name: '屏障（天界護盾）', icon: '🌟', desc: '受到攻擊時有 2% 機率獲得無敵天界護盾' },
   boostCp: { id: 'boostCp', name: '強化 CP', icon: '🛡️', desc: '最大 CP +20%、CP 恢復 +35%' },
   divineProtection: { id: 'divineProtection', name: '神聖防護', icon: '✝️', desc: '神聖與黑暗抗性 +30' },
   resistCritical: { id: 'resistCritical', name: '暴擊抗性', icon: '🛑', desc: '受到暴擊傷害 -10%' },
   resistAttribute: { id: 'resistAttribute', name: '元素抗性', icon: '🔥', desc: '元素抗性（火／水／風／地）+20' },
-  spirit: { id: 'spirit', name: '精神觸發', icon: '👻', desc: '受到攻擊時有 2% 機率獲得 P.Atk、M.Atk、Atk.Spd +8%' }
+  spirit: { id: 'spirit', name: '精神觸發', icon: '👻', desc: '受到攻擊時有 2% 機率獲得 物理攻擊、魔法攻擊、攻擊速度 +8%' }
 };
 
 export const DIVINE_TRANSFORMATIONS = {
