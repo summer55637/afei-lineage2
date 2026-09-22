@@ -233,7 +233,7 @@ const V2_STARTER_MAP = {
 export const V2_CONTENT_GAP_CLASSES = {
   'werewolf_0': {
     gapType: 'V2_NODE_ABSENT',
-    reason: '缺少 V2 節點：L2Wiki 資料集只有 1 個階段 0 技能（88401 直接打擊）；V2 目錄缺少 5 套技能樹。',
+    reason: '缺少第二版節點：技能資料集只有 1 個階段 0 技能（88401 直接打擊）；第二版目錄缺少 5 套技能樹。',
     authorizedSkillIds: ['direct_strike']
   },
   'werewolf_1': {
@@ -248,22 +248,22 @@ export const V2_CONTENT_GAP_CLASSES = {
   },
   'shineMakerBase': {
     gapType: 'V2_NODE_ABSENT',
-    reason: '缺少 V2 節點：階段 0 的矮人光輝工匠在 L2Wiki 資料集與 V2 目錄中都不存在。',
+    reason: '缺少第二版節點：階段 0 的矮人光輝工匠在技能資料集與第二版目錄中都不存在。',
     authorizedSkillIds: []
   },
   'spirit_0': {
     gapType: 'V2_NODE_ABSENT',
-    reason: '缺少 V2 節點：L2Wiki 資料集只有 2 個階段 0 技能（87701 火焰球、87702 冰霜球）；V2 目錄缺少 5 套技能樹。',
+    reason: '缺少第二版節點：技能資料集只有 2 個階段 0 技能（87701 火焰球、87702 冰霜球）；第二版目錄缺少 5 套技能樹。',
     authorizedSkillIds: ['fire_sphere', 'ice_sphere']
   },
   'marauderBase': {
     gapType: 'UNPROVEN_PROVENANCE',
-    reason: 'V2 節點存在，但技能來源尚未獲得驗證：CanonicalClassRegistryV2 中有此節點，但擷取資料集中缺少阿爾特亞的正式技能，闇天使技能目前仍處於隔離狀態。',
+    reason: '第二版節點存在，但技能來源尚未獲得驗證：職業登錄表中有此節點，但擷取資料集中缺少阿爾特亞的正式技能，闇天使技能目前仍處於隔離狀態。',
     authorizedSkillIds: []
   },
   'sayhaMageBase': {
     gapType: 'UNPROVEN_PROVENANCE',
-    reason: 'V2 節點存在，但技能來源尚未獲得驗證：CanonicalClassRegistryV2 中有此節點，但擷取資料集中缺少阿爾特亞的正式技能，人類法師暫用技能目前仍處於隔離狀態。',
+    reason: '第二版節點存在，但技能來源尚未獲得驗證：職業登錄表中有此節點，但擷取資料集中缺少阿爾特亞的正式技能，人類法師暫用技能目前仍處於隔離狀態。',
     authorizedSkillIds: []
   }
 };
@@ -1330,7 +1330,7 @@ export function normalizeAndValidateSkills(state, callbacks = {}) {
         spRefunded += Math.floor(baseCost * Math.pow(1.4, l));
       }
       if (callbacks.log) {
-        callbacks.log(`🛡️ 技能 [${def.name || sId}] 因與目前等級／職業不相容而被修正並移除（返還 +${spRefunded} 技能點）。`, 'system');
+        callbacks.log(`🛡️ 技能 [${def.name || '未知技能'}] 因與目前等級／職業不相容而被修正並移除（返還 +${spRefunded} 技能點）。`, 'system');
       }
     }
   }
