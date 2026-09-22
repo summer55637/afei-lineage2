@@ -155,7 +155,7 @@ export function renderHuntingUI(state) {
             <span style="font-size:10px; color:#ffd877; font-weight:bold;">x${count}</span>
           </div>
           <div style="font-size:10px; color:#94a3b8; margin-top:2px;">
-            ${lDef.desc} (${lDef.buyPrice}g cada)
+            ${lDef.desc} （每個 ${lDef.buyPrice}g）
           </div>
         </div>
         <div style="display:flex; gap:4px; align-items:center;">
@@ -171,7 +171,7 @@ export function renderHuntingUI(state) {
             ${count <= 0 ? 'disabled' : ''}
             style="padding:4px 8px; font-size:10px; font-weight:bold; background:${isSelected ? 'rgba(52,211,153,0.3)' : 'rgba(70,70,70,0.3)'}; border:1px solid ${isSelected ? '#34d399' : '#666'}; color:${isSelected ? '#6ee7b7' : count > 0 ? '#cbd5e1' : '#666'}; border-radius:4px; cursor:${count > 0 ? 'pointer' : 'not-allowed'};"
           >
-            ${isSelected ? 'SELECIONADA' : 'USAR'}
+            ${isSelected ? '已選擇' : '使用'}
           </button>
         </div>
       </div>
@@ -191,7 +191,7 @@ export function renderHuntingUI(state) {
         <p style="margin:0 0 16px 0; font-size:12px; color:#aaa;">獵物已擊倒！選擇現場處理方式。</p>
         
         <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
-          <button onclick="window.executeFieldButchering('pelt')" style="padding:12px 20px; font-family:'Cinzel',serif; font-size:13px; font-weight:bold; background:rgba(20,50,30,0.8); border:1px solid #34d399; color:#6ee7b7; border-radius:8px; cursor:pointer;">✂️ Esfolar Couro Intacto</button>
+          <button onclick="window.executeFieldButchering('pelt')" style="padding:12px 20px; font-family:'Cinzel',serif; font-size:13px; font-weight:bold; background:rgba(20,50,30,0.8); border:1px solid #34d399; color:#6ee7b7; border-radius:8px; cursor:pointer;">✂️ 完整剝取皮革</button>
           <button onclick="window.executeFieldButchering('trophy')" style="padding:12px 20px; font-family:'Cinzel',serif; font-size:13px; font-weight:bold; background:rgba(50,40,20,0.8); border:1px solid #fbbf24; color:#fde047; border-radius:8px; cursor:pointer;">🦴 取得骨頭與戰利品</button>
         </div>
       </div>
@@ -208,7 +208,7 @@ export function renderHuntingUI(state) {
     const windDef = WIND_DIRECTIONS[hState.windDirection] || WIND_DIRECTIONS.crosswind;
     const alertLvl = Math.round(hState.alertLevel || 0);
     const alertColor = alertLvl < 40 ? '#34d399' : alertLvl <= 75 ? '#fbbf24' : '#ef4444';
-    const alertText = alertLvl > 75 ? '緊急警告！' : 'Alerta';
+    const alertText = alertLvl > 75 ? '緊急警告！' : '警戒';
 
     stageHtml = `
       <div style="text-align:center; padding:20px; background:radial-gradient(circle, rgba(30,50,40,0.85) 0%, rgba(12,18,24,0.95) 100%); border:1px solid rgba(52,211,153,0.4); border-radius:12px; box-shadow:0 0 20px rgba(0,0,0,0.7);">
@@ -216,18 +216,18 @@ export function renderHuntingUI(state) {
           ${prey?.icon || '🐾'}
         </div>
         <h3 style="margin:0 0 4px 0; font-family:'Cinzel',serif; color:#6ee7b7; font-size:18px;">
-          ${prey?.name || 'Presa Rastreada'}
+          ${prey?.name || '已追蹤獵物'}
           <span style="font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(52,211,153,0.2); border:1px solid #34d399; color:#a7f3d0; margin-left:6px;">
             ${activeTacticDef.icon} ${activeTacticDef.name}
           </span>
         </h3>
         <p style="margin:0 0 12px 0; font-size:11px; color:#aaa;">
-          Peso estimado: <strong style="color:#f4d58a;">${prey?.weightRange}</strong> | Rendimento: <strong style="color:#cbd5e1;">${prey?.skinYield?.primary?.toUpperCase()}</strong>
+          預估重量：<strong style="color:#f4d58a;">${prey?.weightRange}</strong> | 主要產出：<strong style="color:#cbd5e1;">${prey?.skinYield?.primary?.toUpperCase()}</strong>
         </p>
 
         <div style="margin-bottom:12px; display:flex; justify-content:center; gap:16px;">
           <div style="font-size:12px; font-weight:bold; color:#93c5fd;">
-            ${windDef.icon} Vento: ${windDef.name}
+            ${windDef.icon} 風向：${windDef.name}
           </div>
           <div style="font-size:12px; font-weight:bold; color:${alertColor};">
             ⚠️ ${alertText} (${alertLvl}%)
@@ -261,7 +261,7 @@ export function renderHuntingUI(state) {
               letter-spacing: 0.05em;
             "
           >
-            ${isReady ? '🔪 ABATER PRESA' : '🐾 ENCURRALANDO...'}
+            ${isReady ? '🔪 處理獵物' : '🐾 包圍獵物中...'}
           </button>
         </div>
       </div>
@@ -293,7 +293,7 @@ export function renderHuntingUI(state) {
           🏕️
         </div>
         <h3 style="margin:0 0 6px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:16px;">
-          Acampamento em ${activeZone.name}
+          ${activeZone.name} 狩獵營地
         </h3>
         <p style="margin:0 0 14px 0; font-size:11px; color:#aaa; max-width:400px; margin-left:auto; margin-right:auto; line-height:1.4;">
           ${activeZone.description} 選擇狩獵方式並追蹤野獸，以取得材料。
@@ -321,7 +321,7 @@ export function renderHuntingUI(state) {
             letter-spacing: 0.05em;
           "
         >
-          ${isKnifeDull ? '⚠️ FACA CEGA (AFIAR PRIMEIRO)' : '🐾 RASTREAR PRESA'}
+          ${isKnifeDull ? '⚠️ 獵刀已鈍（請先磨利）' : '🐾 追蹤獵物'}
         </button>
       </div>
     `;
@@ -341,7 +341,7 @@ export function renderHuntingUI(state) {
             <span style="font-size:10px; color:#34d399; font-weight:bold;">擊殺： ${huntedCount}x</span>
           </div>
           <div style="font-size:10px; color:#aaa; margin-top:2px;">
-            Troca: <strong>${pDef.exchangeRate}x</strong> presas ➔ +1 <strong style="color:#ffd877;">${pDef.exchangeRewardName}</strong>
+            兌換：<strong>${pDef.exchangeRate}</strong> 份獵物 ➔ +1 <strong style="color:#ffd877;">${pDef.exchangeRewardName}</strong>
           </div>
         </div>
         <button 
@@ -349,7 +349,7 @@ export function renderHuntingUI(state) {
           ${!canExchange ? 'disabled' : ''}
           style="padding:5px 10px; font-size:10px; font-weight:bold; background:${canExchange ? 'rgba(52,211,153,0.2)' : 'rgba(50,50,50,0.3)'}; border:1px solid ${canExchange ? '#34d399' : '#555'}; color:${canExchange ? '#6ee7b7' : '#666'}; border-radius:4px; cursor:${canExchange ? 'pointer' : 'not-allowed'};"
         >
-          CURTIR PELE
+          加工皮革
         </button>
       </div>
     `;
@@ -369,13 +369,13 @@ export function renderHuntingUI(state) {
               🐾 野外狩獵與製革
             </h3>
             <p style="margin:4px 0 0 0; font-size:12px; color:#aaa;">
-              Rastreie feras ancestrais pelos ermos de Aden, esfolando couros e ossos nobres para a Forja Imperial!
+              追蹤亞丁荒野中的古老野獸，取得珍貴皮革與骨材，供帝國鍛造使用！
             </p>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(52,211,153,0.3); border-radius:8px; padding:6px 14px; text-align:center;">
               <div style="font-size:10px; color:#aaa; text-transform:uppercase;">狩獵等級</div>
-              <div style="font-size:16px; font-weight:bold; color:#6ee7b7; font-family:'Cinzel',serif;">Nv. ${skillLvl} / 30</div>
+              <div style="font-size:16px; font-weight:bold; color:#6ee7b7; font-family:'Cinzel',serif;">等級 ${skillLvl} / 30</div>
             </div>
             <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(212,167,68,0.3); border-radius:8px; padding:6px 14px; text-align:center;">
               <div style="font-size:10px; color:#aaa; text-transform:uppercase;">已登錄怪物圖鑑</div>
@@ -425,7 +425,7 @@ export function renderHuntingUI(state) {
                 </span>
               </div>
               <p style="margin:2px 0 0 0; font-size:10px; color:#aaa;">
-                Rastreia e esfola presas automaticamente enquanto o jogo roda ou em segundo plano.
+                遊戲開啟或在背景執行時，自動追蹤並處理獵物。
               </p>
             </div>
             <button 
@@ -443,7 +443,7 @@ export function renderHuntingUI(state) {
                 cursor: ${isAfkUnlocked ? 'pointer' : 'not-allowed'};
               "
             >
-              ${isAfkActive ? '⏸️ PAUSAR AFK' : '▶️ ATIVAR AFK'}
+              ${isAfkActive ? '⏸️ 暫停自動狩獵' : '▶️ 開啟自動狩獵'}
             </button>
           </div>
         </div>
@@ -464,7 +464,7 @@ export function renderHuntingUI(state) {
                 ${!isKnifeDull && durPct >= 100 ? 'disabled' : ''}
                 style="padding:6px 12px; font-size:11px; font-weight:bold; background:linear-gradient(180deg,#fbbf24,#b45309); border:1px solid #fde047; color:#000; border-radius:6px; cursor:pointer;"
               >
-                🪨 AFIAR FACA
+                🪨 磨利獵刀
               </button>
             </div>
 
