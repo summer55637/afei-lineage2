@@ -202,7 +202,7 @@ export function processRaidBossMechanics(state, callbacks = {}) {
           callbacks.log(`⚠️ **[致命蓄力]** ${m.name} 正在準備 **${m.fatalSkill.name}**！請在 ${Math.round(fatalDuration / 1000)} 秒內使用破勢攻擊中斷！`, 'rarity-legendary');
         }
         if (callbacks.floatText) {
-          callbacks.floatText(`⚠️ 致命蓄力! (${Math.round(fatalDuration / 1000)}s)`, 'sf-crit');
+          callbacks.floatText(`⚠️ 致命蓄力！（${Math.round(fatalDuration / 1000)} 秒）`, 'sf-crit');
         }
         break;
       }
@@ -217,7 +217,7 @@ export function processRaidBossMechanics(state, callbacks = {}) {
         state.hp = Math.max(0, state.hp - fatalDmg);
 
         if (callbacks.log) {
-          callbacks.log(`💀 **[致命技能未打斷]** ${m.name} 施放 **${m.fatalSkill.name}**，造成 **${fatalDmg.toLocaleString()} 致命傷害**（最大 HP 的 60%）！`, 'rarity-legendary');
+          callbacks.log(`💀 **[致命技能未打斷]** ${m.name} 施放 **${m.fatalSkill.name}**，造成 **${fatalDmg.toLocaleString()} 致命傷害**（最大生命值的 60%）！`, 'rarity-legendary');
         }
         if (callbacks.floatText) {
           callbacks.floatText(`💀 ${fatalDmg} 致命傷害！`, 'sf-crit');
@@ -243,7 +243,7 @@ export function processRaidBossMechanics(state, callbacks = {}) {
     }
 
     if (callbacks.log) {
-      callbacks.log(`🔥 **[極限狂暴]** ${m.name} 進入狂暴狀態！破壞力提升（ATK +30%、速度 +25%）！`, 'rarity-legendary');
+      callbacks.log(`🔥 **[極限狂暴]** ${m.name} 進入狂暴狀態！破壞力提升（攻擊力 +30%、速度 +25%）！`, 'rarity-legendary');
     }
     if (callbacks.floatText) {
       callbacks.floatText('🔥 狂暴已啟動！', 'sf-crit');
@@ -271,7 +271,7 @@ export function processRaidBossMechanics(state, callbacks = {}) {
           const heal = Math.floor(m._maxHp * mech.healPercent);
           m.hp = Math.min(m._maxHp, m.hp + heal);
           if (callbacks.log && !mech.damagePercent) {
-            callbacks.log(`${mech.text} (+${heal.toLocaleString()} HP)`, 'rarity-epic');
+            callbacks.log(`${mech.text}（+${heal.toLocaleString()} 生命值）`, 'rarity-epic');
           }
         }
       }
