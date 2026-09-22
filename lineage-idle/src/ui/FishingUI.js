@@ -405,7 +405,7 @@ export function renderFishingUI(state) {
               ${fDef.name} <span style="font-size:10px; color:${rarityBadgeColor}; text-transform:uppercase;">[${fDef.rarity}]</span>
             </div>
             <div style="font-size:10px; color:#cbd5e1;">
-              持有：<strong style="color:#38bdf8;">${count}x</strong> | 兌換：<strong>${rate}x</strong> ➔ <span style="color:#ffd700; font-weight:bold;">1x ${fDef.materialName}</span>
+              持有：<strong style="color:#38bdf8;">${count}×</strong> | 兌換：<strong>${rate}×</strong> ➔ <span style="color:#ffd700; font-weight:bold;">1× ${fDef.materialName}</span>
             </div>
           </div>
         </div>
