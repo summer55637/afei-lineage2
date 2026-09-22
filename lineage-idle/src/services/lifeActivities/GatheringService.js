@@ -481,11 +481,11 @@ export const GatheringService = {
       const qualityPrefix = quality.tier === 'perfect' ? '🌸 **完美採集！**'
         : quality.tier === 'excellent' ? '✨ **優秀採集！**'
         : '✓ 採集完成：';
-      callbacks.log(`🌿 ${qualityPrefix} 採集 **${node.name}** [${quality.name}]！獲得 +${primaryQty}x ${primaryDisplayName}${secMat && secQty > 0 ? ` 與 +${secQty}x ${secondaryDisplayName}` : ''}！（+${finalXp} 採集 XP）`, 'loot');
+      callbacks.log(`🌿 ${qualityPrefix} 採集 **${node.name}** [${quality.name}]！獲得 +${primaryQty}× ${primaryDisplayName}${secMat && secQty > 0 ? ` 與 +${secQty}× ${secondaryDisplayName}` : ''}！（+${finalXp} 採集經驗值）`, 'loot');
     }
 
     if (callbacks.floatText) {
-      callbacks.floatText(`+${primaryQty}x ${primaryDisplayName}`, 'float-gold');
+      callbacks.floatText(`+${primaryQty}× ${primaryDisplayName}`, 'float-gold');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -592,7 +592,7 @@ export const GatheringService = {
     LifeActivityCore.addXp(state, 'gathering', totalXp, callbacks);
 
     if (callbacks.log) {
-      callbacks.log(`💤 **離線採集報告（${clampedMinutes} 分鐘）：**在亞丁採集了 ${actualHarvests} 叢植物！（+${totalXp} 採集 XP）`, 'rarity-legendary');
+      callbacks.log(`💤 **離線採集報告（${clampedMinutes} 分鐘）：**在亞丁採集了 ${actualHarvests} 叢植物！（+${totalXp} 採集經驗值）`, 'rarity-legendary');
     }
 
     return { actualHarvests, matsGained, totalXp };
