@@ -80,7 +80,7 @@ function renderResonancesCatalogHtml() {
           +1.240 每組啟用組合的標準 CP
         </span>
       </div>
-      <input type="text" placeholder="🔍 Filtrar por nome da ressonância ou arma (ex: Arco, Cajado, Lança, Adaga)..." oninput="const q = this.value.toLowerCase(); this.parentElement.querySelectorAll('.res-guide-card').forEach(c => { c.style.display = c.textContent.toLowerCase().includes(q) ? 'block' : 'none'; });" style="width: 100%; box-sizing: border-box; padding: 7px 10px; font-size: 11px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212,167,68,0.3); border-radius: 6px; color: #fff; margin-bottom: 8px; font-family: sans-serif; outline: none;" />
+      <input type="text" placeholder="🔍 依共鳴或武器名稱篩選（例如：弓、法杖、長槍、匕首）..." oninput="const q = this.value.toLowerCase(); this.parentElement.querySelectorAll('.res-guide-card').forEach(c => { c.style.display = c.textContent.toLowerCase().includes(q) ? 'block' : 'none'; });" style="width: 100%; box-sizing: border-box; padding: 7px 10px; font-size: 11px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212,167,68,0.3); border-radius: 6px; color: #fff; margin-bottom: 8px; font-family: sans-serif; outline: none;" />
       <div style="max-height: 480px; overflow-y: auto; padding-right: 4px; scrollbar-width: thin;">
         ${cards}
       </div>
@@ -102,94 +102,94 @@ export const GUIDES_DATA = {
         tip: '提示：綠色標示的區域能提供最高 XP 效率，風險也較低！'
       },
       {
-        heading: '⚡ Combat Power (CP) Canônico & Gates',
-        text: 'Cada zona de caça possui uma meta de Poder de 戰鬥 (CP). Se o seu CP estiver abaixo do recomendado, o combate será muito perigoso. Suba seu CP aprimorando armas, conjuntos de armadura, Soul Crystals e elixires.',
-        tip: 'O CP considera 15 pilares do seu personagem para refletir seu verdadeiro poder de batalha.'
+        heading: '⚡ 標準戰鬥力（CP）與門檻',
+        text: '每個狩獵區都有建議戰鬥力（CP）。若低於建議值，戰鬥風險會大幅提高。可透過提升武器、防具套裝、靈魂水晶與靈藥來增加 CP。',
+        tip: 'CP 會綜合角色 15 個戰力面向，反映實際戰鬥能力。'
       },
       {
-        heading: '🧪 Auto-Poções & Soulshots',
-        text: 'No topo da tela de combate, ative Poções Automáticas de HP/MP e Soulshots/Spiritshots. Soulshots dobram seu P.Atk e Spiritshots dobram seu M.Atk em cada golpe.',
-        tip: 'Mantenha seus shots ativos durante lutas contra Chefes e Raids para máximo dano!'
+        heading: '🧪 自動藥水與魂彈',
+        text: '可在戰鬥畫面上方啟用 HP／MP 自動藥水與魂彈／魔靈彈。魂彈可強化 P.Atk，魔靈彈可強化 M.Atk。',
+        tip: '挑戰首領與團隊副本時保持彈藥啟用，可發揮更高傷害！'
       },
       {
-        heading: '🎁 Drops de Caça & Streak',
-        text: 'Ao derrotar monstros, você ganha XP, SP, Adena e pode dropar consumíveis, materiais e equipamentos raros. Matar vários monstros em sequência ativa o Bônus de Streak!',
-        tip: '裝備 têm taxa de drop rara (0.3% a 0.6%). Monstros Elites e Chefes têm taxas multiplicadas!'
+        heading: '🎁 狩獵掉落與連殺',
+        text: '擊敗怪物可獲得 XP、SP、金幣，並有機會掉落消耗品、材料與稀有裝備。連續擊殺怪物可啟動連殺加成！',
+        tip: '裝備掉落率較低（0.3%～0.6%）；菁英怪與首領的掉落率會提高！'
       }
     ]
   },
 
   character: {
     id: 'character',
-    title: '👤 角色, Atributos & Subclasses',
-    subtitle: 'Entenda como funcionam os atributos primários, avanço de classes e certificações de subclasse.',
+    title: '👤 角色、屬性與副職業',
+    subtitle: '了解主要屬性、職業晉升與副職業認證的運作方式。',
     icon: '👤',
     color: '#ffd877',
     sections: [
       {
-        heading: '📊 Atributos Primários (Dyes & Stats L2)',
-        text: '• **STR**: Aumenta o Ataque Físico (P.Atk).\n• **DEX**: Aumenta Chance Crítica, Velocidade de Ataque e Esquiva.\n• **CON**: Aumenta HP Máximo e Defesa Física.\n• **INT**: Aumenta o Ataque Mágico (M.Atk).\n• **WIT**: Aumenta Velocidade de Cast e Chance Crítica Mágica.\n• **MEN**: Aumenta MP Máximo e Defesa Mágica.',
-        tip: 'Você pode usar Tatuagens (Dyes) na Forja para transferir até +5 pontos em um atributo!'
+        heading: '📊 主要屬性（染料與 L2 屬性）',
+        text: '• **STR**：提升物理攻擊（P.Atk）。\n• **DEX**：提升暴擊率、攻擊速度與迴避。\n• **CON**：提升最大 HP 與物理防禦。\n• **INT**：提升魔法攻擊（M.Atk）。\n• **WIT**：提升施法速度與魔法暴擊率。\n• **MEN**：提升最大 MP 與魔法防禦。',
+        tip: '你可以在鍛造介面使用染料紋身，最多將單一屬性提高 +5！'
       },
       {
-        heading: '⚡ Avanço de Classes Canônico',
-        text: '• **1ª Mudança de Classe**: Nível 20 (Libera novas perícias e equipamentos D-Grade)\n• **2ª Mudança de Classe**: Nível 40 (Especialização avançada e equipamentos C-Grade)\n• **3ª Classe & Awakening**: Nível 76+ (Poder total de mestre e armas S-Grade)\n• **Subclasses (Lv. 75+)**: Desbloqueie até 3 subclasses adicionais!',
-        tip: 'Ao evoluir subclasses até os níveis 65, 75 e 80, você conquista Certificados de Subclasse que transferem atributos permanentes para sua classe principal!'
+        heading: '⚡ 標準職業晉升',
+        text: '• **第一次轉職**：等級 20（解鎖新技能與 D 級裝備）\n• **第二次轉職**：等級 40（進階專精與 C 級裝備）\n• **第三職業與覺醒**：等級 76+（完整大師能力與 S 級武器）\n• **副職業（Lv.75+）**：最多解鎖 3 個額外副職業！',
+        tip: '將副職業提升至 65、75、80 級可取得副職業認證，並把永久屬性加成套用到主職業！'
       },
       {
-        heading: '💎 Poder de 戰鬥 Canônico (CP)',
+        heading: '💎 標準戰鬥力（CP）',
         text: 'O CP do herói reflete fielmente a soma de:\n1. Atributos Base por Raça/Classe\n2. Nível do Herói\n3. Poder de Ataque & Magia das Armas\n4. Defesa Física & Mágica do Set\n5. Níveis de Encantamento (+1 a +16)\n6. Soul Crystals (SA - Focus, Health, Acumen)\n7. Joias Épicas de Boss (Queen Ant, Baium, Valakas)\n8. Atributos Elementais de Arma e Armadura\n9. 技能 Passivas e Mestrias de Arma\n10. Maestria Astral (Dragão & Fênix)\n11. Elixires Permanentes de Alquimia\n12. 技能 de 血盟 (Imperium, Might, Shield)\n13. Coleções Completas no Codex\n14. Boss Dolls Equipadas & Sintetizadas\n15. Certificações de Subclasse',
-        tip: 'Foque em equilibrar todos os 15 pilares para alcançar os tiers Prata, Ouro, Platina e Diamante!'
+        tip: '均衡提升 15 個戰力面向，即可逐步達到白銀、黃金、白金與鑽石階級！'
       }
     ]
   },
 
   inventory: {
     id: 'inventory',
-    title: '🎒 Inventário, Filtros & Sistema de Compound',
-    subtitle: 'Gerencie seus equipamentos, poções e fusões de itens.',
+    title: '🎒 背包、篩選與合成系統',
+    subtitle: '管理裝備、藥水與物品合成。',
     icon: '🎒',
     color: '#a855f7',
     sections: [
       {
         heading: '🗡️ 裝備 & Graus (Grades)',
         text: 'Os itens são divididos em Graus pelo seu Nível:\n• **No-Grade**: Nível 1 ao 19\n• **D-Grade**: Nível 20 ao 39\n• **C-Grade**: Nível 40 ao 51\n• **B-Grade**: Nível 52 ao 61\n• **A-Grade**: Nível 62 ao 75\n• **S-Grade / Frost Lord**: Nível 76 ao 85+',
-        tip: 'Equipe sempre o melhor Grau compatível com seu nível atual para ter bônus de Set!'
+        tip: '盡量裝備目前等級可使用的最高品級，以取得更好的套裝加成！'
       },
       {
-        heading: '🧪 Sistema de Compound (Fusão)',
-        text: 'Clique no botão **🧪 COMPOUND** no topo do inventário para fundir 2 equipamentos idênticos do mesmo nível. Em caso de sucesso, o item evolui de nível (Lv.1 ➔ Lv.2) e ganha **+15% de bônus de atributos por nível**.',
-        tip: 'Em caso de falha no Compound, o item principal permanece seguro e apenas o ingrediente é consumido!'
+        heading: '🧪 裝備合成系統',
+        text: '點擊背包上方的 **🧪 合成**，可將 2 件相同且同等級的裝備融合。成功後物品會升級（Lv.1 ➔ Lv.2），每級獲得 **+15% 屬性加成**。',
+        tip: '合成失敗時主物品不會損壞，只會消耗素材物品！'
       },
       {
         heading: '🧹 Auto-Venda & Desmontar',
-        text: 'Utilize os botões de seleção no rodapé para marcar itens Comuns e Incomuns em lote para Vender ou Desmontar em materiais de criação.',
-        tip: 'Ative a Auto-Venda no topo para vender automaticamente equipamentos comuns obtidos na caça.'
+        text: '使用底部批次選取按鈕，可一次勾選普通與優良物品進行出售或分解成製作材料。',
+        tip: '啟用上方的自動出售，可自動賣掉狩獵取得的普通裝備。'
       },
       {
-        heading: '⚡ Dual Arsenal & Ressonância de Armas',
-        text: 'Equipar duas armas sinérgicas ativa a **Ressonância de Armas**, concedendo **+1.240 CP**, bônus passivos e procs de combate.\n\nConsulte a aba **⚡ Ressonâncias** no topo deste modal para ver o catálogo completo com todas as 27 combinações!',
-        tip: 'O banner dourado no topo do inventário mostra qual ressonância está ativa no momento.'
+        heading: '⚡ 雙武器庫與武器共鳴',
+        text: '裝備兩把具有協同效果的武器可啟動 **武器共鳴**，獲得 **+1,240 CP**、被動加成與戰鬥觸發效果。\n\n可在此視窗上方的 **⚡ 共鳴** 分頁查看全部 27 種組合！',
+        tip: '背包頂部的金色橫幅會顯示目前啟用的武器共鳴。'
       }
     ]
   },
 
   resonance: {
     id: 'resonance',
-    title: '⚡ Ressonâncias do Dual Arsenal (27 Combinações)',
-    subtitle: 'Equipe armas sinérgicas no Slot 1 e Slot 2 para desbloquear passivas únicas e procs de combate.',
+    title: '⚡ 雙武器庫共鳴（27 種組合）',
+    subtitle: '在欄位 1 與欄位 2 裝備具有協同效果的武器，可解鎖獨特被動與戰鬥觸發效果。',
     icon: '⚡',
     color: '#eab308',
     sections: [
       {
-        heading: '⚔️ Como Funciona a Ressonância de Armas?',
+        heading: '⚔️ 武器共鳴如何運作？',
         text: 'O sistema de **Dual Arsenal** permite que o herói equipe uma arma primária no **Slot 1 (Arma)** e uma arma secundária ou escudo no **Slot 2 (Secundária / Escudo)**.\n\nQuando as armas equipadas formam uma combinação compatível, a Ressonância é ativada instantaneamente:\n• **+1.240 Pontos de Combat Power (CP)** no cálculo canônico do personagem.\n• **Bônus de Atributos Passivos** (+20% P.Def, +15% Atk.Spd, +12% Cast.Spd, Evasão, Chance Crítica, etc.).\n• **Procs Táticos de 戰鬥** aplicados no monstro em tempo real (Fratura Tática, Estocada Perfurante, Lentidão, Detonação de Toxinas, Redução de Armadura e Dano Elemental Híbrido).\n• **Balanceamento Focado 1v1**: Todas as 27 ressonâncias foram calibradas para combate individual focado, sem habilidades de área (AoE) quebradas.',
-        tip: 'Verifique sua ressonância ativa no banner dourado no topo da Mochila (Inventário)!'
+        tip: '可在背包頂部的金色橫幅查看目前啟用的共鳴！'
       },
       {
-        heading: '📜 Catálogo das 27 Ressonâncias de Armas',
+        heading: '📜 27 種武器共鳴圖鑑',
         customHtml: renderResonancesCatalogHtml(),
-        tip: 'Experimente trocar sua arma secundária: use Escudo para defesa ou Adaga/Dual para críticos rápidos!'
+        tip: '可以嘗試更換副武器：使用盾牌提升防禦，或使用匕首／雙刀追求高速暴擊！'
       },
       {
         heading: '🛡️ Regras de Compatibilidade & Dicas Táticas',
