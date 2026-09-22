@@ -19,7 +19,7 @@ function formatPassiveLabel(statKey, val) {
     castSpd: `+${val}% Cast.Spd`,
     eva: `+${val} 迴避`,
     staggerDmgPct: `+${val}% Stagger`,
-    bossDmgPct: `+${val}% Boss Dmg`,
+    bossDmgPct: `+${val}% 首領傷害`,
     lifeDrain: `+${val}% Life Drain`,
     healBoostPct: `+${val}% Cura`,
     damageReductionPct: `-${val}% 受到傷害`,
@@ -224,7 +224,7 @@ export const GUIDES_DATA = {
       {
         heading: '📖 Árvore de 技能',
         text: '消耗技能點數（SP）學習並升級職業的主動與被動技能。被動技能會提供永久加成。',
-        tip: '技能 de dano utilizam a autêntica fórmula de dano físico de RPG clássico (Multiplicador de constante 77/70).'
+        tip: '傷害技能使用經典 RPG 的正式物理傷害公式（固定倍率 77/70）。'
       },
       {
         heading: '⚡ 技能充能（Charge Lv.1～8）',
@@ -249,12 +249,12 @@ export const GUIDES_DATA = {
       {
         heading: '🧪 Consumíveis de Sobrevivência',
         text: '補充 HP 藥水（P、M、G、XL）、MP 藥水與 Soulshots／Spiritshots，避免自動戰鬥因補給不足而中斷。',
-        tip: 'Poções de tamanho XL restauram uma grande quantidade de HP de forma instantânea durante Raids!'
+        tip: 'XL 藥水可在 Raid 戰鬥中瞬間恢復大量 HP！'
       },
       {
         heading: '🔮 市場 Místico Rotativo',
         text: '神秘市場會定時刷新特殊商品，包括首領飾品與稀有材料。',
-        tip: 'Fique atento aos estoques limitados do 市場 Místico para adquirir fragmentos de joias épicas!'
+        tip: '留意神秘市場的限量庫存，可取得史詩飾品碎片！'
       }
     ]
   },
@@ -279,7 +279,7 @@ export const GUIDES_DATA = {
       {
         heading: '✨ Mestre Pushkin MW (Masterwork)',
         text: '將一般裝備交給 Pushkin 大師，可鍛造成 **Masterwork（MW）** 版本，獲得額外屬性加成與閃耀特效。',
-        tip: 'Itens Masterwork possuem multiplicadores superiores aos itens base!'
+        tip: 'Masterwork 裝備的倍率會高於一般基礎裝備！'
       },
       {
         heading: '🔥 元素屬性（最高 +300）',
@@ -316,19 +316,19 @@ export const GUIDES_DATA = {
 
   astral: {
     id: 'astral',
-    title: '✨ Maestria Astral & Constelações',
+    title: '✨ 星界精通與星座',
     subtitle: 'Canalize o poder das estrelas nas Constelações do Dragão e da Fênix.',
     icon: '✨',
     color: '#ec4899',
     sections: [
       {
         heading: '🐉 龍之星座（攻擊）',
-        text: 'Gaste Fragmentos Astrais para evoluir nós de Fúria Titânica (+P.Atk), Chama Arcana (+M.Atk), Golpe Mortal (+Crit Chance) e Lâmina Suprema (+Crit Dmg).',
+        text: '消耗星界碎片可強化泰坦之怒（+P.Atk）、奧術火焰（+M.Atk）、致命一擊（+暴擊率）與至尊之刃（+暴擊傷害）節點。',
         tip: '如果想加快狩獵速度，可以優先投資龍之星座！'
       },
       {
         heading: '🦅 鳳凰星座（防禦）',
-        text: 'Evolua Sangue da Fênix (+HP%), Mente Iluminada (+MP%), Éter Sagrado (+Regen MP) e Escudo Divino (+P.Def/M.Def).',
+        text: '強化鳳凰之血（+HP%）、啟明心智（+MP%）、神聖乙太（+MP 恢復）與神聖護盾（+P.Def／M.Def）。',
         tip: '面對高強度團隊首領時，鳳凰星座是重要的生存來源。'
       }
     ]
@@ -342,7 +342,7 @@ export const GUIDES_DATA = {
     color: '#8b5cf6',
     sections: [
       {
-        heading: '🌱 Sistema de Manor (Sementes & Colheita)',
+        heading: '🌱 莊園系統（種子與收成）',
         text: '購買莊園種子，在狩獵區播種並於擊敗怪物後收成，再到城鎮兌換稀有製作材料。',
         tip: 'O Manor é uma das formas mais baratas de conseguir minérios e tecidos raros!'
       },
@@ -442,12 +442,12 @@ export const GUIDES_DATA = {
     color: '#ef4444',
     sections: [
       {
-        heading: '👹 Chefes Épicos Clássicos (Queen Ant, Baium, Valakas...)',
-        text: 'Desafie chefes lendários como Queen Ant, Core, Orfen, Zaken, Baium, Antharas e Valakas. Cada chefe possui atributos elementais e resistências próprias.',
+        heading: '👹 經典史詩首領（蟻后、巴溫、瓦拉卡斯……）',
+        text: '挑戰蟻后、Core、Orfen、札肯、巴溫、安塔瑞斯與瓦拉卡斯等傳說首領。每位首領都有自己的元素屬性與抗性。',
         tip: '首領會掉落史詩飾品、祝福卷軸、生命石與大量 SP！'
       },
       {
-        heading: '⚡ Mecânica de Postura & Janela de BREAK',
+        heading: '⚡ 姿態機制與 BREAK 時機',
         text: '持續攻擊與元素技能會削減首領姿態值。姿態條歸零時，首領進入 **BREAK**：暈眩 4 秒，並承受 **+50% 額外傷害**！',
         tip: '把最強技能與 Soulshots 留到 BREAK 期間一次爆發！'
       },
@@ -461,15 +461,15 @@ export const GUIDES_DATA = {
 
   colosseum: {
     id: 'colosseum',
-    title: '👑 Coliseu, Duelos & Grande Olimpíada',
+    title: '👑 競技場、決鬥與奧林匹亞',
     subtitle: '與其他冒險者較量，爭取亞丁貴族英雄稱號。',
     icon: '👑',
     color: '#f59e0b',
     sections: [
       {
-        heading: '⚔️ Duelos 1v1 do Coliseu',
+        heading: '⚔️ 競技場 1v1 決鬥',
         text: 'Enfrente cópias em tempo real de outros jogadores baseadas em Combat Power (CP) e Ranking. Vencer duelos concede Pontos de Honra e melhora seu posicionamento.',
-        tip: 'Ajuste seus equipamentos e ative auto-shots antes de iniciar qualquer combate na arena!'
+        tip: '進入競技場前記得調整裝備並開啟自動魂彈！'
       },
       {
         heading: '🏛️ A Grande Olimpíada (Ciclos Mensais)',
