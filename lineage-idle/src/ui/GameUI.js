@@ -2853,7 +2853,7 @@ function ensureHeroStructure() {
       </div>
       <div id="hero-mp-bar" class="stage-mp-bar stage-mp-bar-hero">
         <div id="hero-mp-fill" class="stage-mp-fill stage-mp-fill-hero"></div>
-        <span id="hero-mp-text" class="stage-mp-text stage-mp-text-hero">MP: 0 / 0</span>
+        <span id="hero-mp-text" class="stage-mp-text stage-mp-text-hero">魔力：0 / 0</span>
       </div>
       <div id="hero-sprite-container" class="hero-sprite-host"></div>
     `;
@@ -8275,7 +8275,7 @@ export function renderForgeLifestones(container, state) {
             window._enhanceTargetUid = '${w.uid}';
             renderForgeLifestones(document.getElementById('craft-recipes-container') || document.getElementById('craft-list'), window.state);
           "
-          title="${w.name || w.itemId} ${w.enchant ? `+${w.enchant}` : ''} ${w.equipped ? '[Equipada]' : ''}"
+          title="${w.name || w.itemId} ${w.enchant ? `+${w.enchant}` : ''} ${w.equipped ? '[已裝備]' : ''}"
         >
           <div class="equip-icon" style="font-size:24px;">${getItemIcon(itemDef)}</div>
           ${w.enchant ? `<span class="l2comp-mat-lvl">+${w.enchant}</span>` : ''}
@@ -9225,8 +9225,8 @@ export function uiOpenPixCheckoutModal(tierId, state) {
       <div style="background:rgba(30,41,59,0.5); border:1px solid rgba(148,163,184,0.2); border-radius:8px; padding:12px; font-size:11px; color:#cbd5e1; line-height:1.5; margin-bottom:16px;">
         <div style="font-weight:bold; color:#fde047; margin-bottom:4px;">📌 啟用說明：</div>
         1. 複製上方 Pix 金鑰，並支付 <strong>${tier.priceBRL}</strong>。<br/>
-        2. No campo de descrição/mensagem do Pix, coloque: <strong>${playerName}</strong>.<br/>
-        3. Envie o comprovante em nosso canal oficial no Discord na sala <strong>#recargas-pix</strong> para aprovação em minutos!
+        2. 在 Pix 的說明／留言欄填入：<strong>${playerName}</strong>。<br/>
+        3. 請將付款憑證傳到 Discord 官方頻道的 <strong>#recargas-pix</strong> 房間，等待審核！
       </div>
 
       <div style="display:flex; gap:10px;">
