@@ -25,18 +25,18 @@ export const WEAPON_TYPE_ARCHETYPES = {
 
 // ─── Labels de UI por tipo ──────────────────────────────────────────────────
 export const ARMOR_TYPE_LABEL = {
-  heavy: { icon: '🛡', name: 'Armadura Pesada',  hint: 'Apenas Fighters' },
-  light: { icon: '🏹', name: 'Armadura Leve',    hint: 'Rogues / Arqueiros / Assassinos' },
-  robe:  { icon: '🧙', name: 'Manto Mágico',     hint: 'Magos / Healers' },
+  heavy: { icon: '🛡', name: '重型防具',  hint: '僅限戰士系' },
+  light: { icon: '🏹', name: '輕型防具',    hint: '盜賊／弓手／刺客系' },
+  robe:  { icon: '🧙', name: '法袍',     hint: '法師／治癒系' },
 };
 
 export const WEAPON_TYPE_LABEL = {
-  bow:    { icon: '🏹', name: 'Arco',           hint: 'Arqueiros / Rogues' },
-  staff:  { icon: '🪄', name: 'Cajado',          hint: 'Magos / Healers' },
-  dagger: { icon: '🗡', name: 'Adaga',           hint: 'Rogues / Assassinos' },
-  melee:  { icon: '⚔',  name: 'Corpo-a-corpo',  hint: 'Fighters / Rogues' },
-  blunt:  { icon: '🔨', name: 'Maça / Martelo', hint: 'Fighters / Healers' },
-  spear:  { icon: '🔱', name: 'Lança',           hint: 'Fighters' },
+  bow:    { icon: '🏹', name: '弓',           hint: '弓手／盜賊系' },
+  staff:  { icon: '🪄', name: '法杖',          hint: '法師／治癒系' },
+  dagger: { icon: '🗡', name: '匕首',           hint: '盜賊／刺客系' },
+  melee:  { icon: '⚔',  name: '近戰武器',  hint: '戰士／盜賊系' },
+  blunt:  { icon: '🔨', name: '鈍器／戰鎚', hint: '戰士／治癒系' },
+  spear:  { icon: '🔱', name: '長槍',           hint: '戰士系' },
 };
 
 // ─── Inferência de Tipo por Nome ────────────────────────────────────────────
@@ -152,7 +152,7 @@ export function canEquipByType(playerClassId, itemDef, classSatisfiesFn) {
   // 1. Requisito de classe explícito (se especificado explicitamente no item)
   if (itemDef.classReq) {
     const ok = classSatisfiesFn ? classSatisfiesFn(playerClassId, itemDef.classReq) : true;
-    if (!ok) return { ok: false, reason: `Requer classe: ${itemDef.classReq}` };
+    if (!ok) return { ok: false, reason: `需要職業：${itemDef.classReq}` };
   }
 
   // 2. Armas e armaduras são 100% livres para todas as classes
