@@ -1972,10 +1972,10 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
 
     if (cpDelta > 0) {
       impactClass = 'impact-upgrade';
-      impactLabel = `▲ 推薦升級 (+${cpDelta.toLocaleString()} CP / +${cpPct}% 實際影響)`;
+      impactLabel = `▲ 推薦升級（+${cpDelta.toLocaleString()} 戰鬥力 / +${cpPct}% 實際影響）`;
     } else if (cpDelta < 0) {
       impactClass = 'impact-downgrade';
-      impactLabel = `▼ 戰力降低 (${cpDelta.toLocaleString()} CP / ${cpPct}% 實際影響)`;
+      impactLabel = `▼ 戰鬥力降低（${cpDelta.toLocaleString()} / ${cpPct}% 實際影響）`;
     }
   } else if (isGear && !isCurrentItemEquipped && !currentEquippedItem) {
     const curCp = CombatPowerService.calculateCombatPower(state);
@@ -1988,7 +1988,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
     cpDelta = simCp - curCp;
     cpPct = curCp > 0 ? ((cpDelta / curCp) * 100).toFixed(1) : '0.0';
     impactClass = 'impact-upgrade';
-    impactLabel = `▲ 空欄位：直接提升 (+${cpDelta.toLocaleString()} CP / +${cpPct}% 實際影響)`;
+    impactLabel = `▲ 空欄位：直接提升（+${cpDelta.toLocaleString()} 戰鬥力 / +${cpPct}% 實際影響）`;
   }
 
   let html = `
@@ -2054,7 +2054,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
 
       <div class="impact-decision-banner ${impactClass}">
         <span>${impactLabel}</span>
-        <span>ΔCP: ${cpDelta >= 0 ? '+' : ''}${cpDelta.toLocaleString()}</span>
+        <span>戰鬥力變化：${cpDelta >= 0 ? '+' : ''}${cpDelta.toLocaleString()}</span>
       </div>
     `;
   } else {
@@ -2086,7 +2086,7 @@ export function renderItemDetailAndComparison(item, state, callbacks = {}) {
       ${isGear && !isCurrentItemEquipped ? `
         <div class="impact-decision-banner ${impactClass}">
           <span>${impactLabel}</span>
-          <span>CP 變化：+${cpDelta.toLocaleString()}</span>
+          <span>戰鬥力變化：+${cpDelta.toLocaleString()}</span>
         </div>
       ` : ''}
     `;
@@ -2240,10 +2240,10 @@ export function openAutoEquipPreviewModal(state, callbacks = {}) {
   let bodyHtml = `
     <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(212,167,68,0.3); border-radius:6px; padding:10px; margin-bottom:12px;">
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
-        <span style="font-weight:bold; color:var(--gilt-bright);">戰鬥力（CP）：</span>
+        <span style="font-weight:bold; color:var(--gilt-bright);">戰鬥力：</span>
         <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:bold;">
           ${proposal.currentCp.toLocaleString()} → <span style="color:#4ade80;">${proposal.proposedCp.toLocaleString()}</span>
-          <span style="color:#4ade80; margin-left:6px;">（+${cpGain.toLocaleString()} CP）</span>
+          <span style="color:#4ade80; margin-left:6px;">（+${cpGain.toLocaleString()} 戰鬥力）</span>
         </span>
       </div>
       <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; font-size:10px;">
@@ -2289,7 +2289,7 @@ export function openAutoEquipPreviewModal(state, callbacks = {}) {
     closeInventoryPreviewModal();
     if (res && res.success) {
       if (callbacks.log) {
-        callbacks.log(`⚡ 裝備最佳化成功！ （+${cpGain.toLocaleString()} CP）`, 'rarity-legendary');
+        callbacks.log(`⚡ 裝備最佳化成功！ （+${cpGain.toLocaleString()} 戰鬥力）`, 'rarity-legendary');
       }
       updateInventoryUI(state, callbacks);
       if (callbacks.save) callbacks.save();
@@ -3501,7 +3501,7 @@ export function updateCharacterUI(state) {
     milestoneContainer.innerHTML = `
       <div class="l2-milestone-head">
         <span class="l2-milestone-title">下一個里程碑：${CombatPowerService.formatCombatPower(m.nextMilestone)}</span>
-        <span class="l2-milestone-delta">還差 ${m.remainingCp.toLocaleString()} CP</span>
+        <span class="l2-milestone-delta">還差 ${m.remainingCp.toLocaleString()} 戰鬥力</span>
       </div>
       <div class="l2-milestone-bar-wrap">
         <div class="l2-milestone-bar" style="width: ${m.progressPct}%;"></div>
@@ -3623,7 +3623,7 @@ export function renderZoneMap(state, callbacks = {}) {
 
       const monsterCount = zDef.monsters?.length || zDef.monsterTypes?.length || 4;
       const bossName = zDef.boss || zDef.bossName || '首領';
-      const cpText = (zoneProg?.minCp) ? ` · ⚔️ ${zoneProg.minCp.toLocaleString()} CP` : '';
+      const cpText = (zoneProg?.minCp) ? ` · ⚔️ 戰鬥力 ${zoneProg.minCp.toLocaleString()}` : '';
 
       return `
         <div class="zone-card ${isCurrent ? 'active' : ''} ${isLocked ? 'locked' : ''}" data-zone="${zId}" data-locked="${isLocked}" data-current="${isCurrent}">
@@ -3641,7 +3641,7 @@ export function renderZoneMap(state, callbacks = {}) {
               ${monsterCount} 種怪物 · 👑 ${bossName}
             </div>
             <button class="select-zone-btn" ${isLocked || isCurrent ? 'disabled' : ''}>
-              ${isCurrent ? '★ 目前在此狩獵' : isLvlLocked ? `🔒 需要等級 ${reqLvl}` : isCpLocked ? `🔒 需要 ${(zoneProg?.minCp || 0).toLocaleString()} CP` : '在此區域狩獵'}
+              ${isCurrent ? '★ 目前在此狩獵' : isLvlLocked ? `🔒 需要等級 ${reqLvl}` : isCpLocked ? `🔒 需要戰鬥力 ${(zoneProg?.minCp || 0).toLocaleString()}` : '在此區域狩獵'}
             </button>
           </div>
         </div>
@@ -10942,7 +10942,7 @@ export function renderSevenSignsTab(container, state) {
               <div style="font-size:10px; color:#fde047; font-weight:bold;">黎明</div>
               <div style="font-size:13px; font-weight:bold; color:#fef08a;">${(ss.dawnScore || 0).toLocaleString()}</div>
             </div>
-            <span style="font-size:16px; font-weight:bold; color:#a855f7;">VS</span>
+            <span style="font-size:16px; font-weight:bold; color:#a855f7;">對戰</span>
             <div style="background:rgba(168,85,247,0.15); border:1px solid #a855f7; border-radius:8px; padding:6px 12px; text-align:center;">
               <div style="font-size:10px; color:#d8b4fe; font-weight:bold;">黃昏</div>
               <div style="font-size:13px; font-weight:bold; color:#e9d5ff;">${(ss.duskScore || 0).toLocaleString()}</div>
@@ -11910,7 +11910,7 @@ export function openEnchantFlowModal(initialTargetUid = null, initialScrollUid =
                 <div style="color:#38bdf8; font-weight:bold;">${(d.def || d.pDef) > 0 ? '+' + (d.def || d.pDef) : ((d.mdef || d.mDef) > 0 ? '+' + (d.mdef || d.mDef) : '--')}</div>
               </div>
               <div>
-                <div style="color:#94a3b8; font-size:10px;">CP 增益</div>
+                <div style="color:#94a3b8; font-size:10px;">戰鬥力增益</div>
                 <div style="color:#ffd700; font-weight:bold;">+${(d.cp || 0).toLocaleString()} CP</div>
               </div>
             </div>
