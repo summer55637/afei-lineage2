@@ -3224,9 +3224,9 @@ export function updateCharacterUI(state) {
   const ehpEl = root.querySelector('#perf-ehp');
   if (ehpEl) ehpEl.textContent = perf.ehp.toLocaleString();
   const hpsEl = root.querySelector('#perf-hps');
-  if (hpsEl) hpsEl.textContent = `+${perf.hps}/s`;
+  if (hpsEl) hpsEl.textContent = `+${perf.hps}/秒`;
   const mpsEl = root.querySelector('#perf-mp-sustain');
-  if (mpsEl) mpsEl.textContent = `+${perf.mpRegen}/s`;
+  if (mpsEl) mpsEl.textContent = `+${perf.mpRegen}/秒`;
   const evaEl = root.querySelector('#perf-dodge-rate');
   if (evaEl) evaEl.textContent = `${perf.evasionDodgePct}%`;
 
