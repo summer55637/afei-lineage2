@@ -403,7 +403,7 @@ export class CashShopService {
     }
 
     if (callbacks.log) {
-      callbacks.log(`🏷️ **${item.name}** ativado e adicionado à sua mochila!`, 'system');
+      callbacks.log(`🏷️ **${item.name}** 已啟用並加入背包！`, 'system');
     }
     if (callbacks.onUpdate) callbacks.onUpdate();
     return true;
@@ -452,7 +452,7 @@ export class CashShopService {
           count: 5
         });
       }
-      if (callbacks.log) callbacks.log('🧪 **5x Elixires de Vigor** entregues na sua mochila!', 'system');
+      if (callbacks.log) callbacks.log('🧪 **5x 活力靈藥** 已送入背包！', 'system');
     } else {
       const targetId = utilityId;
       const isStackable = targetId.startsWith('scroll_') || targetId.startsWith('elixir_') || targetId.startsWith('pack_');
@@ -466,7 +466,7 @@ export class CashShopService {
           count: 1
         });
       }
-      if (callbacks.log) callbacks.log(`📦 **${item.name}** adicionado com sucesso à sua mochila!`, 'system');
+      if (callbacks.log) callbacks.log(`📦 **${item.name}** 已成功加入背包！`, 'system');
     }
 
     if (callbacks.onUpdate) callbacks.onUpdate();
