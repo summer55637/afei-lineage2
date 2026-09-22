@@ -5133,7 +5133,7 @@ function renderStoreBuyTab(state, callbacks) {
       const isLvlOk = charLvl >= reqLvl;
       const price = isMystic ? Math.floor((def.price || 500) * (gData?.RARITY?.[rarity]?.mult || 1) * 2) : (def.price || 100);
       const stats = buildShopStatsSummary(def);
-      const tooltip = `${def.name} [${gradeInfo.label}]\n${stats ? stats + '\n' : ''}價格： ${price.toLocaleString()} 金幣${!isLvlOk ? `\n🔒 需要等級 ${reqLvl}` : ''}`;
+      const tooltip = `${def.name} [${gradeInfo.label}]\n${stats ? stats + '\n' : ''}價格：${price.toLocaleString()} 金幣${!isLvlOk ? `\n🔒 需要等級 ${reqLvl}` : ''}`;
 
       return `
         <div class="l2store-slot ${!isLvlOk ? 'locked' : ''}" data-add-cart="${def.id}" data-rarity="${rarity}" title="${tooltip}">
@@ -5341,7 +5341,7 @@ function renderStoreSellTab(state, callbacks) {
       const isLocked = selectedSet.has(item.uid);
 
       return `
-        <div class="l2store-slot ${isEquipped || isLocked ? 'locked' : ''}" data-sell-item="${item.uid}" title="${item.enchant > 0 ? `+${item.enchant} ` : ''}${def.name}\n出售價值： ${sellUnit.toLocaleString()} 金幣">
+        <div class="l2store-slot ${isEquipped || isLocked ? 'locked' : ''}" data-sell-item="${item.uid}" title="${item.enchant > 0 ? `+${item.enchant} ` : ''}${def.name}\n出售價值：${sellUnit.toLocaleString()} 金幣">
           <span class="l2store-slot-grade grade-${gradeInfo.code}">${gradeInfo.code.toUpperCase() === 'NG' ? '無級' : gradeInfo.code.toUpperCase()}</span>
           ${getItemIcon(def)}
           ${count > 1 ? `<span class="l2store-slot-qty">${count}</span>` : ''}
@@ -6303,7 +6303,7 @@ export function updateCraftUI(state, callbacks = {}) {
       const matName = matDef ? matDef.name : m.matId;
 
       return `
-        <div class="l2-mat-slot ${isOk ? 'is-satisfied' : 'is-lacking'}" data-open-locator="${m.matId}" title="${matName}: ${count}/${m.qty} （點擊查看掉落來源）">
+        <div class="l2-mat-slot ${isOk ? 'is-satisfied' : 'is-lacking'}" data-open-locator="${m.matId}" title="${matName}：${count}/${m.qty} （點擊查看掉落來源）">
           <div class="l2-mat-icon-wrap">${getItemIcon(matDef || m.matId)}</div>
           <div class="l2-mat-badge ${isOk ? 'badge-ok' : 'badge-lacking'}">${count}/${m.qty}</div>
           <div class="l2-mat-name-tooltip">${matName}</div>
