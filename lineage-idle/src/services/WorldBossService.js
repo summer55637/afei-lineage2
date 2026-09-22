@@ -228,7 +228,7 @@ export const WorldBossService = {
     };
 
     log(`🚨 **[全球突襲]** 你已進入 **${bossDef.name}** 的巢穴！準備迎接大型戰鬥！`, 'rarity-legendary');
-    floatText(`⚡ INCURSÃO: ${bossDef.name.toUpperCase()}!`, 'float-jackpot');
+    floatText(`⚡ 突襲：${bossDef.name.toUpperCase()}！`, 'float-jackpot');
 
     renderStageMonster(state);
     if (typeof attackMonster === 'function') attackMonster();
@@ -251,8 +251,8 @@ export const WorldBossService = {
     state.gold = (state.gold || 0) + gold;
     state.adenCoins = (state.adenCoins || 0) + ac;
 
-    log(`👑 **[VITÓRIA GLOBAL]** O terrível 世界首領 **${m.name}** foi derrotado! Você recebeu ${gold.toLocaleString()} Adena e ${ac} Aden Coins!`, 'rarity-legendary');
-    floatText('🏆 WORLD BOSS DERROTADO!', 'float-jackpot');
+    log(`👑 **[全服勝利]** 可怕的世界首領 **${m.name}** 已被擊敗！你獲得 ${gold.toLocaleString()} 金幣與 ${ac} 亞丁幣！`, 'rarity-legendary');
+    floatText('🏆 世界首領已擊敗！', 'float-jackpot');
 
     // Distribuição de drops
     if (m.worldBossDrops && Array.isArray(m.worldBossDrops)) {
@@ -266,7 +266,7 @@ export const WorldBossService = {
             count: drop.count || 1,
             rarity: drop.isEpicJewel ? 'legendary' : 'epic'
           });
-          log(`✨ **[DROP ÉPICO]** Você conquistou: **${drop.name}**!`, 'rarity-legendary');
+          log(`✨ **[史詩掉落]** 你獲得了：**${drop.name}**！`, 'rarity-legendary');
         }
       }
     }
