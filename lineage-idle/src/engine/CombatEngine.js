@@ -100,7 +100,7 @@ export function startCombat(state, callbacks = {}) {
   if (zoneProg && zoneProg.minCp && playerCp < zoneProg.minCp && state.zone !== 'talkingIsland') {
     const safeTown = getNearestTown(state.zone, state);
     if (callbacks.log) {
-      callbacks.log(`🔒 戰鬥力不足，無法進入 ${ZONES[state.zone]?.name || state.zone}！需要 ${zoneProg.minCp.toLocaleString()} CP（目前：${playerCp.toLocaleString()} CP）。返回 ${ZONES[safeTown]?.name || safeTown}……`, 'warning');
+      callbacks.log(`🔒 戰鬥力不足，無法進入 ${ZONES[state.zone]?.name || state.zone}！需要 ${zoneProg.minCp.toLocaleString()} 戰鬥力（目前：${playerCp.toLocaleString()} 戰鬥力）。返回 ${ZONES[safeTown]?.name || safeTown}……`, 'warning');
     }
     state.zone = safeTown;
     state.currentZone = safeTown;
@@ -264,8 +264,8 @@ export function selectZone(state, zoneId, callbacks = {}) {
   const zoneProg = getZoneProgression(zoneId);
   const playerCp = state.stats?.combatPower || state.combatPower || 0;
   if (zoneProg && zoneProg.minCp && playerCp < zoneProg.minCp && zoneId !== 'talkingIsland') {
-    if (callbacks.log) callbacks.log(`🔒 戰鬥力不足，無法進入 ${zone.name}！最低需要 ${zoneProg.minCp.toLocaleString()} CP（目前：${playerCp.toLocaleString()} CP）。`, 'warning');
-    if (callbacks.floatText) callbacks.floatText(`🔒 需要 ${zoneProg.minCp.toLocaleString()} CP`, 'float-warning');
+    if (callbacks.log) callbacks.log(`🔒 戰鬥力不足，無法進入 ${zone.name}！最低需要 ${zoneProg.minCp.toLocaleString()} 戰鬥力（目前：${playerCp.toLocaleString()} 戰鬥力）。`, 'warning');
+    if (callbacks.floatText) callbacks.floatText(`🔒 需要 ${zoneProg.minCp.toLocaleString()} 戰鬥力`, 'float-warning');
     return false;
   }
   state.zone = zoneId;
@@ -413,7 +413,7 @@ export function toggleSoulshot(state, callbacks = {}) {
 export function toggleAutoPotion(state, callbacks = {}) {
   state.autoPotionActive = !state.autoPotionActive;
   if (callbacks.updateCombatControlsUI) callbacks.updateCombatControlsUI();
-  if (callbacks.log) callbacks.log(`自動藥水${state.autoPotionActive ? '已啟用（HP 低於 50% 時自動使用）' : '已停用'}。`, 'system');
+  if (callbacks.log) callbacks.log(`自動藥水${state.autoPotionActive ? '已啟用（生命值低於 50% 時自動使用）' : '已停用'}。`, 'system');
   if (callbacks.save) callbacks.save();
 }
 
