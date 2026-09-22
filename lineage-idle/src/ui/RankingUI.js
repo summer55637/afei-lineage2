@@ -1,25 +1,25 @@
 /**
- * RankingUI.js — Interface Completa de Rankings Globais e Leaderboards
+ * 排行榜UI.js — Interface Completa de 排行榜s Globais e Leaderboards
  * 
- * Exibe Top Combat Power (CP), Top Nível, Top Olympiad PvP e Lordes de Castelos
+ * Exibe Top Combat Power (CP), Top Nível, Top Olympiad PvP e Lordes de 城堡
  * com sistema de inspeção de equipamentos e desafio assíncrono.
  */
 
-import { RankingService } from '../services/RankingService.js';
+import { 排行榜Service } from '../services/排行榜Service.js';
 import { CombatPowerService } from '../services/CombatPowerService.js';
 
 let _activeTab = 'cp'; // 'cp' | 'level' | 'olympiad' | 'castles'
 
-export function setActiveRankingTab(tab) {
+export function setActive排行榜Tab(tab) {
   _activeTab = tab;
 }
 
-export function renderRankingTab(container, state) {
+export function render排行榜Tab(container, state) {
   if (!container || !state) return;
 
   const playerCP = CombatPowerService.calculateCombatPower(state);
-  const rankings = RankingService.getLeaderboards(state);
-  const playerProfile = RankingService.buildPublicProfile(state);
+  const rankings = 排行榜Service.getLeaderboards(state);
+  const playerProfile = 排行榜Service.buildPublicProfile(state);
 
   let currentList = [];
   if (_activeTab === 'cp') currentList = rankings.cp || [];
@@ -33,10 +33,10 @@ export function renderRankingTab(container, state) {
   const playerRankIndex = currentList.findIndex(p => p.charName === playerProfile.charName || (_activeTab === 'clans' && p.isCurrentPlayer));
   const playerRankDisplay = playerRankIndex !== -1 ? `#${playerRankIndex + 1}` : '#12';
 
-  // Cooldown de Recompensa Diária de Ranking
+  // Cooldown de Recompensa Diária de 排行榜
   const now = Date.now();
   const cooldownMs = 24 * 60 * 60 * 1000;
-  const lastClaim = state.lastRankingRewardClaim || 0;
+  const lastClaim = state.last排行榜RewardClaim || 0;
   const isRewardReady = now - lastClaim >= cooldownMs;
   const remainingHours = isRewardReady ? 0 : Math.ceil((cooldownMs - (now - lastClaim)) / (60 * 60 * 1000));
 
@@ -51,18 +51,18 @@ export function renderRankingTab(container, state) {
           </div>
           <div>
             <h2 style="margin: 0; color: #f4d58a; font-size: 20px; font-weight: bold;">Quadro de Honra Mundial de Aden</h2>
-            <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 12px; font-family: 'Inter', sans-serif;">Classificação Oficial dos Maiores Guerreiros e Clãs</p>
+            <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 12px; font-family: 'Inter', sans-serif;">最強戰士與血盟官方排行榜</p>
           </div>
         </div>
 
         <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
           <div style="background: rgba(0,0,0,0.6); border: 1px solid rgba(212,167,68,0.4); border-radius: 8px; padding: 8px 16px; display: flex; align-items: center; gap: 14px;">
             <div style="text-align: right;">
-              <div style="font-size: 11px; color: #94a3b8; font-family: 'Inter', sans-serif;">Sua Posição:</div>
+              <div style="font-size: 11px; color: #94a3b8; font-family: 'Inter', sans-serif;">你的名次：</div>
               <div style="font-size: 16px; font-weight: bold; color: #ffd877; font-family: 'IBM Plex Mono', monospace;">${playerRankDisplay}</div>
             </div>
             <div style="text-align: right; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 12px;">
-              <div style="font-size: 11px; color: #94a3b8; font-family: 'Inter', sans-serif;">Seu Poder (CP):</div>
+              <div style="font-size: 11px; color: #94a3b8; font-family: 'Inter', sans-serif;">你的戰力（CP）：</div>
               <div style="font-size: 16px; font-weight: bold; color: #60a5fa; font-family: 'IBM Plex Mono', monospace;">⚔️ ${playerCP.toLocaleString()}</div>
             </div>
           </div>
@@ -71,10 +71,10 @@ export function renderRankingTab(container, state) {
           <div>
             ${isRewardReady ? `
               <button
-                onclick="window.claimRankingRewardAction()"
+                onclick="window.claim排行榜RewardAction()"
                 style="padding: 10px 16px; font-family: 'Cinzel', serif; font-size: 11.5px; font-weight: bold; background: linear-gradient(180deg, #ca8a04, #a16207); border: 1px solid #fde047; color: #fff; border-radius: 8px; cursor: pointer; box-shadow: 0 0 12px rgba(234,179,8,0.4);"
               >
-                🎁 Reivindicar Tributo Diário
+                🎁 領取每日排名獎勵
               </button>
             ` : `
               <button
@@ -94,19 +94,19 @@ export function renderRankingTab(container, state) {
           ⚔️ Top Combat Power (CP)
         </button>
         <button class="rank-cat-btn ${_activeTab === 'level' ? 'active' : ''}" data-cat="level" style="background: ${_activeTab === 'level' ? '#ca8a04' : 'rgba(0,0,0,0.4)'}; color: ${_activeTab === 'level' ? '#000' : '#cbd5e1'}; border: 1px solid ${_activeTab === 'level' ? '#fde047' : 'rgba(255,255,255,0.1)'}; padding: 7px 14px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 11.5px;">
-          ⭐ Top Nível &amp; XP
+          ⭐ 等級與 XP 排行
         </button>
         <button class="rank-cat-btn ${_activeTab === 'olympiad' ? 'active' : ''}" data-cat="olympiad" style="background: ${_activeTab === 'olympiad' ? '#ca8a04' : 'rgba(0,0,0,0.4)'}; color: ${_activeTab === 'olympiad' ? '#000' : '#cbd5e1'}; border: 1px solid ${_activeTab === 'olympiad' ? '#fde047' : 'rgba(255,255,255,0.1)'}; padding: 7px 14px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 11.5px;">
-          👑 Top Olimpíadas (PvP)
+          👑 奧林匹亞排行（PvP）
         </button>
         <button class="rank-cat-btn ${_activeTab === 'wealth' ? 'active' : ''}" data-cat="wealth" style="background: ${_activeTab === 'wealth' ? '#ca8a04' : 'rgba(0,0,0,0.4)'}; color: ${_activeTab === 'wealth' ? '#000' : '#cbd5e1'}; border: 1px solid ${_activeTab === 'wealth' ? '#fde047' : 'rgba(255,255,255,0.1)'}; padding: 7px 14px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 11.5px;">
           💰 Fortuna (Adena)
         </button>
         <button class="rank-cat-btn ${_activeTab === 'clans' ? 'active' : ''}" data-cat="clans" style="background: ${_activeTab === 'clans' ? '#ca8a04' : 'rgba(0,0,0,0.4)'}; color: ${_activeTab === 'clans' ? '#000' : '#cbd5e1'}; border: 1px solid ${_activeTab === 'clans' ? '#fde047' : 'rgba(255,255,255,0.1)'}; padding: 7px 14px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 11.5px;">
-          🛡️ Melhores Clãs
+          🛡️ 最強血盟
         </button>
         <button class="rank-cat-btn ${_activeTab === 'castles' ? 'active' : ''}" data-cat="castles" style="background: ${_activeTab === 'castles' ? '#ca8a04' : 'rgba(0,0,0,0.4)'}; color: ${_activeTab === 'castles' ? '#000' : '#cbd5e1'}; border: 1px solid ${_activeTab === 'castles' ? '#fde047' : 'rgba(255,255,255,0.1)'}; padding: 7px 14px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 11.5px;">
-          🏰 Castelos
+          🏰 城堡
         </button>
       </div>
 
@@ -130,7 +130,7 @@ export function renderRankingTab(container, state) {
                   </div>
                   <div>
                     <div style="font-weight: bold; color: ${isTop1 ? '#fde047' : '#fff'}; font-size: 14px; font-family: 'Cinzel', serif; display: flex; align-items: center; gap: 6px;">
-                      🛡️ ${p.clanName} ${isSelf ? '<span style="color:#60a5fa; font-size:10px;">(Seu Clã)</span>' : ''}
+                      🛡️ ${p.clanName} ${isSelf ? '<span style="color:#60a5fa; font-size:10px;">(你的血盟)</span>' : ''}
                       ${isVerified ? '<span style="background:rgba(34,197,94,0.15); border:1px solid #22c55e; color:#4ade80; font-size:10px; padding:1px 5px; border-radius:4px;">🛡️ Verificado</span>' : ''}
                     </div>
                     <div style="font-size: 11px; color: #94a3b8;">
@@ -143,13 +143,13 @@ export function renderRankingTab(container, state) {
                   <div style="font-size: 13px; font-weight: bold; color: #fde047;">
                     ${(p.reputation || 0).toLocaleString()} CRP
                   </div>
-                  <div style="font-size: 10px; color: #94a3b8;">Reputação de Clã</div>
+                  <div style="font-size: 10px; color: #94a3b8;">血盟聲望</div>
                 </div>
               </div>
             `;
           }
 
-          // Se for aba de Castelos
+          // Se for aba de 城堡
           if (_activeTab === 'castles') {
             return `
               <div style="background: rgba(18,24,36,0.85); border: 1px solid rgba(212,167,68,0.4); border-radius: 10px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
@@ -219,7 +219,7 @@ export function renderRankingTab(container, state) {
                 </div>
 
                 ${!isSelf ? `
-                  <button onclick="window.challengeRankingPlayerAction('${p.charName}', ${p.combatPower || 1000})" style="background: rgba(220,38,38,0.2); border: 1px solid #ef4444; color: #fca5a5; border-radius: 6px; padding: 6px 12px; font-size: 11px; cursor: pointer; font-weight: bold;">
+                  <button onclick="window.challenge排行榜PlayerAction('${p.charName}', ${p.combatPower || 1000})" style="background: rgba(220,38,38,0.2); border: 1px solid #ef4444; color: #fca5a5; border-radius: 6px; padding: 6px 12px; font-size: 11px; cursor: pointer; font-weight: bold;">
                     ⚔️ Desafiar
                   </button>
                 ` : ''}
@@ -239,7 +239,7 @@ export function renderRankingTab(container, state) {
   container.querySelectorAll('.rank-cat-btn').forEach(btn => {
     btn.onclick = () => {
       _activeTab = btn.dataset.cat;
-      renderRankingTab(container, state);
+      render排行榜Tab(container, state);
     };
   });
 }
