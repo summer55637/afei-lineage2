@@ -146,10 +146,10 @@ export function isSkillInheritedBy(skillDef, classId) {
  * @returns {{valid: boolean, error?: string}}
  */
 export function validateSkillLifecycle(skillDef) {
-  if (!skillDef) return { valid: false, error: 'Skill definition is required' };
+  if (!skillDef) return { valid: false, error: '必須提供技能定義資料' };
   const stage = skillDef.progressionStage;
   if (stage && !PROGRESSION_STAGES[stage]) {
-    return { valid: false, error: `Invalid progressionStage: ${stage}` };
+    return { valid: false, error: `無效的進階階段：${stage}` };
   }
   return { valid: true };
 }
