@@ -219,7 +219,7 @@ export function dissolveItem(state, uid, callbacks = {}) {
   const slot = (def?.slot || '').toLowerCase();
   const EQUIP_SLOTS = ['weapon', 'armor', 'shield', 'helmet', 'gloves', 'boots', 'legs', 'ring', 'necklace', 'earring', 'belt', 'cloak', 'sigil'];
   if (!def || !EQUIP_SLOTS.includes(slot) || def.stack || def.isQuestItem || def.type === 'material' || def.type === 'quest' || def.type === 'consumable') {
-    log('⚠️ Apenas equipamentos podem ser desintegrados no Cadinho de Almas!', 'warning');
+    log('⚠️ 只有裝備可以在靈魂熔爐中分解！', 'warning');
     return false;
   }
 
@@ -508,7 +508,7 @@ export function processChaosBossLoot(state, monster, callbacks = {}) {
     for (const drop of droplist.guaranteed) {
       addToInventory(state, drop.itemId, drop.count || 1, drop.rarity || 'rare', false, callbacks, true);
       const def = getItemDef(drop.itemId) || { name: drop.itemId };
-      log(`🎁 Drop do Caos Garantido: Obteve ${drop.count || 1}x [${def.name}]!`, 'loot');
+      log(`🎁 混沌保證掉落：獲得 ${drop.count || 1}x [${def.name}]！`, 'loot');
     }
   }
 
