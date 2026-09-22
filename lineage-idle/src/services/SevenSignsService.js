@@ -152,7 +152,7 @@ export class SevenSignsService {
     // Contra-ataque do Chefe
     const bossDmg = Math.max(50, Math.floor(fight.pAtk * 1.2 - (playerStats.def || 1000) * 0.2));
     state.hp = Math.max(1, (state.hp || 5000) - bossDmg);
-    hooks.log?.(`⚠️ **${boss.name}** conjurou um golpe devastador causando **${bossDmg.toLocaleString()}** de dano no jogador!`, 'danger');
+    hooks.log?.(`⚠️ **${boss.name}** 施放毀滅性攻擊，對玩家造成 **${bossDmg.toLocaleString()}** 傷害！`, 'danger');
 
     fight.turn++;
     hooks.onUpdate?.();
@@ -168,7 +168,7 @@ export class SevenSignsService {
     if (!item) return { success: false, message: '找不到瑪門物品。' };
 
     if (ss.ancientAdena < item.costAA) {
-      return { success: false, message: `古代金幣 insuficiente. Requer ${item.costAA.toLocaleString()} AA.` };
+      return { success: false, message: `古代金幣不足，需要 ${item.costAA.toLocaleString()} AA。` };
     }
 
     ss.ancientAdena -= item.costAA;
@@ -198,15 +198,15 @@ export class SevenSignsService {
     const ss = this.ensureState(state);
     const cost = 50000;
     if (ss.ancientAdena < cost) {
-      return { success: false, message: `古代金幣 insuficiente. Requer ${cost.toLocaleString()} AA para deselar armadura.` };
+      return { success: false, message: `古代金幣不足，解除防具封印需要 ${cost.toLocaleString()} AA。` };
     }
     if (!armorItem) return { success: false, message: '請選擇一件封印防具。' };
 
     ss.ancientAdena -= cost;
     armorItem.isUnsealed = true;
-    armorItem.name = armorItem.name ? armorItem.name.replace('(Sealed)', '').trim() + ' (Unsealed ✨)' : 'Armadura Deselada ✨';
+    armorItem.name = armorItem.name ? armorItem.name.replace('(Sealed)', '').trim() + '（已解除封印 ✨）' : '已解除封印的防具 ✨';
     
-    hooks.log?.(`⚒️ O Blacksmith of Mammon removeu o selo ancestral de **${armorItem.name}**! O conjunto liberou seu potencial total!`, 'gain');
+    hooks.log?.(`⚒️ 馬門鐵匠已解除 **${armorItem.name}** 的古代封印！裝備已釋放完整潛能！`, 'gain');
     hooks.onUpdate?.();
     return { success: true, armor: armorItem };
   }
