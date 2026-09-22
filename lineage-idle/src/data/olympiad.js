@@ -191,7 +191,7 @@ export const OLYMPIAD_SHOP_CATALOG = [
     name: "祝福的通用強化卷軸",
     priceTokens: 500,
     icon: 'scrolls/scroll_of_enchant_weapon_.png',
-    desc: '祝福的通用強化卷軸: encanta qualquer equipamento (+1) com proteção total contra quebra em caso de falha.',
+    desc: '祝福的通用強化卷軸：可強化任何裝備（+1），失敗時提供完全防破壞保護。',
     reward: { itemId: 'scroll_blessed_universal', count: 1 }
   },
   {
@@ -199,7 +199,7 @@ export const OLYMPIAD_SHOP_CATALOG = [
     name: '祝福的武器強化卷軸',
     priceTokens: 1200,
     icon: 'scrolls/scroll_of_enchant_weapon_.png',
-    desc: '祝福的武器強化卷軸. Em caso de falha, o item preserva o nível e não se destrói.',
+    desc: '祝福的武器強化卷軸：失敗時保留目前強化等級，且裝備不會被破壞。',
     reward: { itemId: 'scroll_blessed_weapon', count: 1 }
   },
   {
@@ -207,7 +207,7 @@ export const OLYMPIAD_SHOP_CATALOG = [
     name: '祝福的武器強化卷軸dura',
     priceTokens: 600,
     icon: 'scrolls/scroll_of_enchant_armor.png',
-    desc: '祝福的武器強化卷軸dura. Preserva o equipamento com segurança.',
+    desc: '祝福的防具強化卷軸：失敗時安全保護裝備。',
     reward: { itemId: 'scroll_blessed_armor', count: 1 }
   },
   {
