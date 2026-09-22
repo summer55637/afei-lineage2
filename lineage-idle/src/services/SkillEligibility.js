@@ -233,27 +233,27 @@ const V2_STARTER_MAP = {
 export const V2_CONTENT_GAP_CLASSES = {
   'werewolf_0': {
     gapType: 'V2_NODE_ABSENT',
-    reason: 'Nó V2 ausente: dataset L2Wiki contém apenas 1 habilidade de Estágio 0 (88401 Direct Strike); árvore de 5 habilidades ausente no catálogo V2',
+    reason: '缺少 V2 節點：L2Wiki 資料集只有 1 個階段 0 技能（88401 Direct Strike）；V2 目錄缺少 5 技能樹。',
     authorizedSkillIds: ['direct_strike']
   },
   'werewolf_1': {
     gapType: 'V2_NODE_ABSENT',
-    reason: 'Nó V2 ausente: Warg de Estágio 1 ausente no catálogo V2',
+    reason: '缺少 V2 節點：V2 目錄中缺少階段 1 的 Warg。',
     authorizedSkillIds: ['direct_strike']
   },
   'werewolf_2': {
     gapType: 'V2_NODE_ABSENT',
-    reason: 'Nó V2 ausente: Warg de Estágio 2 ausente no catálogo V2',
+    reason: '缺少 V2 節點：V2 目錄中缺少階段 2 的 Warg。',
     authorizedSkillIds: ['direct_strike']
   },
   'shineMakerBase': {
     gapType: 'V2_NODE_ABSENT',
-    reason: 'Nó V2 ausente: ShineMaker Anão de Estágio 0 não presente no dataset L2Wiki nem no catálogo V2',
+    reason: '缺少 V2 節點：階段 0 的矮人 ShineMaker 在 L2Wiki 資料集與 V2 目錄中都不存在。',
     authorizedSkillIds: []
   },
   'spirit_0': {
     gapType: 'V2_NODE_ABSENT',
-    reason: 'Nó V2 ausente: dataset L2Wiki contém apenas 2 habilidades de Estágio 0 (87701 Fire Sphere, 87702 Ice Sphere); árvore de 5 habilidades ausente no catálogo V2',
+    reason: '缺少 V2 節點：L2Wiki 資料集只有 2 個階段 0 技能（87701 Fire Sphere、87702 Ice Sphere）；V2 目錄缺少 5 技能樹。',
     authorizedSkillIds: ['fire_sphere', 'ice_sphere']
   },
   'marauderBase': {
@@ -1330,7 +1330,7 @@ export function normalizeAndValidateSkills(state, callbacks = {}) {
         spRefunded += Math.floor(baseCost * Math.pow(1.4, l));
       }
       if (callbacks.log) {
-        callbacks.log(`🛡️ Habilidade [${def.name || sId}] foi corrigida e removida por incompatibilidade com o nível/classe atual (+${spRefunded} SP reembolsados).`, 'system');
+        callbacks.log(`🛡️ 技能 [${def.name || sId}] 因與目前等級／職業不相容而被修正並移除（返還 +${spRefunded} SP）。`, 'system');
       }
     }
   }
