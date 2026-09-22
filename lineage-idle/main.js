@@ -7546,7 +7546,7 @@ function renderMonsterCardsCodex(container, summaryEl) {
             </div>
             <div style="display:flex; gap:6px; align-items:center; margin-top:4px;">
               <span style="font-size:9px; padding:1px 6px; border-radius:4px; background:rgba(0,0,0,0.6); color:${rStyle.text}; text-transform:uppercase; font-weight:bold; border:1px solid ${rStyle.border};">
-                ${({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[rKey] || cardDef.rarity || '一般'}
+                ${({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[rKey] || '一般'}
               </span>
               <span style="font-size:10px; color:#94a3b8;">
                 掉落率：<strong>${dropPct}%</strong>
@@ -9007,7 +9007,7 @@ function exchangeManorCrop(seedId, rewardOption = 1) {
   state.manorCrops[seedId] -= cropsUsed;
 
   addToInventory(matKey, matAmount);
-  log(`🌾 已向莊園管理員交付 ${cropsUsed}× 收成，獲得 +${matAmount}× ${D()?.ALL_ITEMS?.[matKey]?.name || matKey}！`, 'rarity-legendary');
+  log(`🌾 已向莊園管理員交付 ${cropsUsed}× 收成，獲得 +${matAmount}× ${D()?.ALL_ITEMS?.[matKey]?.name || '未知材料'}！`, 'rarity-legendary');
 
   updateAllUI();
   save();
@@ -9166,7 +9166,7 @@ function buySoulCrystal(color = 'red', stage = 1) {
   const key = `${color}_stage${stage}`;
   state.soulCrystals[key] = (state.soulCrystals[key] || 0) + 1;
 
-  log(`🔮 已購買 ${({ red: '紅色', green: '綠色', blue: '藍色' })[color] || color} 靈魂水晶（階段 ${stage}）！`, 'rarity-legendary');
+  log(`🔮 已購買 ${({ red: '紅色', green: '綠色', blue: '藍色' })[color] || '未知顏色'} 靈魂水晶（階段 ${stage}）！`, 'rarity-legendary');
   updateAllUI();
   save();
   return true;
@@ -9204,8 +9204,8 @@ function socketSoulCrystalToWeapon(effect = 'focus', stage = 1) {
     stage: Math.min(13, Math.max(1, stage))
   };
 
-  log(`🔮 已將特殊能力靈魂水晶 [${({ focus: '專注', acumen: '靈敏', health: '生命', empower: '魔力增幅', guidance: '導引' })[effect] || effect} 階段 ${stage}] 鑲嵌到目前武器！`, 'rarity-legendary');
-  floatText(`特殊能力 ${({ focus: '專注', acumen: '靈敏', health: '生命', empower: '魔力增幅', guidance: '導引' })[effect] || effect} 已啟用`, 'float-gold');
+  log(`🔮 已將特殊能力靈魂水晶 [${({ focus: '專注', acumen: '靈敏', health: '生命', empower: '魔力增幅', guidance: '導引' })[effect] || '未知效果'} 階段 ${stage}] 鑲嵌到目前武器！`, 'rarity-legendary');
+  floatText(`特殊能力 ${({ focus: '專注', acumen: '靈敏', health: '生命', empower: '魔力增幅', guidance: '導引' })[effect] || '未知效果'} 已啟用`, 'float-gold');
 
   updateAllUI();
   save();
@@ -9318,8 +9318,8 @@ function insertAttributeStone(itemUid, elemType = 'fire') {
   item.elemental.type = elemType;
   item.elemental.val = Math.min(300, item.elemental.val + inc);
 
-  log(`🔥 元素鑲嵌成功！**${item.name || '物品'}** 獲得 +${inc} ${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗' })[elemType] || elemType} 屬性（總值：${item.elemental.val}）！`, 'rarity-legendary');
-  floatText(`屬性 ${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗' })[elemType] || elemType} +${inc}！`, 'float-gold');
+  log(`🔥 元素鑲嵌成功！**${item.name || '物品'}** 獲得 +${inc} ${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗' })[elemType] || '其他屬性'} 屬性（總值：${item.elemental.val}）！`, 'rarity-legendary');
+  floatText(`屬性 ${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗' })[elemType] || '其他屬性'} +${inc}！`, 'float-gold');
   updateAllUI(); save();
   return true;
 }
