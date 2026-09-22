@@ -5210,7 +5210,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "orc_rider_2": Object.freeze({
     "id": "orc_rider_2",
-    "name": "Vanguard Lord",
+    "name": "先鋒騎士",
     "race": "orc",
     "raceName": "Orc (Orc)",
     "stage": 2,
@@ -5251,7 +5251,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "orc_rider_3": Object.freeze({
     "id": "orc_rider_3",
-    "name": "Grand Vanguard",
+    "name": "大先鋒",
     "race": "orc",
     "raceName": "Orc (Orc)",
     "stage": 3,
@@ -5298,7 +5298,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "dwarven_fighter": Object.freeze({
     "id": "dwarven_fighter",
-    "name": "Dwarven Fighter",
+    "name": "矮人戰士",
     "race": "dwarf",
     "raceName": "Anão (Dwarf)",
     "stage": 0,
@@ -5331,7 +5331,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "scavenger": Object.freeze({
     "id": "scavenger",
-    "name": "Scavenger",
+    "name": "收集者",
     "race": "dwarf",
     "raceName": "Anão (Dwarf)",
     "stage": 1,
@@ -5376,7 +5376,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "bounty_hunter": Object.freeze({
     "id": "bounty_hunter",
-    "name": "Bounty Hunter",
+    "name": "賞金獵人",
     "race": "dwarf",
     "raceName": "Anão (Dwarf)",
     "stage": 2,
@@ -5426,7 +5426,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "fortune_seeker": Object.freeze({
     "id": "fortune_seeker",
-    "name": "Fortune Seeker",
+    "name": "財富獵人",
     "race": "dwarf",
     "raceName": "Anão (Dwarf)",
     "stage": 3,
@@ -5486,7 +5486,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "artisan": Object.freeze({
     "id": "artisan",
-    "name": "Artisan",
+    "name": "工匠",
     "race": "dwarf",
     "raceName": "Anão (Dwarf)",
     "stage": 1,
@@ -5529,7 +5529,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "warsmith": Object.freeze({
     "id": "warsmith",
-    "name": "Warsmith",
+    "name": "戰爭工匠",
     "race": "dwarf",
     "raceName": "Anão (Dwarf)",
     "stage": 2,
@@ -5583,7 +5583,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "maestro": Object.freeze({
     "id": "maestro",
-    "name": "Maestro",
+    "name": "巨匠",
     "race": "dwarf",
     "raceName": "Anão (Dwarf)",
     "stage": 3,
@@ -5639,7 +5639,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "shineMakerBase": Object.freeze({
     "id": "shineMakerBase",
-    "name": "Shine Maker Initiate",
+    "name": "光耀創造者學徒",
     "race": "dwarf",
     "raceName": "Anão (Dwarf)",
     "stage": 0,
@@ -5664,7 +5664,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "shineMakerS1": Object.freeze({
     "id": "shineMakerS1",
-    "name": "Shine Maker Novice",
+    "name": "光耀創造者新手",
     "race": "dwarf",
     "raceName": "Anão (Dwarf)",
     "stage": 1,
@@ -5689,7 +5689,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "shineMakerS2": Object.freeze({
     "id": "shineMakerS2",
-    "name": "Shine Maker Adept",
+    "name": "光耀創造者高手",
     "race": "dwarf",
     "raceName": "Anão (Dwarf)",
     "stage": 2,
@@ -5714,7 +5714,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "shinemaker": Object.freeze({
     "id": "shinemaker",
-    "name": "Shine Maker",
+    "name": "光耀創造者",
     "race": "dwarf",
     "raceName": "Anão (Dwarf)",
     "stage": 3,
@@ -5739,7 +5739,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "jin_kamael_soldier": Object.freeze({
     "id": "jin_kamael_soldier",
-    "name": "Kamael Soldier",
+    "name": "闇天使士兵",
     "race": "kamael",
     "raceName": "Kamael (Kamael)",
     "stage": 0,
@@ -5778,7 +5778,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "trooper": Object.freeze({
     "id": "trooper",
-    "name": "Trooper",
+    "name": "闇天使戰士",
     "race": "kamael",
     "raceName": "Kamael (Kamael)",
     "stage": 1,
@@ -5819,7 +5819,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "berserker": Object.freeze({
     "id": "berserker",
-    "name": "Berserker",
+    "name": "狂戰士",
     "race": "kamael",
     "raceName": "Kamael (Kamael)",
     "stage": 2,
@@ -5864,7 +5864,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "doombringer": Object.freeze({
     "id": "doombringer",
-    "name": "Doombringer",
+    "name": "末日使者",
     "race": "kamael",
     "raceName": "Kamael (Kamael)",
     "stage": 3,
@@ -5920,7 +5920,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "soul_finder": Object.freeze({
     "id": "soul_finder",
-    "name": "Soul Finder",
+    "name": "靈魂探尋者",
     "race": "kamael",
     "raceName": "Kamael (Kamael)",
     "stage": 1,
@@ -5958,7 +5958,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "soul_breaker": Object.freeze({
     "id": "soul_breaker",
-    "name": "Soul Breaker",
+    "name": "靈魂破壞者",
     "race": "kamael",
     "raceName": "Kamael (Kamael)",
     "stage": 2,
@@ -5999,7 +5999,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "soul_hound": Object.freeze({
     "id": "soul_hound",
-    "name": "Soul Hound",
+    "name": "靈魂獵犬",
     "race": "kamael",
     "raceName": "Kamael (Kamael)",
     "stage": 3,
@@ -6053,7 +6053,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "warder": Object.freeze({
     "id": "warder",
-    "name": "Warder",
+    "name": "闇天使守衛",
     "race": "kamael",
     "raceName": "Kamael (Kamael)",
     "stage": 1,
@@ -6089,7 +6089,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "arbalester": Object.freeze({
     "id": "arbalester",
-    "name": "Arbalester",
+    "name": "靈魂遊俠",
     "race": "kamael",
     "raceName": "Kamael (Kamael)",
     "stage": 2,
@@ -6126,7 +6126,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "trickster": Object.freeze({
     "id": "trickster",
-    "name": "Trickster",
+    "name": "詭術師",
     "race": "kamael",
     "raceName": "Kamael (Kamael)",
     "stage": 3,
@@ -6180,7 +6180,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "crow_0": Object.freeze({
     "id": "crow_0",
-    "name": "Crow Novice",
+    "name": "武士學徒",
     "race": "kamael",
     "raceName": "Kamael (Kamael)",
     "stage": 0,
@@ -6207,7 +6207,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "crow_1": Object.freeze({
     "id": "crow_1",
-    "name": "Hatamoto",
+    "name": "旗本",
     "race": "kamael",
     "raceName": "Kamael (Kamael)",
     "stage": 1,
@@ -6241,7 +6241,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "crow_2": Object.freeze({
     "id": "crow_2",
-    "name": "Ronin",
+    "name": "浪人",
     "race": "kamael",
     "raceName": "Kamael (Kamael)",
     "stage": 2,
@@ -6277,7 +6277,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "crow_3": Object.freeze({
     "id": "crow_3",
-    "name": "Samurai",
+    "name": "武士",
     "race": "kamael",
     "raceName": "Kamael (Kamael)",
     "stage": 3,
@@ -6324,7 +6324,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "sylphid": Object.freeze({
     "id": "sylphid",
-    "name": "Sylphid",
+    "name": "風精靈槍手",
     "race": "sylph",
     "raceName": "Sylph (Sylph)",
     "stage": 0,
@@ -6365,7 +6365,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "sylph_gunner": Object.freeze({
     "id": "sylph_gunner",
-    "name": "Sharpshooter",
+    "name": "神射手",
     "race": "sylph",
     "raceName": "Sylph (Sylph)",
     "stage": 1,
@@ -6402,7 +6402,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "wind_hunter": Object.freeze({
     "id": "wind_hunter",
-    "name": "Wind Sniper",
+    "name": "風之狙擊手",
     "race": "sylph",
     "raceName": "Sylph (Sylph)",
     "stage": 2,
@@ -6442,7 +6442,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "storm_blaster": Object.freeze({
     "id": "storm_blaster",
-    "name": "Storm Blaster",
+    "name": "暴風砲手",
     "race": "sylph",
     "raceName": "Sylph (Sylph)",
     "stage": 3,
@@ -6492,7 +6492,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "sacred_templar_0": Object.freeze({
     "id": "sacred_templar_0",
-    "name": "Sacred Templar Initiate",
+    "name": "光之聖殿騎士",
     "race": "highelf",
     "raceName": "Alto Elfo (High Elf)",
     "stage": 0,
@@ -6527,7 +6527,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "sacred_templar_1": Object.freeze({
     "id": "sacred_templar_1",
-    "name": "Sacred Templar Adept",
+    "name": "神聖聖殿騎士",
     "race": "highelf",
     "raceName": "Alto Elfo (High Elf)",
     "stage": 1,
@@ -6562,7 +6562,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "sacred_templar_2": Object.freeze({
     "id": "sacred_templar_2",
-    "name": "Divine Templar",
+    "name": "神聖聖騎士",
     "race": "highelf",
     "raceName": "Alto Elfo (High Elf)",
     "stage": 2,
@@ -6601,7 +6601,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "sacred_templar_3": Object.freeze({
     "id": "sacred_templar_3",
-    "name": "Divine Templar (Master)",
+    "name": "神聖聖騎士（大師）",
     "race": "highelf",
     "raceName": "Alto Elfo (High Elf)",
     "stage": 3,
@@ -6647,7 +6647,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "spirit_0": Object.freeze({
     "id": "spirit_0",
-    "name": "Element Weaver Initiate",
+    "name": "元素編織者學徒",
     "race": "highelf",
     "raceName": "Alto Elfo (High Elf)",
     "stage": 0,
@@ -6675,7 +6675,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "spirit_1": Object.freeze({
     "id": "spirit_1",
-    "name": "Element Weaver Adept",
+    "name": "元素編織者高手",
     "race": "highelf",
     "raceName": "Alto Elfo (High Elf)",
     "stage": 1,
@@ -6711,7 +6711,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "spirit_2": Object.freeze({
     "id": "spirit_2",
-    "name": "Spirit Weaver",
+    "name": "靈魂編織者",
     "race": "highelf",
     "raceName": "Alto Elfo (High Elf)",
     "stage": 2,
@@ -6750,7 +6750,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "spirit_3": Object.freeze({
     "id": "spirit_3",
-    "name": "Element Weaver",
+    "name": "元素編織者",
     "race": "highelf",
     "raceName": "Alto Elfo (High Elf)",
     "stage": 3,
@@ -6794,7 +6794,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "marauderBase": Object.freeze({
     "id": "marauderBase",
-    "name": "Ertheia Fighter",
+    "name": "艾爾提亞戰士",
     "race": "ertheia",
     "raceName": "Ertheia (Ertheia)",
     "stage": 0,
@@ -6819,7 +6819,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "marauder": Object.freeze({
     "id": "marauder",
-    "name": "Marauder",
+    "name": "掠襲者",
     "race": "ertheia",
     "raceName": "Ertheia (Ertheia)",
     "stage": 1,
@@ -6844,7 +6844,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "ertheiaWarrior": Object.freeze({
     "id": "ertheiaWarrior",
-    "name": "Eviscerator Apprentice",
+    "name": "裂空者學徒",
     "race": "ertheia",
     "raceName": "Ertheia (Ertheia)",
     "stage": 2,
@@ -6869,7 +6869,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "eviscerator": Object.freeze({
     "id": "eviscerator",
-    "name": "Eviscerator",
+    "name": "裂空者",
     "race": "ertheia",
     "raceName": "Ertheia (Ertheia)",
     "stage": 3,
@@ -6894,7 +6894,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "sayhaMageBase": Object.freeze({
     "id": "sayhaMageBase",
-    "name": "Sayha Mystic",
+    "name": "賽哈法師",
     "race": "ertheia",
     "raceName": "Ertheia (Ertheia)",
     "stage": 0,
@@ -6919,7 +6919,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "sayhaSeer": Object.freeze({
     "id": "sayhaSeer",
-    "name": "Sayha Seeker Apprentice",
+    "name": "賽哈追尋者學徒",
     "race": "ertheia",
     "raceName": "Ertheia (Ertheia)",
     "stage": 1,
@@ -6944,7 +6944,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "windRiderErth": Object.freeze({
     "id": "windRiderErth",
-    "name": "Storm Conductor",
+    "name": "暴風導師",
     "race": "ertheia",
     "raceName": "Ertheia (Ertheia)",
     "stage": 2,
@@ -6969,7 +6969,7 @@ export const CANONICAL_CLASS_REGISTRY = Object.freeze({
 }),
   "sayhaSeeker": Object.freeze({
     "id": "sayhaSeeker",
-    "name": "Sayha Seeker",
+    "name": "賽哈追尋者",
     "race": "ertheia",
     "raceName": "Ertheia (Ertheia)",
     "stage": 3,
