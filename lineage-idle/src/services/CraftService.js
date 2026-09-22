@@ -288,7 +288,7 @@ export const SA_DEFINITIONS = {
   },
   green: {
     acumen: { name: '靈敏', desc: '魔法施法速度', stat: 'castSpd', baseVal: 0.15 },
-    haste: { name: '加速', desc: '攻擊速度 Físico', stat: 'atkSpd', baseVal: 0.10 },
+    haste: { name: '加速', desc: '物理攻擊速度', stat: 'atkSpd', baseVal: 0.10 },
     health: { name: '生命', desc: 'Vida 最大ima (Max HP)', stat: 'hpPct', baseVal: 0.25 }
   },
   blue: {
@@ -319,14 +319,14 @@ export function processSoulDrainOnKill(state, monster = {}, callbacks = {}) {
       if (resonanceSuccess) {
         crystal.stage = 15;
         crystal.crystalLevel = 15;
-        crystal.name = `Soul Crystal - Estágio 15 (Lendário)`;
+        crystal.name = `靈魂水晶－階段 15（傳說）`;
         if (callbacks.log) {
-          callbacks.log(`🌟 RESSONÂNCIA ÉPICA! A alma de ${monster.name || 'Epic Boss'} elevou o Soul Crystal ao Nível 15 (MÁXIMO)!`, 'rarity-sovereign');
+          callbacks.log(`🌟 史詩共鳴！${monster.name || '史詩首領'} 的靈魂使靈魂水晶提升至階段 15（最高）！`, 'rarity-sovereign');
         }
         if (callbacks.floatText) callbacks.floatText('🌟 SOUL CRYSTAL STAGE 15!', 'float-jackpot');
       } else {
         if (callbacks.log) {
-          callbacks.log(`💨 A alma do Epic Boss escapou... O Soul Crystal Lv.14 não conseguiu ressonar (50% de chance).`, 'system');
+          callbacks.log(`💨 史詩首領的靈魂逃脫了……Lv.14 靈魂水晶共鳴失敗（50% 機率）。`, 'system');
         }
       }
       if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -347,9 +347,9 @@ export function processSoulDrainOnKill(state, monster = {}, callbacks = {}) {
       if (Math.random() < successChance) {
         crystal.stage = currentLevel + 1;
         crystal.crystalLevel = crystal.stage;
-        if (callbacks.log) callbacks.log(`🔮 SOUL UPGRADE! Soul Crystal absorveu almas e subiu para o Nível ${crystal.stage}!`, 'rarity-epic');
+        if (callbacks.log) callbacks.log(`🔮 靈魂升級！靈魂水晶吸收靈魂並提升至階段 ${crystal.stage}！`, 'rarity-epic');
       } else {
-        if (callbacks.log) callbacks.log(`⚠️ Falha na absorção de almas! O cristal manteve o Nível ${currentLevel}.`, 'system');
+        if (callbacks.log) callbacks.log(`⚠️ 靈魂吸收失敗！水晶維持在階段 ${currentLevel}。`, 'system');
       }
     }
     return;
@@ -366,7 +366,7 @@ export function processSoulDrainOnKill(state, monster = {}, callbacks = {}) {
         if (Math.random() < successChance) {
           crystal.stage = currentLevel + 1;
           crystal.crystalLevel = crystal.stage;
-          if (callbacks.log) callbacks.log(`🔮 SOUL UPGRADE! Soul Crystal absorveu almas de elite e subiu para o Nível ${crystal.stage}!`, 'rarity-legendary');
+          if (callbacks.log) callbacks.log(`🔮 靈魂升級！靈魂水晶吸收菁英靈魂並提升至階段 ${crystal.stage}！`, 'rarity-legendary');
         }
       }
     }
@@ -379,14 +379,14 @@ export function processSoulDrainOnKill(state, monster = {}, callbacks = {}) {
 export function applySoulCrystal(state, weaponUid, color = 'red', saKey = 'focus', callbacks = {}) {
   const item = (state.inventory || []).find(i => i.uid === weaponUid || i.id === weaponUid);
   if (!item) {
-    if (callbacks.log) callbacks.log('Arma não encontrada no inventário.', 'system');
+    if (callbacks.log) callbacks.log('背包中找不到武器。', 'system');
     return false;
   }
 
   const gData = D();
   const def = gData?.ALL_ITEMS?.[item.itemId || item.id] || item;
   if (!def || def.slot !== 'weapon') {
-    if (callbacks.log) callbacks.log('Soul Crystals só podem ser engastados em Armas!', 'system');
+    if (callbacks.log) callbacks.log('靈魂水晶只能鑲嵌在武器上！', 'system');
     return false;
   }
 
@@ -447,7 +447,7 @@ export function unsealItem(state, itemUid, callbacks = {}) {
   const def = gData?.ALL_ITEMS?.[item.itemId || item.id] || item;
 
   if (callbacks.log) {
-    callbacks.log(`✨ PUSHKIN: O selo de ${def.name} foi quebrado! Bônus de conjunto ativados.`, 'rarity-epic');
+    callbacks.log(`✨ PUSHKIN：${def.name} 的封印已解除！套裝加成已啟用。`, 'rarity-epic');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -495,7 +495,7 @@ export function polishMasterwork(state, itemUid, callbacks = {}) {
 export function swapWeaponSameGrade(state, weaponUid, targetWeaponId, callbacks = {}) {
   const item = (state.inventory || []).find(i => i.uid === weaponUid || i.id === weaponUid);
   if (!item || item.equipped) {
-    if (callbacks.log) callbacks.log('Arma não encontrada ou está equipada!', 'system');
+    if (callbacks.log) callbacks.log('找不到武器，或武器目前已裝備！', 'system');
     return false;
   }
 
@@ -505,7 +505,7 @@ export function swapWeaponSameGrade(state, weaponUid, targetWeaponId, callbacks 
   const targetDef = allItems[targetWeaponId];
 
   if (!targetDef || targetDef.slot !== 'weapon') {
-    if (callbacks.log) callbacks.log('Arma de destino inválida.', 'system');
+    if (callbacks.log) callbacks.log('目標武器無效。', 'system');
     return false;
   }
 
@@ -520,7 +520,7 @@ export function swapWeaponSameGrade(state, weaponUid, targetWeaponId, callbacks 
   item.name = targetDef.name;
 
   if (callbacks.log) {
-    callbacks.log(`🔄 TROCA CONCLUÍDA: ${currentDef.name} foi convertida em [${targetDef.name}]!`, 'rarity-epic');
+    callbacks.log(`🔄 交換完成：${currentDef.name} 已轉換為【${targetDef.name}】！`, 'rarity-epic');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -566,7 +566,7 @@ export function applyDyeSymbol(state, slotIdx = 0, dyeKey = 'dye_str_con', stage
 
   for (const [k, v] of Object.entries(netStats)) {
     if (v > 5) {
-      if (callbacks.log) callbacks.log(`Limite excedido! O saldo de ${k.toUpperCase()} não pode ultrapassar +5.`, 'system');
+      if (callbacks.log) callbacks.log(`超過上限！${k.toUpperCase()} 的調整值不可超過 +5。`, 'system');
       return false;
     }
   }
@@ -580,7 +580,7 @@ export function applyDyeSymbol(state, slotIdx = 0, dyeKey = 'dye_str_con', stage
   };
 
   if (callbacks.log) {
-    callbacks.log(`🖊️ SÍMBOLO SAGRADO GRAVADO: Slot ${slotIdx + 1} recebeu [${dye.name} Estágio ${validStage}]!`, 'rarity-epic');
+    callbacks.log(`🖊️ 神聖符號刻印完成：欄位 ${slotIdx + 1} 已套用【${dye.name} 階段 ${validStage}】！`, 'rarity-epic');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -592,12 +592,12 @@ export function upgradeDyeSymbol(state, slotIdx = 0, callbacks = {}) {
   state.dyeSymbols = state.dyeSymbols || [null, null, null];
   const current = state.dyeSymbols[slotIdx];
   if (!current) {
-    if (callbacks.log) callbacks.log('Nenhum símbolo instalado neste slot.', 'system');
+    if (callbacks.log) callbacks.log('此欄位尚未安裝任何符號。', 'system');
     return false;
   }
 
   if (current.stage >= 5) {
-    if (callbacks.log) callbacks.log('Este símbolo já atingiu o Estágio 最大imo (+5 / -5)!', 'system');
+    if (callbacks.log) callbacks.log('此符號已達最高階段（+5 / -5）！', 'system');
     return false;
   }
 
@@ -619,7 +619,7 @@ export function upgradeDyeSymbol(state, slotIdx = 0, callbacks = {}) {
     const nextStage = current.stage + 1;
     return applyDyeSymbol(state, slotIdx, current.key, nextStage, callbacks);
   } else {
-    if (callbacks.log) callbacks.log(`💨 A infusão da tinta sagrada falhou! A tatuagem manteve o Estágio ${current.stage}.`, 'system');
+    if (callbacks.log) callbacks.log(`💨 神聖染料注入失敗！刺青維持在階段 ${current.stage}。`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return false;
@@ -634,7 +634,7 @@ export function removeDyeSymbol(state, slotIdx = 0, callbacks = {}) {
   state.dyeSymbols[slotIdx] = null;
 
   if (callbacks.log) {
-    callbacks.log(`🧹 Símbolo [${removed.name}] removido com sucesso do Slot ${slotIdx + 1}.`, 'system');
+    callbacks.log(`🧹 已成功從欄位 ${slotIdx + 1} 移除符號【${removed.name}】。`, 'system');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -677,7 +677,7 @@ export function applyElementalStone(state, equipUid, element = 'fire', callbacks
   const currentVal = item.elementalAttribute?.val || 0;
 
   if (currentVal >= maxCap) {
-    if (callbacks.log) callbacks.log(`Este equipamento já atingiu o limite máximo elemental de ${maxCap}!`, 'system');
+    if (callbacks.log) callbacks.log(`此裝備已達元素最高上限 ${maxCap}！`, 'system');
     return false;
   }
 
@@ -692,7 +692,7 @@ export function applyElementalStone(state, equipUid, element = 'fire', callbacks
   const elemInfo = ELEMENT_DEFINITIONS[element] || { name: element };
 
   if (callbacks.log) {
-    callbacks.log(`🔥 INFUSÃO ELEMENTAL: ${def.name} recebeu +${step} de ${elemInfo.name}! (Total: ${newVal}/${maxCap})`, 'rarity-epic');
+    callbacks.log(`🔥 元素注入：${def.name} 獲得 +${step} ${elemInfo.name}！（總計：${newVal}/${maxCap}）`, 'rarity-epic');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -711,7 +711,7 @@ export function compoundBeltsWithDuplicates(state, primaryUid, secondaryUid, cal
   const secondaryItem = inv.find(i => i.uid === secondaryUid || i.id === secondaryUid);
 
   if (!primaryItem || !secondaryItem || primaryItem === secondaryItem) {
-    if (callbacks.log) callbacks.log('Selecione dois cintos distintos para a síntese!', 'system');
+    if (callbacks.log) callbacks.log('請選擇兩條不同的腰帶進行合成！', 'system');
     return false;
   }
 
@@ -719,13 +719,13 @@ export function compoundBeltsWithDuplicates(state, primaryUid, secondaryUid, cal
   const secondaryId = secondaryItem.itemId || secondaryItem.id;
 
   if (primaryId !== secondaryId) {
-    if (callbacks.log) callbacks.log('A síntese requer 2 cintos idênticos do mesmo tipo e grau!', 'system');
+    if (callbacks.log) callbacks.log('合成需要 2 條相同類型與品級的腰帶！', 'system');
     return false;
   }
 
   const compoundCost = 100000;
   if ((state.gold || 0) < compoundCost) {
-    if (callbacks.log) callbacks.log(`Adena insuficiente! Requer ${compoundCost.toLocaleString()} Adena para a fusão.`, 'system');
+    if (callbacks.log) callbacks.log(`金幣不足！合成需要 ${compoundCost.toLocaleString()} 金幣。`, 'system');
     return false;
   }
 
@@ -748,11 +748,11 @@ export function compoundBeltsWithDuplicates(state, primaryUid, secondaryUid, cal
     };
 
     if (callbacks.log) {
-      callbacks.log(`✨ SÍNTESE DE CINTO BEM SUCEDIDA (+${primaryItem.enchant})! Concedeu +${(primaryItem.beltBonuses.hpBonusPct * 100).toFixed(0)}% Max HP e +${primaryItem.beltBonuses.pDefBonus} P.Def!`, 'rarity-legendary');
+      callbacks.log(`✨ 腰帶合成成功（+${primaryItem.enchant}）！獲得 +${(primaryItem.beltBonuses.hpBonusPct * 100).toFixed(0)}% 最大 HP 與 +${primaryItem.beltBonuses.pDefBonus} P.Def！`, 'rarity-legendary');
     }
   } else {
     if (callbacks.log) {
-      callbacks.log(`💥 FALHA NA SÍNTESE! O cinto secundário foi destruído, mas o principal permanece intacto.`, 'system');
+      callbacks.log(`💥 合成失敗！副腰帶已被摧毀，主腰帶保持完好。`, 'system');
     }
   }
 
@@ -768,8 +768,8 @@ export function compoundBeltsWithDuplicates(state, primaryUid, secondaryUid, cal
  */
 export function getLifeStoneDropSources() {
   return [
-    { grade: 'common', name: '一般生命石', source: 'Monstros de Caça (1% Glow, 2% Skill)' },
-    { grade: 'mid', name: '中級生命石', source: 'Monstros Campeões (5% Glow, 5% Skill)' },
+    { grade: 'common', name: '一般生命石', source: '狩獵怪物（1% 光效、2% 技能）' },
+    { grade: 'mid', name: '中級生命石', source: '冠軍怪物（5% 光效、5% 技能）' },
     { grade: 'high', name: '高級生命石', source: 'Chefes de Dungeon & Masmorras (15% Glow, 12% Skill)' },
     { grade: 'top', name: '頂級生命石', source: 'Raid Bosses & Epic Bosses (40% Glow, 25% Skill)' }
   ];
@@ -782,7 +782,7 @@ export function applyLifeStone(state, weaponUid, grade = 'top', callbacks = {}) 
   const gData = D();
   const def = gData?.ALL_ITEMS?.[item.itemId || item.id] || item;
   if (def.slot !== 'weapon') {
-    if (callbacks.log) callbacks.log('Augmentation só pode ser aplicado em Armas!', 'system');
+    if (callbacks.log) callbacks.log('附魔改造只能套用在武器上！', 'system');
     return false;
   }
 
@@ -808,7 +808,7 @@ export function applyLifeStone(state, weaponUid, grade = 'top', callbacks = {}) 
   };
 
   if (callbacks.log) {
-    callbacks.log(`💎 AUGMENTATION CONCLUÍDO: ${def.name} recebeu [+${atkBonus} P.Atk, +${critBonus} Crit, +${hpBonus} HP]${skill ? ` e [${skill.name}]` : ''}!`, 'rarity-legendary');
+    callbacks.log(`💎 附魔改造完成：${def.name} 獲得【+${atkBonus} P.Atk、+${critBonus} 暴擊、+${hpBonus} HP】${skill ? ` 與【${skill.name}】` : ''}！`, 'rarity-legendary');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -879,13 +879,13 @@ export function chargeRandomCraftWithItem(state, itemUid, callbacks = {}) {
   const inv = state.inventory || [];
   const itemIdx = inv.findIndex(i => (i.uid === itemUid || i.id === itemUid) && !i.equipped);
   if (itemIdx === -1) {
-    if (callbacks.log) callbacks.log('Item não encontrado ou está equipado!', 'system');
+    if (callbacks.log) callbacks.log('找不到物品，或物品目前已裝備！', 'system');
     return false;
   }
 
   const selectedSet = getSelectedSet(state);
   if (selectedSet.has(itemUid)) {
-    if (callbacks.log) callbacks.log('Itens bloqueados com 🔒 não podem ser reciclados!', 'system');
+    if (callbacks.log) callbacks.log('帶有 🔒 鎖定的物品無法回收！', 'system');
     return false;
   }
 
@@ -962,7 +962,7 @@ export function rollRandomCraftSlots(state) {
 export function spinRandomCraft(state, callbacks = {}) {
   const rc = getNormalizedRandomCraft(state);
   if (!rc.charge || rc.charge < 1) {
-    if (callbacks.log) callbacks.log('Você não possui Cargas de Random Craft suficientes (requer 1 Carga = 100 Pts)!', 'system');
+    if (callbacks.log) callbacks.log('你的隨機製作充能不足（需要 1 次充能 = 100 點）！', 'system');
     return false;
   }
 
