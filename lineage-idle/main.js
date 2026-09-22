@@ -1286,7 +1286,7 @@ function salvageSelectedItems() {
     .join(', ');
 
   if (count > 0) {
-    log(`🔨 Desmontou ${count} equipamento(s) e obteve: ${summaryStr || 'materiais'}!`, 'loot');
+    log(`🔨 已分解 ${count} 件裝備並取得：${summaryStr || '材料'}！`, 'loot');
   } else {
     log('尚未選擇可分解的有效裝備。', 'system');
   }
@@ -1326,7 +1326,7 @@ function crystallizeSelectedItems() {
 
   const hasHighValue = itemsToCrystallize.some(i => isHighValueItem(i));
   if (hasHighValue) {
-    if (!confirm(`💎 A seleção contém ${itemsToCrystallize.length} equipamento(s), incluindo peças de alta raridade (Raro ou superior). Deseja realmente cristalizá-las em Cristais elementares?`)) {
+    if (!confirm(`💎 選取內容包含 ${itemsToCrystallize.length} 件裝備，其中有高稀有度物品（稀有以上）。確定要結晶化為元素水晶嗎？`)) {
       return;
     }
   }
@@ -1368,7 +1368,7 @@ function crystallizeSelectedItems() {
     .join(', ');
 
   if (count > 0) {
-    log(`💎 Cristalizou ${count} equipamento(s) com sucesso e obteve: **${summaryStr}**!`, 'rarity-legendary');
+    log(`💎 已成功結晶化 ${count} 件裝備並取得：**${summaryStr}**！`, 'rarity-legendary');
     if (typeof floatText === 'function') floatText(`💎 CRISTALIZADO (+${count}x)`, 'float-jackpot');
   } else {
     log('沒有可結晶化的有效物品。', 'system');
@@ -1467,7 +1467,7 @@ function useItem(uid) {
   }
   else if (item.itemId === 'aegis_draught') {
     applyBuff('def', 0.25, 3600); applyBuff('magicRes', 0.20, 3600);
-    log(`🛡️ Usou ${def.name}: +25% DEF, +20% Resistência Mágica por 1h`, 'heal');
+    log(`🛡️ 使用 ${def.name}：DEF +25%、魔法抗性 +20%，持續 1 小時`, 'heal');
     if (typeof floatText === 'function') floatText('🛡️ AEGIS +25% DEF (1h)', 'sf-heal');
   }
   else if (item.itemId === 'berserker_elixir') {
@@ -1484,7 +1484,7 @@ function useItem(uid) {
     state.poisoned = false; state.bled = false;
     state.poisonTicks = 0; state.bleedTicks = 0;
     log(`🧪 Usou ${def.name}: Envenenamento e Sangramento curados!`, 'heal');
-    if (typeof floatText === 'function') floatText('🧪 ANTÍDOTO', 'sf-heal');
+    if (typeof floatText === 'function') floatText('🧪 解毒劑', 'sf-heal');
   }
   // ── Boosts ─────────────────────────────────────────────────────────────────
   else if (def.type === 'xpBoost' || item.itemId === 'xp_boost_1h' || item.itemId === 'exp_boost_1h') {
@@ -1562,8 +1562,8 @@ function useItem(uid) {
   } else if (def.type === 'inventory_expand' || item.itemId === 'pack_inventory_expand_30') {
     state.bonusInventorySlots = (state.bonusInventorySlots || 0) + 30;
     const totalSlots = getMaxInventorySlots(state);
-    log(`🎒 背包已擴充！永久增加 30 個欄位 (Capacidade Máxima: ${totalSlots} slots)!`, 'loot');
-    if (typeof floatText === 'function') floatText(`🎒 MOCHILA +30 SLOTS (${totalSlots})`, 'float-jackpot');
+    log(`🎒 背包已擴充！永久增加 30 個欄位（最大容量：${totalSlots} 格）！`, 'loot');
+    if (typeof floatText === 'function') floatText(`🎒 背包 +30 格（${totalSlots}）`, 'float-jackpot');
   } else if (def.type === 'vip_pass' || item.itemId === 'pass_vip_teleport_30d') {
     state.vipTeleportUntil = Math.max(Date.now(), state.vipTeleportUntil || 0) + (30 * 24 * 3600 * 1000);
     log('🌟 Passe VIP de Teleporte ativado! Teleportes gratuitos liberados por 30 dias.', 'system');
@@ -1735,7 +1735,7 @@ function checkLevelUp() {
         console.debug('Record referral level 40 error:', e);
       }
     }
-    log(`🎉 **Parabéns pelo Nível 40!** Recompensa especial por ingressar pelo link de [${state.referredBy}] resgatada: **+50 AC** e **5x Pergaminhos Abençoados de Arma**!`, 'loot');
+    log(`🎉 **恭喜升到 40 級！** 透過 [${state.referredBy}] 推薦連結加入的特殊獎勵已領取：**+50 AC** 與 **5 張祝福武器強化卷軸**！`, 'loot');
     if (typeof floatText === 'function') floatText('🎁 推薦獎勵（50 AC）！', 'float-jackpot');
     updateAllUI();
     save();
@@ -2536,7 +2536,7 @@ function renderShopPowerups(list) {
 function renderShopClass(list) {
   const clsName = state.class ? (getClass(state.class)?.name || state.class) : 'Aventureiro';
   const hdr = mkEl('div'); hdr.className = 'shop-header';
-  hdr.innerHTML = `<h4>🎖️ ${clsName} Exclusivos &amp; Avanço de Ordem</h4><p>Equipamentos mestres e emblemas da sua ordem.</p>`;
+  hdr.innerHTML = `<h4>🎖️ ${clsName} 專屬裝備與階級晉升</h4><p>大師級裝備與職業徽章。</p>`;
   list.appendChild(hdr);
   
   let count = 0;
@@ -2561,7 +2561,7 @@ function renderShopClass(list) {
 
 function renderShopMystic(list) {
   const rot = D().getMysticRotation(), hdr = mkEl('div'); hdr.className = 'shop-header mystic-header';
-  hdr.innerHTML = `<h4>✦ Relíquias &amp; Tesouros Místicos ✦</h4><p>Ofertas raras e encantos ancestrais. Renovação em <span id="mystic-timer">${fmtCountdown(rot[0]?.msLeft || 0)}</span></p>`;
+  hdr.innerHTML = `<h4>✦ 神秘遺物與寶藏 ✦</h4><p>稀有商品與古代強化物。刷新倒數：<span id="mystic-timer">${fmtCountdown(rot[0]?.msLeft || 0)}</span></p>`;
   list.appendChild(hdr);
   
   for (const pick of rot) {
@@ -2581,7 +2581,7 @@ function renderShopMystic(list) {
 
   // Mystic Enchant Scrolls & Artifacts
   const mysticArtifacts = ['scroll_of_enchant_weapon_', 'scroll_of_enchant_armor', 'scroll_of_resurrection', 'teleport_scroll'];
-  const sep = mkEl('div'); sep.className = 'shop-header'; sep.innerHTML = '<h4>✦ Pergaminhos Místicos Ancestrais</h4>'; list.appendChild(sep);
+  const sep = mkEl('div'); sep.className = 'shop-header'; sep.innerHTML = '<h4>✦ 古代神秘卷軸</h4>'; list.appendChild(sep);
   for (const id of mysticArtifacts) {
     const def = D().ALL_ITEMS[id]; if (def) list.appendChild(shopRow(def, id, Math.floor(def.price * 1.2)));
   }
@@ -2614,7 +2614,7 @@ function toggleAutoPotion() {
   updateCombatControlsUI();
   const hpPct = Math.round((state.autoPotionSettings?.hpThreshold || 0.6) * 100);
   const mpPct = Math.round((state.autoPotionSettings?.mpThreshold || 0.4) * 100);
-  log(`Auto-Poções ${state.autoPotionActive ? `ATIVADAS (Gatilhos: HP < ${hpPct}%, MP < ${mpPct}%)` : 'DESATIVADAS'}.`, 'system');
+  log(`自動藥水 ${state.autoPotionActive ? `ATIVADAS (Gatilhos: HP < ${hpPct}%, MP < ${mpPct}%)` : 'DESATIVADAS'}.`, 'system');
   save();
 }
 
@@ -2641,7 +2641,7 @@ function toggleCombatState() {
   const isActive = state.isCombatActive !== false;
   log(`自動狩獵**${isActive ? '已繼續 ▶️' : '已暫停 🛑'}**。`, 'system');
   if (typeof window !== 'undefined' && window.floatText) {
-    window.floatText(isActive ? '▶️ 已繼續狩獵' : '🛑 CAÇA PAUSADA', 'float-gold');
+    window.floatText(isActive ? '▶️ 已繼續狩獵' : '🛑 狩獵已暫停', 'float-gold');
   }
   save();
 }
@@ -2651,7 +2651,7 @@ function updateCombatControlsUI() {
   if (combatBtn) {
     const isActive = state.isCombatActive !== false;
     combatBtn.classList.toggle('active', isActive);
-    combatBtn.innerHTML = `<span class="combat-stance-gem"></span> <span>${isActive ? '⚔️ Caçando' : '⏸️ Parado'}</span>`;
+    combatBtn.innerHTML = `<span class="combat-stance-gem"></span> <span>${isActive ? '⚔️ Caçando' : '⏸️ 停止'}</span>`;
     combatBtn.style.removeProperty('background');
     combatBtn.style.removeProperty('borderColor');
     combatBtn.style.removeProperty('color');
@@ -2693,7 +2693,7 @@ function updateCombatControlsUI() {
     const mpCount = getInventoryCount('mp_potion_s') + getInventoryCount('mp_potion_m') + getInventoryCount('mp_potion_l') + getInventoryCount('mp_potion_xl');
     const hpPct = Math.round((state.autoPotionSettings?.hpThreshold || 0.6) * 100);
     apBtn.innerHTML = `<span>🧪 Auto-Pot</span> <span style="font-size:9px; color:${isApActive ? '#ffd877' : '#94a3b8'};">(${hpCount} HP / ${mpCount} MP)</span>`;
-    apBtn.title = `Auto-Poções: ${isApActive ? 'LIGADO' : 'DESLIGADO'} (HP < ${hpPct}%) - Clique para alternar ou configure no botão Macro ⚙️`;
+    apBtn.title = `自動藥水: ${isApActive ? 'LIGADO' : 'DESLIGADO'} (HP < ${hpPct}%) - Clique para alternar ou configure no botão Macro ⚙️`;
   }
   const spdBtn = el('speed-toggle-btn');
   if (spdBtn) {
@@ -2755,13 +2755,13 @@ function checkOfflineProgress(lastTime) {
     state.buffs = state.buffs || {};
     state.buffs['rested_warrior'] = {
       until: Date.now() + (2 * 3600 * 1000),
-      name: 'Bênção do Guerreiro Retornado (+50% EXP)',
+      name: '回歸戰士祝福（EXP +50%）',
       amount: 1
     };
     state.gold = (state.gold || 0) + 250000;
     serviceAddToInventory(state, 'soulshot_ng', 1000);
     serviceAddToInventory(state, 'hp_potion_xl', 100);
-    log('👑 **[Tributo de Retorno]** Bem-vindo de volta a Aden! Bênção de +50% EXP por 2h e suprimentos imperiais creditados!', 'rarity-legendary');
+    log('👑 **[回歸禮讚]** 歡迎回到亞丁！獲得 2 小時 EXP +50% 祝福與帝國補給！', 'rarity-legendary');
   }
 
   checkLevelUp();
@@ -2953,7 +2953,7 @@ function updateEnchantUI() {
       const isFullBody = def.slot === 'fullbody' || (def.slot === 'chest' && (def.isOnePiece || def.name?.toLowerCase().includes('full body') || def.name?.toLowerCase().includes('robe')));
       const safeLimit = isFullBody ? 4 : 3;
       const baseProb = getEnchantSuccessChance(grade, enchant, safeLimit);
-      const safeMsg = enchant < safeLimit ? `100% Seguro (Até +${safeLimit})` : `Sucesso: ${Math.round(baseProb * 100)}% (Grau ${grade})`;
+      const safeMsg = enchant < safeLimit ? `100% 安全 (Até +${safeLimit})` : `成功率： ${Math.round(baseProb * 100)}% (Grau ${grade})`;
       
       const card = mkEl('div'); card.className = 'enchant-card';
       const title = (enchant > 0 ? `+${enchant} ` : '') + def.name + (item.rarity ? ` [${D().RARITY?.[item.rarity]?.name || item.rarity}]` : '');
@@ -2965,7 +2965,7 @@ function updateEnchantUI() {
         </div>
         <div class="enchant-card-actions" style="display:flex; gap:6px; align-items:center;">
           <button class="item-action" data-enchant="${item.uid}" data-blessed="false" ${normalCount < 1 ? 'disabled title="Sem Pergaminhos Normais"' : ''}>⚡ Normal</button>
-          <button class="item-action blessed-btn" data-enchant="${item.uid}" data-blessed="true" style="background:linear-gradient(135deg, #7e22ce, #b45309); color:#fff; border:1px solid #f59e0b; font-weight:bold;" ${blessedCount < 1 ? 'disabled title="Sem Pergaminhos Abençoados (Blessed)"' : ''}>✨ Blessed</button>
+          <button class="item-action blessed-btn" data-enchant="${item.uid}" data-blessed="true" style="background:linear-gradient(135deg, #7e22ce, #b45309); color:#fff; border:1px solid #f59e0b; font-weight:bold;" ${blessedCount < 1 ? 'disabled title="沒有祝福強化卷軸"' : ''}>✨ Blessed</button>
         </div>
       `;
       ws.appendChild(card);
@@ -2984,7 +2984,7 @@ function enchantItem(uid, useBlessed = false) {
   const grade = (def.grade || 'NG').toUpperCase();
   const scrollItem = findEnchantScrollItem(isWeapon, useBlessed, grade);
   if (!scrollItem) { 
-    log(useBlessed ? `Pergaminho Abençoado (Blessed ${grade}) necessário!` : `Pergaminho de encantamento (${grade}) necessário!`, 'system'); 
+    log(useBlessed ? `需要祝福強化卷軸（${grade}）！` : `需要 ${grade} 級強化卷軸！`, 'system'); 
     return; 
   }
   
@@ -3231,7 +3231,7 @@ function checkQuestResets() {
       delete state.quests.progress[q.id];
       state.quests.claimed = state.quests.claimed.filter(id => id !== q.id);
     });
-    log('📜 Missões Diárias foram renovadas!', 'rarity-legendary');
+    log('📜 每日任務已更新！', 'rarity-legendary');
   }
 
   if (!state.quests.lastWeeklyReset || (now - state.quests.lastWeeklyReset) >= ONE_WEEK) {
@@ -3240,7 +3240,7 @@ function checkQuestResets() {
       delete state.quests.progress[q.id];
       state.quests.claimed = state.quests.claimed.filter(id => id !== q.id);
     });
-    log('📅 Missões Semanais foram renovadas!', 'rarity-legendary');
+    log('📅 每週任務已更新！', 'rarity-legendary');
   }
 }
 
@@ -3290,7 +3290,7 @@ function updateQuestsUI() {
       if (q.reward.gold) rewardsText.push(`💰 +${q.reward.gold.toLocaleString()}g`);
       if (q.reward.sp) rewardsText.push(`✦ +${q.reward.sp} SP`);
       if (q.reward.craftPoints) rewardsText.push(`⚒️ +${q.reward.craftPoints} Craft`);
-      if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} Lâmpada`);
+      if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} 神燈`);
       if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} XP Passe`);
 
       if (isLocked) {
@@ -3320,7 +3320,7 @@ function updateQuestsUI() {
       const pct = Math.floor((progress / q.target) * 100);
       const cardClass = isClaimed ? 'quest-card completed' : (isCompleted ? 'quest-card can-claim' : 'quest-card');
 
-      const btnLabel = isClaimed ? '✓ Reclamado' : (isCompleted ? '🎁 Reclamar' : 'Em Progresso');
+      const btnLabel = isClaimed ? '✓ Reclamado' : (isCompleted ? '🎁 Reclamar' : '進行中');
       const btnDisabled = !isCompleted || isClaimed ? 'disabled' : '';
 
       return `
@@ -3353,7 +3353,7 @@ function updateQuestsUI() {
               Conclua as caçadas diárias ativas (${dailyClaimedCount}/${availableDaily.length}) para resgatar o tesouro supremo.
             </div>
             <div style="font-size:11px; color:#86efac; font-weight:bold;">
-              ✦ +500 SP Extra · 💰 +50.000g · 🪔 +2 Lâmpadas Mágicas · 🎫 +250 XP Passe
+              ✦ +500 SP Extra · 💰 +50.000g · 🪔 +2 神燈s Mágicas · 🎫 +250 XP Passe
             </div>
           </div>
         </div>
@@ -3362,7 +3362,7 @@ function updateQuestsUI() {
             <span style="font-size:11px; color:#10b981; font-weight:bold; padding:6px 14px; border:1px solid #10b981; border-radius:6px; background:rgba(16,185,129,0.15);">✓ Resgatado Hoje</span>
           ` : `
             <button id="claim-grand-daily-btn" class="action-btn action-btn--primary" style="padding:8px 18px; font-weight:bold; font-size:12px; ${allDailyDone ? 'background:linear-gradient(180deg,#d4a744,#8a641c); border:1px solid #ffe699; color:#000; box-shadow:0 0 12px rgba(234,179,8,0.5); cursor:pointer;' : 'opacity:0.5; cursor:not-allowed;'}" ${!allDailyDone ? 'disabled' : ''}>
-              ${allDailyDone ? '🎁 Resgatar Baú (+500 SP)' : `${dailyClaimedCount}/${availableDaily.length} Diárias`}
+              ${allDailyDone ? '🎁 Resgatar Baú (+500 SP)' : `${dailyClaimedCount}/${availableDaily.length} 每日任務`}
             </button>
           `}
         </div>
@@ -3371,7 +3371,7 @@ function updateQuestsUI() {
 
     dailyContainer.innerHTML = grandBonusHtml + cardsHtml;
 
-    if (dailyBadge) dailyBadge.textContent = `${dailyClaimedCount}/${availableDaily.length} Concluídas`;
+    if (dailyBadge) dailyBadge.textContent = `${dailyClaimedCount}/${availableDaily.length} 已完成`;
 
     dailyContainer.querySelectorAll('[data-quest]').forEach(btn => {
       btn.onclick = () => claimQuestReward(btn.dataset.quest);
@@ -3399,10 +3399,10 @@ function updateQuestsUI() {
       const rewardsText = [];
       if (q.reward.gold) rewardsText.push(`💰 +${q.reward.gold.toLocaleString()}g`);
       if (q.reward.sp) rewardsText.push(`✦ +${q.reward.sp} SP`);
-      if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} Lâmpadas`);
+      if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} 神燈s`);
       if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} XP Passe`);
 
-      const btnLabel = isClaimed ? '✓ Reclamado' : (isCompleted ? '🎁 Reclamar' : 'Em Progresso');
+      const btnLabel = isClaimed ? '✓ Reclamado' : (isCompleted ? '🎁 Reclamar' : '進行中');
       const btnDisabled = !isCompleted || isClaimed ? 'disabled' : '';
 
       return `
@@ -3423,7 +3423,7 @@ function updateQuestsUI() {
       `;
     }).join('');
 
-    if (weeklyBadge) weeklyBadge.textContent = `${weeklyClaimedCount}/${QUEST_DEFS.weekly.length} Concluídas`;
+    if (weeklyBadge) weeklyBadge.textContent = `${weeklyClaimedCount}/${QUEST_DEFS.weekly.length} 已完成`;
 
     weeklyContainer.querySelectorAll('[data-quest]').forEach(btn => {
       btn.onclick = () => claimQuestReward(btn.dataset.quest);
@@ -3460,7 +3460,7 @@ function renderBattlePassUI() {
   if (lvlText) lvlText.textContent = `Nível ${currentLvl}`;
 
   const statusText = el('pass-status-text');
-  if (statusText) statusText.textContent = state.battlePass.unlockedPremium ? '👑 Passe Premium Ativo' : 'Passe de Batalha 免費';
+  if (statusText) statusText.textContent = state.battlePass.unlockedPremium ? '👑 Passe Premium Ativo' : '戰鬥通行證免費獎勵';
 
   const xpText = el('pass-xp-text');
   if (xpText) xpText.textContent = `${currentXp.toLocaleString()} / ${nextReqXp.toLocaleString()} XP do Passe`;
@@ -3552,7 +3552,7 @@ function updateTowerUI() {
   if (highestText) highestText.textContent = `Andar Atual: ${highest} / 100`;
 
   const bonusText = el('tower-bonus-text');
-  if (bonusText) bonusText.textContent = `Bônus Passivo Ativo: +${highest}% ATK, DEF & MATK`;
+  if (bonusText) bonusText.textContent = `啟用中的被動加成： +${highest}% ATK, DEF & MATK`;
 
   const nextNumText = el('tower-next-floor-num');
   if (nextNumText) nextNumText.textContent = `${nextFloor}`;
@@ -3586,7 +3586,7 @@ function updateTowerUI() {
     const rewardsStr = [];
     rewardsStr.push(`💰 +${nextDef.gold.toLocaleString()}g`);
     rewardsStr.push(`✦ +${nextDef.sp} SP`);
-    if (nextDef.rewardLamps > 0) rewardsStr.push(`🪔 +${nextDef.rewardLamps} Lâmpadas`);
+    if (nextDef.rewardLamps > 0) rewardsStr.push(`🪔 +${nextDef.rewardLamps} 神燈s`);
     if (nextDef.rewardCrystals) rewardsStr.push(`✨ +3x ${D().ALL_ITEMS[nextDef.rewardCrystals]?.name || nextDef.rewardCrystals}`);
 
     detailsCard.innerHTML = `
@@ -3921,11 +3921,11 @@ function _performFullUIUpdate() {
 function completeFateWhisperQuest() {
   const activeMainLevel = state.activeSubclassIndex === null ? state.level : (state.mainClassData?.level || 1);
   if (activeMainLevel < 52) {
-    log('⚠️ 需要等級 52 na Classe Principal para completar a Quest Fate\'s Whisper!', 'warning');
+    log('⚠️ 主職業需要達到 52 級才能完成 Fate's Whisper 任務！', 'warning');
     return false;
   }
   state.fateWhisperQuest = true;
-  log('📜 QUEST FATE\'S WHISPER CONCLUÍDA! Subclasses desbloqueadas!', 'rarity-legendary');
+  log('📜 Fate's Whisper 任務完成！副職業已解鎖！', 'rarity-legendary');
   floatText('SUBCLASSES DESBLOQUEADAS!', 'float-gold');
   updateAllUI(); save();
   return true;
@@ -5320,7 +5320,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
     }
   }
 
-  // Acúmulo de Lâmpada Mágica & Craft Points por Abate
+  // Acúmulo de 神燈 Mágica & Craft Points por Abate
   state.magicLampExp = (state.magicLampExp || 0) + Math.floor(xpGain * 0.4);
   state.craftPoints = (state.craftPoints || 0) + Math.floor((monster.boss ? 50 : 10) * spoilRate);
 
@@ -7414,7 +7414,7 @@ function updateCodexUI() {
 
   if (summaryEl) {
     const b = getCodexBonuses();
-    summaryEl.innerHTML = `<span style="color:var(--gilt-bright); font-weight:bold;">Coleções Concluídas: ${completedSets}/${totalSets}</span> · Bônus Totais: +${b.atk} ATK, +${b.def} DEF, +${b.matk} MATK, +${b.hp} HP`;
+    summaryEl.innerHTML = `<span style="color:var(--gilt-bright); font-weight:bold;">Coleções 已完成: ${completedSets}/${totalSets}</span> · Bônus Totais: +${b.atk} ATK, +${b.def} DEF, +${b.matk} MATK, +${b.hp} HP`;
   }
 }
 
@@ -7813,7 +7813,7 @@ function updateMagicLampUI() {
   const pct = Math.min(100, Math.floor(((state.magicLampExp || 0) / 50000) * 100));
   if (bar) bar.style.width = pct + '%';
   if (countLabel) {
-    countLabel.textContent = `${state.magicLamps || 0} Lâmpadas Prontas (${pct}% para a próxima)`;
+    countLabel.textContent = `${state.magicLamps || 0} 神燈s Prontas (${pct}% para a próxima)`;
   }
 
   const btn = el('use-magic-lamp-btn');
@@ -7825,7 +7825,7 @@ function updateMagicLampUI() {
 
 function useMagicLamp() {
   if (!state.magicLamps || state.magicLamps < 1) {
-    log('Você não possui Lâmpadas Mágicas para sortear!', 'system');
+    log('Você não possui 神燈s Mágicas para sortear!', 'system');
     return;
   }
 
@@ -7856,7 +7856,7 @@ function useMagicLamp() {
     `;
   }
 
-  log(`🪔 Lâmpada Mágica utilizada! Sorteou **${result.cardName}** (+${result.expWon.toLocaleString()} XP, +${result.spWon.toLocaleString()} SP) [${result.bracket}]!`, 'rarity-legendary');
+  log(`🪔 神燈 Mágica utilizada! Sorteou **${result.cardName}** (+${result.expWon.toLocaleString()} XP, +${result.spWon.toLocaleString()} SP) [${result.bracket}]!`, 'rarity-legendary');
   floatText(`🪔 +${result.expWon.toLocaleString()} XP!`, 'float-jackpot');
 
   updateAllUI();
@@ -7864,7 +7864,7 @@ function useMagicLamp() {
 }
 
 function updateCraftGaugeUI() {
-  // Desacoplado da Lâmpada: Random Craft unificado na Forja Imperial (#tab-craft)
+  // Desacoplado da 神燈: Random Craft unificado na Forja Imperial (#tab-craft)
 }
 
 function refreshRandomCraftWheel() {
@@ -7872,7 +7872,7 @@ function refreshRandomCraftWheel() {
 }
 
 function renderRandomCraftWheelUI() {
-  // Desacoplado da Lâmpada: Renderizado na Forja Imperial
+  // Desacoplado da 神燈: Renderizado na Forja Imperial
 }
 
 function spinRandomCraft() {
@@ -7993,7 +7993,7 @@ export const TAB_NAMES_MAP = {
   craft: 'Forja Imperial',
   alchemy: 'Alquimia',
   warehouse: 'Baú Privado',
-  magiclamp: 'Lâmpada Mágica',
+  magiclamp: '神燈 Mágica',
   clan: 'Clã & Castelos',
   olympiad: 'Olimpíadas',
   rankings: 'Rankings Mundiais',
@@ -11037,7 +11037,7 @@ export function init() {
       });
 
       contentEl.innerHTML = `
-        <!-- Section 1: Auto-Poções Avançadas -->
+        <!-- Section 1: 自動藥水 Avançadas -->
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(212,167,68,0.3); border-radius:10px; padding:14px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
             <div style="font-family:'Cinzel',serif; font-size:14px; font-weight:bold; color:#ffd877; display:flex; align-items:center; gap:8px;">
@@ -11293,7 +11293,7 @@ export function init() {
           } else if (canClaim) {
             btnHtml = `<button onclick="window.claimStarterJourneyStepAction('${step.id}')" style="background:linear-gradient(180deg, #22c55e, #16a34a); color:#fff; border:1px solid #4ade80; border-radius:6px; padding:6px 14px; font-size:12px; font-weight:bold; cursor:pointer; box-shadow:0 0 10px rgba(34,197,94,0.4);">🎁 Resgatar</button>`;
           } else {
-            btnHtml = `<button disabled style="background:rgba(0,0,0,0.4); color:#64748b; border:1px solid rgba(255,255,255,0.08); border-radius:6px; padding:6px 12px; font-size:12px; cursor:not-allowed;">Em Progresso</button>`;
+            btnHtml = `<button disabled style="background:rgba(0,0,0,0.4); color:#64748b; border:1px solid rgba(255,255,255,0.08); border-radius:6px; padding:6px 12px; font-size:12px; cursor:not-allowed;">進行中</button>`;
           }
 
           return `
