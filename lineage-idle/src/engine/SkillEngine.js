@@ -100,7 +100,7 @@ export function spendSP(state, skillId, callbacks = {}) {
         'book_4star': '神聖魔法書：4★（神聖傳奇）',
         'book_5star': '神聖魔法書：5★（原初超越）'
       };
-      const bName = bookNames[reqBookId] || reqBookId;
+      const bName = bookNames[reqBookId] || '指定魔法書';
       if (callbacks.log) callbacks.log(`🔒 背包中需要 **${bName}** 才能解鎖此技能！（可從狩獵／副本取得，或在全球市場購買）`, 'warning');
       return false;
     }
