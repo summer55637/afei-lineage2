@@ -76,7 +76,7 @@ export function renderHuntingUI(state) {
             ${z.icon} ${z.name}
           </strong>
           <span style="font-size:10px; color:${isUnlocked ? '#ffd877' : '#ef4444'}; font-weight:bold;">
-            ${isUnlocked ? '★'.repeat(z.difficulty) : `🔒 Lv. ${z.minLevel}`}
+            ${isUnlocked ? '★'.repeat(z.difficulty) : `🔒 等級 ${z.minLevel}`}
           </span>
         </div>
         <p style="font-size:11px; color:#94a3b8; margin:0 0 6px 0; line-height:1.3;">
@@ -100,7 +100,7 @@ export function renderHuntingUI(state) {
 
     let actionBtn = '';
     if (isEquipped) {
-      actionBtn = `<span style="font-size:10px; color:#34d399; font-weight:bold; padding:4px 8px; border:1px solid #34d399; border-radius:4px; background:rgba(52,211,153,0.15);">EM USO</span>`;
+      actionBtn = `<span style="font-size:10px; color:#34d399; font-weight:bold; padding:4px 8px; border:1px solid #34d399; border-radius:4px; background:rgba(52,211,153,0.15);">使用中</span>`;
     } else if (isOwned) {
       actionBtn = `
         <button 
@@ -117,7 +117,7 @@ export function renderHuntingUI(state) {
           ${(!canUnlock || !canAfford) ? 'disabled' : ''}
           style="padding:4px 10px; font-size:10px; font-weight:bold; background:${canUnlock && canAfford ? 'linear-gradient(180deg,#d4a744,#8a641c)' : 'rgba(50,50,50,0.4)'}; border:1px solid ${canUnlock && canAfford ? '#ffe699' : '#555'}; color:${canUnlock && canAfford ? '#000' : '#777'}; border-radius:4px; cursor:${canUnlock && canAfford ? 'pointer' : 'not-allowed'};"
         >
-          ${canUnlock ? `購買 (${(kDef.buyPrice / 1000).toFixed(0)}k)` : `🔒 Nv. ${kDef.minHuntingLevel}`}
+          ${canUnlock ? `購買 (${(kDef.buyPrice / 1000).toFixed(0)}k)` : `🔒 狩獵等級 ${kDef.minHuntingLevel}`}
         </button>
       `;
     }
@@ -387,7 +387,7 @@ export function renderHuntingUI(state) {
         <!-- Barra de Maestria -->
         <div>
           <div style="display:flex; justify-content:space-between; font-size:10px; color:#94a3b8; margin-bottom:4px;">
-            <span>熟練度進度： <strong style="color:#6ee7b7;">${skillXp.toLocaleString()} / ${nextLvlXp.toLocaleString()} XP</strong></span>
+            <span>熟練度進度： <strong style="color:#6ee7b7;">${skillXp.toLocaleString()} / ${nextLvlXp.toLocaleString()} 經驗值</strong></span>
             <span>${xpPct}%</span>
           </div>
           <div style="width:100%; height:6px; background:rgba(0,0,0,0.6); border-radius:3px; overflow:hidden; border:1px solid rgba(52,211,153,0.2);">
