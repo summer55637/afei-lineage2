@@ -111,7 +111,7 @@ export const ITEM_SKILLS = [
     id: 'item_skill_active_heal',
     name: '物品技能：主動強效治療 💚',
     type: 'active',
-    desc: '立即恢復 3,000 HP。',
+    desc: '立即恢復 3,000 生命值。',
     stats: { instantHeal: 3000 }
   },
   {
@@ -125,14 +125,14 @@ export const ITEM_SKILLS = [
     id: 'item_skill_passive_clarity',
     name: '物品技能：被動清晰 💧',
     type: 'passive',
-    desc: '所有技能 MP 消耗降低 15%。',
+    desc: '所有技能 魔力 消耗降低 15%。',
     stats: { mpReductionPercent: 0.15 }
   },
   {
     id: 'item_skill_passive_duel',
     name: '物品技能：被動決鬥之力 🏆',
     type: 'passive',
-    desc: '大奧林匹亞決鬥與 PvP 傷害 +12%。',
+    desc: '大奧林匹亞決鬥與 PVP 傷害 +12%。',
     stats: { pvpDamagePercent: 0.12 }
   },
   {
@@ -149,7 +149,7 @@ export const STAT_ROLL_POOL = [
   { name: '+魔法攻擊', key: 'matk', min: 20, max: 60 },
   { name: '+物理防禦', key: 'def', min: 15, max: 40 },
   { name: '+魔法防禦', key: 'mdef', min: 18, max: 50 },
-  { name: '+最大 HP', key: 'hp', min: 200, max: 650 },
+  { name: '+最大 生命值', key: 'hp', min: 200, max: 650 },
   { name: '+最大 CP', key: 'cp', min: 250, max: 800 },
   { name: '+暴擊率', key: 'crit', min: 5, max: 18 },
   { name: '+迴避', key: 'eva', min: 3, max: 8 }
