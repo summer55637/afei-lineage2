@@ -619,7 +619,7 @@ export function calculateInventoryPressure(state) {
   const pct = max > 0 ? Math.round((count / max) * 100) : 0;
 
   let status = 'normal';
-  let label = 'Normal';
+  let label = '正常';
   let color = '#c8aa6e';
 
   if (pct >= 100) {
@@ -628,11 +628,11 @@ export function calculateInventoryPressure(state) {
     color = '#ff2a2a';
   } else if (pct >= 90) {
     status = 'critical';
-    label = '暴擊';
+    label = '危急';
     color = '#ef4444';
   } else if (pct >= 75) {
     status = 'warning';
-    label = 'Alerta';
+    label = '警告';
     color = '#f59e0b';
   }
 
