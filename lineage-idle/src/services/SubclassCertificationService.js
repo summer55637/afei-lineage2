@@ -150,7 +150,7 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
       id: 'master_anti_magic',
       name: '抗魔與魔力增益',
       icon: '🔮',
-      badge: '魔防與 MP',
+      badge: '魔防與魔力',
       desc: '永久 +10% 魔法防禦、+25 魔法元素抗性',
       stats: { mDefPercent: 0.10, elementalResist: 25 },
       cp: 3500
@@ -497,7 +497,7 @@ export class SubclassCertificationService {
 
     if (callbacks.log) {
       callbacks.log(`📜✨ **取得認證！** [${sub.classId?.toUpperCase()}] 已學會 **${abilityName}**！`, 'rarity-legendary');
-      callbacks.log(`所有加成都已永久綁定至主職業！（+${abilityDef?.cp || 1500} CP）`, 'rarity-epic');
+      callbacks.log(`所有加成都已永久綁定至主職業！（+${abilityDef?.cp || 1500} 戰鬥力）`, 'rarity-epic');
     }
 
     if (callbacks.onUpdate) callbacks.onUpdate();
