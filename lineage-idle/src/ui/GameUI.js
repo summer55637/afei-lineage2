@@ -554,7 +554,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
         else if (diff < 0) deltaHtml = `<span style="color:#ef4444;font-size:10px;font-weight:bold;margin-left:5px;">（${diff}${suffix}）</span>`;
       }
       statsHtml += `<div style="display:flex;justify-content:space-between;font-size:11px;margin:2px 0;">`
-        + `<span style="color:#cbd5e1;">${STAT_LABEL[s] || s.toUpperCase()}</span>`
+        + `<span style="color:#cbd5e1;">${STAT_LABEL[s] || '其他屬性'}</span>`
         + `<div><span style="color:#fcd34d;font-weight:700;">+${v}${suffix}</span>${deltaHtml}</div>`
         + `</div>`;
     }
@@ -823,7 +823,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
       ${gradeHtml}
     </div>
     <div style="color:${rarityColor};font-size:11px;font-weight:600;margin-bottom:2px;">${rarityName}</div>
-    <div style="color:#888;font-size:10px;text-transform:uppercase;margin-bottom:4px;">${def.slot ? ({ weapon: '武器', weapon2: '副武器', shield: '盾牌', helmet: '頭盔', armor: '胸甲', chest: '胸甲', fullbody: '全身甲', legs: '褲子', gloves: '手套', boots: '靴子', necklace: '項鍊', earring: '耳環', earring1: '耳環 1', earring2: '耳環 2', ring: '戒指', ring1: '戒指 1', ring2: '戒指 2', cloak: '披風', belt: '腰帶', hair: '頭飾', consumable: '消耗品', material: '材料', scroll: '卷軸', crystal: '水晶' })[def.slot] || def.slot : '物品'}${def.req?.level ? ` · 需求等級 ${def.req.level}` : ''}</div>
+    <div style="color:#888;font-size:10px;text-transform:uppercase;margin-bottom:4px;">${def.slot ? ({ weapon: '武器', weapon2: '副武器', shield: '盾牌', helmet: '頭盔', armor: '胸甲', chest: '胸甲', fullbody: '全身甲', legs: '褲子', gloves: '手套', boots: '靴子', necklace: '項鍊', earring: '耳環', earring1: '耳環 1', earring2: '耳環 2', ring: '戒指', ring1: '戒指 1', ring2: '戒指 2', cloak: '披風', belt: '腰帶', hair: '頭飾', consumable: '消耗品', material: '材料', scroll: '卷軸', crystal: '水晶' })[def.slot] || '其他' : '物品'}${def.req?.level ? ` · 需求等級 ${def.req.level}` : ''}</div>
     ${heirloomHtml}
     ${penaltyWarningHtml}
     ${statsStr}
@@ -2268,7 +2268,7 @@ export function openAutoEquipPreviewModal(state, callbacks = {}) {
 
     bodyHtml += `
       <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:4px; padding:6px 10px; display:flex; align-items:center; justify-content:space-between; font-size:11px;">
-        <span style="font-weight:bold; color:var(--gilt); text-transform:uppercase; font-size:10px; min-width:80px;">${({ weapon: '武器', weapon2: '副手武器', shield: '盾牌', helmet: '頭盔', head: '頭盔', armor: '胸甲', chest: '胸甲', legs: '腿甲', gloves: '手套', boots: '靴子', necklace: '項鍊', earring1: '耳環 1', earring2: '耳環 2', ring1: '戒指 1', ring2: '戒指 2', cloak: '披風', belt: '腰帶', hair: '頭飾', hair1: '頭飾 1', hair2: '頭飾 2', brooch: '胸針', agathion_bracelet: '阿加西翁手鐲', talisman_bracelet: '護符手鐲' })[chg.slot] || chg.slot}：</span>
+        <span style="font-weight:bold; color:var(--gilt); text-transform:uppercase; font-size:10px; min-width:80px;">${({ weapon: '武器', weapon2: '副手武器', shield: '盾牌', helmet: '頭盔', head: '頭盔', armor: '胸甲', chest: '胸甲', legs: '腿甲', gloves: '手套', boots: '靴子', necklace: '項鍊', earring1: '耳環 1', earring2: '耳環 2', ring1: '戒指 1', ring2: '戒指 2', cloak: '披風', belt: '腰帶', hair: '頭飾', hair1: '頭飾 1', hair2: '頭飾 2', brooch: '胸針', agathion_bracelet: '阿加西翁手鐲', talisman_bracelet: '護符手鐲' })[chg.slot] || '未知欄位'}：</span>
         <span style="color:#94a3b8; flex:1; text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
           ${curDef ? curDef.name : '<span style="color:#64748b;">（空）</span>'}
         </span>
@@ -3319,7 +3319,7 @@ export function updateCharacterUI(state) {
 
     let tattoosHtml = '';
     if (tattoos.length > 0) {
-      tattoosHtml = tattoos.map(t => `<div class="l2-tatt-badge">🖋️ 刺青：+${t.plusVal} ${tattooStatLabels[t.plusStat] || t.plusStat?.toUpperCase() || ''} / -${t.minusVal} ${tattooStatLabels[t.minusStat] || t.minusStat?.toUpperCase() || ''}</div>`).join('');
+      tattoosHtml = tattoos.map(t => `<div class="l2-tatt-badge">🖋️ 刺青：+${t.plusVal} ${tattooStatLabels[t.plusStat] || '其他屬性'} / -${t.minusVal} ${tattooStatLabels[t.minusStat] || '其他屬性'}</div>`).join('');
     } else {
       tattoosHtml = '<div class="l2-tatt-empty">尚未刻印任何紋身。（取得染料後可在鍛造大師處刻印）</div>';
     }
@@ -3851,7 +3851,7 @@ function renderSkillCard(skill, state, activeLoadoutSlot = null) {
          role="button"
          tabindex="0"
          draggable="${isDraggable ? 'true' : 'false'}"
-         title="${skill.name}（${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗', physical: '物理', none: '無屬性' })[String(skill.element || 'physical').toLowerCase()] || skill.element || '物理'}）${equippedSlot ? ` — 已裝備於配置： ${SKILL_LOADOUT_SLOT_LABELS[equippedSlot] || equippedSlot}` : ''}">
+         title="${skill.name}（${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗', physical: '物理', none: '無屬性' })[String(skill.element || 'physical').toLowerCase()] || '其他屬性'}）${equippedSlot ? ` — 已裝備於配置： ${SKILL_LOADOUT_SLOT_LABELS[equippedSlot] || equippedSlot}` : ''}">
       <div class="skill-icon-frame-48">
         <img src="${iconUrl}" class="skill-icon-img" alt="${skill.name}" onerror="this.onerror=null; this.src='${NEUTRAL_SKILL_PLACEHOLDER}'; this.style.opacity='0.4';" />
         ${starPill}
@@ -3862,8 +3862,8 @@ function renderSkillCard(skill, state, activeLoadoutSlot = null) {
         <div class="skill-card-title">${skill.name}</div>
         <div class="skill-card-tags">
           <span class="skill-grade-tag grade-${String(skill.grade || 'common').toLowerCase()}">${D()?.RARITY?.[String(skill.grade || 'common').toLowerCase()]?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說' })[String(skill.grade || 'common').toLowerCase()] || skill.grade || '一般'}</span>
-          <span class="skill-element-tag ${elemClass}">${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗', physical: '物理', none: '無屬性' })[String(skill.element || 'physical').toLowerCase()] || skill.element || '物理'}</span>
-          <span class="skill-role-tag">${({ physical: '物理', magic: '魔法', buff: '增益', debuff: '減益', heal: '治療', healing: '治療', control: '控制', passive: '被動', active: '主動', summon: '召喚', aoe: '範圍', utility: '輔助' })[String(skill.role || '').toLowerCase()] || skill.role || '技能'}</span>
+          <span class="skill-element-tag ${elemClass}">${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗', physical: '物理', none: '無屬性' })[String(skill.element || 'physical').toLowerCase()] || '其他屬性'}</span>
+          <span class="skill-role-tag">${({ physical: '物理', magic: '魔法', buff: '增益', debuff: '減益', heal: '治療', healing: '治療', control: '控制', passive: '被動', active: '主動', summon: '召喚', aoe: '範圍', utility: '輔助' })[String(skill.role || '').toLowerCase()] || '技能'}</span>
         </div>
         <div class="skill-card-footer">
           ${costBadge}
@@ -3970,7 +3970,7 @@ export function updateSkillUI(state, callbacks = {}) {
                 <span class="legacy-passive-icon">✦</span>
                 <div class="legacy-passive-body">
                   <div class="legacy-passive-name">${p.name || p.originalSkill}</div>
-                  <div class="legacy-passive-effect">${p.desc || `+${((p.val || 0) * 100).toFixed(1)}% ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[p.stat] || p.stat?.toUpperCase() || ''}`}</div>
+                  <div class="legacy-passive-effect">${p.desc || `+${((p.val || 0) * 100).toFixed(1)}% ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[p.stat] || '其他屬性'}`}</div>
                 </div>
               </div>
             `).join('')}
@@ -4289,7 +4289,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
     const listHtml = Object.values(state.legacyPassives).map(p => `
       <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.3); border:1px solid rgba(255,215,0,0.25); border-radius:4px; padding:4px 8px; margin-top:4px; font-size:11px;">
         <span style="color:#ffd700; font-weight:bold;">🧬 ${p.name || p.originalSkill}</span>
-        <span style="color:#34d399; font-weight:bold;">+${(p.val * 100).toFixed(1)}% ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[p.stat] || p.stat.toUpperCase()}</span>
+        <span style="color:#34d399; font-weight:bold;">+${(p.val * 100).toFixed(1)}% ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[p.stat] || '其他屬性'}</span>
       </div>
     `).join('');
 
@@ -4377,8 +4377,8 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
     : `<span class="si-icon">${siIconVal}</span>`;
 
   const elemClass = `element-${String(semantic.element || def.element || 'physical').toLowerCase()}`;
-  const elemTag = `<span class="skill-element-tag ${elemClass}" style="margin-left:4px;">${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗', physical: '物理', none: '無屬性' })[String(semantic.element || def.element || 'physical').toLowerCase()] || semantic.element || def.element || '物理'}</span>`;
-  const roleTag = `<span class="skill-role-tag" style="margin-left:4px;">${({ physical: '物理', magic: '魔法', buff: '增益', debuff: '減益', heal: '治療', healing: '治療', control: '控制', passive: '被動', active: '主動', summon: '召喚', aoe: '範圍', utility: '輔助' })[String(semantic.role || def.type || '').toLowerCase()] || semantic.role || def.type || '技能'}</span>`;
+  const elemTag = `<span class="skill-element-tag ${elemClass}" style="margin-left:4px;">${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗', physical: '物理', none: '無屬性' })[String(semantic.element || def.element || 'physical').toLowerCase()] || '其他屬性'}</span>`;
+  const roleTag = `<span class="skill-role-tag" style="margin-left:4px;">${({ physical: '物理', magic: '魔法', buff: '增益', debuff: '減益', heal: '治療', healing: '治療', control: '控制', passive: '被動', active: '主動', summon: '召喚', aoe: '範圍', utility: '輔助' })[String(semantic.role || def.type || '').toLowerCase()] || '技能'}</span>`;
 
   let loadoutSectionHtml = '';
   const isPassive = def.type === 'passive' || def.type === 'stat';
@@ -7826,7 +7826,7 @@ export function renderForgeTattoos(container, state) {
           <div>
             <strong style="color:#d8b4fe; font-size:12px; font-family:'Cinzel',serif;">節點 ${idx + 1}： ${d.name} （等級 ${d.stage}/5）</strong>
             <div class="l2-stat-chip-row">
-              <span class="l2-stat-chip-pos">+${plusVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[plusStat] || plusStat.toUpperCase()}</span>
+              <span class="l2-stat-chip-pos">+${plusVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[plusStat] || '其他屬性'}</span>
               <span class="l2-stat-chip-neg">-${minusVal} ${minusStat.toUpperCase()}</span>
             </div>
           </div>
@@ -10882,7 +10882,7 @@ export function openAugmentModal(state) {
         ${currentAug ? `
           <div style="margin-top:6px; background:#083344; border:1px solid #06b6d4; border-radius:6px; padding:8px; font-size:11.5px; color:#a5f3fc;">
             <div>✨ 目前附魔改造： <strong>${currentAug.lifeStoneName}</strong></div>
-            <div style="margin-top:2px;">屬性：<strong>${Object.entries(currentAug.stats || {}).map(([k,v]) => `+${v} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[k] || k.toUpperCase()}`).join(', ')}</strong></div>
+            <div style="margin-top:2px;">屬性：<strong>${Object.entries(currentAug.stats || {}).map(([k,v]) => `+${v} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[k] || '其他屬性'}`).join(', ')}</strong></div>
             ${currentAug.itemSkill ? `<div style="color:#fde047; font-weight:bold; margin-top:2px;">技能： ${currentAug.itemSkill.name}</div>` : ''}
           </div>
         ` : `
