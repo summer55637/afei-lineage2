@@ -19,153 +19,153 @@ export const MONSTERS = {
   // ──────────────────────────────────────────────────────────────────────────
   // 1. TALKING ISLAND (Level 1-5)
   // ──────────────────────────────────────────────────────────────────────────
-  goblin: { name: 'Goblin', lvl: 1, hp: 140, atk: 6, def: 6, eva: 2, matk: 0, mdef: 3, xp: 14, sp: 0, gold: [5, 12] },
-  goblinThief: { name: 'Goblin Thief', lvl: 2, hp: 180, atk: 9, def: 8, eva: 10, matk: 0, mdef: 4, xp: 20, sp: 0, gold: [8, 20], element: 'none', traits: ['ambush'], stealsGold: 0.15, skill: { name: 'Golpe Sorrateiro', type: 'physical', mult: 1.3, cd: 4, vfx: 'energy_slash' } },
-  armoredGoblin: { name: 'Armored Goblin', lvl: 3, hp: 240, atk: 11, def: 14, eva: 2, matk: 0, mdef: 6, xp: 26, sp: 0, gold: [10, 24], traits: ['block'], skill: { name: 'Postura Defensiva', type: 'buff', effect: 'def_boost', val: 0.3, cd: 6 } },
-  goblinMage: { name: 'Goblin Mage', lvl: 4, hp: 210, atk: 8, def: 9, eva: 3, matk: 16, mdef: 12, xp: 30, sp: 0, gold: [12, 28], element: 'fire', magic: true, skill: { name: 'Firebolt', type: 'magical', mult: 1.4, cd: 4, vfx: 'fireball' } },
-  talkingIslandWerewolf: { name: 'Island Werewolf Leader', lvl: 5, hp: 550, atk: 17, def: 18, eva: 8, matk: 0, mdef: 10, xp: 75, sp: 6, gold: [30, 70], traits: ['bleed'], elite: true, skill: { name: 'Uivo Dilacerante', type: 'physical', effect: 'bleed', mult: 1.4, cd: 5, vfx: 'slash' } },
-  goblinKing: { name: 'Goblin King', lvl: 5, hp: 1100, atk: 22, def: 25, eva: 4, matk: 0, mdef: 15, xp: 160, sp: 25, gold: [60, 140], boss: true, skill: { name: 'Ira do Rei Goblin', type: 'physical', effect: 'stun', mult: 1.6, cd: 6, vfx: 'spiral_spear' } },
+  goblin: { name: '哥布林', lvl: 1, hp: 140, atk: 6, def: 6, eva: 2, matk: 0, mdef: 3, xp: 14, sp: 0, gold: [5, 12] },
+  goblinThief: { name: '哥布林 Thief', lvl: 2, hp: 180, atk: 9, def: 8, eva: 10, matk: 0, mdef: 4, xp: 20, sp: 0, gold: [8, 20], element: 'none', traits: ['ambush'], stealsGold: 0.15, skill: { name: '偷襲', type: 'physical', mult: 1.3, cd: 4, vfx: 'energy_slash' } },
+  armored哥布林: { name: 'Armored 哥布林', lvl: 3, hp: 240, atk: 11, def: 14, eva: 2, matk: 0, mdef: 6, xp: 26, sp: 0, gold: [10, 24], traits: ['block'], skill: { name: '防禦姿態', type: 'buff', effect: 'def_boost', val: 0.3, cd: 6 } },
+  goblinMage: { name: '哥布林 Mage', lvl: 4, hp: 210, atk: 8, def: 9, eva: 3, matk: 16, mdef: 12, xp: 30, sp: 0, gold: [12, 28], element: 'fire', magic: true, skill: { name: '火焰箭', type: 'magical', mult: 1.4, cd: 4, vfx: 'fireball' } },
+  talkingIslandWerewolf: { name: '說話之島狼人首領', lvl: 5, hp: 550, atk: 17, def: 18, eva: 8, matk: 0, mdef: 10, xp: 75, sp: 6, gold: [30, 70], traits: ['bleed'], elite: true, skill: { name: '撕裂咆哮', type: 'physical', effect: 'bleed', mult: 1.4, cd: 5, vfx: 'slash' } },
+  goblinKing: { name: '哥布林 King', lvl: 5, hp: 1100, atk: 22, def: 25, eva: 4, matk: 0, mdef: 15, xp: 160, sp: 25, gold: [60, 140], boss: true, skill: { name: 'Ira do Rei 哥布林', type: 'physical', effect: 'stun', mult: 1.6, cd: 6, vfx: 'spiral_spear' } },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 2. ELVEN FOREST (Level 3-10)
   // ──────────────────────────────────────────────────────────────────────────
-  wolf: { name: 'Wolf', lvl: 3, hp: 220, atk: 10, def: 8, eva: 6, matk: 0, mdef: 4, xp: 24, sp: 0, gold: [9, 22] },
-  grayWolf: { name: 'Gray Wolf', lvl: 4, hp: 280, atk: 12, def: 10, eva: 7, matk: 0, mdef: 5, xp: 30, sp: 0, gold: [11, 25], traits: ['bleed'], skill: { name: 'Mordida Voraz', type: 'physical', effect: 'bleed', mult: 1.3, cd: 4 } },
-  rootWitch: { name: 'Root Witch', lvl: 5, hp: 320, atk: 14, def: 11, eva: 5, matk: 20, mdef: 16, xp: 38, sp: 0, gold: [15, 32], magic: true, skill: { name: 'Raízes Prisioneiras', type: 'magical', effect: 'root', mult: 1.35, cd: 5, vfx: 'earth_spike' } },
-  greenDryad: { name: 'Green Dryad', lvl: 8, hp: 460, atk: 22, def: 16, eva: 9, matk: 28, mdef: 22, xp: 65, sp: 0, gold: [24, 52], magic: true, traits: ['entangle'], skill: { name: 'Espinhos da Floresta', type: 'magical', mult: 1.4, cd: 4, vfx: 'nature_blast' } },
-  sporeFungus: { name: 'Spore Fungus', lvl: 9, hp: 520, atk: 25, def: 18, eva: 5, matk: 35, mdef: 24, xp: 78, sp: 0, gold: [30, 65], element: 'earth', traits: ['poison'], skill: { name: 'Nuvem de Esporos', type: 'magical', effect: 'poison', mult: 1.3, cd: 5 } },
-  kabooOrcFighter: { name: 'Kaboo Orc Champion', lvl: 10, hp: 980, atk: 35, def: 26, eva: 7, matk: 0, mdef: 16, xp: 160, sp: 8, gold: [55, 120], traits: ['enrage'], elite: true, skill: { name: 'Machado Fendido', type: 'physical', effect: 'stun', mult: 1.5, cd: 5, vfx: 'energy_slash' } },
-  deathTrent: { name: 'Death Treant', lvl: 10, hp: 1950, atk: 42, def: 35, eva: 4, matk: 25, mdef: 28, xp: 320, sp: 35, gold: [120, 280], boss: true, skill: { name: 'Fúria da Natureza Ancestral', type: 'magical', effect: 'root', mult: 1.7, cd: 6 } },
+  wolf: { name: '野狼', lvl: 3, hp: 220, atk: 10, def: 8, eva: 6, matk: 0, mdef: 4, xp: 24, sp: 0, gold: [9, 22] },
+  gray野狼: { name: 'Gray 野狼', lvl: 4, hp: 280, atk: 12, def: 10, eva: 7, matk: 0, mdef: 5, xp: 30, sp: 0, gold: [11, 25], traits: ['bleed'], skill: { name: '兇猛撕咬', type: 'physical', effect: 'bleed', mult: 1.3, cd: 4 } },
+  rootWitch: { name: '樹根女巫', lvl: 5, hp: 320, atk: 14, def: 11, eva: 5, matk: 20, mdef: 16, xp: 38, sp: 0, gold: [15, 32], magic: true, skill: { name: '禁錮之根', type: 'magical', effect: 'root', mult: 1.35, cd: 5, vfx: 'earth_spike' } },
+  greenDryad: { name: '綠色樹精', lvl: 8, hp: 460, atk: 22, def: 16, eva: 9, matk: 28, mdef: 22, xp: 65, sp: 0, gold: [24, 52], magic: true, traits: ['entangle'], skill: { name: '森林荊棘', type: 'magical', mult: 1.4, cd: 4, vfx: 'nature_blast' } },
+  sporeFungus: { name: '孢子真菌', lvl: 9, hp: 520, atk: 25, def: 18, eva: 5, matk: 35, mdef: 24, xp: 78, sp: 0, gold: [30, 65], element: 'earth', traits: ['poison'], skill: { name: '孢子雲', type: 'magical', effect: 'poison', mult: 1.3, cd: 5 } },
+  kabooOrcFighter: { name: '卡布半獸人勇士', lvl: 10, hp: 980, atk: 35, def: 26, eva: 7, matk: 0, mdef: 16, xp: 160, sp: 8, gold: [55, 120], traits: ['enrage'], elite: true, skill: { name: '裂地斧擊', type: 'physical', effect: 'stun', mult: 1.5, cd: 5, vfx: 'energy_slash' } },
+  deathTrent: { name: '死亡樹精', lvl: 10, hp: 1950, atk: 42, def: 35, eva: 4, matk: 25, mdef: 28, xp: 320, sp: 35, gold: [120, 280], boss: true, skill: { name: '古代自然之怒', type: 'magical', effect: 'root', mult: 1.7, cd: 6 } },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 3. DARK FOREST (Level 5-12)
   // ──────────────────────────────────────────────────────────────────────────
-  spider: { name: 'Cave Spider', lvl: 5, hp: 320, atk: 13, def: 10, eva: 9, matk: 0, mdef: 6, xp: 32, sp: 0, gold: [12, 28], traits: ['poison'], skill: { name: 'Picada Venenosa', type: 'physical', effect: 'poison', mult: 1.3, cd: 4 } },
-  swampWalker: { name: 'Swamp Walker', lvl: 7, hp: 440, atk: 18, def: 14, eva: 6, matk: 10, mdef: 14, xp: 48, sp: 0, gold: [18, 40] },
-  lesserDarkHorror: { name: 'Lesser Dark Horror', lvl: 9, hp: 550, atk: 26, def: 18, eva: 8, matk: 32, mdef: 22, xp: 75, sp: 0, gold: [28, 60], element: 'dark', magic: true, skill: { name: 'Seta das Sombras', type: 'magical', mult: 1.45, cd: 4, vfx: 'dark_missile' } },
-  marshStalker: { name: 'Marsh Stalker', lvl: 11, hp: 680, atk: 33, def: 22, eva: 13, matk: 0, mdef: 14, xp: 95, sp: 0, gold: [36, 75], traits: ['ambush'], skill: { name: 'Ataque Furtivo', type: 'physical', mult: 1.5, cd: 4 } },
-  shadowFangWolf: { name: 'Shadowfang Dire Wolf', lvl: 12, hp: 1250, atk: 45, def: 30, eva: 12, matk: 0, mdef: 18, xp: 210, sp: 10, gold: [75, 160], traits: ['bleed'], elite: true, skill: { name: 'Despedaçar Sombrio', type: 'physical', effect: 'bleed', mult: 1.55, cd: 5 } },
-  darkForestMatriarch: { name: 'Dark Forest Matriarch', lvl: 12, hp: 2400, atk: 52, def: 40, eva: 10, matk: 30, mdef: 32, xp: 400, sp: 45, gold: [150, 320], boss: true, skill: { name: 'Teia Mortal da Matriarca', type: 'magical', effect: 'poison', mult: 1.8, cd: 6 } },
+  spider: { name: '洞穴蜘蛛', lvl: 5, hp: 320, atk: 13, def: 10, eva: 9, matk: 0, mdef: 6, xp: 32, sp: 0, gold: [12, 28], traits: ['poison'], skill: { name: '毒刺', type: 'physical', effect: 'poison', mult: 1.3, cd: 4 } },
+  swampWalker: { name: '沼澤行者', lvl: 7, hp: 440, atk: 18, def: 14, eva: 6, matk: 10, mdef: 14, xp: 48, sp: 0, gold: [18, 40] },
+  lesserDarkHorror: { name: '低階黑暗恐懼', lvl: 9, hp: 550, atk: 26, def: 18, eva: 8, matk: 32, mdef: 22, xp: 75, sp: 0, gold: [28, 60], element: 'dark', magic: true, skill: { name: '暗影箭', type: 'magical', mult: 1.45, cd: 4, vfx: 'dark_missile' } },
+  marshStalker: { name: '沼澤潛行者', lvl: 11, hp: 680, atk: 33, def: 22, eva: 13, matk: 0, mdef: 14, xp: 95, sp: 0, gold: [36, 75], traits: ['ambush'], skill: { name: '伏擊', type: 'physical', mult: 1.5, cd: 4 } },
+  shadowFang野狼: { name: 'Shadowfang Dire 野狼', lvl: 12, hp: 1250, atk: 45, def: 30, eva: 12, matk: 0, mdef: 18, xp: 210, sp: 10, gold: [75, 160], traits: ['bleed'], elite: true, skill: { name: '暗影撕裂', type: 'physical', effect: 'bleed', mult: 1.55, cd: 5 } },
+  darkForestMatriarch: { name: '黑暗森林女王', lvl: 12, hp: 2400, atk: 52, def: 40, eva: 10, matk: 30, mdef: 32, xp: 400, sp: 45, gold: [150, 320], boss: true, skill: { name: '女王致命蛛網', type: 'magical', effect: 'poison', mult: 1.8, cd: 6 } },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 4. ORC VILLAGE (Level 7-15)
   // ──────────────────────────────────────────────────────────────────────────
-  orc: { name: 'Orc Warrior', lvl: 7, hp: 480, atk: 22, def: 16, eva: 5, matk: 0, mdef: 8, xp: 58, sp: 0, gold: [22, 48], traits: ['enrage'] },
-  kashaWolf: { name: 'Kasha Wolf', lvl: 9, hp: 560, atk: 27, def: 18, eva: 10, matk: 0, mdef: 10, xp: 75, sp: 0, gold: [30, 62], traits: ['bleed'] },
-  kashaBear: { name: 'Kasha Bear', lvl: 11, hp: 750, atk: 34, def: 24, eva: 5, matk: 0, mdef: 12, xp: 105, sp: 0, gold: [38, 82], skill: { name: 'Pata Esmagadora', type: 'physical', effect: 'stun', mult: 1.4, cd: 5 } },
-  kashaOrcArcher: { name: 'Kasha Orc Archer', lvl: 13, hp: 620, atk: 42, def: 20, eva: 10, matk: 0, mdef: 14, xp: 125, sp: 0, gold: [45, 95], skill: { name: 'Tiro Duplo Kasha', type: 'physical', mult: 1.5, cd: 4, vfx: 'arrow' } },
-  kashaOrcBerserker: { name: 'Kasha Orc Berserker', lvl: 14, hp: 1550, atk: 55, def: 34, eva: 8, matk: 0, mdef: 18, xp: 280, sp: 12, gold: [100, 210], traits: ['enrage'], elite: true, skill: { name: 'Golpe Furioso Berserk', type: 'physical', mult: 1.65, cd: 5 } },
-  kashaOrcOverlord: { name: 'Kasha Tribe Overlord', lvl: 15, hp: 3100, atk: 65, def: 45, eva: 8, matk: 20, mdef: 28, xp: 520, sp: 60, gold: [180, 380], boss: true, skill: { name: 'Rugido Tribal do Overlord', type: 'physical', effect: 'stun', mult: 1.85, cd: 6 } },
+  orc: { name: '半獸人戰士', lvl: 7, hp: 480, atk: 22, def: 16, eva: 5, matk: 0, mdef: 8, xp: 58, sp: 0, gold: [22, 48], traits: ['enrage'] },
+  kasha野狼: { name: 'Kasha 野狼', lvl: 9, hp: 560, atk: 27, def: 18, eva: 10, matk: 0, mdef: 10, xp: 75, sp: 0, gold: [30, 62], traits: ['bleed'] },
+  kashaBear: { name: '卡沙熊', lvl: 11, hp: 750, atk: 34, def: 24, eva: 5, matk: 0, mdef: 12, xp: 105, sp: 0, gold: [38, 82], skill: { name: '粉碎熊掌', type: 'physical', effect: 'stun', mult: 1.4, cd: 5 } },
+  kashaOrcArcher: { name: '卡沙半獸人弓箭手', lvl: 13, hp: 620, atk: 42, def: 20, eva: 10, matk: 0, mdef: 14, xp: 125, sp: 0, gold: [45, 95], skill: { name: '卡沙雙重射擊', type: 'physical', mult: 1.5, cd: 4, vfx: 'arrow' } },
+  kashaOrcBerserker: { name: '卡沙半獸人狂戰士', lvl: 14, hp: 1550, atk: 55, def: 34, eva: 8, matk: 0, mdef: 18, xp: 280, sp: 12, gold: [100, 210], traits: ['enrage'], elite: true, skill: { name: '狂暴猛擊', type: 'physical', mult: 1.65, cd: 5 } },
+  kashaOrcOverlord: { name: '卡沙部族霸主', lvl: 15, hp: 3100, atk: 65, def: 45, eva: 8, matk: 20, mdef: 28, xp: 520, sp: 60, gold: [180, 380], boss: true, skill: { name: '霸主部族咆哮', type: 'physical', effect: 'stun', mult: 1.85, cd: 6 } },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 5. DWARVEN MINE (Level 9-16)
   // ──────────────────────────────────────────────────────────────────────────
-  kobold: { name: 'Kobold Miner', lvl: 9, hp: 180, atk: 26, def: 11, eva: 4, matk: 0, mdef: 5, xp: 65, sp: 2, gold: [28, 60] },
-  goblinBrigand: { name: 'Mine Goblin Brigand', lvl: 11, hp: 230, atk: 32, def: 13, eva: 8, matk: 0, mdef: 6, xp: 85, sp: 3, gold: [35, 75] },
-  mineCaveBat: { name: 'Mithril Cave Bat', lvl: 13, hp: 250, atk: 38, def: 12, eva: 16, matk: 0, mdef: 8, xp: 110, sp: 3, gold: [42, 90], traits: ['lifesteal'] },
-  mithrilGolem: { name: 'Mithril Golem', lvl: 15, hp: 420, atk: 48, def: 25, eva: 2, matk: 0, mdef: 14, xp: 160, sp: 4, gold: [60, 130], element: 'earth' },
-  koboldLeader: { name: 'Kobold Foreman', lvl: 16, hp: 680, atk: 60, def: 28, eva: 8, matk: 0, mdef: 14, xp: 280, sp: 7, gold: [120, 260], traits: ['packLeader'], elite: true },
-  dwarvenEarthLord: { name: 'Dwarven Mine Guardian', lvl: 16, hp: 1100, atk: 75, def: 35, eva: 4, matk: 0, mdef: 20, xp: 480, sp: 12, gold: [220, 460], boss: true },
+  kobold: { name: '狗頭人礦工', lvl: 9, hp: 180, atk: 26, def: 11, eva: 4, matk: 0, mdef: 5, xp: 65, sp: 2, gold: [28, 60] },
+  goblinBrigand: { name: 'Mine 哥布林 Brigand', lvl: 11, hp: 230, atk: 32, def: 13, eva: 8, matk: 0, mdef: 6, xp: 85, sp: 3, gold: [35, 75] },
+  mineCaveBat: { name: '米索莉洞穴蝙蝠', lvl: 13, hp: 250, atk: 38, def: 12, eva: 16, matk: 0, mdef: 8, xp: 110, sp: 3, gold: [42, 90], traits: ['lifesteal'] },
+  mithrilGolem: { name: '米索莉魔像', lvl: 15, hp: 420, atk: 48, def: 25, eva: 2, matk: 0, mdef: 14, xp: 160, sp: 4, gold: [60, 130], element: 'earth' },
+  koboldLeader: { name: '狗頭人工頭', lvl: 16, hp: 680, atk: 60, def: 28, eva: 8, matk: 0, mdef: 14, xp: 280, sp: 7, gold: [120, 260], traits: ['packLeader'], elite: true },
+  dwarvenEarthLord: { name: '矮人礦坑守護者', lvl: 16, hp: 1100, atk: 75, def: 35, eva: 4, matk: 0, mdef: 20, xp: 480, sp: 12, gold: [220, 460], boss: true },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 6. KAMAEL LAIR (Level 11-18)
   // ──────────────────────────────────────────────────────────────────────────
-  kamaelScout: { name: 'Kamael Scout', lvl: 11, hp: 240, atk: 34, def: 13, eva: 9, matk: 0, mdef: 6, xp: 85, sp: 2, gold: [35, 75] },
-  soullessScout: { name: 'Soulless Scout', lvl: 13, hp: 290, atk: 40, def: 15, eva: 10, matk: 0, mdef: 8, xp: 115, sp: 3, gold: [46, 96] },
-  spitefulGhost: { name: 'Spiteful Soul Ghost', lvl: 15, hp: 340, atk: 30, def: 14, eva: 14, matk: 55, mdef: 18, xp: 155, sp: 4, gold: [58, 125], element: 'dark', magic: true },
-  crimsonWarder: { name: 'Crimson Warder', lvl: 17, hp: 450, atk: 56, def: 22, eva: 8, matk: 0, mdef: 12, xp: 210, sp: 5, gold: [80, 170] },
-  kamaelInfiltrator: { name: 'Kamael Infiltrator', lvl: 18, hp: 780, atk: 70, def: 27, eva: 15, matk: 0, mdef: 16, xp: 340, sp: 8, gold: [140, 290], traits: ['ambush'], elite: true },
-  darkInquisitorKamael: { name: 'Kamael Dark Inquisitor', lvl: 18, hp: 1350, atk: 88, def: 36, eva: 10, matk: 40, mdef: 24, xp: 600, sp: 15, gold: [280, 580], boss: true },
+  kamaelScout: { name: '闇天使斥候', lvl: 11, hp: 240, atk: 34, def: 13, eva: 9, matk: 0, mdef: 6, xp: 85, sp: 2, gold: [35, 75] },
+  soullessScout: { name: '無魂斥候', lvl: 13, hp: 290, atk: 40, def: 15, eva: 10, matk: 0, mdef: 8, xp: 115, sp: 3, gold: [46, 96] },
+  spitefulGhost: { name: '怨恨靈魂幽鬼', lvl: 15, hp: 340, atk: 30, def: 14, eva: 14, matk: 55, mdef: 18, xp: 155, sp: 4, gold: [58, 125], element: 'dark', magic: true },
+  crimsonWarder: { name: '緋紅守衛', lvl: 17, hp: 450, atk: 56, def: 22, eva: 8, matk: 0, mdef: 12, xp: 210, sp: 5, gold: [80, 170] },
+  kamaelInfiltrator: { name: '闇天使滲透者', lvl: 18, hp: 780, atk: 70, def: 27, eva: 15, matk: 0, mdef: 16, xp: 340, sp: 8, gold: [140, 290], traits: ['ambush'], elite: true },
+  darkInquisitorKamael: { name: '闇天使黑暗審判者', lvl: 18, hp: 1350, atk: 88, def: 36, eva: 10, matk: 40, mdef: 24, xp: 600, sp: 15, gold: [280, 580], boss: true },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 7. RUINED OUTPOST (Level 15-20)
   // ──────────────────────────────────────────────────────────────────────────
-  ruinedGoblinThief: { name: 'Outpost Thief', lvl: 15, hp: 320, atk: 42, def: 16, eva: 12, xp: 130, sp: 3, gold: [50, 110] },
-  ruinedOrc: { name: 'Outpost Orc', lvl: 16, hp: 420, atk: 50, def: 20, eva: 5, xp: 160, sp: 3, gold: [60, 130] },
-  outpostMarksman: { name: 'Outpost Marksman', lvl: 17, hp: 380, atk: 58, def: 18, eva: 10, xp: 185, sp: 4, gold: [70, 150] },
-  ruinedDeserter: { name: 'Ruined Deserter Knight', lvl: 19, hp: 560, atk: 68, def: 26, eva: 6, xp: 250, sp: 5, gold: [95, 200] },
-  shadowMercenary: { name: 'Shadow Mercenary', lvl: 20, hp: 950, atk: 82, def: 32, eva: 12, xp: 420, sp: 9, gold: [160, 340], elite: true },
-  outpostFallenCaptain: { name: 'Fallen Outpost Captain', lvl: 20, hp: 1600, atk: 105, def: 42, eva: 8, xp: 750, sp: 16, gold: [320, 680], boss: true },
+  ruined哥布林Thief: { name: '前哨站盜賊', lvl: 15, hp: 320, atk: 42, def: 16, eva: 12, xp: 130, sp: 3, gold: [50, 110] },
+  ruinedOrc: { name: '前哨站半獸人', lvl: 16, hp: 420, atk: 50, def: 20, eva: 5, xp: 160, sp: 3, gold: [60, 130] },
+  outpostMarksman: { name: '前哨站神射手', lvl: 17, hp: 380, atk: 58, def: 18, eva: 10, xp: 185, sp: 4, gold: [70, 150] },
+  ruinedDeserter: { name: '廢墟逃兵騎士', lvl: 19, hp: 560, atk: 68, def: 26, eva: 6, xp: 250, sp: 5, gold: [95, 200] },
+  shadowMercenary: { name: '暗影傭兵', lvl: 20, hp: 950, atk: 82, def: 32, eva: 12, xp: 420, sp: 9, gold: [160, 340], elite: true },
+  outpostFallenCaptain: { name: '墮落前哨站隊長', lvl: 20, hp: 1600, atk: 105, def: 42, eva: 8, xp: 750, sp: 16, gold: [320, 680], boss: true },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 8. HOWLING MOOR (Level 20-24)
   // ──────────────────────────────────────────────────────────────────────────
-  direWolf: { name: 'Dire Wolf', lvl: 20, hp: 650, atk: 78, def: 30, eva: 14, xp: 380, sp: 4, gold: [130, 280], element: 'none', traits: ['bleed'], atkSpd: 1.2 },
-  babyTiamat: { name: 'Baby Tiamat', lvl: 21, hp: 750, atk: 85, def: 34, eva: 10, matk: 50, mdef: 20, xp: 440, sp: 4, gold: [150, 320] },
-  crimsonBabyDragon: { name: 'Crimson Dragon Hatchling', lvl: 22, hp: 900, atk: 96, def: 38, eva: 10, xp: 520, sp: 5, gold: [180, 380], element: 'fire', resist: { fire: 0.75 } },
-  ancientSatyr: { name: 'Ancient Satyr', lvl: 23, hp: 1050, atk: 108, def: 42, eva: 12, xp: 600, sp: 5, gold: [200, 420] },
-  satyrWarlord: { name: 'Satyr Warlord', lvl: 24, hp: 1550, atk: 128, def: 50, eva: 14, xp: 850, sp: 7, gold: [300, 650], traits: ['bleed'], elite: true },
-  alphaWolf: { name: 'Alpha Wolf', lvl: 24, hp: 2200, atk: 145, def: 58, eva: 16, xp: 1200, sp: 8, gold: [450, 950], element: 'none', traits: ['packLeader', 'bleed'], boss: true },
+  dire野狼: { name: 'Dire 野狼', lvl: 20, hp: 650, atk: 78, def: 30, eva: 14, xp: 380, sp: 4, gold: [130, 280], element: 'none', traits: ['bleed'], atkSpd: 1.2 },
+  babyTiamat: { name: '幼年提亞瑪特', lvl: 21, hp: 750, atk: 85, def: 34, eva: 10, matk: 50, mdef: 20, xp: 440, sp: 4, gold: [150, 320] },
+  crimsonBabyDragon: { name: '緋紅幼龍', lvl: 22, hp: 900, atk: 96, def: 38, eva: 10, xp: 520, sp: 5, gold: [180, 380], element: 'fire', resist: { fire: 0.75 } },
+  ancientSatyr: { name: '古代薩堤爾', lvl: 23, hp: 1050, atk: 108, def: 42, eva: 12, xp: 600, sp: 5, gold: [200, 420] },
+  satyrWarlord: { name: '薩堤爾軍閥', lvl: 24, hp: 1550, atk: 128, def: 50, eva: 14, xp: 850, sp: 7, gold: [300, 650], traits: ['bleed'], elite: true },
+  alpha野狼: { name: 'Alpha 野狼', lvl: 24, hp: 2200, atk: 145, def: 58, eva: 16, xp: 1200, sp: 8, gold: [450, 950], element: 'none', traits: ['packLeader', 'bleed'], boss: true },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 9. GIRAN OUTSKIRTS (Level 25-29)
   // ──────────────────────────────────────────────────────────────────────────
-  skeleton: { name: 'Skeletal Trooper', lvl: 25, hp: 1200, atk: 120, def: 48, eva: 5, matk: 0, mdef: 18, xp: 700, sp: 6, gold: [240, 500] },
-  skeletonArcher: { name: 'Skeletal Marksman', lvl: 26, hp: 1100, atk: 135, def: 44, eva: 8, matk: 0, mdef: 20, xp: 780, sp: 6, gold: [260, 550] },
-  deathRider: { name: 'Death Rider', lvl: 27, hp: 1600, atk: 145, def: 56, eva: 10, xp: 920, sp: 7, gold: [300, 650] },
-  giranGargoyle: { name: 'Giran Stone Gargoyle', lvl: 28, hp: 1900, atk: 160, def: 68, eva: 6, matk: 0, mdef: 26, xp: 1050, sp: 8, gold: [340, 720], element: 'earth' },
-  giranGladiator: { name: 'Cursed Giran Gladiator', lvl: 29, hp: 2700, atk: 185, def: 74, eva: 8, xp: 1500, sp: 10, gold: [550, 1150], elite: true },
-  minotaurKnight: { name: 'Minotaur Knight', lvl: 29, hp: 3800, atk: 210, def: 85, eva: 6, xp: 2200, sp: 12, gold: [850, 1800], boss: true },
+  skeleton: { name: '骷髏步兵', lvl: 25, hp: 1200, atk: 120, def: 48, eva: 5, matk: 0, mdef: 18, xp: 700, sp: 6, gold: [240, 500] },
+  skeletonArcher: { name: '骷髏神射手', lvl: 26, hp: 1100, atk: 135, def: 44, eva: 8, matk: 0, mdef: 20, xp: 780, sp: 6, gold: [260, 550] },
+  deathRider: { name: '死亡騎士', lvl: 27, hp: 1600, atk: 145, def: 56, eva: 10, xp: 920, sp: 7, gold: [300, 650] },
+  giranGargoyle: { name: '奇岩石像鬼', lvl: 28, hp: 1900, atk: 160, def: 68, eva: 6, matk: 0, mdef: 26, xp: 1050, sp: 8, gold: [340, 720], element: 'earth' },
+  giranGladiator: { name: '受詛咒的奇岩鬥士', lvl: 29, hp: 2700, atk: 185, def: 74, eva: 8, xp: 1500, sp: 10, gold: [550, 1150], elite: true },
+  minotaurKnight: { name: '牛頭人騎士', lvl: 29, hp: 3800, atk: 210, def: 85, eva: 6, xp: 2200, sp: 12, gold: [850, 1800], boss: true },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 10. ORCEN RUINS (Level 30-34)
   // ──────────────────────────────────────────────────────────────────────────
-  orcenRuinsOrc: { name: 'Ruined Orc Berserker', lvl: 30, hp: 2000, atk: 170, def: 65, eva: 6, xp: 1100, sp: 8, gold: [380, 800] },
-  cursedWarrior: { name: 'Cursed Warrior', lvl: 31, hp: 2400, atk: 195, def: 75, eva: 8, xp: 1350, sp: 9, gold: [450, 950] },
-  ruinShamanOrc: { name: 'Ruin Orc Shaman', lvl: 32, hp: 2200, atk: 140, def: 68, eva: 6, matk: 240, mdef: 70, xp: 1450, sp: 10, gold: [480, 1000], element: 'fire', magic: true },
-  tombLooterOrc: { name: 'Tomb Looter Orc', lvl: 33, hp: 2600, atk: 215, def: 82, eva: 10, xp: 1650, sp: 11, gold: [550, 1150] },
-  ancientOrcExecutioner: { name: 'Ancient Orc Executioner', lvl: 34, hp: 3900, atk: 245, def: 95, eva: 7, xp: 2300, sp: 13, gold: [800, 1700], traits: ['enrage'], elite: true },
-  orcenOverlord: { name: 'Orcen Ruin Overlord', lvl: 34, hp: 5500, atk: 270, def: 110, eva: 8, xp: 3200, sp: 15, gold: [1200, 2600], boss: true },
+  orcenRuinsOrc: { name: '廢墟半獸人狂戰士', lvl: 30, hp: 2000, atk: 170, def: 65, eva: 6, xp: 1100, sp: 8, gold: [380, 800] },
+  cursedWarrior: { name: '受詛咒的戰士', lvl: 31, hp: 2400, atk: 195, def: 75, eva: 8, xp: 1350, sp: 9, gold: [450, 950] },
+  ruinShamanOrc: { name: '廢墟半獸人薩滿', lvl: 32, hp: 2200, atk: 140, def: 68, eva: 6, matk: 240, mdef: 70, xp: 1450, sp: 10, gold: [480, 1000], element: 'fire', magic: true },
+  tombLooterOrc: { name: '盜墓半獸人', lvl: 33, hp: 2600, atk: 215, def: 82, eva: 10, xp: 1650, sp: 11, gold: [550, 1150] },
+  ancientOrcExecutioner: { name: '古代半獸人劊子手', lvl: 34, hp: 3900, atk: 245, def: 95, eva: 7, xp: 2300, sp: 13, gold: [800, 1700], traits: ['enrage'], elite: true },
+  orcenOverlord: { name: '歐瑞遺跡霸主', lvl: 34, hp: 5500, atk: 270, def: 110, eva: 8, xp: 3200, sp: 15, gold: [1200, 2600], boss: true },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 11. FORSAKEN CRYPT (Level 35-40)
   // ──────────────────────────────────────────────────────────────────────────
-  darkMage: { name: 'Crypt Dark Mage', lvl: 35, hp: 2600, atk: 140, def: 60, eva: 12, matk: 220, mdef: 80, xp: 1500, sp: 10, gold: [500, 1100], element: 'dark', magic: true },
-  corpseWorm: { name: 'Corpse Worm', lvl: 36, hp: 3000, atk: 210, def: 90, eva: 4, xp: 1750, sp: 10, gold: [550, 1200] },
-  furiousSouls: { name: 'Furious Souls', lvl: 37, hp: 2800, atk: 230, def: 70, eva: 16, matk: 140, mdef: 65, xp: 1850, sp: 11, gold: [600, 1300] },
-  cryptVampire: { name: 'Crypt Vampire', lvl: 38, hp: 3600, atk: 260, def: 85, eva: 18, xp: 2300, sp: 12, gold: [750, 1600], traits: ['lifesteal'] },
-  devilBone: { name: 'Devil Bone', lvl: 39, hp: 4200, atk: 280, def: 115, eva: 3, xp: 2700, sp: 13, gold: [850, 1800], element: 'dark', traits: ['boneArmor'], elite: true },
-  cryptLord: { name: 'Crypt Lord Supreme', lvl: 40, hp: 9500, atk: 380, def: 150, eva: 8, xp: 6000, sp: 20, gold: [2200, 4800], boss: true },
+  darkMage: { name: '墓穴黑暗法師', lvl: 35, hp: 2600, atk: 140, def: 60, eva: 12, matk: 220, mdef: 80, xp: 1500, sp: 10, gold: [500, 1100], element: 'dark', magic: true },
+  corpseWorm: { name: '屍蟲', lvl: 36, hp: 3000, atk: 210, def: 90, eva: 4, xp: 1750, sp: 10, gold: [550, 1200] },
+  furiousSouls: { name: '狂怒靈魂', lvl: 37, hp: 2800, atk: 230, def: 70, eva: 16, matk: 140, mdef: 65, xp: 1850, sp: 11, gold: [600, 1300] },
+  cryptVampire: { name: '墓穴吸血鬼', lvl: 38, hp: 3600, atk: 260, def: 85, eva: 18, xp: 2300, sp: 12, gold: [750, 1600], traits: ['lifesteal'] },
+  devilBone: { name: '惡魔骸骨', lvl: 39, hp: 4200, atk: 280, def: 115, eva: 3, xp: 2700, sp: 13, gold: [850, 1800], element: 'dark', traits: ['boneArmor'], elite: true },
+  cryptLord: { name: '至高墓穴領主', lvl: 40, hp: 9500, atk: 380, def: 150, eva: 8, xp: 6000, sp: 20, gold: [2200, 4800], boss: true },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 12. BLACK CITADEL (Level 40-44)
   // ──────────────────────────────────────────────────────────────────────────
-  deathKnight: { name: 'Death Knight Guardian', lvl: 40, hp: 4800, atk: 310, def: 125, eva: 10, xp: 3100, sp: 14, gold: [1000, 2200], element: 'dark' },
-  deathWizard: { name: 'Death Wizard Archon', lvl: 41, hp: 4400, atk: 180, def: 95, eva: 10, matk: 340, mdef: 145, xp: 3500, sp: 15, gold: [1150, 2500], magic: true },
-  citadelDarkPriest: { name: 'Citadel Dark Priest', lvl: 42, hp: 4600, atk: 190, def: 105, eva: 8, matk: 360, mdef: 155, xp: 3900, sp: 16, gold: [1250, 2700], element: 'dark', magic: true },
-  blackDragonWhelp: { name: 'Black Dragon Whelp', lvl: 43, hp: 6200, atk: 360, def: 140, eva: 10, xp: 4800, sp: 18, gold: [1500, 3300], element: 'dark' },
-  blackDragon: { name: 'Black Dragon Sovereign', lvl: 44, hp: 12000, atk: 450, def: 180, eva: 10, xp: 8500, sp: 25, gold: [3200, 7000], elite: true },
-  flamingDemonLord: { name: 'Flaming Demon Lord', lvl: 44, hp: 16000, atk: 540, def: 210, eva: 12, xp: 11000, sp: 30, gold: [4500, 9500], boss: true },
+  deathKnight: { name: '死亡騎士守護者', lvl: 40, hp: 4800, atk: 310, def: 125, eva: 10, xp: 3100, sp: 14, gold: [1000, 2200], element: 'dark' },
+  deathWizard: { name: '死亡巫師統領', lvl: 41, hp: 4400, atk: 180, def: 95, eva: 10, matk: 340, mdef: 145, xp: 3500, sp: 15, gold: [1150, 2500], magic: true },
+  citadelDarkPriest: { name: '城塞黑暗祭司', lvl: 42, hp: 4600, atk: 190, def: 105, eva: 8, matk: 360, mdef: 155, xp: 3900, sp: 16, gold: [1250, 2700], element: 'dark', magic: true },
+  blackDragonWhelp: { name: '黑龍幼體', lvl: 43, hp: 6200, atk: 360, def: 140, eva: 10, xp: 4800, sp: 18, gold: [1500, 3300], element: 'dark' },
+  blackDragon: { name: '黑龍君王', lvl: 44, hp: 12000, atk: 450, def: 180, eva: 10, xp: 8500, sp: 25, gold: [3200, 7000], elite: true },
+  flamingDemonLord: { name: '烈焰惡魔領主', lvl: 44, hp: 16000, atk: 540, def: 210, eva: 12, xp: 11000, sp: 30, gold: [4500, 9500], boss: true },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 13. GLUDIO CASTLE (Level 45-48)
   // ──────────────────────────────────────────────────────────────────────────
-  knight: { name: 'Gludio Guard Knight', lvl: 45, hp: 5500, atk: 340, def: 140, eva: 6, xp: 3800, sp: 16, gold: [1200, 2600] },
-  cursedKnight: { name: 'Cursed Gludio Knight', lvl: 46, hp: 6800, atk: 400, def: 165, eva: 6, xp: 4800, sp: 18, gold: [1500, 3200] },
-  gludioRoyalArcher: { name: 'Gludio Royal Archer', lvl: 47, hp: 5800, atk: 420, def: 135, eva: 14, xp: 4900, sp: 18, gold: [1600, 3400] },
-  gludioSorcerer: { name: 'Gludio Fallen Sorcerer', lvl: 47, hp: 5400, atk: 220, def: 130, eva: 8, matk: 460, mdef: 185, xp: 5100, sp: 19, gold: [1700, 3600], magic: true },
-  gludioShieldMaster: { name: 'Gludio Shield Master', lvl: 48, hp: 11500, atk: 460, def: 210, eva: 6, xp: 7500, sp: 24, gold: [2600, 5600], elite: true },
-  gludioCommander: { name: 'Gludio Fallen Commander', lvl: 48, hp: 18000, atk: 580, def: 230, eva: 8, xp: 12500, sp: 32, gold: [5000, 11000], boss: true },
+  knight: { name: '古魯丁守衛騎士', lvl: 45, hp: 5500, atk: 340, def: 140, eva: 6, xp: 3800, sp: 16, gold: [1200, 2600] },
+  cursedKnight: { name: '受詛咒的古魯丁騎士', lvl: 46, hp: 6800, atk: 400, def: 165, eva: 6, xp: 4800, sp: 18, gold: [1500, 3200] },
+  gludioRoyalArcher: { name: '古魯丁皇家弓箭手', lvl: 47, hp: 5800, atk: 420, def: 135, eva: 14, xp: 4900, sp: 18, gold: [1600, 3400] },
+  gludioSorcerer: { name: '古魯丁墮落術士', lvl: 47, hp: 5400, atk: 220, def: 130, eva: 8, matk: 460, mdef: 185, xp: 5100, sp: 19, gold: [1700, 3600], magic: true },
+  gludioShieldMaster: { name: '古魯丁盾牌大師', lvl: 48, hp: 11500, atk: 460, def: 210, eva: 6, xp: 7500, sp: 24, gold: [2600, 5600], elite: true },
+  gludioCommander: { name: '古魯丁墮落指揮官', lvl: 48, hp: 18000, atk: 580, def: 230, eva: 8, xp: 12500, sp: 32, gold: [5000, 11000], boss: true },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 14. WOLF MOUNTAIN (Level 48-50)
   // ──────────────────────────────────────────────────────────────────────────
-  mountainWolf: { name: 'Mountain Wolf', lvl: 48, hp: 6200, atk: 380, def: 150, eva: 15, xp: 4200, sp: 18, gold: [1400, 3000] },
-  mountainDireWolf: { name: 'Mountain Dire Wolf', lvl: 49, hp: 7400, atk: 430, def: 170, eva: 18, xp: 5200, sp: 20, gold: [1700, 3600], traits: ['bleed'] },
-  frostStalkerWolf: { name: 'Frost Stalker Wolf', lvl: 49, hp: 6800, atk: 450, def: 160, eva: 22, xp: 5400, sp: 20, gold: [1800, 3800], element: 'water' },
-  mountainSnowBear: { name: 'Mountain Snow Bear', lvl: 50, hp: 9200, atk: 490, def: 195, eva: 8, xp: 6500, sp: 22, gold: [2200, 4600] },
-  frostFangBehemoth: { name: 'Frostfang Behemoth', lvl: 50, hp: 14000, atk: 540, def: 225, eva: 12, xp: 9000, sp: 28, gold: [3400, 7200], elite: true },
-  mountainAlphaWolf: { name: 'Mountain Alpha Wolf', lvl: 50, hp: 20000, atk: 620, def: 250, eva: 20, xp: 14000, sp: 35, gold: [5500, 12000], boss: true },
+  mountain野狼: { name: 'Mountain 野狼', lvl: 48, hp: 6200, atk: 380, def: 150, eva: 15, xp: 4200, sp: 18, gold: [1400, 3000] },
+  mountainDire野狼: { name: 'Mountain Dire 野狼', lvl: 49, hp: 7400, atk: 430, def: 170, eva: 18, xp: 5200, sp: 20, gold: [1700, 3600], traits: ['bleed'] },
+  frostStalker野狼: { name: 'Frost Stalker 野狼', lvl: 49, hp: 6800, atk: 450, def: 160, eva: 22, xp: 5400, sp: 20, gold: [1800, 3800], element: 'water' },
+  mountainSnowBear: { name: '山地雪熊', lvl: 50, hp: 9200, atk: 490, def: 195, eva: 8, xp: 6500, sp: 22, gold: [2200, 4600] },
+  frostFangBehemoth: { name: '霜牙巨獸', lvl: 50, hp: 14000, atk: 540, def: 225, eva: 12, xp: 9000, sp: 28, gold: [3400, 7200], elite: true },
+  mountainAlpha野狼: { name: 'Mountain Alpha 野狼', lvl: 50, hp: 20000, atk: 620, def: 250, eva: 20, xp: 14000, sp: 35, gold: [5500, 12000], boss: true },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 15. RIFT OF THE VOID (Level 50-59)
   // ──────────────────────────────────────────────────────────────────────────
-  voidCreature: { name: 'Void Creature', lvl: 50, hp: 7800, atk: 440, def: 175, eva: 25, xp: 5500, sp: 85, gold: [1800, 3800], element: 'void' },
-  voidBrute: { name: 'Void Brute', lvl: 52, hp: 9200, atk: 490, def: 200, eva: 10, xp: 6800, sp: 95, gold: [2200, 4600] },
-  voidStalker: { name: 'Void Stalker', lvl: 54, hp: 8500, atk: 540, def: 160, eva: 30, xp: 7400, sp: 100, gold: [2400, 5000] },
-  beholder: { name: 'Void Beholder', lvl: 56, hp: 9800, atk: 260, def: 180, eva: 15, matk: 580, mdef: 220, xp: 8500, sp: 110, gold: [2800, 5800], magic: true },
-  voidArchonEntity: { name: 'Void Archon Entity', lvl: 58, hp: 18000, atk: 660, def: 260, eva: 20, matk: 650, mdef: 260, xp: 13000, sp: 160, gold: [4800, 10000], elite: true },
-  voidDragonLord: { name: 'Void Dragon Lord', lvl: 59, hp: 28000, atk: 780, def: 310, eva: 15, xp: 18000, sp: 220, gold: [7500, 16000], boss: true },
+  voidCreature: { name: '虛空生物', lvl: 50, hp: 7800, atk: 440, def: 175, eva: 25, xp: 5500, sp: 85, gold: [1800, 3800], element: 'void' },
+  voidBrute: { name: '虛空暴徒', lvl: 52, hp: 9200, atk: 490, def: 200, eva: 10, xp: 6800, sp: 95, gold: [2200, 4600] },
+  voidStalker: { name: '虛空潛行者', lvl: 54, hp: 8500, atk: 540, def: 160, eva: 30, xp: 7400, sp: 100, gold: [2400, 5000] },
+  beholder: { name: '虛空觀察者', lvl: 56, hp: 9800, atk: 260, def: 180, eva: 15, matk: 580, mdef: 220, xp: 8500, sp: 110, gold: [2800, 5800], magic: true },
+  voidArchonEntity: { name: '虛空統領實體', lvl: 58, hp: 18000, atk: 660, def: 260, eva: 20, matk: 650, mdef: 260, xp: 13000, sp: 160, gold: [4800, 10000], elite: true },
+  voidDragonLord: { name: '虛空龍王', lvl: 59, hp: 28000, atk: 780, def: 310, eva: 15, xp: 18000, sp: 220, gold: [7500, 16000], boss: true },
 
   // ──────────────────────────────────────────────────────────────────────────
   // 16. EMERALD GROVE (Level 60-69)
