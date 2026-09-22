@@ -327,7 +327,7 @@ export const ExpeditionService = {
     }
 
     if (callbacks.floatText) {
-      callbacks.floatText(`+${goldEarned.toLocaleString()} Adena!`, 'float-gold');
+      callbacks.floatText(`+${goldEarned.toLocaleString()} 金幣！`, 'float-gold');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -360,7 +360,7 @@ export const ExpeditionService = {
     if (option.result === 'gold') {
       const bonusGold = 15000;
       state.gold = (state.gold || 0) + bonusGold;
-      if (callbacks.log) callbacks.log(`⚖️ Dilema Resolvido (${dilemma.name}): ${option.name}! +${bonusGold.toLocaleString()} Adena.`, 'loot');
+      if (callbacks.log) callbacks.log(`⚖️ 事件抉擇完成（${dilemma.name}）：${option.name}！+${bonusGold.toLocaleString()} 金幣。`, 'loot');
     } else if (option.result === 'xp') {
       if (Array.isArray(activeExp.squad)) {
         for (const mercUid of activeExp.squad) {
@@ -371,7 +371,7 @@ export const ExpeditionService = {
     } else if (option.result === 'force' || option.result === 'pick') {
       const bonusShards = option.result === 'pick' ? 5 : 2;
       state.astralShards = (state.astralShards || 0) + bonusShards;
-      if (callbacks.log) callbacks.log(`⚖️ Dilema Resolvido (${dilemma.name}): ${option.name}! +${bonusShards} Cacos Astrais.`, 'loot');
+      if (callbacks.log) callbacks.log(`⚖️ 事件抉擇完成（${dilemma.name}）：${option.name}！+${bonusShards} 星界碎片。`, 'loot');
     } else {
       if (callbacks.log) callbacks.log(`⚖️ 事件抉擇完成（${dilemma.name}）：商隊安全繼續前進。`, 'system');
     }
