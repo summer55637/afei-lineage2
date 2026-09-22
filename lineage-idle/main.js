@@ -1566,8 +1566,8 @@ function useItem(uid) {
     if (typeof floatText === 'function') floatText(`🎒 背包 +30 格（${totalSlots}）`, 'float-jackpot');
   } else if (def.type === 'vip_pass' || item.itemId === 'pass_vip_teleport_30d') {
     state.vipTeleportUntil = Math.max(Date.now(), state.vipTeleportUntil || 0) + (30 * 24 * 3600 * 1000);
-    log('🌟 VIP 傳送通行證已啟用！30 天內可免費傳送。', 'system');
-    if (typeof floatText === 'function') floatText('🌟 VIP 30 天已啟用！', 'float-jackpot');
+    log('🌟 貴賓傳送通行證已啟用！30 天內可免費傳送。', 'system');
+    if (typeof floatText === 'function') floatText('🌟 貴賓通行證 30 天已啟用！', 'float-jackpot');
   } else if (item.itemId === 'scroll_blessed_weapon' || item.itemId === 'scroll_blessed_armor') {
     const isWpn = item.itemId.includes('weapon');
     log(`📜 已選擇祝福的${isWpn ? '武器' : '防具'}強化卷軸！正在開啟具完全保護效果的鍛造介面。`, 'system');
@@ -2764,7 +2764,7 @@ function checkOfflineProgress(lastTime) {
     state.buffs = state.buffs || {};
     state.buffs['rested_warrior'] = {
       until: Date.now() + (2 * 3600 * 1000),
-      name: '回歸戰士祝福（EXP +50%）',
+      name: '回歸戰士祝福（經驗值 +50%）',
       amount: 1
     };
     state.gold = (state.gold || 0) + 250000;
@@ -8950,9 +8950,9 @@ const MANOR_SEEDS = {
 };
 
 const CASTLES_DEFS = {
-  dion: { id: 'dion', name: '狄恩城堡', reqLevel: 30, taxPerHour: 5000, desc: '每小時 +5,000 金幣', enemyName: '狄恩守衛（Lv.30）' },
+  dion: { id: 'dion', name: '狄恩城堡', reqLevel: 30, taxPerHour: 5000, desc: '每小時 +5,000 金幣', enemyName: '狄恩守衛（等級 30）' },
   giran: { id: 'giran', name: '奇岩城堡', reqLevel: 50, taxPerHour: 15000, desc: '每小時 +15,000 金幣，商店折扣 5%', enemyName: '奇岩守衛（等級 50）' },
-  goddard: { id: 'goddard', name: '高達特城堡', reqLevel: 70, taxPerHour: 35000, desc: '每小時 +35,000 金幣，並獲得 +5% 經驗值加成', enemyName: '高達特守衛（Lv.70）' },
+  goddard: { id: 'goddard', name: '高達特城堡', reqLevel: 70, taxPerHour: 35000, desc: '每小時 +35,000 金幣，並獲得 +5% 經驗值加成', enemyName: '高達特守衛（等級 70）' },
   aden: { id: 'aden', name: '亞丁帝國城堡', reqLevel: 85, taxPerHour: 75000, desc: '每小時 +75,000 金幣，總傷害 +10%', enemyName: '亞丁帝國守衛（等級 85）' }
 };
 
