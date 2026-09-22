@@ -87,14 +87,14 @@ export function setActiveMarketTab(tab) {
 }
 
 export const WT_CATEGORIES = [
-  { id: 'all', name: 'All Goods', icon: '🌐' },
+  { id: 'all', name: '全部商品', icon: '🌐' },
   { id: 'adena', name: 'Adena', icon: '🪙' },
-  { id: 'equipment', name: 'Equipment', icon: '⚔️' },
-  { id: 'artifact', name: 'Artifact', icon: '💍' },
-  { id: 'scrolls', name: 'Scrolls', icon: '📜' },
-  { id: 'supplies', name: 'Supplies', icon: '🧪' },
-  { id: 'misc', name: 'Misc.', icon: '📦' },
-  { id: 'collection', name: 'Collection', icon: '🏛️', soon: true }
+  { id: 'equipment', name: '裝備', icon: '⚔️' },
+  { id: 'artifact', name: '神器', icon: '💍' },
+  { id: 'scrolls', name: '卷軸', icon: '📜' },
+  { id: 'supplies', name: '補給品', icon: '🧪' },
+  { id: 'misc', name: '其他', icon: '📦' },
+  { id: 'collection', name: '收藏', icon: '🏛️', soon: true }
 ];
 
 function matchesCategory(item, category) {
@@ -163,11 +163,11 @@ export function renderMarketTab(container, state, callbacks = {}) {
 
           ${_activeMarketTab === 'buy' ? `
             <button id="btn-world-trade-my-items" class="l2wt-my-items-btn" title="管理我的刊登與收益">
-              📦 My items
+              📦 我的刊登
             </button>
           ` : `
             <button id="btn-world-trade-back-market" class="l2wt-my-items-btn" style="background: linear-gradient(180deg, #1e293b, #0f172a); border-color: #94a3b8; color: #f1f5f9; box-shadow: none;">
-              ← Back to World Trade
+              ← 返回世界交易所
             </button>
           `}
         </div>
@@ -190,15 +190,15 @@ export function renderMarketTab(container, state, callbacks = {}) {
       <!-- Subbar com Filtro de Moeda, Busca e Refresh -->
       <div class="l2wt-subbar">
         <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
-          <span style="font-size: 11px; color: #94a3b8; font-family: 'Inter', sans-serif; margin-right: 4px;">Moeda:</span>
-          <button class="l2wt-cur-filter ${_currencyFilter === 'all' ? 'active' : ''}" data-cur="all" style="background: ${_currencyFilter === 'all' ? 'rgba(212,167,68,0.25)' : 'rgba(0,0,0,0.4)'}; color: ${_currencyFilter === 'all' ? '#ffd877' : '#94a3b8'}; border: 1px solid ${_currencyFilter === 'all' ? '#ffd877' : 'rgba(255,255,255,0.1)'}; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer;">🌐 Todas</button>
+          <span style="font-size: 11px; color: #94a3b8; font-family: 'Inter', sans-serif; margin-right: 4px;">貨幣：</span>
+          <button class="l2wt-cur-filter ${_currencyFilter === 'all' ? 'active' : ''}" data-cur="all" style="background: ${_currencyFilter === 'all' ? 'rgba(212,167,68,0.25)' : 'rgba(0,0,0,0.4)'}; color: ${_currencyFilter === 'all' ? '#ffd877' : '#94a3b8'}; border: 1px solid ${_currencyFilter === 'all' ? '#ffd877' : 'rgba(255,255,255,0.1)'}; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer;">🌐 全部</button>
           <button class="l2wt-cur-filter ${_currencyFilter === 'adena' ? 'active' : ''}" data-cur="adena" style="background: ${_currencyFilter === 'adena' ? 'rgba(234,179,8,0.25)' : 'rgba(0,0,0,0.4)'}; color: ${_currencyFilter === 'adena' ? '#fde047' : '#94a3b8'}; border: 1px solid ${_currencyFilter === 'adena' ? '#fde047' : 'rgba(255,255,255,0.1)'}; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer;">🪙 金幣</button>
           <button class="l2wt-cur-filter ${_currencyFilter === 'adencoin' ? 'active' : ''}" data-cur="adencoin" style="background: ${_currencyFilter === 'adencoin' ? 'rgba(59,130,246,0.25)' : 'rgba(0,0,0,0.4)'}; color: ${_currencyFilter === 'adencoin' ? '#93c5fd' : '#94a3b8'}; border: 1px solid ${_currencyFilter === 'adencoin' ? '#93c5fd' : 'rgba(255,255,255,0.1)'}; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer;">👑 Aden Coin</button>
         </div>
 
         <div style="display: flex; align-items: center; gap: 8px; flex: 1; max-width: 420px; justify-content: flex-end;">
           <input type="text" id="market-search-input" value="${_searchQuery}" placeholder="🔍 搜尋物品或賣家..." style="flex: 1; background: rgba(0,0,0,0.6); border: 1px solid rgba(212,167,68,0.3); border-radius: 4px; padding: 5px 10px; color: #fff; font-size: 11px; font-family: 'Inter', sans-serif;" />
-          <button id="btn-market-refresh" class="l2wt-refresh-btn" title="Sincronizar ofertas">
+          <button id="btn-market-refresh" class="l2wt-refresh-btn" title="同步市場刊登">
             🔄 Refresh
           </button>
         </div>
@@ -254,10 +254,10 @@ function renderBuyTab(state) {
       <table class="l2wt-table">
         <thead>
           <tr>
-            <th style="width: 46%;">Goods</th>
-            <th style="width: 14%; text-align: center;">Total</th>
-            <th style="width: 25%; text-align: right;">Price</th>
-            <th style="width: 15%; text-align: center;">Action</th>
+            <th style="width: 46%;">商品</th>
+            <th style="width: 14%; text-align: center;">數量</th>
+            <th style="width: 25%; text-align: right;">價格</th>
+            <th style="width: 15%; text-align: center;">操作</th>
           </tr>
         </thead>
         <tbody>
@@ -292,7 +292,7 @@ function renderBuyTab(state) {
                         ${enchantStr}${l.item.name}
                       </div>
                       <div style="font-size: 10px; color: #94a3b8; font-family: 'Inter', sans-serif; margin-top: 1px;">
-                        賣家: <span style="color: ${l.isPlayerListing ? '#34d399' : '#a78bfa'}; font-weight: 600;">${l.sellerName}</span>
+                        賣家： <span style="color: ${l.isPlayerListing ? '#34d399' : '#a78bfa'}; font-weight: 600;">${l.sellerName}</span>
                       </div>
                     </div>
                   </div>
@@ -310,7 +310,7 @@ function renderBuyTab(state) {
                   </div>
                   ${l.quantity > 1 ? `
                     <div style="font-size: 10px; color: #64748b;">
-                      (${Number(l.pricePerUnit).toLocaleString()} /un)
+                      (${Number(l.pricePerUnit).toLocaleString()} /個)
                     </div>
                   ` : ''}
                 </td>
@@ -415,7 +415,7 @@ function renderSellTab(state) {
 
             <!-- Currency Selection -->
             <div style="margin-bottom: 10px;">
-              <label style="font-size: 12px; color: #cbd5e1; display: block; margin-bottom: 4px;">Moeda de Venda:</label>
+              <label style="font-size: 12px; color: #cbd5e1; display: block; margin-bottom: 4px;">出售貨幣：</label>
               <div style="display: flex; gap: 10px;">
                 <button class="market-set-currency ${_sellCurrency === 'adena' ? 'active' : ''}" data-cur="adena" style="flex: 1; padding: 8px; border-radius: 6px; background: ${_sellCurrency === 'adena' ? 'rgba(234,179,8,0.25)' : 'rgba(0,0,0,0.4)'}; border: 1px solid ${_sellCurrency === 'adena' ? '#fde047' : 'rgba(255,255,255,0.1)'}; color: ${_sellCurrency === 'adena' ? '#fde047' : '#aaa'}; font-weight: bold; cursor: pointer; font-size: 12px;">
                   🪙 金幣
@@ -429,7 +429,7 @@ function renderSellTab(state) {
             <!-- Quantity & Price Inputs -->
             <div style="display: flex; gap: 10px; margin-bottom: 10px;">
               <div style="flex: 1;">
-                <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 2px;">數量:</label>
+                <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 2px;">數量：</label>
                 <input type="number" id="input-sell-qty" value="${_sellQuantity}" min="1" max="${maxQty}" style="width: 100%; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 6px 8px; color: #fff; font-size: 12px; font-family: 'IBM Plex Mono', monospace; box-sizing: border-box;" />
               </div>
               <div style="flex: 2;">
@@ -441,7 +441,7 @@ function renderSellTab(state) {
             <!-- Summary & Fee Box -->
             <div style="background: rgba(0,0,0,0.3); border: 1px dashed rgba(212,167,68,0.3); border-radius: 6px; padding: 8px 10px; font-size: 11px; color: #cbd5e1; display: flex; flex-direction: column; gap: 4px;">
               <div style="display: flex; justify-content: space-between;">
-                <span>Valor Total da Venda:</span>
+                <span>出售總價：</span>
                 <strong style="color: ${_sellCurrency === 'adena' ? '#ffd877' : '#60a5fa'}; font-family: 'IBM Plex Mono', monospace;">
                   ${_sellCurrency === 'adena' ? '🪙 ' : '👑 '}${totalPrice.toLocaleString()}
                 </strong>
@@ -492,7 +492,7 @@ function renderMySalesTab(state, salesData) {
       <div style="background: linear-gradient(135deg, rgba(20,30,45,0.95), rgba(12,18,28,0.98)); border: 1px solid ${hasProfits ? 'rgba(34,197,94,0.6)' : 'rgba(212,167,68,0.3)'}; border-radius: 10px; padding: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: ${hasProfits ? '0 0 15px rgba(34,197,94,0.2)' : 'none'};">
         <div>
           <h4 style="margin: 0; color: #f4d58a; font-family: 'Cinzel', serif; font-size: 14px; display: flex; align-items: center; gap: 6px;">
-            💰 Lucros de Vendas Pendentes
+            💰 待領取銷售收益
           </h4>
           <div style="margin-top: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; display: flex; gap: 14px;">
             <span style="color:#ffd877;">🪙 ${pendingAdena.toLocaleString()} 金幣</span>
@@ -501,7 +501,7 @@ function renderMySalesTab(state, salesData) {
         </div>
         ${hasProfits ? `
           <button id="btn-my-sales-claim" class="action-btn" style="background: linear-gradient(135deg, #15803d, #22c55e); color: #fff; font-weight: bold; border: 1px solid #4ade80; border-radius: 8px; padding: 8px 18px; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 0 12px rgba(34,197,94,0.4); animation: pulse 1.5s infinite;">
-            🎁 Coletar Lucros Agora
+            🎁 立即領取收益
           </button>
         ` : `
           <span style="color: #64748b; font-size: 12px;">目前沒有待領取收益</span>
@@ -511,7 +511,7 @@ function renderMySalesTab(state, salesData) {
       <!-- 刊登 Ativos -->
       <div style="background: rgba(15,20,30,0.85); border: 1px solid rgba(212,167,68,0.3); border-radius: 10px; padding: 14px;">
         <h4 style="margin: 0 0 12px 0; color: #f4d58a; font-family: 'Cinzel', serif; font-size: 14px;">
-          📦 我的刊登 em Aberto (${myListings.length})
+          📦 我的有效刊登 (${myListings.length})
         </h4>
 
         ${myListings.length === 0 ? `
