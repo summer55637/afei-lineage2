@@ -150,9 +150,9 @@ export const MONSTERS = {
   // ──────────────────────────────────────────────────────────────────────────
   // 14. WOLF MOUNTAIN (Level 48-50)
   // ──────────────────────────────────────────────────────────────────────────
-  mountainWolf: { name: 'Mountain 野狼', lvl: 48, hp: 6200, atk: 380, def: 150, eva: 15, xp: 4200, sp: 18, gold: [1400, 3000] },
+  mountainWolf: { name: '山地野狼', lvl: 48, hp: 6200, atk: 380, def: 150, eva: 15, xp: 4200, sp: 18, gold: [1400, 3000] },
   mountainDireWolf: { name: '山脈巨狼', lvl: 49, hp: 7400, atk: 430, def: 170, eva: 18, xp: 5200, sp: 20, gold: [1700, 3600], traits: ['bleed'] },
-  frostStalkerWolf: { name: 'Frost Stalker 野狼', lvl: 49, hp: 6800, atk: 450, def: 160, eva: 22, xp: 5400, sp: 20, gold: [1800, 3800], element: 'water' },
+  frostStalkerWolf: { name: '冰霜潛行狼', lvl: 49, hp: 6800, atk: 450, def: 160, eva: 22, xp: 5400, sp: 20, gold: [1800, 3800], element: 'water' },
   mountainSnowBear: { name: '山地雪熊', lvl: 50, hp: 9200, atk: 490, def: 195, eva: 8, xp: 6500, sp: 22, gold: [2200, 4600] },
   frostFangBehemoth: { name: '霜牙巨獸', lvl: 50, hp: 14000, atk: 540, def: 225, eva: 12, xp: 9000, sp: 28, gold: [3400, 7200], elite: true },
   mountainAlphaWolf: { name: '山脈阿爾法狼王', lvl: 50, hp: 20000, atk: 620, def: 250, eva: 20, xp: 14000, sp: 35, gold: [5500, 12000], boss: true },
@@ -170,8 +170,8 @@ export const MONSTERS = {
   // ──────────────────────────────────────────────────────────────────────────
   // 16. EMERALD GROVE (Level 60-69)
   // ──────────────────────────────────────────────────────────────────────────
-  emeraldSnake: { name: 'Emerald Serpent', lvl: 60, hp: 11500, atk: 600, def: 230, eva: 22, xp: 10500, sp: 125, gold: [3400, 7000], traits: ['poison'] },
-  emeraldDrake: { name: 'Emerald Drake', lvl: 63, hp: 14500, atk: 680, def: 270, eva: 12, xp: 13500, sp: 145, gold: [4200, 8800], element: 'earth' },
+  emeraldSnake: { name: '翡翠巨蛇', lvl: 60, hp: 11500, atk: 600, def: 230, eva: 22, xp: 10500, sp: 125, gold: [3400, 7000], traits: ['poison'] },
+  emeraldDrake: { name: '翡翠幼龍', lvl: 63, hp: 14500, atk: 680, def: 270, eva: 12, xp: 13500, sp: 145, gold: [4200, 8800], element: 'earth' },
   jadeGolem: { name: '翡翠石魔像', lvl: 65, hp: 18000, atk: 740, def: 320, eva: 5, xp: 16500, sp: 170, gold: [5200, 11000], element: 'earth' },
   groveSpiritMage: { name: '林地精靈女巫', lvl: 67, hp: 13000, atk: 320, def: 220, eva: 15, matk: 780, mdef: 320, xp: 18500, sp: 190, gold: [6000, 12500], magic: true },
   emeraldDragon: { name: '遠古翡翠龍', lvl: 68, hp: 28000, atk: 900, def: 370, eva: 10, xp: 24000, sp: 260, gold: [9000, 18000], element: 'earth', elite: true },
