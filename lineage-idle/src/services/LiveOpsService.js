@@ -13,7 +13,7 @@ export const LIVE_OPS_EVENTS = {
     id: 'weekend_gold',
     days: [0, 5, 6], // Sexta, Sábado, Domingo
     title: '🌟 亞丁黃金週末',
-    desc: '所有狩獵區金幣掉落 +25%、EXP +20%！',
+    desc: '所有狩獵區金幣掉落 +25%、經驗值 +20%！',
     badge: '黃金週末',
     icon: '🌟',
     color: '#eab308',
@@ -30,7 +30,7 @@ export const LIVE_OPS_EVENTS = {
     id: 'arcane_wednesday',
     days: [3], // Quarta-feira
     title: '🔮 席琳奧術之夜',
-    desc: 'SP 獲得量 +30%、MP 恢復 +15%！',
+    desc: '技能點獲得量 +30%、魔力恢復 +15%！',
     badge: '奧術星期三',
     icon: '🔮',
     color: '#a855f7',
