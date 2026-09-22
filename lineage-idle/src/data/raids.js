@@ -270,7 +270,7 @@ export const RAID_BOSSES = {
       damageHeroPercent: 0.60
     },
     mechanics: [
-      { name: '化石地震', triggerHp: 0.70, damagePercent: 0.30, text: '🌋 化石地震: O chão estremece causando dano maciço!' },
+      { name: '化石地震', triggerHp: 0.70, damagePercent: 0.30, text: '🌋 化石地震：大地劇烈震動並造成巨大傷害！' },
       { name: '古代恐懼咆哮', triggerHp: 0.35, damagePercent: 0.40, text: '🐉 安塔瑞斯的恐怖咆哮撕裂防禦屏障！' }
     ],
     drops: [
