@@ -19,18 +19,18 @@ export const CASH_SHOP_CATALOG = {
       brlEquivalent: 'R$ 7,50',
       badge: '熱門',
       icon: 'gradec/weapons/weapon_berserker_blade.png',
-      desc: '適合從等級 1 開始的基礎禮包，不受裝備階級懲罰。內含傳承防具套裝（重甲、輕甲或法袍）＋職業傳承武器（可隨 Lv.1～40 成長）＋2,000 發彈藥與藥水。',
+      desc: '適合從等級 1 開始的基礎禮包，不受裝備階級懲罰。內含傳承防具套裝（重甲、輕甲或法袍）＋職業傳承武器（可隨 等級 1～40 成長）＋2,000 發彈藥與藥水。',
       contents: {
-        gearTier: '動態傳承裝備（Lv.1～40，自動適配）',
+        gearTier: '動態傳承裝備（等級 1～40，自動適配）',
         isHeirloomSet: true,
         items: [
           { id: 'armor_heirloom_chest', name: '傳承防具套裝（5 件）', count: 1, isHeirloom: true },
-          { id: 'weapon_heirloom_sword', name: '職業傳承武器（Lv.1～40）', count: 1, isHeirloom: true }
+          { id: 'weapon_heirloom_sword', name: '職業傳承武器（等級 1～40）', count: 1, isHeirloom: true }
         ],
         consumables: [
-          { id: 'soulshot_d', name: '2,000x 職業魂彈（魂彈／魔靈彈）', count: 2000 },
-          { id: 'hp_potion_l', name: '50x 大型生命藥水', count: 50 },
-          { id: 'scroll_teleport', name: '5x 傳送卷軸', count: 5 }
+          { id: 'soulshot_d', name: '2,000 發職業魂彈（魂彈／魔靈彈）', count: 2000 },
+          { id: 'hp_potion_l', name: '50 瓶大型生命藥水', count: 50 },
+          { id: 'scroll_teleport', name: '5 張傳送卷軸', count: 5 }
         ]
       }
     },
@@ -41,21 +41,21 @@ export const CASH_SHOP_CATALOG = {
       brlEquivalent: 'R$ 15,00',
       badge: '推薦',
       icon: 'gradec/weapons/weapon_samurai_longsword.png',
-      desc: '高性價比禮包。內含傳承防具套裝（5 件）、職業傳承武器、5 件完整傳承飾品套組（Lv.1 即可裝備）、5,000 發彈藥與［先鋒］稱號。',
+      desc: '高性價比禮包。內含傳承防具套裝（5 件）、職業傳承武器、5 件完整傳承飾品套組（等級 1 即可裝備）、5,000 發彈藥與［先鋒］稱號。',
       contents: {
-        gearTier: '動態傳承裝備＋傳承珠寶（Lv.1～40）',
+        gearTier: '動態傳承裝備＋傳承珠寶（等級 1～40）',
         isHeirloomSet: true,
         title: { id: 'title_pioneiro', name: '先鋒', color: '#38bdf8', glow: true },
         items: [
           { id: 'armor_heirloom_chest', name: '傳承防具套裝（5 件）', count: 1, isHeirloom: true },
-          { id: 'weapon_heirloom_sword', name: '職業傳承武器（Lv.1～40）', count: 1, isHeirloom: true },
+          { id: 'weapon_heirloom_sword', name: '職業傳承武器（等級 1～40）', count: 1, isHeirloom: true },
           { id: 'jewelry_heirloom_necklace', name: '完整 5 件傳承飾品套組', count: 1, isHeirloom: true }
         ],
         consumables: [
-          { id: 'soulshot_d', name: '5,000x 職業魂彈（魂彈／魔靈彈）', count: 5000 },
-          { id: 'hp_potion_xl', name: '100x XL 生命藥水', count: 100 },
-          { id: 'potion_haste', name: '15x 加速藥水', count: 15 },
-          { id: 'scroll_teleport', name: '10x 傳送卷軸', count: 10 }
+          { id: 'soulshot_d', name: '5,000 發職業魂彈（魂彈／魔靈彈）', count: 5000 },
+          { id: 'hp_potion_xl', name: '100 瓶特大型生命藥水', count: 100 },
+          { id: 'potion_haste', name: '15 瓶加速藥水', count: 15 },
+          { id: 'scroll_teleport', name: '10 張傳送卷軸', count: 10 }
         ]
       }
     },
@@ -68,7 +68,7 @@ export const CASH_SHOP_CATALOG = {
       icon: 'acessories/noble_gold_crown.png',
       desc: '最高階傳承禮包。內含依職業配置的完整傳承裝備（5 件防具＋武器＋5 件飾品＋皇家披風＋腰帶＋翼冠＋神盾），可啟動至尊加成 +60% 經驗值／金幣，另含黃金龍阿加西翁、15,000 發彈藥、30 天 貴賓通行證與金色［至尊領主］稱號。',
       contents: {
-        gearTier: '至尊領主全套（12 件以上 Lv.1～40 傳承裝備）',
+        gearTier: '至尊領主全套（12 件以上 等級 1～40 傳承裝備）',
         isHeirloomSet: true,
         title: { id: 'title_lorde_soberano', name: '至尊領主', color: '#ffd700', glow: true, animated: true },
         agathion: { id: 'agathion_golden_dragon', name: '黃金龍阿加西翁', desc: '神秘夥伴，提供 +5% 金幣收益與華麗外觀。' },
@@ -80,8 +80,8 @@ export const CASH_SHOP_CATALOG = {
         ],
         consumables: [
           { id: 'soulshot_c', name: '15,000x C 級魂彈（魂彈／魔靈彈）', count: 15000 },
-          { id: 'hp_potion_xl', name: '200x XL 生命藥水', count: 200 },
-          { id: 'elixir_vigor_1h', name: '20x 活力靈藥（1 小時）', count: 20 },
+          { id: 'hp_potion_xl', name: '200 瓶特大型生命藥水', count: 200 },
+          { id: 'elixir_vigor_1h', name: '20 瓶活力靈藥（1 小時）', count: 20 },
           { id: 'pass_vip_teleport_30d', name: '貴賓傳送通行證（30 天）', count: 1 }
         ]
       }
@@ -232,7 +232,7 @@ export const CASH_SHOP_CATALOG = {
     },
     {
       id: 'elixir_vigor_bundle_5',
-      name: '5x 活力靈藥禮包（1 小時）',
+      name: '5 瓶活力靈藥禮包（1 小時）',
       priceAC: 25,
       icon: 'consumables/berserker_elixir.png',
       desc: '每瓶持續 1 小時，提供 +30% 經驗與 +30% 金幣收益。'
@@ -248,7 +248,7 @@ export const CASH_SHOP_CATALOG = {
       firstPurchaseBonusAC: 100,
       priceBRL: 'R$ 7,50',
       label: '小型禮包',
-      desc: '適合購買 第 1 階新手禮包或實用通行證。🎁 首次儲值：額外 +100 AC！'
+      desc: '適合購買 第 1 階新手禮包或實用通行證。🎁 首次儲值：額外 +100 亞丁幣！'
     },
     {
       id: 'ac_pack_250',
@@ -257,7 +257,7 @@ export const CASH_SHOP_CATALOG = {
       firstPurchaseBonusAC: 250,
       priceBRL: 'R$ 15,00',
       label: '中型禮包',
-      desc: '適合購買 第 2 階冠軍禮包或武器外觀。🎁 首次儲值：額外 +250 AC！'
+      desc: '適合購買 第 2 階冠軍禮包或武器外觀。🎁 首次儲值：額外 +250 亞丁幣！'
     },
     {
       id: 'ac_pack_550',
@@ -268,7 +268,7 @@ export const CASH_SHOP_CATALOG = {
       priceBRL: 'R$ 30,00',
       label: '領主禮包（+10% 加成）',
       popular: true,
-      desc: '可購買 第 3 階完整傳承新手禮包＋稱號＋阿加西翁。🎁 首次儲值：額外 +500 AC！'
+      desc: '可購買 第 3 階完整傳承新手禮包＋稱號＋阿加西翁。🎁 首次儲值：額外 +500 亞丁幣！'
     },
     {
       id: 'ac_pack_1200',
@@ -278,7 +278,7 @@ export const CASH_SHOP_CATALOG = {
       totalAC: 1200,
       priceBRL: 'R$ 60,00',
       label: '皇家寶庫（+20% 加成）',
-      desc: '提供更高額度與額外加成，適合解鎖服裝與光環。🎁 首次儲值：額外 +1,000 AC！'
+      desc: '提供更高額度與額外加成，適合解鎖服裝與光環。🎁 首次儲值：額外 +1,000 亞丁幣！'
     }
   ]
 };
