@@ -5,16 +5,16 @@
  * com sistema de inspeção de equipamentos e desafio assíncrono.
  */
 
-import { 排行榜Service } from '../services/排行榜Service.js';
+import { RankingService } from '../services/RankingService.js';
 import { CombatPowerService } from '../services/CombatPowerService.js';
 
 let _activeTab = 'cp'; // 'cp' | 'level' | 'olympiad' | 'castles'
 
-export function setActive排行榜Tab(tab) {
+export function setActiveRankingTab(tab) {
   _activeTab = tab;
 }
 
-export function render排行榜Tab(container, state) {
+export function renderRankingTab(container, state) {
   if (!container || !state) return;
 
   const playerCP = CombatPowerService.calculateCombatPower(state);
@@ -36,7 +36,7 @@ export function render排行榜Tab(container, state) {
   // Cooldown de Recompensa Diária de 排行榜
   const now = Date.now();
   const cooldownMs = 24 * 60 * 60 * 1000;
-  const lastClaim = state.last排行榜RewardClaim || 0;
+  const lastClaim = state.lastRankingRewardClaim || 0;
   const isRewardReady = now - lastClaim >= cooldownMs;
   const remainingHours = isRewardReady ? 0 : Math.ceil((cooldownMs - (now - lastClaim)) / (60 * 60 * 1000));
 
@@ -50,7 +50,7 @@ export function render排行榜Tab(container, state) {
             🏆
           </div>
           <div>
-            <h2 style="margin: 0; color: #f4d58a; font-size: 20px; font-weight: bold;">Quadro de Honra Mundial de Aden</h2>
+            <h2 style="margin: 0; color: #f4d58a; font-size: 20px; font-weight: bold;">亞丁世界榮譽榜</h2>
             <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 12px; font-family: 'Inter', sans-serif;">最強戰士與血盟官方排行榜</p>
           </div>
         </div>
@@ -71,7 +71,7 @@ export function render排行榜Tab(container, state) {
           <div>
             ${isRewardReady ? `
               <button
-                onclick="window.claim排行榜RewardAction()"
+                onclick="window.claimRankingRewardAction()"
                 style="padding: 10px 16px; font-family: 'Cinzel', serif; font-size: 11.5px; font-weight: bold; background: linear-gradient(180deg, #ca8a04, #a16207); border: 1px solid #fde047; color: #fff; border-radius: 8px; cursor: pointer; box-shadow: 0 0 12px rgba(234,179,8,0.4);"
               >
                 🎁 領取每日排名獎勵
@@ -131,7 +131,7 @@ export function render排行榜Tab(container, state) {
                   <div>
                     <div style="font-weight: bold; color: ${isTop1 ? '#fde047' : '#fff'}; font-size: 14px; font-family: 'Cinzel', serif; display: flex; align-items: center; gap: 6px;">
                       🛡️ ${p.clanName} ${isSelf ? '<span style="color:#60a5fa; font-size:10px;">(你的血盟)</span>' : ''}
-                      ${isVerified ? '<span style="background:rgba(34,197,94,0.15); border:1px solid #22c55e; color:#4ade80; font-size:10px; padding:1px 5px; border-radius:4px;">🛡️ Verificado</span>' : ''}
+                      ${isVerified ? '<span style="background:rgba(34,197,94,0.15); border:1px solid #22c55e; color:#4ade80; font-size:10px; padding:1px 5px; border-radius:4px;">🛡️ 已驗證</span>' : ''}
                     </div>
                     <div style="font-size: 11px; color: #94a3b8;">
                       盟主： <strong>${p.charName}</strong> · 等級 ${p.level} · 成員： ${p.membersCount || 6} ${p.castleLord ? `· 🏰 ${p.castleLord}` : ''}
@@ -160,12 +160,12 @@ export function render排行榜Tab(container, state) {
                       ${p.castle}
                     </div>
                     <div style="font-size: 11px; color: #cbd5e1;">
-                      Lorde Soberano: <strong style="color:#fff;">${p.lord}</strong> (${p.clan})
+                      領主： <strong style="color:#fff;">${p.lord}</strong> (${p.clan})
                     </div>
                   </div>
                 </div>
                 <div style="text-align: right; font-family: 'IBM Plex Mono', monospace;">
-                  <div style="font-size: 13px; font-weight: bold; color: #4ade80;">Taxa: ${p.tax}</div>
+                  <div style="font-size: 13px; font-weight: bold; color: #4ade80;">稅率： ${p.tax}</div>
                   <div style="font-size: 10px; color: #94a3b8;">金幣排名獎勵</div>
                 </div>
               </div>
@@ -184,7 +184,7 @@ export function render排行榜Tab(container, state) {
                 <div>
                   <div style="font-weight: bold; color: ${isTop1 ? '#fde047' : '#fff'}; font-size: 14px; font-family: 'Cinzel', serif; display: flex; align-items: center; gap: 6px;">
                     ${p.charName} ${p.isHero ? '<span style="color:#fde047; font-size:11px;">[英雄 👑]</span>' : ''} ${isSelf ? '<span style="color:#60a5fa; font-size:10px;">（你）</span>' : ''}
-                    ${isVerified ? '<span style="background:rgba(34,197,94,0.15); border:1px solid #22c55e; color:#4ade80; font-size:10px; padding:1px 5px; border-radius:4px;">🛡️ Verificado</span>' : ''}
+                    ${isVerified ? '<span style="background:rgba(34,197,94,0.15); border:1px solid #22c55e; color:#4ade80; font-size:10px; padding:1px 5px; border-radius:4px;">🛡️ 已驗證</span>' : ''}
                   </div>
                   <div style="font-size: 11px; color: #94a3b8;">
                     Lv. ${p.level} · ${p.className} · ${p.topWeaponName || '傳說武器'}
@@ -199,7 +199,7 @@ export function render排行榜Tab(container, state) {
                     <div style="font-size: 13px; font-weight: bold; color: #a3e635;">
                       💰 ${(p.gold || 0).toLocaleString()} 金幣
                     </div>
-                    <div style="font-size: 10px; color: #94a3b8;">Fortuna Acumulada</div>
+                    <div style="font-size: 10px; color: #94a3b8;">累積財富</div>
                   ` : _activeTab === 'olympiad' ? `
                     <div style="font-size: 13px; font-weight: bold; color: #fde047;">
                       🏆 ${(p.olympiadPoints || 1000).toLocaleString()} pts
@@ -219,8 +219,8 @@ export function render排行榜Tab(container, state) {
                 </div>
 
                 ${!isSelf ? `
-                  <button onclick="window.challenge排行榜PlayerAction('${p.charName}', ${p.combatPower || 1000})" style="background: rgba(220,38,38,0.2); border: 1px solid #ef4444; color: #fca5a5; border-radius: 6px; padding: 6px 12px; font-size: 11px; cursor: pointer; font-weight: bold;">
-                    ⚔️ Desafiar
+                  <button onclick="window.challengeRankingPlayerAction('${p.charName}', ${p.combatPower || 1000})" style="background: rgba(220,38,38,0.2); border: 1px solid #ef4444; color: #fca5a5; border-radius: 6px; padding: 6px 12px; font-size: 11px; cursor: pointer; font-weight: bold;">
+                    ⚔️ 挑戰
                   </button>
                 ` : ''}
               </div>
@@ -239,7 +239,7 @@ export function render排行榜Tab(container, state) {
   container.querySelectorAll('.rank-cat-btn').forEach(btn => {
     btn.onclick = () => {
       _activeTab = btn.dataset.cat;
-      render排行榜Tab(container, state);
+      renderRankingTab(container, state);
     };
   });
 }
