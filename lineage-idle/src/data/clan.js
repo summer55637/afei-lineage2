@@ -34,7 +34,7 @@ export const CLAN_LEVEL_DATA = {
     reqCharLevel: 55,
     costAdena: 2000000,
     costSp: 200000,
-    reqItem: { id: 'blood_mark', name: '血之印記（Blood Mark）', count: 1 },
+    reqItem: { id: 'blood_mark', name: '血之印記', count: 1 },
     maxMembers: 60,
     unlockedSkills: ['clan_shield'],
     desc: '受到貴族認可的血盟，解鎖血盟護盾（+物理防禦）。'
