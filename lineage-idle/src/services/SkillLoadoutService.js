@@ -143,23 +143,23 @@ export function equipSkill(state, slotName, skillId, skillDefs) {
 
   // Validate slot name
   if (!ALL_SLOT_NAMES.includes(slotName)) {
-    return { success: false, error: `Invalid slot: ${slotName}` };
+    return { success: false, error: `無效的技能欄位：${slotName}` };
   }
 
   // Validate slot is unlocked
   const unlockedSlots = getUnlockedSlots(state.level || 1);
   if (!unlockedSlots.includes(slotName)) {
-    return { success: false, error: `Slot "${slotName}" is locked at level ${state.level}` };
+    return { success: false, error: `技能欄位「${slotName}」在等級 ${state.level} 尚未解鎖` };
   }
 
   // Validate skill is learned
   if (!state.skills || !state.skills[skillId] || state.skills[skillId] <= 0) {
-    return { success: false, error: `Skill "${skillId}" is not learned` };
+    return { success: false, error: `技能「${skillId}」尚未學會` };
   }
 
   // Validate skill is not purged
   if (isPurgedSkill(skillId)) {
-    return { success: false, error: `Skill "${skillId}" is purged (mount/appearance)` };
+    return { success: false, error: `技能「${skillId}」目前不可使用（坐騎／外觀限制）` };
   }
 
   // Validate skill is not passive
@@ -167,13 +167,13 @@ export function equipSkill(state, slotName, skillId, skillDefs) {
   if (def) {
     const type = String(def.type || '').toLowerCase();
     if (type === 'passive' || type === 'stat') {
-      return { success: false, error: `Passive skills cannot be equipped in loadout slots` };
+      return { success: false, error: `被動技能無法裝入技能配置欄位` };
     }
   }
 
   // Validate skill belongs to character's progression path (when not using mock defs)
   if (state.class && !skillDefs && !isSkillInProgressionPath(state, skillId)) {
-    return { success: false, error: `Skill "${skillId}" does not belong to the progression path of class "${state?.class}"` };
+    return { success: false, error: `技能「${skillId}」不屬於職業「${state?.class}」的成長路線` };
   }
 
   // If skill is already in another slot, remove it from there (move)
@@ -345,17 +345,17 @@ export function validateLoadout(state, skillDefs) {
 
     // Check locked slots are empty
     if (!unlockedSlots.includes(slot)) {
-      errors.push(`Slot "${slot}" is locked but has skill "${skillId}"`);
+      errors.push(`已鎖定的欄位「${slot}」仍裝有技能「${skillId}」`);
     }
 
     // Check skill is learned
     if (!state.skills || !state.skills[skillId] || state.skills[skillId] <= 0) {
-      errors.push(`Skill "${skillId}" in slot "${slot}" is not learned`);
+      errors.push(`欄位「${slot}」中的技能「${skillId}」尚未學會`);
     }
 
     // Check not purged
     if (isPurgedSkill(skillId)) {
-      errors.push(`Purged skill "${skillId}" in slot "${slot}"`);
+      errors.push(`欄位「${slot}」中的技能「${skillId}」目前不可使用`);
     }
 
     // Check not passive
@@ -364,14 +364,14 @@ export function validateLoadout(state, skillDefs) {
       if (def) {
         const type = String(def.type || '').toLowerCase();
         if (type === 'passive' || type === 'stat') {
-          errors.push(`Passive skill "${skillId}" in slot "${slot}"`);
+          errors.push(`欄位「${slot}」中不可裝備被動技能「${skillId}」`);
         }
       }
     }
 
     // Check no duplicates
     if (seenSkills.has(skillId)) {
-      errors.push(`Skill "${skillId}" appears in multiple slots`);
+      errors.push(`技能「${skillId}」重複出現在多個欄位`);
     }
     seenSkills.add(skillId);
   }
