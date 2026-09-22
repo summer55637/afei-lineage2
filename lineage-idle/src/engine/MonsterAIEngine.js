@@ -24,7 +24,7 @@ export const ARCHETYPE_INFO = {
     color: '#ef4444',
     bg: 'rgba(239, 68, 68, 0.15)',
     border: 'rgba(239, 68, 68, 0.4)',
-    desc: '侵略性極高。HP 低於 35% 時進入狂暴，攻擊力 +30%。'
+    desc: '侵略性極高。生命值低於 35% 時進入狂暴，攻擊力 +30%。'
   },
   [MONSTER_ARCHETYPES.CASTER]: {
     label: '魔法施術者',
@@ -40,7 +40,7 @@ export const ARCHETYPE_INFO = {
     color: '#3b82f6',
     bg: 'rgba(59, 130, 246, 0.15)',
     border: 'rgba(59, 130, 246, 0.4)',
-    desc: '物理防禦高；有機率以盾牌格擋 50% 傷害，HP 低於 50% 時可進入堡壘姿態。'
+    desc: '物理防禦高；有機率以盾牌格擋 50% 傷害，生命值低於 50% 時可進入堡壘姿態。'
   },
   [MONSTER_ARCHETYPES.ASSASSIN]: {
     label: '暗影刺客',
@@ -56,7 +56,7 @@ export const ARCHETYPE_INFO = {
     color: '#10b981',
     bg: 'rgba(16, 185, 129, 0.15)',
     border: 'rgba(16, 185, 129, 0.4)',
-    desc: 'HP 低於 40% 時會自我治療，並以詛咒削弱玩家。'
+    desc: '生命值低於 40% 時會自我治療，並以詛咒削弱玩家。'
   }
 };
 
@@ -364,7 +364,7 @@ export const MonsterAIEngine = {
         type: 'heal',
         floatText: `✨ +${healAmt} HP（治療）`,
         floatStyle: 'sf-heal',
-        log: `✨ **${monster.name}** 施展薩滿儀式，恢復 ${healAmt} HP！`
+        log: `✨ **${monster.name}** 施展薩滿儀式，恢復 ${healAmt} 生命值！`
       });
     }
 
