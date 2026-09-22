@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "soul_rend",
-        "name": "Ruptura da Alma",
+        "name": "靈魂撕裂",
         "classId": "kamael_soulbreaker",
         "race": "kamael",
         "tier": "core_1",
@@ -14,7 +14,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Ruptura da Alma — Habilidade Especialista de kamael_soulbreaker."
+        "description": "靈魂撕裂——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -166,7 +166,7 @@
     {
       "identity": {
         "id": "abyssal_pierce",
-        "name": "Perfuração Abissal",
+        "name": "深淵穿刺",
         "classId": "kamael_soulbreaker",
         "race": "kamael",
         "tier": "core_2",
@@ -177,7 +177,7 @@
           "Dark",
           "Physical"
         ],
-        "description": "Perfuração Abissal — Habilidade Especialista de kamael_soulbreaker."
+        "description": "深淵穿刺——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -329,7 +329,7 @@
     {
       "identity": {
         "id": "essence_drain",
-        "name": "Dreno de Essência",
+        "name": "精華汲取",
         "classId": "kamael_soulbreaker",
         "race": "kamael",
         "tier": "specialization",
@@ -339,7 +339,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Dreno de Essência — Habilidade Especialista de kamael_soulbreaker."
+        "description": "精華汲取——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -491,7 +491,7 @@
     {
       "identity": {
         "id": "shadowmark",
-        "name": "Marca Sombria",
+        "name": "暗影印記",
         "classId": "kamael_soulbreaker",
         "race": "kamael",
         "tier": "elemental_specialization",
@@ -501,7 +501,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Marca Sombria — Habilidade Especialista de kamael_soulbreaker."
+        "description": "暗影印記——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -671,7 +671,7 @@
     {
       "identity": {
         "id": "soul_devastation",
-        "name": "Soul Devastation",
+        "name": "靈魂毀滅",
         "classId": "kamael_soulbreaker",
         "race": "kamael",
         "tier": "ultimate",
@@ -681,7 +681,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Soul Devastation — Habilidade Ultimate (★★★★) de kamael_soulbreaker."
+        "description": "靈魂毀滅——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -866,7 +866,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "SOUL DEVASTATION!",
+          "text": "靈魂毀滅！",
           "style": "gold_banner",
           "banner": true
         }
@@ -887,7 +887,7 @@
     {
       "identity": {
         "id": "master_soul_devastation",
-        "name": "Master: Soul Devastation",
+        "name": "大師：靈魂毀滅",
         "classId": "kamael_soulbreaker",
         "race": "kamael",
         "tier": "master_ultimate",
@@ -897,7 +897,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Master: Soul Devastation — Habilidade Master Ultimate (★★★★★) de kamael_soulbreaker."
+        "description": "大師：靈魂毀滅——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1083,7 +1083,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: SOUL DEVASTATION!",
+          "text": "大師：靈魂毀滅！",
           "style": "mythic_banner",
           "banner": true
         }
