@@ -219,7 +219,7 @@ export const HuntingService = {
     const cost = Math.max(100, Math.floor(knife.repairCost * missingPct));
 
     if ((state.gold || 0) < cost) {
-      if (callbacks.log) callbacks.log(`⚠️ Ouro insuficiente para afiar a lâmina! Requer ${cost.toLocaleString()} Adena.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足，無法磨利刀刃！需要 ${cost.toLocaleString()} 金幣。`, 'warning');
       return false;
     }
 
@@ -283,7 +283,7 @@ export const HuntingService = {
     const dur = hState.knifeDurability[activeKnifeId] ?? 0;
 
     if (dur <= 0) {
-      if (callbacks.log) callbacks.log(`⚠️ Sua ${knifeDef?.name || '獵刀'} perdeu todo o fio! Afie-a antes de continuar a caçada.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 你的 ${knifeDef?.name || '獵刀'} 已完全鈍化！請先磨利後再繼續狩獵。`, 'warning');
       return { success: false, reason: 'broken_tool' };
     }
 
@@ -354,7 +354,7 @@ export const HuntingService = {
 
     if (elapsed < needed) {
       const waitSec = ((needed - elapsed) / 1000).toFixed(1);
-      if (callbacks.log) callbacks.log(`⚠️ A presa ainda está sendo encurralada! Aguarde mais ${waitSec}s.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 獵物仍在包圍中！請再等待 ${waitSec} 秒。`, 'warning');
       return false;
     }
 
@@ -375,7 +375,7 @@ export const HuntingService = {
       if (hState.knifeDurability[activeKnifeId] !== undefined) {
         hState.knifeDurability[activeKnifeId] = Math.max(0, hState.knifeDurability[activeKnifeId] - 1);
       }
-      if (callbacks.log) callbacks.log(`💨 A presa escapou no último segundo! (獵刀 perdeu 1 durabilidade no tropeço)`, 'warning');
+      if (callbacks.log) callbacks.log(`💨 獵物在最後一刻逃走了！（獵刀因失誤損失 1 點耐久）`, 'warning');
       if (callbacks.updateAllUI) callbacks.updateAllUI();
       if (callbacks.save) callbacks.save();
       return false;
@@ -390,7 +390,7 @@ export const HuntingService = {
       hState.slainPreyData = { preyId: prey.id, qualityMod, tactic: tactic.id };
       hState.isHunting = false;
       hState.trackedPreyId = null;
-      if (callbacks.log) callbacks.log(`🐾 Presa abatida! Aguardando decisão de descarne...`, 'system');
+      if (callbacks.log) callbacks.log(`🐾 獵物已擊倒！等待剝皮處理……`, 'system');
       if (callbacks.updateAllUI) callbacks.updateAllUI();
       if (callbacks.save) callbacks.save();
       return true;
@@ -407,7 +407,7 @@ export const HuntingService = {
       hState.isHunting = false;
       hState.trackedPreyId = null;
       hState.autoHunting = false;
-      if (callbacks.log) callbacks.log(`💥 **LÂMINA CEGA!** Sua ${knifeDef?.name || 'faca'} perdeu completamente o fio.`, 'error');
+      if (callbacks.log) callbacks.log(`💥 **刀刃鈍化！**你的 ${knifeDef?.name || '獵刀'} 已完全失去鋒利度。`, 'error');
       if (callbacks.updateAllUI) callbacks.updateAllUI();
       if (callbacks.save) callbacks.save();
       return false;
@@ -446,9 +446,9 @@ export const HuntingService = {
     hState.trackedPreyId = null;
 
     if (callbacks.log) {
-      const qualityPrefix = quality.tier === 'perfect' ? '🌟 **ESFOLAÇÃO PERFEITA!**'
-        : quality.tier === 'excellent' ? '✨ **ESFOLAÇÃO EXCELENTE!**'
-        : '✓ Esfolação concluída:';
+      const qualityPrefix = quality.tier === 'perfect' ? '🌟 **完美剝皮！**'
+        : quality.tier === 'excellent' ? '✨ **優秀剝皮！**'
+        : '✓ 剝皮完成：';
       callbacks.log(`🐾 ${qualityPrefix} Abateu **${prey.name}** [${quality.name}]! Obteve +${primaryQty}x ${primaryMat.toUpperCase()}${secMat && secQty > 0 ? ` e +${secQty}x ${secMat.toUpperCase()}` : ''}! (+${finalXp} XP de 狩獵)`, 'loot');
     }
 
@@ -538,7 +538,7 @@ export const HuntingService = {
     }
 
     if (leveledUp && callbacks.log) {
-      callbacks.log(`🎉 **Sua Maestria de 狩獵 subiu para o Nível ${hState.skillLevel}!** Novas presas e ferramentas desbloqueadas.`, 'rarity-legendary');
+      callbacks.log(`🎉 **你的狩獵熟練度提升至 ${hState.skillLevel}！**已解鎖新的獵物與工具。`, 'rarity-legendary');
     }
 
     return leveledUp;
@@ -547,7 +547,7 @@ export const HuntingService = {
   toggleAutoHunting(state, callbacks = {}) {
     const hState = this.getHuntingState(state);
     if (hState.skillLevel < 5) {
-      if (callbacks.log) callbacks.log('⚠️ O Modo de 狩獵 Automática (AFK) é desbloqueado no Nível 5 de 狩獵!', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 自動狩獵（AFK）模式會在狩獵等級 5 解鎖！', 'warning');
       return false;
     }
 
@@ -557,8 +557,8 @@ export const HuntingService = {
     if (callbacks.log) {
       callbacks.log(
         hState.autoHunting
-          ? '🐾 **狩獵 Automática (AFK) ATIVADA!** Seu caçador rastreará presas e extrairá peles continuamente.'
-          : '⏸️ **狩獵 Automática (AFK) PAUSADA.**',
+          ? '🐾 **自動狩獵（AFK）已啟用！**獵人將持續追蹤獵物並取得獸皮。'
+          : '⏸️ **自動狩獵（AFK）已暫停。**',
         'system'
       );
     }
@@ -643,7 +643,7 @@ export const HuntingService = {
     this.addHuntingXp(state, totalXp, callbacks);
 
     if (callbacks.log) {
-      callbacks.log(`💤 **Relatório de 狩獵 Offline (${clampedMinutes}m):** Abateu ${actualHunts} presas nos ermos de Aden! (+${totalXp} XP de 狩獵)`, 'rarity-legendary');
+      callbacks.log(`💤 **離線狩獵報告（${clampedMinutes} 分鐘）：**在亞丁荒野擊倒 ${actualHunts} 隻獵物！（+${totalXp} 狩獵 XP）`, 'rarity-legendary');
     }
 
     return { actualHunts, matsGained, totalXp };
@@ -661,7 +661,7 @@ export const HuntingService = {
     const totalRequired = setsToExchange * reqRatio;
 
     if (huntedCount < totalRequired) {
-      if (callbacks.log) callbacks.log(`⚠️ Abates insuficientes no Bestiário! Requer ${totalRequired}x ${prey.name} para a troca de curtume.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 圖鑑擊殺數不足！皮革交換需要 ${totalRequired}x ${prey.name}。`, 'warning');
       return false;
     }
 
@@ -672,7 +672,7 @@ export const HuntingService = {
     addToInventory(state, rewardMat, rewardQty, prey.rarity, false, callbacks, true);
 
     if (callbacks.log) {
-      callbacks.log(`💼 **Mercado de Curtume:** Entregou ${totalRequired}x carcaças de ${prey.name} e recebeu +${rewardQty}x **${prey.exchangeRewardName}**!`, 'rarity-legendary');
+      callbacks.log(`💼 **皮革市場：**交付 ${totalRequired}x ${prey.name} 屍體，獲得 +${rewardQty}x **${prey.exchangeRewardName}**！`, 'rarity-legendary');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
