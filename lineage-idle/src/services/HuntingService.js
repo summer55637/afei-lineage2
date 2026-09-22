@@ -336,7 +336,7 @@ export const HuntingService = {
     hState.activeTactic = tactic.id;
 
     if (callbacks.log) {
-      callbacks.log(`🐾 Pegadas frescas avistadas! [${tactic.name}] Rastreando **${prey.name}** nas sombras de ${zone.name}...`, 'system');
+      callbacks.log(`🐾 發現新鮮足跡！[${tactic.name}] 正在 ${zone.name} 的陰影中追蹤 **${prey.name}**……`, 'system');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
