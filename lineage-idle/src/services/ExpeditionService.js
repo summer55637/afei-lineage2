@@ -367,7 +367,7 @@ export const ExpeditionService = {
           MercenaryService.addMercenaryXp(state, mercUid, 300, callbacks);
         }
       }
-      if (callbacks.log) callbacks.log(`⚖️ 事件抉擇完成（${dilemma.name}）：${option.name}！傭兵獲得 EXP 加成。`, 'system');
+      if (callbacks.log) callbacks.log(`⚖️ 事件抉擇完成（${dilemma.name}）：${option.name}！傭兵獲得經驗值加成。`, 'system');
     } else if (option.result === 'force' || option.result === 'pick') {
       const bonusShards = option.result === 'pick' ? 5 : 2;
       state.astralShards = (state.astralShards || 0) + bonusShards;
