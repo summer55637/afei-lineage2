@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "hydro_blast",
-        "name": "Explosão Hídrica",
+        "name": "水流爆破",
         "classId": "elf_mage",
         "race": "elf",
         "tier": "core_1",
@@ -14,7 +14,7 @@
         "tags": [
           "Water"
         ],
-        "description": "Explosão Hídrica — Habilidade Especialista de elf_mage."
+        "description": "水流爆破——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -166,7 +166,7 @@
     {
       "identity": {
         "id": "blizzard",
-        "name": "Nevasca",
+        "name": "暴風雪",
         "classId": "elf_mage",
         "race": "elf",
         "tier": "core_2",
@@ -176,7 +176,7 @@
         "tags": [
           "Ice"
         ],
-        "description": "Nevasca — Habilidade Especialista de elf_mage."
+        "description": "暴風雪——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -328,7 +328,7 @@
     {
       "identity": {
         "id": "healing_wave",
-        "name": "Onda Curativa",
+        "name": "治癒波",
         "classId": "elf_mage",
         "race": "elf",
         "tier": "specialization",
@@ -339,7 +339,7 @@
           "Holy",
           "Water"
         ],
-        "description": "Onda Curativa — Habilidade Especialista de elf_mage."
+        "description": "治癒波——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -491,7 +491,7 @@
     {
       "identity": {
         "id": "tidal_surge",
-        "name": "Surto de Maré",
+        "name": "潮汐奔湧",
         "classId": "elf_mage",
         "race": "elf",
         "tier": "elemental_specialization",
@@ -501,7 +501,7 @@
         "tags": [
           "Water"
         ],
-        "description": "Surto de Maré — Habilidade Especialista de elf_mage."
+        "description": "潮汐奔湧——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -671,7 +671,7 @@
     {
       "identity": {
         "id": "glacial_cataclysm",
-        "name": "Glacial Cataclysm",
+        "name": "冰川浩劫",
         "classId": "elf_mage",
         "race": "elf",
         "tier": "ultimate",
@@ -681,7 +681,7 @@
         "tags": [
           "Water"
         ],
-        "description": "Glacial Cataclysm — Habilidade Ultimate (★★★★) de elf_mage."
+        "description": "冰川浩劫——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -866,7 +866,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "GLACIAL CATACLYSM!",
+          "text": "冰川浩劫！",
           "style": "gold_banner",
           "banner": true
         }
@@ -887,7 +887,7 @@
     {
       "identity": {
         "id": "master_glacial_cataclysm",
-        "name": "Master: Glacial Cataclysm",
+        "name": "大師：冰川浩劫",
         "classId": "elf_mage",
         "race": "elf",
         "tier": "master_ultimate",
@@ -897,7 +897,7 @@
         "tags": [
           "Water"
         ],
-        "description": "Master: Glacial Cataclysm — Habilidade Master Ultimate (★★★★★) de elf_mage."
+        "description": "大師：冰川浩劫——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1083,7 +1083,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: GLACIAL CATACLYSM!",
+          "text": "大師：冰川浩劫！",
           "style": "mythic_banner",
           "banner": true
         }
