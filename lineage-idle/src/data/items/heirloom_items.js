@@ -522,7 +522,7 @@ export const HEIRLOOM_ITEMS = {
   },
   shield_heirloom_aegis: {
     id: 'shield_heirloom_aegis',
-    name: 'Aegis 傳承之盾',
+    name: '神盾傳承之盾',
     slot: 'shield',
     rarity: 'heirloom',
     tier: 3,
