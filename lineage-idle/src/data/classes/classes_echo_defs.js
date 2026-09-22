@@ -1107,7 +1107,7 @@ skills: [
 { name: "神盾", type: "Ativo", rarity: "2★", effect: "+50% 格擋率 持續 15 秒", cooldown: "45s", duration: "15s", note: "轉職後技能仍會保留" },
 { name: "終極防禦", type: "Ativo", rarity: "3★", effect: "+80% DEF, 無法移動, 10 秒", cooldown: "120s", duration: "10s", note: "轉職後技能仍會保留" },
 { name: "挑釁", type: "Ativo", rarity: "1★", effect: "嘲諷 10 秒", cooldown: "15s", duration: "10s", note: "轉職後技能仍會保留" },
-{ name: "召喚黑暗晶體", type: "Ativo", rarity: "2★", effect: "晶體 黑暗 會 ataca 130%/6 秒", cooldown: "45s", duration: "120s", note: "轉職後技能仍會保留" },
+{ name: "召喚黑暗晶體", type: "Ativo", rarity: "2★", effect: "黑暗晶體每 6 秒造成 130% 傷害", cooldown: "45s", duration: "120s", note: "轉職後技能仍會保留" },
 { name: "HP 強化", type: "Passivo", rarity: "1★", effect: "+15% 最大 HP", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
 { name: "席琳騎士和諧", type: "Self-Buff", rarity: "3★", effect: "+35% DEF, +25% ATK, +20% 黑暗 傷害 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
 ]
@@ -1362,9 +1362,9 @@ skills: [
       { name: "召喚幽靈領主",   type: "Ativo",   rarity: "3★", effect: "召喚 幽靈領主 (範圍 + 坦克)", cooldown: "60s", duration: "Permanente", note: "轉職後技能仍會保留" },
       { name: "召喚獸治癒",          type: "Ativo",   rarity: "1★", effect: "治癒召喚物 30% HP", cooldown: "12s", duration: null, note: "轉職後技能仍會保留" },
       { name: "召喚獸回復",      type: "Ativo",   rarity: "1★", effect: "恢復 MP do 召喚物", cooldown: "15s", duration: null, note: "轉職後技能仍會保留" },
-      { name: "痛苦轉移",          type: "Toggle",  rarity: "2★", effect: "50% 傷害 受到的 transferido對召喚物", cooldown: "5s", duration: "Toggle", note: "轉職後技能仍會保留" },
+      { name: "痛苦轉移",          type: "Toggle",  rarity: "2★", effect: "受到傷害的 50% 轉移給召喚物", cooldown: "5s", duration: "Toggle", note: "轉職後技能仍會保留" },
       { name: "召喚束縛晶體",   type: "Ativo",   rarity: "2★", effect: "晶體每 10 秒施加 3 秒定身", cooldown: "45s", duration: "120s", note: "轉職後技能仍會保留" },
-      { name: "召喚幻影晶體",   type: "Ativo",   rarity: "2★", effect: "晶體 黑暗 會 ataca 150%/8 秒", cooldown: "45s", duration: "120s", note: "轉職後技能仍會保留" },
+      { name: "召喚幻影晶體",   type: "Ativo",   rarity: "2★", effect: "黑暗晶體每 8 秒造成 150% 傷害", cooldown: "45s", duration: "120s", note: "轉職後技能仍會保留" },
       { name: "召喚獸物理攻擊", type: "Passivo", rarity: "2★", effect: "+20% ATK dos 召喚物", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "幽靈召喚師和諧", type: "Self-Buff", rarity: "3★", effect: "+35% 召喚物 威力, +20% 魔法攻擊 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
     ]
