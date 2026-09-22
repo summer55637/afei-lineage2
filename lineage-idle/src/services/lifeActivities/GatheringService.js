@@ -112,7 +112,7 @@ export const GatheringService = {
 
     gState.activePouch = pouchId;
     const pouchDef = POUCHES_CATALOG[pouchId];
-    if (callbacks.log) callbacks.log(`🧺 已啟用採集籃：**${pouchDef?.name || pouchId}**。`, 'system');
+    if (callbacks.log) callbacks.log(`🧺 已啟用採集籃：**${pouchDef?.name || '未知採集籃'}**。`, 'system');
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
@@ -496,7 +496,7 @@ export const GatheringService = {
   toggleAutoGathering(state, callbacks = {}) {
     const gState = this.getGatheringState(state);
     if (gState.skillLevel < 5) {
-      if (callbacks.log) callbacks.log('⚠️ 自動採集（AFK）會在採集等級 5 解鎖！', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 離線自動採集會在採集等級 5 解鎖！', 'warning');
       return false;
     }
 
