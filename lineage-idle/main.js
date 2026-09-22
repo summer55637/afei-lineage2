@@ -6014,10 +6014,10 @@ export function attackMonster() {
 
       if (isMageClass) {
         if (shotItem.itemId === 'blessed_spiritshot_universal') soulshotCritBonus = 5;
-        const label = isUniversal ? '通用 SPS（+30%）' : 'SPS (+100%)';
+        const label = isUniversal ? '通用魔靈彈（+30%）' : '魔靈彈（+100%）';
         stageFloat(`✨ ${label}`, 'sf-crit', 'left');
       } else {
-        const label = isUniversal ? '通用 SS（+30%）' : 'SS (+100%)';
+        const label = isUniversal ? '通用魂彈（+30%）' : '魂彈（+100%）';
         stageFloat(`⚡ ${label}`, 'sf-crit', 'left');
       }
       updateCombatControlsUI();
@@ -7583,7 +7583,7 @@ function renderMonsterCardsCodex(container, summaryEl) {
       <!-- Ações -->
       <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.08); padding-top:8px; margin-top:4px;">
         <span style="font-size:11px; color:${invCount > 0 ? '#86efac' : '#64748b'}; font-weight:bold;">
-          ${invCount > 0 ? `📦 持有：${invCount}x` : '背包中沒有卡片'}
+          ${invCount > 0 ? `📦 持有：${invCount}×` : '背包中沒有卡片'}
         </span>
         <div style="display:flex; gap:6px;">
           ${invCount > 0 ? `
