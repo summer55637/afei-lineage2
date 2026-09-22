@@ -151,9 +151,9 @@ export function checkLevelUp(state, callbacks = {}) {
     if (typeof callbacks.log === 'function') {
       const levelGained = state.level - initialLevel;
       if (levelGained > 1) {
-        callbacks.log(`🎉 連續升級！已達等級 ${state.level}（提升 ${levelGained} 級，+${totalSpReward} SP）！`, 'rarity-legendary');
+        callbacks.log(`🎉 連續升級！已達等級 ${state.level}（提升 ${levelGained} 級，+${totalSpReward} 技能點）！`, 'rarity-legendary');
       } else {
-        callbacks.log(`🎉 升級！已達等級 ${state.level}！（+${totalSpReward} SP）`, 'rarity-legendary');
+        callbacks.log(`🎉 升級！已達等級 ${state.level}！（+${totalSpReward} 技能點）`, 'rarity-legendary');
       }
     }
     
