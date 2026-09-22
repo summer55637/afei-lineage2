@@ -7713,7 +7713,7 @@ function updateDollsUI() {
     let encHtml = `
       <div style="background:rgba(12,16,26,0.95); border:1px solid rgba(212,167,68,0.4); border-radius:12px; padding:14px;">
         <h4 style="margin:0 0 12px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px; display:flex; align-items:center; gap:8px;">
-          📚 Enciclopédia de Boss Dolls &amp; Fontes de Drop
+          📚 首領娃娃圖鑑與掉落來源
         </h4>
     `;
 
