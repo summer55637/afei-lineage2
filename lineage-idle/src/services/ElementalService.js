@@ -429,7 +429,7 @@ export function calculatePlayerElementalDamage(state, monster, rawDamage = 100) 
     // Vantagem de Oposição canônica L2 (+20%)
     if (defElem.opposed === monElem) {
       elemMult += 0.20;
-      bonusText = `💥 OPOSIÇÃO ELEMENTAL (+20% ${activeElement.toUpperCase()} vs ${monElem.toUpperCase()})!`;
+      bonusText = `💥 元素克制（+20% ${activeElement.toUpperCase()} 對 ${monElem.toUpperCase()}）！`;
     }
     // Especial Sagrado vs Dark / Undead / Demônios (+30%)
     else if (activeElement === 'holy' && (monElem === 'dark' || monster?.category === 'undead' || monster?.category === 'demon')) {
@@ -439,7 +439,7 @@ export function calculatePlayerElementalDamage(state, monster, rawDamage = 100) 
     // Penalidade se atacar mesmo elemento (-20%)
     else if (activeElement === monElem) {
       elemMult = Math.max(0.60, elemMult - 0.20);
-      bonusText = `🛡️ RESISTÊNCIA ELEMENTAL (-20% Mesmo Elemento)`;
+      bonusText = `🛡️ 元素抗性（同屬性傷害 -20%）`;
     }
   }
 
