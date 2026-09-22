@@ -110,7 +110,7 @@ export function checkGradePenalty(playerLevel, itemOrGrade) {
     return {
       hasPenalty: true,
       minLvl,
-      reason: `需要等級 ${minLvl} 才能無懲罰使用（攻擊速度 -25%、命中 -35%、MP 消耗 +50%）`
+      reason: `需要等級 ${minLvl} 才能無懲罰使用（攻擊速度 -25%、命中 -35%、魔力消耗 +50%）`
     };
   }
   return { hasPenalty: false };
