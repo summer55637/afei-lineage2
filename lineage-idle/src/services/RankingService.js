@@ -186,7 +186,7 @@ export const RankingService = {
       state.inventory.push(scrollItem);
     }
 
-    log(`🏆 **[每日排行榜獎勵－排名 #${rank}]** 你獲得 ${coins} 亞丁幣、${adena.toLocaleString()} 金幣${scrolls > 0 ? `、${scrolls}x 強化卷軸` : ''}!`, 'rarity-legendary');
+    log(`🏆 **[每日排行榜獎勵－排名 #${rank}]** 你獲得 ${coins} 亞丁幣、${adena.toLocaleString()} 金幣${scrolls > 0 ? `、${scrolls} 張強化卷軸` : ''}!`, 'rarity-legendary');
     floatText(`+${coins} 亞丁幣！`, 'float-jackpot');
 
     onUpdate();
