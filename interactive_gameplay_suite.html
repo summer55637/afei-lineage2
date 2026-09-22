@@ -247,7 +247,7 @@
         { race: 'elf', classId: 'elven_fighter', canonicalId: 'elven_fighter', name: 'Faelar', desc: 'Elven Fighter (Original)' },
         { race: 'elf', classId: 'elven_mage', canonicalId: 'elven_mage', name: 'Aria', desc: 'Elven Mage (Original)' },
         { race: 'sylph', classId: 'sylphid', canonicalId: 'sylphid', name: 'Zephyr', desc: 'Sylphid (Sylph Gunner)' },
-        { race: 'human', classId: 'fighter', canonicalId: 'human_fighter', name: 'Tristan', desc: 'Human Fighter (Referência)' },
+        { race: 'human', classId: 'fighter', canonicalId: 'human_fighter', name: 'Tristan', desc: '人類戰士（參考）' },
         { race: 'human', classId: 'werewolf_0', canonicalId: 'werewolf_0', name: 'Fenrir', desc: 'Warg (CONTENT_GAP: V2_NODE_ABSENT)' },
         { race: 'dwarf', classId: 'shineMakerBase', canonicalId: 'shineMakerBase', name: 'Gilded', desc: 'Shine Maker (CONTENT_GAP: V2_NODE_ABSENT, 0 skills)' },
         { race: 'highelf', classId: 'spirit_0', canonicalId: 'spirit_0', name: 'Solas', desc: 'High Elf Spirit (CONTENT_GAP: V2_NODE_ABSENT)' },
@@ -837,7 +837,7 @@
       renderSubclassesUI();
       const isSeason1SubUnlocked = isFeatureUnlocked('subclasses');
       const isSeason1MaxLvl = getSeasonMaxLevel();
-      const uiLockedInS1 = addSubBtn ? (addSubBtn.disabled === true && addSubBtn.textContent.includes('🔒 Bloqueado: Temporada 3')) : false;
+      const uiLockedInS1 = addSubBtn ? (addSubBtn.disabled === true && addSubBtn.textContent.includes('🔒 未開放：第 3 賽季')) : false;
       const opAttemptSeason1 = window.switchSubclass(0); // Deve retornar false
 
       // 2. Temporada 3 com funcionalidade EXPLICITAMENTE DESATIVADA na configuração (sem bypass por número de temporada)
@@ -851,7 +851,7 @@
 
       renderSubclassesUI();
       const isSeason3DisabledSubUnlocked = isFeatureUnlocked('subclasses');
-      const uiDisabledInS3 = addSubBtn ? (addSubBtn.disabled === true && addSubBtn.textContent.includes('🔒 Bloqueado: Temporada 3')) : false;
+      const uiDisabledInS3 = addSubBtn ? (addSubBtn.disabled === true && addSubBtn.textContent.includes('🔒 未開放：第 3 賽季')) : false;
       const opAttemptSeason3Disabled = window.switchSubclass(0); // Deve retornar false pois a configuração é autoridade única!
 
       // 3. Temporada 3 com funcionalidade ATIVADA na configuração
