@@ -118,7 +118,7 @@ export function renderHuntingUI(state) {
           ${(!canUnlock || !canAfford) ? 'disabled' : ''}
           style="padding:4px 10px; font-size:10px; font-weight:bold; background:${canUnlock && canAfford ? 'linear-gradient(180deg,#d4a744,#8a641c)' : 'rgba(50,50,50,0.4)'}; border:1px solid ${canUnlock && canAfford ? '#ffe699' : '#555'}; color:${canUnlock && canAfford ? '#000' : '#777'}; border-radius:4px; cursor:${canUnlock && canAfford ? 'pointer' : 'not-allowed'};"
         >
-          ${canUnlock ? `購買 (${(kDef.buyPrice / 1000).toFixed(0)}k)` : `🔒 狩獵等級 ${kDef.minHuntingLevel}`}
+          ${canUnlock ? `購買（${kDef.buyPrice.toLocaleString()} 金幣）` : `🔒 狩獵等級 ${kDef.minHuntingLevel}`}
         </button>
       `;
     }
