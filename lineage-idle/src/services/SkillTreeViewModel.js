@@ -301,22 +301,22 @@ export function getSkillTreeViewModel(character, options = {}) {
   const activeCategories = [
     {
       id: SKILL_CATEGORIES.CORE,
-      title: '基礎與通用技能（Lv.1+）',
+      title: '基礎與通用技能（等級 1+）',
       skills: activeSkills.filter(s => s.category === SKILL_CATEGORIES.CORE)
     },
     {
       id: SKILL_CATEGORIES.CLASS,
-      title: '職業技能（第一次轉職 · Lv.20+）',
+      title: '職業技能（第一次轉職 · 等級 20+）',
       skills: activeSkills.filter(s => s.category === SKILL_CATEGORIES.CLASS)
     },
     {
       id: SKILL_CATEGORIES.SPECIALIZATION,
-      title: '元素與戰鬥專精（第二次轉職 · Lv.40+）',
+      title: '元素與戰鬥專精（第二次轉職 · 等級 40+）',
       skills: activeSkills.filter(s => s.category === SKILL_CATEGORIES.SPECIALIZATION)
     },
     {
       id: SKILL_CATEGORIES.MASTERY,
-      title: '最高精通（第三次轉職 · Lv.76+）',
+      title: '最高精通（第三次轉職 · 等級 76+）',
       skills: activeSkills.filter(s => s.category === SKILL_CATEGORIES.MASTERY)
     }
   ].filter(cat => cat.skills.length > 0); // Omit empty categories
