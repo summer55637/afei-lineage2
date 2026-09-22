@@ -68,11 +68,11 @@ export function renderFishingUI(state) {
         </div>
         <div style="display:flex; justify-content:space-between; align-items:center; font-size:10px; border-top:1px solid rgba(255,255,255,0.06); padding-top:4px;">
           <span style="color:${isUnlocked ? '#34d399' : '#f87171'}; font-weight:bold;">
-            ${isUnlocked ? '✓ Liberado' : `🔒 Lv. ${z.minLevel}+`}
+            ${isUnlocked ? '✓ 已解鎖' : `🔒 等級 ${z.minLevel}+`}
           </span>
           <span style="color:#cbd5e1;">🪱 ${reqBaitName}</span>
         </div>
-        ${isSelected ? `<div style="position:absolute; top:-6px; right:-6px; background:#2563eb; color:#fff; font-size:9px; font-weight:bold; padding:1px 6px; border-radius:10px; border:1px solid #93c5fd;">ATIVO</div>` : ''}
+        ${isSelected ? `<div style="position:absolute; top:-6px; right:-6px; background:#2563eb; color:#fff; font-size:9px; font-weight:bold; padding:1px 6px; border-radius:10px; border:1px solid #93c5fd;">目前使用</div>` : ''}
       </div>
     `;
   }
@@ -87,7 +87,7 @@ export function renderFishingUI(state) {
 
     let rodActionBtn = '';
     if (isEquipped) {
-      rodActionBtn = `<span style="font-size:10px; color:#34d399; font-weight:bold;">✓ Equipada</span>`;
+      rodActionBtn = `<span style="font-size:10px; color:#34d399; font-weight:bold;">✓ 已裝備</span>`;
     } else if (isOwned) {
       rodActionBtn = `
         <button onclick="window.equipFishingRod('${rId}')" style="padding:3px 8px; font-size:10px; font-weight:bold; background:#1e293b; border:1px solid #64748b; color:#e2e8f0; border-radius:4px; cursor:pointer;">
@@ -101,7 +101,7 @@ export function renderFishingUI(state) {
           ${(!canUse || !canAfford) ? 'disabled' : ''}
           style="padding:3px 8px; font-size:10px; font-weight:bold; background:${canUse && canAfford ? 'linear-gradient(180deg,#d4a744,#8a641c)' : '#27272a'}; border:1px solid ${canUse && canAfford ? '#ffe699' : '#52525b'}; color:${canUse && canAfford ? '#000' : '#71717a'}; border-radius:4px; cursor:${canUse && canAfford ? 'pointer' : 'not-allowed'};"
         >
-          ${canUse ? `🪙 ${(rDef.buyPrice/1000).toFixed(0)}k` : `🔒 Nv.${rDef.minFishingLevel}`}
+          ${canUse ? `🪙 ${(rDef.buyPrice/1000).toFixed(0)}k` : `🔒 釣魚等級 ${rDef.minFishingLevel}`}
         </button>
       `;
     }
@@ -223,7 +223,7 @@ export function renderFishingUI(state) {
           <!-- 2. 張力 da Linha -->
           <div style="background:rgba(0,0,0,0.4); padding:8px 12px; border-radius:6px; border:1px solid rgba(255,255,255,0.05);">
             <div style="display:flex; justify-content:space-between; font-size:11px; margin-bottom:4px;">
-              <span style="color:${tensionColor}; font-weight:bold; ${tensionPulse}">⚡ 張力 da Linha: ${tensionStatus}</span>
+              <span style="color:${tensionColor}; font-weight:bold; ${tensionPulse}">⚡ 魚線張力： ${tensionStatus}</span>
               <span style="font-family:monospace; color:${tensionColor}; font-weight:bold;">${tensionPct} / 100%</span>
             </div>
             <div style="background:#1e293b; height:10px; border-radius:5px; overflow:hidden;">
@@ -234,7 +234,7 @@ export function renderFishingUI(state) {
           <!-- 3. 控制 do Pescador -->
           <div style="background:rgba(0,0,0,0.4); padding:8px 12px; border-radius:6px; border:1px solid rgba(255,255,255,0.05);">
             <div style="display:flex; justify-content:space-between; font-size:11px; margin-bottom:4px;">
-              <span style="color:${controlColor}; font-weight:bold; ${controlPulse}">🎯 控制 da Carretilha: ${controlStatus}</span>
+              <span style="color:${controlColor}; font-weight:bold; ${controlPulse}">🎯 捲線控制： ${controlStatus}</span>
               <span style="font-family:monospace; color:${controlColor}; font-weight:bold;">${controlPct} / 100%</span>
             </div>
             <div style="background:#1e293b; height:10px; border-radius:5px; overflow:hidden;">
@@ -360,7 +360,7 @@ export function renderFishingUI(state) {
               box-shadow:${isAutoFishing ? '0 0 16px rgba(34,197,94,0.5)' : 'none'};
             "
           >
-            ${!canAutoFish ? '🔒 自動釣魚（Lv.5+）' : isAutoFishing ? '🤖 自動釣魚中（停止）' : '🤖 開啟自動釣魚'}
+            ${!canAutoFish ? '🔒 自動釣魚（等級 5+）' : isAutoFishing ? '🤖 自動釣魚中（停止）' : '🤖 開啟自動釣魚'}
           </button>
         </div>
       </div>
@@ -471,7 +471,7 @@ export function renderFishingUI(state) {
         <div style="background:rgba(0,0,0,0.5); border-radius:8px; padding:8px 12px; border:1px solid rgba(255,255,255,0.06);">
           <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:bold; margin-bottom:4px;">
             <span style="color:#fde047;">★ 釣魚等級：${prog.level}</span>
-            <span style="color:#94a3b8; font-family:monospace;">${prog.xp} / ${prog.nextXp} XP (${prog.percent}%)</span>
+            <span style="color:#94a3b8; font-family:monospace;">${prog.xp} / ${prog.nextXp} 經驗值（${prog.percent}%）</span>
           </div>
           <div style="background:#1e293b; border-radius:4px; height:8px; overflow:hidden;">
             <div style="background:linear-gradient(90deg, #3b82f6, #60a5fa); width:${prog.percent}%; height:100%; transition:width 0.3s ease;"></div>
@@ -513,7 +513,7 @@ export function renderFishingUI(state) {
 
         <!-- Card de 魚餌s -->
         <div style="background:rgba(18,22,34,0.85); border:1px solid rgba(212,167,68,0.25); border-radius:10px; padding:12px;">
-          <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; font-size:12px; color:#f4d58a;">🪱 Caixas de 魚餌s</h4>
+          <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; font-size:12px; color:#f4d58a;">🪱 魚餌箱</h4>
           <div style="display:flex; flex-wrap:wrap; gap:8px;">
             ${baitOptionsHtml}
           </div>
