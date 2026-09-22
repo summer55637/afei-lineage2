@@ -9216,8 +9216,8 @@ export function uiOpenPixCheckoutModal(tierId, state) {
         <label style="display:block; font-size:11px; font-weight:bold; color:#ffd877; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.05em;">Chave Pix Oficial (E-mail):</label>
         <div style="display:flex; gap:8px;">
           <input id="pix-key-input" type="text" readonly value="${pixKey}" style="flex:1; background:#0f172a; border:1px solid #334155; border-radius:6px; padding:8px 12px; color:#38bdf8; font-family:monospace; font-size:13px; font-weight:bold; outline:none;" />
-          <button id="pix-copy-btn" onclick="navigator.clipboard.writeText('${pixKey}').then(() => { const b = document.getElementById('pix-copy-btn'); b.textContent = '✅ Copiado!'; b.style.background = '#10b981'; setTimeout(() => { b.textContent = '📋 Copiar'; b.style.background = '#d97706'; }, 3000); })" style="padding:8px 16px; background:#d97706; border:1px solid #f59e0b; border-radius:6px; color:#fff; font-weight:bold; font-size:12px; cursor:pointer; font-family:'Cinzel',serif; white-space:nowrap; transition:background 0.2s;">
-            📋 Copiar
+          <button id="pix-copy-btn" onclick="navigator.clipboard.writeText('${pixKey}').then(() => { const b = document.getElementById('pix-copy-btn'); b.textContent = '✅ 已複製！'; b.style.background = '#10b981'; setTimeout(() => { b.textContent = '📋 複製'; b.style.background = '#d97706'; }, 3000); })" style="padding:8px 16px; background:#d97706; border:1px solid #f59e0b; border-radius:6px; color:#fff; font-weight:bold; font-size:12px; cursor:pointer; font-family:'Cinzel',serif; white-space:nowrap; transition:background 0.2s;">
+            📋 複製
           </button>
         </div>
       </div>
@@ -9297,11 +9297,11 @@ export function uiOpenReferralModal(state, defaultTab) {
   }
 
   const s = state || (typeof window !== 'undefined' ? (window.__GAME_STATE__ || window.gameState) : {});
-  const heroNick = s?.name || s?.charName || 'Aventureiro';
+  const heroNick = s?.name || s?.charName || '冒險者';
   const refCode = heroNick;
   const baseUrl = (typeof window !== 'undefined') ? (window.location.origin + window.location.pathname) : 'https://adenarena.com';
   const refUrl = `${baseUrl}?ref=${encodeURIComponent(refCode)}`;
-  const whatsappText = encodeURIComponent(`⚔️ Venha jogar comigo no Aden Arena: Idle Chronicles! Jogo épico direto no navegador, sem downloads. Crie seu herói com bônus de novato: ${refUrl}`);
+  const whatsappText = encodeURIComponent(`⚔️ 一起來玩 Aden Arena: Idle Chronicles！直接用瀏覽器就能玩的史詩冒險，不用下載。建立英雄還有新手加成：${refUrl}`);
   const whatsappUrl = `https://api.whatsapp.com/send?text=${whatsappText}`;
 
   const countInvited = s?.referralsCount || 0;
@@ -9325,14 +9325,14 @@ export function uiOpenReferralModal(state, defaultTab) {
       <!-- Subbar: Friend List Counter + Top Action Buttons -->
       <div class="l2contacts-subbar">
         <div class="l2contacts-counter">
-          Lista de 好友s (${s.friends.length}/128)
+          好友清單（${s.friends.length}/128）
         </div>
         <div class="l2contacts-top-actions">
           <button id="btn-contact-add-friend" class="l2contacts-add-btn">
-            + Adicionar
+            + 新增
           </button>
           <button id="btn-contact-del-friend" class="l2contacts-del-btn">
-            - Remover
+            - 移除
           </button>
         </div>
       </div>
@@ -9342,12 +9342,12 @@ export function uiOpenReferralModal(state, defaultTab) {
         <table class="l2contacts-table">
           <thead>
             <tr>
-              <th style="width: 32%;">Nome</th>
-              <th style="width: 12%; text-align: center;">Nv.</th>
-              <th style="width: 26%;">Classe</th>
-              <th style="width: 16%;">Status</th>
-              <th style="width: 7%; text-align: center;" title="Mensagem Privada">Msg</th>
-              <th style="width: 7%; text-align: center;" title="Enviar Correio">Mail</th>
+              <th style="width: 32%;">名稱</th>
+              <th style="width: 12%; text-align: center;">等級</th>
+              <th style="width: 26%;">職業</th>
+              <th style="width: 16%;">狀態</th>
+              <th style="width: 7%; text-align: center;" title="私人訊息">訊息</th>
+              <th style="width: 7%; text-align: center;" title="寄送郵件">郵件</th>
             </tr>
           </thead>
           <tbody>
@@ -9355,7 +9355,7 @@ export function uiOpenReferralModal(state, defaultTab) {
               <tr>
                 <td colspan="6" style="text-align: center; padding: 40px 14px; color: #94a3b8; font-size: 11px;">
                   好友清單目前是空的。<br />
-                  <span style="color: #64748b; font-size: 10px;">Clique no botão <strong style="color:#60a5fa;">'+ Adicionar'</strong> acima para adicionar um amigo pelo nome!</span>
+                  <span style="color: #64748b; font-size: 10px;">Clique no botão <strong style="color:#60a5fa;">'+ 新增'</strong> acima para adicionar um amigo pelo nome!</span>
                 </td>
               </tr>
             ` : s.friends.map(f => {
@@ -9369,16 +9369,16 @@ export function uiOpenReferralModal(state, defaultTab) {
                     ${f.level}
                   </td>
                   <td style="color: #cbd5e1; font-size: 10.5px;">
-                    ${f.classTitle || 'Adventurer'}
+                    ${f.classTitle || '冒險者'}
                   </td>
                   <td>
-                    ${f.online ? '<span style="color: #22c55e; font-size: 10px; font-weight: bold;">● Online</span>' : '<span style="color: #64748b; font-size: 10px;">○ Offline</span>'}
+                    ${f.online ? '<span style="color: #22c55e; font-size: 10px; font-weight: bold;">● 在線</span>' : '<span style="color: #64748b; font-size: 10px;">○ 離線</span>'}
                   </td>
                   <td style="text-align: center;">
-                    <button class="btn-friend-msg" data-name="${f.name}" style="background: none; border: none; cursor: pointer; color: #38bdf8; font-size: 12px;" title="Enviar mensagem privada">💬</button>
+                    <button class="btn-friend-msg" data-name="${f.name}" style="background: none; border: none; cursor: pointer; color: #38bdf8; font-size: 12px;" title="傳送私人訊息">💬</button>
                   </td>
                   <td style="text-align: center;">
-                    <button class="btn-friend-mail" data-name="${f.name}" style="background: none; border: none; cursor: pointer; color: #ffd877; font-size: 12px;" title="Enviar correio">✉️</button>
+                    <button class="btn-friend-mail" data-name="${f.name}" style="background: none; border: none; cursor: pointer; color: #ffd877; font-size: 12px;" title="寄送郵件">✉️</button>
                   </td>
                 </tr>
               `;
@@ -9389,17 +9389,17 @@ export function uiOpenReferralModal(state, defaultTab) {
 
       <!-- Bottom Actions Bar -->
       <div class="l2contacts-bottom-bar">
-        <button id="btn-friend-party-invite" class="l2contacts-action-btn" title="Convidar amigo selecionado para o Grupo">
-          📢 Convidar Grupo
+        <button id="btn-friend-party-invite" class="l2contacts-action-btn" title="邀請選取的好友加入隊伍">
+          📢 邀請入隊
         </button>
-        <button id="btn-friend-clan-invite" class="l2contacts-action-btn" title="Convidar amigo selecionado para o Clã">
-          ⚑ Convidar Clã
+        <button id="btn-friend-clan-invite" class="l2contacts-action-btn" title="邀請選取的好友加入血盟">
+          ⚑ 邀請入盟
         </button>
-        <button id="btn-friend-detailed-info" class="l2contacts-action-btn" title="Ver ficha e detalhes do amigo">
-          🗎 Detalhes
+        <button id="btn-friend-detailed-info" class="l2contacts-action-btn" title="查看好友角色資料與詳細資訊">
+          🗎 詳細資料
         </button>
-        <button id="btn-friend-make-mentor" class="l2contacts-action-btn" style="border-color: rgba(52,211,153,0.4); color: #6ee7b7;" title="Vincular este amigo como seu Mentor (até Nv. 20)">
-          🎓 Tornar Mentor
+        <button id="btn-friend-make-mentor" class="l2contacts-action-btn" style="border-color: rgba(52,211,153,0.4); color: #6ee7b7;" title="將此好友設為你的導師（等級 20 前）">
+          🎓 設為導師
         </button>
       </div>
     `;
@@ -9407,11 +9407,11 @@ export function uiOpenReferralModal(state, defaultTab) {
     contentHtml = `
       <div class="l2contacts-subbar">
         <div class="l2contacts-counter">
-          Lista de Bloqueados (${s.blocked.length}/64)
+          封鎖名單（${s.blocked.length}/64）
         </div>
         <div class="l2contacts-top-actions">
           <button id="btn-contact-add-block" class="l2contacts-add-btn">
-            + Bloquear
+            + 封鎖
           </button>
         </div>
       </div>
@@ -9420,9 +9420,9 @@ export function uiOpenReferralModal(state, defaultTab) {
         <table class="l2contacts-table">
           <thead>
             <tr>
-              <th style="width: 50%;">Nome</th>
-              <th style="width: 30%;">Status</th>
-              <th style="width: 20%; text-align: center;">Ação</th>
+              <th style="width: 50%;">名稱</th>
+              <th style="width: 30%;">狀態</th>
+              <th style="width: 20%; text-align: center;">操作</th>
             </tr>
           </thead>
           <tbody>
@@ -9435,10 +9435,10 @@ export function uiOpenReferralModal(state, defaultTab) {
             ` : s.blocked.map(bName => `
               <tr>
                 <td style="color: #fca5a5; font-weight: bold;">${bName}</td>
-                <td style="color: #64748b; font-size: 10px;">Bloqueado</td>
+                <td style="color: #64748b; font-size: 10px;">已封鎖</td>
                 <td style="text-align: center;">
                   <button class="btn-unblock-player" data-name="${bName}" style="background: rgba(239,68,68,0.2); border: 1px solid #ef4444; color: #fca5a5; border-radius: 4px; padding: 2px 8px; font-size: 10px; cursor: pointer;">
-                    Desbloquear
+                    解除封鎖
                   </button>
                 </td>
               </tr>
@@ -9453,10 +9453,10 @@ export function uiOpenReferralModal(state, defaultTab) {
         <!-- Header Info Banner -->
         <div style="background: linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(6,78,59,0.25) 100%); border: 1px solid rgba(52,211,153,0.35); border-radius: 8px; padding: 12px; margin-bottom: 14px;">
           <div style="font-family: 'Cinzel', serif; font-size: 13px; font-weight: bold; color: #a7f3d0; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
-            <span>🎓</span> Programa de Mentoria de Aden
+            <span>🎓</span> 亞丁導師計畫
           </div>
           <div style="font-size: 11px; color: #cbd5e1; line-height: 1.5;">
-            Jogadores veteranos guiam novos aventureiros até a 2ª classe. Ambos recebem bônus e tesouros lendários!
+            資深玩家可帶領新手成長到二轉，雙方都能獲得加成與傳說獎勵！
           </div>
         </div>
 
@@ -9464,20 +9464,20 @@ export function uiOpenReferralModal(state, defaultTab) {
           <div style="background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.5); border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; font-size: 11px; color: #6ee7b7; display: flex; align-items: center; gap: 10px;">
             <span style="font-size: 20px;">✨</span>
             <div>
-              <div>Mentor Vinculado: <strong style="color:#ffd877; font-size: 12px;">${referredBy}</strong></div>
-              <div style="font-size: 10px; color: #a7f3d0; margin-top: 2px;">Bônus ativo: <strong>+10% EXP permanente</strong> e Pacote de Boas-Vindas concedido.</div>
+              <div>已綁定導師： <strong style="color:#ffd877; font-size: 12px;">${referredBy}</strong></div>
+              <div style="font-size: 10px; color: #a7f3d0; margin-top: 2px;">目前加成：<strong>永久 +10% EXP</strong>，且已發放新手歡迎禮包。</div>
             </div>
           </div>
         ` : ((s.level || 1) <= 20 ? `
           <div style="background: rgba(20,26,38,0.9); border: 1px solid rgba(52,211,153,0.4); border-radius: 8px; padding: 12px; margin-bottom: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.5);">
             <div style="font-size: 11px; font-weight: bold; color: #6ee7b7; margin-bottom: 4px; text-transform: uppercase; font-family: 'Cinzel', serif;">
-              🎯 Vincular seu Mentor (Disponível até 等級 20):
+              🎯 綁定導師（等級 20 前可用）：
             </div>
             <div style="font-size: 10.5px; color: #94a3b8; margin-bottom: 8px; line-height: 1.4;">
-              Ao vincular um mentor, você ganha imediatamente <strong style="color:#6ee7b7;">+10% EXP permanente</strong>, <strong>1.000 Soulshots</strong> e <strong>10 Poções de Vida</strong>! No 等級 40, ambos ganham <strong>50 AC</strong> e <strong>5x Blessed Scrolls</strong>.
+              綁定導師後，你會立即獲得 <strong style="color:#6ee7b7;">永久 +10% EXP</strong>、<strong>1,000 Soulshots</strong> 與 <strong>10 瓶生命藥水</strong>！達到等級 40 時，雙方都可獲得 <strong>50 AC</strong> 與 <strong>5 張祝福卷軸</strong>。
             </div>
             <div style="display: flex; gap: 8px;">
-              <input id="ref-friend-code-input" type="text" placeholder="Digite o nome do seu mentor..." style="flex: 1; background: #0b0d13; border: 1px solid #334155; border-radius: 4px; padding: 7px 10px; color: #fff; font-size: 11px;" />
+              <input id="ref-friend-code-input" type="text" placeholder="輸入你的導師名稱..." style="flex: 1; background: #0b0d13; border: 1px solid #334155; border-radius: 4px; padding: 7px 10px; color: #fff; font-size: 11px;" />
               <button onclick="window.submitReferralCodeAction && window.submitReferralCodeAction()" style="padding: 7px 16px; background: linear-gradient(180deg, #10b981, #059669); border: 1px solid #34d399; border-radius: 4px; color: #052e16; font-weight: bold; font-size: 11px; cursor: pointer; font-family: 'Cinzel', serif; box-shadow: 0 2px 8px rgba(16,185,129,0.3);">
                 Vincular
               </button>
@@ -9486,42 +9486,42 @@ export function uiOpenReferralModal(state, defaultTab) {
         ` : `
           <div style="background: rgba(30,41,59,0.4); border: 1px solid rgba(148,163,184,0.25); border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; font-size: 11px; color: #cbd5e1; display: flex; align-items: center; gap: 8px;">
             <span>🛡️</span>
-            <span>Você já atingiu o 等級 ${s.level || 1}! Compartilhe seu código abaixo para ser o <strong>Mentor</strong> de novos aventureiros e receber recompensas quando eles chegarem ao 等級 40.</span>
+            <span>你已達到等級 ${s.level || 1}！分享下方代碼成為新手的<strong>導師</strong>，當他們達到等級 40 時即可獲得獎勵。</span>
           </div>
         `)}
 
         <div style="margin-bottom: 14px;">
           <label style="display: block; font-size: 10.5px; font-weight: bold; color: #6ee7b7; margin-bottom: 6px; text-transform: uppercase; font-family: 'Cinzel', serif;">
-            Seu Código / Link de Indicação &amp; Mentoria:
+            你的推薦／導師代碼與連結：
           </label>
           <div style="display: flex; gap: 8px;">
             <input id="ref-link-input" type="text" readonly value="${refUrl}" style="flex: 1; background: #0b0d13; border: 1px solid #059669; border-radius: 4px; padding: 7px 10px; color: #34d399; font-family: monospace; font-size: 11px; font-weight: bold;" />
-            <button id="ref-copy-btn" onclick="navigator.clipboard.writeText('${refUrl}').then(() => { const b = document.getElementById('ref-copy-btn'); b.textContent = '✅ Copiado!'; setTimeout(() => { b.textContent = '📋 Copiar'; }, 2500); })" style="padding: 7px 14px; background: #10b981; border: 1px solid #34d399; border-radius: 4px; color: #052e16; font-weight: bold; font-size: 11px; cursor: pointer; font-family: 'Cinzel', serif;">
-              📋 Copiar
+            <button id="ref-copy-btn" onclick="navigator.clipboard.writeText('${refUrl}').then(() => { const b = document.getElementById('ref-copy-btn'); b.textContent = '✅ 已複製！'; setTimeout(() => { b.textContent = '📋 複製'; }, 2500); })" style="padding: 7px 14px; background: #10b981; border: 1px solid #34d399; border-radius: 4px; color: #052e16; font-weight: bold; font-size: 11px; cursor: pointer; font-family: 'Cinzel', serif;">
+              📋 複製
             </button>
           </div>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px;">
           <div style="background: rgba(14,18,26,0.8); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 10px; text-align: center;">
-            <div style="font-size: 10px; color: #94a3b8; font-family: 'Cinzel', serif;">Pupilos &amp; 好友s Indicados</div>
+            <div style="font-size: 10px; color: #94a3b8; font-family: 'Cinzel', serif;">推薦的新手與好友</div>
             <div style="font-size: 18px; font-weight: bold; color: #34d399; font-family: 'Cinzel', serif; margin-top: 2px;">${countInvited}</div>
           </div>
           <div style="background: rgba(14,18,26,0.8); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 10px; text-align: center;">
-            <div style="font-size: 10px; color: #94a3b8; font-family: 'Cinzel', serif;">Recompensas Resgatadas</div>
+            <div style="font-size: 10px; color: #94a3b8; font-family: 'Cinzel', serif;">已領取獎勵</div>
             <div style="font-size: 18px; font-weight: bold; color: #ffd700; font-family: 'Cinzel', serif; margin-top: 2px;">${rewardsClaimed}</div>
           </div>
         </div>
 
         <div style="margin-bottom: 10px;">
           <button id="ref-check-rewards-btn" onclick="window.claimReferralRewardsAction && window.claimReferralRewardsAction()" style="width: 100%; padding: 9px 14px; background: linear-gradient(180deg, #059669, #047857); border: 1px solid #34d399; border-radius: 6px; color: #fff; font-weight: bold; font-size: 11px; cursor: pointer; font-family: 'Cinzel', serif; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 0 12px rgba(16,185,129,0.25);">
-            🔄 Verificar &amp; Resgatar Recompensas (50 AC + 5 Scrolls por pupilo Lv. 40)
+            🔄 檢查並領取獎勵（每位達 Lv.40 的學員：50 AC + 5 張卷軸）
           </button>
         </div>
 
         <div style="display: flex; gap: 8px;">
           <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" style="flex: 1; text-decoration: none; padding: 8px; background: linear-gradient(180deg, #25D366, #128C7E); border: 1px solid #25D366; border-radius: 4px; color: #fff; font-weight: bold; font-size: 11px; font-family: 'Cinzel', serif; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
-            📲 Convidar 好友s no WhatsApp
+            📲 透過 WhatsApp 邀請好友
           </a>
         </div>
       </div>
@@ -9533,7 +9533,7 @@ export function uiOpenReferralModal(state, defaultTab) {
       <!-- Title Bar -->
       <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: linear-gradient(180deg, #181d2a 0%, #0d1017 100%); border-bottom: 1px solid rgba(212,167,68,0.35);">
         <div style="font-family: 'Cinzel', serif; font-size: 14px; font-weight: bold; color: #f5df93; display: flex; align-items: center; gap: 8px;">
-          👥 Contatos, 好友s &amp; Mentoria
+          👥 聯絡人、好友與導師
         </div>
         <button id="close-referral-modal-btn" onclick="window.closeContactsModal ? window.closeContactsModal() : window.closeReferralModal()" style="background: none; border: none; color: #94a3b8; font-size: 20px; cursor: pointer; padding: 2px 6px; line-height: 1;" title="關閉">✕</button>
       </div>
@@ -9541,13 +9541,13 @@ export function uiOpenReferralModal(state, defaultTab) {
       <!-- Tabs Bar -->
       <div class="l2contacts-tabs-bar">
         <button class="l2contacts-tab ${_contactsActiveTab === 'friends' ? 'active' : ''}" data-ctab="friends">
-          👥 好友s (${s.friends.length}/128)
+          👥 好友（${s.friends.length}/128）
         </button>
         <button class="l2contacts-tab ${_contactsActiveTab === 'block' ? 'active' : ''}" data-ctab="block">
-          🚫 Bloqueados (${s.blocked.length}/64)
+          🚫 已封鎖（${s.blocked.length}/64）
         </button>
         <button class="l2contacts-tab ${_contactsActiveTab === 'mentorship' ? 'active' : ''}" data-ctab="mentorship">
-          🎓 Mentoria &amp; Indicação
+          🎓 導師與推薦
         </button>
       </div>
 
@@ -9582,16 +9582,16 @@ export function uiOpenReferralModal(state, defaultTab) {
   const addFriendBtn = modal.querySelector('#btn-contact-add-friend');
   if (addFriendBtn) {
     addFriendBtn.onclick = async () => {
-      const name = prompt('Digite o nome do personagem para adicionar aos amigos:');
+      const name = prompt('輸入要加入好友的角色名稱：');
       if (name && name.trim()) {
         const cleanName = name.trim();
         if (s.friends.some(f => f.name.toLowerCase() === cleanName.toLowerCase())) {
-          if (window.showMarketToast) window.showMarketToast('Este amigo já está na sua lista!', 'warning');
+          if (window.showMarketToast) window.showMarketToast('這位玩家已經在你的好友清單中！', 'warning');
           return;
         }
         const myName = (s.name || s.charName || s.heroName || '').trim();
         if (cleanName.toLowerCase() === myName.toLowerCase()) {
-          if (window.showMarketToast) window.showMarketToast('Você não pode adicionar a si mesmo!', 'warning');
+          if (window.showMarketToast) window.showMarketToast('不能將自己加入好友！', 'warning');
           return;
         }
 
@@ -9603,7 +9603,7 @@ export function uiOpenReferralModal(state, defaultTab) {
             const myId = s.characterId || `char_${(window.FirebaseBridge?.getCurrentUserId?.() || 'me').slice(0, 16)}`;
             newFriend = await window.FirebaseBridge.addFriend(myId, cleanName);
           } else {
-            throw new Error('Serviço de busca de aventureiros indisponível no momento.');
+            throw new Error('目前無法使用冒險者搜尋服務。');
           }
 
           if (newFriend) {
@@ -9615,7 +9615,7 @@ export function uiOpenReferralModal(state, defaultTab) {
         } catch (err) {
           const msg = err?.code === 'PLAYER_NOT_FOUND' 
             ? `冒險者 "${cleanName}" 不存在於亞丁世界。`
-            : (err?.message || 'Não foi possível adicionar o aventureiro.');
+            : (err?.message || '無法加入這位冒險者。');
           if (window.showMarketToast) window.showMarketToast(msg, 'error');
         } finally {
           addFriendBtn.disabled = false;
@@ -9628,7 +9628,7 @@ export function uiOpenReferralModal(state, defaultTab) {
   if (delFriendBtn) {
     delFriendBtn.onclick = async () => {
       if (!_contactsSelectedFriendName) {
-        if (window.showMarketToast) window.showMarketToast('Selecione um amigo na tabela para remover.', 'warning');
+        if (window.showMarketToast) window.showMarketToast('請先從表格中選擇要移除的好友。', 'warning');
         return;
       }
       const targetFriend = s.friends.find(f => f.name === _contactsSelectedFriendName);
@@ -9641,7 +9641,7 @@ export function uiOpenReferralModal(state, defaultTab) {
         } catch (e) {}
       }
 
-      if (window.showMarketToast) window.showMarketToast(`好友 ${_contactsSelectedFriendName} removido da lista.`, 'info');
+      if (window.showMarketToast) window.showMarketToast(`好友 ${_contactsSelectedFriendName} 已從清單移除。`, 'info');
       _contactsSelectedFriendName = null;
       if (typeof window.saveGameState === 'function') window.saveGameState();
       uiOpenReferralModal(s);
@@ -9653,10 +9653,10 @@ export function uiOpenReferralModal(state, defaultTab) {
     partyInviteBtn.onclick = () => {
       const target = _contactsSelectedFriendName || (s.friends[0] && s.friends[0].name);
       if (!target) {
-        if (window.showMarketToast) window.showMarketToast('Adicione ou selecione um amigo para convidar!', 'warning');
+        if (window.showMarketToast) window.showMarketToast('請先新增或選擇一位好友！', 'warning');
         return;
       }
-      if (window.showMarketToast) window.showMarketToast(`📢 Convite de grupo enviado para ${target}!`, 'success');
+      if (window.showMarketToast) window.showMarketToast(`📢 已向 ${target} 發送隊伍邀請！`, 'success');
     };
   }
 
@@ -9665,7 +9665,7 @@ export function uiOpenReferralModal(state, defaultTab) {
     clanInviteBtn.onclick = () => {
       const target = _contactsSelectedFriendName || (s.friends[0] && s.friends[0].name);
       if (!target) {
-        if (window.showMarketToast) window.showMarketToast('Adicione ou selecione um amigo para convidar!', 'warning');
+        if (window.showMarketToast) window.showMarketToast('請先新增或選擇一位好友！', 'warning');
         return;
       }
       if (window.showMarketToast) window.showMarketToast(`⚑ 血盟邀請已送給 ${target}!`, 'success');
@@ -11538,7 +11538,7 @@ export function renderCosmeticsTab(container, state) {
                   </button>
                 ` : `
                   <button onclick="window.buyCosmeticAction('aura', '${a.id}')" ${!canAfford ? 'disabled' : ''} style="width:100%; padding:6px; font-size:11px; background:${canAfford ? 'linear-gradient(180deg,#d97706,#b45309)' : '#27272a'}; border:1px solid ${canAfford ? '#f59e0b' : '#3f3f46'}; color:${canAfford ? '#fff' : '#71717a'}; border-radius:4px; font-weight:bold; cursor:${canAfford ? 'pointer' : 'not-allowed'};">
-                    Desbloquear (${a.costAdena.toLocaleString()} 金幣)
+                    解除封鎖 (${a.costAdena.toLocaleString()} 金幣)
                   </button>
                 `}
               </div>
@@ -11582,7 +11582,7 @@ export function renderCosmeticsTab(container, state) {
                   </button>
                 ` : `
                   <button onclick="window.buyCosmeticAction('frame', '${f.id}')" ${!canAfford ? 'disabled' : ''} style="width:100%; padding:6px; font-size:11px; background:${canAfford ? 'linear-gradient(180deg,#d97706,#b45309)' : '#27272a'}; border:1px solid ${canAfford ? '#f59e0b' : '#3f3f46'}; color:${canAfford ? '#fff' : '#71717a'}; border-radius:4px; font-weight:bold; cursor:${canAfford ? 'pointer' : 'not-allowed'};">
-                    Desbloquear (${f.costAdena.toLocaleString()} 金幣)
+                    解除封鎖 (${f.costAdena.toLocaleString()} 金幣)
                   </button>
                 `}
               </div>
@@ -11626,7 +11626,7 @@ export function renderCosmeticsTab(container, state) {
                   </button>
                 ` : `
                   <button onclick="window.buyCosmeticAction('title', '${t.id}')" ${!canAfford ? 'disabled' : ''} style="width:100%; padding:6px; font-size:11px; background:${canAfford ? 'linear-gradient(180deg,#d97706,#b45309)' : '#27272a'}; border:1px solid ${canAfford ? '#f59e0b' : '#3f3f46'}; color:${canAfford ? '#fff' : '#71717a'}; border-radius:4px; font-weight:bold; cursor:${canAfford ? 'pointer' : 'not-allowed'};">
-                    Desbloquear (${t.costAdena.toLocaleString()} 金幣)
+                    解除封鎖 (${t.costAdena.toLocaleString()} 金幣)
                   </button>
                 `}
               </div>
