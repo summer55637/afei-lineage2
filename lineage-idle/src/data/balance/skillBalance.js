@@ -64,26 +64,26 @@ export function getSkillMpCost(def) {
  */
 export function canCastSkill(character, def, now = Date.now(), cds = {}) {
   if (!character || !def) {
-    return { canCast: false, reason: 'Entidade ou habilidade inválida.', mpCost: 0 };
+    return { canCast: false, reason: '角色或技能無效。', mpCost: 0 };
   }
 
   const isPassive = def.type === 'passive' || def.type === 'stat';
   if (isPassive) {
-    return { canCast: false, reason: 'Habilidade passiva não pode ser conjurada ativamente.', mpCost: 0 };
+    return { canCast: false, reason: '被動技能無法主動施放。', mpCost: 0 };
   }
 
   // 1. Verificação de Cooldown
   const cd = (def.baseCd || def.gameplay?.cooldown || 5000) * (1 - (character.stats?.cdr || character.cdr || 0));
   const lastCast = cds[def.id];
   if (lastCast !== undefined && (now - lastCast < cd)) {
-    return { canCast: false, reason: 'Habilidade em recarga (cooldown ativo).', mpCost: 0 };
+    return { canCast: false, reason: '技能正在冷卻中。', mpCost: 0 };
   }
 
   // 2. Verificação de Custo de MP
   const mpCost = getSkillMpCost(def);
   const currentMp = Number(character.mp) || 0;
   if (currentMp < mpCost) {
-    return { canCast: false, reason: `MP insuficiente (${mpCost} necessário, atual: ${currentMp}).`, mpCost };
+    return { canCast: false, reason: `魔力不足（需要 ${mpCost}，目前 ${currentMp}）。`, mpCost };
   }
 
   return { canCast: true, mpCost };
