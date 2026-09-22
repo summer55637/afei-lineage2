@@ -7043,7 +7043,7 @@ export function renderExpeditionsUI(state) {
             cursor: ${canAfford ? 'pointer' : 'not-allowed'};
           "
         >
-          招募（${(cand.hireCost / 1000).toFixed(0)}k 金幣）
+          招募（${cand.hireCost.toLocaleString()} 金幣）
         </button>
       </div>
     `;
@@ -7246,8 +7246,8 @@ export function renderExpeditionsUI(state) {
       `;
     }
 
-    const minG = dDef.minGold ? (dDef.minGold / 1000).toFixed(0) + 'k' : '20k';
-    const maxG = dDef.maxGold ? (dDef.maxGold / 1000).toFixed(0) + 'k' : '30k';
+    const minG = dDef.minGold ? dDef.minGold.toLocaleString() : '20,000';
+    const maxG = dDef.maxGold ? dDef.maxGold.toLocaleString() : '30,000';
     const shards = dDef.shards || 3;
     const chestName = dDef.rewardDesc || '戰利品寶箱';
 
@@ -8530,7 +8530,7 @@ export function renderForgeRandomCraft(container, state, callbacks = {}) {
           class="imp-forge-subtab-btn"
           style="min-width:180px; font-size:11px; padding:8px 12px; background:rgba(180,83,9,0.25); border:1px solid rgba(245,158,11,0.4); color:#fde047;"
         >
-          🪙 購買充能（+20 點－200k）
+          🪙 購買充能（+20 點－200,000 金幣）
         </button>
       </div>
     </div>
@@ -10929,7 +10929,7 @@ export function openAugmentModal(state) {
             onclick="window.removeAugmentAction()"
             style="padding:10px 16px; font-size:11px; font-weight:bold; background:#7f1d1d; border:1px solid #ef4444; color:#fca5a5; border-radius:6px; cursor:pointer;"
           >
-            🔨 移除（100k）
+            🔨 移除（100,000 金幣）
           </button>
         ` : ''}
       </div>
