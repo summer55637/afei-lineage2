@@ -1,7 +1,7 @@
 {
   "name": "亞丁競技場：放置編年史",
   "short_name": "亞丁競技場",
-  "description": "以經典亞丁世界為背景的瀏覽器放置 RPG，包含玩家市場、鍛造、2D 戰鬥、血盟與世界排行榜。",
+  "description": "以經典亞丁世界為背景的瀏覽器放置角色扮演遊戲，包含玩家市場、鍛造、2D 戰鬥、血盟與世界排行榜。",
   "start_url": "/",
   "display": "standalone",
   "orientation": "any",
