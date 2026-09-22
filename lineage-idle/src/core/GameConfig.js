@@ -3,7 +3,7 @@
  */
 export const SAVE_KEY = 'lineageIdleSave_v2';
 export const D = () => (typeof window !== 'undefined' ? window.GameData : (globalThis.GameData || {}));
-export const TIER_NAMES = ['Foundation', 'Discipline', 'Mastery', 'Ascendancy', 'Legend', 'Mythic'];
+export const TIER_NAMES = ['基礎', '修練', '精通', '昇華', '傳奇', '神話'];
 export const CANONICAL_PAPERDOLL_20_SLOTS = [
   'weapon', 'weapon2', 'shield',
   'helmet', 'chest', 'gloves', 'legs', 'boots',
