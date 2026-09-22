@@ -45,7 +45,7 @@ const EPIC_RAID_CARDS = {
   },
   card_zaken: {
     id: 'card_zaken',
-    name: 'Carta Capitão Pirata Zaken',
+    name: '海賊船長札肯卡片',
     monster: 'Zaken',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon33.png',
     image: '/img/Monsters/SemLocal/mon_zaken.png',
@@ -78,7 +78,7 @@ const EPIC_RAID_CARDS = {
   },
   card_frintezza: {
     id: 'card_frintezza',
-    name: 'Carta Príncipe Frintezza & Halisha',
+    name: '王子弗林特沙與哈利夏卡片',
     monster: 'Frintezza',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon36.png',
     image: '/img/Monsters/SemLocal/mon_frintezza.png',
@@ -89,7 +89,7 @@ const EPIC_RAID_CARDS = {
   },
   card_antharas: {
     id: 'card_antharas',
-    name: 'Carta Dragão da Terra Antharas',
+    name: '地龍安塔瑞斯卡片',
     monster: 'Antharas',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon37.png',
     image: '/img/Monsters/SemLocal/mon_antharas.png',
@@ -100,7 +100,7 @@ const EPIC_RAID_CARDS = {
   },
   card_valakas: {
     id: 'card_valakas',
-    name: 'Carta Dragão do Fogo Valakas',
+    name: '火龍巴拉卡斯卡片',
     monster: 'Valakas',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon38.png',
     image: '/img/Monsters/SemLocal/mon_valakas.png',
@@ -277,7 +277,7 @@ export class CardCodexService {
       accountState.codex[cardId] = current;
     }
 
-    hooks.log?.(`🃏 Carta **${cardDef.name}** absorvida no Codex! (${current.count} cópias · Rank ${current.rank}/5)`, 'gain');
+    hooks.log?.(`🃏 卡片 **${cardDef.name}** 已收錄至圖鑑！（${current.count} 張 · 階級 ${current.rank}/5）`, 'gain');
     hooks.onUpdate?.();
 
     return { success: true, rank: current.rank, totalCards: current.count };
@@ -354,13 +354,13 @@ export class CardCodexService {
    */
   static socketCardToItem(itemInstance, cardId) {
     const cardDef = MONSTER_CARDS[cardId];
-    if (!cardDef) return { success: false, message: 'Carta inválida.' };
+    if (!cardDef) return { success: false, message: '無效卡片。' };
 
     const maxSockets = itemInstance.socketsMax || 2;
     if (!itemInstance.slottedCards) itemInstance.slottedCards = [];
 
     if (itemInstance.slottedCards.length >= maxSockets) {
-      return { success: false, message: `Equipamento já atingiu o limite de ${maxSockets} slots de cartas.` };
+      return { success: false, message: `裝備已達 ${maxSockets} 個卡片插槽上限。` };
     }
 
     itemInstance.slottedCards.push(cardId);
