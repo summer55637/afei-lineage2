@@ -200,7 +200,7 @@ export class ClanService {
 
       if (siege.guardsHp <= 0) {
         siege.phase = 3;
-        const advMsg = `👑 Os Guardas Reais foram derrotados! Fase 3: Entrada na Sala do Trono para canalizar o SEAL OF RULER!`;
+        const advMsg = `👑 皇家守衛已被擊敗！進入第 3 階段：前往王座廳，引導統治者封印！`;
         siege.logs.unshift(advMsg);
         log(advMsg, 'warning');
       }
