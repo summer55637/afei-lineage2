@@ -2690,9 +2690,9 @@ function updateCombatControlsUI() {
       }
     }
     
-    const shotLabel = isMage ? '✨ SPS' : '⚡ SS';
+    const shotLabel = isMage ? '✨ 魔靈彈' : '⚡ 靈魂彈';
     ssBtn.innerHTML = `<span>${shotLabel}</span> <span style="font-size:9px; color:${isSsActive ? '#fef08a' : '#94a3b8'};">(${shotCount})</span>`;
-    ssBtn.title = `${isMage ? '祝福魔靈彈' : '魂彈'}：${isSsActive ? '開啟' : '關閉'}（庫存：${shotCount}）`;
+    ssBtn.title = `${isMage ? '魔靈彈' : '靈魂彈'}：${isSsActive ? '開啟' : '關閉'}（庫存：${shotCount}）`;
   }
   const apBtn = el('autopotion-toggle-btn');
   if (apBtn) {
