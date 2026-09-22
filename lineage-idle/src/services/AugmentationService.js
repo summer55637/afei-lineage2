@@ -24,7 +24,7 @@ export class AugmentationService {
 
     const isWeapon = weapon.slot === 'weapon' || weapon.type === 'weapon' || String(weapon.id || '').startsWith('weapon_') || String(weapon.itemId || '').startsWith('weapon_');
     if (!isWeapon) {
-      log('Apenas armas podem receber o poder das Pedras da Vida (Life Stones).', 'error');
+      log('只有武器可以接受生命石的力量。', 'error');
       return { success: false, reason: 'not_a_weapon' };
     }
 
@@ -55,7 +55,7 @@ export class AugmentationService {
     const crystalCount = crystalItem ? (crystalItem.count || 1) : 0;
 
     if (crystalCount < reqCrystals) {
-      log(`⚠️ Gemstones insuficientes! O Ferreiro exige ${reqCrystals}x Cristais/Gemstones Grau ${stone.gemstoneGrade || 'D'} para canalizar a pedra.`, 'error');
+      log(`⚠️ 寶石不足！鐵匠需要 ${reqCrystals}x ${stone.gemstoneGrade || 'D'} 級水晶／寶石才能灌注生命石。`, 'error');
       return { success: false, reason: 'insufficient_gemstones' };
     }
 
