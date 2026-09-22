@@ -20326,7 +20326,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "machine_assistance": {
         "id": "machine_assistance",
-        "name": "Machine Assistance",
+        "name": "機械支援",
         "slug": "machine_assistance",
         "type": "buff",
         "rawType": "Buff",
@@ -20338,7 +20338,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Machine Assistance effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Machine Assistance",
+        "desc": "機械支援。",
         "balance": {
             "mpCost": 50,
             "pwr": 20,
@@ -20357,7 +20357,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "golem_reinforcement": {
         "id": "golem_reinforcement",
-        "name": "Golem Reinforcement",
+        "name": "魔像強化",
         "slug": "golem_reinforcement",
         "type": "active",
         "rawType": "Ativo",
@@ -20369,7 +20369,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "The effect is applied on servitors.P. Def. +8%Max HP +5%",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "The effect is applied on servitors.P. Def. +8%Max HP +5%",
+        "desc": "效果套用於召喚獸：P.Def +8%、最大 HP +5%。",
         "balance": {
             "mpCost": 35,
             "pwr": 1,
@@ -20388,7 +20388,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "repair_golem": {
         "id": "repair_golem",
-        "name": "Repair Golem",
+        "name": "修復魔像",
         "slug": "repair_golem",
         "type": "active",
         "rawType": "Ativo",
@@ -20400,7 +20400,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Repairs the summoned golem to recover the golem's HP by 8%.",
         "canonicalCooldown": "2 sec.",
         "canonicalCooldownMs": 2000,
-        "desc": "Repairs the summoned golem to recover the golem's HP by 8%.",
+        "desc": "修復召喚出的魔像，恢復魔像 8% HP。",
         "balance": {
             "mpCost": 61,
             "pwr": 1,
@@ -20419,7 +20419,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "strengthen_golem": {
         "id": "strengthen_golem",
-        "name": "Strengthen Golem",
+        "name": "強化魔像",
         "slug": "strengthen_golem",
         "type": "active",
         "rawType": "Ativo",
@@ -20431,7 +20431,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "The effect is applied on servitors.P. Atk. +8%Atk. Spd. +3%",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "The effect is applied on servitors.P. Atk. +8%Atk. Spd. +3%",
+        "desc": "效果套用於召喚獸：P.Atk +8%、攻速 +3%。",
         "balance": {
             "mpCost": 24,
             "pwr": 1,
@@ -20450,7 +20450,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "spirit_weakness": {
         "id": "spirit_weakness",
-        "name": "Spirit Weakness",
+        "name": "靈魂弱點",
         "slug": "spirit_weakness",
         "type": "active",
         "rawType": "Ativo",
@@ -20462,7 +20462,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Spirit Weakness effect",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "Spirit Weakness",
+        "desc": "靈魂弱點。",
         "balance": {
             "mpCost": 120,
             "pwr": 20,
@@ -20480,7 +20480,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "summon_siege_golem": {
         "id": "summon_siege_golem",
-        "name": "Summon Siege Golem",
+        "name": "召喚攻城魔像",
         "slug": "summon_siege_golem",
         "type": "active",
         "rawType": "Ativo",
@@ -20492,7 +20492,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summon Siege Golem effect",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "Summon Siege Golem",
+        "desc": "召喚攻城魔像。",
         "balance": {
             "mpCost": 530,
             "pwr": 20,
@@ -20511,7 +20511,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "summon_wild_hog_cannon": {
         "id": "summon_wild_hog_cannon",
-        "name": "Summon Wild Hog Cannon",
+        "name": "召喚野豬加農砲",
         "slug": "summon_wild_hog_cannon",
         "type": "active",
         "rawType": "Ativo",
@@ -20523,7 +20523,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summon Wild Hog Cannon effect",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "Summon Wild Hog Cannon",
+        "desc": "召喚野豬加農砲。",
         "balance": {
             "mpCost": 530,
             "pwr": 20,
@@ -20542,7 +20542,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "soul_wild_magic": {
         "id": "soul_wild_magic",
-        "name": "Soul Wild Magic",
+        "name": "靈魂野性魔力",
         "slug": "soul_wild_magic",
         "type": "buff",
         "rawType": "Buff",
@@ -20554,7 +20554,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Soul Wild Magic effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Soul Wild Magic",
+        "desc": "靈魂野性魔力。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -20583,7 +20583,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "rapier_slash": {
         "id": "rapier_slash",
-        "name": "Rapier Slash",
+        "name": "細劍斬擊",
         "slug": "rapier_slash",
         "type": "active",
         "rawType": "Ativo",
@@ -20595,7 +20595,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Swings a rapier.Attacks 2 times ignoring 20% of P. Def. Power 5500.With a 50% ch",
         "canonicalCooldown": "25 sec.",
         "canonicalCooldownMs": 25000,
-        "desc": "Swings a rapier.Attacks 2 times ignoring 20% of P. Def. Power 5500.With a 50% chance, triggers Sword Strike (additional hit) (M. damage). Power 152.If the target has Detect Vulnerability (Spirit Weakness) applied, triggers Lightning (additional hit).PvP: Attacks up to 6 targets.PvE: Attacks up to 6 targets.Sword Strike (additional hit)PvP: Decreases Paralysis Resistance and P./ M. Def.PvE: Decreases P./ M. Def.Lightning (additional hit)PvP: Applies Paralysis, decreases P./ M. Def.PvE: Decreases P./ M. Def.",
+        "desc": "揮動細劍連續攻擊 2 次，無視目標 20% P.Def，威力 5500。有 50% 機率觸發 Sword Strike 追加魔法傷害，威力 152。若目標帶有 Detect Vulnerability（Spirit Weakness），則觸發 Lightning 追加攻擊。PvP／PvE 最多攻擊 6 個目標。Sword Strike：PvP 降低麻痺抗性與 P.Def／M.Def；PvE 降低 P.Def／M.Def。Lightning：PvP 施加麻痺並降低 P.Def／M.Def；PvE 降低 P.Def／M.Def。",
         "balance": {
             "mpCost": 100,
             "pwr": 500,
@@ -20613,7 +20613,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "excess_charge": {
         "id": "excess_charge",
-        "name": "Excess Charge",
+        "name": "過載充能",
         "slug": "excess_charge",
         "type": "buff",
         "rawType": "Buff",
@@ -20625,7 +20625,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +30%Skill Critical Rate +10%Skill Critical Damage +10%Skill Power +5%Par",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "P. Atk. +30%Skill Critical Rate +10%Skill Critical Damage +10%Skill Power +5%Paralysis Atk. Rate +20%Paralysis Resistance +20%Enables Leopold.",
+        "desc": "P.Atk +30%、技能暴擊率 +10%、技能暴擊傷害 +10%、技能威力 +5%、麻痺成功率 +20%、麻痺抗性 +20%。可使用 Leopold。",
         "balance": {
             "mpCost": 100,
             "pwr": 3,
@@ -20643,7 +20643,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "soul_haste": {
         "id": "soul_haste",
-        "name": "Soul Haste",
+        "name": "靈魂加速",
         "slug": "soul_haste",
         "type": "buff",
         "rawType": "Buff",
@@ -20655,7 +20655,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Soul Haste effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Soul Haste",
+        "desc": "靈魂加速。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -20684,7 +20684,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "flash_dash": {
         "id": "flash_dash",
-        "name": "Flash Dash",
+        "name": "閃光突進",
         "slug": "flash_dash",
         "type": "active",
         "rawType": "Ativo",
@@ -20696,7 +20696,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Rush skill>Rushes to the target.Makes 1 attack ignoring 10% of P. Def. Power 60",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "<Rush skill>Rushes to the target.Makes 1 attack ignoring 10% of P. Def. Power 6013.With a 30% chance, triggers Lightning (additional hit) (M. damage). Power 78.Lightning (additional hit)PvP: Applies Paralysis, decreases P./ M. Def.PvE: Decreases P./ M. Def.",
+        "desc": "<突進技能>快速衝向目標，進行 1 次攻擊並無視目標 10% P.Def，威力 6013。有 30% 機率觸發 Lightning 追加魔法傷害，威力 78。Lightning：PvP 施加麻痺並降低 P.Def／M.Def；PvE 降低 P.Def／M.Def。",
         "balance": {
             "mpCost": 72,
             "pwr": 500,
@@ -20715,7 +20715,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "soul_magic_barrier": {
         "id": "soul_magic_barrier",
-        "name": "Soul Magic Barrier",
+        "name": "靈魂魔法屏障",
         "slug": "soul_magic_barrier",
         "type": "buff",
         "rawType": "Buff",
@@ -20727,7 +20727,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Soul Magic Barrier effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Soul Magic Barrier",
+        "desc": "靈魂魔法屏障。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -20756,7 +20756,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "soul_berserker_spirit": {
         "id": "soul_berserker_spirit",
-        "name": "Soul Berserker Spirit",
+        "name": "靈魂狂戰士之魂",
         "slug": "soul_berserker_spirit",
         "type": "buff",
         "rawType": "Buff",
@@ -20768,7 +20768,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Soul Berserker Spirit effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Soul Berserker Spirit",
+        "desc": "靈魂狂戰士之魂。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -20797,7 +20797,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "crescent_swing": {
         "id": "crescent_swing",
-        "name": "Crescent Swing",
+        "name": "新月揮擊",
         "slug": "crescent_swing",
         "type": "active",
         "rawType": "Ativo",
@@ -20809,7 +20809,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Swings a rapier in a half-circle.Makes 1 attack ignoring 15% of P. Def. Power 48",
         "canonicalCooldown": "12 sec.",
         "canonicalCooldownMs": 12000,
-        "desc": "Swings a rapier in a half-circle.Makes 1 attack ignoring 15% of P. Def. Power 4820.With a 30% chance, triggers Sword Strike (additional hit) (M. damage). Power 100.PvP: Attacks up to 4 targets.PvE: Attacks up to 4 targets.Sword Strike (additional hit)PvP: Decreases Paralysis Resistance and P./ M. Def.PvE: Decreases P./ M. Def.",
+        "desc": "以半圓軌跡揮動細劍，進行 1 次攻擊並無視目標 15% P.Def，威力 4820。有 30% 機率觸發 Sword Strike 追加魔法傷害，威力 100。PvP／PvE 最多攻擊 4 個目標。Sword Strike：PvP 降低麻痺抗性與 P.Def／M.Def；PvE 降低 P.Def／M.Def。",
         "balance": {
             "mpCost": 91,
             "pwr": 500,
@@ -20827,7 +20827,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "through_strike": {
         "id": "through_strike",
-        "name": "Through Strike",
+        "name": "貫穿打擊",
         "slug": "through_strike",
         "type": "active",
         "rawType": "Ativo",
@@ -20839,7 +20839,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Makes a rapier attack.Makes 1 attack ignoring 15% of P. Def. Power 4715.With a 3",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "Makes a rapier attack.Makes 1 attack ignoring 15% of P. Def. Power 4715.With a 30% chance, triggers Sword Strike (additional hit) (M. damage). Power 120.Sword Strike (additional hit)PvP: Decreases Paralysis Resistance and P./ M. Def.PvP: Decreases P./ M. Def.",
+        "desc": "以細劍攻擊，進行 1 次攻擊並無視目標 15% P.Def，威力 4715。有 30% 機率觸發 Sword Strike 追加魔法傷害，威力 120。Sword Strike：PvP 降低麻痺抗性與 P.Def／M.Def；PvE 降低 P.Def／M.Def。",
         "balance": {
             "mpCost": 84,
             "pwr": 500,
@@ -20859,7 +20859,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "soul_wind_walk": {
         "id": "soul_wind_walk",
-        "name": "Soul Wind Walk",
+        "name": "靈魂風之疾走",
         "slug": "soul_wind_walk",
         "type": "buff",
         "rawType": "Buff",
@@ -20871,7 +20871,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Soul Wind Walk effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Soul Wind Walk",
+        "desc": "靈魂風之疾走。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -20896,7 +20896,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "soul_acumen": {
         "id": "soul_acumen",
-        "name": "Soul Acumen",
+        "name": "靈魂靈活思緒",
         "slug": "soul_acumen",
         "type": "buff",
         "rawType": "Buff",
@@ -20908,7 +20908,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Soul Acumen effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Soul Acumen",
+        "desc": "靈魂靈活思緒。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -20937,7 +20937,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "light_soul_connection": {
         "id": "light_soul_connection",
-        "name": "Light Soul Connection",
+        "name": "光之靈魂連結",
         "slug": "light_soul_connection",
         "type": "buff",
         "rawType": "Buff",
@@ -20949,7 +20949,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Light Soul Connection effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Light Soul Connection",
+        "desc": "光之靈魂連結。",
         "balance": {
             "mpCost": 50,
             "pwr": 20,
@@ -20970,7 +20970,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "shadow_soul_connection": {
         "id": "shadow_soul_connection",
-        "name": "Shadow Soul Connection",
+        "name": "暗影靈魂連結",
         "slug": "shadow_soul_connection",
         "type": "buff",
         "rawType": "Buff",
@@ -20982,7 +20982,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Shadow Soul Connection effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Shadow Soul Connection",
+        "desc": "暗影靈魂連結。",
         "balance": {
             "mpCost": 50,
             "pwr": 20,
@@ -21003,7 +21003,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "chain_lightning": {
         "id": "chain_lightning",
-        "name": "Chain Lightning",
+        "name": "連鎖閃電",
         "slug": "chain_lightning",
         "type": "active",
         "rawType": "Ativo",
@@ -21015,7 +21015,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Strikes the target with intertwining lightnings.Incessantly attacks the target i",
         "canonicalCooldown": "8 sec.",
         "canonicalCooldownMs": 8000,
-        "desc": "Strikes the target with intertwining lightnings.Incessantly attacks the target ignoring 15% of P. Def. Power 5060.With a 40% chance, triggers Lightning (additional hit) (M. damage). Power 152.PvP: Attacks up to 4 targets.PvE: Attacks up to 4 targets.Lightning (additional hit)PvP: Applies Paralysis, decreases P./ M. Def.PvE: Decreases P./ M. Def.",
+        "desc": "以交織閃電打擊目標，連續攻擊並無視目標 15% P.Def，威力 5060。有 40% 機率觸發 Lightning 追加魔法傷害，威力 152。PvP／PvE 最多攻擊 4 個目標。Lightning：PvP 施加麻痺並降低 P.Def／M.Def；PvE 降低 P.Def／M.Def。",
         "balance": {
             "mpCost": 100,
             "pwr": 500,
@@ -21033,7 +21033,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "leopold": {
         "id": "leopold",
-        "name": "Leopold",
+        "name": "雷奧波德",
         "slug": "leopold",
         "type": "active",
         "rawType": "Ativo",
@@ -21045,7 +21045,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Leopold effect",
         "canonicalCooldown": "45 sec.",
         "canonicalCooldownMs": 45000,
-        "desc": "Leopold",
+        "desc": "雷奧波德。",
         "balance": {
             "mpCost": 400,
             "pwr": 20,
@@ -21064,7 +21064,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "resonance_shield": {
         "id": "resonance_shield",
-        "name": "Resonance Shield",
+        "name": "共鳴護盾",
         "slug": "resonance_shield",
         "type": "buff",
         "rawType": "Buff",
@@ -21076,7 +21076,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Resonance Shield effect",
         "canonicalCooldown": "5 min.",
         "canonicalCooldownMs": 300000,
-        "desc": "Resonance Shield",
+        "desc": "共鳴護盾。",
         "balance": {
             "mpCost": 125,
             "pwr": 20,
@@ -21094,7 +21094,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "mount_griffin": {
         "id": "mount_griffin",
-        "name": "Mount Griffin",
+        "name": "騎乘獅鷲",
         "slug": "mount_griffin",
         "type": "active",
         "rawType": "Ativo",
@@ -21106,7 +21106,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Mount Griffin effect",
         "canonicalCooldown": "1s",
         "canonicalCooldownMs": 1000,
-        "desc": "Mount Griffin",
+        "desc": "騎乘獅鷲。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -21125,7 +21125,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "soul_reinforcement": {
         "id": "soul_reinforcement",
-        "name": "Soul Reinforcement",
+        "name": "靈魂強化",
         "slug": "soul_reinforcement",
         "type": "buff",
         "rawType": "Buff",
@@ -21137,7 +21137,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Strengthens yourself with the power of your soul.Max HP +30%P. Atk. +1500PvE dam",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Strengthens yourself with the power of your soul.Max HP +30%P. Atk. +1500PvE damage bonus +20%",
+        "desc": "以靈魂力量強化自身：最大 HP +30%、P.Atk +1500、PvE 傷害 +20%。",
         "balance": {
             "mpCost": 50,
             "pwr": 3,
@@ -21156,7 +21156,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "collect_light_souls": {
         "id": "collect_light_souls",
-        "name": "Collect Light Souls",
+        "name": "收集光之靈魂",
         "slug": "collect_light_souls",
         "type": "buff",
         "rawType": "Buff",
@@ -21168,7 +21168,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Collect Light Souls effect",
         "canonicalCooldown": "15 min.",
         "canonicalCooldownMs": 900000,
-        "desc": "Collect Light Souls",
+        "desc": "收集光之靈魂。",
         "balance": {
             "mpCost": 50,
             "pwr": 20,
@@ -21193,7 +21193,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "soul_blade": {
         "id": "soul_blade",
-        "name": "Soul Blade",
+        "name": "靈魂之刃",
         "slug": "soul_blade",
         "type": "buff",
         "rawType": "Buff",
@@ -21205,7 +21205,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Soul Blade effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Soul Blade",
+        "desc": "靈魂之刃。",
         "balance": {
             "mpCost": 120,
             "pwr": 20,
@@ -21223,7 +21223,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "collect_shadow_souls": {
         "id": "collect_shadow_souls",
-        "name": "Collect Shadow Souls",
+        "name": "收集暗影靈魂",
         "slug": "collect_shadow_souls",
         "type": "buff",
         "rawType": "Buff",
@@ -21235,7 +21235,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Collect Shadow Souls effect",
         "canonicalCooldown": "15 min.",
         "canonicalCooldownMs": 900000,
-        "desc": "Collect Shadow Souls",
+        "desc": "收集暗影靈魂。",
         "balance": {
             "mpCost": 50,
             "pwr": 20,
@@ -21260,7 +21260,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "fragarach": {
         "id": "fragarach",
-        "name": "Fragarach",
+        "name": "弗拉格拉赫",
         "slug": "fragarach",
         "type": "buff",
         "rawType": "Buff",
@@ -21272,7 +21272,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Fragarach effect",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "Fragarach",
+        "desc": "弗拉格拉赫。",
         "balance": {
             "mpCost": 100,
             "pwr": 20,
@@ -21290,7 +21290,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "way_back": {
         "id": "way_back",
-        "name": "Way Back",
+        "name": "返程",
         "slug": "way_back",
         "type": "active",
         "rawType": "Ativo",
@@ -21302,7 +21302,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Way Back effect",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "Way Back",
+        "desc": "返程。",
         "balance": {
             "mpCost": 100,
             "pwr": 20,
@@ -21320,7 +21320,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "enuma_elish": {
         "id": "enuma_elish",
-        "name": "Enuma Elish",
+        "name": "艾努瑪艾利什",
         "slug": "enuma_elish",
         "type": "active",
         "rawType": "Ativo",
@@ -21332,7 +21332,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Enuma Elish's energy drives you forward.Attacks the target and nearby enemies. P",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Enuma Elish's energy drives you forward.Attacks the target and nearby enemies. Power 5077.Ignores Shield Defense.Ignores 15% of the target's defense.PvP: Attacks up to 3 targets.PvE: Attacks up to 3 targets.",
+        "desc": "艾努瑪艾利什的能量推動你向前，攻擊目標與附近敵人，威力 5077。無視盾牌防禦與目標 15% 防禦力。PvP／PvE 最多攻擊 3 個目標。",
         "balance": {
             "mpCost": 59,
             "pwr": 500,
@@ -21353,7 +21353,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "soul_mark": {
         "id": "soul_mark",
-        "name": "Soul Mark",
+        "name": "靈魂印記",
         "slug": "soul_mark",
         "type": "active",
         "rawType": "Ativo",
@@ -21365,7 +21365,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Swings your ancient sword to attack the enemy. Applies Soul Stamp on the target ",
         "canonicalCooldown": "40 sec.",
         "canonicalCooldownMs": 40000,
-        "desc": "Swings your ancient sword to attack the enemy. Applies Soul Stamp on the target blocking their P. skills and Drain abilities.Attacks the target and nearby enemies. Power 6072.Ignores Shield Defense.Ignores 15% of the target's defense.Soul StampHP absorption rate -20%MP absorption rate -20%Duration: 7 sec.P. Def. -30%Duration: 7 sec.PvP: Attacks up to 7 targets.PvE: Attacks up to 7 targets.",
+        "desc": "揮動古代劍攻擊敵人，對目標附加 Soul Stamp，封鎖物理技能與吸取能力。攻擊目標與附近敵人，威力 6072。無視盾牌防禦與目標 15% 防禦力。Soul Stamp：HP 吸收率 -20%、MP 吸收率 -20%，持續 7 秒；P.Def -30%，持續 7 秒。PvP／PvE 最多攻擊 7 個目標。",
         "balance": {
             "mpCost": 86,
             "pwr": 500,
@@ -21384,7 +21384,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "rush_impact": {
         "id": "rush_impact",
-        "name": "Rush Impact",
+        "name": "突進衝擊",
         "slug": "rush_impact",
         "type": "active",
         "rawType": "Ativo",
@@ -21396,7 +21396,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Rush/ Shock skill>Charges at the target and nearby enemies attacking them. Powe",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "<Rush/ Shock skill>Charges at the target and nearby enemies attacking them. Power 2800.With a certain chance, stuns for 2 sec.In PvP, interrupts the target's skill casting with a 2% chance.Can be used if the distance to the target is more than 100.PvP: Attacks up to 3 targets.PvE: Attacks up to 3 targets.Note!When used uninterrupted for 3 sec., inflicts the disability effect.When using the skill while the disability is active:Decreases your MP and MP Drain when hit.",
+        "desc": "<突進／休克技能>衝向目標與附近敵人並攻擊，威力 2800。有一定機率暈眩 2 秒。PvP 中有 2% 機率中斷目標施法。與目標距離超過 100 時可使用。PvP／PvE 最多攻擊 3 個目標。注意：連續施放 3 秒不中斷時會施加失能效果；失能生效期間使用此技能，會降低自身 MP，並降低受擊時的 MP 吸取。",
         "balance": {
             "mpCost": 45,
             "pwr": 500,
@@ -21417,7 +21417,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "soul_guard": {
         "id": "soul_guard",
-        "name": "Soul Guard",
+        "name": "靈魂守護",
         "slug": "soul_guard",
         "type": "buff",
         "rawType": "Buff",
@@ -21429,7 +21429,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Soul Guard effect",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "Soul Guard",
+        "desc": "靈魂守護。",
         "balance": {
             "mpCost": 100,
             "pwr": 20,
@@ -21452,7 +21452,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "soul_impulse": {
         "id": "soul_impulse",
-        "name": "Soul Impulse",
+        "name": "靈魂衝擊",
         "slug": "soul_impulse",
         "type": "active",
         "rawType": "Ativo",
@@ -21464,7 +21464,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Deals massive damage with the soul power.Attacks the target. Power 8017.Ignores ",
         "canonicalCooldown": "7 sec.",
         "canonicalCooldownMs": 7000,
-        "desc": "Deals massive damage with the soul power.Attacks the target. Power 8017.Ignores Shield Defense.Ignores 15% of the target's defense.",
+        "desc": "以靈魂力量造成巨大傷害。攻擊目標，威力 8017。無視盾牌防禦與目標 15% 防禦力。",
         "balance": {
             "mpCost": 61,
             "pwr": 500,
@@ -21485,7 +21485,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "soul_smash": {
         "id": "soul_smash",
-        "name": "Soul Smash",
+        "name": "靈魂粉碎",
         "slug": "soul_smash",
         "type": "active",
         "rawType": "Ativo",
@@ -21497,7 +21497,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Crushes enemies with the soul power.Attacks the target twice. Power 5694.Ignores",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "Crushes enemies with the soul power.Attacks the target twice. Power 5694.Ignores Shield Defense.Ignores 15% of the target's defense.",
+        "desc": "以靈魂力量粉碎敵人，連續攻擊目標 2 次，威力 5694。無視盾牌防禦與目標 15% 防禦力。",
         "balance": {
             "mpCost": 55,
             "pwr": 500,
@@ -21520,7 +21520,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "increase_power": {
         "id": "increase_power",
-        "name": "Increase Power",
+        "name": "力量提升",
         "slug": "increase_power",
         "type": "buff",
         "rawType": "Buff",
@@ -21532,7 +21532,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Unravels potential and increases M. Atk.P. Atk. Shock Atk. Rate +30%",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Unravels potential and increases M. Atk.P. Atk. Shock Atk. Rate +30%",
+        "desc": "釋放潛能並提高魔法攻擊力。P.Atk、休克成功率 +30%。",
         "balance": {
             "mpCost": 45,
             "pwr": 3,
@@ -21555,7 +21555,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "soul_prison": {
         "id": "soul_prison",
-        "name": "Soul Prison",
+        "name": "靈魂監獄",
         "slug": "soul_prison",
         "type": "buff",
         "rawType": "Buff",
@@ -21567,7 +21567,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Soul Prison effect",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "Soul Prison",
+        "desc": "靈魂監獄。",
         "balance": {
             "mpCost": 85,
             "pwr": 20,
@@ -21586,7 +21586,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "magic_break": {
         "id": "magic_break",
-        "name": "Magic Break",
+        "name": "魔力削弱",
         "slug": "magic_break",
         "type": "buff",
         "rawType": "Buff",
@@ -21598,7 +21598,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Weakens the target's magic abilities.M. Atk. -23%",
         "canonicalCooldown": "2 sec.",
         "canonicalCooldownMs": 2000,
-        "desc": "Weakens the target's magic abilities.M. Atk. -23%",
+        "desc": "削弱目標的魔法能力：M.Atk -23%。",
         "balance": {
             "mpCost": 40,
             "pwr": 2,
@@ -21617,7 +21617,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "soul_weapon": {
         "id": "soul_weapon",
-        "name": "Soul Weapon",
+        "name": "靈魂武器",
         "slug": "soul_weapon",
         "type": "buff",
         "rawType": "Buff",
@@ -21629,7 +21629,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Soul Weapon effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Soul Weapon",
+        "desc": "靈魂武器。",
         "balance": {
             "mpCost": 75,
             "pwr": 20,
@@ -21648,7 +21648,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "overwhelming_power": {
         "id": "overwhelming_power",
-        "name": "Overwhelming Power",
+        "name": "壓倒性力量",
         "slug": "overwhelming_power",
         "type": "buff",
         "rawType": "Buff",
@@ -21660,7 +21660,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Awakens Kamael's true powers.P. Atk. +35%P. Atk. +300Atk. Spd. +30%P. Skill Crit",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "Awakens Kamael's true powers.P. Atk. +35%P. Atk. +300Atk. Spd. +30%P. Skill Critical Rate +30%P. Skill Critical Damage +30%P. Skill Power +15%Max HP +20%(Momentarily recovers bonus HP.)Shock Atk. Rate +20%Pull Atk. Rate +20%On attack, deals bonus damage equal to 30% of your combat power, added to your damage limit.With a 2% chance, applies Overwhelming Force on attack.Overwhelming ForceP. Skill Critical Rate +20%P. Skill Critical Damage +20%Received Skill Critical Damage -50Speed +20On using Soul Smash/ Soul Impulse, triggers an additional attack.Duration: 10 sec.Trigger cooldown: 11 sec.The following skills are enhanced to their Force versions:Soul Smash and Soul Impulse- Increases power.- Bonus damage to barriers +50%Soul Prison- Increases power.- Increases Pull Atk. Rate.- Enhances the PvP debuff.- Increases the number of targets in PvE.",
+        "desc": "喚醒卡麥爾真正力量：P.Atk +35%、P.Atk +300、攻速 +30%、物理技能暴擊率 +30%、物理技能暴擊傷害 +30%、物理技能威力 +15%、最大 HP +20%（立即恢復增加的 HP）、休克成功率 +20%、牽引成功率 +20%。攻擊時追加相當於自身戰鬥力 30% 的額外傷害，計入傷害上限。攻擊時有 2% 機率附加 Overwhelming Force：物理技能暴擊率 +20%、物理技能暴擊傷害 +20%、受到技能暴擊傷害 -50%、速度 +20；使用 Soul Smash／Soul Impulse 時觸發追加攻擊，持續 10 秒，觸發冷卻 11 秒。並將 Soul Smash、Soul Impulse 強化為 Force 版本：提高威力，對屏障額外傷害 +50%。Soul Prison：提高威力、牽引成功率、強化 PvP 弱化效果，並增加 PvE 目標數。",
         "balance": {
             "mpCost": 100,
             "pwr": 4,
@@ -21680,7 +21680,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "kamael_symbol": {
         "id": "kamael_symbol",
-        "name": "Kamael Symbol",
+        "name": "卡麥爾象徵",
         "slug": "kamael_symbol",
         "type": "buff",
         "rawType": "Buff",
@@ -21692,7 +21692,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Kamael Symbol effect",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "Kamael Symbol",
+        "desc": "卡麥爾象徵。",
         "balance": {
             "mpCost": 41,
             "pwr": 20,
@@ -21711,7 +21711,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "powerful_rush": {
         "id": "powerful_rush",
-        "name": "Powerful Rush",
+        "name": "強力突進",
         "slug": "powerful_rush",
         "type": "buff",
         "rawType": "Buff",
@@ -21723,7 +21723,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Powerful Rush effect",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "Powerful Rush",
+        "desc": "強力突進。",
         "balance": {
             "mpCost": 65,
             "pwr": 20,
@@ -21742,7 +21742,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "disarm": {
         "id": "disarm",
-        "name": "Disarm",
+        "name": "繳械",
         "slug": "disarm",
         "type": "buff",
         "rawType": "Buff",
@@ -21754,7 +21754,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Disarms a hostile character for 2 sec.The skill can only be used on a mutually h",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "Disarms a hostile character for 2 sec.The skill can only be used on a mutually hostile character.",
+        "desc": "使敵對角色被繳械 2 秒。此技能只能對相互敵對的角色使用。",
         "balance": {
             "mpCost": 50,
             "pwr": 20,
@@ -21773,7 +21773,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
     },
     "cunning_throw": {
         "id": "cunning_throw",
-        "name": "Cunning Throw",
+        "name": "狡詐投擲",
         "slug": "cunning_throw",
         "type": "active",
         "rawType": "Ativo",
@@ -21785,7 +21785,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Cunning Throw effect",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "Cunning Throw",
+        "desc": "狡詐投擲。",
         "balance": {
             "mpCost": 20,
             "pwr": 20,
