@@ -83,7 +83,7 @@ export function renderHuntingUI(state) {
           ${z.description}
         </p>
         <div style="display:flex; justify-content:space-between; font-size:10px; color:#aaa;">
-          <span>Atrativo: <strong style="color:#cbd5e1;">${reqLureDef ? reqLureDef.name : 'Qualquer'}</strong></span>
+          <span>誘餌： <strong style="color:#cbd5e1;">${reqLureDef ? reqLureDef.name : '任意'}</strong></span>
           <span style="color:#34d399; font-weight:bold;">${isSelected ? '● ACAMPAMENTO' : ''}</span>
         </div>
       </div>
@@ -338,7 +338,7 @@ export function renderHuntingUI(state) {
         <div>
           <div style="display:flex; align-items:center; gap:6px;">
             <strong style="font-size:12px; color:#f4d58a;">${pDef.icon} ${pDef.name}</strong>
-            <span style="font-size:10px; color:#34d399; font-weight:bold;">Abates: ${huntedCount}x</span>
+            <span style="font-size:10px; color:#34d399; font-weight:bold;">擊殺： ${huntedCount}x</span>
           </div>
           <div style="font-size:10px; color:#aaa; margin-top:2px;">
             Troca: <strong>${pDef.exchangeRate}x</strong> presas ➔ +1 <strong style="color:#ffd877;">${pDef.exchangeRewardName}</strong>
