@@ -8,8 +8,8 @@
 export const CASTLES = {
   gludio: {
     id: 'gludio',
-    name: 'Castelo de Gludio 🏰',
-    title: 'Fortaleza Ocidental de Aden',
+    name: '古魯丁城堡 🏰',
+    title: '亞丁西方要塞',
     reqCharLevel: 40,
     reqClanLevel: 5,
     taxRatePercent: 5,
@@ -17,7 +17,7 @@ export const CASTLES = {
     adenaPerMinute: 416,
     icon: 'gradespecial/scrolls/scroll_enchant_armor_d.png',
     bg: 'dungeon_wastelands',
-    desc: 'O primeiro grande bastião ocidental. Controla as rotas comerciais de Gludin e Gludio.',
+    desc: '西方第一座大型堡壘，掌控古魯丁與古魯丁村莊的商業路線。',
     siege: {
       gateHp: 150000,
       gateDef: 120,
@@ -30,8 +30,8 @@ export const CASTLES = {
 
   dion: {
     id: 'dion',
-    name: 'Castelo de Dion 🏰',
-    title: 'Cidadela dos Campos Férteis',
+    name: '狄恩城堡 🏰',
+    title: '肥沃平原城塞',
     reqCharLevel: 52,
     reqClanLevel: 5,
     taxRatePercent: 8,
@@ -39,7 +39,7 @@ export const CASTLES = {
     adenaPerMinute: 833,
     icon: 'gradespecial/scrolls/scroll_enchant_armor_c.png',
     bg: 'dungeon_cruma',
-    desc: 'Cercado por colinas férteis e próximo à misteriosa Torre Cruma.',
+    desc: '四周環繞肥沃丘陵，鄰近神秘的克魯瑪高塔。',
     siege: {
       gateHp: 350000,
       gateDef: 180,
@@ -52,8 +52,8 @@ export const CASTLES = {
 
   giran: {
     id: 'giran',
-    name: 'Castelo de Giran 👑',
-    title: 'Coração Comercial & Porto Real de Aden',
+    name: '奇岩城堡 👑',
+    title: '亞丁商業核心與皇家港口',
     reqCharLevel: 65,
     reqClanLevel: 5,
     taxRatePercent: 12,
@@ -61,7 +61,7 @@ export const CASTLES = {
     adenaPerMinute: 1666,
     icon: 'gradespecial/scrolls/scroll_enchant_armor_b.png',
     bg: 'dungeon_spores',
-    desc: 'O maior centro comercial de todo o continente. Riquezas infindáveis provenientes do comércio mundial.',
+    desc: '全大陸最大的商業中心，世界貿易帶來源源不絕的財富。',
     siege: {
       gateHp: 750000,
       gateDef: 280,
@@ -74,8 +74,8 @@ export const CASTLES = {
 
   goddard: {
     id: 'goddard',
-    name: 'Castelo de Goddard ❄️',
-    title: 'Bastião Nevado do Norte',
+    name: '高達特城堡 ❄️',
+    title: '北方雪原堡壘',
     reqCharLevel: 76,
     reqClanLevel: 5,
     taxRatePercent: 15,
@@ -83,7 +83,7 @@ export const CASTLES = {
     adenaPerMinute: 3000,
     icon: 'gradespecial/scrolls/scroll_enchant_armor_a.png',
     bg: 'dungeon_goddard',
-    desc: 'Fortaleza erguida nas montanhas geladas do norte, guardando as passagens para Wall of Argos e Varka.',
+    desc: '建立於北方冰封山脈的要塞，守護通往阿爾戈斯之壁與瓦卡地區的道路。',
     siege: {
       gateHp: 1500000,
       gateDef: 380,
@@ -96,8 +96,8 @@ export const CASTLES = {
 
   aden: {
     id: 'aden',
-    name: 'Castelo Imperial de Aden 👑✨',
-    title: 'O Trono Supremo de Todos os Reis',
+    name: '亞丁帝國城堡 👑✨',
+    title: '萬王至尊王座',
     reqCharLevel: 80,
     reqClanLevel: 5,
     taxRatePercent: 20,
@@ -105,7 +105,7 @@ export const CASTLES = {
     adenaPerMinute: 5833,
     icon: 'gradespecial/scrolls/scroll_blessed_weapon_s.png',
     bg: 'dungeon_imperial_tomb',
-    desc: 'O mais magnífico castelo de Aden. Quem reina aqui comanda o destino de todas as nações e recebe tributos colossais.',
+    desc: '亞丁最宏偉的城堡。統治此處者將左右諸國命運，並獲得龐大貢金。',
     siege: {
       gateHp: 3000000,
       gateDef: 550,
@@ -120,34 +120,34 @@ export const CASTLES = {
 export const CASTLE_SHOP_CATALOG = [
   {
     id: 'crown_of_lord',
-    name: 'Crown of the Lord 👑',
+    name: '領主王冠 👑',
     priceAdena: 10000000,
     priceAc: 0,
     reqCastle: true,
     slot: 'head',
     icon: 'gradespecial/jewels/jewel_ring_queen_ant.png',
-    desc: 'Coroa sagrada usada apenas pelos Lordes de Castelo de Aden. Concede +5 em Todos os Atributos (STR/DEX/INT/WIT/CON/MEN) e +15% Max HP/CP.',
+    desc: '僅限亞丁城堡領主佩戴的神聖王冠。所有屬性（STR/DEX/INT/WIT/CON/MEN）+5，最大 HP／CP +15%。',
     stats: { allStats: 5, hpPercent: 0.15, cpPercent: 0.15 }
   },
   {
     id: 'castle_cloak',
-    name: 'Castle Lord Cloak 🛡️',
+    name: '城堡領主披風 🛡️',
     priceAdena: 5000000,
     priceAc: 0,
     reqCastle: true,
     slot: 'cloak',
     icon: 'gradespecial/scrolls/scroll_blessed_armor_s.png',
-    desc: 'Manto bordado com fios de ouro puro do reino. Concede +180 P.Def e +180 M.Def.',
+    desc: '以王國純金絲線繡製的披風，P.Def +180、M.Def +180。',
     stats: { pDef: 180, mDef: 180 }
   },
   {
     id: 'elixir_lord_cp_10x',
-    name: '10x Elixir Real de CP 🧪',
+    name: '10x 皇家 CP 靈藥 🧪',
     priceAdena: 250000,
     priceAc: 0,
     reqCastle: true,
     icon: 'gradespecial/potions/potion_health_xl.png',
-    desc: 'Restaura instantaneamente +3.500 pontos de CP em combate.'
+    desc: '戰鬥中立即恢復 3,500 CP。'
   },
   {
     id: 'giant_codex_castle_pack',
@@ -156,6 +156,6 @@ export const CASTLE_SHOP_CATALOG = [
     priceAc: 0,
     reqCastle: true,
     icon: 'gradespecial/scrolls/scroll_enchant_weapon_s.png',
-    desc: 'Livros ancestrais para Encantamento de Habilidades (+1 a +30).'
+    desc: '用於技能強化（+1～+30）的古代秘典。'
   }
 ];
