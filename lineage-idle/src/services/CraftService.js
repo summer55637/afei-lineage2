@@ -215,14 +215,14 @@ export function craftItem(state, recipeId, qty = 1, callbacks = {}) {
   // Mensagens e Notificações de 成功
   const displayName = itemDef?.name || recipeId;
   if (isDouble && isFoundation) {
-    if (callbacks.log) callbacks.log(`🌟 暴擊＋基底成功！鍛造 ${totalYield}x ${displayName}（雙倍產量並附帶遠古之魂）！`, 'rarity-legendary');
+    if (callbacks.log) callbacks.log(`🌟 暴擊＋基底成功！鍛造 ${totalYield}× ${displayName}（雙倍產量並附帶遠古之魂）！`, 'rarity-legendary');
     if (callbacks.floatText) callbacks.floatText('🌟 雙倍＋基底成功！', 'float-jackpot');
   } else if (isDouble) {
-    if (callbacks.log) callbacks.log(`⚡ 雙倍製作！鐵砧共鳴，獲得 ${totalYield}x ${displayName}（2 倍）！`, 'rarity-epic');
+    if (callbacks.log) callbacks.log(`⚡ 雙倍製作！鐵砧共鳴，獲得 ${totalYield}× ${displayName}（2 倍）！`, 'rarity-epic');
   } else if (isFoundation) {
-    if (callbacks.log) callbacks.log(`✨ 基底成功！你鍛造了 ${totalYield}x ${displayName}，有機會成為大師製作品！`, 'rarity-foundation');
+    if (callbacks.log) callbacks.log(`✨ 基底成功！你鍛造了 ${totalYield}× ${displayName}，有機會成為大師製作品！`, 'rarity-foundation');
   } else {
-    if (callbacks.log) callbacks.log(`🔨 成功鍛造 ${totalYield}x ${displayName}！`, 'loot');
+    if (callbacks.log) callbacks.log(`🔨 成功鍛造 ${totalYield}× ${displayName}！`, 'loot');
   }
 
   // Progressão do Nível de 鍛造 da Conta
@@ -235,7 +235,7 @@ export function craftItem(state, recipeId, qty = 1, callbacks = {}) {
     state.accountForgeExp -= state.accountForgeLevel * 100;
     state.accountForgeLevel += 1;
     state.craftLevel = state.accountForgeLevel;
-    if (callbacks.log) callbacks.log(`🎉 帳號鍛造等級提升至 Lv.${state.accountForgeLevel}！`, 'rarity-legendary');
+    if (callbacks.log) callbacks.log(`🎉 帳號鍛造等級提升至等級 ${state.accountForgeLevel}！`, 'rarity-legendary');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -289,7 +289,7 @@ export const SA_DEFINITIONS = {
   green: {
     acumen: { name: '靈敏', desc: '魔法施法速度', stat: 'castSpd', baseVal: 0.15 },
     haste: { name: '加速', desc: '物理攻擊速度', stat: 'atkSpd', baseVal: 0.10 },
-    health: { name: '生命', desc: '最大生命值（最大 HP）', stat: 'hpPct', baseVal: 0.25 }
+    health: { name: '生命', desc: '最大生命值', stat: 'hpPct', baseVal: 0.25 }
   },
   blue: {
     empower: { name: '魔力強化', desc: '魔法攻擊力（M.Atk）', stat: 'matkPct', baseVal: 0.20 },
@@ -417,7 +417,7 @@ export function applySoulCrystal(state, weaponUid, color = 'red', saKey = 'focus
   };
 
   if (callbacks.log) {
-    callbacks.log(`🔮 已賦予特殊能力（Lv.${crystalLevel}）：${def.name} 獲得 [SA：${saBonus.name}]！（${item.soulCrystal.desc}）`, 'rarity-legendary');
+    callbacks.log(`🔮 已賦予特殊能力（等級 ${crystalLevel}）：${def.name} 獲得 【特殊能力：${saBonus.name}】！（${item.soulCrystal.desc}）`, 'rarity-legendary');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -481,7 +481,7 @@ export function polishMasterwork(state, itemUid, callbacks = {}) {
   const def = gData?.ALL_ITEMS?.[item.itemId || item.id] || item;
 
   if (callbacks.log) {
-    callbacks.log(`👑 名匠裝備啟用！${def.name} 已成為帝國傑作（+5% 施法速度、+4% 攻擊速度、+250 HP）！`, 'rarity-legendary');
+    callbacks.log(`👑 名匠裝備啟用！${def.name} 已成為帝國傑作（+5% 施法速度、+4% 攻擊速度、+250 生命值）！`, 'rarity-legendary');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -748,7 +748,7 @@ export function compoundBeltsWithDuplicates(state, primaryUid, secondaryUid, cal
     };
 
     if (callbacks.log) {
-      callbacks.log(`✨ 腰帶合成成功（+${primaryItem.enchant}）！獲得 +${(primaryItem.beltBonuses.hpBonusPct * 100).toFixed(0)}% 最大 HP 與 +${primaryItem.beltBonuses.pDefBonus} P.Def！`, 'rarity-legendary');
+      callbacks.log(`✨ 腰帶合成成功（+${primaryItem.enchant}）！獲得 +${(primaryItem.beltBonuses.hpBonusPct * 100).toFixed(0)}% 最大生命值與 +${primaryItem.beltBonuses.pDefBonus} 物理防禦！`, 'rarity-legendary');
     }
   } else {
     if (callbacks.log) {
@@ -795,7 +795,7 @@ export function applyLifeStone(state, weaponUid, grade = 'top', callbacks = {}) 
     { name: '物品技能：護盾', desc: '+15% 物理防禦' },
     { name: '物品技能：狂野魔法', desc: '+20% 魔法暴擊率' },
     { name: '物品技能：力量', desc: '+12% 物理攻擊' },
-    { name: '物品技能：治癒', desc: '恢復 1,500 HP' }
+    { name: '物品技能：治癒', desc: '恢復 1,500 生命值' }
   ];
   const skill = (grade === 'top' || Math.random() < 0.25) ? skills[Math.floor(Math.random() * skills.length)] : null;
 
