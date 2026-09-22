@@ -3052,7 +3052,7 @@ function renderZoneInfoCard() {
     <div class="z-card-header">
       <div class="z-card-title">
         <h3>🗺️ ${z.name}</h3>
-        <span class="z-card-req">Requisito: Lv. ${z.level}</span>
+        <span class="z-card-req">需求：Lv.${z.level}</span>
         <div style="margin-top:4px; font-size:11px; color:${curDiff.color || '#10b981'}; font-weight:bold;">
           ${curDiff.icon || '🟢'} 難度：<strong>${curDiff.name || '一般'}</strong>（${curDiff.xpMult || 1}x XP／金幣 · ${curDiff.dropMult || 1}x 掉落）
         </div>
@@ -3498,14 +3498,14 @@ function renderBattlePassUI() {
 
       return `
         <div class="pass-tier-card ${isUnlocked ? 'unlocked' : ''}">
-          <span class="pass-tier-lvl">Nv. ${tier.level}</span>
+          <span class="pass-tier-lvl">等級 ${tier.level}</span>
           <div class="pass-reward-box">
             <span style="font-weight:bold;color:var(--gilt);">免費</span><br/>
             <span>${freeRewardStr}</span><br/>
             <button class="inv-batch-btn" data-pass-free="${tier.level}" ${!isUnlocked || freeClaimed ? 'disabled' : ''} style="margin-top:4px;font-size:9px;">${freeLabel}</button>
           </div>
           <div class="pass-reward-box premium">
-            <span style="font-weight:bold;color:#fef08a;">👑 Premium</span><br/>
+            <span style="font-weight:bold;color:#fef08a;">👑 高級</span><br/>
             <span>${premRewardStr}</span><br/>
             <button class="inv-batch-btn gold-glow-btn" data-pass-prem="${tier.level}" ${premClaimed ? 'disabled' : ''} style="margin-top:4px;font-size:9px;">${premLabel}</button>
           </div>
@@ -7414,7 +7414,7 @@ function updateCodexUI() {
 
   if (summaryEl) {
     const b = getCodexBonuses();
-    summaryEl.innerHTML = `<span style="color:var(--gilt-bright); font-weight:bold;">已完成收藏：${completedSets}/${totalSets}</span> · 總加成： +${b.atk} ATK, +${b.def} DEF, +${b.matk} MATK, +${b.hp} HP`;
+    summaryEl.innerHTML = `<span style="color:var(--gilt-bright); font-weight:bold;">已完成收藏：${completedSets}/${totalSets}</span> · 總加成：+${b.atk} 攻擊、+${b.def} 防禦、+${b.matk} 魔法攻擊、+${b.hp} HP`;
   }
 }
 
