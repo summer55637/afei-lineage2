@@ -22,7 +22,7 @@ export const HEIRLOOM_ITEMS = {
     icon: 'gradec/weapons/weapon_samurai_longsword.png',
     base: { atk: 138, crit: 8, hit: 12 },
     heirloomScaling: {
-      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 38, crit: 5, hit: 5 }, label: '高階 No-Grade（+50%）' },
+      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 38, crit: 5, hit: 5 }, label: '高階 無等級（+50%）' },
       phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 85, crit: 7, hit: 8 }, label: '高階 D 級（+50%）' },
       phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 138, crit: 8, hit: 12, enchantGlow: true }, label: '完整 C 級（+4 光效）' }
     }
@@ -40,7 +40,7 @@ export const HEIRLOOM_ITEMS = {
     icon: 'gradec/weapons/weapon_spiked_spear.png',
     base: { atk: 138, crit: 6, hit: 10, aoeTargets: 4 },
     heirloomScaling: {
-      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 38, crit: 4, hit: 4, aoeTargets: 2 }, label: '高階 No-Grade（+50%）' },
+      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 38, crit: 4, hit: 4, aoeTargets: 2 }, label: '高階 無等級（+50%）' },
       phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 85, crit: 5, hit: 7, aoeTargets: 3 }, label: '高階 D 級（+50%）' },
       phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 138, crit: 6, hit: 10, aoeTargets: 4, enchantGlow: true }, label: '完整 C 級（+4 光效）' }
     }
@@ -58,7 +58,7 @@ export const HEIRLOOM_ITEMS = {
     icon: 'gradec/weapons/weapon_darkelven_dagger.png',
     base: { atk: 118, crit: 18, hit: 15, eva: 8 },
     heirloomScaling: {
-      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 32, crit: 10, hit: 6, eva: 3 }, label: '高階 No-Grade（+50%）' },
+      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 32, crit: 10, hit: 6, eva: 3 }, label: '高階 無等級（+50%）' },
       phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 72, crit: 14, hit: 10, eva: 5 }, label: '高階 D 級（+50%）' },
       phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 118, crit: 18, hit: 15, eva: 8, enchantGlow: true }, label: '完整 C 級（+4 光效）' }
     }
@@ -76,7 +76,7 @@ export const HEIRLOOM_ITEMS = {
     icon: 'gradec/weapons/weapon_eminence_bow.png',
     base: { atk: 168, crit: 15, hit: 14 },
     heirloomScaling: {
-      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 45, crit: 8, hit: 5 }, label: '高階 No-Grade（+50%）' },
+      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 45, crit: 8, hit: 5 }, label: '高階 無等級（+50%）' },
       phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 105, crit: 12, hit: 9 }, label: '高階 D 級（+50%）' },
       phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 168, crit: 15, hit: 14, enchantGlow: true }, label: '完整 C 級（+4 光效）' }
     }
@@ -94,7 +94,7 @@ export const HEIRLOOM_ITEMS = {
     icon: 'gradec/weapons/weapon_crystal_staff.png',
     base: { atk: 68, matk: 165, mdef: 18, mp: 80 },
     heirloomScaling: {
-      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 18, matk: 45, mdef: 6, mp: 20 }, label: '高階 No-Grade（+50%）' },
+      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 18, matk: 45, mdef: 6, mp: 20 }, label: '高階 無等級（+50%）' },
       phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 42, matk: 102, mdef: 12, mp: 45 }, label: '高階 D 級（+50%）' },
       phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 68, matk: 165, mdef: 18, mp: 80, enchantGlow: true }, label: '完整 C 級（+4 光效）' }
     }
@@ -112,7 +112,7 @@ export const HEIRLOOM_ITEMS = {
     icon: 'gradec/weapons/weapon_dual_revolution_sword.png',
     base: { atk: 148, crit: 10, hit: 12 },
     heirloomScaling: {
-      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 40, crit: 6, hit: 5 }, label: '高階 No-Grade（+50%）' },
+      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 40, crit: 6, hit: 5 }, label: '高階 無等級（+50%）' },
       phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 92, crit: 8, hit: 8 }, label: '高階 D 級（+50%）' },
       phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 148, crit: 10, hit: 12, enchantGlow: true }, label: '完整 C 級（+4 光效）' }
     }
@@ -130,7 +130,7 @@ export const HEIRLOOM_ITEMS = {
     icon: 'gradec/weapons/weapon_big_hammer.png',
     base: { atk: 142, crit: 6, hit: 10, stunChance: 0.15 },
     heirloomScaling: {
-      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 39, crit: 4, hit: 4, stunChance: 0.05 }, label: '高階 No-Grade（+50%）' },
+      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 39, crit: 4, hit: 4, stunChance: 0.05 }, label: '高階 無等級（+50%）' },
       phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 88, crit: 5, hit: 7, stunChance: 0.10 }, label: '高階 D 級（+50%）' },
       phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 142, crit: 6, hit: 10, stunChance: 0.15, enchantGlow: true }, label: '完整 C 級（+4 光效）' }
     }
@@ -343,7 +343,7 @@ export const HEIRLOOM_ITEMS = {
     isHeirloom: true,
     set: 'heirloom_set',
     maxHeirloomLevel: 40,
-    desc: '以乙太絲線編織的法袍，可提升魔法力量與 MP 恢復。',
+    desc: '以乙太絲線編織的法袍，可提升魔法力量與 魔力 恢復。',
     icon: 'gradec/armors/armor_karmian_robe_armor.png',
     base: { def: 56, matk: 35, mp: 250, mdef: 58, mpRegen: 8 },
     heirloomScaling: {
