@@ -452,11 +452,11 @@ export const HuntingService = {
       const qualityPrefix = quality.tier === 'perfect' ? '🌟 **完美剝皮！**'
         : quality.tier === 'excellent' ? '✨ **優秀剝皮！**'
         : '✓ 剝皮完成：';
-      callbacks.log(`🐾 ${qualityPrefix} 擊倒 **${prey.name}** [${quality.name}]！獲得 +${primaryQty}x ${primaryDisplayName}${secMat && secQty > 0 ? ` 與 +${secQty}x ${secondaryDisplayName}` : ''}！（+${finalXp} 狩獵 XP）`, 'loot');
+      callbacks.log(`🐾 ${qualityPrefix} 擊倒 **${prey.name}** [${quality.name}]！獲得 +${primaryQty}× ${primaryDisplayName}${secMat && secQty > 0 ? ` 與 +${secQty}× ${secondaryDisplayName}` : ''}！（+${finalXp} 狩獵經驗值）`, 'loot');
     }
 
     if (callbacks.floatText) {
-      callbacks.floatText(`+${primaryQty}x ${primaryDisplayName}`, 'float-gold');
+      callbacks.floatText(`+${primaryQty}× ${primaryDisplayName}`, 'float-gold');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -646,7 +646,7 @@ export const HuntingService = {
     this.addHuntingXp(state, totalXp, callbacks);
 
     if (callbacks.log) {
-      callbacks.log(`💤 **離線狩獵報告（${clampedMinutes} 分鐘）：**在亞丁荒野擊倒 ${actualHunts} 隻獵物！（+${totalXp} 狩獵 XP）`, 'rarity-legendary');
+      callbacks.log(`💤 **離線狩獵報告（${clampedMinutes} 分鐘）：**在亞丁荒野擊倒 ${actualHunts} 隻獵物！（+${totalXp} 狩獵經驗值）`, 'rarity-legendary');
     }
 
     return { actualHunts, matsGained, totalXp };
