@@ -10499,7 +10499,7 @@ export function renderClanTab(container, state) {
           <div>
             <div style="font-family:'Cinzel',serif; font-size:13px; font-weight:bold; color:#fde047;">${item.name}</div>
             <div style="font-size:11px; color:#cbd5e1;">${item.desc}</div>
-            <div style="font-size:11px; color:#a3e635; font-weight:bold; margin-top:2px;">價格： ${item.priceAdena.toLocaleString()} 金幣</div>
+            <div style="font-size:11px; color:#a3e635; font-weight:bold; margin-top:2px;">價格：${item.priceAdena.toLocaleString()} 金幣</div>
           </div>
         </div>
         <button
