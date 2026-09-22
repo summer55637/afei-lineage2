@@ -225,7 +225,7 @@ export function dissolveItem(state, uid, callbacks = {}) {
 
   const yieldData = getDissolveYield(inv, def);
   if ((state.gold || 0) < yieldData.fee) {
-    log(`⚠️ 金幣不足，無法進行煉金！需要 ${yieldData.fee.toLocaleString()}g。`, 'warning');
+    log(`⚠️ 金幣不足，無法進行煉金！需要 ${yieldData.fee.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -352,7 +352,7 @@ export function craftElixir(state, recipeId, qty = 1, callbacks = {}) {
   const totalGold = recipe.gold * count;
 
   if ((state.gold || 0) < totalGold) {
-    log(`⚠️ 金幣不足！需要 ${totalGold.toLocaleString()}g。`, 'warning');
+    log(`⚠️ 金幣不足！需要 ${totalGold.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -364,7 +364,8 @@ export function craftElixir(state, recipeId, qty = 1, callbacks = {}) {
   for (const [type, amt] of Object.entries(recipe.cost)) {
     const required = amt * count;
     if ((state.essences[type] || 0) < required) {
-      log(`⚠️ 精華不足！需要 ${required} 個 ${type.toUpperCase()} 精華。`, 'warning');
+      const essenceLabel = { fire: '火', earth: '地', wind: '風', water: '水' }[type] || type;
+      log(`⚠️ 精華不足！需要 ${required} 個${essenceLabel}精華。`, 'warning');
       return false;
     }
   }
