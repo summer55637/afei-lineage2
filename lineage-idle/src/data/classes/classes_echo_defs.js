@@ -5,15 +5,15 @@
 // ============================================================
 
 const RACES_ECHO = {
-  human:    { name: 'Human',     desc: 'Versáteis, equilibrados em combate e magia.',       stats: { atk: 0,  def: 0,  eva: 0,  matk: 0,  mdef: 0  }, startZone: 'talkingIsland' },
-  elf:      { name: 'Elf',       desc: 'Graciosos, alta esquiva e velocidade de ataque.',    stats: { atk: 0,  def:-2,  eva: 8,  matk: 0,  mdef: 0  }, startZone: 'talkingIsland' },
-  darkelf:  { name: 'Dark Elf',  desc: 'Sombrios, dano crítico e magia negra devastadora.', stats: { atk: 2,  def:-2,  eva: 4,  matk: 6,  mdef: 2  }, startZone: 'talkingIsland' },
-  orc:      { name: 'Orc',       desc: 'Resistentes, força bruta e HP elevado.',             stats: { atk: 4,  def: 6,  eva:-4,  matk:-2,  mdef:-2 }, startZone: 'talkingIsland' },
-  dwarf:    { name: 'Dwarf',     desc: 'Mestres artesãos com bônus de loot e craft.',        stats: { atk: 0,  def: 4,  eva:-2,  matk: 0,  mdef: 0, lootBonus: 0.15 }, startZone: 'talkingIsland' },
-  kamael:   { name: 'Kamael',    desc: 'Ágeis e mortais, especialistas em alma e espada.',   stats: { atk: 6,  def:-2,  eva: 6,  matk: 0,  mdef: 0  }, startZone: 'talkingIsland' },
-  sylph:    { name: 'Sylph',     desc: 'Atiradores elementais do vento com armas de fogo.', stats: { atk: 4,  def:-2,  eva:12,  matk: 2,  mdef: 0  }, startZone: 'talkingIsland' },
-  highelf:  { name: 'High Elf',  desc: 'Elfos supremos com magia sagrada e defesa divina.', stats: { atk: 0,  def: 2,  eva: 4,  matk: 8,  mdef: 4  }, startZone: 'talkingIsland' },
-  ertheia:  { name: 'Ertheia',   desc: 'Guerreiros do vento com alto potencial mágico.',    stats: { atk: 2,  def: 0,  eva:10,  matk: 4,  mdef: 0  }, startZone: 'talkingIsland' }
+  human:    { name: '人類',     desc: '多才多藝，在戰鬥與魔法方面表現均衡。',       stats: { atk: 0,  def: 0,  eva: 0,  matk: 0,  mdef: 0  }, startZone: 'talkingIsland' },
+  elf:      { name: '精靈',       desc: '優雅靈巧，擁有高迴避與攻擊速度。',    stats: { atk: 0,  def:-2,  eva: 8,  matk: 0,  mdef: 0  }, startZone: 'talkingIsland' },
+  darkelf:  { name: '黑暗精靈',  desc: '擅長暴擊與強大的黑暗魔法。', stats: { atk: 2,  def:-2,  eva: 4,  matk: 6,  mdef: 2  }, startZone: 'talkingIsland' },
+  orc:      { name: '半獸人',       desc: '體魄強韌，擁有強大力量與高 HP。',             stats: { atk: 4,  def: 6,  eva:-4,  matk:-2,  mdef:-2 }, startZone: 'talkingIsland' },
+  dwarf:    { name: '矮人',     desc: '工藝大師，擁有額外掉落與製作加成。',        stats: { atk: 0,  def: 4,  eva:-2,  matk: 0,  mdef: 0, lootBonus: 0.15 }, startZone: 'talkingIsland' },
+  kamael:   { name: '闇天使',    desc: '敏捷而致命，擅長靈魂力量與劍術。',   stats: { atk: 6,  def:-2,  eva: 6,  matk: 0,  mdef: 0  }, startZone: 'talkingIsland' },
+  sylph:    { name: '風精靈',     desc: '操控風之元素、使用槍械的射手。', stats: { atk: 4,  def:-2,  eva:12,  matk: 2,  mdef: 0  }, startZone: 'talkingIsland' },
+  highelf:  { name: '高等精靈',  desc: '擅長神聖魔法與神聖防禦的至高精靈。', stats: { atk: 0,  def: 2,  eva: 4,  matk: 8,  mdef: 4  }, startZone: 'talkingIsland' },
+  ertheia:  { name: '艾爾提亞',   desc: '擁有高度魔法潛力的風之戰士。',    stats: { atk: 2,  def: 0,  eva:10,  matk: 4,  mdef: 0  }, startZone: 'talkingIsland' }
 };
 
 // ============================================================
@@ -31,73 +31,73 @@ const CLASSES_ECHO = {
   // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 
   fighter: {
-    name: 'Human Fighter', archetype: 'fighter', race: 'human', stage: 0,
-    desc: 'Classe base de combate humana.',
+    name: '人類戰士', archetype: 'fighter', race: 'human', stage: 0,
+    desc: '人類的基礎戰鬥職業。',
     base: { atk: 12, def: 10, hp: 100, mp: 30, eva: 5, crit: 5, matk: 0, mdef: 5 },
     skills: [
-      { name: "Power Strike",       type: "Ativo",    rarity: "1★", effect: "Dano físico 150%",              cooldown: "8s",     desc: "Golpe concentrado no alvo." },
-      { name: "Mortal Blow",         type: "Ativo",    rarity: "1★", effect: "Dano 170% + chance crit 20%",   cooldown: "10s",    desc: "Golpe com chance de crítico elevada." },
-      { name: "Power Shot",          type: "Ativo",    rarity: "1★", effect: "Dano à distância 140%",         cooldown: "9s",     desc: "Disparo concentrado." },
-      { name: "Rush",                type: "Ativo",    rarity: "1★", effect: "Avança ao alvo + dano 120%",    cooldown: "15s",    desc: "Investida rápida contra o inimigo." },
-      { name: "Bandage",             type: "Ativo",    rarity: "1★", effect: "Cura 15% HP",                   cooldown: "30s",    desc: "Curativo de emergência." },
-      { name: "Fighter's Will",      type: "Self-Buff",rarity: "1★", effect: "+10% ATK e +10% DEF por 15 min",cooldown: "30 min", desc: "Determinação do guerreiro." },
-      { name: "HP Increase Lv1",     type: "Passivo",  rarity: "1★", effect: "+5% Max HP",                    cooldown: "N/A",    desc: "Constituição reforçada." },
-      { name: "Light Armor Mastery", type: "Passivo",  rarity: "1★", effect: "+8% DEF com armadura leve",     cooldown: "N/A",    desc: "Maestria em armaduras leves." }
+      { name: "強力打擊",       type: "Ativo",    rarity: "1★", effect: "Dano físico 150%",              cooldown: "8s",     desc: "對目標施展集中打擊。" },
+      { name: "致命一擊",         type: "Ativo",    rarity: "1★", effect: "Dano 170% + chance crit 20%",   cooldown: "10s",    desc: "具有較高暴擊機率的攻擊。" },
+      { name: "強力射擊",          type: "Ativo",    rarity: "1★", effect: "Dano à distância 140%",         cooldown: "9s",     desc: "集中力量進行射擊。" },
+      { name: "突進",                type: "Ativo",    rarity: "1★", effect: "Avança ao alvo + dano 120%",    cooldown: "15s",    desc: "快速衝向敵人。" },
+      { name: "包紮",             type: "Ativo",    rarity: "1★", effect: "Cura 15% HP",                   cooldown: "30s",    desc: "進行緊急治療。" },
+      { name: "戰士意志",      type: "Self-Buff",rarity: "1★", effect: "+10% ATK e +10% DEF por 15 min",cooldown: "30 min", desc: "戰士堅定的意志。" },
+      { name: "HP 提升 Lv1",     type: "Passivo",  rarity: "1★", effect: "+5% Max HP",                    cooldown: "N/A",    desc: "強化體質。" },
+      { name: "輕甲精通", type: "Passivo",  rarity: "1★", effect: "+8% DEF com armadura leve",     cooldown: "N/A",    desc: "精通輕型防具。" }
     ]
   },
 
   // ─── WARRIOR (1ª classe) ───
   warrior: {
-    name: 'Warrior', parent: 'fighter', race: 'human', archetype: 'fighter', stage: 1,
-    desc: 'Guerreiro corpo-a-corpo especializado em espadas e polearms. Skills anteriores permanecem.',
+    name: '戰士', parent: 'fighter', race: 'human', archetype: 'fighter', stage: 1,
+    desc: '專精劍與長柄武器的近戰戰士。保留先前學會的技能。',
     base: { atk: 28, def: 18, hp: 180, mp: 45, eva: 6, crit: 8, mdef: 8 },
     skills: [
-      { name: "Power Smash",           type: "Ativo",    rarity: "1★", effect: "Dano 190% + knockback",               cooldown: "10s",    desc: "Golpe esmagador." },
-      { name: "Spinning Slash",        type: "Ativo",    rarity: "1★", effect: "Dano AoE 160% ao redor",              cooldown: "12s",    desc: "Giro cortante ao redor." },
-      { name: "Stun Attack",           type: "Ativo",    rarity: "2★", effect: "Dano 175% + stun 2s",                 cooldown: "18s",    desc: "Golpe atordoante." },
-      { name: "Iron Will",             type: "Ativo",    rarity: "2★", effect: "+30% DEF por 30s",                    cooldown: "45s",    desc: "Vontade de ferro temporária." },
-      { name: "War Cry",               type: "Ativo",    rarity: "2★", effect: "+20% ATK para si por 60s",            cooldown: "60s",    desc: "Grito de guerra que inspira força." },
-      { name: "Battle Roar",           type: "Self-Buff",rarity: "2★", effect: "+25% ATK e +15% HP por 20 min",       cooldown: "45 min", desc: "Rugido de batalha." },
-      { name: "Sword/Blunt Mastery",   type: "Passivo",  rarity: "1★", effect: "+12% ATK com espada/blunt",           cooldown: "N/A",    desc: "Maestria em espadas e maças." },
-      { name: "Polearm Mastery",       type: "Passivo",  rarity: "1★", effect: "+12% ATK com polearm",                cooldown: "N/A",    desc: "Maestria em lanças." },
-      { name: "Heavy Armor Mastery",   type: "Passivo",  rarity: "1★", effect: "+12% DEF com armadura pesada",        cooldown: "N/A",    desc: "Maestria em armaduras pesadas." },
-      { name: "HP Increase Lv2",       type: "Passivo",  rarity: "1★", effect: "+10% Max HP",                         cooldown: "N/A",    desc: "Constituição de guerreiro." },
-      { name: "Weight Limit",          type: "Passivo",  rarity: "1★", effect: "+15% capacidade de carga",            cooldown: "N/A",    desc: "Corpo treinado para suportar peso." }
+      { name: "強力粉碎",           type: "Ativo",    rarity: "1★", effect: "Dano 190% + knockback",               cooldown: "10s",    desc: "施展粉碎性重擊。" },
+      { name: "旋轉斬",        type: "Ativo",    rarity: "1★", effect: "Dano AoE 160% ao redor",              cooldown: "12s",    desc: "旋轉並斬擊周圍敵人。" },
+      { name: "暈眩攻擊",           type: "Ativo",    rarity: "2★", effect: "Dano 175% + stun 2s",                 cooldown: "18s",    desc: "可使敵人暈眩的打擊。" },
+      { name: "鋼鐵意志",             type: "Ativo",    rarity: "2★", effect: "+30% DEF por 30s",                    cooldown: "45s",    desc: "暫時獲得鋼鐵般的意志。" },
+      { name: "戰吼",               type: "Ativo",    rarity: "2★", effect: "+20% ATK para si por 60s",            cooldown: "60s",    desc: "激發力量的戰鬥吶喊。" },
+      { name: "戰鬥咆哮",           type: "Self-Buff",rarity: "2★", effect: "+25% ATK e +15% HP por 20 min",       cooldown: "45 min", desc: "發出戰鬥咆哮。" },
+      { name: "劍／鈍器精通",   type: "Passivo",  rarity: "1★", effect: "+12% ATK com espada/blunt",           cooldown: "N/A",    desc: "精通劍與鈍器。" },
+      { name: "長柄武器精通",       type: "Passivo",  rarity: "1★", effect: "+12% ATK com polearm",                cooldown: "N/A",    desc: "精通長槍與長柄武器。" },
+      { name: "重甲精通",   type: "Passivo",  rarity: "1★", effect: "+12% DEF com armadura pesada",        cooldown: "N/A",    desc: "精通重型防具。" },
+      { name: "HP 提升 Lv2",       type: "Passivo",  rarity: "1★", effect: "+10% Max HP",                         cooldown: "N/A",    desc: "強化戰士體質。" },
+      { name: "負重上限",          type: "Passivo",  rarity: "1★", effect: "+15% capacidade de carga",            cooldown: "N/A",    desc: "經過鍛鍊的身體可承受更多負重。" }
     ]
   },
 
   // ─── GLADIATOR (2ª classe) ───
   gladiator: {
-    name: 'Gladiator', parent: 'warrior', stage: 2,
-    desc: 'Mestre em dual wield e combos devastadores. Skills anteriores permanecem.',
+    name: '角鬥士', parent: 'warrior', stage: 2,
+    desc: '精通雙武器與強力連段。保留先前學會的技能。',
     base: { atk: 58, def: 28, hp: 320, mp: 65, eva: 8, crit: 18, mdef: 12 },
     skills: [
-      { name: "Triple Slash",           type: "Ativo",    rarity: "2★", effect: "3 golpes, dano total 300%",           cooldown: "14s",    desc: "Três cortes rápidos consecutivos." },
-      { name: "Sonic Blaster",          type: "Ativo",    rarity: "2★", effect: "Dano 240% + stun 2s",                cooldown: "16s",    desc: "Onda sônica que atordoa." },
-      { name: "Sonic Storm",            type: "Ativo",    rarity: "3★", effect: "Dano AoE 320% (8 alvos)",            cooldown: "25s",    desc: "Tempestade sônica devastadora." },
-      { name: "Sonic Buster",           type: "Ativo",    rarity: "2★", effect: "Dano 260% + pushback",               cooldown: "18s",    desc: "Explosão sônica frontal." },
-      { name: "Double Sonic Slash",     type: "Ativo",    rarity: "3★", effect: "Dano 350% em 2 hits",                cooldown: "22s",    desc: "Duplo corte sônico." },
-      { name: "Hammer Crush",           type: "Ativo",    rarity: "2★", effect: "Dano 230% + stun 3s",                cooldown: "20s",    desc: "Esmagamento com martelo." },
-      { name: "Sonic Move",             type: "Ativo",    rarity: "2★", effect: "Teleporte curto + 180% dano",        cooldown: "20s",    desc: "Movimento sônico instantâneo." },
-      { name: "Lionheart",              type: "Ativo",    rarity: "3★", effect: "Imune a medo/stun por 15s",          cooldown: "120s",   desc: "Coração de leão — coragem inabalável." },
-      { name: "War Frenzy",             type: "Self-Buff",rarity: "2★", effect: "+20% ATK Speed por 60s",             cooldown: "90s",    desc: "Frenesi de combate." },
-      { name: "Vicious Stance",         type: "Toggle",   rarity: "2★", effect: "+25% Crit Rate, -10% DEF",           cooldown: "N/A",    desc: "Postura agressiva permanente." },
-      { name: "Gladiator's Harmony",    type: "Self-Buff",rarity: "3★", effect: "+35% ATK e +20% Crit por 25 min",    cooldown: "60 min", desc: "Harmonia do gladiador." },
-      { name: "Dual Weapon Mastery",    type: "Passivo",  rarity: "2★", effect: "+18% ATK com dual weapons",          cooldown: "N/A",    desc: "Maestria em armas duplas." },
-      { name: "Focus",                  type: "Passivo",  rarity: "1★", effect: "+8% Crit Rate",                      cooldown: "N/A",    desc: "Concentração em pontos vitais." },
-      { name: "Critical Power",         type: "Passivo",  rarity: "2★", effect: "+15% Crit Damage",                   cooldown: "N/A",    desc: "Poder crítico aumentado." },
-      { name: "Boost HP",               type: "Passivo",  rarity: "1★", effect: "+12% Max HP",                        cooldown: "N/A",    desc: "HP reforçado do gladiador." }
+      { name: "三連斬",           type: "Ativo",    rarity: "2★", effect: "3 golpes, dano total 300%",           cooldown: "14s",    desc: "快速連續斬擊三次。" },
+      { name: "音速砲",          type: "Ativo",    rarity: "2★", effect: "Dano 240% + stun 2s",                cooldown: "16s",    desc: "以音速衝擊使敵人暈眩。" },
+      { name: "音速風暴",            type: "Ativo",    rarity: "3★", effect: "Dano AoE 320% (8 alvos)",            cooldown: "25s",    desc: "施展強大的音速風暴。" },
+      { name: "音速爆裂",           type: "Ativo",    rarity: "2★", effect: "Dano 260% + pushback",               cooldown: "18s",    desc: "向前方釋放音速爆炸。" },
+      { name: "雙重音速斬",     type: "Ativo",    rarity: "3★", effect: "Dano 350% em 2 hits",                cooldown: "22s",    desc: "施展雙重音速斬擊。" },
+      { name: "戰鎚粉碎",           type: "Ativo",    rarity: "2★", effect: "Dano 230% + stun 3s",                cooldown: "20s",    desc: "以戰鎚施展粉碎攻擊。" },
+      { name: "音速移動",             type: "Ativo",    rarity: "2★", effect: "Teleporte curto + 180% dano",        cooldown: "20s",    desc: "瞬間進行音速移動。" },
+      { name: "獅子之心",              type: "Ativo",    rarity: "3★", effect: "Imune a medo/stun por 15s",          cooldown: "120s",   desc: "獅子般的勇氣，意志不可動搖。" },
+      { name: "戰鬥狂熱",             type: "Self-Buff",rarity: "2★", effect: "+20% ATK Speed por 60s",             cooldown: "90s",    desc: "進入狂熱戰鬥狀態。" },
+      { name: "兇猛姿態",         type: "Toggle",   rarity: "2★", effect: "+25% Crit Rate, -10% DEF",           cooldown: "N/A",    desc: "持續維持積極進攻姿態。" },
+      { name: "角鬥士和諧",    type: "Self-Buff",rarity: "3★", effect: "+35% ATK e +20% Crit por 25 min",    cooldown: "60 min", desc: "角鬥士的戰鬥和諧。" },
+      { name: "雙武器精通",    type: "Passivo",  rarity: "2★", effect: "+18% ATK com dual weapons",          cooldown: "N/A",    desc: "精通雙持武器。" },
+      { name: "專注",                  type: "Passivo",  rarity: "1★", effect: "+8% Crit Rate",                      cooldown: "N/A",    desc: "集中攻擊敵人的要害。" },
+      { name: "暴擊威力",         type: "Passivo",  rarity: "2★", effect: "+15% Crit Damage",                   cooldown: "N/A",    desc: "提高暴擊威力。" },
+      { name: "HP 強化",               type: "Passivo",  rarity: "1★", effect: "+12% Max HP",                        cooldown: "N/A",    desc: "強化角鬥士的 HP。" }
     ]
   },
 
   // ─── DUELIST (3ª classe) ───
   duelist: {
-    name: 'Duelist', parent: 'gladiator', stage: 3,
-    desc: 'Duelista supremo, mestre do dual wield. Skills anteriores permanecem.',
+    name: '決鬥者', parent: 'gladiator', stage: 3,
+    desc: '至高決鬥者，精通雙武器戰鬥。保留先前學會的技能。',
     base: { atk: 105, def: 42, hp: 580, mp: 95, eva: 12, crit: 30, mdef: 18 },
     skills: [
-      { name: "Sonic Focus",               type: "Ativo",    rarity: "3★", effect: "Dano 380% + ignora 30% DEF",           cooldown: "28s",    desc: "Foco sônico devastador." },
-      { name: "Force Blaster",             type: "Ativo",    rarity: "3★", effect: "Dano 340% à distância",                cooldown: "20s",    desc: "Projétil de força sônica." },
+      { name: "音速聚氣",               type: "Ativo",    rarity: "3★", effect: "Dano 380% + ignora 30% DEF",           cooldown: "28s",    desc: "凝聚毀滅性的音速力量。" },
+      { name: "氣勁砲",             type: "Ativo",    rarity: "3★", effect: "Dano 340% à distância",                cooldown: "20s",    desc: "發射音速氣勁彈。" },
       { name: "Dual Blow",                 type: "Ativo",    rarity: "3★", effect: "Dano 400% + bleed 8s",                 cooldown: "24s",    desc: "Golpe duplo sangrento." },
       { name: "Rushing Force",             type: "Ativo",    rarity: "3★", effect: "Rush + 320% dano + stun 2s",           cooldown: "22s",    desc: "Avanço forçado." },
       { name: "Long Blow",                 type: "Ativo",    rarity: "2★", effect: "Dano 280% alcance estendido",          cooldown: "16s",    desc: "Golpe de longo alcance." },
