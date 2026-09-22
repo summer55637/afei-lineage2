@@ -209,7 +209,7 @@ export function updateTabVisibilityByLevel(state) {
         const lockSpan = document.createElement('span');
         lockSpan.className = 'tab-lock-indicator';
         lockSpan.style.cssText = 'font-size:9px; margin-left:4px; color:#94a3b8; font-weight:normal;';
-        lockSpan.textContent = `🔒Lv.${reqLvl}`;
+        lockSpan.textContent = `🔒等級 ${reqLvl}`;
         btn.appendChild(lockSpan);
       }
     } else {
