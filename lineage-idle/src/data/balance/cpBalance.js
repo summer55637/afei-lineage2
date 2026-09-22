@@ -55,12 +55,12 @@ export const CP_WEIGHTS = {
 };
 
 export const DIFFICULTY_TIERS = {
-  LOCKED:       { id: 'locked',       name: 'Bloqueado',       color: '#94a3b8', badge: '🔒', desc: 'CP insuficiente para sobreviver.' },
-  EXTREME:      { id: 'extreme',      name: 'Extremo',         color: '#ef4444', badge: '💀', desc: 'Combate punitivo com alta chance de derrota.' },
-  CHALLENGING:  { id: 'challenging',  name: 'Desafiador',      color: '#f97316', badge: '⚔️', desc: 'Vitória possível com poções, buffs e estratégia.' },
-  RECOMMENDED:  { id: 'recommended',  name: 'Recomendado',     color: '#22c55e', badge: '🎯', desc: 'Preparação ideal. Combate consistente e confortável.' },
-  FAVORABLE:    { id: 'favorable',    name: 'Favorável',       color: '#38bdf8', badge: '⭐', desc: 'Poder superior. Pouco uso de consumíveis.' },
-  OVERPOWERED:  { id: 'overpowered',  name: 'Dominado (Farm)', color: '#a855f7', badge: '👑', desc: 'Conteúdo dominado. Farm rápido e seguro.' }
+  LOCKED:       { id: 'locked',       name: '無法挑戰',       color: '#94a3b8', badge: '🔒', desc: '戰鬥力不足以生存。' },
+  EXTREME:      { id: 'extreme',      name: '極限',         color: '#ef4444', badge: '💀', desc: '高壓戰鬥，落敗機率很高。' },
+  CHALLENGING:  { id: 'challenging',  name: '挑戰',      color: '#f97316', badge: '⚔️', desc: '搭配藥水、增益效果與策略即可取勝。' },
+  RECOMMENDED:  { id: 'recommended',  name: '推薦',     color: '#22c55e', badge: '🎯', desc: '準備完善，戰鬥穩定且輕鬆。' },
+  FAVORABLE:    { id: 'favorable',    name: '優勢',       color: '#38bdf8', badge: '⭐', desc: '戰力高於需求，消耗品需求較低。' },
+  OVERPOWERED:  { id: 'overpowered',  name: '壓制（農怪）', color: '#a855f7', badge: '👑', desc: '已完全壓制，可快速且安全地刷怪。' }
 };
 
 /**
