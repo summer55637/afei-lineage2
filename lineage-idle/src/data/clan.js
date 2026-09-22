@@ -15,7 +15,7 @@ export const CLAN_LEVEL_DATA = {
     reqItem: null,
     maxMembers: 15,
     unlockedSkills: ['clan_imperium'],
-    desc: '血盟創立階段。解鎖盟徽與血盟帝國技能（+HP／CP）。'
+    desc: '血盟創立階段。解鎖盟徽與血盟帝國技能（+生命值／CP）。'
   },
   2: {
     level: 2,
@@ -26,7 +26,7 @@ export const CLAN_LEVEL_DATA = {
     reqItem: null,
     maxMembers: 30,
     unlockedSkills: ['clan_might'],
-    desc: '提升軍事力量，解鎖血盟力量（+P.Atk）。'
+    desc: '提升軍事力量，解鎖血盟力量（+物理攻擊）。'
   },
   3: {
     level: 3,
@@ -37,7 +37,7 @@ export const CLAN_LEVEL_DATA = {
     reqItem: { id: 'blood_mark', name: '血之印記（Blood Mark）', count: 1 },
     maxMembers: 60,
     unlockedSkills: ['clan_shield'],
-    desc: '受到貴族認可的血盟，解鎖血盟護盾（+P.Def）。'
+    desc: '受到貴族認可的血盟，解鎖血盟護盾（+物理防禦）。'
   },
   4: {
     level: 4,
@@ -48,7 +48,7 @@ export const CLAN_LEVEL_DATA = {
     reqItem: { id: 'alliance_manifesto', name: '同盟宣言', count: 1 },
     maxMembers: 100,
     unlockedSkills: ['clan_empower', 'clan_magic_barrier'],
-    desc: '擁有更高階的魔法與軍事力量，解鎖血盟增幅（+M.Atk）與血盟魔法屏障（+M.Def）。'
+    desc: '擁有更高階的魔法與軍事力量，解鎖血盟增幅（+魔法攻擊）與血盟魔法屏障（+魔法防禦）。'
   },
   5: {
     level: 5,
@@ -69,7 +69,7 @@ export const CLAN_SKILLS = {
     name: '血盟帝國 🛡️',
     levelReq: 1,
     icon: 'gradespecial/scrolls/scroll_blessed_armor_s.png',
-    desc: '成員最大 HP +10%、最大 CP +15%。',
+    desc: '成員最大 生命值 +10%、最大 CP +15%。',
     stats: { hpPercent: 0.10, cpPercent: 0.15 }
   },
   clan_might: {
@@ -77,7 +77,7 @@ export const CLAN_SKILLS = {
     name: '血盟力量 ⚔️',
     levelReq: 2,
     icon: 'gradespecial/scrolls/scroll_enchant_weapon_a.png',
-    desc: '物理 P.Atk +8%。',
+    desc: '物理 物理攻擊 +8%。',
     stats: { pAtkPercent: 0.08 }
   },
   clan_shield: {
@@ -85,7 +85,7 @@ export const CLAN_SKILLS = {
     name: '血盟護盾 🛡️',
     levelReq: 3,
     icon: 'gradespecial/scrolls/scroll_enchant_armor_a.png',
-    desc: '物理 P.Def +10%。',
+    desc: '物理 物理防禦 +10%。',
     stats: { pDefPercent: 0.10 }
   },
   clan_empower: {
@@ -93,7 +93,7 @@ export const CLAN_SKILLS = {
     name: '血盟增幅 🔮',
     levelReq: 4,
     icon: 'gradespecial/scrolls/scroll_enchant_weapon_s.png',
-    desc: '魔法 M.Atk +10%。',
+    desc: '魔法 魔法攻擊 +10%。',
     stats: { mAtkPercent: 0.10 }
   },
   clan_magic_barrier: {
@@ -101,7 +101,7 @@ export const CLAN_SKILLS = {
     name: '血盟魔法屏障 🌌',
     levelReq: 4,
     icon: 'gradespecial/scrolls/scroll_blessed_armor_s.png',
-    desc: '魔法 M.Def +12%。',
+    desc: '魔法 魔法防禦 +12%。',
     stats: { mDefPercent: 0.12 }
   },
   clan_vitality: {
@@ -109,7 +109,7 @@ export const CLAN_SKILLS = {
     name: '血盟活力 💚',
     levelReq: 5,
     icon: 'gradespecial/potions/potion_mana_xl.png',
-    desc: 'HP／MP 恢復速度 +20%，移動速度 +5。',
+    desc: '生命值／魔力 恢復速度 +20%，移動速度 +5。',
     stats: { regenPercent: 0.20, speedBonus: 5 }
   }
 };
