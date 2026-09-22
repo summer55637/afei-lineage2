@@ -421,7 +421,7 @@ function renderSellTab(state) {
                   🪙 金幣
                 </button>
                 <button class="market-set-currency ${_sellCurrency === 'adencoin' ? 'active' : ''}" data-cur="adencoin" style="flex: 1; padding: 8px; border-radius: 6px; background: ${_sellCurrency === 'adencoin' ? 'rgba(59,130,246,0.25)' : 'rgba(0,0,0,0.4)'}; border: 1px solid ${_sellCurrency === 'adencoin' ? '#93c5fd' : 'rgba(255,255,255,0.1)'}; color: ${_sellCurrency === 'adencoin' ? '#93c5fd' : '#aaa'}; font-weight: bold; cursor: pointer; font-size: 12px;">
-                  👑 亞丁幣 (AC)
+                  👑 亞丁幣
                 </button>
               </div>
             </div>
@@ -455,7 +455,7 @@ function renderSellTab(state) {
               <div style="display: flex; justify-content: space-between; color: #94a3b8;">
                 <span>預估淨收益（扣除 3% 王室稅）：</span>
                 <span style="color: #34d399; font-weight: bold; font-family: 'IBM Plex Mono', monospace;">
-                  ${_sellCurrency === 'adena' ? `🪙 ${Math.floor(totalPrice * 0.97).toLocaleString()} 金幣` : `👑 ${totalPrice.toLocaleString()} AC`}
+                  ${_sellCurrency === 'adena' ? `🪙 ${Math.floor(totalPrice * 0.97).toLocaleString()} 金幣` : `👑 ${totalPrice.toLocaleString()} 亞丁幣`}
                 </span>
               </div>
             </div>
