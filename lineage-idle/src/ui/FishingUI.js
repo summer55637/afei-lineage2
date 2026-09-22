@@ -36,7 +36,7 @@ export function renderFishingUI(state) {
   for (const z of zonesList) {
     const isUnlocked = playerLvl >= z.minLevel;
     const isSelected = z.id === activeZoneId;
-    const reqBaitName = z.requiredBait ? (BAIT_CATALOG[z.requiredBait]?.name || z.requiredBait) : 'Qualquer 魚餌';
+    const reqBaitName = z.requiredBait ? (BAIT_CATALOG[z.requiredBait]?.name || z.requiredBait) : '任意魚餌';
 
     let diffStars = '⭐'.repeat(z.difficulty);
 
@@ -320,7 +320,7 @@ export function renderFishingUI(state) {
           🌊🎣
         </div>
         <div style="font-family:'Cinzel',serif; font-size:13px; color:#cbd5e1; margin-bottom:14px;">
-          Local Atual: <strong style="color:#f5df93;">${activeZone.name}</strong> | 釣竿: <strong style="color:#93c5fd;">${activeRod.name}</strong> | 魚餌: <strong style="color:#fde047;">${activeBait ? activeBait.name : 'Nenhuma'}</strong>
+          目前地點： <strong style="color:#f5df93;">${activeZone.name}</strong> | 釣竿: <strong style="color:#93c5fd;">${activeRod.name}</strong> | 魚餌: <strong style="color:#fde047;">${activeBait ? activeBait.name : '無'}</strong>
         </div>
         <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
           <button 
