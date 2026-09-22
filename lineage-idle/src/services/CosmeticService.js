@@ -8,7 +8,7 @@
 export const AURAS_CATALOG = {
   aura_none: {
     id: 'aura_none',
-    name: 'Sem 光環',
+    name: '無光環',
     desc: '隱藏角色目前啟用的所有光環。',
     cssClass: '',
     icon: '🚫',
@@ -28,7 +28,7 @@ export const AURAS_CATALOG = {
   },
   aura_crimson_warlord: {
     id: 'aura_crimson_warlord',
-    name: '光環 Escarlate da Guerra',
+    name: '緋紅戰爭光環',
     desc: '歷經千場戰鬥的狂熱與戰意所化成的緋紅火焰。',
     cssClass: 'hero-aura-crimson',
     icon: '🔥',
@@ -38,7 +38,7 @@ export const AURAS_CATALOG = {
   },
   aura_abyssal_shadow: {
     id: 'aura_abyssal_shadow',
-    name: '光環 Abissal das Sombras',
+    name: '深淵暗影光環',
     desc: '來自地下墓穴深處的黑紫色乙太漩渦。',
     cssClass: 'hero-aura-abyssal',
     icon: '🌑',
@@ -48,7 +48,7 @@ export const AURAS_CATALOG = {
   },
   aura_divine_seraph: {
     id: 'aura_divine_seraph',
-    name: '光環 Serafim Divina',
+    name: '神聖熾天使光環',
     desc: '殷海薩神殿守護天使所散發的天界光芒。',
     cssClass: 'hero-aura-divine',
     icon: '✨',
@@ -58,7 +58,7 @@ export const AURAS_CATALOG = {
   },
   aura_frost_monarch: {
     id: 'aura_frost_monarch',
-    name: '光環 Monarca Glacial',
+    name: '冰霜君王光環',
     desc: '永恆霜晶使英雄周圍的空氣凝結。',
     cssClass: 'hero-aura-frost',
     icon: '❄️',
@@ -68,7 +68,7 @@ export const AURAS_CATALOG = {
   },
   aura_emerald_nature: {
     id: 'aura_emerald_nature',
-    name: '光環 Esmeralda Silvestre',
+    name: '翠綠自然光環',
     desc: '受伊娃女神精靈祝福的古老翠綠光輝。',
     cssClass: 'hero-aura-emerald',
     icon: '🌿',
@@ -81,7 +81,7 @@ export const AURAS_CATALOG = {
 export const ITEM_FRAMES_CATALOG = {
   frame_default: {
     id: 'frame_default',
-    name: '邊框 預設',
+    name: '預設邊框',
     desc: '亞丁樸實鐵製邊框。',
     cssClass: 'cosmetic-frame-default',
     icon: '🔲',
@@ -89,7 +89,7 @@ export const ITEM_FRAMES_CATALOG = {
   },
   frame_bronze: {
     id: 'frame_bronze',
-    name: '邊框 Bronze Antigo',
+    name: '古代青銅邊框',
     desc: '為裝備欄位打造的經典雕刻青銅邊框。',
     cssClass: 'cosmetic-frame-bronze',
     icon: '🥉',
@@ -105,7 +105,7 @@ export const ITEM_FRAMES_CATALOG = {
   },
   frame_gold: {
     id: 'frame_gold',
-    name: '邊框 Dourada Real',
+    name: '皇家金色邊框',
     desc: '配得上亞丁王族與貴族的純金邊框。',
     cssClass: 'cosmetic-frame-gold',
     icon: '🥇',
@@ -121,7 +121,7 @@ export const ITEM_FRAMES_CATALOG = {
   },
   frame_celestial: {
     id: 'frame_celestial',
-    name: '邊框 Celestial dos Deuses',
+    name: '眾神天界邊框',
     desc: '以席琳與殷海薩之淚鍛造出的脈動神聖光輝。',
     cssClass: 'cosmetic-frame-celestial',
     icon: '🌟',
@@ -132,7 +132,7 @@ export const ITEM_FRAMES_CATALOG = {
 export const TITLES_CATALOG = {
   title_none: {
     id: 'title_none',
-    name: 'Sem 稱號',
+    name: '無稱號',
     titleText: '',
     desc: '不顯示任何榮譽稱號。',
     color: '#94a3b8',
