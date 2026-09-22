@@ -302,7 +302,7 @@ export function executeAtomicEnchant(state, targetUid, scrollUid, callbacks = {}
         callbacks.log(`🛡️ [祝福保護] 強化失敗，但 ${targetDef.name} 維持 +${currentEnchant} 不變！`, 'rarity-epic');
       }
       if (callbacks.floatText) {
-        callbacks.floatText(`🛡️ PROTEGIDO (+${currentEnchant})`, 'float-jackpot');
+        callbacks.floatText(`🛡️ 已保護（+${currentEnchant}）`, 'float-jackpot');
       }
     } else if (currentEnchant >= safeLimit && grade !== 'NG') {
       outcomeType = 'CRYSTALLIZED';
@@ -339,7 +339,7 @@ export function executeAtomicEnchant(state, targetUid, scrollUid, callbacks = {}
         callbacks.log(`💥 已結晶化！${targetDef.name} +${currentEnchant} 強化失敗並破壞，轉化為 ${crystalsAwarded}x ${cInfo.name}！`, 'rarity-legendary');
       }
       if (callbacks.floatText) {
-        callbacks.floatText(`💥 CRISTALIZADO (+${crystalsAwarded}x)`, 'float-crit');
+        callbacks.floatText(`💥 已結晶化（+${crystalsAwarded}x）`, 'float-crit');
       }
     } else {
       outcomeType = 'FAILURE';
