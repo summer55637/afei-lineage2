@@ -139,7 +139,7 @@ export function renderFishingUI(state) {
             ${count <= 0 ? 'disabled' : ''}
             style="flex:1; padding:3px 6px; font-size:10px; font-weight:bold; background:${isSelected ? '#22c55e' : count > 0 ? '#334155' : '#1e293b'}; border:1px solid ${isSelected ? '#86efac' : '#475569'}; color:${isSelected ? '#000' : '#f1f5f9'}; border-radius:4px; cursor:${count > 0 ? 'pointer' : 'not-allowed'};"
           >
-            ${isSelected ? '✓ Em Uso' : 'Usar'}
+            ${isSelected ? '✓ 使用中' : '使用'}
           </button>
           <button 
             onclick="window.buyFishingBait('${bId}', 10)"
@@ -462,7 +462,7 @@ export function renderFishingUI(state) {
             </p>
           </div>
           <div style="text-align:right;">
-            <div style="font-size:11px; color:#aaa;">Pescados Totais: <strong style="color:#ffd877;">${stats.totalCaught}</strong></div>
+            <div style="font-size:11px; color:#aaa;">累計捕獲：<strong style="color:#ffd877;">${stats.totalCaught}</strong></div>
             <div style="font-size:11px; color:#aaa;">已發現魚種： <strong style="color:#60a5fa;">${stats.speciesDiscovered} / ${stats.totalSpecies}</strong></div>
           </div>
         </div>
@@ -470,7 +470,7 @@ export function renderFishingUI(state) {
         <!-- Barra de Progresso de Habilidade -->
         <div style="background:rgba(0,0,0,0.5); border-radius:8px; padding:8px 12px; border:1px solid rgba(255,255,255,0.06);">
           <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:bold; margin-bottom:4px;">
-            <span style="color:#fde047;">★ 釣魚等級: ${prog.level}</span>
+            <span style="color:#fde047;">★ 釣魚等級：${prog.level}</span>
             <span style="color:#94a3b8; font-family:monospace;">${prog.xp} / ${prog.nextXp} XP (${prog.percent}%)</span>
           </div>
           <div style="background:#1e293b; border-radius:4px; height:8px; overflow:hidden;">
@@ -531,7 +531,7 @@ export function renderFishingUI(state) {
       <!-- Mercador dos Mares: Troca de Pescados -->
       <div style="background:rgba(18,22,34,0.85); border:1px solid rgba(212,167,68,0.25); border-radius:10px; padding:12px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-          <h4 style="margin:0; font-family:'Cinzel',serif; font-size:12px; color:#f4d58a;">⚖️ Feira de Pescados (Troca por Materiais de Forja)</h4>
+          <h4 style="margin:0; font-family:'Cinzel',serif; font-size:12px; color:#f4d58a;">⚖️ 魚貨市集（兌換鍛造材料）</h4>
           <span style="font-size:10px; color:#94a3b8;">將漁獲交給當地工匠</span>
         </div>
         ${ownedFishCards}
