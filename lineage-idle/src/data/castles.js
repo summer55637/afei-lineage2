@@ -126,7 +126,7 @@ export const CASTLE_SHOP_CATALOG = [
     reqCastle: true,
     slot: 'head',
     icon: 'gradespecial/jewels/jewel_ring_queen_ant.png',
-    desc: '僅限亞丁城堡領主佩戴的神聖王冠。所有屬性（STR/DEX/INT/WIT/CON/MEN）+5，最大 HP／CP +15%。',
+    desc: '僅限亞丁城堡領主佩戴的神聖王冠。所有屬性（STR/DEX/INT/WIT/CON/MEN）+5，最大 生命值／CP +15%。',
     stats: { allStats: 5, hpPercent: 0.15, cpPercent: 0.15 }
   },
   {
@@ -137,7 +137,7 @@ export const CASTLE_SHOP_CATALOG = [
     reqCastle: true,
     slot: 'cloak',
     icon: 'gradespecial/scrolls/scroll_blessed_armor_s.png',
-    desc: '以王國純金絲線繡製的披風，P.Def +180、M.Def +180。',
+    desc: '以王國純金絲線繡製的披風，物理防禦 +180、魔法防禦 +180。',
     stats: { pDef: 180, mDef: 180 }
   },
   {
