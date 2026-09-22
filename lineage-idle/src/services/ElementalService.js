@@ -206,7 +206,7 @@ export function applyElementalInfusion(state, equipUid, elementKey = 'fire', cal
 
   // Se o item já tem outro elemento diferente, canonicamente no L2 precisa ser limpo ou sobreposto
   if (currentElem !== 'none' && currentElem !== elementKey && currentVal > 0) {
-    if (callbacks.log) callbacks.log(`此物品已具有 [${currentElem.toUpperCase()}] 元素。請先清除原屬性，再灌注 ${elementKey.toUpperCase()}。`, 'system');
+    if (callbacks.log) callbacks.log(`此物品已具有【${ELEMENT_DEFINITIONS[currentElem]?.name || '未知'}】元素。請先清除原屬性，再灌注【${ELEMENT_DEFINITIONS[elementKey]?.name || '未知'}】。`, 'system');
     return false;
   }
 
@@ -334,7 +334,7 @@ export function applySoulCrystalToWeapon(state, weaponUid, color = 'red', saKey 
     key: saKey,
     name: saBonus.name,
     level: crystalLevel,
-    desc: `${saBonus.desc} (+${typeof finalVal === 'number' && finalVal < 1 ? (finalVal * 100).toFixed(0) + '%' : finalVal})`,
+    desc: `${saBonus.desc}（+${typeof finalVal === 'number' && finalVal < 1 ? (finalVal * 100).toFixed(0) + '%' : finalVal}）`,
     stat: saBonus.stat,
     val: finalVal
   };
