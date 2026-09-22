@@ -12,7 +12,7 @@ export const MONSTER_CARDS = {};
 const EPIC_RAID_CARDS = {
   card_queen_ant: {
     id: 'card_queen_ant',
-    name: 'Carta Rainha Formiga (Queen Ant)',
+    name: '蟻后卡片（Queen Ant）',
     monster: 'Queen Ant',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon30.png',
     image: '/img/Monsters/SemLocal/mon_queenant.png',
@@ -23,7 +23,7 @@ const EPIC_RAID_CARDS = {
   },
   card_core: {
     id: 'card_core',
-    name: 'Carta Core da Torre Cruma',
+    name: '克魯瑪高塔 Core 卡片',
     monster: 'Core',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon31.png',
     image: '/img/Monsters/SemLocal/mon_core.png',
@@ -34,7 +34,7 @@ const EPIC_RAID_CARDS = {
   },
   card_orfen: {
     id: 'card_orfen',
-    name: 'Carta Orfen do Mar de Esporos',
+    name: '孢子之海 Orfen 卡片',
     monster: 'Orfen',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon32.png',
     image: '/img/Monsters/SemLocal/mon_orfen.png',
@@ -56,7 +56,7 @@ const EPIC_RAID_CARDS = {
   },
   card_baium: {
     id: 'card_baium',
-    name: 'Carta Imperador Baium',
+    name: '皇帝巴溫卡片',
     monster: 'Baium',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon34.png',
     image: '/img/Monsters/SemLocal/mon_baium.png',
@@ -67,7 +67,7 @@ const EPIC_RAID_CARDS = {
   },
   card_barakiel: {
     id: 'card_barakiel',
-    name: 'Carta Flame of Splendor Barakiel',
+    name: '光輝之炎 Barakiel 卡片',
     monster: 'Flame of Splendor Barakiel',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon35.png',
     image: '/img/Monsters/SemLocal/mon_barakiel.png',
@@ -180,7 +180,7 @@ for (const [monId, m] of Object.entries(MONSTERS || {})) {
 
   MONSTER_CARDS[cardId] = {
     id: cardId,
-    name: `Carta de ${m.name}`,
+    name: `${m.name} 卡片`,
     monster: m.name,
     monsterId: monId,
     icon,
@@ -253,7 +253,7 @@ export class CardCodexService {
     }
     const numToAbsorb = typeof count === 'number' && count > 0 ? count : 1;
     const cardDef = MONSTER_CARDS[cardId];
-    if (!cardDef) return { success: false, message: 'Carta de monstro desconhecida.' };
+    if (!cardDef) return { success: false, message: '未知怪物卡片。' };
 
     if (Array.isArray(accountState.inventory)) {
       const invItemIdx = accountState.inventory.findIndex(i => (i.id === cardId || i.itemId === cardId));
