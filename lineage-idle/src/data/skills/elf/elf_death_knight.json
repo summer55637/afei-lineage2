@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "frost_edge",
-        "name": "Fio de Gelo",
+        "name": "冰霜之刃",
         "classId": "elf_death_knight",
         "race": "elf",
         "tier": "core_1",
@@ -15,7 +15,7 @@
           "Ice",
           "Dark"
         ],
-        "description": "Fio de Gelo — Habilidade Especialista de elf_death_knight."
+        "description": "冰霜之刃——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -167,7 +167,7 @@
     {
       "identity": {
         "id": "shattering_gaze",
-        "name": "Olhar Estilhaçante",
+        "name": "碎裂凝視",
         "classId": "elf_death_knight",
         "race": "elf",
         "tier": "core_2",
@@ -178,7 +178,7 @@
           "Ice",
           "Dark"
         ],
-        "description": "Olhar Estilhaçante — Habilidade Especialista de elf_death_knight."
+        "description": "碎裂凝視——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -330,7 +330,7 @@
     {
       "identity": {
         "id": "cursed_frost_veil",
-        "name": "Véu de Gelo Amaldiçoado",
+        "name": "詛咒冰霜帷幕",
         "classId": "elf_death_knight",
         "race": "elf",
         "tier": "specialization",
@@ -341,7 +341,7 @@
           "Ice",
           "Dark"
         ],
-        "description": "Véu de Gelo Amaldiçoado — Habilidade Especialista de elf_death_knight."
+        "description": "詛咒冰霜帷幕——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -493,7 +493,7 @@
     {
       "identity": {
         "id": "glacial_judgment",
-        "name": "Julgamento Glacial",
+        "name": "冰川審判",
         "classId": "elf_death_knight",
         "race": "elf",
         "tier": "elemental_specialization",
@@ -504,7 +504,7 @@
           "Ice",
           "Dark"
         ],
-        "description": "Julgamento Glacial — Habilidade Especialista de elf_death_knight."
+        "description": "冰川審判——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -674,7 +674,7 @@
     {
       "identity": {
         "id": "frostmourne_judgment",
-        "name": "Frostmourne Judgment",
+        "name": "霜悲審判",
         "classId": "elf_death_knight",
         "race": "elf",
         "tier": "ultimate",
@@ -684,7 +684,7 @@
         "tags": [
           "Ice"
         ],
-        "description": "Frostmourne Judgment — Habilidade Ultimate (★★★★) de elf_death_knight."
+        "description": "霜悲審判——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -869,7 +869,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "FROSTMOURNE JUDGMENT!",
+          "text": "霜悲審判！",
           "style": "gold_banner",
           "banner": true
         }
@@ -890,7 +890,7 @@
     {
       "identity": {
         "id": "master_frostmourne_judgment",
-        "name": "Master: Frostmourne Judgment",
+        "name": "大師：霜悲審判",
         "classId": "elf_death_knight",
         "race": "elf",
         "tier": "master_ultimate",
@@ -900,7 +900,7 @@
         "tags": [
           "Ice"
         ],
-        "description": "Master: Frostmourne Judgment — Habilidade Master Ultimate (★★★★★) de elf_death_knight."
+        "description": "大師：霜悲審判——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1086,7 +1086,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: FROSTMOURNE JUDGMENT!",
+          "text": "大師：霜悲審判！",
           "style": "mythic_banner",
           "banner": true
         }
