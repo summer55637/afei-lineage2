@@ -12,7 +12,7 @@ export const EXPEDITION_DILEMMAS = {
     desc: '一座散發腐化魔力的黑石祭壇。要怎麼處理？',
     options: {
       saquear: { name: '掠奪祭壇', reqTrait: 'greedy', desc: '+金幣，但會受到傷害', result: 'gold' },
-      purificar: { name: '淨化祭壇', reqSpecs: ['veteran', 'medic'], desc: '+小隊 EXP', result: 'xp' },
+      purificar: { name: '淨化祭壇', reqSpecs: ['veteran', 'medic'], desc: '+小隊經驗值', result: 'xp' },
       evitar: { name: '避開', reqDirective: 'cautious', desc: '不互動直接通過', result: 'skip' }
     }
   },
