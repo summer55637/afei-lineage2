@@ -24,12 +24,12 @@ export const InstanceService = {
 
     const pLvl = state.level || 1;
     if (pLvl < inst.minLvl) {
-      return { ok: false, reason: `Nível insuficiente! Exige Nível ${inst.minLvl}+.` };
+      return { ok: false, reason: `等級不足！需要等級 ${inst.minLvl} 以上。` };
     }
 
     const entries = this.getDailyEntries(state);
     if (entries.completed[instanceId]) {
-      return { ok: false, reason: 'Instância já concluída hoje! Retorne amanhã após o reset diário.' };
+      return { ok: false, reason: '今天已完成此副本！請等每日重置後再來。' };
     }
 
     return { ok: true };
@@ -47,7 +47,7 @@ export const InstanceService = {
     // Spawn do Chefe de Instância
     state.activeMonster = {
       id: inst.id,
-      name: `[Solo Instance] ${inst.bossName}`,
+      name: `[單人副本] ${inst.bossName}`,
       hp: inst.bossHp,
       _maxHp: inst.bossHp,
       atk: inst.bossAtk,
@@ -59,8 +59,8 @@ export const InstanceService = {
       _stunnedUntil: 0
     };
 
-    if (callbacks.log) callbacks.log(`🌀 Você adentrou em **${inst.name}**! Desafie **${inst.bossName}**!`, 'boss');
-    if (callbacks.floatText) callbacks.floatText('🌀 INSTÂNCIA SOLO INICIADA!', 'float-epic');
+    if (callbacks.log) callbacks.log(`🌀 你已進入 **${inst.name}**！挑戰 **${inst.bossName}**！`, 'boss');
+    if (callbacks.floatText) callbacks.floatText('🌀 單人副本開始！', 'float-epic');
 
     if (callbacks.renderStageMonster) callbacks.renderStageMonster();
     if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -94,10 +94,10 @@ export const InstanceService = {
     }
 
     if (callbacks.log) {
-      callbacks.log(`🏆 VITÓRIA EM ${inst.name.toUpperCase()}! Recompensas recebidas: +${inst.rewards.xp.toLocaleString()} XP, +${inst.rewards.gold.toLocaleString()} Adena, +${inst.rewards.sp} SP e ${inst.rewards.guaranteedRewardText}!`, 'rarity-legendary');
+      callbacks.log(`🏆 ${inst.name.toUpperCase()} 勝利！獲得：+${inst.rewards.xp.toLocaleString()} XP、+${inst.rewards.gold.toLocaleString()} 金幣、+${inst.rewards.sp} SP，以及 ${inst.rewards.guaranteedRewardText}！`, 'rarity-legendary');
     }
     if (callbacks.floatText) {
-      callbacks.floatText('🏆 INSTÂNCIA CONCLUÍDA!', 'float-jackpot');
+      callbacks.floatText('🏆 副本完成！', 'float-jackpot');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
