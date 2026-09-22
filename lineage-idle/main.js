@@ -10147,16 +10147,16 @@ export function init() {
                 ${inst.name}
                 <span style="font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(212,167,68,0.2); margin-left:6px; color:#fde047;">等級 ${inst.minLvl}+</span>
               </div>
-              <div style="font-size:11px; color:#cbd5e1; margin-top:2px;">Chefe: <strong style="color:#f87171;">${inst.bossName}</strong> (HP: ${inst.bossHp.toLocaleString()} · Atk: ${inst.bossAtk})</div>
-              <div style="font-size:10px; color:#6ee7b7; margin-top:2px;">🎁 Recompensas: +${inst.rewards.xp.toLocaleString()} XP · +${inst.rewards.gold.toLocaleString()}g · +${inst.rewards.sp} SP · ${inst.rewards.guaranteedRewardText}</div>
+              <div style="font-size:11px; color:#cbd5e1; margin-top:2px;">首領：<strong style="color:#f87171;">${inst.bossName}</strong> （生命值：${inst.bossHp.toLocaleString()} · 攻擊：${inst.bossAtk}）</div>
+              <div style="font-size:10px; color:#6ee7b7; margin-top:2px;">🎁 獎勵：+${inst.rewards.xp.toLocaleString()} 經驗值 · +${inst.rewards.gold.toLocaleString()} 金幣 · +${inst.rewards.sp} 技能點 · ${inst.rewards.guaranteedRewardText}</div>
             </div>
           </div>
           <div>
             ${completed ? `
-              <span style="font-size:11px; font-weight:bold; color:#86efac; background:rgba(34,197,94,0.2); padding:4px 8px; border-radius:4px;">✅ Concluído Hoje</span>
+              <span style="font-size:11px; font-weight:bold; color:#86efac; background:rgba(34,197,94,0.2); padding:4px 8px; border-radius:4px;">✅ 今日已完成</span>
             ` : `
               <button class="action-btn ${canEnter ? 'action-btn--primary' : ''}" style="padding:8px 16px; font-size:12px; font-weight:bold; font-family:'Cinzel',serif;" ${!canEnter ? 'disabled' : ''} onclick="window.challengeInstanceAction('${inst.id}')">
-                ⚔️ Entrar
+                ⚔️ 進入
               </button>
             `}
           </div>
@@ -10227,20 +10227,20 @@ export function init() {
               </div>
             </div>
             <div style="display:flex; align-items:center; gap:6px;">
-              <span style="font-size:11px; color:#cbd5e1;">Sementes Ativas: <strong style="color:#fde047;">${seedCount}x</strong> · Colheitas: <strong style="color:#86efac;">${cropCount}x</strong></span>
+              <span style="font-size:11px; color:#cbd5e1;">使用中的種子：<strong style="color:#fde047;">${seedCount}x</strong> · 收成：<strong style="color:#86efac;">${cropCount}x</strong></span>
             </div>
           </div>
           <div style="background:rgba(212,167,68,0.1); padding:8px 10px; border-radius:6px; font-size:11px; color:#cbd5e1; display:flex; justify-content:space-between; align-items:center;">
             <div>
-              🌱 <strong>${prov.seed.name}</strong> (${prov.seed.cost}g cada)<br>
-              📦 Troca no Castelo: <strong>${prov.seed.exchangeRate}x Colheitas $\rightarrow$ 1x ${prov.seed.rewardItemName}</strong>
+              🌱 <strong>${prov.seed.name}</strong> （${prov.seed.cost} 金幣／個）<br>
+              📦 城堡交換：<strong>${prov.seed.exchangeRate} 份收成 $\rightarrow$ 1 個 ${prov.seed.rewardItemName}</strong>
             </div>
             <div style="display:flex; gap:6px;">
               <button class="action-btn" style="padding:6px 10px; font-size:11px;" onclick="window.buyManorSeedsAction('${prov.id}', 20)">
-                🌱 Comprar 20x (${(prov.seed.cost * 20).toLocaleString()}g)
+                🌱 購買 20 個（${(prov.seed.cost * 20).toLocaleString()} 金幣）
               </button>
               <button class="action-btn ${canExchange ? 'action-btn--primary' : ''}" style="padding:6px 10px; font-size:11px; font-weight:bold;" ${!canExchange ? 'disabled' : ''} onclick="window.exchangeManorCropsAction('${prov.id}')">
-                📦 Entregar Colheita
+                📦 交付收成
               </button>
             </div>
           </div>
@@ -10320,7 +10320,7 @@ export function init() {
       }
       const myName = (state.name || state.charName || '').trim().toLowerCase();
       if (code.toLowerCase() === myName) {
-        log('⚠️ Você não pode indicar a si mesmo!', 'warning');
+        log('⚠️ 你不能推薦自己！', 'warning');
         return;
       }
 
@@ -10375,8 +10375,8 @@ export function init() {
         }
       }
 
-      log(`✨ **推薦綁定成功！** 你已由 **${code}** 推薦！新手加成已啟用：**永久 +10% EXP**，並獲得 **1,000 發魂彈**！`, 'rarity-legendary');
-      if (typeof floatText === 'function') floatText('✨ 推薦連結已啟用（EXP +10%）！', 'float-jackpot');
+      log(`✨ **推薦綁定成功！** 你已由 **${code}** 推薦！新手加成已啟用：**永久 +10% 經驗值**，並獲得 **1,000 發魂彈**！`, 'rarity-legendary');
+      if (typeof floatText === 'function') floatText('✨ 推薦連結已啟用（經驗值 +10%）！', 'float-jackpot');
       updateAllUI();
       save();
       uiOpenReferralModal(state);
@@ -10629,7 +10629,7 @@ export function init() {
       } else if (tab === 'forge') {
         contentEl.innerHTML = `
           <h4 style="color:#fbbf24; margin-top:0;">🔨 帳號鍛造等級與循環經濟</h4>
-          <p>• <strong>如何提升鍛造等級：</strong>拆解背包中的多餘裝備或製作配方，都可獲得<strong>鍛造 EXP</strong>。</p>
+          <p>• <strong>如何提升鍛造等級：</strong>拆解背包中的多餘裝備或製作配方，都可獲得<strong>鍛造經驗值</strong>。</p>
           <p>• <strong>為什麼鍛造很重要：</strong>更高的鍛造等級會提高製作名匠裝備（普希金）的機率、降低成本，並解鎖 A 級、S 級與至尊級配方。</p>
           <p>• <strong>全球市場解鎖（等級 10）：</strong>為降低機器人濫用並鼓勵正常遊玩，帳號鍛造等級需達 10 才能使用全球市場。</p>
           <p>• <strong>大量物品消耗機制：</strong>後期可在隱藏鐵匠處犧牲舊武器，凝聚遠古能量並打造至尊遺物。</p>
@@ -10637,9 +10637,9 @@ export function init() {
       } else if (tab === 'codex') {
         contentEl.innerHTML = `
           <h4 style="color:#fbbf24; margin-top:0;">🃏 收藏圖鑑與怪物卡片</h4>
-          <p>• <strong>物品收藏：</strong>登錄訓練武器與防具，可為整個帳號解鎖永久 ATK、DEF、HP 被動加成。</p>
+          <p>• <strong>物品收藏：</strong>登錄訓練武器與防具，可為整個帳號解鎖永久攻擊、防禦、生命值被動加成。</p>
           <p>• <strong>怪物卡與首領娃娃：</strong>擊敗團隊首領（蟻后、核心、歐爾芬、札肯、巴溫、安塔瑞斯、巴拉卡斯）時，有機會掉落對應稀有卡片。</p>
-          <p>• <strong>吸收到圖鑑：</strong>將卡片吸收到圖鑑後，可為帳號永久增加屬性（P.ATK、M.ATK、吸血等）。</p>
+          <p>• <strong>吸收到圖鑑：</strong>將卡片吸收到圖鑑後，可為帳號永久增加屬性（物理攻擊、魔法攻擊、吸血等）。</p>
           <p>• <strong>裝備鑲嵌：</strong>也可將卡片鑲嵌到武器欄位，提高元素傷害與暴擊能力。</p>
         `;
       } else if (tab === 'combat') {
@@ -10648,7 +10648,7 @@ export function init() {
           <p>• <strong>武器招式限制：</strong>物理技能需要裝備正確武器類型（例如射擊技能需要弓、劍舞技能需要雙劍等）。</p>
           <p>• <strong>元素弱點：</strong>怪物與首領具有火、水、風、地、神聖、黑暗等屬性。使用相剋屬性最高可獲得 +50% 額外傷害。</p>
           <p>• <strong>終極技能（4★）：</strong>首次學習 4★ 技能時，背包必須持有對應的<em>4★ 魔法書</em>。學會後魔法書會消耗，但技能可永久使用。</p>
-          <p>• <strong>硬性 DPS 檢定：</strong>團隊首領具有狂暴倒數。若隊伍無法在期限內造成足夠傷害，首領將進入致命狂暴狀態。</p>
+          <p>• <strong>硬性傷害輸出檢定：</strong>團隊首領具有狂暴倒數。若隊伍無法在期限內造成足夠傷害，首領將進入致命狂暴狀態。</p>
         `;
       } else if (tab === 'sevensigns') {
         contentEl.innerHTML = `
