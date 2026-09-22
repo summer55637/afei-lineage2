@@ -203,7 +203,7 @@ export function renderMiningUI(state) {
           </span>
         </h3>
         <p style="margin:0 0 12px 0; font-size:11px; color:#aaa;">
-          Minérios: <strong style="color:#cbd5e1;">${node?.yields?.primary?.toUpperCase()}</strong> ${node?.yields?.secondary ? `+ <strong style="color:#94a3b8;">${node?.yields?.secondary?.toUpperCase()}</strong>` : ''}
+          礦物： <strong style="color:#cbd5e1;">${node?.yields?.primary?.toUpperCase()}</strong> ${node?.yields?.secondary ? `+ <strong style="color:#94a3b8;">${node?.yields?.secondary?.toUpperCase()}</strong>` : ''}
         </p>
 
         <!-- Barra de Progresso de Escavação -->
@@ -229,23 +229,23 @@ export function renderMiningUI(state) {
               letter-spacing: 0.05em;
             "
           >
-            ${isReady ? '⛏️ EXTRAIR MINÉRIOS' : '🪨 QUEBRANDO A ROCHA...'}
+            ${isReady ? '⛏️ 開採礦物' : '🪨 正在破碎岩石...'}
           </button>
         </div>
       </div>
     `;
   } else {
-    const hazardName = mState.veinHazard === 'gas_pocket' ? 'Bolsão de Gás' 
-                     : mState.veinHazard === 'seismic_fault' ? 'Falha Sísmica' 
-                     : mState.veinHazard === 'dense_crystal' ? 'Veio Cristalino' : 'Rocha Estável';
-    const hazardDisplay = mState.veinProbed ? `[Perigo: ${hazardName}]` : '[Composição: Desconhecida (Sondar Veio)]';
+    const hazardName = mState.veinHazard === 'gas_pocket' ? '瓦斯囊' 
+                     : mState.veinHazard === 'seismic_fault' ? '地震裂隙' 
+                     : mState.veinHazard === 'dense_crystal' ? '水晶礦脈' : '穩定岩層';
+    const hazardDisplay = mState.veinProbed ? `[危險：${hazardName}]` : '[成分：未知（探勘礦脈）]';
     const hazardColor = mState.veinProbed && mState.veinHazard !== 'none' ? '#ef4444' : '#cbd5e1';
 
     const stability = mState.galleryStability ?? 100;
     const stabilityColor = stability > 60 ? 'linear-gradient(90deg, #34d399, #10b981)' 
                          : stability >= 25 ? 'linear-gradient(90deg, #fbbf24, #d97706)' 
                          : 'linear-gradient(90deg, #ef4444, #b91c1c)';
-    const stabilityText = stability > 60 ? 'Galeria Firme' : stability >= 25 ? 'Instabilidade Moderada' : 'Risco Crítico de Desabamento!';
+    const stabilityText = stability > 60 ? '坑道穩定' : stability >= 25 ? '中度不穩定' : '嚴重坍塌風險！';
     
     stageHtml = `
       <div style="text-align:center; padding:20px; background:radial-gradient(circle, rgba(35,20,12,0.85) 0%, rgba(15,10,8,0.95) 100%); border:1px solid rgba(212,167,68,0.3); border-radius:12px;">
@@ -265,7 +265,7 @@ export function renderMiningUI(state) {
           ⚒️
         </div>
         <h3 style="margin:0 0 4px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:16px;">
-          Frente de Extração em ${activeZone.name}
+          ${activeZone.name} 採掘工作面
         </h3>
         
         <!-- Vein Hazard -->
@@ -324,15 +324,15 @@ export function renderMiningUI(state) {
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
           <div>
             <h3 style="margin:0; font-family:'Cinzel',serif; color:#fbbf24; font-size:20px; display:flex; align-items:center; gap:8px;">
-              ⛏️ Corporação de Mineração dos Anões de Aden
+              ⛏️ 亞丁矮人採礦公會
             </h3>
             <p style="margin:4px 0 0 0; font-size:12px; color:#aaa;">
-              Desça aos subterrâneos mais profundos, parta rochas ancestrais e extraia Ferro, Prata, Mithril, Oriharukon e Adamantite!
+              深入地下礦坑、擊碎古老岩層，開採鐵、銀、米索莉、奧里哈魯根與精金！
             </p>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(245,158,11,0.3); border-radius:8px; padding:6px 14px; text-align:center;">
-              <div style="font-size:10px; color:#aaa; text-transform:uppercase;">Nível de Mineiro</div>
+              <div style="font-size:10px; color:#aaa; text-transform:uppercase;">採礦等級</div>
               <div style="font-size:16px; font-weight:bold; color:#fbbf24; font-family:'Cinzel',serif;">Nv. ${skillLvl} / 40</div>
             </div>
             <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(212,167,68,0.3); border-radius:8px; padding:6px 14px; text-align:center;">
@@ -345,7 +345,7 @@ export function renderMiningUI(state) {
         <!-- Barra de Maestria -->
         <div>
           <div style="display:flex; justify-content:space-between; font-size:10px; color:#94a3b8; margin-bottom:4px;">
-            <span>Progresso da Maestria: <strong style="color:#fbbf24;">${skillXp.toLocaleString()} / ${nextLvlXp.toLocaleString()} XP</strong></span>
+            <span>熟練度進度： <strong style="color:#fbbf24;">${skillXp.toLocaleString()} / ${nextLvlXp.toLocaleString()} XP</strong></span>
             <span>${xpPct}%</span>
           </div>
           <div style="width:100%; height:6px; background:rgba(0,0,0,0.6); border-radius:3px; overflow:hidden; border:1px solid rgba(245,158,11,0.2);">
@@ -369,7 +369,7 @@ export function renderMiningUI(state) {
         <!-- Coluna Esquerda: Palco de Ação -->
         <div>
           <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#fbbf24; font-size:15px;">
-            ⛏️ Frente de Lavra & Extração
+            ⛏️ 採礦與挖掘區
           </h4>
           ${stageHtml}
 
@@ -383,7 +383,7 @@ export function renderMiningUI(state) {
                 </span>
               </div>
               <p style="margin:2px 0 0 0; font-size:10px; color:#aaa;">
-                Extrai minérios pesados continuamente enquanto o jogo roda ou em segundo plano.
+                遊戲開啟或背景執行時持續自動採掘重型礦物。
               </p>
             </div>
             <button 
@@ -422,7 +422,7 @@ export function renderMiningUI(state) {
                 ${!isPickaxeDull && durPct >= 100 ? 'disabled' : ''}
                 style="padding:6px 12px; font-size:11px; font-weight:bold; background:linear-gradient(180deg,#fbbf24,#b45309); border:1px solid #fde047; color:#000; border-radius:6px; cursor:pointer;"
               >
-                ⚒️ REFORJAR PONTA
+                ⚒️ 重新鍛造鎬頭
               </button>
             </div>
 
