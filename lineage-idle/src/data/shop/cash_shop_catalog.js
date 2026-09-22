@@ -14,75 +14,75 @@ export const CASH_SHOP_CATALOG = {
   starter_packs: [
     {
       id: 'starter_pack_tier1',
-      name: 'Pacote Aventureiro Iniciante (Tier 1)',
+      name: '新手冒險者禮包（Tier 1）',
       priceAC: 100,
       brlEquivalent: 'R$ 7,50',
       badge: 'POPULAR',
       icon: 'gradec/weapons/weapon_berserker_blade.png',
-      desc: 'Kit essencial para começar no Nível 1 sem qualquer penalidade de grau. Entrega o Conjunto de Armadura de Herança (Heavy, Light ou Robe) + Arma de Herança da Classe (escalonáveis do Lv. 1 ao 40) + 2.000x Shots e Poções.',
+      desc: '適合從等級 1 開始的基礎禮包，不受裝備階級懲罰。內含傳承防具套裝（重甲、輕甲或法袍）＋職業傳承武器（可隨 Lv.1～40 成長）＋2,000 發彈藥與藥水。',
       contents: {
         gearTier: 'Herança Dinâmica (Lv. 1 ao 40 - Auto-adaptado)',
         isHeirloomSet: true,
         items: [
-          { id: 'armor_heirloom_chest', name: 'Conjunto de Armadura de Herança (5 Peças)', count: 1, isHeirloom: true },
-          { id: 'weapon_heirloom_sword', name: 'Arma de Herança da Classe (Lv. 1 ao 40)', count: 1, isHeirloom: true }
+          { id: 'armor_heirloom_chest', name: '傳承防具套裝（5 件）', count: 1, isHeirloom: true },
+          { id: 'weapon_heirloom_sword', name: '職業傳承武器（Lv.1～40）', count: 1, isHeirloom: true }
         ],
         consumables: [
-          { id: 'soulshot_d', name: '2.000x Shots da Classe (Soul/Spiritshot)', count: 2000 },
-          { id: 'hp_potion_l', name: '50x Poções de HP Grandes', count: 50 },
-          { id: 'scroll_teleport', name: '5x Pergaminhos de Teleporte', count: 5 }
+          { id: 'soulshot_d', name: '2,000x 職業彈藥（Soul／Spiritshot）', count: 2000 },
+          { id: 'hp_potion_l', name: '50x 大型 HP 藥水', count: 50 },
+          { id: 'scroll_teleport', name: '5x 傳送卷軸', count: 5 }
         ]
       }
     },
     {
       id: 'starter_pack_tier2',
-      name: 'Pacote Campeão de Aden (Tier 2)',
+      name: '亞丁冠軍禮包（Tier 2）',
       priceAC: 250,
       brlEquivalent: 'R$ 15,00',
       badge: 'RECOMENDADO',
       icon: 'gradec/weapons/weapon_samurai_longsword.png',
-      desc: 'O melhor custo-benefício. Entrega Conjunto de Armadura de Herança (5 Peças), Arma de Herança da Classe, Kit Completo de 5x Joias de Herança (todas equipáveis no Lv. 1), 5.000x Shots e Título [Pioneiro].',
+      desc: '高性價比禮包。內含傳承防具套裝（5 件）、職業傳承武器、5 件完整傳承飾品套組（Lv.1 即可裝備）、5,000 發彈藥與［先鋒］稱號。',
       contents: {
         gearTier: 'Herança Dinâmica + Joias de Herança (Lv. 1 ao 40)',
         isHeirloomSet: true,
-        title: { id: 'title_pioneiro', name: 'Pioneiro', color: '#38bdf8', glow: true },
+        title: { id: 'title_pioneiro', name: '先鋒', color: '#38bdf8', glow: true },
         items: [
-          { id: 'armor_heirloom_chest', name: 'Conjunto de Armadura de Herança (5 Peças)', count: 1, isHeirloom: true },
-          { id: 'weapon_heirloom_sword', name: 'Arma de Herança da Classe (Lv. 1 ao 40)', count: 1, isHeirloom: true },
-          { id: 'jewelry_heirloom_necklace', name: 'Kit Completo de 5x Joias de Herança', count: 1, isHeirloom: true }
+          { id: 'armor_heirloom_chest', name: '傳承防具套裝（5 件）', count: 1, isHeirloom: true },
+          { id: 'weapon_heirloom_sword', name: '職業傳承武器（Lv.1～40）', count: 1, isHeirloom: true },
+          { id: 'jewelry_heirloom_necklace', name: '完整 5 件傳承飾品套組', count: 1, isHeirloom: true }
         ],
         consumables: [
-          { id: 'soulshot_d', name: '5.000x Shots da Classe (Soul/Spiritshot)', count: 5000 },
-          { id: 'hp_potion_xl', name: '100x Poções de HP XL', count: 100 },
-          { id: 'potion_haste', name: '15x Poções de Aceleração', count: 15 },
-          { id: 'scroll_teleport', name: '10x Pergaminhos de Teleporte', count: 10 }
+          { id: 'soulshot_d', name: '5,000x 職業彈藥（Soul／Spiritshot）', count: 5000 },
+          { id: 'hp_potion_xl', name: '100x XL HP 藥水', count: 100 },
+          { id: 'potion_haste', name: '15x 加速藥水', count: 15 },
+          { id: 'scroll_teleport', name: '10x 傳送卷軸', count: 10 }
         ]
       }
     },
     {
       id: 'starter_pack_tier3',
-      name: 'Pacote Lorde Soberano (Tier 3 - Herança)',
+      name: '至尊領主禮包（Tier 3－傳承）',
       priceAC: 500,
       brlEquivalent: 'R$ 29,90',
       badge: 'SUPREMO',
       icon: 'acessories/noble_gold_crown.png',
-      desc: 'O pacote definitivo de soberania. Inclui o conjunto completo de Equipamentos de Herança adaptados à sua classe (5 Peças de Armadura + Arma + 5x Joias + Capa Real + Cinto + Coroa Alada + Escudo Aegis) que ativam o Bônus Soberano de +60% XP/Adena, Agathion Dragão Dourado, 15.000x Shots, Passe VIP 30D e Título Dourado [Lorde Soberano].',
+      desc: '最高階傳承禮包。內含依職業配置的完整傳承裝備（5 件防具＋武器＋5 件飾品＋皇家披風＋腰帶＋翼冠＋Aegis 盾），可啟動至尊加成 +60% XP／金幣，另含黃金龍 Agathion、15,000 發彈藥、30 天 VIP 通行證與金色［至尊領主］稱號。',
       contents: {
         gearTier: 'Full Lorde Soberano (12+ Peças de Herança Lv. 1 ao 40)',
         isHeirloomSet: true,
-        title: { id: 'title_lorde_soberano', name: 'Lorde Soberano', color: '#ffd700', glow: true, animated: true },
-        agathion: { id: 'agathion_golden_dragon', name: 'Agathion Dragão Dourado', desc: 'Companheiro místico que concede +5% Ouro e visual exuberante.' },
+        title: { id: 'title_lorde_soberano', name: '至尊領主', color: '#ffd700', glow: true, animated: true },
+        agathion: { id: 'agathion_golden_dragon', name: '黃金龍 Agathion', desc: '神秘夥伴，提供 +5% 金幣收益與華麗外觀。' },
         items: [
-          { id: 'armor_heirloom_chest', name: 'Conjunto de Armadura de Herança (5 Peças)', count: 1, isHeirloom: true },
-          { id: 'weapon_heirloom_sword', name: 'Arma de Herança da Classe', count: 1, isHeirloom: true },
-          { id: 'jewelry_heirloom_necklace', name: 'Kit Completo de 5x Joias de Herança', count: 1, isHeirloom: true },
-          { id: 'cloak_heirloom_royal', name: 'Capa Real + Cinto do Campeão + Coroa Alada + Escudo Aegis', count: 1, isHeirloom: true }
+          { id: 'armor_heirloom_chest', name: '傳承防具套裝（5 件）', count: 1, isHeirloom: true },
+          { id: 'weapon_heirloom_sword', name: '職業傳承武器', count: 1, isHeirloom: true },
+          { id: 'jewelry_heirloom_necklace', name: '完整 5 件傳承飾品套組', count: 1, isHeirloom: true },
+          { id: 'cloak_heirloom_royal', name: '皇家披風＋冠軍腰帶＋翼冠＋Aegis 盾', count: 1, isHeirloom: true }
         ],
         consumables: [
-          { id: 'soulshot_c', name: '15.000x Shots C-Grade (Soul/Spiritshot)', count: 15000 },
-          { id: 'hp_potion_xl', name: '200x Poções de HP XL', count: 200 },
-          { id: 'elixir_vigor_1h', name: '20x Elixires de Vigor (1h)', count: 20 },
-          { id: 'pass_vip_teleport_30d', name: 'Passe VIP de Teleporte (30 Dias)', count: 1 }
+          { id: 'soulshot_c', name: '15,000x C 級彈藥（Soul／Spiritshot）', count: 15000 },
+          { id: 'hp_potion_xl', name: '200x XL HP 藥水', count: 200 },
+          { id: 'elixir_vigor_1h', name: '20x 活力靈藥（1 小時）', count: 20 },
+          { id: 'pass_vip_teleport_30d', name: 'VIP 傳送通行證（30 天）', count: 1 }
         ]
       }
     }
@@ -93,55 +93,55 @@ export const CASH_SHOP_CATALOG = {
     {
       id: 'skin_weapon_frost_lord',
       category: 'weapon_skin',
-      name: 'Aparência de Arma: Frost Lord',
+      name: '武器外觀：Frost Lord',
       priceAC: 200,
       icon: 'gradespecial/weapons/weapon_frost_lord_sword.png',
-      desc: 'Envolve sua arma com névoa gélida e partículas cintilantes de gelo eterno.',
+      desc: '讓武器環繞冰霧與永恆寒冰的閃耀粒子。',
       visualEffect: 'frost_aura'
     },
     {
       id: 'skin_weapon_infernal_dragon',
       category: 'weapon_skin',
-      name: 'Aparência de Arma: Dragão Infernal',
+      name: '武器外觀：煉獄巨龍',
       priceAC: 200,
       icon: 'gradec/weapons/weapon_samurai_longsword.png',
-      desc: 'Incendeia a lâmina com fogo ardente e faíscas vulcânicas.',
+      desc: '讓刀刃燃起烈焰與火山火花。',
       visualEffect: 'fire_aura'
     },
     {
       id: 'skin_weapon_celestial_holy',
       category: 'weapon_skin',
-      name: 'Aparência de Arma: Sagrado Celestial',
+      name: '武器外觀：天界神聖',
       priceAC: 200,
       icon: 'gradec/weapons/weapon_crystal_staff.png',
-      desc: 'Irradia raios de luz divina dourada e runas sagradas flutuantes.',
+      desc: '散發金色神聖光芒與漂浮聖紋。',
       visualEffect: 'holy_aura'
     },
     {
       id: 'costume_royal_gala',
       category: 'costume',
-      name: 'Traje de Gala Real de Aden',
+      name: '亞丁皇家禮服',
       priceAC: 350,
       icon: 'gradec/armors/armor_full_plate_heavy_armor.png',
-      desc: 'Vestimenta cerimonial nobre confeccionada para os bailes imperiais do Castelo de Aden.',
+      desc: '為亞丁城堡帝國舞會製作的貴族典禮服飾。',
       visualEffect: 'royal_suit'
     },
     {
       id: 'costume_death_knight',
       category: 'costume',
-      name: 'Armadura do Cavaleiro da Morte',
+      name: '死亡騎士鎧甲',
       priceAC: 350,
       icon: 'gradec/armors/armor_full_plate_heavy_helmet.png',
-      desc: 'Traje sombrio de placas negras com olhos azuis incandescentes que emana autoridade obscura.',
+      desc: '黑色板甲搭配幽藍發光雙眼，散發陰暗威嚴。',
       visualEffect: 'death_knight_suit'
     },
     {
       id: 'costume_elven_spring',
       category: 'costume',
-      name: 'Roupão Élfico da Primavera',
+      name: '精靈春日法袍',
       priceAC: 300,
       icon: 'gradec/armors/armor_full_plate_cloack.png',
-      desc: 'Túnica élfica adornada com folhas e pétalas encantadas da Floresta dos Tributos.',
+      desc: '以魔法葉片與花瓣點綴的精靈長袍。',
       visualEffect: 'elven_spring_suit'
     }
   ],
@@ -151,52 +151,52 @@ export const CASH_SHOP_CATALOG = {
     {
       id: 'title_imperador',
       category: 'title',
-      name: 'Título: [Imperador]',
+      name: '稱號：[皇帝]',
       priceAC: 150,
       color: '#ef4444',
       prefixIcon: '👑',
-      desc: 'Exibe o título honorário [Imperador] com coroa vermelha e destaque reluzente no chat e avatar.'
+      desc: '在聊天與角色頭像顯示帶紅色王冠與閃耀效果的［皇帝］榮譽稱號。'
     },
     {
       id: 'title_imortal',
       category: 'title',
-      name: 'Título: [Imortal]',
+      name: '稱號：[不朽者]',
       priceAC: 150,
       color: '#a855f7',
       prefixIcon: '⚡',
-      desc: 'Exibe o título [Imortal] em púrpura mística com pulsação suave de energia arcana.'
+      desc: '以神秘紫色與柔和奧術脈動效果顯示［不朽者］稱號。'
     },
     {
       id: 'title_cacador_lendario',
       category: 'title',
-      name: 'Título: [Caçador Lendário]',
+      name: '稱號：[傳說獵人]',
       priceAC: 120,
       color: '#10b981',
       prefixIcon: '🏹',
-      desc: 'Exibe o título [Caçador Lendário] em verde esmeralda para mestres do farm.'
+      desc: '以翡翠綠顯示［傳說獵人］稱號，獻給真正的狩獵高手。'
     },
     {
       id: 'title_mestre_forja',
       category: 'title',
-      name: 'Título: [Mestre da Forja]',
+      name: '稱號：[鍛造大師]',
       priceAC: 120,
       color: '#f97316',
       prefixIcon: '🔨',
-      desc: 'Exibe o título [Mestre da Forja] em laranja flamejante para mestres do encantamento.'
+      desc: '以烈焰橘顯示［鍛造大師］稱號，獻給強化與鍛造高手。'
     },
     {
       id: 'frame_imperial_gold',
       category: 'avatar_frame',
-      name: 'Moldura de Avatar: Ouro Imperial',
+      name: '頭像邊框：帝國黃金',
       priceAC: 100,
-      desc: 'Borda dourada entalhada com asas que decora permanentemente o avatar do seu herói.'
+      desc: '帶翼雕刻的金色邊框，永久裝飾英雄頭像。'
     },
     {
       id: 'aura_battle_fire',
       category: 'combat_aura',
-      name: 'Aura de Batalha: Chamas Vorazes',
+      name: '戰鬥光環：吞噬烈焰',
       priceAC: 180,
-      desc: 'Círculo de runas de fogo que gira aos pés do personagem durante as lutas.'
+      desc: '戰鬥時在角色腳下旋轉的火焰符文光環。'
     }
   ],
 
@@ -204,38 +204,38 @@ export const CASH_SHOP_CATALOG = {
   utility_and_passes: [
     {
       id: 'pass_vip_teleport_30d',
-      name: 'Passe de Teleporte VIP (30 Dias)',
+      name: 'VIP 傳送通行證（30 天）',
       priceAC: 150,
       icon: 'gradec/jewels/jewel_blessed_necklace.png',
-      desc: 'Teleportes instantâneos ilimitados para qualquer zona de caça de Aden sem custo de taxas de Adena por 30 dias.'
+      desc: '30 天內可不限次數瞬間傳送至亞丁各狩獵區，免除金幣傳送費。'
     },
     {
       id: 'scroll_blessed_weapon',
-      name: 'Pergaminho Abençoado de Arma (Universal)',
+      name: '祝福武器強化卷軸（通用）',
       priceAC: 80,
       icon: 'scrolls/scroll_of_enchant_weapon_.png',
-      desc: 'Encanta qualquer arma do jogo (+1). Em caso de falha, o equipamento é 100% protegido (não perde níveis nem quebra).'
+      desc: '可使任何武器強化 +1。失敗時裝備 100% 受到保護，不會降級或破壞。'
     },
     {
       id: 'scroll_blessed_armor',
-      name: 'Pergaminho Abençoado de Armadura (Universal)',
+      name: '祝福防具強化卷軸（通用）',
       priceAC: 50,
       icon: 'scrolls/scroll_of_enchant_armor.png',
-      desc: 'Encanta qualquer armadura, escudo ou joia (+1). Em caso de falha, o equipamento é 100% protegido (não perde níveis nem quebra).'
+      desc: '可使任何防具、盾牌或飾品強化 +1。失敗時裝備 100% 受到保護，不會降級或破壞。'
     },
     {
       id: 'pack_inventory_expand_30',
-      name: 'Expansor de Mochila (+30 Slots)',
+      name: '背包擴充器（+30 格）',
       priceAC: 120,
       icon: 'materials/material_pouch.png',
-      desc: 'Bolsa dimensional de couro místico. Expande permanentemente o limite máximo da sua mochila em +30 slots adicionais.'
+      desc: '神秘次元皮袋，可永久增加背包上限 30 格。'
     },
     {
       id: 'elixir_vigor_bundle_5',
-      name: 'Pacote com 5x Elixires de Vigor (1h)',
+      name: '5x 活力靈藥禮包（1 小時）',
       priceAC: 25,
       icon: 'consumables/berserker_elixir.png',
-      desc: 'Frascos revigorantes que concedem +30% de Experiência e +30% de Adena por 1 hora cada.'
+      desc: '每瓶持續 1 小時，提供 +30% 經驗與 +30% 金幣收益。'
     }
   ],
 
@@ -247,8 +247,8 @@ export const CASH_SHOP_CATALOG = {
       bonusAC: 0,
       firstPurchaseBonusAC: 100,
       priceBRL: 'R$ 7,50',
-      label: 'Pacote Pequeno',
-      desc: 'Ideal para adquirir o Starter Pack Tier 1 ou Passes Utilitários. 🎁 1ª Recarga: +100 AC Bônus!'
+      label: '小型禮包',
+      desc: '適合購買 Tier 1 新手禮包或實用通行證。🎁 首次儲值：額外 +100 AC！'
     },
     {
       id: 'ac_pack_250',
@@ -256,8 +256,8 @@ export const CASH_SHOP_CATALOG = {
       bonusAC: 0,
       firstPurchaseBonusAC: 250,
       priceBRL: 'R$ 15,00',
-      label: 'Pacote Médio',
-      desc: 'Perfeito para o Starter Pack Tier 2 Campeão ou Aparência de Arma. 🎁 1ª Recarga: +250 AC Bônus!'
+      label: '中型禮包',
+      desc: '適合購買 Tier 2 冠軍禮包或武器外觀。🎁 首次儲值：額外 +250 AC！'
     },
     {
       id: 'ac_pack_550',
@@ -266,9 +266,9 @@ export const CASH_SHOP_CATALOG = {
       firstPurchaseBonusAC: 500,
       totalAC: 550,
       priceBRL: 'R$ 30,00',
-      label: 'Pacote Lorde (+10% Bônus)',
+      label: '領主禮包（+10% 加成）',
       popular: true,
-      desc: 'Suficiente para o Starter Pack Tier 3 com Herança Completa + Título + Agathion. 🎁 1ª Recarga: +500 AC Bônus!'
+      desc: '可購買 Tier 3 完整傳承新手禮包＋稱號＋Agathion。🎁 首次儲值：額外 +500 AC！'
     },
     {
       id: 'ac_pack_1200',
@@ -277,8 +277,8 @@ export const CASH_SHOP_CATALOG = {
       firstPurchaseBonusAC: 1000,
       totalAC: 1200,
       priceBRL: 'R$ 60,00',
-      label: 'Cofre Real (+20% Bônus)',
-      desc: 'Máximo valor por moeda com bônus generoso para quem deseja desbloquear trajes e auras. 🎁 1ª Recarga: +1.000 AC Bônus!'
+      label: '皇家寶庫（+20% 加成）',
+      desc: '提供更高額度與額外加成，適合解鎖服裝與光環。🎁 首次儲值：額外 +1,000 AC！'
     }
   ]
 };
