@@ -2,7 +2,7 @@
 export const DYES_CATALOG = {
   dye_str_con_g: {
     id: 'dye_str_con_g',
-    name: 'Henna Maior: +4 STR / -4 CON',
+    name: '高級染料：+4 STR / -4 CON',
     shortName: '+4 STR / -4 CON',
     icon: '⚔️🩸',
     category: 'dye',
@@ -16,7 +16,7 @@ export const DYES_CATALOG = {
   },
   dye_str_dex_g: {
     id: 'dye_str_dex_g',
-    name: 'Henna Maior: +4 STR / -4 DEX',
+    name: '高級染料：+4 STR / -4 DEX',
     shortName: '+4 STR / -4 DEX',
     icon: '⚔️🌪️',
     category: 'dye',
@@ -30,7 +30,7 @@ export const DYES_CATALOG = {
   },
   dye_dex_con_g: {
     id: 'dye_dex_con_g',
-    name: 'Henna Maior: +4 DEX / -4 CON',
+    name: '高級染料：+4 DEX / -4 CON',
     shortName: '+4 DEX / -4 CON',
     icon: '🎯🩸',
     category: 'dye',
@@ -44,7 +44,7 @@ export const DYES_CATALOG = {
   },
   dye_dex_str_g: {
     id: 'dye_dex_str_g',
-    name: 'Henna Maior: +4 DEX / -4 STR',
+    name: '高級染料：+4 DEX / -4 STR',
     shortName: '+4 DEX / -4 STR',
     icon: '🎯⚔️',
     category: 'dye',
@@ -58,7 +58,7 @@ export const DYES_CATALOG = {
   },
   dye_con_str_g: {
     id: 'dye_con_str_g',
-    name: 'Henna Maior: +4 CON / -4 STR',
+    name: '高級染料：+4 CON / -4 STR',
     shortName: '+4 CON / -4 STR',
     icon: '🛡️⚔️',
     category: 'dye',
@@ -72,7 +72,7 @@ export const DYES_CATALOG = {
   },
   dye_con_dex_g: {
     id: 'dye_con_dex_g',
-    name: 'Henna Maior: +4 CON / -4 DEX',
+    name: '高級染料：+4 CON / -4 DEX',
     shortName: '+4 CON / -4 DEX',
     icon: '🛡️🎯',
     category: 'dye',
@@ -86,7 +86,7 @@ export const DYES_CATALOG = {
   },
   dye_int_men_g: {
     id: 'dye_int_men_g',
-    name: 'Henna Maior: +4 INT / -4 MEN',
+    name: '高級染料：+4 INT / -4 MEN',
     shortName: '+4 INT / -4 MEN',
     icon: '🔮📜',
     category: 'dye',
@@ -100,7 +100,7 @@ export const DYES_CATALOG = {
   },
   dye_wit_men_g: {
     id: 'dye_wit_men_g',
-    name: 'Henna Maior: +4 WIT / -4 MEN',
+    name: '高級染料：+4 WIT / -4 MEN',
     shortName: '+4 WIT / -4 MEN',
     icon: '⚡📜',
     category: 'dye',
@@ -114,7 +114,7 @@ export const DYES_CATALOG = {
   },
   dye_wit_int_g: {
     id: 'dye_wit_int_g',
-    name: 'Henna Maior: +4 WIT / -4 INT',
+    name: '高級染料：+4 WIT / -4 INT',
     shortName: '+4 WIT / -4 INT',
     icon: '⚡🔮',
     category: 'dye',
@@ -128,7 +128,7 @@ export const DYES_CATALOG = {
   },
   dye_men_int_g: {
     id: 'dye_men_int_g',
-    name: 'Henna Maior: +4 MEN / -4 INT',
+    name: '高級染料：+4 MEN / -4 INT',
     shortName: '+4 MEN / -4 INT',
     icon: '📜🔮',
     category: 'dye',
@@ -142,7 +142,7 @@ export const DYES_CATALOG = {
   },
   dye_men_wit_g: {
     id: 'dye_men_wit_g',
-    name: 'Henna Maior: +4 MEN / -4 WIT',
+    name: '高級染料：+4 MEN / -4 WIT',
     shortName: '+4 MEN / -4 WIT',
     icon: '📜⚡',
     category: 'dye',
