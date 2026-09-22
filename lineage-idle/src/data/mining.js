@@ -75,7 +75,7 @@ export function getMiningZonesList() {
 
 export const MINE_HAZARDS = {
   none: { id: 'none', name: '穩定岩層', desc: '沒有隱藏危險。' },
-  gas_pocket: { id: 'gas_pocket', name: '瓦斯囊', desc: '可燃性瓦斯，重擊可能引發爆炸（造成 10% HP 傷害並額外消耗工具耐久）。' },
+  gas_pocket: { id: 'gas_pocket', name: '瓦斯囊', desc: '可燃性瓦斯，重擊可能引發爆炸（造成 10% 生命值傷害並額外消耗工具耐久）。' },
   seismic_fault: { id: 'seismic_fault', name: '地震裂隙', desc: '岩層破裂，穩定度下降速度變為 2 倍。' },
   dense_crystal: { id: 'dense_crystal', name: '水晶礦脈', desc: '純淨水晶，精準採礦可使產量加倍。' }
 };
