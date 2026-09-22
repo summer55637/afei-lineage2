@@ -19,7 +19,7 @@ export const INFINITY_WEAPONS = {
     req: { level: 76, isHero: true },
     price: 1000000,
     icon: 'gradespecial/weapons/zaken_sword.png',
-    desc: '大奧林匹亞英雄之劍：P.Atk +280、M.Atk +190、暴擊 +12%、P.Def +60、HP +500，並有機率解除對手增益。'
+    desc: '大奧林匹亞英雄之劍：物理攻擊 +280、魔法攻擊 +190、暴擊 +12%、物理防禦 +60、生命值 +500，並有機率解除對手增益。'
   },
   weapon_infinity_cleaver: {
     id: 'weapon_infinity_cleaver',
@@ -35,7 +35,7 @@ export const INFINITY_WEAPONS = {
     req: { level: 76, isHero: true },
     price: 1000000,
     icon: 'gradespecial/weapons/orfen_twohanded_sword.png',
-    desc: '英雄雙手劍：P.Atk +345、暴擊傷害 +30%、暴擊 +15%、HP +750。'
+    desc: '英雄雙手劍：物理攻擊 +345、暴擊傷害 +30%、暴擊 +15%、生命值 +750。'
   },
   weapon_infinity_axe: {
     id: 'weapon_infinity_axe',
@@ -51,7 +51,7 @@ export const INFINITY_WEAPONS = {
     req: { level: 76, isHero: true },
     price: 1000000,
     icon: 'gradespecial/weapons/weapon_frost_lord_axe.png',
-    desc: '英雄戰斧：P.Atk +280、暈眩機率 +25%、暴擊 +10%、HP +600。'
+    desc: '英雄戰斧：物理攻擊 +280、暈眩機率 +25%、暴擊 +10%、生命值 +600。'
   },
   weapon_infinity_rod: {
     id: 'weapon_infinity_rod',
@@ -68,7 +68,7 @@ export const INFINITY_WEAPONS = {
     req: { level: 76, isHero: true },
     price: 1000000,
     icon: 'gradespecial/weapons/imperial_staff.png',
-    desc: '英雄魔法杖：M.Atk +360、施法速度 +20%、MP 恢復 +15、MP +600。'
+    desc: '英雄魔法杖：魔法攻擊 +360、施法速度 +20%、魔力 恢復 +15、魔力 +600。'
   },
   weapon_infinity_bow: {
     id: 'weapon_infinity_bow',
@@ -84,7 +84,7 @@ export const INFINITY_WEAPONS = {
     req: { level: 76, isHero: true },
     price: 1000000,
     icon: 'gradespecial/weapons/draconic_bow.png',
-    desc: '英雄帝國弓：P.Atk +395、暴擊 +18%、暴擊傷害 +25%、移動速度 +15，並可發動穿透射擊。'
+    desc: '英雄帝國弓：物理攻擊 +395、暴擊 +18%、暴擊傷害 +25%、移動速度 +15，並可發動穿透射擊。'
   },
   weapon_infinity_dagger: {
     id: 'weapon_infinity_dagger',
@@ -100,7 +100,7 @@ export const INFINITY_WEAPONS = {
     req: { level: 76, isHero: true },
     price: 1000000,
     icon: 'gradespecial/weapons/baium_dagger.png',
-    desc: '英雄致命匕首：P.Atk +255、暴擊 +22%、迴避 +18、攻擊速度 +15%，並具致命一擊。'
+    desc: '英雄致命匕首：物理攻擊 +255、暴擊 +22%、迴避 +18、攻擊速度 +15%，並具致命一擊。'
   },
   weapon_infinity_spear: {
     id: 'weapon_infinity_spear',
@@ -116,7 +116,7 @@ export const INFINITY_WEAPONS = {
     req: { level: 76, isHero: true },
     price: 1000000,
     icon: 'gradespecial/weapons/gorde_spear.png',
-    desc: '英雄泰坦長槍：P.Atk +295、範圍傷害 +30%、暴擊 +12%、HP +600。'
+    desc: '英雄泰坦長槍：物理攻擊 +295、範圍傷害 +30%、暴擊 +12%、生命值 +600。'
   },
   weapon_infinity_duals: {
     id: 'weapon_infinity_duals',
@@ -132,7 +132,7 @@ export const INFINITY_WEAPONS = {
     req: { level: 76, isHero: true },
     price: 1000000,
     icon: 'gradespecial/weapons/juriel_dual_sword.png',
-    desc: '英雄雙劍：P.Atk +340、攻擊速度 +20%、暴擊 +16%、HP +550。'
+    desc: '英雄雙劍：物理攻擊 +340、攻擊速度 +20%、暴擊 +16%、生命值 +550。'
   }
 };
 
@@ -143,7 +143,7 @@ export const HEROIC_SKILLS = {
     type: 'buff',
     cd: 60000,
     duration: 120000,
-    desc: '提升英雄勇氣：2 分鐘內 P.Atk +250、M.Atk +300、P.Def +500。',
+    desc: '提升英雄勇氣：2 分鐘內 物理攻擊 +250、魔法攻擊 +300、物理防禦 +500。',
     stats: { atk: 250, matk: 300, def: 500 }
   },
   heroic_miracle: {
@@ -152,7 +152,7 @@ export const HEROIC_SKILLS = {
     type: 'buff',
     cd: 90000,
     duration: 30000,
-    desc: '女神的英雄奇蹟：30 秒內 P.Def +5,400、M.Def +4,050，並大幅提升抗性。',
+    desc: '女神的英雄奇蹟：30 秒內 物理防禦 +5,400、魔法防禦 +4,050，並大幅提升抗性。',
     stats: { def: 5400, mdef: 4050 }
   },
   heroic_berserker: {
@@ -169,7 +169,7 @@ export const HEROIC_SKILLS = {
     name: '英雄威嚴 💥',
     type: 'debuff',
     cd: 45000,
-    desc: '威嚴氣場：周圍敵人的 P.Def 與 M.Def 降低 30%，持續 30 秒。',
+    desc: '威嚴氣場：周圍敵人的 物理防禦 與 魔法防禦 降低 30%，持續 30 秒。',
     debuff: { defReduce: 0.30, mdefReduce: 0.30 }
   }
 };
@@ -223,7 +223,7 @@ export const OLYMPIAD_SHOP_CATALOG = [
     name: '英雄活力靈藥（1 小時）',
     priceTokens: 300,
     icon: 'consumables/elixir_vigor.png',
-    desc: '狩獵 1 小時內 XP +20%、金幣 +20%、傷害 +10%。',
+    desc: '狩獵 1 小時內 經驗值 +20%、金幣 +20%、傷害 +10%。',
     reward: { itemId: 'elixir_vigor_1h', count: 5 }
   }
 ];
