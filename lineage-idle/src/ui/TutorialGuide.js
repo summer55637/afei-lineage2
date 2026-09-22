@@ -77,7 +77,7 @@ function renderResonancesCatalogHtml() {
           總計： <strong>27 武器組合</strong> 針對 1 對 1 戰鬥平衡
         </span>
         <span style="font-size: 10px; color: #38bdf8; background: rgba(56,189,248,0.1); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(56,189,248,0.25);">
-          +1.240 每組啟用組合的標準 CP
+          +1,240 每組啟用組合的標準戰鬥力
         </span>
       </div>
       <input type="text" placeholder="🔍 依共鳴或武器名稱篩選（例如：弓、法杖、長槍、匕首）..." oninput="const q = this.value.toLowerCase(); this.parentElement.querySelectorAll('.res-guide-card').forEach(c => { c.style.display = c.textContent.toLowerCase().includes(q) ? 'block' : 'none'; });" style="width: 100%; box-sizing: border-box; padding: 7px 10px; font-size: 11px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212,167,68,0.3); border-radius: 6px; color: #fff; margin-bottom: 8px; font-family: sans-serif; outline: none;" />
@@ -467,7 +467,7 @@ export const GUIDES_DATA = {
     color: '#f59e0b',
     sections: [
       {
-        heading: '⚔️ 競技場 1v1 決鬥',
+        heading: '⚔️ 競技場一對一決鬥',
         text: '挑戰依戰鬥力與排名生成的其他玩家即時鏡像。贏得決鬥可獲得榮譽點數並提升排名。',
         tip: '進入競技場前記得調整裝備並開啟自動魂彈！'
       },
