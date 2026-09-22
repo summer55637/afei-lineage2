@@ -6985,7 +6985,7 @@ export function renderExpeditionsUI(state) {
   let tavernHtml = '';
   for (const cand of mState.tavernPool) {
     const rarityDef = MERCENARY_RARITIES[cand.rarity] || MERCENARY_RARITIES.common;
-    const specDef = MERCENARY_SPECIALIZATIONS[cand.spec] || { name: cand.spec, icon: '⚔️', synergyDesc: '' };
+    const specDef = MERCENARY_SPECIALIZATIONS[cand.spec] || { name: '未知專精', icon: '⚔️', synergyDesc: '' };
     const canAfford = (state.gold || 0) >= cand.hireCost;
 
     tavernHtml += `
@@ -7043,7 +7043,7 @@ export function renderExpeditionsUI(state) {
             cursor: ${canAfford ? 'pointer' : 'not-allowed'};
           "
         >
-          CONTRATAR (${(cand.hireCost / 1000).toFixed(0)}k 金幣)
+          招募（${(cand.hireCost / 1000).toFixed(0)}k 金幣）
         </button>
       </div>
     `;
@@ -7062,7 +7062,7 @@ export function renderExpeditionsUI(state) {
     for (const merc of mState.owned) {
       const isBusy = MercenaryService.isMercenaryBusy(state, merc.uid);
       const rarityDef = MERCENARY_RARITIES[merc.rarity] || MERCENARY_RARITIES.common;
-      const specDef = MERCENARY_SPECIALIZATIONS[merc.spec] || { name: merc.spec, icon: '⚔️' };
+      const specDef = MERCENARY_SPECIALIZATIONS[merc.spec] || { name: '未知專精', icon: '⚔️' };
       const mercPower = calculateMercenaryPower(merc);
       const neededXp = getMercenaryXpForLevel(merc.level || 1);
       const xpPct = Math.min(100, Math.floor(((merc.xp || 0) / neededXp) * 100));
@@ -8433,7 +8433,7 @@ export function renderForgeRandomCraft(container, state, callbacks = {}) {
     slotsHtml = `
       <div class="imp-rc-reel" id="imp-rc-reel">
         ${slots.map((s, idx) => {
-          const def = allItems[s.itemId] || { name: s.itemId, slot: 'relic' };
+          const def = allItems[s.itemId] || { name: '未知物品', slot: 'relic' };
           const gradeInfo = getItemGrade(def);
           const isSPlus = gradeInfo.code === 's' || gradeInfo.code === 'boss' || gradeInfo.code === 'frostlord';
           return `
@@ -8454,7 +8454,7 @@ export function renderForgeRandomCraft(container, state, callbacks = {}) {
                 </div>
               </div>
               <div style="font-size:9px; color:#38bdf8; background:rgba(56,189,248,0.1); padding:2px 8px; border-radius:4px; border:1px solid rgba(56,189,248,0.25); font-family:'IBM Plex Mono',monospace;">
-                Sorteio: 20%
+                抽取機率：20%
               </div>
             </div>
           `;
@@ -8553,7 +8553,7 @@ export function showDropLocatorModal(matId) {
   const gData = D();
   const eData = (typeof window !== 'undefined' && window.EchoData) ? window.EchoData : {};
   const allItems = gData?.ALL_ITEMS || eData?.ALL_ITEMS || {};
-  const matDef = allItems[matId] || { name: matId };
+  const matDef = allItems[matId] || { name: '未知材料' };
 
   const zones = gData?.ZONES || ZONES || {};
   const monsters = gData?.MONSTERS || MONSTERS || {};
