@@ -186,7 +186,7 @@ export const GatheringService = {
     }
 
     gState.sickle = sickleId;
-    if (callbacks.log) callbacks.log(`🌾 Foice empunhada: **${sickle.name}**.`, 'system');
+    if (callbacks.log) callbacks.log(`🌾 已裝備鐮刀：**${sickle.name}**。`, 'system');
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
@@ -367,7 +367,7 @@ export const GatheringService = {
     gState.activeTactic = tactic.id;
 
     if (callbacks.log) {
-      callbacks.log(`🌿 Arbusto selecionado! [${tactic.name}] Colhendo **${node.name}** em ${zone.name}...`, 'system');
+      callbacks.log(`🌿 已選定植物！[${tactic.name}] 正在 ${zone.name} 採集 **${node.name}**……`, 'system');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -475,8 +475,8 @@ export const GatheringService = {
     gState.targetedNodeId = null;
 
     if (callbacks.log) {
-      const qualityPrefix = quality.tier === 'perfect' ? '🌸 **COLHEITA PERFEITA!**'
-        : quality.tier === 'excellent' ? '✨ **COLHEITA EXCELENTE!**'
+      const qualityPrefix = quality.tier === 'perfect' ? '🌸 **完美採集！**'
+        : quality.tier === 'excellent' ? '✨ **優秀採集！**'
         : '✓ 採集完成：';
       callbacks.log(`🌿 ${qualityPrefix} 採集 **${node.name}** [${quality.name}]！獲得 +${primaryQty}x ${primaryMat.toUpperCase()}${secMat && secQty > 0 ? ` 與 +${secQty}x ${secMat.toUpperCase()}` : ''}！（+${finalXp} 採集 XP）`, 'loot');
     }
