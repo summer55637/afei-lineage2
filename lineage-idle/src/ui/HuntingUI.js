@@ -84,7 +84,7 @@ export function renderHuntingUI(state) {
         </p>
         <div style="display:flex; justify-content:space-between; font-size:10px; color:#aaa;">
           <span>誘餌： <strong style="color:#cbd5e1;">${reqLureDef ? reqLureDef.name : '任意'}</strong></span>
-          <span style="color:#34d399; font-weight:bold;">${isSelected ? '● ACAMPAMENTO' : ''}</span>
+          <span style="color:#34d399; font-weight:bold;">${isSelected ? '● 目前營地' : ''}</span>
         </div>
       </div>
     `;
