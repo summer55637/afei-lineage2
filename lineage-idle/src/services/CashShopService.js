@@ -202,7 +202,7 @@ export class CashShopService {
       state.activeAgathion = 'agathion_golden_dragon';
 
       if (callbacks.log) {
-        callbacks.log(`✨ **PACOTE LORDE SOBERANO ATIVADO!** Você recebeu todo o Conjunto de Herança ${archetype.toUpperCase()} Dinâmico (Lv. 1 ao 40), Arma de Herança da Classe, Joias, Capa, Cinto, Coroa, 15.000x Shots, Passe VIP 30D, Agathion Dragão Dourado e o Título **[Lorde Soberano]**!`, 'system');
+        callbacks.log(`✨ **君主至尊套組已啟用！**你獲得完整的 ${archetype.toUpperCase()} 動態傳承套裝（Lv.1～40）、職業傳承武器、飾品、披風、腰帶、王冠、15,000 發彈藥、30 天 VIP 通行證、黃金巨龍亞加西翁，以及稱號 **【君主至尊】**！`, 'system');
       }
     }
 
