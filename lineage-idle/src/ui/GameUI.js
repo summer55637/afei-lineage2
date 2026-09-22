@@ -4569,7 +4569,7 @@ export const SHOP_CATEGORY_TREE = {
     dialoguePrompt: '必備補給：魂彈、藥水與神聖卷軸。',
     subcategories: [
       { id: 'all', name: '全部消耗品', icon: '🧪' },
-      { id: 'shots', name: 'SoulShots & SpiritShots', icon: '✨' },
+      { id: 'shots', name: '魂彈與魔靈彈', icon: '✨' },
       { id: 'potions', name: '治療、魔力與增益藥水', icon: '🍷' },
       { id: 'scrolls', name: '強化與傳送卷軸', icon: '📜' },
       { id: 'books', name: '書籍與神聖典籍', icon: '📖' }
@@ -5714,7 +5714,7 @@ export const SUBCATEGORIES_BY_CAT = {
     { id: 'ring', label: '💍 戒指' },
     { id: 'earring', label: '👂 Brincos' },
     { id: 'potion', label: '🧪 藥水' },
-    { id: 'shot', label: '⚡ Soulshots' },
+    { id: 'shot', label: '⚡ 魂彈' },
     { id: 'material', label: '🧱 材料' }
   ],
   weapon: [
@@ -5755,7 +5755,7 @@ export const SUBCATEGORIES_BY_CAT = {
   consumable: [
     { id: 'all', label: '🧪 全部' },
     { id: 'potion', label: '🧪 藥水' },
-    { id: 'shot', label: '⚡ Soulshots' },
+    { id: 'shot', label: '⚡ 魂彈' },
     { id: 'scroll', label: '📜 卷軸' },
     { id: 'material', label: '🧱 材料' }
   ]
@@ -8578,7 +8578,7 @@ export function showDropLocatorModal(matId) {
         zoneKey: rId,
         zoneName: `團隊首領：${rDef.name}`,
         minLvl: rDef.level || 50,
-        type: '史詩 Raid',
+        type: '史詩團隊首領',
         monster: rDef.name
       });
     }
@@ -9301,7 +9301,7 @@ export function uiOpenReferralModal(state, defaultTab) {
   const refCode = heroNick;
   const baseUrl = (typeof window !== 'undefined') ? (window.location.origin + window.location.pathname) : 'https://adenarena.com';
   const refUrl = `${baseUrl}?ref=${encodeURIComponent(refCode)}`;
-  const whatsappText = encodeURIComponent(`⚔️ 一起來玩 Aden Arena: Idle Chronicles！直接用瀏覽器就能玩的史詩冒險，不用下載。建立英雄還有新手加成：${refUrl}`);
+  const whatsappText = encodeURIComponent(`⚔️ 一起來玩亞丁競技場：放置編年史！直接用瀏覽器就能玩的史詩冒險，不用下載。建立英雄還有新手加成：${refUrl}`);
   const whatsappUrl = `https://api.whatsapp.com/send?text=${whatsappText}`;
 
   const countInvited = s?.referralsCount || 0;
