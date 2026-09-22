@@ -3484,7 +3484,7 @@ function renderBattlePassUI() {
       unlockBtn.disabled = true;
       unlockBtn.style.opacity = '0.7';
     } else {
-      unlockBtn.textContent = '👑 取得高級通行證（R$ 15.00）';
+      unlockBtn.textContent = '👑 取得高級通行證（15 巴西雷亞爾）';
       unlockBtn.disabled = false;
       unlockBtn.onclick = () => {
         window.open('https://pay.cakto.com.br/36g8n4b_1054492', '_blank');
