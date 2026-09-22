@@ -109,7 +109,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_phoenix_knight',
-    name: 'Phoenix Knight',
+    name: '鳳凰騎士',
     race: 'Human',
     lineage: 'Human Knight',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -121,7 +121,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_dark_avenger',
-    name: 'Dark Avenger',
+    name: '黑暗復仇者',
     race: 'Human',
     lineage: 'Human Knight',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -133,7 +133,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_hell_knight',
-    name: 'Hell Knight',
+    name: '地獄騎士',
     race: 'Human',
     lineage: 'Human Knight',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -159,7 +159,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_treasure_hunter',
-    name: 'Treasure Hunter',
+    name: '寶藏獵人',
     race: 'Human',
     lineage: 'Human Rogue',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -281,7 +281,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'human_arcana_lord',
-    name: 'Arcana Lord',
+    name: '奧術領主',
     race: 'Human',
     lineage: 'Human Mystic',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -359,7 +359,7 @@ export const HISTORICAL_CLASSES = [
   // Elven Knight Branch
   {
     id: 'elf_knight',
-    name: 'Elven Knight',
+    name: '精靈騎士',
     race: 'Elf',
     lineage: 'Elven Knight',
     lineageType: 'FIRST_CLASS_TRANSFER',
@@ -371,7 +371,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'elf_temple_knight',
-    name: 'Temple Knight',
+    name: '聖殿騎士',
     race: 'Elf',
     lineage: 'Elven Knight',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -407,7 +407,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'elf_sword_muse',
-    name: 'Sword Muse',
+    name: '劍之繆思',
     race: 'Elf',
     lineage: 'Elven Knight',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -421,7 +421,7 @@ export const HISTORICAL_CLASSES = [
   // Elven Scout Branch
   {
     id: 'elf_scout',
-    name: 'Elven Scout',
+    name: '斥候',
     race: 'Elf',
     lineage: 'Elven Scout',
     lineageType: 'FIRST_CLASS_TRANSFER',
@@ -445,7 +445,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'elf_wind_rider',
-    name: 'Wind Rider',
+    name: '風騎士',
     race: 'Elf',
     lineage: 'Elven Scout',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -457,7 +457,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'elf_silver_ranger',
-    name: 'Silver Ranger',
+    name: '銀月遊俠',
     race: 'Elf',
     lineage: 'Elven Scout',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -469,7 +469,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'elf_moonlight_sentinel',
-    name: 'Moonlight Sentinel',
+    name: '月光守衛',
     race: 'Elf',
     lineage: 'Elven Scout',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -483,7 +483,7 @@ export const HISTORICAL_CLASSES = [
   // Elven Wizard Branch
   {
     id: 'elf_wizard',
-    name: 'Elven Wizard',
+    name: '精靈巫師',
     race: 'Elf',
     lineage: 'Elven Mystic',
     lineageType: 'FIRST_CLASS_TRANSFER',
@@ -507,7 +507,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'elf_mystic_muse',
-    name: 'Mystic Muse',
+    name: '神秘繆思',
     race: 'Elf',
     lineage: 'Elven Mystic',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -519,7 +519,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'elf_elemental_summoner',
-    name: 'Elemental Summoner',
+    name: '元素召喚師',
     race: 'Elf',
     lineage: 'Elven Mystic',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -531,7 +531,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'elf_elemental_master',
-    name: 'Elemental Master',
+    name: '元素大師',
     race: 'Elf',
     lineage: 'Elven Mystic',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -587,7 +587,7 @@ export const HISTORICAL_CLASSES = [
   // Palus Knight Branch
   {
     id: 'dark_elf_palus_knight',
-    name: 'Palus Knight',
+    name: '帕魯斯騎士',
     race: 'Dark Elf',
     lineage: 'Palus Knight',
     lineageType: 'FIRST_CLASS_TRANSFER',
@@ -599,7 +599,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'dark_elf_shillien_knight',
-    name: 'Shillien Knight',
+    name: '席琳騎士',
     race: 'Dark Elf',
     lineage: 'Palus Knight',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -611,7 +611,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'dark_elf_shillien_templar',
-    name: 'Shillien Templar',
+    name: '席琳聖殿騎士',
     race: 'Dark Elf',
     lineage: 'Palus Knight',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -625,7 +625,7 @@ export const HISTORICAL_CLASSES = [
   // Dark Elf Assassin / Rogue Branch (branches from active dark_elf_assassin)
   {
     id: 'dark_elf_abyss_walker',
-    name: 'Abyss Walker',
+    name: '深淵行者',
     race: 'Dark Elf',
     lineage: 'Dark Elf Assassin',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -637,7 +637,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'dark_elf_ghost_hunter',
-    name: 'Ghost Hunter',
+    name: '幽靈獵人',
     race: 'Dark Elf',
     lineage: 'Dark Elf Assassin',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -649,7 +649,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'dark_elf_phantom_ranger',
-    name: 'Phantom Ranger',
+    name: '幽靈遊俠',
     race: 'Dark Elf',
     lineage: 'Dark Elf Assassin',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -661,7 +661,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'dark_elf_ghost_sentinel',
-    name: 'Ghost Sentinel',
+    name: '幽靈守衛',
     race: 'Dark Elf',
     lineage: 'Dark Elf Assassin',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -673,7 +673,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'dark_elf_bladedancer',
-    name: 'Bladedancer',
+    name: '劍舞者',
     race: 'Dark Elf',
     lineage: 'Dark Elf Assassin',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -685,7 +685,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'dark_elf_spectral_dancer',
-    name: 'Spectral Dancer',
+    name: '幽靈舞者',
     race: 'Dark Elf',
     lineage: 'Dark Elf Assassin',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -699,7 +699,7 @@ export const HISTORICAL_CLASSES = [
   // Dark Wizard Branch
   {
     id: 'dark_elf_wizard',
-    name: 'Dark Wizard',
+    name: '黑暗巫師',
     race: 'Dark Elf',
     lineage: 'Dark Mystic',
     lineageType: 'FIRST_CLASS_TRANSFER',
@@ -723,7 +723,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'dark_elf_storm_screamer',
-    name: 'Storm Screamer',
+    name: '暴風狂嘯者',
     race: 'Dark Elf',
     lineage: 'Dark Mystic',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -735,7 +735,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'dark_elf_phantom_summoner',
-    name: 'Phantom Summoner',
+    name: '幽靈召喚師',
     race: 'Dark Elf',
     lineage: 'Dark Mystic',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -747,7 +747,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'dark_elf_spectral_master',
-    name: 'Spectral Master',
+    name: '幽靈大師',
     race: 'Dark Elf',
     lineage: 'Dark Mystic',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -761,7 +761,7 @@ export const HISTORICAL_CLASSES = [
   // Shillien Oracle Branch
   {
     id: 'dark_elf_shillien_oracle',
-    name: 'Shillien Oracle',
+    name: '席琳神使',
     race: 'Dark Elf',
     lineage: 'Shillien Cleric',
     lineageType: 'FIRST_CLASS_TRANSFER',
@@ -773,7 +773,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'dark_elf_shillien_elder',
-    name: 'Shillien Elder',
+    name: '席琳長老',
     race: 'Dark Elf',
     lineage: 'Shillien Cleric',
     lineageType: 'SECOND_CLASS_TRANSFER',
@@ -785,7 +785,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'dark_elf_shillien_saint',
-    name: 'Shillien Saint',
+    name: '席琳聖者',
     race: 'Dark Elf',
     lineage: 'Shillien Cleric',
     lineageType: 'THIRD_CLASS_AWAKENING',
@@ -803,7 +803,7 @@ export const HISTORICAL_CLASSES = [
   // Orc Mystic Base
   {
     id: 'orc_mage',
-    name: 'Orc Mage',
+    name: '半獸人法師',
     race: 'Orc',
     lineage: 'Orc Mystic',
     lineageType: 'BASE_CLASS',
@@ -817,7 +817,7 @@ export const HISTORICAL_CLASSES = [
   // Orc Raider Branch
   {
     id: 'orc_raider',
-    name: 'Orc Raider',
+    name: '掠奪者',
     race: 'Orc',
     lineage: 'Orc Raider',
     lineageType: 'FIRST_CLASS_TRANSFER',
@@ -855,7 +855,7 @@ export const HISTORICAL_CLASSES = [
   // Orc Monk Branch
   {
     id: 'orc_monk',
-    name: 'Orc Monk',
+    name: '武僧',
     race: 'Orc',
     lineage: 'Orc Monk',
     lineageType: 'FIRST_CLASS_TRANSFER',
@@ -879,7 +879,7 @@ export const HISTORICAL_CLASSES = [
   },
   {
     id: 'orc_grand_khavatari',
-    name: 'Grand Khavatari',
+    name: '大卡巴塔里',
     race: 'Orc',
     lineage: 'Orc Monk',
     lineageType: 'THIRD_CLASS_AWAKENING',
