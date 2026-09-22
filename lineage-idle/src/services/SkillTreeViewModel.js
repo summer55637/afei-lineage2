@@ -113,7 +113,7 @@ export function getStageTitle(stageNum) {
     case 3: return 'Estágio 3 — Maestria Arcana';
     case 4: return 'Estágio 4 — Despertar Supremo';
     case 5: return 'Estágio 5 — Mestre Supremo';
-    default: return `Estágio ${stageNum}`;
+    default: return `階段 ${stageNum}`;
   }
 }
 
@@ -306,17 +306,17 @@ export function getSkillTreeViewModel(character, options = {}) {
     },
     {
       id: SKILL_CATEGORIES.CLASS,
-      title: 'Habilidades de Classe (1ª Transferência · Lv. 20+)',
+      title: '職業技能（第一次轉職 · Lv.20+）',
       skills: activeSkills.filter(s => s.category === SKILL_CATEGORIES.CLASS)
     },
     {
       id: SKILL_CATEGORIES.SPECIALIZATION,
-      title: 'Especialização Elemental & Combate (2ª Transferência · Lv. 40+)',
+      title: '元素與戰鬥專精（第二次轉職 · Lv.40+）',
       skills: activeSkills.filter(s => s.category === SKILL_CATEGORIES.SPECIALIZATION)
     },
     {
       id: SKILL_CATEGORIES.MASTERY,
-      title: 'Maestria Suprema (3ª Transferência · Lv. 76+)',
+      title: '最高精通（第三次轉職 · Lv.76+）',
       skills: activeSkills.filter(s => s.category === SKILL_CATEGORIES.MASTERY)
     }
   ].filter(cat => cat.skills.length > 0); // Omit empty categories
