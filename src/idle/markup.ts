@@ -39,12 +39,12 @@ export const IDLE_MARKUP = `
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/><path d="M3 20h18v2H3z"/></svg> <span>Admin</span>
         </button>
 
-        <button id="top-referral-btn" class="tb-btn tb-btn--referral" onclick="window.openContactsModal ? window.openContactsModal() : (window.openReferralModal && window.openReferralModal())" title="Contatos, Lista de Amigos &amp; Mentoria">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> <span>Contatos</span>
+        <button id="top-referral-btn" class="tb-btn tb-btn--referral" onclick="window.openContactsModal ? window.openContactsModal() : (window.openReferralModal && window.openReferralModal())" title="聯絡人、好友清單與導師系統">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> <span>聯絡人</span>
         </button>
 
-        <button id="starter-journey-btn" class="tb-btn tb-btn--journey" onclick="window.openStarterJourneyModal && window.openStarterJourneyModal()" title="Jornada dos Pioneiros (Onboarding 7 Passos)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg> <span>Jornada</span>
+        <button id="starter-journey-btn" class="tb-btn tb-btn--journey" onclick="window.openStarterJourneyModal && window.openStarterJourneyModal()" title="先鋒之旅（7 步新手引導）">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg> <span>新手旅程</span>
           <span id="starter-journey-dot" class="tb-dot tb-dot--green"></span>
         </button>
 
@@ -57,17 +57,17 @@ export const IDLE_MARKUP = `
         </button>
 
         <button id="daily-reward-btn" class="tb-btn" onclick="window.openDailyRewardModal && window.openDailyRewardModal()" title="每日簽到">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> <span>Check-in</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> <span>每日簽到</span>
           <span id="daily-reward-dot" class="tb-dot tb-dot--red"></span>
         </button>
 
-        <a href="https://discord.gg/R7rwB5uCc" target="_blank" rel="noopener noreferrer" id="top-discord-btn" class="tb-btn tb-btn--discord" title="Junte-se ao Discord">
+        <a href="https://discord.gg/R7rwB5uCc" target="_blank" rel="noopener noreferrer" id="top-discord-btn" class="tb-btn tb-btn--discord" title="加入 Discord">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> <span>Discord</span>
         </a>
 
         <div class="tb-util">
-          <button id="audio-mute-btn" class="tb-btn tb-btn--audio" onclick="window.toggleMuteAudio && window.toggleMuteAudio()" title="Mudo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg> <span>Audio</span>
+          <button id="audio-mute-btn" class="tb-btn tb-btn--audio" onclick="window.toggleMuteAudio && window.toggleMuteAudio()" title="靜音">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg> <span>音效</span>
           </button>
           
           <span class="tb-clock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> <span id="clock">00:00:00</span></span>
@@ -162,12 +162,12 @@ export const IDLE_MARKUP = `
 
         <!-- Bloco de Poder Mágico & Sorte -->
         <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(212,167,68,0.15); border-radius:6px; padding:6px 8px; margin-bottom:6px;">
-          <div style="font-size:9px; font-weight:bold; color:#d4a744; font-family:'Cinzel',serif; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">🔮 Magia &amp; Forja</div>
+          <div style="font-size:9px; font-weight:bold; color:#d4a744; font-family:'Cinzel',serif; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">🔮 魔法與鍛造</div>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px;">
             <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">M.ATK</label><span id="matk-text" class="stat-value" style="color:#c084fc; font-weight:bold;">0</span></div>
             <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">M.DEF</label><span id="mdef-text" class="stat-value" style="color:#818cf8; font-weight:bold;">0</span></div>
             <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">Drop</label><span id="loot-text" class="stat-value" style="color:#34d399; font-weight:bold;">100%</span></div>
-            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">Forja</label><span id="craft-level-stat" class="stat-value" style="color:#fbbf24; font-weight:bold;">Nv 1</span></div>
+            <div class="stat-row" style="padding:2px 4px;"><label style="font-size:9px;">鍛造</label><span id="craft-level-stat" class="stat-value" style="color:#fbbf24; font-weight:bold;">Nv 1</span></div>
           </div>
         </div>
 
@@ -190,7 +190,7 @@ export const IDLE_MARKUP = `
         <!-- Efeitos & Bênçãos Ativas -->
         <div style="margin-top:auto;">
           <div style="font-size:9px; font-weight:bold; color:#94a3b8; font-family:'Cinzel',serif; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:3px;">✨ 啟用中的祝福</div>
-          <div class="active-buffs" id="active-buffs"><span class="ab-empty">Nenhum buff ativo</span></div>
+          <div class="active-buffs" id="active-buffs"><span class="ab-empty">目前沒有增益效果</span></div>
         </div>
       </aside>
 
@@ -251,7 +251,7 @@ export const IDLE_MARKUP = `
         <div class="grid-resizer grid-resizer-h" id="resizer-row-stage" title="拖曳調整戰鬥視窗大小"></div>
         <div class="log-controls-bar">
           <div class="log-filters">
-            <button class="log-filter-btn active" data-logfilter="all">✨ Todos</button>
+            <button class="log-filter-btn active" data-logfilter="all">✨ 全部</button>
             <button class="log-filter-btn" data-logfilter="loot">📦 Drops &amp; Itens</button>
             <button class="log-filter-btn" data-logfilter="gold_xp">💰 XP 與金幣</button>
             <button class="log-filter-btn" data-logfilter="combat">⚔️ 戰鬥</button>
@@ -261,7 +261,7 @@ export const IDLE_MARKUP = `
         </div>
         <div style="position:relative; height:100%; min-height:0; display:flex; flex-direction:column; overflow:hidden;">
           <div id="log" class="log">
-            <p class="log-entry system"><span class="log-time">[00:00:00]</span> <span class="log-badge badge-sys">系統</span> Bem-vindo ao Aden Arena.</p>
+            <p class="log-entry system"><span class="log-time">[00:00:00]</span> <span class="log-badge badge-sys">系統</span> 歡迎來到亞丁競技場。</p>
             <p class="log-entry system"><span class="log-time">[00:00:00]</span> <span class="log-badge badge-sys">系統</span> 選擇種族與職業，開始你的旅程。</p>
           </div>
           <button id="log-scroll-down-btn" style="display:none; position:absolute; bottom:12px; left:50%; transform:translateX(-50%); background:rgba(30,35,45,0.92); border:1px solid rgba(212,167,68,0.6); color:#fef08a; font-family:'Cinzel',serif; font-size:11px; font-weight:bold; padding:4px 14px; border-radius:20px; cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,0.6); z-index:10; animation:bounce 1.5s infinite;" onclick="window.scrollLogToBottom && window.scrollLogToBottom()">
@@ -332,7 +332,7 @@ export const IDLE_MARKUP = `
           <div class="pillar-subtabs-strip collapsed" id="pillar-strip-character" style="display:none;">
             <button class="tab-btn subtab-pill-btn" data-tab="character">🛡 角色</button>
             <button class="tab-btn subtab-pill-btn" data-tab="inventory">🎒 背包 <span id="tab-badge-inventory" class="tab-badge" style="display:none">!</span></button>
-            <button class="tab-btn subtab-pill-btn" data-tab="skills">✦ Habilidades <span id="tab-badge-skills" class="tab-badge" style="display:none">!</span></button>
+            <button class="tab-btn subtab-pill-btn" data-tab="skills">✦ 技能 <span id="tab-badge-skills" class="tab-badge" style="display:none">!</span></button>
             <button class="tab-btn subtab-pill-btn" data-tab="astral">★ Maestria</button>
             <button class="tab-btn subtab-pill-btn" data-tab="dolls">🧸 Dolls &amp; Pets</button>
             <button class="tab-btn subtab-pill-btn" data-tab="cosmetics">✨ 外觀</button>
@@ -343,7 +343,7 @@ export const IDLE_MARKUP = `
           <div class="pillar-subtabs-strip collapsed" id="pillar-strip-economy" style="display:none;">
             <button class="tab-btn subtab-pill-btn" data-tab="market" data-min-level="1" style="border-color:#ffd700; color:#fde047; font-weight:bold;">🏛 市場 Giran (P2P)</button>
             <button class="tab-btn subtab-pill-btn" data-tab="shop" data-min-level="1">⚜ 市場r</button>
-            <button class="tab-btn subtab-pill-btn" data-tab="craft" data-min-level="10">⚒ Forja Imperial <span id="tab-badge-craft" class="tab-badge" style="display:none">!</span></button>
+            <button class="tab-btn subtab-pill-btn" data-tab="craft" data-min-level="10">⚒ 亞丁鍛造 <span id="tab-badge-craft" class="tab-badge" style="display:none">!</span></button>
             <button class="tab-btn subtab-pill-btn" data-tab="warehouse" data-min-level="15">📦 私人倉庫</button>
             <button class="tab-btn subtab-pill-btn" data-tab="magiclamp" data-min-level="20">🪔 魔法神燈</button>
             <button class="tab-btn subtab-pill-btn" data-tab="alchemy" data-min-level="40">🧪 鍊金術</button>
@@ -353,12 +353,12 @@ export const IDLE_MARKUP = `
           <div class="pillar-subtabs-strip collapsed" id="pillar-strip-glory" style="display:none;">
             <button class="tab-btn subtab-pill-btn" data-tab="clan">🛡 血盟與城堡</button>
             <button class="tab-btn subtab-pill-btn" data-tab="olympiad">🏆 奧林匹亞</button>
-            <button class="tab-btn subtab-pill-btn" data-tab="rankings">🏆 Rankings Mundiais</button>
+            <button class="tab-btn subtab-pill-btn" data-tab="rankings">🏆 世界排名</button>
             <button class="tab-btn subtab-pill-btn" data-tab="sevensigns">🏛 Sete Selos</button>
             <button class="tab-btn subtab-pill-btn" data-tab="fortress">⚔ Fortalezas</button>
             <button class="tab-btn subtab-pill-btn" data-tab="enchant">✦ Encantamento</button>
             <button class="tab-btn subtab-pill-btn" data-tab="codex">📜 Codex</button>
-            <button class="tab-btn subtab-pill-btn" id="pillar-contacts-btn" onclick="window.openContactsModal ? window.openContactsModal() : (window.openReferralModal && window.openReferralModal())" style="border-color:rgba(52,211,153,0.4); color:#6ee7b7; font-weight:bold;">👥 Contatos &amp; Mentoria</button>
+            <button class="tab-btn subtab-pill-btn" id="pillar-contacts-btn" onclick="window.openContactsModal ? window.openContactsModal() : (window.openReferralModal && window.openReferralModal())" style="border-color:rgba(52,211,153,0.4); color:#6ee7b7; font-weight:bold;">👥 聯絡人與導師</button>
           </div>
 
           <!-- Imperial Economy Resource Ribbon (Contextual HUD for Economy Pillar) -->
@@ -424,9 +424,9 @@ export const IDLE_MARKUP = `
                     <span class="l2-breakdown-subtitle" id="hero-cp-breakdown-summary">Arsenal, Atributos &amp; Talentos</span>
                   </div>
                   <div class="l2-cp-breakdown-bar">
-                    <div id="hero-cp-bar-equip" class="l2-cp-seg seg-equip" style="width: 40%;" title="Equipamentos"></div>
+                    <div id="hero-cp-bar-equip" class="l2-cp-seg seg-equip" style="width: 40%;" title="裝備"></div>
                     <div id="hero-cp-bar-attrs" class="l2-cp-seg seg-attrs" style="width: 30%;" title="Atributos"></div>
-                    <div id="hero-cp-bar-skills" class="l2-cp-seg seg-skills" style="width: 20%;" title="Habilidades"></div>
+                    <div id="hero-cp-bar-skills" class="l2-cp-seg seg-skills" style="width: 20%;" title="技能"></div>
                     <div id="hero-cp-bar-specials" class="l2-cp-seg seg-specials" style="width: 10%;" title="Especiais"></div>
                   </div>
                   <div class="l2-cp-breakdown-legend" id="hero-cp-breakdown-legend"></div>
@@ -769,7 +769,7 @@ export const IDLE_MARKUP = `
                     <span>Crit: <strong id="l2stat-crit">0%</strong></span>
                     <span>Speed: <strong id="l2stat-speed">0</strong></span>
                   </div>
-                  <button class="l2inv-unequip-all" id="unequip-all-btn" title="Desequipar todos os itens">Desequipar Tudo</button>
+                  <button class="l2inv-unequip-all" id="unequip-all-btn" title="卸下所有裝備">全部卸下</button>
                 </div>
 
                 <!-- Primary Attributes Section (STR/DEX/CON/INT/WIT/MEN) -->
@@ -793,10 +793,10 @@ export const IDLE_MARKUP = `
                 <!-- L2 Metallic Filter Tabs -->
                 <!-- L2 Metallic Filter Tabs (4 Abas Nobres) -->
                 <div class="l2inv-tabs-header">
-                  <button class="l2inv-tab-btn filter-btn active" data-filter="all">✨ Todos</button>
-                  <button class="l2inv-tab-btn filter-btn" data-filter="gear">⚔️ Equipamentos</button>
+                  <button class="l2inv-tab-btn filter-btn active" data-filter="all">✨ 全部</button>
+                  <button class="l2inv-tab-btn filter-btn" data-filter="gear">⚔️ 裝備</button>
                   <button class="l2inv-tab-btn filter-btn" data-filter="consumable">🧪 消耗品</button>
-                  <button class="l2inv-tab-btn filter-btn" data-filter="material">💎 Materiais</button>
+                  <button class="l2inv-tab-btn filter-btn" data-filter="material">💎 材料</button>
                 </div>
 
                 <!-- Subbar Reestruturada em 2 Linhas Elegantes sem Sobreposição -->
@@ -808,33 +808,33 @@ export const IDLE_MARKUP = `
                       <input type="text" id="inv-search-input" name="invSearch" aria-label="依物品名稱篩選背包" placeholder="🔍 搜尋背包..." style="width:100%; background:#090c12; color:#ece4d3; border:1px solid rgba(212,167,68,0.4); border-radius:4px; padding:5px 8px; font-size:11px; box-sizing:border-box;" title="依物品名稱篩選" />
                     </div>
                     <div style="display:flex; align-items:center; gap:4px; font-size:10px; color:#cbd5e1; flex-shrink:0;">
-                      <label for="inv-sort-select" style="font-weight:600; cursor:pointer; color:var(--gilt);">Ordenar:</label>
+                      <label for="inv-sort-select" style="font-weight:600; cursor:pointer; color:var(--gilt);">排序：</label>
                       <select id="inv-sort-select" name="invSort" aria-label="背包排序" style="background:#090b10; color:#fff; border:1px solid rgba(212,167,68,0.3); border-radius:4px; padding:3px 6px; font-size:10px; cursor:pointer;">
-                        <option value="recommended">✨ Recomendado</option>
-                        <option value="cp">⚡ Maior CP</option>
-                        <option value="grade">🎖️ Grau (S→NG)</option>
-                        <option value="rarity">🌟 Raridade</option>
-                        <option value="enchant">✨ Encantamento</option>
-                        <option value="name">🔤 Nome (A-Z)</option>
-                        <option value="count">🔢 Quantidade</option>
+                        <option value="recommended">✨ 推薦</option>
+                        <option value="cp">⚡ CP 由高到低</option>
+                        <option value="grade">🎖️ 等級（S→NG）</option>
+                        <option value="rarity">🌟 稀有度</option>
+                        <option value="enchant">✨ 強化值</option>
+                        <option value="name">🔤 名稱（A-Z）</option>
+                        <option value="count">🔢 數量</option>
                       </select>
                     </div>
                     <div style="display:flex; align-items:center; gap:4px; font-size:10px; color:#fde047; flex-shrink:0;">
-                      <label for="auto-sell-rarity-select" style="font-weight:600; cursor:pointer;">Auto-Venda:</label>
+                      <label for="auto-sell-rarity-select" style="font-weight:600; cursor:pointer;">自動出售：</label>
                       <select id="auto-sell-rarity-select" name="autoSellRarity" aria-label="依稀有度設定自動出售" style="background:#090b10; color:#fff; border:1px solid rgba(212,167,68,0.3); border-radius:4px; padding:3px 6px; font-size:10px; cursor:pointer;">
                         <option value="off">OFF</option>
-                        <option value="common">≤ Comum</option>
-                        <option value="uncommon">≤ Incomum</option>
-                        <option value="rare">≤ Raro</option>
+                        <option value="common">≤ 一般</option>
+                        <option value="uncommon">≤ 非凡</option>
+                        <option value="rare">≤ 稀有</option>
                       </select>
                     </div>
-                    <button id="open-auto-recycle-btn" class="l2inv-pill-btn" style="background:rgba(212,167,68,0.2); border-color:#fde047; color:#fef08a; font-weight:bold; flex-shrink:0; padding:4px 8px;" title="設定 AFK 掉落與自動回收過濾器">⚙️ Filtro AFK</button>
+                    <button id="open-auto-recycle-btn" class="l2inv-pill-btn" style="background:rgba(212,167,68,0.2); border-color:#fde047; color:#fef08a; font-weight:bold; flex-shrink:0; padding:4px 8px;" title="設定 AFK 掉落與自動回收過濾器">⚙️ AFK 過濾</button>
                   </div>
 
                   <!-- Linha 2: Raridades + Seleção em Massa -->
                   <div style="display:flex; align-items:center; justify-content:space-between; gap:6px; flex-wrap:wrap;">
                     <div class="l2inv-rarity-pills" style="display:flex; gap:3px;">
-                      <button class="rarity-filter-btn active" data-rarity="all">Todos</button>
+                      <button class="rarity-filter-btn active" data-rarity="all">全部</button>
                       <button class="rarity-filter-btn r-common" data-rarity="common">C</button>
                       <button class="rarity-filter-btn r-uncommon" data-rarity="uncommon">I</button>
                       <button class="rarity-filter-btn r-rare" data-rarity="rare">R</button>
@@ -842,17 +842,17 @@ export const IDLE_MARKUP = `
                       <button class="rarity-filter-btn r-legendary" data-rarity="legendary">L</button>
                     </div>
                     <div class="l2inv-batch-pills" style="display:flex; gap:3px;">
-                      <button id="select-commons-btn" class="l2inv-pill-btn" title="Selecionar comuns">✓ Comum</button>
-                      <button id="select-uncommons-btn" class="l2inv-pill-btn" title="Selecionar incomuns">✓ Incomum</button>
-                      <button id="select-all-btn" class="l2inv-pill-btn" title="Selecionar todos">✓ Todos</button>
+                      <button id="select-commons-btn" class="l2inv-pill-btn" title="選擇一般品質">✓ 一般</button>
+                      <button id="select-uncommons-btn" class="l2inv-pill-btn" title="選擇非凡品質">✓ 非凡</button>
+                      <button id="select-all-btn" class="l2inv-pill-btn" title="全部選取">✓ 全部</button>
                       <button id="clear-selection-btn" class="l2inv-pill-btn" title="清除選擇">✕</button>
                     </div>
                   </div>
 
                   <!-- Linha 3: Filtro por Grau (NG, D, C, B, A, S) -->
                   <div class="l2inv-grade-pills" style="display:flex; align-items:center; gap:3px; padding-top:2px; border-top:1px solid rgba(212,167,68,0.15); flex-wrap:wrap;">
-                    <span style="font-size:10px; color:var(--gilt); font-weight:600; margin-right:4px;">Grau:</span>
-                    <button class="grade-filter-btn active" data-grade="all" style="padding:2px 7px; font-size:10px; border-radius:3px; cursor:pointer; background:#1e293b; color:#cbd5e1; border:1px solid rgba(212,167,68,0.3);">Todos</button>
+                    <span style="font-size:10px; color:var(--gilt); font-weight:600; margin-right:4px;">等級：</span>
+                    <button class="grade-filter-btn active" data-grade="all" style="padding:2px 7px; font-size:10px; border-radius:3px; cursor:pointer; background:#1e293b; color:#cbd5e1; border:1px solid rgba(212,167,68,0.3);">全部</button>
                     <button class="grade-filter-btn" data-grade="ng" style="padding:2px 7px; font-size:10px; border-radius:3px; cursor:pointer; background:#0f172a; color:#94a3b8; border:1px solid rgba(148,163,184,0.3);">NG</button>
                     <button class="grade-filter-btn" data-grade="d" style="padding:2px 7px; font-size:10px; border-radius:3px; cursor:pointer; background:#0f172a; color:#38bdf8; border:1px solid rgba(56,189,248,0.3);">D</button>
                     <button class="grade-filter-btn" data-grade="c" style="padding:2px 7px; font-size:10px; border-radius:3px; cursor:pointer; background:#0f172a; color:#4ade80; border:1px solid rgba(74,222,128,0.3);">C</button>
@@ -866,9 +866,9 @@ export const IDLE_MARKUP = `
                 <div class="l2inv-slots-grid" id="inventory-grid"></div>
 
                 <div class="l2inv-trash-actions" style="display:flex; gap:6px; flex-wrap:wrap;">
-                  <button id="sell-selected-btn" class="l2inv-trash-btn sell" disabled title="Vender Itens Selecionados">💰 出售</button>
-                  <button id="salvage-selected-btn" class="l2inv-trash-btn salvage" disabled title="Desmontar Selecionados">🔨 Desmontar</button>
-                  <button id="crystallize-selected-btn" class="l2inv-trash-btn crystallize" style="background:linear-gradient(135deg, #1e3a8a, #2563eb); border:1px solid #60a5fa; color:#fff; border-radius:4px; padding:4px 10px; font-size:11px; cursor:pointer; font-weight:600;" title="Cristalizar Equipamentos Selecionados de Grau D a S">💎 Cristalizar Lote</button>
+                  <button id="sell-selected-btn" class="l2inv-trash-btn sell" disabled title="出售已選取物品">💰 出售</button>
+                  <button id="salvage-selected-btn" class="l2inv-trash-btn salvage" disabled title="分解已選取物品">🔨 分解</button>
+                  <button id="crystallize-selected-btn" class="l2inv-trash-btn crystallize" style="background:linear-gradient(135deg, #1e3a8a, #2563eb); border:1px solid #60a5fa; color:#fff; border-radius:4px; padding:4px 10px; font-size:11px; cursor:pointer; font-weight:600;" title="將已選取的 D～S 級裝備結晶化">💎 批次結晶化</button>
                 </div>
 
                 <!-- Intelligent Comparison Dock: Detail & Side-by-Side Comparison -->
@@ -881,12 +881,12 @@ export const IDLE_MARKUP = `
             <!-- Bottom Bar matching L2 UI -->
             <div class="l2inv-bottom-bar">
               <div class="l2inv-bottom-left-actions">
-                <button class="l2inv-icon-btn" id="nav-craft-btn" title="Abrir Forja / Crafting">⚒️</button>
-                <button class="l2inv-icon-btn" id="auto-equip-btn" title="Equipar Melhores Itens">⚡</button>
+                <button class="l2inv-icon-btn" id="nav-craft-btn" title="開啟鍛造／製作">⚒️</button>
+                <button class="l2inv-icon-btn" id="auto-equip-btn" title="裝備最佳物品">⚡</button>
                 <button class="l2inv-icon-btn" id="organize-inv-btn" title="整理背包（合併堆疊並排序）">🧹</button>
                 <button class="l2inv-icon-btn" id="open-compound-btn" onclick="window.openCompoundModal()" title="🔮 珠寶與護符合成" style="color:#c084fc;">🔮</button>
                 <button class="l2inv-icon-btn" id="open-symbol-maker-btn" onclick="window.openSymbolMakerModal()" title="🎭 符號與染料紋身" style="color:#fde047;">🎭</button>
-                <button class="l2inv-icon-btn" id="open-pet-btn" onclick="window.openPetModal()" title="🐾 Companheiros &amp; Mascotes de Batalha" style="color:#6ee7b7;">🐾</button>
+                <button class="l2inv-icon-btn" id="open-pet-btn" onclick="window.openPetModal()" title="🐾 夥伴與戰鬥寵物" style="color:#6ee7b7;">🐾</button>
                 <button class="l2inv-icon-btn" id="open-manor-btn" onclick="window.openManorModal()" title="🌾 莊園管理與農作收成" style="color:#86efac;">🌾</button>
               </div>
 
@@ -1348,8 +1348,8 @@ export const IDLE_MARKUP = `
                   <span class="pass-title" id="pass-status-text">免費戰鬥通行證</span>
                 </div>
                 <div class="pass-xp-info">
-                  <span id="pass-xp-text">0 / 100 XP do Passe</span>
-                  <button id="unlock-premium-pass-btn" class="inv-batch-btn gold-glow-btn" title="購買本賽季官方高級通行證">👑 Obter Passe Premium (R$ 15,00)</button>
+                  <span id="pass-xp-text">0 / 100 通行證 XP</span>
+                  <button id="unlock-premium-pass-btn" class="inv-batch-btn gold-glow-btn" title="購買本賽季官方高級通行證">👑 取得高級通行證（R$ 15,00）</button>
                 </div>
               </div>
               <div class="bar-container pass-bar-container">
@@ -1359,7 +1359,7 @@ export const IDLE_MARKUP = `
 
             <!-- Battle Pass Rewards Track -->
             <div class="pane-section" style="margin-top: 10px;">
-              <h3>🎟️ Trilha de Recompensas da Temporada</h3>
+              <h3>🎟️ 賽季獎勵軌道</h3>
               <div id="pass-track-list" class="pass-track-list"></div>
             </div>
 
@@ -1390,7 +1390,7 @@ export const IDLE_MARKUP = `
                 <span class="tower-window-title">傲慢之塔</span>
               </div>
               <div class="tower-reset-info">
-                <button id="tower-sweep-btn" class="inv-batch-btn gold-glow-btn" title="領取已攻略樓層全部獎勵的 50%">🧹 Varredura Diária</button>
+                <button id="tower-sweep-btn" class="inv-batch-btn gold-glow-btn" title="領取已攻略樓層全部獎勵的 50%">🧹 每日掃蕩</button>
               </div>
             </div>
 
@@ -1398,11 +1398,11 @@ export const IDLE_MARKUP = `
             <div class="tower-banner-container">
               <div class="tower-header-info">
                 <div class="tower-level-badge">
-                  <span class="tower-lvl-num" id="tower-highest-floor-text">Andar Atual: 0 / 100</span>
-                  <span class="tower-title" id="tower-bonus-text">Bônus Passivo: +0% ATK, DEF &amp; MATK</span>
+                  <span class="tower-lvl-num" id="tower-highest-floor-text">目前樓層：0 / 100</span>
+                  <span class="tower-title" id="tower-bonus-text">被動加成：+0% ATK、DEF 與 MATK</span>
                 </div>
                 <div class="tower-action-group">
-                  <button id="tower-challenge-btn" class="action-btn action-btn--primary" style="font-size:12px; font-weight:bold;">⚔️ Desafiar Andar <span id="tower-next-floor-num">1</span></button>
+                  <button id="tower-challenge-btn" class="action-btn action-btn--primary" style="font-size:12px; font-weight:bold;">⚔️ 挑戰樓層 <span id="tower-next-floor-num">1</span></button>
                 </div>
               </div>
             </div>
@@ -1410,15 +1410,15 @@ export const IDLE_MARKUP = `
             <!-- Current Floor Challenge Preview Card -->
             <div class="pane-section">
               <div style="display:flex; justify-content:space-between; align-items:center;">
-                <h3>🗡️ Detalhes do Próximo Desafio</h3>
-                <span id="tower-floor-recommend" class="sp-pill" style="font-size:11px;">Lv. Requerido: 10</span>
+                <h3>🗡️ 下一場挑戰詳情</h3>
+                <span id="tower-floor-recommend" class="sp-pill" style="font-size:11px;">需求等級：10</span>
               </div>
               <div id="tower-floor-details-card" class="tower-details-card" style="margin-top:10px;"></div>
             </div>
 
             <!-- Floors Map Grid (1 to 100) -->
             <div class="pane-section" style="margin-top: 10px;">
-              <h3>🏰 Progresso da Escalada (1 a 100 Andares)</h3>
+              <h3>🏰 攻塔進度（1～100 樓）</h3>
               <div id="tower-floors-grid" class="tower-floors-grid" style="margin-top:10px;"></div>
             </div>
           </div>
@@ -1432,15 +1432,15 @@ export const IDLE_MARKUP = `
                   <div style="flex: 1; margin-right: 12px;">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                       <h4 style="margin: 0; font-family: 'Cinzel', serif; color: var(--imp-text-gold-bright, #ffd877); font-size: 14px; font-weight: bold; display: flex; align-items: center; gap: 6px;">
-                        🎒 背包 (Inventário)
+                        🎒 背包
                       </h4>
-                      <span id="wh-inv-count" style="font-size: 11px; color: var(--imp-text-muted, #94a3b8); font-family: 'IBM Plex Mono', monospace;">0/150 slots</span>
+                      <span id="wh-inv-count" style="font-size: 11px; color: var(--imp-text-muted, #94a3b8); font-family: 'IBM Plex Mono', monospace;">0/150 格</span>
                     </div>
                     <div class="imp-slot-gauge-bar">
                       <div id="wh-inv-gauge-fill" class="imp-slot-gauge-fill" style="width: 0%;"></div>
                     </div>
                   </div>
-                  <button id="deposit-all-btn" class="imp-btn-primary" style="font-size: 11px; padding: 6px 14px; font-weight: bold; white-space: nowrap;" onclick="depositAllToWarehouse()">📥 Guardar Tudo</button>
+                  <button id="deposit-all-btn" class="imp-btn-primary" style="font-size: 11px; padding: 6px 14px; font-weight: bold; white-space: nowrap;" onclick="depositAllToWarehouse()">📥 全部存入</button>
                 </div>
                 <div id="wh-inventory-grid" class="l2inv-slots-grid" style="flex: 1; max-height: 480px; min-height: 320px; overflow-y: auto; background: rgba(0,0,0,0.3); border-radius: 6px; padding: 8px; border: 1px solid rgba(255,255,255,0.04);"></div>
               </div>
@@ -1451,15 +1451,15 @@ export const IDLE_MARKUP = `
                   <div style="flex: 1; margin-right: 12px;">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                       <h4 style="margin: 0; font-family: 'Cinzel', serif; color: var(--imp-text-gold-bright, #ffd877); font-size: 14px; font-weight: bold; display: flex; align-items: center; gap: 6px;">
-                        📦 Baú do Personagem
+                        📦 角色倉庫
                       </h4>
-                      <span id="wh-storage-count" style="font-size: 11px; color: var(--imp-text-muted, #94a3b8); font-family: 'IBM Plex Mono', monospace;">0/100 slots</span>
+                      <span id="wh-storage-count" style="font-size: 11px; color: var(--imp-text-muted, #94a3b8); font-family: 'IBM Plex Mono', monospace;">0/100 格</span>
                     </div>
                     <div class="imp-slot-gauge-bar">
                       <div id="wh-storage-gauge-fill" class="imp-slot-gauge-fill" style="width: 0%;"></div>
                     </div>
                   </div>
-                  <button id="withdraw-all-btn" class="imp-btn-primary" style="font-size: 11px; padding: 6px 14px; font-weight: bold; white-space: nowrap;" onclick="withdrawAllFromWarehouse()">📤 Retirar Tudo</button>
+                  <button id="withdraw-all-btn" class="imp-btn-primary" style="font-size: 11px; padding: 6px 14px; font-weight: bold; white-space: nowrap;" onclick="withdrawAllFromWarehouse()">📤 全部取出</button>
                 </div>
                 <div id="wh-storage-grid" class="l2inv-slots-grid" style="flex: 1; max-height: 480px; min-height: 320px; overflow-y: auto; background: rgba(0,0,0,0.3); border-radius: 6px; padding: 8px; border: 1px solid rgba(255,255,255,0.04);"></div>
               </div>
@@ -1472,11 +1472,11 @@ export const IDLE_MARKUP = `
     <!-- Death Modal -->
     <div id="death-modal" class="modal">
       <div class="modal-content">
-        <h2>Você foi derrotado em combate!</h2>
-        <p id="death-penalty">Você perderá <span id="xp-loss">0</span> XP.</p>
+        <h2>你在戰鬥中被擊敗了！</h2>
+        <p id="death-penalty">你將損失 <span id="xp-loss">0</span> XP。</p>
         <div class="modal-actions">
-          <button id="res-free" class="action-btn">Ressuscitar (Grátis, -20% XP)</button>
-          <button id="res-scroll" class="action-btn">Usar Pergaminho (-10% XP)</button>
+          <button id="res-free" class="action-btn">復活（免費，-20% XP）</button>
+          <button id="res-scroll" class="action-btn">使用卷軸（-10% XP）</button>
         </div>
       </div>
     </div>
@@ -1484,19 +1484,19 @@ export const IDLE_MARKUP = `
     <!-- Saga Unlock Modal -->
     <div id="saga-modal" class="modal">
       <div class="modal-content">
-        <h2 id="saga-title">Nova Saga Desbloqueada!</h2>
-        <p id="saga-desc">Novas áreas e perigos aguardam.</p>
-        <button id="saga-ok" class="action-btn">Continuar</button>
+        <h2 id="saga-title">新的篇章已解鎖！</h2>
+        <p id="saga-desc">新的區域與危險正等著你。</p>
+        <button id="saga-ok" class="action-btn">繼續</button>
       </div>
     </div>
 
     <!-- Offline Progress Modal -->
     <div id="offline-modal" class="modal">
       <div class="modal-content">
-        <h2 id="offline-title">⌛ Bem-vindo de Volta!</h2>
-        <p id="offline-desc">Enquanto esteve ausente, seu herói continuou o treinamento em Aden.</p>
+        <h2 id="offline-title">⌛ 歡迎回來！</h2>
+        <p id="offline-desc">離線期間，你的角色仍持續在亞丁訓練。</p>
         <div id="offline-rewards" style="margin: 14px 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--gilt-bright);"></div>
-        <button id="offline-ok" class="action-btn action-btn--primary" onclick="window.closeOfflineModal && window.closeOfflineModal()">Coletar Recompensas ⚔️</button>
+        <button id="offline-ok" class="action-btn action-btn--primary" onclick="window.closeOfflineModal && window.closeOfflineModal()">領取獎勵 ⚔️</button>
       </div>
     </div>
 
