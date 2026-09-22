@@ -1775,7 +1775,7 @@ export function sellItem(uid) {
   state.inventory.splice(idx, 1);
   state.gold += goldEarned;
   const name = uiFormatItemDisplayName(item, def);
-  log(`💰 Vendeu ${name} por ${goldEarned.toLocaleString()}g!`, 'loot');
+  log(`💰 已出售 ${name}，獲得 ${goldEarned.toLocaleString()}g！`, 'loot');
   hideItemTooltip();
   updateAllUI();
   save();
@@ -2057,7 +2057,7 @@ function updateStatsUI() {
         matk: ['✦', `+${b.amount} MATK`],
         speed: ['⚡', `+${b.amount} SPD`],
         warcry: ['🗣', `+${(b.amount||0)*100}% ATK`],
-        elixir_berserker: ['⚔️', 'Elixir Berserker (+15% Atk, +10 Spd)'],
+        elixir_berserker: ['⚔️', '狂戰士靈藥（+15% 攻擊、+10 速度）'],
         elixir_arcanist: ['🔮', 'Elixir Arcanista (+20% M.Atk, +50% MP)'],
         elixir_fortune: ['💰', '幸運靈藥（掉落 +25%、金幣 +30%）'],
         elixir_titan: ['🛡️', '泰坦靈藥（HP +25%、防禦 +20%）'],
@@ -2113,11 +2113,11 @@ function updateDetailedEquipStatsUI() {
     if (!uid) {
       if (pdSlot) { 
         pdSlot.className = `l2inv-pd-slot equip-slot`; 
-        pdSlot.title = `${slot} · vazio`; 
+        pdSlot.title = `${slot} · 空`; 
         pdSlot.innerHTML = `<span class="l2inv-pd-icon">${defaultEmoji}</span><span class="l2inv-pd-item" id="pd-item-${slot}"></span>`;
       }
       if (elem) { elem.textContent = 'Empty'; elem.style.color = ''; elem.title = ''; }
-      if (wrap) { wrap.style.borderColor = ''; wrap.title = slot + ' · empty'; }
+      if (wrap) { wrap.style.borderColor = ''; wrap.title = slot + ' · 空'; }
       continue;
     }
 
@@ -2126,11 +2126,11 @@ function updateDetailedEquipStatsUI() {
       state.equipment[slot] = null;
       if (pdSlot) { 
         pdSlot.className = `l2inv-pd-slot equip-slot`; 
-        pdSlot.title = `${slot} · vazio`; 
+        pdSlot.title = `${slot} · 空`; 
         pdSlot.innerHTML = `<span class="l2inv-pd-icon">${defaultEmoji}</span><span class="l2inv-pd-item" id="pd-item-${slot}"></span>`;
       }
       if (elem) { elem.textContent = 'Empty'; elem.style.color = ''; elem.title = ''; }
-      if (wrap) { wrap.style.borderColor = ''; wrap.title = slot + ' · empty'; }
+      if (wrap) { wrap.style.borderColor = ''; wrap.title = slot + ' · 空'; }
       continue;
     }
 
@@ -3093,7 +3093,7 @@ function updateRaceClassUI() {
   const rName = raceObj ? raceObj.name : (state.race || 'Humano');
   const cName = clsObj ? clsObj.name : (state.class || 'Guerreiro');
   if (display) {
-    display.textContent = `${rName} · ${cName} (Nv. ${state.level})`;
+    display.textContent = `${rName} · ${cName}（等級 ${state.level}）`;
   }
   const _rcEl = el('race-text'); if (_rcEl) _rcEl.textContent = rName;
   const _clsEl = el('class-text'); if (_clsEl) _clsEl.textContent = cName;
@@ -3291,7 +3291,7 @@ function updateQuestsUI() {
       if (q.reward.sp) rewardsText.push(`✦ +${q.reward.sp} SP`);
       if (q.reward.craftPoints) rewardsText.push(`⚒️ +${q.reward.craftPoints} 鍛造點數`);
       if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} 神燈`);
-      if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} XP Passe`);
+      if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} 通行證 XP`);
 
       if (isLocked) {
         return `
@@ -3400,7 +3400,7 @@ function updateQuestsUI() {
       if (q.reward.gold) rewardsText.push(`💰 +${q.reward.gold.toLocaleString()}g`);
       if (q.reward.sp) rewardsText.push(`✦ +${q.reward.sp} SP`);
       if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} 神燈s`);
-      if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} XP Passe`);
+      if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} 通行證 XP`);
 
       const btnLabel = isClaimed ? '✓ Reclamado' : (isCompleted ? '🎁 Reclamar' : '進行中');
       const btnDisabled = !isCompleted || isClaimed ? 'disabled' : '';
@@ -3463,7 +3463,7 @@ function renderBattlePassUI() {
   if (statusText) statusText.textContent = state.battlePass.unlockedPremium ? '👑 高級通行證已啟用' : '戰鬥通行證免費獎勵';
 
   const xpText = el('pass-xp-text');
-  if (xpText) xpText.textContent = `${currentXp.toLocaleString()} / ${nextReqXp.toLocaleString()} XP do Passe`;
+  if (xpText) xpText.textContent = `${currentXp.toLocaleString()} / ${nextReqXp.toLocaleString()} 通行證 XP`;
 
   const xpBar = el('pass-xp-bar');
   if (xpBar) xpBar.style.width = `${pct}%`;
@@ -3475,7 +3475,7 @@ function renderBattlePassUI() {
       unlockBtn.disabled = true;
       unlockBtn.style.opacity = '0.7';
     } else {
-      unlockBtn.textContent = '👑 Obter Passe Premium (R$ 15,00)';
+      unlockBtn.textContent = '👑 取得高級通行證（R$ 15.00）';
       unlockBtn.disabled = false;
       unlockBtn.onclick = () => {
         window.open('https://pay.cakto.com.br/36g8n4b_1054492', '_blank');
@@ -3552,7 +3552,7 @@ function updateTowerUI() {
   if (highestText) highestText.textContent = `目前樓層：${highest} / 100`;
 
   const bonusText = el('tower-bonus-text');
-  if (bonusText) bonusText.textContent = `啟用中的被動加成： +${highest}% ATK, DEF & MATK`;
+  if (bonusText) bonusText.textContent = `啟用中的被動加成：+${highest}% 攻擊、防禦與魔法攻擊`;
 
   const nextNumText = el('tower-next-floor-num');
   if (nextNumText) nextNumText.textContent = `${nextFloor}`;
@@ -3936,7 +3936,7 @@ function selectMasterAbilityModal() {
     { key: 'boostHp', name: '❤️ HP 強化（+8% HP、+20% HP 回復）' },
     { key: 'boostMp', name: '💙 MP 強化（+12% MP、+20% MP 回復）' },
     { key: 'evasion', name: '👟 Evasion (+5 Esquiva)' },
-    { key: 'haste', name: '⚡ Haste Proc (+32% Atk.Spd)' },
+    { key: 'haste', name: '⚡ 急速觸發（+32% 攻擊速度）' },
     { key: 'barrier', name: '🌟 屏障（無敵天界護盾）' },
     { key: 'boostCp', name: '🛡️ CP 強化（+20% CP）' },
     { key: 'resistAttribute', name: '🔥 屬性抗性（+20 元素抗性）' }
@@ -3953,7 +3953,7 @@ function selectMasterAbilityModal() {
     state.masterAbilities.push(selectedKey);
   }
   log(`🏆 已學會大師技能 **${abilities[idx].name.toUpperCase()}**！`, 'rarity-legendary');
-  floatText('MASTER ABILITY APRENDIDA!', 'float-gold');
+  floatText('大師能力已學習！', 'float-gold');
   updateAllUI(); save();
 }
 
@@ -4003,7 +4003,7 @@ export function renderSubclassesUI() {
       ? '🔒 已達副職業上限（3/3）'
       : (!isSeasonUnlocked
         ? '🔒 未開放：第 3 賽季（第三編年史－七封印）'
-        : (!isUnlocked ? '🔒 Conclua Quest Fate\'s Whisper (Lv.52)' : '➕ 新增副職業（無種族限制）'));
+        : (!isUnlocked ? '🔒 完成「命運的低語」任務（Lv.52）' : '➕ 新增副職業（無種族限制）'));
     addBtn.onclick = () => {
       if (!isSeasonUnlocked) {
         log('副職業系統需要第 3 賽季（第三編年史－七封印）。', 'warning');
@@ -4132,24 +4132,24 @@ export function renderSubclassesUI() {
       summaryEl.innerHTML = `目前尚未學習任何認證。將副職業提升至 Lv.65、70、75、80 即可累積永久加成！`;
     } else {
       const parts = [];
-      if (certBonuses.pAtk) parts.push(`+${certBonuses.pAtk} P.Atk`);
-      if (certBonuses.pDef) parts.push(`+${certBonuses.pDef} P.Def`);
-      if (certBonuses.mAtk) parts.push(`+${certBonuses.mAtk} M.Atk`);
-      if (certBonuses.mDef) parts.push(`+${certBonuses.mDef} M.Def`);
-      if (certBonuses.pAtkPercent) parts.push(`+${Math.round(certBonuses.pAtkPercent * 100)}% P.Atk`);
-      if (certBonuses.pDefPercent) parts.push(`+${Math.round(certBonuses.pDefPercent * 100)}% P.Def`);
-      if (certBonuses.mAtkPercent) parts.push(`+${Math.round(certBonuses.mAtkPercent * 100)}% M.Atk`);
-      if (certBonuses.mDefPercent) parts.push(`+${Math.round(certBonuses.mDefPercent * 100)}% M.Def`);
-      if (certBonuses.maxHpPercent) parts.push(`+${Math.round(certBonuses.maxHpPercent * 100)}% Max HP`);
-      if (certBonuses.maxMpPercent) parts.push(`+${Math.round(certBonuses.maxMpPercent * 100)}% Max MP`);
-      if (certBonuses.maxCpPercent) parts.push(`+${Math.round(certBonuses.maxCpPercent * 100)}% Max CP`);
-      if (certBonuses.critRate) parts.push(`+${certBonuses.critRate} Crit Rate`);
-      if (certBonuses.castSpd) parts.push(`+${certBonuses.castSpd} Cast Speed`);
-      if (certBonuses.evasion) parts.push(`+${certBonuses.evasion} Esquiva`);
-      if (certBonuses.celestialProc) parts.push(`🌟 Escudo Celestial (Proc)`);
+      if (certBonuses.pAtk) parts.push(`+${certBonuses.pAtk} 物理攻擊`);
+      if (certBonuses.pDef) parts.push(`+${certBonuses.pDef} 物理防禦`);
+      if (certBonuses.mAtk) parts.push(`+${certBonuses.mAtk} 魔法攻擊`);
+      if (certBonuses.mDef) parts.push(`+${certBonuses.mDef} 魔法防禦`);
+      if (certBonuses.pAtkPercent) parts.push(`+${Math.round(certBonuses.pAtkPercent * 100)}% 物理攻擊`);
+      if (certBonuses.pDefPercent) parts.push(`+${Math.round(certBonuses.pDefPercent * 100)}% 物理防禦`);
+      if (certBonuses.mAtkPercent) parts.push(`+${Math.round(certBonuses.mAtkPercent * 100)}% 魔法攻擊`);
+      if (certBonuses.mDefPercent) parts.push(`+${Math.round(certBonuses.mDefPercent * 100)}% 魔法防禦`);
+      if (certBonuses.maxHpPercent) parts.push(`+${Math.round(certBonuses.maxHpPercent * 100)}% 最大 HP`);
+      if (certBonuses.maxMpPercent) parts.push(`+${Math.round(certBonuses.maxMpPercent * 100)}% 最大 MP`);
+      if (certBonuses.maxCpPercent) parts.push(`+${Math.round(certBonuses.maxCpPercent * 100)}% 最大 CP`);
+      if (certBonuses.critRate) parts.push(`+${certBonuses.critRate} 暴擊率`);
+      if (certBonuses.castSpd) parts.push(`+${certBonuses.castSpd} 施法速度`);
+      if (certBonuses.evasion) parts.push(`+${certBonuses.evasion} 迴避`);
+      if (certBonuses.celestialProc) parts.push(`🌟 天界護盾（觸發）`);
       if (certBonuses.hasteProc) parts.push(`⚡ 急速觸發機率`);
-      if (certBonuses.defenceProc) parts.push(`🛡️ Counter Defense (Proc)`);
-      if (certBonuses.spiritProc) parts.push(`👻 Counter Spirit (Proc)`);
+      if (certBonuses.defenceProc) parts.push(`🛡️ 反擊防禦（觸發）`);
+      if (certBonuses.spiritProc) parts.push(`👻 反擊之魂（觸發）`);
       if (certBonuses.critProc) parts.push(`💥 暴擊觸發機率`);
 
       summaryEl.innerHTML = `
@@ -5291,7 +5291,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
   if (overhitBonusPct > 0) {
     log(`💥 **過量傷害！** 使用 **${killingSkill.def?.name || killingSkill.name}** 完成致命一擊！獲得 **+${overhitBonusPct}% EXP/SP** 額外獎勵！`, 'rarity-legendary', 'gold_xp');
     if (typeof floatText === 'function') {
-      floatText(`💥 OVER-HIT! (+${overhitBonusPct}% EXP)`, 'float-jackpot');
+      floatText(`💥 過量傷害！（+${overhitBonusPct}% EXP）`, 'float-jackpot');
     }
   }
 
@@ -5349,11 +5349,11 @@ function processMonsterDefeat(monster, killingSkill = null) {
   if (gapMods.isGrey) {
     log(`⚠️ [等級懲罰] 怪物等級過低（${gapMods.reason}），無法獲得金幣。`, 'warning', 'gold_xp');
   } else if (jackpot) { 
-    log(`🪙 JACKPOT! Coletou **+${gold.toLocaleString()} Adena** (×10)!`, 'rarity-legendary', 'gold_xp'); 
-    floatText(`🪙 +${gold} Adena`, 'float-jackpot'); 
+    log(`🪙 大獎！獲得 **+${gold.toLocaleString()} 金幣**（×10）！`, 'rarity-legendary', 'gold_xp'); 
+    floatText(`🪙 +${gold} 金幣`, 'float-jackpot'); 
   } else { 
-    log(`Coletou **+${gold.toLocaleString()} Adena** de ${monster.name}`, 'gold', 'gold_xp'); 
-    if (gold >= 20) floatText(`+${gold} Adena`, 'float-gold'); 
+    log(`從 ${monster.name} 獲得 **+${gold.toLocaleString()} 金幣**`, 'gold', 'gold_xp'); 
+    if (gold >= 20) floatText(`+${gold} 金幣`, 'float-gold'); 
   }
 
   // Penalidade de Nível Canônica para Drop + Bônus de Dificuldade de Caça (15.5)
@@ -5373,11 +5373,11 @@ function processMonsterDefeat(monster, killingSkill = null) {
       if (isEquip) {
         addToInventory(dropId, 1, drop.rarity || 'common');
         const rName = D()?.RARITY?.[drop.rarity || 'common']?.name || (drop.rarity || 'common');
-        log(`✦ Obteve **${def.name}** [${rName}]!`, 'rarity-' + (drop.rarity || 'common'), 'loot');
+        log(`✦ 獲得 **${def.name}** [${rName}]！`, 'rarity-' + (drop.rarity || 'common'), 'loot');
         floatText(`✦ ${rName}!`, 'float-' + (drop.rarity || 'common'));
       } else {
         addToInventory(dropId, drop.amount || 1);
-        log(`📦 Obteve **${drop.amount || 1}x ${def.name}**`, 'loot', 'loot');
+        log(`📦 獲得 **${drop.amount || 1}x ${def.name}**`, 'loot', 'loot');
       }
     }
   }
@@ -5395,7 +5395,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
       const bookDef = D().ALL_ITEMS[droppedBookId];
       if (bookDef) {
         addToInventory(droppedBookId, 1);
-        log(`📖 DROP DE GRIMÓRIO! Obteve **${bookDef.name}** de ${monster.name}!`, 'rarity-legendary', 'loot');
+        log(`📖 魔法書掉落！從 ${monster.name} 獲得 **${bookDef.name}**！`, 'rarity-legendary', 'loot');
         floatText(`📖 ${bookDef.name}!`, 'float-jackpot');
       }
     }
@@ -5409,7 +5409,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
     const dropChance = (cardDef.dropChance || (monster.isRaid ? 0.015 : (monster.boss ? 0.008 : 0.0005))) * levelGapPenalty;
     if (Math.random() < dropChance) {
       addToInventory(cardId, 1);
-      log(`🃏 DROP RARO! Obteve **${cardDef.name}** [${(cardDef.rarity || 'rare').toUpperCase()}]!`, 'rarity-' + (cardDef.rarity || 'rare'), 'loot');
+      log(`🃏 稀有掉落！獲得 **${cardDef.name}** [${(cardDef.rarity || 'rare').toUpperCase()}]！`, 'rarity-' + (cardDef.rarity || 'rare'), 'loot');
       floatText(`🃏 CARTA DE MONSTRO!`, 'float-jackpot');
     }
   }
@@ -5429,7 +5429,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
       state.dolls = state.dolls || [];
       const dollDef = BOSS_DOLLS[candidateDollId];
       state.dolls.push({ uid: 'doll_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4), dollId: candidateDollId, level: 1 });
-      log(`🧸 DROP DE DOLL! Conquistou **${dollDef.name}** [Lv.1]!`, 'rarity-rare', 'loot');
+      log(`🧸 娃娃掉落！獲得 **${dollDef.name}** [Lv.1]！`, 'rarity-rare', 'loot');
       floatText(`🧸 ${dollDef.name}!`, 'float-jackpot');
       if (typeof updateDollsUI === 'function') updateDollsUI();
     }
@@ -6072,8 +6072,8 @@ export function attackMonster() {
     state.buffs = state.buffs || {};
     state.buffs['counter_haste'] = { amount: 32, until: realNowAttack + 10000 };
     log(`⚡ **[Subclasse] Counter Haste ativado!** +32% Atk.Spd por 10s!`, 'rarity-legendary');
-    if (typeof stageFloat === 'function') stageFloat('⚡ HASTE!', 'sf-crit', 'left');
-    else if (typeof floatText === 'function') floatText('⚡ HASTE!', 'float-jackpot');
+    if (typeof stageFloat === 'function') stageFloat('⚡ 急速！', 'sf-crit', 'left');
+    else if (typeof floatText === 'function') floatText('⚡ 急速！', 'float-jackpot');
   }
   if (stats.critProc && Math.random() < 0.06) {
     state.buffs = state.buffs || {};
@@ -6344,15 +6344,15 @@ function monsterAttack(monster) {
       state.buffs = state.buffs || {};
       state.buffs['counter_defense'] = { amount: 25, until: realNow + 10000 };
       log('🛡️ **[副職業] 反擊防禦觸發！** +25% P.Def、+25% M.Def，持續 10 秒！', 'rarity-epic');
-      if (typeof stageFloat === 'function') stageFloat('🛡️ COUNTER DEF!', 'sf-block', 'left');
-      else if (typeof floatText === 'function') floatText('🛡️ COUNTER DEFENSE!', 'float-epic');
+      if (typeof stageFloat === 'function') stageFloat('🛡️ 反擊防禦！', 'sf-block', 'left');
+      else if (typeof floatText === 'function') floatText('🛡️ 反擊防禦！', 'float-epic');
     }
     if (stats.spiritProc && Math.random() < 0.05) {
       state.buffs = state.buffs || {};
       state.buffs['counter_spirit'] = { amount: 10, until: realNow + 10000 };
       log('👻 **[副職業] 反擊之魂觸發！** +10% P.Atk、M.Atk 與攻擊速度，持續 10 秒！', 'rarity-epic');
-      if (typeof stageFloat === 'function') stageFloat('👻 COUNTER SPIRIT!', 'sf-crit', 'left');
-      else if (typeof floatText === 'function') floatText('👻 COUNTER SPIRIT!', 'float-epic');
+      if (typeof stageFloat === 'function') stageFloat('👻 反擊之魂！', 'sf-crit', 'left');
+      else if (typeof floatText === 'function') floatText('👻 反擊之魂！', 'float-epic');
     }
 
     state.hp -= damage;
@@ -6592,11 +6592,11 @@ function handleChatSubmit(inputStr) {
 }
 
 const RATE_PRESETS = {
-  classic: { name: '🛡️ Retail Classic (1x)', rates: { xp: 1, sp: 1, adena: 1, drop: 1, spoil: 1, enchant: 1, book: 1 } },
-  aden: { name: '⚔️ Aden Dynamic (3x)', rates: { xp: 3, sp: 3, adena: 2, drop: 2, spoil: 2, enchant: 1.2, book: 2 } },
-  mid: { name: '🔥 Mid-Rate Oficial (10x)', rates: { xp: 10, sp: 10, adena: 8, drop: 5, spoil: 5, enchant: 1.5, book: 5 } },
+  classic: { name: '🛡️ 經典原倍率（1x）', rates: { xp: 1, sp: 1, adena: 1, drop: 1, spoil: 1, enchant: 1, book: 1 } },
+  aden: { name: '⚔️ 亞丁動態倍率（3x）', rates: { xp: 3, sp: 3, adena: 2, drop: 2, spoil: 2, enchant: 1.2, book: 2 } },
+  mid: { name: '🔥 官方中倍率（10x）', rates: { xp: 10, sp: 10, adena: 8, drop: 5, spoil: 5, enchant: 1.5, book: 5 } },
   high: { name: '👑 高倍率／活動（50x）', rates: { xp: 50, sp: 50, adena: 25, drop: 15, spoil: 10, enchant: 2.0, book: 10 } },
-  turbo: { name: '⚡ Turbo PvP (100x)', rates: { xp: 100, sp: 100, adena: 50, drop: 30, spoil: 20, enchant: 2.5, book: 20 } },
+  turbo: { name: '⚡ 極速 PvP（100x）', rates: { xp: 100, sp: 100, adena: 50, drop: 30, spoil: 20, enchant: 2.5, book: 20 } },
   reset: { name: '🔄 標準（1x）', rates: { xp: 1, sp: 1, adena: 1, drop: 1, spoil: 1, enchant: 1, book: 1 } }
 };
 
@@ -6617,9 +6617,9 @@ function setServerRate(key, val, silent = false) {
   state.serverRates[key] = num;
   if (!silent) {
     const labels = {
-      xp: 'Rate de XP',
-      sp: 'Rate de SP',
-      adena: 'Rate de Adena',
+      xp: 'XP 倍率',
+      sp: 'SP 倍率',
+      adena: '金幣倍率',
       drop: '物品掉落倍率',
       spoil: '搜刮與製作倍率',
       enchant: 'Rate de Encantamento',
@@ -6669,7 +6669,7 @@ function syncAdminRatesUI() {
   // Update header live summary
   const summaryEl = el('admin-live-rates-summary');
   if (summaryEl) {
-    summaryEl.textContent = `Rates Ativas: XP x${r.xp} · SP x${r.sp} · Adena x${r.adena} · Drop x${r.drop} · Spoil x${r.spoil} · Enchant x${r.enchant} · Grimórios x${r.book}`;
+    summaryEl.textContent = `目前倍率：XP x${r.xp} · SP x${r.sp} · 金幣 x${r.adena} · 掉落 x${r.drop} · 搜刮 x${r.spoil} · 強化 x${r.enchant} · 魔法書 x${r.book}`;
   }
   
   // Update badges on rate cards
@@ -6815,7 +6815,7 @@ function addAdminGold(amount) {
   state.gold = (state.gold || 0) + amt;
   triggerQuestEvent('gold', amt);
   log(`🪙 [管理員] 已增加 ${amt.toLocaleString()} 金幣！`, 'rarity-legendary');
-  floatText(`🪙 +${amt.toLocaleString()} Adena!`, 'float-gold');
+  floatText(`🪙 +${amt.toLocaleString()} 金幣！`, 'float-gold');
   updateAllUI();
   save(true, true);
 }
@@ -6936,10 +6936,10 @@ function syncAdminSeasonAndCapUI() {
       seasonBadge.style.background = 'rgba(16,185,129,0.2)';
     } else {
       const titles = {
-        1: 'Crônica I: O Despertar (Lv.40)',
+        1: '編年史 I：覺醒（Lv.40）',
         2: '編年史 II：血盟與城堡（Lv.75）',
         3: '編年史 III：七封印（Lv.85）',
-        4: 'Crônica IV: High Five (Lv.120)'
+        4: '編年史 IV：High Five（Lv.120）'
       };
       seasonBadge.textContent = `目前編年史：${titles[curSeason] || '階段 ' + curSeason}`;
       seasonBadge.style.color = '#38bdf8';
@@ -7016,10 +7016,10 @@ function setServerSeason(seasonId) {
   updateTabVisibilityByLevel(state);
 
   const seasonNames = {
-    1: 'Crônica I: O Despertar de Aden',
+    1: '編年史 I：亞丁覺醒',
     2: '編年史 II：血盟與城堡時代',
     3: '編年史 III：七封印與奧林匹亞',
-    4: 'Crônica IV: A Fúria dos Dragões & Multiverso'
+    4: '編年史 IV：巨龍之怒與多重世界'
   };
 
   log(`📜 [皇家編年史] ${seasonNames[sid] || '階段 ' + sid} 已啟用！所有分頁與系統已永久同步。`, 'rarity-legendary');
@@ -7704,7 +7704,7 @@ function updateDollsUI() {
 
   if (summaryEl) {
     const b = getDollsBonuses();
-    summaryEl.innerHTML = `收藏娃娃：<strong>${state.dolls.length}</strong> · 總加成： +${b.atk} ATK, +${b.def} DEF, +${b.matk} MATK`;
+    summaryEl.innerHTML = `收藏娃娃：<strong>${state.dolls.length}</strong> · 總加成：+${b.atk} 攻擊、+${b.def} 防禦、+${b.matk} 魔法攻擊`;
   }
 
   // Render Enciclopédia de Boss Dolls & Fontes de Obtenção
