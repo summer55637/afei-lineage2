@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "terremoto",
-        "name": "Terremoto",
+        "name": "地震",
         "classId": "dwarf_mage",
         "race": "dwarf",
         "tier": "core_1",
@@ -14,7 +14,7 @@
         "tags": [
           "Earth"
         ],
-        "description": "Terremoto — Habilidade Especialista de dwarf_mage."
+        "description": "地震——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -167,7 +167,7 @@
     {
       "identity": {
         "id": "rochedo",
-        "name": "Rochedo",
+        "name": "巨岩",
         "classId": "dwarf_mage",
         "race": "dwarf",
         "tier": "core_2",
@@ -177,7 +177,7 @@
         "tags": [
           "Earth"
         ],
-        "description": "Rochedo — Habilidade Especialista de dwarf_mage."
+        "description": "巨岩——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -330,7 +330,7 @@
     {
       "identity": {
         "id": "golem_de_metal",
-        "name": "Golem de Metal",
+        "name": "金屬魔像",
         "classId": "dwarf_mage",
         "race": "dwarf",
         "tier": "specialization",
@@ -340,7 +340,7 @@
         "tags": [
           "Metal"
         ],
-        "description": "Golem de Metal — Habilidade Especialista de dwarf_mage."
+        "description": "金屬魔像——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -493,7 +493,7 @@
     {
       "identity": {
         "id": "garra_metalica",
-        "name": "Garra Metálica",
+        "name": "金屬之爪",
         "classId": "dwarf_mage",
         "race": "dwarf",
         "tier": "elemental_specialization",
@@ -503,7 +503,7 @@
         "tags": [
           "Metal"
         ],
-        "description": "Garra Metálica — Habilidade Especialista de dwarf_mage."
+        "description": "金屬之爪——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -674,7 +674,7 @@
     {
       "identity": {
         "id": "earthforge_cataclysm",
-        "name": "Earthforge Cataclysm",
+        "name": "大地鍛爐浩劫",
         "classId": "dwarf_mage",
         "race": "dwarf",
         "tier": "ultimate",
@@ -684,7 +684,7 @@
         "tags": [
           "Earth"
         ],
-        "description": "Earthforge Cataclysm — Habilidade Ultimate (★★★★) de dwarf_mage."
+        "description": "大地鍛爐浩劫——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -870,7 +870,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "EARTHFORGE CATACLYSM!",
+          "text": "大地鍛爐浩劫！",
           "style": "gold_banner",
           "banner": true
         }
@@ -891,7 +891,7 @@
     {
       "identity": {
         "id": "master_earthforge_cataclysm",
-        "name": "Master: Earthforge Cataclysm",
+        "name": "大師：大地鍛爐浩劫",
         "classId": "dwarf_mage",
         "race": "dwarf",
         "tier": "master_ultimate",
@@ -901,7 +901,7 @@
         "tags": [
           "Earth"
         ],
-        "description": "Master: Earthforge Cataclysm — Habilidade Master Ultimate (★★★★★) de dwarf_mage."
+        "description": "大師：大地鍛爐浩劫——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1088,7 +1088,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: EARTHFORGE CATACLYSM!",
+          "text": "大師：大地鍛爐浩劫！",
           "style": "mythic_banner",
           "banner": true
         }
