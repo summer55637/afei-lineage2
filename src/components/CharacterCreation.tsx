@@ -67,8 +67,8 @@ const RACES_INFO: Record<string, {
     desc: '受到伊娃女神祝福，優雅而且極為敏捷。',
     perks: ['🍃 +8 基礎迴避', '⚡ 高移動速度', '🏝️ 從說話之島開始（等級 1）'],
     allowedClasses: [
-      { id: 'elven_fighter', name: 'Guerreiro 精靈 (Fighter)', desc: '兼具優雅防守與高速弓術，擁有致命的精準度。', icon: '🏹' },
-      { id: 'elven_mage', name: 'Mago 精靈 (Mage)', desc: '擅長水系魔法、神聖之光與快速支援。', icon: '🌊' },
+      { id: 'elven_fighter', name: '精靈戰士', desc: '兼具優雅防守與高速弓術，擁有致命的精準度。', icon: '🏹' },
+      { id: 'elven_mage', name: '精靈法師', desc: '擅長水系魔法、神聖之光與快速支援。', icon: '🌊' },
       { id: 'elf_deathknight_0', name: '死亡騎士 💀', desc: '擅長迴避與冰刃攻擊的精靈死亡騎士。', icon: '💀' }
     ],
     image: {
@@ -84,7 +84,7 @@ const RACES_INFO: Record<string, {
   },
   darkelf: {
     id: 'darkelf',
-    name: '精靈 Negro',
+    name: '黑暗精靈',
     icon: '🧝‍♀️',
     desc: '席琳的黑暗魔法大師，擅長強力暴擊。',
     perks: ['🔥 +15 攻擊與魔法威力', '🗡️ 高暴擊威力', '🏝️ 從說話之島開始（等級 1）'],
@@ -121,7 +121,7 @@ const RACES_INFO: Record<string, {
     desc: '擁有驚人力量與強韌體魄的戰士種族。',
     perks: ['💪 +100 最大生命值（HP）', '🛡️ 長時間戰鬥耐久', '🏝️ 從說話之島開始（等級 1）'],
     allowedClasses: [
-      { id: 'orc_fighter', name: 'Guerreiro 半獸人 (Fighter)', desc: '使用雙手斧與狂暴之力作戰的破壞者。', icon: '🪓' },
+      { id: 'orc_fighter', name: '半獸人戰士', desc: '使用雙手斧與狂暴之力作戰的破壞者。', icon: '🪓' },
       { id: 'orc_mage', name: '半獸人薩滿', desc: '使用戰鬥魔法與部族增益強化血量及耐力。', icon: '🔥' },
       { id: 'orc_rider_0', name: '先鋒騎士 🐉', desc: '擅長騎乘衝鋒與長槍突刺的半獸人騎士。', icon: '🐉' }
     ],
@@ -199,7 +199,7 @@ const RACES_INFO: Record<string, {
     id: 'highelf',
     name: '高等精靈',
     icon: '✨',
-    desc: '精靈s supremos detentores da luz divina e maestria elemental.',
+    desc: '掌握神聖之光與元素奧義的高等精靈。',
     perks: ['🌟 +8 魔法與神聖防禦', '🛡️ 亞丁神聖守護者', '🏝️ 從說話之島開始（等級 1）'],
     allowedClasses: [
       { id: 'sacred_templar_0', name: '神聖聖殿騎士 🛡️', desc: '使用神聖護盾、堅不可摧的頂級守護坦克。', icon: '🛡️' },
@@ -350,7 +350,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
             <div>
               <p className="font-bold text-amber-300">重新專精提醒：</p>
               <p className="mt-0.5 text-amber-200/90 leading-relaxed">
-                確認變更種族與職業後，<strong>所有技能都會重置</strong>, todo o <strong>已花費的 SP 會全數返還</strong> e seus <strong>目前裝備會安全卸下</strong>並放回背包。
+                確認變更種族與職業後，<strong>所有技能都會重置</strong>，<strong>已花費的 SP 會全數返還</strong>，<strong>目前裝備會安全卸下</strong>並放回背包。
               </p>
             </div>
           </div>
