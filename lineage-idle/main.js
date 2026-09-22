@@ -2409,10 +2409,10 @@ function showSkillTooltip(skillId, e) {
     : `<span class="tt-icon">${def.icon || '✦'}</span>`;
 
   const elemBadge = semantic?.element
-    ? `<span class="tt-elem-pill elem-${semantic.element.toLowerCase()}">${semantic.element}</span>`
+    ? `<span class="tt-elem-pill elem-${semantic.element.toLowerCase()}">${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗', physical: '物理', none: '無屬性' })[String(semantic.element).toLowerCase()] || semantic.element}</span>`
     : '';
   const roleBadge = semantic?.role
-    ? `<span class="tt-role-pill">${semantic.role.toUpperCase()}</span>`
+    ? `<span class="tt-role-pill">${({ physical: '物理', magic: '魔法', buff: '增益', debuff: '減益', heal: '治療', healing: '治療', control: '控制', passive: '被動', active: '主動', summon: '召喚', aoe: '範圍', utility: '輔助' })[String(semantic.role).toLowerCase()] || semantic.role}</span>`
     : '';
   const starBadge = (def.starRank >= 4 || def.tier >= 4)
     ? `<span class="tt-star-pill">${def.starRank || (def.tier === 5 ? 5 : 4)}★</span>`
@@ -4102,7 +4102,7 @@ export function renderSubclassesUI() {
           <div style="font-size:10px; color:var(--text-muted); margin-top:2px;">名匠認證可於等級 65、70、75、80 取得。</div>
         </div>
         <div style="display:flex; gap:6px;">
-          <button class="inv-batch-btn" style="padding:4px 8px; font-size:10px;" onclick="window.openResetCertificationsModal('${sub.id}')" title="重新分配此副職業的認證">🔄 重置（1kk）</button>
+          <button class="inv-batch-btn" style="padding:4px 8px; font-size:10px;" onclick="window.openResetCertificationsModal('${sub.id}')" title="重新分配此副職業的認證">🔄 重置（1,000,000 金幣）</button>
           <button class="action-btn" style="padding:6px 12px; font-size:11px;" ${isSubActive ? 'disabled' : ''} onclick="switchSubclass(${idx})">
             ${isSubActive ? '✓ 使用中' : '切換 ⚔️'}
           </button>
