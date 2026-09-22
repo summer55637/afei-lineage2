@@ -158,7 +158,7 @@ export const FishingService = {
     fState.rodDurability[rodId] = rod.durability;
     fState.rod = rodId;
 
-    if (callbacks.log) callbacks.log(`🎣 Adquiriu e equipou **${rod.name}**!`, 'rarity-epic');
+    if (callbacks.log) callbacks.log(`🎣 已取得並裝備 **${rod.name}**！`, 'rarity-epic');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -173,7 +173,7 @@ export const FishingService = {
 
     fState.rod = rodId;
     const rod = RODS_CATALOG[rodId];
-    if (callbacks.log) callbacks.log(`🎣 Equipou **${rod ? rod.name : rodId}**.`, 'system');
+    if (callbacks.log) callbacks.log(`🎣 已裝備 **${rod ? rod.name : rodId}**。`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     return true;
   },
@@ -253,7 +253,7 @@ export const FishingService = {
       if (availableBaitKey) {
         fState.activeBait = availableBaitKey;
       } else {
-        if (callbacks.log) callbacks.log(`⚠️ Sem iscas no anzol! Compre mais iscas para continuar pescando.`, 'warning');
+        if (callbacks.log) callbacks.log(`⚠️ 魚鉤上沒有魚餌！請購買更多魚餌後繼續釣魚。`, 'warning');
         return { success: false, reason: 'no_bait' };
       }
     }
@@ -472,7 +472,7 @@ export const FishingService = {
       : fishDef.rarity === 'epic' ? 'rarity-epic'
       : fishDef.rarity === 'rare' ? 'rarity-rare' : 'loot';
 
-    log(`🎣 **CAPTURA GLORIOSA!** Pescou **${fishDef.name}** [${quality.name} · ${size.name}] (${finalWeight}kg)! (+${finalXp} XP de 釣魚).`, rarityClass);
+    log(`🎣 **精彩捕獲！** 釣到 **${fishDef.name}** [${quality.name} · ${size.name}]（${finalWeight}kg）！（+${finalXp} 釣魚 XP）`, rarityClass);
     if (floatText) floatText(`+1 ${fishDef.icon} ${fishDef.name}!`, 'float-crit');
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -501,7 +501,7 @@ export const FishingService = {
 
     if (fState.autoFishing) {
       if (callbacks.log) callbacks.log(`🤖 **自動釣魚已啟用！** 只要還有魚餌與耐久度，角色就會在背景持續釣魚。`, 'gain');
-      if (callbacks.floatText) callbacks.floatText(`🎣 釣魚 AFK Ativada!`, 'float-gold');
+      if (callbacks.floatText) callbacks.floatText(`🎣 自動釣魚已啟用！`, 'float-gold');
     } else {
       if (callbacks.log) callbacks.log(`🛑 自動釣魚已暫停。`, 'system');
     }
