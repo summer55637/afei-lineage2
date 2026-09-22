@@ -32,7 +32,7 @@ export class SkillEnchantService {
     const costData = getEnchantLevelData(nextLvl);
 
     if ((state.sp || 0) < costData.spCost) {
-      return { can: false, reason: 'sp_low', message: `SP 不足，需要 ${costData.spCost.toLocaleString()} SP。` };
+      return { can: false, reason: 'sp_low', message: `技能點不足，需要 ${costData.spCost.toLocaleString()} 技能點。` };
     }
 
     if ((state.gold || 0) < costData.adenaCost) {
