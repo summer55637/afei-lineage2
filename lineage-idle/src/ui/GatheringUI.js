@@ -85,7 +85,7 @@ export function renderGatheringUI(state) {
           ${z.description}
         </p>
         <div style="display:flex; justify-content:space-between; font-size:10px; color:#aaa;">
-          <span>Cesto: <strong style="color:#cbd5e1;">${reqPouchDef ? reqPouchDef.name : 'Qualquer'}</strong></span>
+          <span>採集籃： <strong style="color:#cbd5e1;">${reqPouchDef ? reqPouchDef.name : '任意'}</strong></span>
           <span style="color:#34d399; font-weight:bold;">${isSelected ? '● ATUAL' : ''}</span>
         </div>
       </div>
