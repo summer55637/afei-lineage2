@@ -170,8 +170,8 @@ export const ExpeditionService = {
       synergies,
       phases: dest.phases || [
         { name: '潛入', desc: '從敵方警戒區域外圍接近。' },
-        { name: 'Perigo', desc: 'Enfrentando as ameaças locais.' },
-        { name: 'Tesouro', desc: 'Câmara de saque e relíquias.' }
+        { name: '危險', desc: '正在迎戰當地威脅。' },
+        { name: '寶藏', desc: '充滿戰利品與遺物的寶庫。' }
       ]
     };
 
