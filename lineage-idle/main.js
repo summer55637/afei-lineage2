@@ -857,7 +857,7 @@ function openClassTransferModal(classInfo) {
         <div style="display:flex; align-items:center; gap:12px;">
           <input type="checkbox" ${selected.has(s.id) ? 'checked' : ''} style="cursor:pointer; width:18px; height:18px; accent-color:#f5df93;" />
           <div>
-            <div style="font-weight:bold; color:#ffd877; font-size:13px; font-family:'Cinzel',serif;">${def.name || s.id} <span style="font-size:11px; color:#94a3b8; font-family:sans-serif; font-weight:normal;">（等級 ${lvl}）</span></div>
+            <div style="font-weight:bold; color:#ffd877; font-size:13px; font-family:'Cinzel',serif;">${def.name || '未知技能'} <span style="font-size:11px; color:#94a3b8; font-family:sans-serif; font-weight:normal;">（等級 ${lvl}）</span></div>
             <div style="font-size:12px; color:#86efac; font-weight:600; margin-top:2px;">🧬 血統被動：+${(passiveVal * 100).toFixed(1)}% ${statKey}</div>
           </div>
         </div>
@@ -2122,11 +2122,11 @@ function updateDetailedEquipStatsUI() {
     if (!uid) {
       if (pdSlot) { 
         pdSlot.className = `l2inv-pd-slot equip-slot`; 
-        pdSlot.title = `${defaultSlotLabels[slot] || slot} · 空`; 
+        pdSlot.title = `${defaultSlotLabels[slot] || '未知欄位'} · 空`; 
         pdSlot.innerHTML = `<span class="l2inv-pd-icon">${defaultEmoji}</span><span class="l2inv-pd-item" id="pd-item-${slot}"></span>`;
       }
       if (elem) { elem.textContent = '空'; elem.style.color = ''; elem.title = ''; }
-      if (wrap) { wrap.style.borderColor = ''; wrap.title = (defaultSlotLabels[slot] || slot) + ' · 空'; }
+      if (wrap) { wrap.style.borderColor = ''; wrap.title = (defaultSlotLabels[slot] || '未知欄位') + ' · 空'; }
       continue;
     }
 
@@ -2135,11 +2135,11 @@ function updateDetailedEquipStatsUI() {
       state.equipment[slot] = null;
       if (pdSlot) { 
         pdSlot.className = `l2inv-pd-slot equip-slot`; 
-        pdSlot.title = `${defaultSlotLabels[slot] || slot} · 空`; 
+        pdSlot.title = `${defaultSlotLabels[slot] || '未知欄位'} · 空`; 
         pdSlot.innerHTML = `<span class="l2inv-pd-icon">${defaultEmoji}</span><span class="l2inv-pd-item" id="pd-item-${slot}"></span>`;
       }
       if (elem) { elem.textContent = '空'; elem.style.color = ''; elem.title = ''; }
-      if (wrap) { wrap.style.borderColor = ''; wrap.title = (defaultSlotLabels[slot] || slot) + ' · 空'; }
+      if (wrap) { wrap.style.borderColor = ''; wrap.title = (defaultSlotLabels[slot] || '未知欄位') + ' · 空'; }
       continue;
     }
 
@@ -2151,7 +2151,7 @@ function updateDetailedEquipStatsUI() {
 
     if (pdSlot) {
       pdSlot.className = `l2inv-pd-slot equip-slot has-item rarity-${rarity}`;
-      pdSlot.title = `${enchantStr ? enchantStr + ' ' : ''}${def.name}（${defaultSlotLabels[slot] || slot}）`;
+      pdSlot.title = `${enchantStr ? enchantStr + ' ' : ''}${def.name}（${defaultSlotLabels[slot] || '未知欄位'}）`;
       pdSlot.innerHTML = `${getItemIcon(def)}<span class="l2inv-pd-item" id="pd-item-${slot}">${enchantStr}</span>`;
       pdSlot.onmouseenter = (e) => { cancelHideTooltip(); showItemTooltip(item, e); };
       pdSlot.onmouseleave = scheduleHideTooltip;
@@ -3039,7 +3039,7 @@ function renderZoneInfoCard() {
     const archBadge = `<span class="z-badge arch" style="background:${arch.bg}; color:${arch.color}; border:1px solid ${arch.border}; padding:1px 5px; border-radius:3px; font-size:10px; margin-left:4px;" title="${arch.desc}">${arch.icon} ${arch.label}</span>`;
     return `
       <div class="z-mon-item">
-        <span class="z-mon-name"><span class="z-mon-lvl">等級 ${mLvl}</span> ${mon.name || mId} ${badge} ${archBadge}</span>
+        <span class="z-mon-name"><span class="z-mon-lvl">等級 ${mLvl}</span> ${mon.name || '未知怪物'} ${badge} ${archBadge}</span>
         <span class="z-mon-stats">❤️ 生命值 ${(mon.hp || 0).toLocaleString()}｜⚔️ 攻擊 ${mon.atk || 0}</span>
       </div>
     `;
@@ -9900,7 +9900,7 @@ export function init() {
             ${statsList.map(st => {
               const val = net[st.key] || 0;
               const sign = val > 0 ? `+${val}` : `${val}`;
-              return `<span style="font-weight:bold; color:${st.color};">${st.label}: ${sign}</span>`;
+              return `<span style="font-weight:bold; color:${st.color};">${st.label}：${sign}</span>`;
             }).join(' · ')}
           </div>
         `;
