@@ -12,7 +12,7 @@ export const FORTRESSES = {
     epauletteRate: 15, // epaulettes por minuto
     defenders: { hp: 120000, pAtk: 1100, pDef: 950 },
     generators: 3,
-    buff: { stat: 'pDef', val: 0.05, label: '邊境 P.Def +5%' }
+    buff: { stat: 'pDef', val: 0.05, label: '邊境 物理防禦 +5%' }
   },
   demon_fortress: {
     id: 'demon_fortress',
@@ -22,7 +22,7 @@ export const FORTRESSES = {
     epauletteRate: 25,
     defenders: { hp: 180000, pAtk: 1400, pDef: 1200 },
     generators: 3,
-    buff: { stat: 'mDef', val: 0.06, label: '邊境 M.Def +6%' }
+    buff: { stat: 'mDef', val: 0.06, label: '邊境 魔法防禦 +6%' }
   },
   dragonspine_fortress: {
     id: 'dragonspine_fortress',
@@ -32,7 +32,7 @@ export const FORTRESSES = {
     epauletteRate: 40,
     defenders: { hp: 260000, pAtk: 1800, pDef: 1500 },
     generators: 3,
-    buff: { stat: 'pAtk', val: 0.06, label: '領地 P.Atk +6%' }
+    buff: { stat: 'pAtk', val: 0.06, label: '領地 物理攻擊 +6%' }
   },
   hive_fortress: {
     id: 'hive_fortress',
@@ -52,6 +52,6 @@ export const FORTRESSES = {
     epauletteRate: 90,
     defenders: { hp: 480000, pAtk: 2600, pDef: 2100 },
     generators: 4,
-    buff: { stat: 'matk', val: 0.08, label: '領地 M.Atk +8%' }
+    buff: { stat: 'matk', val: 0.08, label: '領地 魔法攻擊 +8%' }
   }
 };
