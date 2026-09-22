@@ -10313,7 +10313,7 @@ export function renderOlympiadTab(container, state) {
           onclick="window.setOlympiadSubTab('arena')"
           style="padding:8px 16px; font-family:'Cinzel',serif; font-size:12px; font-weight:bold; background:${activeSubTab === 'arena' ? 'linear-gradient(180deg,#ca8a04,#a16207)' : 'rgba(0,0,0,0.4)'}; border:1px solid ${activeSubTab === 'arena' ? '#fde047' : 'rgba(255,255,255,0.1)'}; color:${activeSubTab === 'arena' ? '#fff' : '#cbd5e1'}; border-radius:6px; cursor:pointer;"
         >
-          ⚔️ Arena 1v1
+          ⚔️ 1 對 1 競技場
         </button>
         <button
           onclick="window.setOlympiadSubTab('noblesse')"
@@ -10331,7 +10331,7 @@ export function renderOlympiadTab(container, state) {
           onclick="window.setOlympiadSubTab('shop')"
           style="padding:8px 16px; font-family:'Cinzel',serif; font-size:12px; font-weight:bold; background:${activeSubTab === 'shop' ? 'linear-gradient(180deg,#ca8a04,#a16207)' : 'rgba(0,0,0,0.4)'}; border:1px solid ${activeSubTab === 'shop' ? '#fde047' : 'rgba(255,255,255,0.1)'}; color:${activeSubTab === 'shop' ? '#fff' : '#cbd5e1'}; border-radius:6px; cursor:pointer;"
         >
-          🛍️ 商店 de Tokens
+          🛍️ 代幣商店
         </button>
       </div>
 
@@ -10419,7 +10419,7 @@ export function renderClanTab(container, state) {
                 onclick="window.claimCastleTaxesAction('${c.id}')"
                 style="padding:8px 16px; font-size:11px; font-weight:bold; background:linear-gradient(180deg,#16a34a,#15803d); border:1px solid #4ade80; color:#fff; border-radius:6px; cursor:pointer;"
               >
-                💰 Recolher Tributos
+                💰 領取稅收
               </button>
             ` : `
               <button
@@ -10458,7 +10458,7 @@ export function renderClanTab(container, state) {
       const phaseNames = {
         1: '階段 1：摧毀外圍城門',
         2: '階段 2：迎戰城堡皇家衛隊',
-        3: '階段 3：王座之間－引導 Seal of Ruler'
+        3: '階段 3：王座之間－引導統治者封印'
       };
 
       const hpCurrent = siege.phase === 1 ? siege.gateHp : (siege.phase === 2 ? siege.guardsHp : siege.castRounds);
