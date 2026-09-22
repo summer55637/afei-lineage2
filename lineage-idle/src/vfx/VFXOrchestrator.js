@@ -566,7 +566,7 @@ export class VFXOrchestrator {
       if (!badge) {
         badge = doc.createElement('div');
         badge.className = 'vfx-profiler-badge';
-        badge.title = 'VFX 60FPS 效能監控（點擊切換）';
+        badge.title = 'VFX 60 幀效能監控（點擊切換）';
         badge.onclick = () => this.toggleProfiler(false);
         this.stageElement.appendChild(badge);
       }
@@ -583,13 +583,13 @@ export class VFXOrchestrator {
     const fpsClass = this._fps >= 55 ? 'fps-good' : (this._fps >= 30 ? 'fps-warn' : 'fps-bad');
 
     this._profilerElement.innerHTML = `
-      <span class="vfx-p-val ${fpsClass}">${fps} FPS</span>
+      <span class="vfx-p-val ${fpsClass}">幀率 ${fps}</span>
       <span class="vfx-p-sep">•</span>
-      <span class="vfx-p-val">${ms}ms</span>
+      <span class="vfx-p-val">${ms} 毫秒</span>
       <span class="vfx-p-sep">•</span>
-      <span class="vfx-p-val">P: ${pCount}</span>
+      <span class="vfx-p-val">粒子：${pCount}</span>
       <span class="vfx-p-sep">•</span>
-      <span class="vfx-p-val">T: ${this.camera.trauma.toFixed(2)}</span>
+      <span class="vfx-p-val">震動：${this.camera.trauma.toFixed(2)}</span>
     `;
   }
 
