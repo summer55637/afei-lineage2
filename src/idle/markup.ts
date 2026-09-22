@@ -53,7 +53,7 @@ export const IDLE_MARKUP = `
         </button>
 
         <button id="cash-shop-btn" class="tb-btn tb-btn--shop" onclick="window.openCashShopModal && window.openCashShopModal()" title="商店">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> <span id="top-ac-amount">0 AC</span> <span>商店</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> <span id="top-ac-amount">0 亞丁幣</span> <span>商店</span>
         </button>
 
         <button id="daily-reward-btn" class="tb-btn" onclick="window.openDailyRewardModal && window.openDailyRewardModal()" title="每日簽到">
@@ -97,7 +97,7 @@ export const IDLE_MARKUP = `
         <!-- Header Nobre -->
         <div style="display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(212,169,78,0.35); padding-bottom:6px; margin-bottom:8px;">
           <h2 style="font-family:'Cinzel',serif; font-size:12px; font-weight:900; color:#f5df93; margin:0; letter-spacing:0.12em; text-transform:uppercase; text-shadow:0 0 8px rgba(212,167,68,0.3);">⚔️ 亞丁狀態</h2>
-          <span id="char-combat-power" style="font-family:'Cinzel',serif; font-size:10px; color:#60a5fa; font-weight:bold; background:rgba(30,58,138,0.4); border:1px solid rgba(96,165,250,0.4); padding:1px 6px; border-radius:4px;">CP: 120</span>
+          <span id="char-combat-power" style="font-family:'Cinzel',serif; font-size:10px; color:#60a5fa; font-weight:bold; background:rgba(30,58,138,0.4); border:1px solid rgba(96,165,250,0.4); padding:1px 6px; border-radius:4px;">戰鬥力: 120</span>
         </div>
 
         <!-- Identidade Resumida do 角色 -->
@@ -124,24 +124,24 @@ export const IDLE_MARKUP = `
           </div>
         </div>
 
-        <!-- Medidores Nobres (HP / MP / XP) -->
+        <!-- Medidores Nobres (生命值 / 魔力 / 經驗值) -->
         <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(212,167,68,0.15); border-radius:6px; padding:6px 8px; margin-bottom:6px; display:flex; flex-direction:column; gap:5px;">
           <div class="stat-row l2-gauge-slot" style="padding:0; margin:0;">
-            <label style="color:#ef4444; font-weight:bold; font-family:'Cinzel',serif; font-size:10px; width:22px;">HP</label>
+            <label style="color:#ef4444; font-weight:bold; font-family:'Cinzel',serif; font-size:10px; width:22px;">生命值</label>
             <div class="bar-container l2-gauge-bezel">
               <div id="hp-bar" class="bar hp l2-gauge-hp-fill" style="width:100%"></div>
               <span id="hp-text" style="font-weight:700; text-shadow:1px 1px 2px #000; font-size:9px;">100 / 100</span>
             </div>
           </div>
           <div class="stat-row l2-gauge-slot" style="padding:0; margin:0;">
-            <label style="color:#3b82f6; font-weight:bold; font-family:'Cinzel',serif; font-size:10px; width:22px;">MP</label>
+            <label style="color:#3b82f6; font-weight:bold; font-family:'Cinzel',serif; font-size:10px; width:22px;">魔力</label>
             <div class="bar-container l2-gauge-bezel">
               <div id="mp-bar" class="bar mp l2-gauge-mp-fill" style="width:100%"></div>
               <span id="mp-text" style="font-weight:700; text-shadow:1px 1px 2px #000; font-size:9px;">50 / 50</span>
             </div>
           </div>
           <div class="stat-row l2-gauge-slot" style="padding:0; margin:0;">
-            <label style="color:#c084fc; font-weight:bold; font-family:'Cinzel',serif; font-size:10px; width:22px;">XP</label>
+            <label style="color:#c084fc; font-weight:bold; font-family:'Cinzel',serif; font-size:10px; width:22px;">經驗值</label>
             <div class="bar-container l2-gauge-bezel">
               <div id="xp-bar" class="bar xp l2-gauge-xp-fill" style="width:0%"></div>
               <span id="xp-text" style="font-weight:700; text-shadow:1px 1px 2px #000; font-size:9px;">0 / 100</span>
@@ -205,12 +205,12 @@ export const IDLE_MARKUP = `
             <div class="stage-zone" id="stage-zone">—</div>
             <div class="combat-controls-bar">
               <button id="combat-toggle-btn" class="combat-ctrl-btn active" title="暫停或開始自動狩獵（P 鍵）"><span class="combat-stance-gem"></span> <span>⚔️ 狩獵中</span></button>
-              <button id="soulshot-toggle-btn" class="combat-ctrl-btn" title="戰鬥中啟用魂彈（傷害 +100%）"><span>⚡ SS</span> <span style="font-size:9px; color:#ffd877;">（關閉）</span></button>
-              <button id="autopotion-toggle-btn" class="combat-ctrl-btn" title="HP 低於 50% 時自動使用 HP 藥水"><span>🧪 自動補血</span> <span style="font-size:9px; color:#ffd877;">（關閉）</span></button>
+              <button id="soulshot-toggle-btn" class="combat-ctrl-btn" title="戰鬥中啟用魂彈（傷害 +100%）"><span>⚡ 魂彈</span> <span style="font-size:9px; color:#ffd877;">（關閉）</span></button>
+              <button id="autopotion-toggle-btn" class="combat-ctrl-btn" title="生命值 低於 50% 時自動使用 生命值 藥水"><span>🧪 自動補血</span> <span style="font-size:9px; color:#ffd877;">（關閉）</span></button>
               <button id="speed-toggle-btn" class="combat-ctrl-btn" title="戰鬥速度（1x 一般／2x 加速）"><span>⏩ 1x</span></button>
-              <button id="macro-settings-btn" class="combat-ctrl-btn" onclick="window.openMacroSettingsModal && window.openMacroSettingsModal()" title="放置巨集設定：HP／MP 觸發、技能循環與自動回收"><span>⚙️ 巨集</span></button>
+              <button id="macro-settings-btn" class="combat-ctrl-btn" onclick="window.openMacroSettingsModal && window.openMacroSettingsModal()" title="放置巨集設定：生命值／魔力 觸發、技能循環與自動回收"><span>⚙️ 巨集</span></button>
               <label class="combat-ctrl-btn combat-ctrl-vfx" style="display:inline-flex; align-items:center; gap:4px; cursor:pointer;" title="視覺效果品質">
-                <span>VFX</span>
+                <span>視覺效果</span>
                 <select id="vfx-quality-select" title="視覺效果品質">
                   <option value="low">低</option>
                   <option value="medium" selected>中等</option>
@@ -225,11 +225,11 @@ export const IDLE_MARKUP = `
             <div class="stage-entity-level stage-hero-level" id="hero-level">等級 1</div>
             <div class="stage-hp-bar stage-hp-bar-hero" id="hero-hp-bar">
               <div class="stage-hp-fill stage-hp-fill-hero" id="hero-hp-fill"></div>
-              <span class="stage-hp-text stage-hp-text-hero" id="hero-hp-text">HP: 100 / 100</span>
+              <span class="stage-hp-text stage-hp-text-hero" id="hero-hp-text">生命值: 100 / 100</span>
             </div>
             <div class="stage-mp-bar stage-mp-bar-hero" id="hero-mp-bar">
               <div class="stage-mp-fill stage-mp-fill-hero" id="hero-mp-fill"></div>
-              <span class="stage-mp-text stage-mp-text-hero" id="hero-mp-text">MP: 50 / 50</span>
+              <span class="stage-mp-text stage-mp-text-hero" id="hero-mp-text">魔力: 50 / 50</span>
             </div>
             <div class="hero-sprite-host" id="hero-sprite-container"></div>
           </div>
@@ -238,7 +238,7 @@ export const IDLE_MARKUP = `
             <div class="stage-entity-level stage-monster-level" id="monster-level">等級 1</div>
             <div class="stage-hp-bar" id="monster-hp-bar">
               <div class="stage-hp-fill" id="monster-hp-fill"></div>
-              <span class="stage-hp-text" id="monster-hp-text">HP: 0 / 0</span>
+              <span class="stage-hp-text" id="monster-hp-text">生命值: 0 / 0</span>
             </div>
             <div class="stage-stagger-bar" id="monster-stagger-bar" style="display:none;">
               <div class="stage-stagger-fill" id="monster-stagger-fill"></div>
@@ -320,7 +320,7 @@ export const IDLE_MARKUP = `
             <button class="tab-btn active subtab-pill-btn" data-tab="zones">⚔ 戰鬥與區域</button>
             <button class="tab-btn subtab-pill-btn" data-tab="raids">🐉 團隊首領與首領</button>
             <button class="tab-btn subtab-pill-btn" data-tab="tower">🏰 傲慢之塔</button>
-            <button class="tab-btn subtab-pill-btn" data-tab="colosseum">⚔ PvP 競技場</button>
+            <button class="tab-btn subtab-pill-btn" data-tab="colosseum">⚔ PVP 競技場</button>
             <button class="tab-btn subtab-pill-btn" data-tab="expeditions">🏰 遠征</button>
             <button class="tab-btn subtab-pill-btn" data-tab="fishing">🎣 釣魚</button>
             <button class="tab-btn subtab-pill-btn" data-tab="hunting">🐾 野外狩獵</button>
@@ -341,7 +341,7 @@ export const IDLE_MARKUP = `
 
           <!-- Pillar 3 Subtabs: 帝國 & Economia -->
           <div class="pillar-subtabs-strip collapsed" id="pillar-strip-economy" style="display:none;">
-            <button class="tab-btn subtab-pill-btn" data-tab="market" data-min-level="1" style="border-color:#ffd700; color:#fde047; font-weight:bold;">🏛 奇岩市場（P2P）</button>
+            <button class="tab-btn subtab-pill-btn" data-tab="market" data-min-level="1" style="border-color:#ffd700; color:#fde047; font-weight:bold;">🏛 奇岩市場（玩家交易）</button>
             <button class="tab-btn subtab-pill-btn" data-tab="shop" data-min-level="1">⚜ 商店</button>
             <button class="tab-btn subtab-pill-btn" data-tab="craft" data-min-level="10">⚒ 亞丁鍛造 <span id="tab-badge-craft" class="tab-badge" style="display:none">!</span></button>
             <button class="tab-btn subtab-pill-btn" data-tab="warehouse" data-min-level="15">📦 私人倉庫</button>
@@ -365,9 +365,9 @@ export const IDLE_MARKUP = `
           <div class="imperial-pillar-header" id="imperial-pillar-header" style="display:none;">
             <div class="imp-resource-ribbon">
               <span class="imp-res-chip imp-res-chip--gold" title="目前金幣"><span class="chip-icon">🪙</span> <span id="imp-res-gold" class="res-val">0</span> 金幣</span>
-              <span class="imp-res-chip imp-res-chip--ac" title="亞丁幣"><span class="chip-icon">💎</span> <span id="imp-res-ac" class="res-val">0</span> AC</span>
-              <span class="imp-res-chip imp-res-chip--aa" title="古代金幣（七封印）"><span class="chip-icon">🏛️</span> <span id="imp-res-aa" class="res-val">0</span> AA</span>
-              <span class="imp-res-chip imp-res-chip--sp" title="技能點數"><span class="chip-icon">✦</span> <span id="imp-res-sp" class="res-val">0</span> SP</span>
+              <span class="imp-res-chip imp-res-chip--ac" title="亞丁幣"><span class="chip-icon">💎</span> <span id="imp-res-ac" class="res-val">0</span> 亞丁幣</span>
+              <span class="imp-res-chip imp-res-chip--aa" title="古代金幣（七封印）"><span class="chip-icon">🏛️</span> <span id="imp-res-aa" class="res-val">0</span> 古代金幣</span>
+              <span class="imp-res-chip imp-res-chip--sp" title="技能點數"><span class="chip-icon">✦</span> <span id="imp-res-sp" class="res-val">0</span> 技能點</span>
               <span class="imp-res-chip imp-res-chip--forge" title="帝國鍛造等級"><span class="chip-icon">🔨</span> 鍛造： <span id="imp-res-forge" class="res-val">等級 1</span></span>
               <span class="imp-res-chip imp-res-chip--charges" title="帝國輪盤充能"><span class="chip-icon">🎲</span> 輪盤： <span id="imp-res-charges" class="res-val">0 次充能</span></span>
             </div>
@@ -403,13 +403,13 @@ export const IDLE_MARKUP = `
                   </div>
                 </div>
 
-                <!-- CP Hero Card Premium (Única Fonte da Verdade para Combat Power) -->
+                <!-- 戰鬥力 Hero Card Premium (Única Fonte da Verdade para Combat Power) -->
                 <div class="l2-cp-plaque">
                   <div class="l2-cp-main">
                     <span class="l2-cp-rune">⚡</span>
                     <div class="l2-cp-data">
                       <span class="l2-cp-caption">標準戰鬥力</span>
-                      <span class="l2-cp-num" id="hero-cp-val">0 CP</span>
+                      <span class="l2-cp-num" id="hero-cp-val">0 戰鬥力</span>
                     </div>
                   </div>
                   <div id="hero-cp-badge-wrap" class="l2-cp-badge-wrap">
@@ -417,7 +417,7 @@ export const IDLE_MARKUP = `
                   </div>
                 </div>
 
-                <!-- CP Power Breakdown (Composição Proporcional Auditada) -->
+                <!-- 戰鬥力 Power Breakdown (Composição Proporcional Auditada) -->
                 <div class="l2-cp-breakdown-card" id="hero-cp-breakdown-wrap">
                   <div class="l2-cp-breakdown-head">
                     <span class="l2-breakdown-title">戰力來源：</span>
@@ -432,11 +432,11 @@ export const IDLE_MARKUP = `
                   <div class="l2-cp-breakdown-legend" id="hero-cp-breakdown-legend"></div>
                 </div>
 
-                <!-- Medidores Vitais Reais (HP / MP apenas — CP é poder, não reserva de vida) -->
+                <!-- Medidores Vitais Reais (生命值 / 魔力 apenas — 戰鬥力 é poder, não reserva de vida) -->
                 <div class="l2-vitals-container">
                   <div class="l2-vital-meter">
                     <div class="l2-vital-head">
-                      <span class="l2-vital-title hp">❤️ HP（生命值）</span>
+                      <span class="l2-vital-title hp">❤️ 生命值（生命值）</span>
                       <span class="l2-vital-val" id="hero-vital-hp">0 / 0</span>
                     </div>
                     <div class="l2-vital-track">
@@ -445,7 +445,7 @@ export const IDLE_MARKUP = `
                   </div>
                   <div class="l2-vital-meter">
                     <div class="l2-vital-head">
-                      <span class="l2-vital-title mp">💙 MP（魔力）</span>
+                      <span class="l2-vital-title mp">💙 魔力（魔力）</span>
                       <span class="l2-vital-val" id="hero-vital-mp">0 / 0</span>
                     </div>
                     <div class="l2-vital-track">
@@ -478,28 +478,28 @@ export const IDLE_MARKUP = `
               </div>
               <div id="char-performance-grid" class="l2-performance-grid">
                 <div class="l2-perf-card">
-                  <div class="l2-perf-label">⚔️ 持續 DPS</div>
+                  <div class="l2-perf-label">⚔️ 持續 每秒傷害</div>
                   <div class="l2-perf-val val-dps" id="perf-dps-sustained">0</div>
                   <div class="l2-perf-sub">平均傷害／秒</div>
                 </div>
                 <div class="l2-perf-card">
-                  <div class="l2-perf-label">💥 爆發 DPS</div>
+                  <div class="l2-perf-label">💥 爆發 每秒傷害</div>
                   <div class="l2-perf-val val-burst" id="perf-dps-burst">0</div>
                   <div class="l2-perf-sub">暴擊峰值</div>
                 </div>
                 <div class="l2-perf-card">
                   <div class="l2-perf-label">🛡️ 有效生命值（有效生命值）</div>
                   <div class="l2-perf-val val-ehp" id="perf-ehp">0</div>
-                  <div class="l2-perf-sub">考慮防禦與迴避後的 HP</div>
+                  <div class="l2-perf-sub">考慮防禦與迴避後的 生命值</div>
                 </div>
                 <div class="l2-perf-card">
                   <div class="l2-perf-label">🩸 持續恢復（每秒恢復）</div>
-                  <div class="l2-perf-val val-hps" id="perf-hps">+0/s</div>
+                  <div class="l2-perf-val val-hps" id="perf-hps">+0／秒</div>
                   <div class="l2-perf-sub">恢復 + 吸血</div>
                 </div>
                 <div class="l2-perf-card">
-                  <div class="l2-perf-label">💧 MP 續航</div>
-                  <div class="l2-perf-val val-mps" id="perf-mp-sustain">+0/s</div>
+                  <div class="l2-perf-label">💧 魔力 續航</div>
+                  <div class="l2-perf-val val-mps" id="perf-mp-sustain">+0／秒</div>
                   <div class="l2-perf-sub">恢復／秒</div>
                 </div>
                 <div class="l2-perf-card">
@@ -581,7 +581,7 @@ export const IDLE_MARKUP = `
               <div class="l2-certifications-card">
                 <div style="display:flex; justify-content:space-between; align-items:center;">
                   <h4 style="margin:0 0 4px 0; font-size:12px; color:#f5df93; font-family:'Cinzel',serif;">✨ 已取得的被動認證</h4>
-                  <span id="cert-total-cp-badge" style="font-size:11px; font-weight:bold; color:#fde047;">+0 CP</span>
+                  <span id="cert-total-cp-badge" style="font-size:11px; font-weight:bold; color:#fde047;">+0 戰鬥力</span>
                 </div>
                 <div id="certifications-summary" style="font-size:11px; color:#94a3b8;">尚未學習任何認證。將副職業提升至 65、70、75、80 級！</div>
               </div>
@@ -776,14 +776,14 @@ export const IDLE_MARKUP = `
                 <div class="l2inv-primary-box" id="l2inv-primary-box" style="margin-top:6px; padding:6px 8px; background:rgba(0,0,0,0.5); border:1px solid rgba(212,167,68,0.3); border-radius:4px;">
                   <div style="font-size:10px; font-weight:bold; color:var(--gilt-bright); text-transform:uppercase; margin-bottom:4px; letter-spacing:0.5px;">主要屬性</div>
                   <div class="l2inv-stat-row" style="font-size:10px;">
-                    <span>STR: <strong id="l2stat-str" style="color:#10b981;">0</strong></span>
-                    <span>DEX: <strong id="l2stat-dex" style="color:#10b981;">0</strong></span>
-                    <span>CON: <strong id="l2stat-con" style="color:#10b981;">0</strong></span>
+                    <span>力量： <strong id="l2stat-str" style="color:#10b981;">0</strong></span>
+                    <span>敏捷： <strong id="l2stat-dex" style="color:#10b981;">0</strong></span>
+                    <span>體質： <strong id="l2stat-con" style="color:#10b981;">0</strong></span>
                   </div>
                   <div class="l2inv-stat-row" style="font-size:10px; margin-top:2px;">
-                    <span>INT: <strong id="l2stat-int" style="color:#3b82f6;">0</strong></span>
-                    <span>WIT: <strong id="l2stat-wit" style="color:#3b82f6;">0</strong></span>
-                    <span>MEN: <strong id="l2stat-men" style="color:#3b82f6;">0</strong></span>
+                    <span>智力： <strong id="l2stat-int" style="color:#3b82f6;">0</strong></span>
+                    <span>精神： <strong id="l2stat-wit" style="color:#3b82f6;">0</strong></span>
+                    <span>意志： <strong id="l2stat-men" style="color:#3b82f6;">0</strong></span>
                   </div>
                 </div>
               </div>
@@ -801,7 +801,7 @@ export const IDLE_MARKUP = `
 
                 <!-- Subbar Reestruturada em 2 Linhas Elegantes sem Sobreposição -->
                 <div class="l2inv-subbar" style="display:flex; flex-direction:column; gap:6px; padding:8px; background:rgba(10,12,18,0.95); border:1px solid rgba(212,167,68,0.25); border-radius:6px; margin-bottom:8px;">
-                  <!-- Linha 1: Busca em Destaque + Ordenação + Auto-Venda + Filtro AFK -->
+                  <!-- Linha 1: Busca em Destaque + Ordenação + Auto-Venda + Filtro 掛機 -->
                   <div style="display:flex; align-items:center; gap:8px; width:100%; flex-wrap:wrap;">
                     <div style="flex:1; min-width:140px; position:relative;">
                       <label for="inv-search-input" class="sr-only" style="display:none;">搜尋背包</label>
@@ -811,11 +811,11 @@ export const IDLE_MARKUP = `
                       <label for="inv-sort-select" style="font-weight:600; cursor:pointer; color:var(--gilt);">排序：</label>
                       <select id="inv-sort-select" name="invSort" aria-label="背包排序" style="background:#090b10; color:#fff; border:1px solid rgba(212,167,68,0.3); border-radius:4px; padding:3px 6px; font-size:10px; cursor:pointer;">
                         <option value="recommended">✨ 推薦</option>
-                        <option value="cp">⚡ CP 由高到低</option>
+                        <option value="cp">⚡ 戰鬥力 由高到低</option>
                         <option value="grade">🎖️ 等級（S→無級別）</option>
                         <option value="rarity">🌟 稀有度</option>
                         <option value="enchant">✨ 強化值</option>
-                        <option value="name">🔤 名稱（A-Z）</option>
+                        <option value="name">🔤 名稱（字母順序）</option>
                         <option value="count">🔢 數量</option>
                       </select>
                     </div>
@@ -828,7 +828,7 @@ export const IDLE_MARKUP = `
                         <option value="rare">≤ 稀有</option>
                       </select>
                     </div>
-                    <button id="open-auto-recycle-btn" class="l2inv-pill-btn" style="background:rgba(212,167,68,0.2); border-color:#fde047; color:#fef08a; font-weight:bold; flex-shrink:0; padding:4px 8px;" title="設定 AFK 掉落與自動回收過濾器">⚙️ AFK 過濾</button>
+                    <button id="open-auto-recycle-btn" class="l2inv-pill-btn" style="background:rgba(212,167,68,0.2); border-color:#fde047; color:#fef08a; font-weight:bold; flex-shrink:0; padding:4px 8px;" title="設定 掛機 掉落與自動回收過濾器">⚙️ 掛機 過濾</button>
                   </div>
 
                   <!-- Linha 2: Raridades + Seleção em Massa -->
@@ -1162,7 +1162,7 @@ export const IDLE_MARKUP = `
                 <div style="display:flex; gap:5px; flex-wrap:wrap; margin-top:10px; width:100%; border-top:1px solid rgba(212,167,68,0.2); padding-top:10px;" id="forge-subtab-buttons">
                   <button onclick="window.setForgeSubTab('craft')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="craft" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px;">⚒️ 一般製作</button>
                   <button onclick="window.setForgeSubTab('refinery')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="refinery" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px; color:#a7f3d0; border-color:rgba(52,211,153,0.4);">⚗️ 精煉工作台</button>
-                  <button onclick="window.setForgeSubTab('soulcrystal')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="soulcrystal" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px;">🔮 靈魂水晶（SA）</button>
+                  <button onclick="window.setForgeSubTab('soulcrystal')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="soulcrystal" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px;">🔮 靈魂水晶（特殊能力）</button>
                   <button onclick="window.setForgeSubTab('elemental')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="elemental" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px; color:#fdba74;">🔥 元素屬性</button>
                   <button onclick="window.setForgeSubTab('masterwork')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="masterwork" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px;">✨ 普希金名匠</button>
                   <button onclick="window.setForgeSubTab('tattoos')" class="inv-batch-btn forge-subtab-btn" data-forge-tab="tattoos" style="font-family:'Cinzel',serif; font-weight:700; font-size:11px;">🖊️ 刺青與染料</button>
@@ -1340,7 +1340,7 @@ export const IDLE_MARKUP = `
               </div>
             </div>
 
-            <!-- Battle Pass Banner & XP Bar -->
+            <!-- Battle Pass Banner & 經驗值 Bar -->
             <div class="pass-banner-container">
               <div class="pass-header-info">
                 <div class="pass-level-badge">
@@ -1473,10 +1473,10 @@ export const IDLE_MARKUP = `
     <div id="death-modal" class="modal">
       <div class="modal-content">
         <h2>你在戰鬥中被擊敗了！</h2>
-        <p id="death-penalty">你將損失 <span id="xp-loss">0</span> XP。</p>
+        <p id="death-penalty">你將損失 <span id="xp-loss">0</span> 經驗值。</p>
         <div class="modal-actions">
-          <button id="res-free" class="action-btn">復活（免費，-20% XP）</button>
-          <button id="res-scroll" class="action-btn">使用卷軸（-10% XP）</button>
+          <button id="res-free" class="action-btn">復活（免費，-20% 經驗值）</button>
+          <button id="res-scroll" class="action-btn">使用卷軸（-10% 經驗值）</button>
         </div>
       </div>
     </div>
@@ -1596,7 +1596,7 @@ export const IDLE_MARKUP = `
             <h2 style="margin:0; font-family:'Cinzel',serif; color:#fef08a; font-size:19px; display:flex; align-items:center; gap:8px;">
               ⚙️ 放置巨集與自動化中心
             </h2>
-            <p style="margin:4px 0 0 0; font-size:12px; color:#94a3b8;">調整藥水（HP／MP）觸發條件、設定技能施放順序，並配置 AFK 自動回收過濾器。</p>
+            <p style="margin:4px 0 0 0; font-size:12px; color:#94a3b8;">調整藥水（生命值／魔力）觸發條件、設定技能施放順序，並配置 掛機 自動回收過濾器。</p>
           </div>
           <button style="background:transparent; border:none; color:#9ca3af; font-size:20px; cursor:pointer; padding:0 6px;" onclick="window.closeMacroSettingsModal && window.closeMacroSettingsModal()">✕</button>
         </div>
@@ -1675,7 +1675,7 @@ export const IDLE_MARKUP = `
           <button id="close-symbol-modal-btn" class="modal-close-x" style="background:none; border:none; color:#94a3b8; font-size:18px; cursor:pointer;">✕</button>
         </div>
         <p style="font-size:12px; color:#cbd5e1; margin-bottom:14px; line-height:1.4;">
-          最多可在角色身上刻印 <strong>3 個神聖染料符號</strong>，用來調整主要屬性（STR、DEX、CON、INT、WIT、MEN）。<em>亞丁規則：任何單一屬性的淨加成不得超過 +5。</em>
+          最多可在角色身上刻印 <strong>3 個神聖染料符號</strong>，用來調整主要屬性（力量、敏捷、體質、智力、精神、意志）。<em>亞丁規則：任何單一屬性的淨加成不得超過 +5。</em>
         </p>
 
         <!-- Current Tattoos Slots -->
@@ -1723,7 +1723,7 @@ export const IDLE_MARKUP = `
           <button id="close-instances-modal-btn" class="modal-close-x" style="background:none; border:none; color:#94a3b8; font-size:18px; cursor:pointer;">✕</button>
         </div>
         <p style="font-size:12px; color:#cbd5e1; margin-bottom:14px; line-height:1.4;">
-          每天挑戰單人次元首領地城。每道裂隙提供 <strong>每日 1 次免費入場</strong>，可快速獲得 XP、大量金幣、SP，以及保證等級的裝備獎勵！
+          每天挑戰單人次元首領地城。每道裂隙提供 <strong>每日 1 次免費入場</strong>，可快速獲得 經驗值、大量金幣、技能點，以及保證等級的裝備獎勵！
         </p>
 
         <div id="instances-list-container" style="display:flex; flex-direction:column; gap:10px; max-height:360px; overflow-y:auto; padding-right:4px;"></div>
@@ -1784,17 +1784,17 @@ export const IDLE_MARKUP = `
                 <button class="admin-preset-btn" data-rate-preset="aden">⚔️ 亞丁動態倍率（3x）</button>
                 <button class="admin-preset-btn" data-rate-preset="mid">🔥 中倍率（10x）</button>
                 <button class="admin-preset-btn" data-rate-preset="high">👑 高倍率（50x）</button>
-                <button class="admin-preset-btn" data-rate-preset="turbo">⚡ 極速 PvP（100x）</button>
+                <button class="admin-preset-btn" data-rate-preset="turbo">⚡ 極速 PVP（100x）</button>
                 <button class="admin-preset-btn danger" data-rate-preset="reset" style="margin-left:auto;">🔄 重設（1x）</button>
               </div>
             </div>
 
             <!-- Detailed Rates Grid -->
             <div class="admin-rates-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:10px;">
-              <!-- 1. XP Rate -->
+              <!-- 1. 經驗值 Rate -->
               <div class="admin-rate-card" data-rate-key="xp">
                 <div class="rate-card-header">
-                  <span class="rate-title">🌟 經驗值倍率（XP）</span>
+                  <span class="rate-title">🌟 經驗值倍率（經驗值）</span>
                   <span id="rate-val-xp" class="rate-badge">x1.0</span>
                 </div>
                 <div class="rate-btn-row">
@@ -1812,10 +1812,10 @@ export const IDLE_MARKUP = `
                 </div>
               </div>
 
-              <!-- 2. SP Rate -->
+              <!-- 2. 技能點 Rate -->
               <div class="admin-rate-card" data-rate-key="sp">
                 <div class="rate-card-header">
-                  <span class="rate-title">✦ 技能點數倍率（SP）</span>
+                  <span class="rate-title">✦ 技能點數倍率（技能點）</span>
                   <span id="rate-val-sp" class="rate-badge">x1.0</span>
                 </div>
                 <div class="rate-btn-row">
@@ -2051,9 +2051,9 @@ export const IDLE_MARKUP = `
           <!-- TAB 4: PLAYER RESOURCES & LEVEL -->
           <div id="admin-tab-player" class="admin-tab-panel">
             <div class="admin-grid">
-              <!-- Section 1: Level & XP Controls -->
+              <!-- Section 1: Level & 經驗值 Controls -->
               <div class="admin-section">
-                <h3>📊 等級與經驗值（XP）</h3>
+                <h3>📊 等級與經驗值（經驗值）</h3>
                 <div class="admin-btn-group">
                   <button class="admin-btn" data-admin-cmd="level20">設為等級 20</button>
                   <button class="admin-btn" data-admin-cmd="level40">設為等級 40</button>
@@ -2064,29 +2064,29 @@ export const IDLE_MARKUP = `
                   <button class="admin-btn" data-admin-cmd="add5levels">+5 等級</button>
                 </div>
                 <div class="admin-input-row" style="margin-top:8px; display:flex; gap:6px;">
-                  <input type="number" id="admin-xp-custom" class="admin-num-input" placeholder="XP 數量（例如：100000）" style="flex:1;" />
-                  <button id="admin-add-xp-btn" class="admin-btn primary">+ 給予 XP</button>
+                  <input type="number" id="admin-xp-custom" class="admin-num-input" placeholder="經驗值 數量（例如：100000）" style="flex:1;" />
+                  <button id="admin-add-xp-btn" class="admin-btn primary">+ 給予 經驗值</button>
                 </div>
               </div>
 
               <!-- Section 2: Currency & Skill Points -->
               <div class="admin-section">
-                <h3>🪙 經濟（金幣、SP 與亞丁幣）</h3>
+                <h3>🪙 經濟（金幣、技能點 與亞丁幣）</h3>
                 <div class="admin-btn-group">
                   <button class="admin-btn" data-admin-cmd="gold1m">+1M 金幣</button>
                   <button class="admin-btn" data-admin-cmd="gold10m">+10M 金幣</button>
-                  <button class="admin-btn" data-admin-cmd="sp5k">+5K SP</button>
-                  <button class="admin-btn" data-admin-cmd="sp50k">+50K SP</button>
-                  <button class="admin-btn" data-admin-cmd="ac500" style="background:#7c2d12; border-color:#f59e0b; color:#fbbf24;">+500 AC</button>
-                  <button class="admin-btn" data-admin-cmd="ac2000" style="background:#7c2d12; border-color:#f59e0b; color:#fbbf24;">+2.000 AC</button>
+                  <button class="admin-btn" data-admin-cmd="sp5k">+5K 技能點</button>
+                  <button class="admin-btn" data-admin-cmd="sp50k">+50K 技能點</button>
+                  <button class="admin-btn" data-admin-cmd="ac500" style="background:#7c2d12; border-color:#f59e0b; color:#fbbf24;">+500 亞丁幣</button>
+                  <button class="admin-btn" data-admin-cmd="ac2000" style="background:#7c2d12; border-color:#f59e0b; color:#fbbf24;">+2.000 亞丁幣</button>
                 </div>
                 <div class="admin-input-row" style="margin-top:8px; display:flex; gap:6px;">
                   <input type="number" id="admin-gold-custom" class="admin-num-input" placeholder="金幣數量（例如：5000000）" style="flex:1;" />
                   <button id="admin-add-gold-btn" class="admin-btn primary">+ 金幣</button>
                 </div>
                 <div class="admin-input-row" style="margin-top:6px; display:flex; gap:6px;">
-                  <input type="number" id="admin-sp-custom" class="admin-num-input" placeholder="SP 數量（例如：25000）" style="flex:1;" />
-                  <button id="admin-add-sp-btn" class="admin-btn primary">+ SP</button>
+                  <input type="number" id="admin-sp-custom" class="admin-num-input" placeholder="技能點 數量（例如：25000）" style="flex:1;" />
+                  <button id="admin-add-sp-btn" class="admin-btn primary">+ 技能點</button>
                 </div>
                 <div class="admin-input-row" style="margin-top:6px; display:flex; gap:6px;">
                   <input type="number" id="admin-ac-custom" class="admin-num-input" placeholder="亞丁幣數量（例如：1000）" style="flex:1;" />
@@ -2102,7 +2102,7 @@ export const IDLE_MARKUP = `
               <h3>⚡ 遊戲測試與快速進度</h3>
               <div class="admin-btn-group">
                 <button class="admin-btn" data-admin-cmd="godmode">🛡️ 無敵模式</button>
-                <button class="admin-btn" data-admin-cmd="healfull">❤️ 完全恢復 HP／MP</button>
+                <button class="admin-btn" data-admin-cmd="healfull">❤️ 完全恢復生命值／魔力</button>
                 <button class="admin-btn" data-admin-cmd="unlocksagas">📜 解鎖全部篇章</button>
                 <button class="admin-btn" data-admin-cmd="completequest">✅ 完成任務</button>
                 <button class="admin-btn" data-admin-cmd="maxcraft">⚒️ 最高等級製作</button>
@@ -2146,7 +2146,7 @@ export const IDLE_MARKUP = `
       </div>
     </div>
 
-    <!-- Modal de Filtro de Loot AFK & Auto-Recycle -->
+    <!-- Modal de Filtro de Loot 掛機 & Auto-Recycle -->
     <div id="auto-recycle-modal" class="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); backdrop-filter:blur(6px); z-index:99999; justify-content:center; align-items:center;">
       <div class="craft-modal-content" style="background:linear-gradient(145deg, rgba(20,24,35,0.98), rgba(10,12,18,0.99)); border:1px solid #d4a744; border-radius:12px; width:92%; max-width:540px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,0.9); position:relative; font-family:'Cinzel',serif; color:#f8fafc;">
         <button id="close-auto-recycle-modal-btn" style="position:absolute; top:12px; right:14px; background:none; border:none; color:#aaa; font-size:20px; cursor:pointer;" onclick="const m=document.getElementById('auto-recycle-modal'); if(m) m.style.display='none';">✖</button>
