@@ -1134,7 +1134,7 @@ function salvageItem(uid) {
   const amount = Math.max(1, Math.floor((reqLvl / 5 + 1) * rarityMult));
   state.inventory.splice(idx, 1);
   addToInventory(matId, amount);
-  log(`🔨 已將 ${def.name} 拆解為 ${amount}x ${D().ALL_ITEMS[matId]?.name || matId}！`, 'loot');
+  log(`🔨 已將 ${def.name} 拆解為 ${amount}× ${D().ALL_ITEMS[matId]?.name || matId}！`, 'loot');
   hideItemTooltip();
   updateAllUI(); save();
 }
@@ -1282,7 +1282,7 @@ function salvageSelectedItems() {
 
   set.clear();
   const summaryStr = Object.entries(yieldSummary)
-    .map(([mId, amt]) => `${amt}x ${D().ALL_ITEMS[mId]?.name || mId}`)
+    .map(([mId, amt]) => `${amt}× ${D().ALL_ITEMS[mId]?.name || mId}`)
     .join(', ');
 
   if (count > 0) {
@@ -1364,12 +1364,12 @@ function crystallizeSelectedItems() {
 
   set.clear();
   const summaryStr = Object.entries(yieldSummary)
-    .map(([mId, amt]) => `${amt}x ${D().ALL_ITEMS[mId]?.name || mId}`)
+    .map(([mId, amt]) => `${amt}× ${D().ALL_ITEMS[mId]?.name || mId}`)
     .join(', ');
 
   if (count > 0) {
     log(`💎 已成功結晶化 ${count} 件裝備並取得：**${summaryStr}**！`, 'rarity-legendary');
-    if (typeof floatText === 'function') floatText(`💎 已結晶（+${count}x）`, 'float-jackpot');
+    if (typeof floatText === 'function') floatText(`💎 已結晶（+${count}×）`, 'float-jackpot');
   } else {
     log('沒有可結晶化的有效物品。', 'system');
   }
@@ -2493,10 +2493,10 @@ function shopRow(def, id, price, extra = '') {
   if (isStackable && !lockLvl && !lockCls) {
     buyActionHtml = `
       <div class="shop-bulk-actions">
-        <button class="item-action" data-buy="${id}" data-qty="1" ${state.gold < price ? 'disabled' : ''}>1x (${price} 金幣)</button>
-        <button class="item-action" data-buy="${id}" data-qty="10" ${state.gold < price * 10 ? 'disabled' : ''}>10x (${(price * 10).toLocaleString()} 金幣)</button>
-        <button class="item-action" data-buy="${id}" data-qty="100" ${state.gold < price * 100 ? 'disabled' : ''}>100x (${(price * 100).toLocaleString()} 金幣)</button>
-        <button class="item-action" data-buy="${id}" data-qty="1000" ${state.gold < price * 1000 ? 'disabled' : ''}>1000x (${(price * 1000).toLocaleString()} 金幣)</button>
+        <button class="item-action" data-buy="${id}" data-qty="1" ${state.gold < price ? 'disabled' : ''}>1× (${price} 金幣)</button>
+        <button class="item-action" data-buy="${id}" data-qty="10" ${state.gold < price * 10 ? 'disabled' : ''}>10× (${(price * 10).toLocaleString()} 金幣)</button>
+        <button class="item-action" data-buy="${id}" data-qty="100" ${state.gold < price * 100 ? 'disabled' : ''}>100× (${(price * 100).toLocaleString()} 金幣)</button>
+        <button class="item-action" data-buy="${id}" data-qty="1000" ${state.gold < price * 1000 ? 'disabled' : ''}>1000× (${(price * 1000).toLocaleString()} 金幣)</button>
       </div>
     `;
   } else {
@@ -2634,7 +2634,7 @@ function toggleCombatSpeed() {
     if (combatInterval) clearInterval(combatInterval);
     combatInterval = setInterval(attackMonster, Math.round(200 / state.combatSpeed));
   }
-  log(`戰鬥速度：${state.combatSpeed}x ${state.combatSpeed === 2 ? '加速 ⏩' : '一般'}。`, 'system');
+  log(`戰鬥速度：${state.combatSpeed}× ${state.combatSpeed === 2 ? '加速 ⏩' : '一般'}。`, 'system');
   save();
 }
 
@@ -2970,7 +2970,7 @@ function updateEnchantUI() {
       card.innerHTML = `
         <div class="enchant-card-info">
           <div class="enchant-item-title" style="color:${rarityColor}">${title} ${item.equipped ? '⚡（已裝備）' : ''}</div>
-          <div class="enchant-item-sub">一般卷軸：${normalCount}x · 祝福卷軸：${blessedCount}x · ${safeMsg}</div>
+          <div class="enchant-item-sub">一般卷軸：${normalCount}× · 祝福卷軸：${blessedCount}× · ${safeMsg}</div>
         </div>
         <div class="enchant-card-actions" style="display:flex; gap:6px; align-items:center;">
           <button class="item-action" data-enchant="${item.uid}" data-blessed="false" ${normalCount < 1 ? 'disabled title="沒有一般強化卷軸"' : ''}>⚡ 一般強化</button>
@@ -3596,7 +3596,7 @@ function updateTowerUI() {
     rewardsStr.push(`💰 +${nextDef.gold.toLocaleString()} 金幣`);
     rewardsStr.push(`✦ +${nextDef.sp} 技能點`);
     if (nextDef.rewardLamps > 0) rewardsStr.push(`🪔 +${nextDef.rewardLamps} 魔法神燈`);
-    if (nextDef.rewardCrystals) rewardsStr.push(`✨ +3x ${D().ALL_ITEMS[nextDef.rewardCrystals]?.name || nextDef.rewardCrystals}`);
+    if (nextDef.rewardCrystals) rewardsStr.push(`✨ +3× ${D().ALL_ITEMS[nextDef.rewardCrystals]?.name || nextDef.rewardCrystals}`);
 
     detailsCard.innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -5386,7 +5386,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
         floatText(`✦ ${rName}！`, 'float-' + (drop.rarity || 'common'));
       } else {
         addToInventory(dropId, drop.amount || 1);
-        log(`📦 獲得 **${drop.amount || 1}x ${def.name}**`, 'loot', 'loot');
+        log(`📦 獲得 **${drop.amount || 1}× ${def.name}**`, 'loot', 'loot');
       }
     }
   }
@@ -5456,7 +5456,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
       const count = monster.boss ? (Math.floor(Math.random() * 4) + 3) : (monster.elite ? 2 : 1);
       if (stoneDef) {
         addToInventory(pickedStone, count);
-        log(`🔷 [七封印] 獲得 **${count}x ${stoneDef.name}**！`, 'gain', 'loot');
+        log(`🔷 [七封印] 獲得 **${count}× ${stoneDef.name}**！`, 'gain', 'loot');
         floatText(`🔷 +${count} ${stoneDef.name}`, 'float-jackpot');
       }
     }
@@ -6429,7 +6429,7 @@ function spawnAdminItem(itemId, qty = 1, rarity = 'common', enchant = 0, affixCh
 
   const enchantStr = enchant > 0 ? `+${enchant} ` : '';
   const foundationStr = isFoundation ? '✨ [FOUNDATION] ' : '';
-  log(`🎁 [管理員] 已在背包生成 ${qty}x ${foundationStr}${enchantStr}${def.name} [${rarity}]！`, 'rarity-legendary');
+  log(`🎁 [管理員] 已在背包生成 ${qty}× ${foundationStr}${enchantStr}${def.name} [${rarity}]！`, 'rarity-legendary');
   floatText('🎁 物品已生成！', 'float-jackpot');
   updateAllUI();
   save(true, true);
@@ -6601,12 +6601,12 @@ function handleChatSubmit(inputStr) {
 }
 
 const RATE_PRESETS = {
-  classic: { name: '🛡️ 經典原倍率（1x）', rates: { xp: 1, sp: 1, adena: 1, drop: 1, spoil: 1, enchant: 1, book: 1 } },
-  aden: { name: '⚔️ 亞丁動態倍率（3x）', rates: { xp: 3, sp: 3, adena: 2, drop: 2, spoil: 2, enchant: 1.2, book: 2 } },
-  mid: { name: '🔥 官方中倍率（10x）', rates: { xp: 10, sp: 10, adena: 8, drop: 5, spoil: 5, enchant: 1.5, book: 5 } },
-  high: { name: '👑 高倍率／活動（50x）', rates: { xp: 50, sp: 50, adena: 25, drop: 15, spoil: 10, enchant: 2.0, book: 10 } },
+  classic: { name: '🛡️ 經典原倍率（1×）', rates: { xp: 1, sp: 1, adena: 1, drop: 1, spoil: 1, enchant: 1, book: 1 } },
+  aden: { name: '⚔️ 亞丁動態倍率（3×）', rates: { xp: 3, sp: 3, adena: 2, drop: 2, spoil: 2, enchant: 1.2, book: 2 } },
+  mid: { name: '🔥 官方中倍率（10×）', rates: { xp: 10, sp: 10, adena: 8, drop: 5, spoil: 5, enchant: 1.5, book: 5 } },
+  high: { name: '👑 高倍率／活動（50×）', rates: { xp: 50, sp: 50, adena: 25, drop: 15, spoil: 10, enchant: 2.0, book: 10 } },
   turbo: { name: '⚡ 極速玩家對戰（100 倍）', rates: { xp: 100, sp: 100, adena: 50, drop: 30, spoil: 20, enchant: 2.5, book: 20 } },
-  reset: { name: '🔄 標準（1x）', rates: { xp: 1, sp: 1, adena: 1, drop: 1, spoil: 1, enchant: 1, book: 1 } }
+  reset: { name: '🔄 標準（1×）', rates: { xp: 1, sp: 1, adena: 1, drop: 1, spoil: 1, enchant: 1, book: 1 } }
 };
 
 function ensureServerRates() {
@@ -6635,7 +6635,7 @@ function setServerRate(key, val, silent = false) {
       book: '魔法書倍率'
     };
     const title = labels[key] || key.toUpperCase();
-    log(`⚡ [管理員] ${title} 已更新為 **x${num}**！效果立即生效。`, 'rarity-legendary');
+    log(`⚡ [管理員] ${title} 已更新為 **×${num}**！效果立即生效。`, 'rarity-legendary');
     if (typeof floatText === 'function') floatText(`⚡ ${title.toUpperCase()}：×${num}！`, 'float-jackpot');
   }
   try {
@@ -6678,7 +6678,7 @@ function syncAdminRatesUI() {
   // Update header live summary
   const summaryEl = el('admin-live-rates-summary');
   if (summaryEl) {
-    summaryEl.textContent = `目前倍率：經驗值 x${r.xp} · 技能點 x${r.sp} · 金幣 x${r.adena} · 掉落 x${r.drop} · 搜刮 x${r.spoil} · 強化 x${r.enchant} · 魔法書 x${r.book}`;
+    summaryEl.textContent = `目前倍率：經驗值 ×${r.xp} · 技能點 ×${r.sp} · 金幣 ×${r.adena} · 掉落 ×${r.drop} · 搜刮 ×${r.spoil} · 強化 ×${r.enchant} · 魔法書 ×${r.book}`;
   }
   
   // Update badges on rate cards
@@ -7559,7 +7559,7 @@ function renderMonsterCardsCodex(container, summaryEl) {
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.08); padding:8px 10px; border-radius:6px; margin:10px 0 8px 0; font-size:11px;">
           <div style="display:flex; justify-content:space-between; margin-bottom:2px;">
             <span style="color:${rStyle.text}; font-weight:bold;">帳號永久被動加成：</span>
-            ${isAbsorbed ? `<span style="color:#fde047; font-size:10px;">(x${rankMult.toFixed(2)})</span>` : ''}
+            ${isAbsorbed ? `<span style="color:#fde047; font-size:10px;">(×${rankMult.toFixed(2)})</span>` : ''}
           </div>
           <div style="color:#e2e8f0; font-family:sans-serif;">${bonusLabel || '無'}</div>
         </div>
@@ -7904,7 +7904,7 @@ function renderSpecialCraftRecipes() {
     card.style.cssText = 'border:1px solid var(--border-gilt); padding:10px; border-radius:8px; background:rgba(15,20,30,0.8);';
     card.innerHTML = `
       <div style="font-weight:bold; color:var(--gilt-bright); font-size:12px;">${r.name}</div>
-      <div style="font-size:11px; color:var(--text-muted); margin:4px 0;">費用：${r.costCharges} 次充能 + ${r.crystalQty}x ${D().ALL_ITEMS[r.crystalId]?.name || r.crystalId}</div>
+      <div style="font-size:11px; color:var(--text-muted); margin:4px 0;">費用：${r.costCharges} 次充能 + ${r.crystalQty}× ${D().ALL_ITEMS[r.crystalId]?.name || r.crystalId}</div>
       <button class="action-btn action-btn--primary special-craft-btn" style="padding:2px 8px; font-size:11px; width:100%; margin-top:6px;" data-recipe="${r.id}" onclick="craftSpecialRecipe('${r.id}')">鍛造 ✨</button>
     `;
     card.querySelectorAll('.special-craft-btn').forEach(b => {
@@ -8294,7 +8294,7 @@ export function bindEvents() {
       } else if (e.key === ' ' || e.code === 'Space') {
         e.preventDefault();
         state.combatSpeed = state.combatSpeed === 1 ? 2 : (state.combatSpeed === 2 ? 4 : 1);
-        log(`⚡ 戰鬥速度：${state.combatSpeed}x`, 'system');
+        log(`⚡ 戰鬥速度：${state.combatSpeed}×`, 'system');
         updateAllUI();
       } else if (e.key === 's' || e.key === 'S') {
         if (e.ctrlKey || e.metaKey) e.preventDefault();
@@ -8978,7 +8978,7 @@ function buyManorSeed(seedId, qty = 1) {
   if (!state.manorSeeds) state.manorSeeds = {};
   state.manorSeeds[seedId] = (state.manorSeeds[seedId] || 0) + count;
 
-  log(`🌾 已購買 ${count}x ${seed.name} 種子！`, 'loot');
+  log(`🌾 已購買 ${count}× ${seed.name} 種子！`, 'loot');
   updateAllUI();
   save();
   return true;
@@ -9007,7 +9007,7 @@ function exchangeManorCrop(seedId, rewardOption = 1) {
   state.manorCrops[seedId] -= cropsUsed;
 
   addToInventory(matKey, matAmount);
-  log(`🌾 已向莊園管理員交付 ${cropsUsed}x 收成，獲得 +${matAmount}x ${D()?.ALL_ITEMS?.[matKey]?.name || matKey}！`, 'rarity-legendary');
+  log(`🌾 已向莊園管理員交付 ${cropsUsed}× 收成，獲得 +${matAmount}× ${D()?.ALL_ITEMS?.[matKey]?.name || matKey}！`, 'rarity-legendary');
 
   updateAllUI();
   save();
@@ -10236,7 +10236,7 @@ export function init() {
               </div>
             </div>
             <div style="display:flex; align-items:center; gap:6px;">
-              <span style="font-size:11px; color:#cbd5e1;">使用中的種子：<strong style="color:#fde047;">${seedCount}x</strong> · 收成：<strong style="color:#86efac;">${cropCount}x</strong></span>
+              <span style="font-size:11px; color:#cbd5e1;">使用中的種子：<strong style="color:#fde047;">${seedCount}×</strong> · 收成：<strong style="color:#86efac;">${cropCount}×</strong></span>
             </div>
           </div>
           <div style="background:rgba(212,167,68,0.1); padding:8px 10px; border-radius:6px; font-size:11px; color:#cbd5e1; display:flex; justify-content:space-between; align-items:center;">
@@ -10432,7 +10432,7 @@ export function init() {
           }
 
           state.referralRewardsClaimed = (state.referralRewardsClaimed || 0) + result.claimableRewards;
-          log(`🎉 **推薦獎勵已領取！** 你推薦的朋友已達等級 40！獲得 **+${totalAC} 亞丁幣** 與 **${totalScrolls}x 祝福武器強化卷軸**！`, 'rarity-legendary');
+          log(`🎉 **推薦獎勵已領取！** 你推薦的朋友已達等級 40！獲得 **+${totalAC} 亞丁幣** 與 **${totalScrolls}× 祝福武器強化卷軸**！`, 'rarity-legendary');
           if (typeof floatText === 'function') floatText(`🎁 推薦獎勵 +${totalAC} 亞丁幣！`, 'float-jackpot');
           updateAllUI();
           save();
@@ -11825,7 +11825,7 @@ export function init() {
           floatText(res.reason, 'float-warning');
           return;
         }
-        log(`⚡ 狩獵難度已調整為 **${res.difficulty.name}**（${res.difficulty.xpMult}x 經驗值／金幣、${res.difficulty.dropMult}x 掉落）！`, 'rarity-epic');
+        log(`⚡ 狩獵難度已調整為 **${res.difficulty.name}**（${res.difficulty.xpMult}× 經驗值／金幣、${res.difficulty.dropMult}× 掉落）！`, 'rarity-epic');
         floatText(`⚡ ${res.difficulty.name.toUpperCase()} 模式！`, 'float-jackpot');
         state.activeMonster = null;
         pickRandomMonster();
