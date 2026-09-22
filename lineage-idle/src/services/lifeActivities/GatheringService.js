@@ -82,7 +82,7 @@ export const GatheringService = {
 
     const playerLvl = Number(state?.level) || 1;
     if (playerLvl < zone.minLevel) {
-      if (callbacks.log) callbacks.log(`⚠️ Nível insuficiente para colher em ${zone.name}! Requer Nível ${zone.minLevel}.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 等級不足，無法在 ${zone.name} 採集！需要等級 ${zone.minLevel}。`, 'warning');
       return false;
     }
 
@@ -90,7 +90,7 @@ export const GatheringService = {
     gState.isGathering = false;
     gState.targetedNodeId = null;
 
-    if (callbacks.log) callbacks.log(`📍 Você armou sua cesta botânica em **${zone.name}**.`, 'system');
+    if (callbacks.log) callbacks.log(`📍 你已在 **${zone.name}** 準備好植物採集籃。`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -106,7 +106,7 @@ export const GatheringService = {
 
     const available = gState.pouchInventory[pouchId] || 0;
     if (available <= 0) {
-      if (callbacks.log) callbacks.log('⚠️ Você não possui este cesto/bolsa de conservação em estoque!', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 你的庫存中沒有此採集籃／保存袋！', 'warning');
       return false;
     }
 
@@ -151,12 +151,12 @@ export const GatheringService = {
 
     const gState = this.getGatheringState(state);
     if (gState.sickleDurability[sickleId] !== undefined) {
-      if (callbacks.log) callbacks.log(`⚠️ Você já adquiriu a ${sickle.name}!`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 你已經擁有 ${sickle.name}！`, 'warning');
       return false;
     }
 
     if (gState.skillLevel < sickle.minGatheringLevel) {
-      if (callbacks.log) callbacks.log(`⚠️ Nível de Coleta insuficiente! Requer Nível ${sickle.minGatheringLevel} de Coleta.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 採集等級不足！需要採集等級 ${sickle.minGatheringLevel}。`, 'warning');
       return false;
     }
 
@@ -181,7 +181,7 @@ export const GatheringService = {
 
     const gState = this.getGatheringState(state);
     if (gState.sickleDurability[sickleId] === undefined && sickleId !== 'sickle_none') {
-      if (callbacks.log) callbacks.log('⚠️ Você não possui esta foice em sua coleção!', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 你的收藏中沒有這把鐮刀！', 'warning');
       return false;
     }
 
@@ -201,7 +201,7 @@ export const GatheringService = {
 
     const currentDur = gState.sickleDurability[targetSickleId] ?? sickle.durabilityMax;
     if (currentDur >= sickle.durabilityMax) {
-      if (callbacks.log) callbacks.log(`⚠️ Sua ${sickle.name} já está afiada e pronta para a colheita!`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 你的 ${sickle.name} 已磨利，可直接進行採集！`, 'warning');
       return false;
     }
 
@@ -231,7 +231,7 @@ export const GatheringService = {
     const tactic = GATHERING_TACTICS[tacticId] || GATHERING_TACTICS.standard;
     gState.selectedTactic = tactic.id;
     gState.activeTactic = tactic.id;
-    if (callbacks.log) callbacks.log(`✂️ Técnica de poda selecionada: **${tactic.name}** (${tactic.desc}).`, 'system');
+    if (callbacks.log) callbacks.log(`✂️ 已選擇修剪技巧：**${tactic.name}**（${tactic.desc}）。`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -285,7 +285,7 @@ export const GatheringService = {
     if (gState.inspected) return false;
     
     gState.inspected = true;
-    if (callbacks.log) callbacks.log(`🔍 Exame Botânico: A pureza é de ${gState.targetedNodePurity}%. ${gState.targetedNodeSignal} Perigo: ${BOTANICAL_HAZARDS[gState.targetedNodeHazard]}`, 'system');
+    if (callbacks.log) callbacks.log(`🔍 植物檢測：純度 ${gState.targetedNodePurity}%。${gState.targetedNodeSignal} 危險：${BOTANICAL_HAZARDS[gState.targetedNodeHazard]}`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -302,7 +302,7 @@ export const GatheringService = {
     gState.inspected = false;
     gState.isGathering = false;
     
-    if (callbacks.log) callbacks.log(`⏭️ Você descarta o broto atual e busca um novo em ${GATHERING_ZONES[gState.activeZone].name}...`, 'system');
+    if (callbacks.log) callbacks.log(`⏭️ 你放棄目前的植株，並在 ${GATHERING_ZONES[gState.activeZone].name} 尋找新的目標……`, 'system');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return true;
@@ -385,7 +385,7 @@ export const GatheringService = {
 
     if (elapsed < needed) {
       const waitSec = ((needed - elapsed) / 1000).toFixed(1);
-      if (callbacks.log) callbacks.log(`⚠️ A colheita ainda está em andamento! Aguarde mais ${waitSec}s.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 採集仍在進行中！請再等待 ${waitSec} 秒。`, 'warning');
       return false;
     }
 
@@ -477,7 +477,7 @@ export const GatheringService = {
     if (callbacks.log) {
       const qualityPrefix = quality.tier === 'perfect' ? '🌸 **COLHEITA PERFEITA!**'
         : quality.tier === 'excellent' ? '✨ **COLHEITA EXCELENTE!**'
-        : '✓ Colheita concluída:';
+        : '✓ 採集完成：';
       callbacks.log(`🌿 ${qualityPrefix} Extraiu **${node.name}** [${quality.name}]! Obteve +${primaryQty}x ${primaryMat.toUpperCase()}${secMat && secQty > 0 ? ` e +${secQty}x ${secMat.toUpperCase()}` : ''}! (+${finalXp} XP de Coleta)`, 'loot');
     }
 
@@ -493,7 +493,7 @@ export const GatheringService = {
   toggleAutoGathering(state, callbacks = {}) {
     const gState = this.getGatheringState(state);
     if (gState.skillLevel < 5) {
-      if (callbacks.log) callbacks.log('⚠️ A Coleta Automática (AFK) é desbloqueada no Nível 5 de Coleta!', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 自動採集（AFK）會在採集等級 5 解鎖！', 'warning');
       return false;
     }
 
@@ -503,8 +503,8 @@ export const GatheringService = {
     if (callbacks.log) {
       callbacks.log(
         gState.autoGathering
-          ? '🌿 **Coleta Automática (AFK) ATIVADA!** Seu personagem colherá ervas e madeiras continuamente.'
-          : '⏸️ **Coleta Automática (AFK) PAUSADA.**',
+          ? '🌿 **自動採集（AFK）已啟用！**角色將持續採集藥草與木材。'
+          : '⏸️ **自動採集（AFK）已暫停。**',
         'system'
       );
     }
@@ -589,7 +589,7 @@ export const GatheringService = {
     LifeActivityCore.addXp(state, 'gathering', totalXp, callbacks);
 
     if (callbacks.log) {
-      callbacks.log(`💤 **Relatório de Coleta Offline (${clampedMinutes}m):** Colheu ${actualHarvests} arbustos de flora em Aden! (+${totalXp} XP de Coleta)`, 'rarity-legendary');
+      callbacks.log(`💤 **離線採集報告（${clampedMinutes} 分鐘）：**在亞丁採集了 ${actualHarvests} 叢植物！（+${totalXp} 採集 XP）`, 'rarity-legendary');
     }
 
     return { actualHarvests, matsGained, totalXp };
