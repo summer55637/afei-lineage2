@@ -735,7 +735,7 @@ export function showItemTooltip(arg1, arg2, state, callbacks = {}) {
   tooltip.style.borderColor = rarityColor + '60';
 
   const tierNum = def.tier || 0;
-  const GRADE_MAP = { 0: '', 1: '無等級', 2: 'D 級', 3: 'C 級', 4: 'B 級', 5: 'S 級', 6: 'Frost Lord 級' };
+  const GRADE_MAP = { 0: '', 1: '無等級', 2: 'D 級', 3: 'C 級', 4: 'B 級', 5: 'S 級', 6: '霜之領主級' };
   const GRADE_COLOR = { 0: '#888', 1: '#9e9e9e', 2: '#4fc3f7', 3: '#81c784', 4: '#7986cb', 5: '#ffd54f', 6: '#80deea' };
   const gradeLabel = GRADE_MAP[tierNum] || '';
   const gradeColor = GRADE_COLOR[tierNum] || '#888';
@@ -2403,7 +2403,7 @@ export function openBatchSalvageModal(state, callbacks = {}, uids) {
 
   if (preview.items.length === 0) {
     if (preview.protectedCount > 0) {
-      alert(`🛡️ 所有已選物品 (${preview.protectedCount}) 受到保護 e 無法分解.`);
+      alert(`🛡️ 所有已選物品 (${preview.protectedCount}) 受到保護，無法分解。`);
     } else {
       alert('尚未選擇要分解的裝備。');
     }
@@ -2500,7 +2500,7 @@ export function openBatchCrystallizeModal(state, callbacks = {}, uids) {
 
   if (preview.items.length === 0) {
     if (preview.protectedCount > 0) {
-      alert(`🛡️ 所有已選物品 (${preview.protectedCount}) 受到保護 e 無法結晶化.`);
+      alert(`🛡️ 所有已選物品 (${preview.protectedCount}) 受到保護，無法結晶化。`);
     } else {
       alert('目前沒有可結晶化的 D～S 級裝備。');
     }
