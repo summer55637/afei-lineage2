@@ -3938,7 +3938,7 @@ function selectMasterAbilityModal() {
     { key: 'evasion', name: '👟 迴避（+5 迴避）' },
     { key: 'haste', name: '⚡ 急速觸發（+32% 攻擊速度）' },
     { key: 'barrier', name: '🌟 屏障（無敵天界護盾）' },
-    { key: 'boostCp', name: '🛡️ CP 強化（+20% CP）' },
+    { key: 'boostCp', name: '🛡️ 戰鬥力強化（+20% 戰鬥力）' },
     { key: 'resistAttribute', name: '🔥 屬性抗性（+20 元素抗性）' }
   ];
 
@@ -4070,7 +4070,7 @@ export function renderSubclassesUI() {
               <span>${icon}</span>
               <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${name}</span>
             </div>
-            <div style="color:#94a3b8; font-size:9px;">${m.badge} · <strong style="color:#38bdf8;">+${optDef?.cp || 1500} CP</strong></div>
+            <div style="color:#94a3b8; font-size:9px;">${m.badge} · <strong style="color:#38bdf8;">+${optDef?.cp || 1500} 戰鬥力</strong></div>
           </div>
         `;
       } else if (m.isUnlocked) {
@@ -4122,7 +4122,7 @@ export function renderSubclassesUI() {
   const totalCertCp = SubclassCertificationService.calculateCertificationCP(state);
 
   if (cpBadge) {
-    cpBadge.textContent = `+${totalCertCp.toLocaleString('zh-TW')} CP`;
+    cpBadge.textContent = `+${totalCertCp.toLocaleString('zh-TW')} 戰鬥力`;
   }
 
   if (summaryEl) {
@@ -4194,7 +4194,7 @@ function openCertificationModal(subId, milestoneKey) {
             ${opt.badge ? `<span style="font-size:10px; background:rgba(212,175,55,0.2); color:#ffd700; padding:1px 6px; border-radius:4px;">${opt.badge}</span>` : ''}
           </div>
           <div style="font-size:11px; color:#d1d5db; margin-top:4px; line-height:1.4;">${opt.desc}</div>
-          <div style="font-size:10px; color:#38bdf8; margin-top:4px;">戰力貢獻： <strong>+${(opt.cp || 1500).toLocaleString('zh-TW')} CP</strong></div>
+          <div style="font-size:10px; color:#38bdf8; margin-top:4px;">戰鬥力貢獻： <strong>+${(opt.cp || 1500).toLocaleString('zh-TW')} 戰鬥力</strong></div>
         </div>
         <button class="action-btn action-btn--primary" style="padding:8px 14px; font-size:11px; white-space:nowrap;" onclick="window.confirmLearnCertification('${subId}', '${milestoneKey}', '${opt.id}')">
           學習 📜
@@ -7231,7 +7231,7 @@ function autoEquipBest() {
     floatText: typeof floatText === 'function' ? floatText : null
   });
   if (res.success) {
-    log(`⚡ 自動裝備完成：已更新 ${res.appliedChanges} 件裝備！（CP：${proposal.deltas.cpDelta >= 0 ? '+' : ''}${proposal.deltas.cpDelta}）`, 'rarity-legendary');
+    log(`⚡ 自動裝備完成：已更新 ${res.appliedChanges} 件裝備！（戰鬥力：${proposal.deltas.cpDelta >= 0 ? '+' : ''}${proposal.deltas.cpDelta}）`, 'rarity-legendary');
     updateAllUI();
     save();
   } else {
