@@ -393,7 +393,7 @@ export const IDLE_MARKUP = `
                 <div class="l2-hero-header-row">
                   <div>
                     <div class="l2-hero-title-group">
-                      <h2 class="l2-hero-name" id="portrait-name">Tristan</h2>
+                      <h2 class="l2-hero-name" id="portrait-name">冒險者</h2>
                       <span class="l2-hero-level-tag">等級  <span id="hero-sheet-level">1</span></span>
                     </div>
                     <div class="l2-hero-lineage" style="margin-top: 4px;">
@@ -1905,7 +1905,7 @@ export const IDLE_MARKUP = `
                   <button class="rate-pill-btn" data-rate-set="enchant:1">1.0×（標準）</button>
                   <button class="rate-pill-btn" data-rate-set="enchant:1.2">1.2× （+20%）</button>
                   <button class="rate-pill-btn" data-rate-set="enchant:1.5">1.5× （+50%）</button>
-                  <button class="rate-pill-btn" data-rate-set="enchant:2">2.0× (2×)</button>
+                  <button class="rate-pill-btn" data-rate-set="enchant:2">2.0×（2×）</button>
                   <button class="rate-pill-btn" data-rate-set="enchant:3">3.0×（極高）</button>
                 </div>
                 <div class="rate-custom-row">
