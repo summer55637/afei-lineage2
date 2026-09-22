@@ -233,37 +233,37 @@ const V2_STARTER_MAP = {
 export const V2_CONTENT_GAP_CLASSES = {
   'werewolf_0': {
     gapType: 'V2_NODE_ABSENT',
-    reason: '缺少 V2 節點：L2Wiki 資料集只有 1 個階段 0 技能（88401 Direct Strike）；V2 目錄缺少 5 技能樹。',
+    reason: '缺少 V2 節點：L2Wiki 資料集只有 1 個階段 0 技能（88401 直接打擊）；V2 目錄缺少 5 套技能樹。',
     authorizedSkillIds: ['direct_strike']
   },
   'werewolf_1': {
     gapType: 'V2_NODE_ABSENT',
-    reason: '缺少 V2 節點：V2 目錄中缺少階段 1 的 Warg。',
+    reason: '缺少 V2 節點：V2 目錄中缺少階段 1 的座狼戰士。',
     authorizedSkillIds: ['direct_strike']
   },
   'werewolf_2': {
     gapType: 'V2_NODE_ABSENT',
-    reason: '缺少 V2 節點：V2 目錄中缺少階段 2 的 Warg。',
+    reason: '缺少 V2 節點：V2 目錄中缺少階段 2 的座狼戰士。',
     authorizedSkillIds: ['direct_strike']
   },
   'shineMakerBase': {
     gapType: 'V2_NODE_ABSENT',
-    reason: '缺少 V2 節點：階段 0 的矮人 ShineMaker 在 L2Wiki 資料集與 V2 目錄中都不存在。',
+    reason: '缺少 V2 節點：階段 0 的矮人光輝工匠在 L2Wiki 資料集與 V2 目錄中都不存在。',
     authorizedSkillIds: []
   },
   'spirit_0': {
     gapType: 'V2_NODE_ABSENT',
-    reason: '缺少 V2 節點：L2Wiki 資料集只有 2 個階段 0 技能（87701 Fire Sphere、87702 Ice Sphere）；V2 目錄缺少 5 技能樹。',
+    reason: '缺少 V2 節點：L2Wiki 資料集只有 2 個階段 0 技能（87701 火焰球、87702 冰霜球）；V2 目錄缺少 5 套技能樹。',
     authorizedSkillIds: ['fire_sphere', 'ice_sphere']
   },
   'marauderBase': {
     gapType: 'UNPROVEN_PROVENANCE',
-    reason: 'Nó V2 existente com habilidades sem proveniência comprovada: nó presente em CanonicalClassRegistryV2, porém habilidades canônicas de Ertheia ausentes no dataset raspado e habilidades Kamael quarentenadas',
+    reason: 'V2 節點存在，但技能來源尚未獲得驗證：CanonicalClassRegistryV2 中有此節點，但擷取資料集中缺少阿爾特亞的正式技能，闇天使技能目前仍處於隔離狀態。',
     authorizedSkillIds: []
   },
   'sayhaMageBase': {
     gapType: 'UNPROVEN_PROVENANCE',
-    reason: 'Nó V2 existente com habilidades sem proveniência comprovada: nó presente em CanonicalClassRegistryV2, porém habilidades canônicas de Ertheia ausentes no dataset raspado e placeholder de mago humano quarentenado',
+    reason: 'V2 節點存在，但技能來源尚未獲得驗證：CanonicalClassRegistryV2 中有此節點，但擷取資料集中缺少阿爾特亞的正式技能，人類法師暫用技能目前仍處於隔離狀態。',
     authorizedSkillIds: []
   }
 };
@@ -368,7 +368,7 @@ export function resolveV2ClassContext(classId, race = null) {
     v2ClassId: null,
     v2ClassDef: null,
     authorizedSkillIds: [],
-    contentGapReason: 'Class not mapped to canonical V2 registry'
+    contentGapReason: '此職業尚未對應至正式 V2 職業資料庫'
   };
 }
 
