@@ -194,7 +194,7 @@ export function getEnchantPreview(state, targetUid, scrollUid) {
     targetItem: {
       uid: targetItem.uid,
       itemId: targetItem.itemId,
-      name: targetDef.name || targetItem.itemId,
+      name: targetDef.name || '未知裝備',
       grade,
       rarity: targetItem.rarity || 'common',
       equipped: !!targetItem.equipped,
@@ -204,7 +204,7 @@ export function getEnchantPreview(state, targetUid, scrollUid) {
     scrollItem: {
       uid: scrollItem.uid,
       itemId: scrollItem.itemId,
-      name: scrollDef.name || scrollItem.itemId,
+      name: scrollDef.name || '未知強化卷軸',
       count: scrollItem.count || 1,
       isBlessed: scrollInfo.isBlessed,
       grade: scrollInfo.grade
