@@ -25,7 +25,7 @@ function formatPassiveLabel(statKey, val) {
     damageReductionPct: `-${val}% 受到傷害`,
     mCrit: `+${val}% 魔法暴擊率`
   };
-  return map[statKey] || `+${val} ${statKey}`;
+  return map[statKey] || `+${val} 其他屬性`;
 }
 
 function renderResonancesCatalogHtml() {
