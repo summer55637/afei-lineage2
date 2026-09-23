@@ -170,8 +170,7 @@ export default function Shell() {
     if (cloudState && typeof cloudState === 'object') {
       try {
         const email = (auth.currentUser?.email || '').toLowerCase().trim();
-        const adminEmails = ['duuh.alaminos@gmail.com', 'eduardol.alaminos@gmail.com'];
-        const isAdmin = Boolean(adminEmails.includes(email) || (window as any).currentUserIsAdmin);
+        const isAdmin = Boolean((window as any).currentUserIsAdmin);
         const priv = isAdmin ? (Number(cloudState.privilegeLevel) || 1) : 0;
         (window as any).currentUserIsAdmin = isAdmin;
         (window as any).currentUserEmail = email;
