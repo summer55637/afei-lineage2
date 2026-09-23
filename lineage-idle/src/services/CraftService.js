@@ -566,7 +566,7 @@ export function applyDyeSymbol(state, slotIdx = 0, dyeKey = 'dye_str_con', stage
 
   for (const [k, v] of Object.entries(netStats)) {
     if (v > 5) {
-      if (callbacks.log) callbacks.log(`超過上限！${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神' })[k] || k.toUpperCase()} 的調整值不可超過 +5。`, 'system');
+      if (callbacks.log) callbacks.log(`超過上限！${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神' })[k] || '未知屬性'} 的調整值不可超過 +5。`, 'system');
       return false;
     }
   }
