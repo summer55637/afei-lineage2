@@ -213,7 +213,7 @@ export function craftItem(state, recipeId, qty = 1, callbacks = {}) {
   addToInventory(state, targetItemId, totalYield, rolledRarity, isFoundation, callbacks, true);
 
   // Mensagens e Notificações de 成功
-  const displayName = itemDef?.name || recipeId;
+  const displayName = itemDef?.name || '未知製作品';
   if (isDouble && isFoundation) {
     if (callbacks.log) callbacks.log(`🌟 暴擊＋基底成功！鍛造 ${totalYield}× ${displayName}（雙倍產量並附帶遠古之魂）！`, 'rarity-legendary');
     if (callbacks.floatText) callbacks.floatText('🌟 雙倍＋基底成功！', 'float-jackpot');
@@ -257,7 +257,7 @@ export function getMaterialDropSources(matId) {
     if (hasDrop) {
       sources.push({
         zoneKey,
-        zoneName: zone.name || zoneKey,
+        zoneName: zone.name || '未知區域',
         minLevel: zone.reqLvl || zone.level || 1,
         source: '掉落／區域狩獵'
       });
