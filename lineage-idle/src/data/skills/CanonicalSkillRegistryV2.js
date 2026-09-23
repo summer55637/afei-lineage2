@@ -21,7 +21,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Def. +50Max HP +200P. Evasion -4",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "P.Def +50、最大 HP +200、物理迴避 -4",
+        "desc": "物理防禦 +50、最大 生命值 +200、物理迴避 -4",
         "balance": {
             "mpCost": 36,
             "pwr": 20,
@@ -862,7 +862,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max HP +300Shield Defense +120",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "最大 HP +300，盾牌防禦 +120。",
+        "desc": "最大 生命值 +300，盾牌防禦 +120。",
         "balance": {
             "mpCost": 50,
             "pwr": 20,
@@ -895,7 +895,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "You are blessed by the gods.Debuff Resistance +20%Anomaly Resistance +20%Buff Ca",
         "canonicalCooldown": "5 min.",
         "canonicalCooldownMs": 300000,
-        "desc": "獲得諸神祝福：弱化抗性 +20%、異常抗性 +20%、增益解除抗性 +20%、受到治療 -40%、P.Def +20%、M.Def +20%、速度 +6。使用劍／鈍器時命中 +4、攻速 +10%；使用劍時基礎暴擊率 +20；使用鈍器時基礎暴擊傷害 +10%。",
+        "desc": "獲得諸神祝福：弱化抗性 +20%、異常抗性 +20%、增益解除抗性 +20%、受到治療 -40%、物理防禦 +20%、魔法防禦 +20%、速度 +6。使用劍／鈍器時命中 +4、攻速 +10%；使用劍時基礎暴擊率 +20；使用鈍器時基礎暴擊傷害 +10%。",
         "balance": {
             "mpCost": 133,
             "pwr": 2,
@@ -1150,7 +1150,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers HP. Power 271.",
         "canonicalCooldown": "2 sec.",
         "canonicalCooldownMs": 2000,
-        "desc": "恢復 HP，威力 271。",
+        "desc": "恢復 生命值，威力 271。",
         "balance": {
             "mpCost": 100,
             "pwr": 271,
@@ -1182,7 +1182,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Covers an area with a sacred aura that decreases enemies' P. Def.P. Def. -23%PvP",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "以神聖光環覆蓋區域，使敵人 P.Def -23%。PvP 最多影響 10 個目標；PvE 最多影響 10 個目標。",
+        "desc": "以神聖光環覆蓋區域，使敵人 物理防禦 -23%。玩家對戰 最多影響 10 個目標；對怪物戰鬥 最多影響 10 個目標。",
         "balance": {
             "mpCost": 50,
             "pwr": 2,
@@ -1348,7 +1348,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Consumes your HP to recover HP of the target. Power 350.",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "消耗自身 HP 為目標恢復生命，威力 350。",
+        "desc": "消耗自身 生命值 為目標恢復生命，威力 350。",
         "balance": {
             "mpCost": 15,
             "pwr": 350,
@@ -1419,7 +1419,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target. Power 694.For 20 sec., P. Def. -23%.Ignores Shield Defense.",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "攻擊目標，威力 694。20 秒內使 P.Def -23%，並無視盾牌防禦。",
+        "desc": "攻擊目標，威力 694。20 秒內使 物理防禦 -23%，並無視盾牌防禦。",
         "balance": {
             "mpCost": 43,
             "pwr": 500,
@@ -1450,7 +1450,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies. Power 155.PvP: Attacks up to 5 targets.Pv",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "攻擊目標與附近敵人，威力 155。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "攻擊目標與附近敵人，威力 155。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 57,
             "pwr": 155,
@@ -1716,7 +1716,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "PvE damage bonus +3%Paralysis Resistance +25%Hold Resistance +25%Sleep Resistanc",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "PvE 傷害 +3%、麻痺抗性 +25%、束縛抗性 +25%、睡眠抗性 +25%、衝擊抗性 +25%、增益解除抗性 +40%。",
+        "desc": "對怪物戰鬥 傷害 +3%、麻痺抗性 +25%、束縛抗性 +25%、睡眠抗性 +25%、衝擊抗性 +25%、增益解除抗性 +40%。",
         "balance": {
             "mpCost": 22,
             "pwr": 0,
@@ -1759,7 +1759,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max HP +15%Momentarily recovers bonus HP.",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "最大 HP +15%，並立即恢復額外 HP。",
+        "desc": "最大 生命值 +15%，並立即恢復額外 生命值。",
         "balance": {
             "mpCost": 18,
             "pwr": 2,
@@ -1874,7 +1874,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks nearby targets. Power 462.Stuns for 3 sec.Ignores Shield Defense.PvP: At",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "攻擊附近目標，威力 462，暈眩 3 秒，無視盾牌防禦。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "攻擊附近目標，威力 462，暈眩 3 秒，無視盾牌防禦。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 34,
             "pwr": 462,
@@ -1984,7 +1984,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies. Power 485.Ignores Shield Defense.PvP: Att",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "攻擊目標與附近敵人，威力 485，無視盾牌防禦。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "攻擊目標與附近敵人，威力 485，無視盾牌防禦。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 34,
             "pwr": 485,
@@ -2077,7 +2077,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies. Power 801.Stuns for 3 sec.Ignores Shield ",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "攻擊目標與附近敵人，威力 801，暈眩 3 秒，無視盾牌防禦。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "攻擊目標與附近敵人，威力 801，暈眩 3 秒，無視盾牌防禦。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 51,
             "pwr": 500,
@@ -2392,7 +2392,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target at the front and nearby enemies. Power 108.No critical.PvP: A",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "攻擊前方目標與附近敵人，威力 108，不會暴擊。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "攻擊前方目標與附近敵人，威力 108，不會暴擊。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 24,
             "pwr": 108,
@@ -2486,7 +2486,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Dark Panther comes to your aid.Dark Panther attacks the same target as you.Dark ",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "黑豹前來協助你，會攻擊與你相同的目標。黑豹追加攻擊率 5%，單體傷害依你的 P.Atk 計算，威力 1180。",
+        "desc": "黑豹前來協助你，會攻擊與你相同的目標。黑豹追加攻擊率 5%，單體傷害依你的 物理攻擊 計算，威力 1180。",
         "balance": {
             "mpCost": 50,
             "pwr": 500,
@@ -2709,7 +2709,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "HP Recovery from absorbing residual life energy from a corpse.",
         "canonicalCooldown": "2 sec.",
         "canonicalCooldownMs": 2000,
-        "desc": "吸收屍體殘留的生命能量來恢復 HP。",
+        "desc": "吸收屍體殘留的生命能量來恢復 生命值。",
         "balance": {
             "mpCost": 35,
             "pwr": 20,
@@ -2771,7 +2771,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Strikes with a shield.Attacks the target at the front and nearby enemies. Power ",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "以盾牌撞擊前方目標與附近敵人，威力 6075，使其暈眩 3 秒，並無視 10% 防禦力。PvP／PvE 最多攻擊 6 個目標。",
+        "desc": "以盾牌撞擊前方目標與附近敵人，威力 6075，使其暈眩 3 秒，並無視 10% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。",
         "balance": {
             "mpCost": 60,
             "pwr": 500,
@@ -2802,7 +2802,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Fills your body with power and energy.Max HP +12%Max HP +1200P. Def. +300Shield ",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "以力量與能量充滿全身：最大 HP +12%、最大 HP +1200、P.Def +300、盾牌防禦 +200。",
+        "desc": "以力量與能量充滿全身：最大 生命值 +12%、最大 生命值 +1200、物理防禦 +300、盾牌防禦 +200。",
         "balance": {
             "mpCost": 86,
             "pwr": 1,
@@ -2863,7 +2863,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Throws a shield at the target.Deals P. damage to the target and nearby enemies. ",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "向目標投擲盾牌並傷害附近敵人，威力 7751。PvP：10 秒內物理技能暴擊率 -5%、暴擊傷害 -5%；PvE：10 秒內 P.Def -25%。無視盾牌防禦與目標 20% 防禦力，最多攻擊 6 個目標。",
+        "desc": "向目標投擲盾牌並傷害附近敵人，威力 7751。玩家對戰：10 秒內物理技能暴擊率 -5%、暴擊傷害 -5%；對怪物戰鬥：10 秒內 物理防禦 -25%。無視盾牌防禦與目標 20% 防禦力，最多攻擊 6 個目標。",
         "balance": {
             "mpCost": 66,
             "pwr": 500,
@@ -2894,7 +2894,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Increases combat abilities.P. Atk. +500P. Def. +250Chain Strike → Chain Strike: ",
         "canonicalCooldown": ".Powerful",
         "canonicalCooldownMs": 1000,
-        "desc": "提升戰鬥能力：P.Atk +500、P.Def +250。強化 Chain Strike 與 Powerful Charge，使其獲得更高牽引率、暈眩、較短冷卻、更多目標、更遠範圍與職業效果。",
+        "desc": "提升戰鬥能力：物理攻擊 +500、物理防禦 +250。強化 Chain Strike 與 Powerful Charge，使其獲得更高牽引率、暈眩、較短冷卻、更多目標、更遠範圍與職業效果。",
         "balance": {
             "mpCost": 120,
             "pwr": 20,
@@ -2956,7 +2956,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Pulls target and nearby enemies and puts them in front of the character.PvP: Att",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "將目標與附近敵人拉到角色前方。PvP／PvE 最多影響 10 個目標。",
+        "desc": "將目標與附近敵人拉到角色前方。玩家對戰／對怪物戰鬥 最多影響 10 個目標。",
         "balance": {
             "mpCost": 80,
             "pwr": 20,
@@ -3051,7 +3051,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Phoenix protects your party members.P. Def. +15%M. Def. +20%Received Healing +20",
         "canonicalCooldown": "7 min.",
         "canonicalCooldownMs": 420000,
-        "desc": "鳳凰守護隊伍成員：P.Def +15%、M.Def +20%、受到治療 +20%。施法者距離過遠時效果會取消。",
+        "desc": "鳳凰守護隊伍成員：物理防禦 +15%、魔法防禦 +20%、受到治療 +20%。施法者距離過遠時效果會取消。",
         "balance": {
             "mpCost": 38,
             "pwr": 2,
@@ -3560,7 +3560,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target. Power 1091.With a certain chance, inflicts Imprisonment on t",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "攻擊目標，威力 1091。有一定機率使目標遭到禁錮 5 秒；禁錮期間無法移動、攻擊、傳送、使用技能或恢復 HP／MP／CP。禁錮結束後 P.Def -10%，持續 5 秒。",
+        "desc": "攻擊目標，威力 1091。有一定機率使目標遭到禁錮 5 秒；禁錮期間無法移動、攻擊、傳送、使用技能或恢復 生命值／魔力／戰鬥點數。禁錮結束後 物理防禦 -10%，持續 5 秒。",
         "balance": {
             "mpCost": 61,
             "pwr": 500,
@@ -3590,7 +3590,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Changing skill>The attack type is based on the distance to the target.With a ce",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "依與目標距離改變攻擊方式，並有機率使其 P.Def -30%，持續 5 秒。近戰威力 7401，無視盾牌防禦與 15% 防禦力；遠程威力 6290，無視盾牌防禦與 10% 防禦力。",
+        "desc": "依與目標距離改變攻擊方式，並有機率使其 物理防禦 -30%，持續 5 秒。近戰威力 7401，無視盾牌防禦與 15% 防禦力；遠程威力 6290，無視盾牌防禦與 10% 防禦力。",
         "balance": {
             "mpCost": 60,
             "pwr": 500,
@@ -3620,7 +3620,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target. Power 8000.With a certain chance, inflicts Imprisonment on t",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "攻擊目標，威力 8000。有一定機率使其禁錮 5 秒；禁錮期間無法移動、攻擊、傳送、使用技能或恢復 HP／MP／CP，且只能被決鬥者攻擊。",
+        "desc": "攻擊目標，威力 8000。有一定機率使其禁錮 5 秒；禁錮期間無法移動、攻擊、傳送、使用技能或恢復 生命值／魔力／戰鬥點數，且只能被決鬥者攻擊。",
         "balance": {
             "mpCost": 80,
             "pwr": 500,
@@ -3650,7 +3650,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "A sword imbued with the will to win, that grants a mighty power.​P. Atk. +25%P. ",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "以求勝意志灌注武器：P.Atk +25%、物理技能威力 +15%、技能暴擊率 +20%、技能暴擊傷害 +20%、物理技能傷害 +10%、最大 HP +20% 與 +3000、攻速 +20%、速度 +10、禁錮成功率 +15%。",
+        "desc": "以求勝意志灌注武器：物理攻擊 +25%、物理技能威力 +15%、技能暴擊率 +20%、技能暴擊傷害 +20%、物理技能傷害 +10%、最大 生命值 +20% 與 +3000、攻速 +20%、速度 +10、禁錮成功率 +15%。",
         "balance": {
             "mpCost": 250,
             "pwr": 3,
@@ -3710,7 +3710,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies. Power 5811.When attacking a single target",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "攻擊目標與附近敵人，威力 5811；僅攻擊單一目標時威力 7554。無視盾牌防禦與 15% 防禦力，並有機率使 P.Def -30%，持續 10 秒。PvP／PvE 最多攻擊 6 個目標。",
+        "desc": "攻擊目標與附近敵人，威力 5811；僅攻擊單一目標時威力 7554。無視盾牌防禦與 15% 防禦力，並有機率使 物理防禦 -30%，持續 10 秒。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。",
         "balance": {
             "mpCost": 91,
             "pwr": 500,
@@ -3770,7 +3770,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies. Power 6789.Ignores Shield Defense.Ignores",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "攻擊目標與附近敵人，威力 6789。無視盾牌防禦與目標 10% 防禦力。PvP／PvE 最多攻擊 3 個目標。",
+        "desc": "攻擊目標與附近敵人，威力 6789。無視盾牌防禦與目標 10% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 3 個目標。",
         "balance": {
             "mpCost": 72,
             "pwr": 500,
@@ -3957,7 +3957,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies. Power 2486.With a certain chance, stuns f",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "攻擊目標與附近敵人，威力 2486。有一定機率暈眩 3 秒，並使 P.Def、M.Def -30%。無視盾牌防禦。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "攻擊目標與附近敵人，威力 2486。有一定機率暈眩 3 秒，並使 物理防禦、魔法防禦 -30%。無視盾牌防禦。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 90,
             "pwr": 500,
@@ -4017,7 +4017,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Swings at enemies with a spear.Attacks nearby enemies. Power 4099.For 30 sec., P",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "揮舞長槍攻擊附近敵人，威力 4099。30 秒內使 P.Atk -30%、物理技能暴擊傷害 -5%。無視盾牌防禦與目標 15% 防禦力，並移除目標的 Wind Walk 增益。",
+        "desc": "揮舞長槍攻擊附近敵人，威力 4099。30 秒內使 物理攻擊 -30%、物理技能暴擊傷害 -5%。無視盾牌防禦與目標 15% 防禦力，並移除目標的 Wind Walk 增益。",
         "balance": {
             "mpCost": 100,
             "pwr": 500,
@@ -4137,7 +4137,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Throws spears to attack the target and nearby enemies. Power 4660.Inflicts Hold ",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "投擲長槍攻擊目標與附近敵人，威力 4660。使目標束縛 3 秒，並在 10 秒內使 P.Def／M.Def -30%。無視盾牌防禦與目標 10% 防禦力。",
+        "desc": "投擲長槍攻擊目標與附近敵人，威力 4660。使目標束縛 3 秒，並在 10 秒內使 物理防禦／魔法防禦 -30%。無視盾牌防禦與目標 10% 防禦力。",
         "balance": {
             "mpCost": 120,
             "pwr": 500,
@@ -4197,7 +4197,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies. Power 4824.Ignores 10% of the target's de",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "攻擊目標與附近敵人，威力 4824。無視目標 10% 防禦力。PvP／PvE 最多攻擊 3 個目標。",
+        "desc": "攻擊目標與附近敵人，威力 4824。無視目標 10% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 3 個目標。",
         "balance": {
             "mpCost": 102,
             "pwr": 500,
@@ -4296,7 +4296,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Shoots an arrow imbued with fire energy.Attacks the target and nearby enemies. P",
         "canonicalCooldown": "15 sec.",
         "canonicalCooldownMs": 15000,
-        "desc": "射出注入火焰能量的箭矢，攻擊目標與附近敵人，威力 8800。附加 Ignite，5 秒內使 HP 藥水效果 -5%。無視目標 10% 防禦力，PvP／PvE 最多攻擊 8 個目標。",
+        "desc": "射出注入火焰能量的箭矢，攻擊目標與附近敵人，威力 8800。附加 Ignite，5 秒內使 生命值 藥水效果 -5%。無視目標 10% 防禦力，玩家對戰／對怪物戰鬥 最多攻擊 8 個目標。",
         "balance": {
             "mpCost": 110,
             "pwr": 500,
@@ -4326,7 +4326,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "With a certain chance, steals up to 2 of the enemy's buffs.Cannot be used on mon",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "有一定機率偷取敵人最多 2 個增益；無法對怪物使用。每次嘗試會累積華麗竊取：Lv.1 P./M.Atk +100、Lv.2 +200、Lv.3 +300，持續 5 分鐘。",
+        "desc": "有一定機率偷取敵人最多 2 個增益；無法對怪物使用。每次嘗試會累積華麗竊取：等級 1 物理／魔法攻擊 +100、等級 2 +200、等級 3 +300，持續 5 分鐘。",
         "balance": {
             "mpCost": 70,
             "pwr": 20,
@@ -4357,7 +4357,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Shoots an arrow imbued with fire power.Attacks the target and nearby enemies. Po",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "射出注入火焰力量的箭矢，攻擊目標與附近敵人，威力 10800。無視目標 10% 防禦力，並有機率附加 Arrow Break：P.Atk、M.Atk、P.Def、M.Def 各 -20%，持續 10 秒。PvP／PvE 最多攻擊 15 個目標。",
+        "desc": "射出注入火焰力量的箭矢，攻擊目標與附近敵人，威力 10800。無視目標 10% 防禦力，並有機率附加 Arrow Break：物理攻擊、魔法攻擊、物理防禦、魔法防禦 各 -20%，持續 10 秒。玩家對戰／對怪物戰鬥 最多攻擊 15 個目標。",
         "balance": {
             "mpCost": 170,
             "pwr": 500,
@@ -4387,7 +4387,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "When using a bow, P. Atk. +1%Applies Bow Vulnerability to the target on attack.B",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "使用弓時 P.Atk +1%。攻擊時對目標附加弓弱點，使弓抗性 -15%，持續 10 秒；觸發冷卻 10 秒。",
+        "desc": "使用弓時 物理攻擊 +1%。攻擊時對目標附加弓弱點，使弓抗性 -15%，持續 10 秒；觸發冷卻 10 秒。",
         "balance": {
             "mpCost": 55,
             "pwr": 0,
@@ -4419,7 +4419,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Accurate shooting increases your lethal attack rate.P. Atk. +1000Atk. Spd. +3%P.",
         "canonicalCooldown": "-3%Speed",
         "canonicalCooldownMs": 1000,
-        "desc": "精準射擊提高致命攻擊能力：P.Atk +1000、攻速 +3%、物理技能暴擊率 +5%、技能冷卻 -3%、速度 +5。使用 Double Shot 時有 50% 機率追加一次攻擊。",
+        "desc": "精準射擊提高致命攻擊能力：物理攻擊 +1000、攻速 +3%、物理技能暴擊率 +5%、技能冷卻 -3%、速度 +5。使用 Double Shot 時有 50% 機率追加一次攻擊。",
         "balance": {
             "mpCost": 80,
             "pwr": 0,
@@ -4449,7 +4449,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max HP +1000When using a bow, P. Atk. +20%P. Skill Power +1%PvE damage bonus +5%",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "最大 HP +1000。使用弓時 P.Atk +20%、物理技能威力 +1%、PvE 傷害 +5%、牽引成功率 +5%、束縛成功率 +5%。攻擊時使目標弓抗性 -36%，持續 10 秒。並強化 Lethal Shot，增加攻擊次數。",
+        "desc": "最大 生命值 +1000。使用弓時 物理攻擊 +20%、物理技能威力 +1%、對怪物戰鬥 傷害 +5%、牽引成功率 +5%、束縛成功率 +5%。攻擊時使目標弓抗性 -36%，持續 10 秒。並強化 Lethal Shot，增加攻擊次數。",
         "balance": {
             "mpCost": 67,
             "pwr": 2,
@@ -4544,7 +4544,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Gives the power of a legendary archer.Max HP +10%P. Atk. +25%P. Skill Critical R",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "獲得傳說弓手之力：最大 HP +10%、P.Atk +25%、物理技能暴擊率 +20%、暴擊傷害 +20% 並額外 +20、技能威力 +2%、PvE 傷害 +5%、受到物理技能暴擊率 -2%、近戰武器抗性 +10%。使用 Lethal Shot 時有 50% 機率追加攻擊。",
+        "desc": "獲得傳說弓手之力：最大 生命值 +10%、物理攻擊 +25%、物理技能暴擊率 +20%、暴擊傷害 +20% 並額外 +20、技能威力 +2%、對怪物戰鬥 傷害 +5%、受到物理技能暴擊率 -2%、近戰武器抗性 +10%。使用 Lethal Shot 時有 50% 機率追加攻擊。",
         "balance": {
             "mpCost": 200,
             "pwr": 1,
@@ -4618,7 +4618,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Pull skill>Shoots an arrow imbued with strong wind energy.Pulls nearby enemies ",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "射出注入強風能量的箭矢，將附近敵人拉向受擊目標並攻擊兩次，威力 6600。無視目標 8% 防禦力。PvP／PvE 最多攻擊 8 個目標。",
+        "desc": "射出注入強風能量的箭矢，將附近敵人拉向受擊目標並攻擊兩次，威力 6600。無視目標 8% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 8 個目標。",
         "balance": {
             "mpCost": 124,
             "pwr": 500,
@@ -4715,7 +4715,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +500P. Skill Power +2%Hold Atk. Rate +20%Pull Atk. Rate +10%Triggers Hol",
         "canonicalCooldown": "is",
         "canonicalCooldownMs": 1000,
-        "desc": "P.Atk +500、物理技能威力 +2%、束縛成功率 +20%、牽引成功率 +10%。攻擊時可觸發束縛，持續 3 秒，觸發冷卻固定為 15 秒。",
+        "desc": "物理攻擊 +500、物理技能威力 +2%、束縛成功率 +20%、牽引成功率 +10%。攻擊時可觸發束縛，持續 3 秒，觸發冷卻固定為 15 秒。",
         "balance": {
             "mpCost": 72,
             "pwr": 0,
@@ -4747,7 +4747,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Accuracy +6P. Atk. +250Basic Critical Rate +20%Speed -10",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "物理命中 +6、P.Atk +250、基礎暴擊率 +20%、速度 -10。",
+        "desc": "物理命中 +6、物理攻擊 +250、基礎暴擊率 +20%、速度 -10。",
         "balance": {
             "mpCost": 80,
             "pwr": 2,
@@ -4778,7 +4778,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Creates a big explosion.Deals M. damage to the target and nearby enemies. Power ",
         "canonicalCooldown": "7 sec.",
         "canonicalCooldownMs": 7000,
-        "desc": "引發巨大爆炸，對目標與附近敵人造成魔法傷害，威力 60。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "引發巨大爆炸，對目標與附近敵人造成魔法傷害，威力 60。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 49,
             "pwr": 60,
@@ -4905,7 +4905,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "MP Recovery Rate +1.72",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "MP 恢復率 +1.72。",
+        "desc": "魔力 恢復率 +1.72。",
         "balance": {
             "mpCost": 35,
             "pwr": 20,
@@ -5096,7 +5096,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Decreases the target's M. Def.M. Def. -23%",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "降低目標魔法防禦，M.Def -23%。",
+        "desc": "降低目標魔法防禦，魔法防禦 -23%。",
         "balance": {
             "mpCost": 39,
             "pwr": 2,
@@ -5135,7 +5135,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Weakens the target.P. Atk. -23%M. Atk. -23%",
         "canonicalCooldown": "2 sec.",
         "canonicalCooldownMs": 2000,
-        "desc": "削弱目標，使 P.Atk -23%、M.Atk -23%。",
+        "desc": "削弱目標，使 物理攻擊 -23%、魔法攻擊 -23%。",
         "balance": {
             "mpCost": 35,
             "pwr": 2,
@@ -5251,7 +5251,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Sacrifices your own HP to regenerate MP with 90 Power.",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "犧牲自身 HP，以威力 90 恢復 MP。",
+        "desc": "犧牲自身 生命值，以威力 90 恢復 魔力。",
         "balance": {
             "mpCost": 15,
             "pwr": 90,
@@ -5294,7 +5294,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Releases powerful energy of Hell.Attacks the target and nearby enemies. Power 60",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "釋放強大的地獄能量，攻擊目標與附近敵人，威力 6075。無視目標 10% 防禦力，有機率移除最多 3 個增益，並施加 60 秒詛咒：最大 CP -90%、弱化／異常抗性 -30%、受到治療 -30%。PvP／PvE 最多攻擊 6 個目標。",
+        "desc": "釋放強大的地獄能量，攻擊目標與附近敵人，威力 6075。無視目標 10% 防禦力，有機率移除最多 3 個增益，並施加 60 秒詛咒：最大 戰鬥點數 -90%、弱化／異常抗性 -30%、受到治療 -30%。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。",
         "balance": {
             "mpCost": 60,
             "pwr": 500,
@@ -5416,7 +5416,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Gap-closing skill>Rushes to the target and attacks them.Strikes at a vital poin",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "瞬間突進至目標身後並攻擊要害，無視目標 CP，威力 2490。",
+        "desc": "瞬間突進至目標身後並攻擊要害，無視目標 戰鬥點數，威力 2490。",
         "balance": {
             "mpCost": 35,
             "pwr": 500,
@@ -5550,7 +5550,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Opens doors Lv. 1 with a 100% chance, doors Lv. 2 with a 75% chance, and chests ",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "100% 開啟 Lv.1 門、75% 開啟 Lv.2 門，並可 100% 開啟寶箱。",
+        "desc": "100% 開啟 等級 1 門、75% 開啟 等級 2 門，並可 100% 開啟寶箱。",
         "balance": {
             "mpCost": 35,
             "pwr": 10,
@@ -5769,7 +5769,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Momentarily recovers HP. Power 83.",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "立即恢復 HP，威力 83。",
+        "desc": "立即恢復 生命值，威力 83。",
         "balance": {
             "mpCost": 25,
             "pwr": 83,
@@ -5805,7 +5805,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers HP. Power 50.",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "恢復自身 HP，威力 50。",
+        "desc": "恢復自身 生命值，威力 50。",
         "balance": {
             "mpCost": 9,
             "pwr": 50,
@@ -5968,7 +5968,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks with a fire spiral.Deals M. damage to the target and nearby enemies. Pow",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "以火焰螺旋攻擊目標與附近敵人，威力 229。5 秒內使 CON／MEN -2。PvP／PvE 最多攻擊 6 個目標。",
+        "desc": "以火焰螺旋攻擊目標與附近敵人，威力 229。5 秒內使 體質／精神 -2。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。",
         "balance": {
             "mpCost": 116,
             "pwr": 229,
@@ -6030,7 +6030,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Blocks 50% of damage.For the remainder of inflicted damage MP is consumed instea",
         "canonicalCooldown": "5 min.",
         "canonicalCooldownMs": 300000,
-        "desc": "阻擋 50% 傷害；其餘傷害改為消耗 MP 而非 HP。當 MP 降至 0 時效果解除。",
+        "desc": "阻擋 50% 傷害；其餘傷害改為消耗 魔力 而非 生命值。當 魔力 降至 0 時效果解除。",
         "balance": {
             "mpCost": 110,
             "pwr": 5,
@@ -6125,7 +6125,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "M. Atk. +10%M. Skill MP Consumption +5%",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "M.Atk +10%，魔法技能 MP 消耗 +5%。",
+        "desc": "魔法攻擊 +10%，魔法技能 魔力 消耗 +5%。",
         "balance": {
             "mpCost": 36,
             "pwr": 1,
@@ -6250,7 +6250,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target. Power 7200.Ignores Shield Defense.Ignores 15% of the target'",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "攻擊目標，威力 7200。無視盾牌防禦與目標 15% 防禦力。使攻速 -10%、施法速度 -10%、速度 -20%，並每 0.66 秒損失 146 HP。",
+        "desc": "攻擊目標，威力 7200。無視盾牌防禦與目標 15% 防禦力。使攻速 -10%、施法速度 -10%、速度 -20%，並每 0.66 秒損失 146 生命值。",
         "balance": {
             "mpCost": 62,
             "pwr": 500,
@@ -6282,7 +6282,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Strikes at the target together with Shadow Figure.Makes 1 attack at the target's",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "與 Shadow Figure 一同攻擊目標要害，威力 8200。PvP／PvE 最多攻擊 2 個目標，並在主要目標背後召喚 Shadow Figure 追加一次單體攻擊。",
+        "desc": "與 Shadow Figure 一同攻擊目標要害，威力 8200。玩家對戰／對怪物戰鬥 最多攻擊 2 個目標，並在主要目標背後召喚 Shadow Figure 追加一次單體攻擊。",
         "balance": {
             "mpCost": 50,
             "pwr": 500,
@@ -6661,7 +6661,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "A powerful strike.Attacks the target. Power 6246.If the enemy's HP is lower than",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "發動強力打擊，威力 6246。若敵人 HP 低於 30%，攻擊次數增加 1。無視盾牌防禦，並無視目標 20% 防禦力。",
+        "desc": "發動強力打擊，威力 6246。若敵人 生命值 低於 30%，攻擊次數增加 1。無視盾牌防禦，並無視目標 20% 防禦力。",
         "balance": {
             "mpCost": 60,
             "pwr": 500,
@@ -6760,7 +6760,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Deals M. damage. Power 78.Burns 200 of the target's MP.",
         "canonicalCooldown": "15 sec.",
         "canonicalCooldownMs": 15000,
-        "desc": "造成魔法傷害，威力 78，並燃燒目標 200 MP。",
+        "desc": "造成魔法傷害，威力 78，並燃燒目標 200 魔力。",
         "balance": {
             "mpCost": 77,
             "pwr": 78,
@@ -6861,7 +6861,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Def. +50Triggers Protective Shield when hit.Protective ShieldBuff: Creates a ",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "P.Def +50。受到攻擊時有 10% 機率觸發保護護盾，形成 500 HP 屏障，持續 5 秒；觸發冷卻 20 秒。",
+        "desc": "物理防禦 +50。受到攻擊時有 10% 機率觸發保護護盾，形成 500 生命值 屏障，持續 5 秒；觸發冷卻 20 秒。",
         "balance": {
             "mpCost": 67,
             "pwr": 1,
@@ -6891,7 +6891,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "M. Atk. +10%Received Healing +20%Casting Spd. +30%M. Skill Critical Rate +50%M. ",
         "canonicalCooldown": "10 min.",
         "canonicalCooldownMs": 600000,
-        "desc": "M.Atk +10%、受到治療 +20%、施法速度 +30%、魔法技能暴擊率 +50%、魔法技能 MP 消耗 -70%、速度 +15。",
+        "desc": "魔法攻擊 +10%、受到治療 +20%、施法速度 +30%、魔法技能暴擊率 +50%、魔法技能 魔力 消耗 -70%、速度 +15。",
         "balance": {
             "mpCost": 80,
             "pwr": 1,
@@ -6924,7 +6924,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max HP +10%HP Recovery Rate +10%P. Def. +10%M. Def. +10%Atk. Spd. +10%Casting Sp",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "最大 HP +10%、HP 恢復率 +10%、P.Def +10%、M.Def +10%、攻速 +10%、施法速度 +10%、物理技能暴擊傷害 +15%、魔法技能暴擊率 +15%、PvE 傷害 +15%、弱化抗性 +10%、異常抗性 +10%。",
+        "desc": "最大 生命值 +10%、生命值 恢復率 +10%、物理防禦 +10%、魔法防禦 +10%、攻速 +10%、施法速度 +10%、物理技能暴擊傷害 +15%、魔法技能暴擊率 +15%、對怪物戰鬥 傷害 +15%、弱化抗性 +10%、異常抗性 +10%。",
         "balance": {
             "mpCost": 72,
             "pwr": 1,
@@ -6954,7 +6954,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Def. +100Triggers Ultimate Critical Attack when hit.Ultimate Critical AttackB",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "P.Def +100。受到攻擊時有 70% 機率觸發 Ultimate Critical Attack：物理技能暴擊傷害 +50、暴擊率 +1%，持續 8 秒；觸發冷卻 15 秒。",
+        "desc": "物理防禦 +100。受到攻擊時有 70% 機率觸發 Ultimate Critical Attack：物理技能暴擊傷害 +50、暴擊率 +1%，持續 8 秒；觸發冷卻 15 秒。",
         "balance": {
             "mpCost": 73,
             "pwr": 0,
@@ -7075,7 +7075,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "With a certain chance, blocks additional attack damage from enemies in front of ",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "有一定機率阻擋前方敵人的追加攻擊傷害，並可能觸發物理攻擊弱化或吸血弱化。物理攻擊弱化：P.Atk -100；吸血弱化：攻擊時 HP 恢復 -95%。",
+        "desc": "有一定機率阻擋前方敵人的追加攻擊傷害，並可能觸發物理攻擊弱化或吸血弱化。物理攻擊弱化：物理攻擊 -100；吸血弱化：攻擊時 生命值 恢復 -95%。",
         "balance": {
             "mpCost": 91,
             "pwr": 10,
@@ -7165,7 +7165,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers servitor's HP with 169 power.",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "以威力 169 恢復召喚獸 HP。",
+        "desc": "以威力 169 恢復召喚獸 生命值。",
         "balance": {
             "mpCost": 24,
             "pwr": 169,
@@ -7199,7 +7199,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers servitor's MP. Power 41.The MP recovery effect depends on servitor's MP",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "恢復召喚獸 MP，威力 41。實際 MP 恢復效果取決於召喚獸的 MP。",
+        "desc": "恢復召喚獸 魔力，威力 41。實際 魔力 恢復效果取決於召喚獸的 魔力。",
         "balance": {
             "mpCost": 42,
             "pwr": 41,
@@ -7263,7 +7263,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Transfers 10% of received damage to a servitor.MP Consumption is based on your l",
         "canonicalCooldown": "1s",
         "canonicalCooldownMs": 1000,
-        "desc": "將受到傷害的 10% 轉移給召喚獸。MP 消耗依角色等級決定。",
+        "desc": "將受到傷害的 10% 轉移給召喚獸。魔力 消耗依角色等級決定。",
         "balance": {
             "mpCost": 7,
             "pwr": 1,
@@ -7325,7 +7325,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "When activatedP. Atk. +10%Max HP -10%",
         "canonicalCooldown": "1s",
         "canonicalCooldownMs": 1000,
-        "desc": "啟動時 P.Atk +10%、最大 HP -10%。",
+        "desc": "啟動時 物理攻擊 +10%、最大 生命值 -10%。",
         "balance": {
             "mpCost": 15,
             "pwr": 1,
@@ -7389,7 +7389,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Absolute skillThe effect is applied on servitors.P. Def. +1800M. Def. +1350Buff ",
         "canonicalCooldown": "15 min.",
         "canonicalCooldownMs": 900000,
-        "desc": "絕對技能，效果作用於召喚獸：P.Def +1800、M.Def +1350、增益解除抗性 +80%。",
+        "desc": "絕對技能，效果作用於召喚獸：物理防禦 +1800、魔法防禦 +1350、增益解除抗性 +80%。",
         "balance": {
             "mpCost": 48,
             "pwr": 8,
@@ -7422,7 +7422,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers servitor's HP with 160 power.Available when HP < 80%.",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "以威力 160 恢復召喚獸 HP。僅在 HP 低於 80% 時可用。",
+        "desc": "以威力 160 恢復召喚獸 生命值。僅在 生命值 低於 80% 時可用。",
         "balance": {
             "mpCost": 24,
             "pwr": 160,
@@ -7456,7 +7456,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "The effect is applied on servitors.P. Def. +8%M. Def. +10%Atk. Spd. +10%Speed +2",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "效果作用於召喚獸：P.Def +8%、M.Def +10%、攻速 +10%、速度 +20。",
+        "desc": "效果作用於召喚獸：物理防禦 +8%、魔法防禦 +10%、攻速 +10%、速度 +20。",
         "balance": {
             "mpCost": 30,
             "pwr": 1,
@@ -7580,7 +7580,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Teleports to the nearest village.Cannot be used in special places such as the GM",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "傳送至最近的村莊。在 GM 諮詢服務等特殊地點無法使用。",
+        "desc": "傳送至最近的村莊。在 管理員 諮詢服務等特殊地點無法使用。",
         "balance": {
             "mpCost": 105,
             "pwr": 20,
@@ -7738,7 +7738,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Weakens the target.P. Atk. -23%Speed -20",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "削弱目標：P.Atk -23%、速度 -20。",
+        "desc": "削弱目標：物理攻擊 -23%、速度 -20。",
         "balance": {
             "mpCost": 70,
             "pwr": 2,
@@ -7800,7 +7800,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Weakens the target.M. Atk. -23%Casting Spd. -20%",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "削弱目標：M.Atk -23%、施法速度 -20%。",
+        "desc": "削弱目標：魔法攻擊 -23%、施法速度 -20%。",
         "balance": {
             "mpCost": 70,
             "pwr": 2,
@@ -7861,7 +7861,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max HP +1000Transfers 55% of received damage to a servitor.MP Consumption is bas",
         "canonicalCooldown": "1s",
         "canonicalCooldownMs": 1000,
-        "desc": "最大 HP +1000。將受到傷害的 55% 轉移給召喚獸，MP 消耗依角色等級決定。",
+        "desc": "最大 生命值 +1000。將受到傷害的 55% 轉移給召喚獸，魔力 消耗依角色等級決定。",
         "balance": {
             "mpCost": 13,
             "pwr": 6,
@@ -7892,7 +7892,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Transfers a certain percentage of the summoner's stats to the servitor.P./ M. At",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "將召喚師部分屬性轉移給召喚獸：P./M.Atk 50%、P./M.Def 50%、攻速／施法速度 35%、最大 HP／MP 30%。",
+        "desc": "將召喚師部分屬性轉移給召喚獸：物理／魔法攻擊 50%、物理／魔法防禦 50%、攻速／施法速度 35%、最大 生命值／魔力 30%。",
         "balance": {
             "mpCost": 105,
             "pwr": 5,
@@ -7955,7 +7955,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summons Cubic of Secrets.M. Atk. +150When using magic skills (attack/ anomaly/ d",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "召喚祕密魔方，M.Atk +150。使用攻擊／異常／弱化魔法時會追加攻擊，由召喚師的幻影攻擊目標；觸發冷卻 15 秒。",
+        "desc": "召喚祕密魔方，魔法攻擊 +150。使用攻擊／異常／弱化魔法時會追加攻擊，由召喚師的幻影攻擊目標；觸發冷卻 15 秒。",
         "balance": {
             "mpCost": 78,
             "pwr": 20,
@@ -8046,7 +8046,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Makes the servitor possessed with an ancient warrior's spirit.Max HP +50%Max MP ",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "讓召喚獸獲得古代戰士之魂：最大 HP +50%、最大 MP +20%、P.Atk +45%、M.Atk +20%、P.Def +45%、M.Def +20%、攻速 +35%、施法速度 +15%、基礎暴擊率 +50 與 +15%、魔法技能暴擊率 +50 與 +15%、基礎／魔法技能暴擊傷害 +15%、弱化／異常抗性 +40%。",
+        "desc": "讓召喚獸獲得古代戰士之魂：最大 生命值 +50%、最大 魔力 +20%、物理攻擊 +45%、魔法攻擊 +20%、物理防禦 +45%、魔法防禦 +20%、攻速 +35%、施法速度 +15%、基礎暴擊率 +50 與 +15%、魔法技能暴擊率 +50 與 +15%、基礎／魔法技能暴擊傷害 +15%、弱化／異常抗性 +40%。",
         "balance": {
             "mpCost": 70,
             "pwr": 5,
@@ -8290,7 +8290,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max MP +20%MP Recovery Rate +5.1",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "最大 MP +20%，MP 恢復率 +5.1。",
+        "desc": "最大 魔力 +20%，魔力 恢復率 +5.1。",
         "balance": {
             "mpCost": 70,
             "pwr": 2,
@@ -8328,7 +8328,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max HP +10%Max MP +10%P. Def. +10%M. Def. +10%PvE damage bonus +20%Healing Power",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "最大 HP +10%、最大 MP +10%、P.Def +10%、M.Def +10%、PvE 傷害 +20%、治療威力 +15、弱化抗性 +10%、異常抗性與 PvE 傷害額外提升 10%。",
+        "desc": "最大 生命值 +10%、最大 魔力 +10%、物理防禦 +10%、魔法防禦 +10%、對怪物戰鬥 傷害 +20%、治療威力 +15、弱化抗性 +10%、異常抗性與 對怪物戰鬥 傷害額外提升 10%。",
         "balance": {
             "mpCost": 72,
             "pwr": 1,
@@ -8486,7 +8486,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers the target's HP with 1030 power.",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "以威力 1030 恢復目標 HP。",
+        "desc": "以威力 1030 恢復目標 生命值。",
         "balance": {
             "mpCost": 92,
             "pwr": 500,
@@ -8549,7 +8549,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Momentarily recovers HP. Power 863.",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "立即恢復 HP，威力 863。",
+        "desc": "立即恢復 生命值，威力 863。",
         "balance": {
             "mpCost": 177,
             "pwr": 500,
@@ -8613,7 +8613,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "The target's Skill MP Consumption +200%",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "使目標技能 MP 消耗 +200%。",
+        "desc": "使目標技能 魔力 消耗 +200%。",
         "balance": {
             "mpCost": 75,
             "pwr": 20,
@@ -8644,7 +8644,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Applied on 10 nearby allies including the target.Recovers 30% of Max HP to the m",
         "canonicalCooldown": "7 sec.",
         "canonicalCooldownMs": 7000,
-        "desc": "作用於目標與附近最多 10 名盟友。最受傷的盟友恢復最大 HP 的 30%，其餘盟友恢復較少 HP。",
+        "desc": "作用於目標與附近最多 10 名盟友。最受傷的盟友恢復最大 生命值 的 30%，其餘盟友恢復較少 生命值。",
         "balance": {
             "mpCost": 194,
             "pwr": 3,
@@ -8674,7 +8674,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers all party members' HP with 827 power.",
         "canonicalCooldown": "6 sec.",
         "canonicalCooldownMs": 6000,
-        "desc": "以威力 827 恢復所有隊伍成員 HP。",
+        "desc": "以威力 827 恢復所有隊伍成員 生命值。",
         "balance": {
             "mpCost": 158,
             "pwr": 500,
@@ -8707,7 +8707,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Note!If affected by Dark Side and Dark Side: Master, decreases the amount of rec",
         "canonicalCooldown": "15 min.",
         "canonicalCooldownMs": 900000,
-        "desc": "注意：受到 Dark Side 與 Dark Side: Master 影響時，恢復量會降低。為一名隊伍成員恢復 100% HP，只能在 MP 30% 以下時使用。",
+        "desc": "注意：受到 Dark Side 與 Dark Side: Master 影響時，恢復量會降低。為一名隊伍成員恢復 100% 生命值，只能在 魔力 30% 以下時使用。",
         "balance": {
             "mpCost": 235,
             "pwr": 10,
@@ -9098,7 +9098,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks with a dark spiral.Deals M. damage to the target and nearby enemies. Pow",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "以黑暗螺旋攻擊目標與附近敵人，威力 229。5 秒內使 STR／MEN -2。PvP／PvE 最多攻擊 6 個目標。",
+        "desc": "以黑暗螺旋攻擊目標與附近敵人，威力 229。5 秒內使 力量／精神 -2。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。",
         "balance": {
             "mpCost": 116,
             "pwr": 229,
@@ -9220,7 +9220,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers the target's HP with 50 power.",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "以威力 50 恢復目標 HP。",
+        "desc": "以威力 50 恢復目標 生命值。",
         "balance": {
             "mpCost": 10,
             "pwr": 50,
@@ -9252,7 +9252,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers all party members' HP with 66 power.",
         "canonicalCooldown": "6 sec.",
         "canonicalCooldownMs": 6000,
-        "desc": "以威力 66 恢復所有隊伍成員 HP。",
+        "desc": "以威力 66 恢復所有隊伍成員 生命值。",
         "balance": {
             "mpCost": 33,
             "pwr": 66,
@@ -9354,7 +9354,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Resurrects a dead party member.XP recovery: 0%",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "復活死亡的隊伍成員。XP 恢復：0%。",
+        "desc": "復活死亡的隊伍成員。經驗值 恢復：0%。",
         "balance": {
             "mpCost": 59,
             "pwr": 20,
@@ -9418,7 +9418,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Note!When using Dark Side and Dark Side: Master, removes the buff and prevents t",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "使用 Dark Side 或 Dark Side: Master 時，移除該增益並阻止目標再次使用。恢復最大 HP 的 10%，並使最大 HP +10%。",
+        "desc": "使用 Dark Side 或 Dark Side: Master 時，移除該增益並阻止目標再次使用。恢復最大 生命值 的 10%，並使最大 生命值 +10%。",
         "balance": {
             "mpCost": 39,
             "pwr": 1,
@@ -9448,7 +9448,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Absolute skillUses magic to change a protective stance.Max HP +50Max HP +10%P. D",
         "canonicalCooldown": "5 min.",
         "canonicalCooldownMs": 300000,
-        "desc": "絕對技能。使用魔法切換為防護姿態：最大 HP +50、最大 HP +10%、P.Def +10%、速度 +5。",
+        "desc": "絕對技能。使用魔法切換為防護姿態：最大 生命值 +50、最大 生命值 +10%、物理防禦 +10%、速度 +5。",
         "balance": {
             "mpCost": 50,
             "pwr": 1,
@@ -9566,7 +9566,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Resurrects dead clan members.XP recovery: 0%",
         "canonicalCooldown": "10 min.",
         "canonicalCooldownMs": 600000,
-        "desc": "復活死亡的血盟成員。XP 恢復：0%。",
+        "desc": "復活死亡的血盟成員。經驗值 恢復：0%。",
         "balance": {
             "mpCost": 243,
             "pwr": 20,
@@ -9596,7 +9596,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers the target's HP. Power 460.Removes debuffs from the target.P. Atk. redu",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "以威力 460 恢復目標 HP，並移除降低 P.Atk、M.Atk、P.Def、M.Def 的弱化效果。",
+        "desc": "以威力 460 恢復目標 生命值，並移除降低 物理攻擊、魔法攻擊、物理防禦、魔法防禦 的弱化效果。",
         "balance": {
             "mpCost": 84,
             "pwr": 460,
@@ -9628,7 +9628,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target.Deals P. damage. Power 460.Ignores Shield Defense.Ignores 15%",
         "canonicalCooldown": "0.5 sec.",
         "canonicalCooldownMs": 500,
-        "desc": "對目標造成物理傷害，威力 460。無視盾牌防禦與目標 15% 防禦力。Lv.21 起攻擊兩次；狼形態時變為雙爪打擊，對單一目標攻擊兩次。",
+        "desc": "對目標造成物理傷害，威力 460。無視盾牌防禦與目標 15% 防禦力。等級 21 起攻擊兩次；狼形態時變為雙爪打擊，對單一目標攻擊兩次。",
         "balance": {
             "mpCost": 15,
             "pwr": 460,
@@ -9786,7 +9786,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Changing skill>A shadow attacks the target.The attack type is based on the dist",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "由暗影攻擊目標，攻擊方式依距離改變；距離過遠時會突進。對目標攻擊兩次，威力 914。無視盾牌防禦與目標 10% 防禦力。PvP／PvE 最多攻擊 3 個目標。",
+        "desc": "由暗影攻擊目標，攻擊方式依距離改變；距離過遠時會突進。對目標攻擊兩次，威力 914。無視盾牌防禦與目標 10% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 3 個目標。",
         "balance": {
             "mpCost": 35,
             "pwr": 500,
@@ -10122,7 +10122,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Changing skill>Creates shadow clones that attack several targets.Attacks the en",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "創造暗影分身攻擊多個目標，連續攻擊敵人 2 次，威力 5500。無視盾牌防禦與目標 15% 防禦力。PvP／PvE 最多攻擊 7 個目標。",
+        "desc": "創造暗影分身攻擊多個目標，連續攻擊敵人 2 次，威力 5500。無視盾牌防禦與目標 15% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 7 個目標。",
         "balance": {
             "mpCost": 99,
             "pwr": 500,
@@ -10243,7 +10243,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Distorts time around you.Attacks nearby enemies 3 time(s). Power 20,000.Ignores ",
         "canonicalCooldown": "3 min.",
         "canonicalCooldownMs": 180000,
-        "desc": "扭曲周圍時間，對附近敵人攻擊 3 次，威力 20000。無視盾牌防禦與目標 20% 防禦力。PvP／PvE 最多攻擊 10 個目標。使用後獲得 Time Master：P.Atk +1000、+10%，物理技能威力 +10%、暴擊傷害 +5%、攻速 +30%、速度 +30、技能迴避 +10%，持續 60 秒。",
+        "desc": "扭曲周圍時間，對附近敵人攻擊 3 次，威力 20000。無視盾牌防禦與目標 20% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 10 個目標。使用後獲得 Time Master：物理攻擊 +1000、+10%，物理技能威力 +10%、暴擊傷害 +5%、攻速 +30%、速度 +30、技能迴避 +10%，持續 60 秒。",
         "balance": {
             "mpCost": 200,
             "pwr": 500,
@@ -10334,7 +10334,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies. Power 1371.Ignores Shield Defense.Ignores",
         "canonicalCooldown": "15 sec.",
         "canonicalCooldownMs": 15000,
-        "desc": "攻擊目標與附近敵人，威力 1371。無視盾牌防禦與目標 15% 防禦力。PvP 最多 5 個、PvE 最多 5 個目標。攻擊時附加 Dark Mark，使弱化／異常抗性 -5%。",
+        "desc": "攻擊目標與附近敵人，威力 1371。無視盾牌防禦與目標 15% 防禦力。玩家對戰 最多 5 個、對怪物戰鬥 最多 5 個目標。攻擊時附加 Dark Mark，使弱化／異常抗性 -5%。",
         "balance": {
             "mpCost": 100,
             "pwr": 500,
@@ -10364,7 +10364,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target with a fist imbued with fire energy.Power 2064.With a certain",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "以火焰能量包覆拳頭攻擊目標，威力 2064。攻擊時有機率獲得 1 DP。無視盾牌防禦與目標 10% 防禦力，並附加 Furious Blast，使 P.Def／M.Def -23%。",
+        "desc": "以火焰能量包覆拳頭攻擊目標，威力 2064。攻擊時有機率獲得 1 死亡點數。無視盾牌防禦與目標 10% 防禦力，並附加 Furious Blast，使 物理防禦／魔法防禦 -23%。",
         "balance": {
             "mpCost": 50,
             "pwr": 500,
@@ -10426,7 +10426,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "DP recovering skillRecovers 1 DP on attack (cooldown: 1 sec.).P. Atk. +20%P. Ski",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "DP 恢復技能。攻擊時恢復 1 DP（冷卻 1 秒）。P.Atk +20%、物理技能暴擊率 +2%、暴擊傷害 +1%。並可強化 Burning Field 與 Death Knight 火焰劍相關技能。",
+        "desc": "死亡點數 恢復技能。攻擊時恢復 1 死亡點數（冷卻 1 秒）。物理攻擊 +20%、物理技能暴擊率 +2%、暴擊傷害 +1%。並可強化 Burning Field 與 Death Knight 火焰劍相關技能。",
         "balance": {
             "mpCost": 15,
             "pwr": 2,
@@ -10457,7 +10457,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Puts the target into Bone Cage.Imprisoned enemies cannot be attacked.They cannot",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "將目標囚禁於骨牢中。禁錮期間無法被攻擊，也無法移動、攻擊、傳送、鎖定、使用技能或恢復 HP／MP／CP。效果結束時，PvP 使最大 HP／MP -10%；PvE 則造成威力 8500 的物理傷害，並引發相當於 P.Atk 200% 的爆炸。",
+        "desc": "將目標囚禁於骨牢中。禁錮期間無法被攻擊，也無法移動、攻擊、傳送、鎖定、使用技能或恢復 生命值／魔力／戰鬥點數。效果結束時，玩家對戰 使最大 生命值／魔力 -10%；對怪物戰鬥 則造成威力 8500 的物理傷害，並引發相當於 物理攻擊 200% 的爆炸。",
         "balance": {
             "mpCost": 57,
             "pwr": 500,
@@ -10488,7 +10488,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks nearby enemies. Power 4282. Transforms into Death Knight attacking nearb",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "攻擊附近敵人，威力 4282，並化身 Death Knight 再次攻擊。可附加 Brutal Burn，使 P./M.Atk -250、P./M.Def -40%。若目標帶有 Mark of Demise，會追加威力 8000 的攻擊。PvP／PvE 最多攻擊 20 個目標。",
+        "desc": "攻擊附近敵人，威力 4282，並化身 Death Knight 再次攻擊。可附加 Brutal Burn，使 物理／魔法攻擊 -250、物理／魔法防禦 -40%。若目標帶有 Mark of Demise，會追加威力 8000 的攻擊。玩家對戰／對怪物戰鬥 最多攻擊 20 個目標。",
         "balance": {
             "mpCost": 15,
             "pwr": 500,
@@ -10617,7 +10617,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Rush skillRushes to the enemy dealing P. damage. Power 5658. Applies Furious Bla",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "突進至敵人並造成物理傷害，威力 5658。附加 Furious Blast，使 P./M.Def -30%、劍／雙手劍抗性 -10%、牽引抗性 -30%。使用時有 30% 機率恢復 2 DP。",
+        "desc": "突進至敵人並造成物理傷害，威力 5658。附加 Furious Blast，使 物理／魔法防禦 -30%、劍／雙手劍抗性 -10%、牽引抗性 -30%。使用時有 30% 機率恢復 2 死亡點數。",
         "balance": {
             "mpCost": 80,
             "pwr": 500,
@@ -10707,7 +10707,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers 500 DP.Available only if DP are 500 or lower.",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "恢復 500 DP。僅在 DP 低於或等於 500 時可使用。",
+        "desc": "恢復 500 死亡點數。僅在 死亡點數 低於或等於 500 時可使用。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -10767,7 +10767,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Transforms into a Death Knight who is cursed by the Fire Dragon Valakas, but pos",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "變身為受到火龍 Valakas 詛咒的 Death Knight，獲得強大力量：P.Atk +2000、+20%，P.Def +1000、+10%，物理技能暴擊率 +20%、暴擊傷害 +10%、物理技能傷害 +10%、技能威力 +5%、全武器抗性 +5%、PvP 傷害 +6%、攻速 +10%、速度 +10，並提高神聖抗性、降低受到治療懲罰。",
+        "desc": "變身為受到火龍 Valakas 詛咒的 Death Knight，獲得強大力量：物理攻擊 +2000、+20%，物理防禦 +1000、+10%，物理技能暴擊率 +20%、暴擊傷害 +10%、物理技能傷害 +10%、技能威力 +5%、全武器抗性 +5%、玩家對戰 傷害 +6%、攻速 +10%、速度 +10，並提高神聖抗性、降低受到治療懲罰。",
         "balance": {
             "mpCost": 15,
             "pwr": 2,
@@ -11158,7 +11158,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target. Power 4615.For 10 sec., P. Def. -23%.Ignores Shield Defense.",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "攻擊目標，威力 4615。10 秒內使 P.Def -23%。無視盾牌防禦與目標 10% 防禦力。",
+        "desc": "攻擊目標，威力 4615。10 秒內使 物理防禦 -23%。無視盾牌防禦與目標 10% 防禦力。",
         "balance": {
             "mpCost": 60,
             "pwr": 500,
@@ -11315,7 +11315,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Blocks P./ M. skills of nearby enemies.Duration: 2 sec.Attacks the target. Power",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "封鎖附近敵人的物理／魔法技能，持續 2 秒。之後攻擊目標，威力 7579。無視盾牌防禦與目標 10% 防禦力。另有機率解除傷害上限。PvP／PvE 最多攻擊 6 個目標。",
+        "desc": "封鎖附近敵人的物理／魔法技能，持續 2 秒。之後攻擊目標，威力 7579。無視盾牌防禦與目標 10% 防禦力。另有機率解除傷害上限。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。",
         "balance": {
             "mpCost": 95,
             "pwr": 500,
@@ -11376,7 +11376,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +10%P. Skill Critical Rate +5%P. Skill Critical Damage +5%P. Skill damag",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "P.Atk +10%、物理技能暴擊率 +5%、暴擊傷害 +5%、PvE 物理技能傷害 +5%、速度 +10。",
+        "desc": "物理攻擊 +10%、物理技能暴擊率 +5%、暴擊傷害 +5%、對怪物戰鬥 物理技能傷害 +5%、速度 +10。",
         "balance": {
             "mpCost": 160,
             "pwr": 1,
@@ -11438,7 +11438,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies twice. Power 3154.Ignores Shield Defense.I",
         "canonicalCooldown": "16 sec.",
         "canonicalCooldownMs": 16000,
-        "desc": "連續兩次攻擊目標與附近敵人，威力 3154。無視盾牌防禦與目標 10% 防禦力。PvP／PvE 最多攻擊 4 個目標。",
+        "desc": "連續兩次攻擊目標與附近敵人，威力 3154。無視盾牌防禦與目標 10% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 4 個目標。",
         "balance": {
             "mpCost": 76,
             "pwr": 500,
@@ -11469,7 +11469,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Caster:P. Atk. +500P./ M. Def. +500P. Skill Critical Rate +5%Speed +15P. Skill C",
         "canonicalCooldown": "-3%<Skill",
         "canonicalCooldownMs": 1000,
-        "desc": "施法者獲得 P.Atk +500、P./M.Def +500、物理技能暴擊率 +5%、速度 +15、物理技能冷卻 -3%。並強化 Frantic Pace、Song of Wind、Song of Hunter 等技能；使用強化版 Frantic Pace 時會追加威力 7286 的攻擊。",
+        "desc": "施法者獲得 物理攻擊 +500、物理／魔法防禦 +500、物理技能暴擊率 +5%、速度 +15、物理技能冷卻 -3%。並強化 Frantic Pace、Song of Wind、Song of Hunter 等技能；使用強化版 Frantic Pace 時會追加威力 7286 的攻擊。",
         "balance": {
             "mpCost": 97,
             "pwr": 500,
@@ -11685,7 +11685,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Def. +100M. Def. +100Max HP +100Recovers 5 MP on killing an enemy.",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "P.Def +100、M.Def +100、最大 HP +100。擊殺敵人時恢復 5 MP。",
+        "desc": "物理防禦 +100、魔法防禦 +100、最大 生命值 +100。擊殺敵人時恢復 5 魔力。",
         "balance": {
             "mpCost": 30,
             "pwr": 20,
@@ -11716,7 +11716,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +30Atk. Spd. +10",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "P.Atk +30、攻擊速度 +10。",
+        "desc": "物理攻擊 +30、攻擊速度 +10。",
         "balance": {
             "mpCost": 86,
             "pwr": 20,
@@ -11810,7 +11810,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Fear skill>Unleashes the power of the giant wolf monster.Attacks the target twi",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "釋放巨狼力量，對目標攻擊兩次，威力 5503。3 秒內使附近敵人陷入 Anxiety，之後 5 秒內 P./M.Def -20%。無視盾牌防禦與目標 15% 防禦力。PvP／PvE 最多攻擊 8 個目標。施法者獲得 Barghest：持續 10 秒，HP 藥水效果 +50、弱化／異常抗性 +20%。",
+        "desc": "釋放巨狼力量，對目標攻擊兩次，威力 5503。3 秒內使附近敵人陷入 Anxiety，之後 5 秒內 物理／魔法防禦 -20%。無視盾牌防禦與目標 15% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 8 個目標。施法者獲得 Barghest：持續 10 秒，生命值 藥水效果 +50、弱化／異常抗性 +20%。",
         "balance": {
             "mpCost": 100,
             "pwr": 500,
@@ -11930,7 +11930,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Pull skill>Attacks nearby enemies with an earth-shaking strike. With a certain ",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "以撼動大地的攻擊打擊附近敵人，並有機率將敵人拉向自己。威力 6535。無視盾牌防禦與目標 10% 防禦力。PvP／PvE 最多攻擊 8 個目標。狼形態時變為 Vortex of Claws。",
+        "desc": "以撼動大地的攻擊打擊附近敵人，並有機率將敵人拉向自己。威力 6535。無視盾牌防禦與目標 10% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 8 個目標。狼形態時變為 Vortex of Claws。",
         "balance": {
             "mpCost": 74,
             "pwr": 500,
@@ -12080,7 +12080,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Eva grants her protection.P. Def. +15%M. Def. +10%Speed +4",
         "canonicalCooldown": "7 min.",
         "canonicalCooldownMs": 420000,
-        "desc": "獲得伊娃的守護：P.Def +15%、M.Def +10%、速度 +4。",
+        "desc": "獲得伊娃的守護：物理防禦 +15%、魔法防禦 +10%、速度 +4。",
         "balance": {
             "mpCost": 114,
             "pwr": 2,
@@ -12110,7 +12110,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Throws a shield imbued with water energy striking the target and nearby enemies.",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "投擲注入水元素的盾牌，攻擊目標與附近敵人，威力 7751。PvP：10 秒內物理技能暴擊率 -5%、暴擊傷害 -5%；PvE：10 秒內 P.Def -25%。無視盾牌防禦與目標 20% 防禦力。PvP／PvE 最多攻擊 6 個目標。",
+        "desc": "投擲注入水元素的盾牌，攻擊目標與附近敵人，威力 7751。玩家對戰：10 秒內物理技能暴擊率 -5%、暴擊傷害 -5%；對怪物戰鬥：10 秒內 物理防禦 -25%。無視盾牌防禦與目標 20% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。",
         "balance": {
             "mpCost": 66,
             "pwr": 500,
@@ -12140,7 +12140,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Makes a powerful attack at the target.Deals P. damage. Power 4907.Ignores Shield",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "對目標發動強力物理攻擊，威力 4907。無視盾牌防禦與目標 10% 防禦力。使用後疊加 Power of Water，最高 3 層：Lv.1 物理技能暴擊率／傷害 +3%，Lv.2 +8%，Lv.3 +15% 並使技能威力 +1%，每層持續 8 秒。",
+        "desc": "對目標發動強力物理攻擊，威力 4907。無視盾牌防禦與目標 10% 防禦力。使用後疊加 Power of Water，最高 3 層：等級 1 物理技能暴擊率／傷害 +3%，等級 2 +8%，等級 3 +15% 並使技能威力 +1%，每層持續 8 秒。",
         "balance": {
             "mpCost": 63,
             "pwr": 500,
@@ -12262,7 +12262,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "This shield not only protects you in battle, but also helps you deal more damage",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "此盾牌不只保護你，也能提升傷害：P.Atk +50、P.Def +50。並強化 Templar's Rush 為 Sea Vortex Rush，提高威力、防禦無視、攻擊範圍，附加暈眩並轉為範圍技能。",
+        "desc": "此盾牌不只保護你，也能提升傷害：物理攻擊 +50、物理防禦 +50。並強化 Templar's Rush 為 Sea Vortex Rush，提高威力、防禦無視、攻擊範圍，附加暈眩並轉為範圍技能。",
         "balance": {
             "mpCost": 93,
             "pwr": 20,
@@ -12383,7 +12383,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Changing/ Suppression skill>Casts a magic spell that slows enemies down.Range <",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "依距離改變攻擊方式並降低敵人速度。距離小於 400 時對目標與附近敵人造成威力 104 的魔法傷害；距離 400 以上時威力 95。附加 Elemental Break Lv.1，持續 5 秒，使攻速／施法速度 -23%、P.Atk／M.Atk -23%。PvP／PvE 最多攻擊 2 個目標。",
+        "desc": "依距離改變攻擊方式並降低敵人速度。距離小於 400 時對目標與附近敵人造成威力 104 的魔法傷害；距離 400 以上時威力 95。附加 Elemental Break 等級 1，持續 5 秒，使攻速／施法速度 -23%、物理攻擊／魔法攻擊 -23%。玩家對戰／對怪物戰鬥 最多攻擊 2 個目標。",
         "balance": {
             "mpCost": 76,
             "pwr": 104,
@@ -12413,7 +12413,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Deals M. damage to several targets. Power 153. For 5 sec., applies Hold.PvP: Hol",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "對多個目標造成魔法傷害，威力 153，並束縛 5 秒。PvP／PvE 最多束縛 5 個目標。",
+        "desc": "對多個目標造成魔法傷害，威力 153，並束縛 5 秒。玩家對戰／對怪物戰鬥 最多束縛 5 個目標。",
         "balance": {
             "mpCost": 60,
             "pwr": 153,
@@ -12474,7 +12474,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Changing skill>Unleashes explosive magic power to deal damage to enemies.Range ",
         "canonicalCooldown": "8 sec.",
         "canonicalCooldownMs": 8000,
-        "desc": "依距離改變攻擊方式。距離小於 400 時對目標與附近敵人造成威力 108 的魔法傷害；距離 400 以上時威力 98。附加 Elemental Wound Lv.1，持續 5 秒，使 M.Def -23%。PvP／PvE 最多攻擊 3 個目標。",
+        "desc": "依距離改變攻擊方式。距離小於 400 時對目標與附近敵人造成威力 108 的魔法傷害；距離 400 以上時威力 98。附加 Elemental Wound 等級 1，持續 5 秒，使 魔法防禦 -23%。玩家對戰／對怪物戰鬥 最多攻擊 3 個目標。",
         "balance": {
             "mpCost": 103,
             "pwr": 108,
@@ -12504,7 +12504,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Note!When used, removes Shield of Faith.Cancelled if Shelter: Master is applied.",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "建立保護附近盟友的安全區。施法者獲得水之屏障，屏障 HP = 5000 + 最大 HP 的 200%，受到的暴擊傷害 -300；使用 Templar's Assault 時有 30% 機率觸發 Water Spout。盟友可將 50% 傷害轉移給施法者，最多影響 20 個目標，距離過遠時效果解除。",
+        "desc": "建立保護附近盟友的安全區。施法者獲得水之屏障，屏障 生命值 = 5000 + 最大 生命值 的 200%，受到的暴擊傷害 -300；使用 Templar's Assault 時有 30% 機率觸發 Water Spout。盟友可將 50% 傷害轉移給施法者，最多影響 20 個目標，距離過遠時效果解除。",
         "balance": {
             "mpCost": 101,
             "pwr": 120,
@@ -12766,7 +12766,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Summon skill>Summons a cubic imbued with the Elemental Unicorn's power.M. Atk. ",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "召喚注入 Elemental Unicorn 力量的魔方。M.Atk +150、魔法技能 MP 消耗 -1%。使用 Elemental Shackles、Elemental Vortex、Elemental Roots 時會觸發追加攻擊，並由幽靈 Elemental Unicorn 協助攻擊。",
+        "desc": "召喚注入 Elemental Unicorn 力量的魔方。魔法攻擊 +150、魔法技能 魔力 消耗 -1%。使用 Elemental Shackles、Elemental Vortex、Elemental Roots 時會觸發追加攻擊，並由幽靈 Elemental Unicorn 協助攻擊。",
         "balance": {
             "mpCost": 78,
             "pwr": 0,
@@ -12856,7 +12856,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Shoots an arrow imbued with cold energy.Attacks the target and nearby enemies. P",
         "canonicalCooldown": "15 sec.",
         "canonicalCooldownMs": 15000,
-        "desc": "射出注入寒氣的箭矢，攻擊目標與附近敵人，威力 8800。附加 Icy Air，使受到技能暴擊率 +5%，持續 5 秒。無視目標 10% 防禦力，PvP／PvE 最多攻擊 8 個目標。",
+        "desc": "射出注入寒氣的箭矢，攻擊目標與附近敵人，威力 8800。附加 Icy Air，使受到技能暴擊率 +5%，持續 5 秒。無視目標 10% 防禦力，玩家對戰／對怪物戰鬥 最多攻擊 8 個目標。",
         "balance": {
             "mpCost": 110,
             "pwr": 500,
@@ -12886,7 +12886,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Shoots an arrow imbued with water power.Attacks the target and nearby enemies. P",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "射出注入水元素的箭矢，攻擊目標與附近敵人，威力 10800。無視目標 10% 防禦力，並有機率附加 Arrow Break，使 P.Atk、M.Atk、P.Def、M.Def 各 -20%，持續 10 秒。PvP／PvE 最多攻擊 15 個目標。",
+        "desc": "射出注入水元素的箭矢，攻擊目標與附近敵人，威力 10800。無視目標 10% 防禦力，並有機率附加 Arrow Break，使 物理攻擊、魔法攻擊、物理防禦、魔法防禦 各 -20%，持續 10 秒。玩家對戰／對怪物戰鬥 最多攻擊 15 個目標。",
         "balance": {
             "mpCost": 170,
             "pwr": 500,
@@ -12916,7 +12916,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +250Atk. Spd. +20%",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "P.Atk +250、攻速 +20%。",
+        "desc": "物理攻擊 +250、攻速 +20%。",
         "balance": {
             "mpCost": 80,
             "pwr": 2,
@@ -12947,7 +12947,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Swift movements let you attack more effectively.P. Atk. +1000Atk. Spd. +10%P. Sk",
         "canonicalCooldown": "-5%Speed",
         "canonicalCooldownMs": 1000,
-        "desc": "敏捷動作強化攻擊：P.Atk +1000、攻速 +10%、物理技能暴擊率 +3%、暴擊傷害 +3%、技能冷卻 -5%、速度 +7。使用 Double Shot 時有 50% 機率追加攻擊。",
+        "desc": "敏捷動作強化攻擊：物理攻擊 +1000、攻速 +10%、物理技能暴擊率 +3%、暴擊傷害 +3%、技能冷卻 -5%、速度 +7。使用 Double Shot 時有 50% 機率追加攻擊。",
         "balance": {
             "mpCost": 80,
             "pwr": 1,
@@ -13039,7 +13039,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Creates a powerful wave.Deals M. damage to the target and nearby enemies. Power ",
         "canonicalCooldown": "7 sec.",
         "canonicalCooldownMs": 7000,
-        "desc": "創造強力波浪，對目標與附近敵人造成魔法傷害，威力 60。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "創造強力波浪，對目標與附近敵人造成魔法傷害，威力 60。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 49,
             "pwr": 60,
@@ -13138,7 +13138,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Deals M. damage to the target and nearby enemies. Power 144.Creates Ice Field in",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "對目標與附近敵人造成魔法傷害，威力 144，並在區域形成 Ice Field。區域內敵人受到 Burning Cold：麻痺／壓制／睡眠抗性 -30%；PvE 額外 M.Def -10%；PvP 額外速度 -90% 且禁止突進技能。PvP／PvE 最多攻擊 10 個目標。",
+        "desc": "對目標與附近敵人造成魔法傷害，威力 144，並在區域形成 Ice Field。區域內敵人受到 Burning Cold：麻痺／壓制／睡眠抗性 -30%；對怪物戰鬥 額外 魔法防禦 -10%；玩家對戰 額外速度 -90% 且禁止突進技能。玩家對戰／對怪物戰鬥 最多攻擊 10 個目標。",
         "balance": {
             "mpCost": 232,
             "pwr": 144,
@@ -13231,7 +13231,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Deals M. damage to enemies. Power 229.Applies the Mystic Decrease debuff.Mystic ",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "對敵人造成魔法傷害，威力 229，並附加 Mystic Decrease，使 STR／INT／DEX／WIT／CON／MEN 中隨機一項 -4，持續 5 秒。PvP／PvE 最多攻擊 12 個目標。",
+        "desc": "對敵人造成魔法傷害，威力 229，並附加 Mystic Decrease，使 力量／智力／敏捷／智慧／體質／精神 中隨機一項 -4，持續 5 秒。玩家對戰／對怪物戰鬥 最多攻擊 12 個目標。",
         "balance": {
             "mpCost": 116,
             "pwr": 229,
@@ -13324,7 +13324,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Teleports to the nearest village together with a party member.Cannot be used in ",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "與隊伍成員一起傳送至最近村莊。在 GM 諮詢服務等特殊地點無法使用。",
+        "desc": "與隊伍成員一起傳送至最近村莊。在 管理員 諮詢服務等特殊地點無法使用。",
         "balance": {
             "mpCost": 257,
             "pwr": 20,
@@ -13385,7 +13385,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Reflects 12% of received damage.Max HP +600P. Def. +600With a certain chance whe",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "反射受到傷害的 12%，最大 HP +600、P.Def +600。受到攻擊時有機率對攻擊者附加 Frost-dew，使其麻痺 3 秒。",
+        "desc": "反射受到傷害的 12%，最大 生命值 +600、物理防禦 +600。受到攻擊時有機率對攻擊者附加 Frost-dew，使其麻痺 3 秒。",
         "balance": {
             "mpCost": 100,
             "pwr": 1,
@@ -13509,7 +13509,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the enemies thrice. Power 7500.Ignores Shield Defense.Ignores 15% of the",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "連續攻擊敵人 3 次，威力 7500，之後追加一次威力 7500 的物理攻擊並附加 Freezing Swamp。無視盾牌防禦與目標 15% 防禦力。PvP／PvE 最多攻擊 6 個目標。Freezing Swamp 持續 5 秒，禁止突進技能。",
+        "desc": "連續攻擊敵人 3 次，威力 7500，之後追加一次威力 7500 的物理攻擊並附加 Freezing Swamp。無視盾牌防禦與目標 15% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。Freezing Swamp 持續 5 秒，禁止突進技能。",
         "balance": {
             "mpCost": 15,
             "pwr": 500,
@@ -13565,7 +13565,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +5%P. Skill Damage bonus +2%Imprisonment Atk. Rate +10%When using Punish",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "P.Atk +5%、物理技能傷害 +2%、禁錮成功率 +10%。使用 Punishment 時有 10% 機率附加 Death Frostbite，持續 5 秒；PvP 使禁錮抗性 -10%，PvE 使 P.Def／M.Def -15%。",
+        "desc": "物理攻擊 +5%、物理技能傷害 +2%、禁錮成功率 +10%。使用 Punishment 時有 10% 機率附加 Death Frostbite，持續 5 秒；玩家對戰 使禁錮抗性 -10%，對怪物戰鬥 使 物理防禦／魔法防禦 -15%。",
         "balance": {
             "mpCost": 15,
             "pwr": 1,
@@ -13593,7 +13593,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Deals M. damage to the target. Power 60.Absorbs 20% of inflicted damage as HP.",
         "canonicalCooldown": "4 sec.",
         "canonicalCooldownMs": 4000,
-        "desc": "對目標造成魔法傷害，威力 60，並將造成傷害的 20% 轉為 HP。",
+        "desc": "對目標造成魔法傷害，威力 60，並將造成傷害的 20% 轉為 生命值。",
         "balance": {
             "mpCost": 19,
             "pwr": 60,
@@ -13625,7 +13625,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Deals M. damage to the target. Power 26.Absorbs 80% of inflicted damage as HP.",
         "canonicalCooldown": "2 sec.",
         "canonicalCooldownMs": 2000,
-        "desc": "對目標造成魔法傷害，威力 26，並將造成傷害的 80% 轉為 HP。",
+        "desc": "對目標造成魔法傷害，威力 26，並將造成傷害的 80% 轉為 生命值。",
         "balance": {
             "mpCost": 47,
             "pwr": 26,
@@ -13750,7 +13750,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Target's P. Atk. --23%",
         "canonicalCooldown": "2 sec.",
         "canonicalCooldownMs": 2000,
-        "desc": "使目標 P.Atk -23%。",
+        "desc": "使目標 物理攻擊 -23%。",
         "balance": {
             "mpCost": 16,
             "pwr": 2,
@@ -13783,7 +13783,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Def. +100M. Def. +100Max HP +100Recovers 5 MP on killing an enemy.",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "P.Def +100、M.Def +100、最大 HP +100。擊殺敵人時恢復 5 MP。",
+        "desc": "物理防禦 +100、魔法防禦 +100、最大 生命值 +100。擊殺敵人時恢復 5 魔力。",
         "balance": {
             "mpCost": 30,
             "pwr": 20,
@@ -13814,7 +13814,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Decreases target's P. Def.P. Def. -23%",
         "canonicalCooldown": "2 sec.",
         "canonicalCooldownMs": 2000,
-        "desc": "降低目標 P.Def 23%。",
+        "desc": "降低目標 物理防禦 23%。",
         "balance": {
             "mpCost": 15,
             "pwr": 2,
@@ -13876,7 +13876,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "M. Atk. +5%Casting Spd. +10%P. Def. +10%M. Def. +10%Max MP +15%MP Recovery Rate ",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "M.Atk +5%、施法速度 +10%、P.Def +10%、M.Def +10%、最大 MP +15%、MP 恢復率 +10%、技能 MP 消耗 -10%、PvE 傷害 +20%、速度 +2、弱化／異常抗性 +10%。",
+        "desc": "魔法攻擊 +5%、施法速度 +10%、物理防禦 +10%、魔法防禦 +10%、最大 魔力 +15%、魔力 恢復率 +10%、技能 魔力 消耗 -10%、對怪物戰鬥 傷害 +20%、速度 +2、弱化／異常抗性 +10%。",
         "balance": {
             "mpCost": 72,
             "pwr": 1,
@@ -13936,7 +13936,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers party members' HP. Power 800.Removes debuffs from party members.P. Atk.",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "恢復隊伍成員 HP，威力 800，並移除降低 P.Atk、M.Atk、P.Def、M.Def 的弱化效果。",
+        "desc": "恢復隊伍成員 生命值，威力 800，並移除降低 物理攻擊、魔法攻擊、物理防禦、魔法防禦 的弱化效果。",
         "balance": {
             "mpCost": 80,
             "pwr": 500,
@@ -14149,7 +14149,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Your swords emit a toxic cloud.Attacks nearby targets. Power 1039.Applies Poison",
         "canonicalCooldown": "15 sec.",
         "canonicalCooldownMs": 15000,
-        "desc": "雙劍釋放毒霧，攻擊附近目標，威力 1039，並附加中毒。不會暴擊。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "雙劍釋放毒霧，攻擊附近目標，威力 1039，並附加中毒。不會暴擊。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 66,
             "pwr": 500,
@@ -14210,7 +14210,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies twice. Power 1149.Ignores Shield Defense.I",
         "canonicalCooldown": "16 sec.",
         "canonicalCooldownMs": 16000,
-        "desc": "連續兩次攻擊目標與附近敵人，威力 1149。無視盾牌防禦與目標 10% 防禦力。PvP／PvE 最多攻擊 4 個目標。",
+        "desc": "連續兩次攻擊目標與附近敵人，威力 1149。無視盾牌防禦與目標 10% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 4 個目標。",
         "balance": {
             "mpCost": 40,
             "pwr": 500,
@@ -14302,7 +14302,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Caster:P. Atk. +150P./ M. Def. +50P. Skill Critical Damage +1%Atk. Spd. +10P. Sk",
         "canonicalCooldown": "-1%<Skill",
         "canonicalCooldownMs": 1000,
-        "desc": "施法者獲得 P.Atk +150、P.Def／M.Def +50、物理技能暴擊傷害 +1%、攻速 +10、物理技能冷卻 -1%。並強化 Frantic Pace、Dance of Fury、Dance of Fire；使用強化版 Frantic Pace 時會追加威力 7286 的攻擊。",
+        "desc": "施法者獲得 物理攻擊 +150、物理防禦／魔法防禦 +50、物理技能暴擊傷害 +1%、攻速 +10、物理技能冷卻 -1%。並強化 Frantic Pace、Dance of Fury、Dance of Fire；使用強化版 Frantic Pace 時會追加威力 7286 的攻擊。",
         "balance": {
             "mpCost": 51,
             "pwr": 500,
@@ -14364,7 +14364,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "A powerful lightning strike.Attacks the target and nearby enemies. Power 2311.Pa",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "以強力雷擊攻擊目標與附近敵人，威力 2311，並麻痺 3 秒。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "以強力雷擊攻擊目標與附近敵人，威力 2311，並麻痺 3 秒。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 94,
             "pwr": 500,
@@ -14424,7 +14424,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Throws a shield imbued with dark energy striking the target and nearby enemies.D",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "投擲注入黑暗能量的盾牌，攻擊目標與附近敵人，威力 7751。PvP：10 秒內物理技能暴擊率 -5%、暴擊傷害 -5%；PvE：10 秒內 P.Def -25%。無視盾牌防禦與目標 20% 防禦力。PvP／PvE 最多攻擊 6 個目標。",
+        "desc": "投擲注入黑暗能量的盾牌，攻擊目標與附近敵人，威力 7751。玩家對戰：10 秒內物理技能暴擊率 -5%、暴擊傷害 -5%；對怪物戰鬥：10 秒內 物理防禦 -25%。無視盾牌防禦與目標 20% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。",
         "balance": {
             "mpCost": 66,
             "pwr": 500,
@@ -14484,7 +14484,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Rush/ Paralysis/ skill with fixed cast time>Base effectReleases the energy of l",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "釋放雷電能量，連續兩次攻擊目標與附近敵人，威力 10500，使目標 CP -50%。無視盾牌防禦與目標 20% 防禦力。PvP／PvE 最多攻擊 12 個目標。另使受到治療 -30%、弱化／異常抗性 -30%，並麻痺 3 秒。",
+        "desc": "釋放雷電能量，連續兩次攻擊目標與附近敵人，威力 10500，使目標 戰鬥點數 -50%。無視盾牌防禦與目標 20% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 12 個目標。另使受到治療 -30%、弱化／異常抗性 -30%，並麻痺 3 秒。",
         "balance": {
             "mpCost": 82,
             "pwr": 500,
@@ -14576,7 +14576,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Accuracy +1P. Atk. +140Basic Critical Damage +20%Atk. Spd. -5%",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "物理命中 +1、P.Atk +140、基礎暴擊傷害 +20%、攻速 -5%。",
+        "desc": "物理命中 +1、物理攻擊 +140、基礎暴擊傷害 +20%、攻速 -5%。",
         "balance": {
             "mpCost": 60,
             "pwr": 2,
@@ -14758,7 +14758,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Creates a furious storm.Deals M. damage to the target and nearby enemies. Power ",
         "canonicalCooldown": "7 sec.",
         "canonicalCooldownMs": 7000,
-        "desc": "創造狂暴風暴，對目標與附近敵人造成魔法傷害，威力 78。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "創造狂暴風暴，對目標與附近敵人造成魔法傷害，威力 78。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 68,
             "pwr": 78,
@@ -14880,7 +14880,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks with a wind spiral.Deals M. damage to the target and nearby enemies. Pow",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "以風之螺旋攻擊目標與附近敵人，威力 229。5 秒內使 DEX／WIT -2。PvP／PvE 最多攻擊 6 個目標。",
+        "desc": "以風之螺旋攻擊目標與附近敵人，威力 229。5 秒內使 敏捷／智慧 -2。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。",
         "balance": {
             "mpCost": 116,
             "pwr": 229,
@@ -15062,7 +15062,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Inflicts Paralysis on nearby enemies.Duration: 2 sec.Attacks the target. Power 7",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "使附近敵人麻痺 2 秒，之後攻擊目標，威力 7579。無視盾牌防禦與目標 10% 防禦力，並有機率解除屏障。PvP／PvE 最多攻擊 6 個目標。",
+        "desc": "使附近敵人麻痺 2 秒，之後攻擊目標，威力 7579。無視盾牌防禦與目標 10% 防禦力，並有機率解除屏障。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。",
         "balance": {
             "mpCost": 95,
             "pwr": 500,
@@ -15125,7 +15125,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Shoots an arrow imbued with storm power.Attacks the target and nearby enemies. P",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "射出注入暴風力量的箭矢，攻擊目標與附近敵人，威力 10800。無視目標 10% 防禦力，並有機率附加 Arrow Break，使 P.Atk、M.Atk、P.Def、M.Def 各 -20%，持續 10 秒。PvP／PvE 最多攻擊 15 個目標。",
+        "desc": "射出注入暴風力量的箭矢，攻擊目標與附近敵人，威力 10800。無視目標 10% 防禦力，並有機率附加 Arrow Break，使 物理攻擊、魔法攻擊、物理防禦、魔法防禦 各 -20%，持續 10 秒。玩家對戰／對怪物戰鬥 最多攻擊 15 個目標。",
         "balance": {
             "mpCost": 170,
             "pwr": 500,
@@ -15155,7 +15155,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Shoots an arrow imbued with wind energy.Attacks the target and nearby enemies. P",
         "canonicalCooldown": "15 sec.",
         "canonicalCooldownMs": 15000,
-        "desc": "射出注入風能量的箭矢，攻擊目標與附近敵人，威力 8800。附加 Breeze，使技能暴擊傷害 -5%，持續 5 秒。無視目標 10% 防禦力，PvP／PvE 最多攻擊 8 個目標。",
+        "desc": "射出注入風能量的箭矢，攻擊目標與附近敵人，威力 8800。附加 Breeze，使技能暴擊傷害 -5%，持續 5 秒。無視目標 10% 防禦力，玩家對戰／對怪物戰鬥 最多攻擊 8 個目標。",
         "balance": {
             "mpCost": 110,
             "pwr": 500,
@@ -15185,7 +15185,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Accurate shooting increases your lethal attack damage.P. Atk. +1000Atk. Spd. +3%",
         "canonicalCooldown": "-3%Speed",
         "canonicalCooldownMs": 1000,
-        "desc": "精準射擊提高致命攻擊傷害：P.Atk +1000、攻速 +3%、物理技能暴擊傷害 +5%、技能冷卻 -3%、速度 +5。使用 Double Shot 時有 50% 機率追加攻擊。",
+        "desc": "精準射擊提高致命攻擊傷害：物理攻擊 +1000、攻速 +3%、物理技能暴擊傷害 +5%、技能冷卻 -3%、速度 +5。使用 Double Shot 時有 50% 機率追加攻擊。",
         "balance": {
             "mpCost": 80,
             "pwr": 0,
@@ -15305,7 +15305,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Makes the servitor possessed with an ancient assassin's spirit.Max HP +20%Max MP",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "讓召喚獸獲得古代刺客之魂：最大 HP +20%、最大 MP +20%、P.Atk +20%、M.Atk +20%、P.Def +20%、M.Def +20%、攻速 +15%、施法速度 +15%、速度 +10%、基礎暴擊率 +50 與 +35%、魔法技能暴擊率 +50 與 +35%、基礎／魔法技能暴擊傷害 +40%、弱化／異常抗性 +40%。",
+        "desc": "讓召喚獸獲得古代刺客之魂：最大 生命值 +20%、最大 魔力 +20%、物理攻擊 +20%、魔法攻擊 +20%、物理防禦 +20%、魔法防禦 +20%、攻速 +15%、施法速度 +15%、速度 +10%、基礎暴擊率 +50 與 +35%、魔法技能暴擊率 +50 與 +35%、基礎／魔法技能暴擊傷害 +40%、弱化／異常抗性 +40%。",
         "balance": {
             "mpCost": 70,
             "pwr": 2,
@@ -15336,7 +15336,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summons Phantom Cubic.M. Atk. +150When using magic skills (attack/ anomaly/ debu",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "召喚幽靈魔方。M.Atk +150。使用攻擊／異常／弱化魔法時會追加攻擊，由召喚師的幻影攻擊目標；觸發冷卻 15 秒。",
+        "desc": "召喚幽靈魔方。魔法攻擊 +150。使用攻擊／異常／弱化魔法時會追加攻擊，由召喚師的幻影攻擊目標；觸發冷卻 15 秒。",
         "balance": {
             "mpCost": 78,
             "pwr": 20,
@@ -15425,7 +15425,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the enemies thrice. Power 7500.Ignores Shield Defense.Ignores 15% of the",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "連續攻擊敵人 3 次，威力 7500，之後追加一次威力 7500 的物理攻擊並附加 Storm Swamp。無視盾牌防禦與目標 15% 防禦力。PvP／PvE 最多攻擊 6 個目標。Storm Swamp 持續 5 秒，禁止突進技能。",
+        "desc": "連續攻擊敵人 3 次，威力 7500，之後追加一次威力 7500 的物理攻擊並附加 Storm Swamp。無視盾牌防禦與目標 15% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。Storm Swamp 持續 5 秒，禁止突進技能。",
         "balance": {
             "mpCost": 15,
             "pwr": 500,
@@ -15481,7 +15481,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Marks nearby enemies with Shillien's stigma.Melee Weapon Resistance -20%M. Def. ",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "對附近敵人施加席琳烙印，使近戰武器抗性 -20%、M.Def -10%。",
+        "desc": "對附近敵人施加席琳烙印，使近戰武器抗性 -20%、魔法防禦 -10%。",
         "balance": {
             "mpCost": 45,
             "pwr": 2,
@@ -15512,7 +15512,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Marks the target with Shillien's stigma.Melee Weapon Resistance -20%M. Def. -10%",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "對目標施加席琳烙印，使近戰武器抗性 -20%、M.Def -10%。",
+        "desc": "對目標施加席琳烙印，使近戰武器抗性 -20%、魔法防禦 -10%。",
         "balance": {
             "mpCost": 15,
             "pwr": 2,
@@ -15543,7 +15543,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers 263 MP.",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "恢復 263 MP。",
+        "desc": "恢復 263 魔力。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -15574,7 +15574,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "The effect is applied on servitors.P. Atk. +8%P. Def. +8%M. Def. +10%Atk. Spd. +",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "效果作用於召喚獸：P.Atk +8%、P.Def +8%、M.Def +10%、攻速 +10%。",
+        "desc": "效果作用於召喚獸：物理攻擊 +8%、物理防禦 +8%、魔法防禦 +10%、攻速 +10%。",
         "balance": {
             "mpCost": 30,
             "pwr": 1,
@@ -15724,7 +15724,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "M. Skill Critical Rate +15%M. Skill Critical Damage +25%Speed +10%PvE damage bon",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "魔法技能暴擊率 +15%、暴擊傷害 +25%、速度 +10%、PvE 傷害 +20%、受到技能暴擊率 -6%、受到技能暴擊傷害 -6%、弱化／異常抗性 +10%。",
+        "desc": "魔法技能暴擊率 +15%、暴擊傷害 +25%、速度 +10%、對怪物戰鬥 傷害 +20%、受到技能暴擊率 -6%、受到技能暴擊傷害 -6%、弱化／異常抗性 +10%。",
         "balance": {
             "mpCost": 72,
             "pwr": 2,
@@ -15754,7 +15754,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Brings punishment to enemies.Deals M. damage to the target. Power 195.Received H",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "懲罰敵人，對目標造成魔法傷害，威力 195。受到治療 -70%，持續 10 秒。PvP／PvE 最多攻擊 6 個目標。",
+        "desc": "懲罰敵人，對目標造成魔法傷害，威力 195。受到治療 -70%，持續 10 秒。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。",
         "balance": {
             "mpCost": 91,
             "pwr": 195,
@@ -15904,7 +15904,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Inflicts Hold on the target and nearby enemies. P./ M. Atk. -30%.",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "束縛目標與附近敵人，並使 P.Atk／M.Atk -30%。",
+        "desc": "束縛目標與附近敵人，並使 物理攻擊／魔法攻擊 -30%。",
         "balance": {
             "mpCost": 150,
             "pwr": 3,
@@ -16119,7 +16119,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Teleports to the target poisoning them with deadly fumes.Deals M. damage to the ",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "傳送至目標並以致命毒霧攻擊目標與附近敵人，威力 237。帶有弱化／異常狀態的敵人會受到更多傷害，弱化／異常抗性 -5%，持續 7 秒，並附加 Parasite Rose Lv.3：最大 HP -30%、束縛抗性 -15%。之後可再次造成威力 257 的魔法傷害。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "傳送至目標並以致命毒霧攻擊目標與附近敵人，威力 237。帶有弱化／異常狀態的敵人會受到更多傷害，弱化／異常抗性 -5%，持續 7 秒，並附加 Parasite Rose 等級 3：最大 生命值 -30%、束縛抗性 -15%。之後可再次造成威力 257 的魔法傷害。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 109,
             "pwr": 237,
@@ -16150,7 +16150,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Changing skill>The attack type is based on the distance to the target.Distance ",
         "canonicalCooldown": "15 sec.",
         "canonicalCooldownMs": 15000,
-        "desc": "依距離改變攻擊方式。距離 250 以內時荊棘化為撕裂風暴，造成魔法傷害，威力 166，M.Def -30%，持續 4 秒；距離 250 以上時荊棘穿刺敵人，威力 156。PvP／PvE 最多攻擊 3 個目標。",
+        "desc": "依距離改變攻擊方式。距離 250 以內時荊棘化為撕裂風暴，造成魔法傷害，威力 166，魔法防禦 -30%，持續 4 秒；距離 250 以上時荊棘穿刺敵人，威力 156。玩家對戰／對怪物戰鬥 最多攻擊 3 個目標。",
         "balance": {
             "mpCost": 60,
             "pwr": 166,
@@ -16304,7 +16304,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Summons an enchanted dagger to shred all enemies.Deals M. damage to the target a",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "召喚附魔匕首撕裂所有敵人，對目標與附近敵人造成魔法傷害，威力 195。附加夢魘玫瑰：技能暴擊傷害 -10%、受到魔法技能暴擊傷害 +5%、M.Def -30%，持續 8 秒。PvP／PvE 最多攻擊 3 個目標。",
+        "desc": "召喚附魔匕首撕裂所有敵人，對目標與附近敵人造成魔法傷害，威力 195。附加夢魘玫瑰：技能暴擊傷害 -10%、受到魔法技能暴擊傷害 +5%、魔法防禦 -30%，持續 8 秒。玩家對戰／對怪物戰鬥 最多攻擊 3 個目標。",
         "balance": {
             "mpCost": 60,
             "pwr": 195,
@@ -16395,7 +16395,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks nearby targets. Power 465.Ignores Shield Defense.Ignores 30% of the targ",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "攻擊附近目標，威力 465。無視盾牌防禦與目標 30% 防禦力。不會暴擊。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "攻擊附近目標，威力 465。無視盾牌防禦與目標 30% 防禦力。不會暴擊。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 46,
             "pwr": 465,
@@ -16426,7 +16426,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Hold skill>Summons a royal garden with giant flowers.Attacks the target and nea",
         "canonicalCooldown": "4 min.",
         "canonicalCooldownMs": 240000,
-        "desc": "<束縛技能>召喚長滿巨大花朵的皇家花園，連續 3 次攻擊目標與附近敵人，威力 380。弱化效果持續 4 秒：受到治療 -50%、HP 恢復藥水效果上限 1000，禁止突進技能。異常狀態會施加束縛，持續 10 秒。PvP／PvE 最多攻擊 8 個目標。使用時附加 Queen 效果，持續 30 秒：魔法技能威力 +5%、PvE 傷害 +5%。使用攻擊技能時有一定機率召喚荊棘追加傷害；傷害依 M.Atk 計算，威力 200，觸發率 30%。",
+        "desc": "<束縛技能>召喚長滿巨大花朵的皇家花園，連續 3 次攻擊目標與附近敵人，威力 380。弱化效果持續 4 秒：受到治療 -50%、生命值 恢復藥水效果上限 1000，禁止突進技能。異常狀態會施加束縛，持續 10 秒。玩家對戰／對怪物戰鬥 最多攻擊 8 個目標。使用時附加 Queen 效果，持續 30 秒：魔法技能威力 +5%、對怪物戰鬥 傷害 +5%。使用攻擊技能時有一定機率召喚荊棘追加傷害；傷害依 魔法攻擊 計算，威力 200，觸發率 30%。",
         "balance": {
             "mpCost": 330,
             "pwr": 380,
@@ -16532,7 +16532,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Atk. Spd. +10%Basic Critical Rate +22Basic Critical Damage +22%P. Skill Critical",
         "canonicalCooldown": "5 min.",
         "canonicalCooldownMs": 300000,
-        "desc": "攻速 +10%、基礎暴擊率 +22、基礎暴擊傷害 +22%、物理技能暴擊率 +11%、物理技能暴擊傷害 +11%、物理命中 +6、速度 +10、物理技能 MP 消耗 -50%、增益解除抗性 +40%、受到治療 -50%、擊退／擊倒成功率 +3%。使用技能時恢復 80 MP。",
+        "desc": "攻速 +10%、基礎暴擊率 +22、基礎暴擊傷害 +22%、物理技能暴擊率 +11%、物理技能暴擊傷害 +11%、物理命中 +6、速度 +10、物理技能 魔力 消耗 -50%、增益解除抗性 +40%、受到治療 -50%、擊退／擊倒成功率 +3%。使用技能時恢復 80 魔力。",
         "balance": {
             "mpCost": 15,
             "pwr": 1,
@@ -16607,7 +16607,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Def. +400P. Def. +35%Speed +10Debuff Resistance +25%Anomaly Resistance +25%Ca",
         "canonicalCooldown": "5 min.",
         "canonicalCooldownMs": 300000,
-        "desc": "P.Def +400、P.Def +35%、速度 +10、弱化抗性 +25%、異常抗性 +25%。無法與 Frenzy 同時使用。",
+        "desc": "物理防禦 +400、物理防禦 +35%、速度 +10、弱化抗性 +25%、異常抗性 +25%。無法與 Frenzy 同時使用。",
         "balance": {
             "mpCost": 30,
             "pwr": 4,
@@ -16757,7 +16757,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +9%Atk. Spd. +8%Basic Critical Rate +5Basic Critical Damage +5%P. Skill ",
         "canonicalCooldown": "5 min.",
         "canonicalCooldownMs": 300000,
-        "desc": "P.Atk +9%、攻速 +8%、基礎暴擊率 +5、基礎暴擊傷害 +5%、物理技能暴擊率 +4%、物理技能暴擊傷害 +4%、速度 +9。使用雙手劍時：P.Atk +10%、物理命中 +8。無法與 Guts 同時使用。",
+        "desc": "物理攻擊 +9%、攻速 +8%、基礎暴擊率 +5、基礎暴擊傷害 +5%、物理技能暴擊率 +4%、物理技能暴擊傷害 +4%、速度 +9。使用雙手劍時：物理攻擊 +10%、物理命中 +8。無法與 Guts 同時使用。",
         "balance": {
             "mpCost": 20,
             "pwr": 1,
@@ -16960,7 +16960,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies. Power 5544.With a certain chance, knocks ",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "攻擊目標與附近敵人，威力 5544。有一定機率擊倒目標。無視盾牌防禦與目標 5% 防禦力。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "攻擊目標與附近敵人，威力 5544。有一定機率擊倒目標。無視盾牌防禦與目標 5% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 64,
             "pwr": 500,
@@ -17020,7 +17020,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target. Power 4275.Stuns for 3 sec.P./ M. Def. -30%Ignores Shield De",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "攻擊目標，威力 4275，並暈眩 3 秒。P.Def／M.Def -30%。無視盾牌防禦。",
+        "desc": "攻擊目標，威力 4275，並暈眩 3 秒。物理防禦／魔法防禦 -30%。無視盾牌防禦。",
         "balance": {
             "mpCost": 60,
             "pwr": 500,
@@ -17083,7 +17083,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks nearby enemies. Power 3772.When Giant's Ring is triggered, attacks nearb",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "攻擊附近敵人，威力 3772。觸發 Giant's Ring 時，連續 3 次攻擊附近敵人，威力 3960。無視盾牌防禦與目標 10% 防禦力。PvP／PvE 最多攻擊 12 個目標。",
+        "desc": "攻擊附近敵人，威力 3772。觸發 Giant's Ring 時，連續 3 次攻擊附近敵人，威力 3960。無視盾牌防禦與目標 10% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 12 個目標。",
         "balance": {
             "mpCost": 72,
             "pwr": 500,
@@ -17113,7 +17113,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Makes a powerful strike with a two-handed sword.Attacks nearby targets. Power 24",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "以雙手劍施展強力揮擊，攻擊附近目標，威力 2424。無視盾牌防禦。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "以雙手劍施展強力揮擊，攻擊附近目標，威力 2424。無視盾牌防禦。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 85,
             "pwr": 500,
@@ -17143,7 +17143,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "When used, removes Suppression anomalies.For 3 sec., Suppression Resistance +20%",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "使用時移除壓制異常狀態。3 秒內壓制抗性 +20%。恢復 1000 CP，並恢復 15% HP。",
+        "desc": "使用時移除壓制異常狀態。3 秒內壓制抗性 +20%。恢復 1000 戰鬥點數，並恢復 15% 生命值。",
         "balance": {
             "mpCost": 45,
             "pwr": 2,
@@ -17233,7 +17233,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +55%Dagger Resistance -20%P. Accuracy +3Max HP +300Atk. Spd. +100Increas",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "P.Atk +55%、匕首抗性 -20%、物理命中 +3、最大 HP +300、攻速 +100，並增加攻擊距離。使用 Demolition Impact／Demolition Formula 時有 20% 機率追加攻擊。",
+        "desc": "物理攻擊 +55%、匕首抗性 -20%、物理命中 +3、最大 生命值 +300、攻速 +100，並增加攻擊距離。使用 Demolition Impact／Demolition Formula 時有 20% 機率追加攻擊。",
         "balance": {
             "mpCost": 63,
             "pwr": 6,
@@ -17455,7 +17455,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max HP +50%(Momentarily recovers bonus HP.)P. Atk. +35%P. Def. +15%M. Def. +15%C",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "最大 HP +50%（立即恢復增加的 HP）、P.Atk +35%、P.Def +15%、M.Def +15%、基礎攻擊與物理技能暴擊率 +65%、基礎攻擊與物理技能暴擊傷害 +65%、物理技能傷害 +20%、擊退／擊倒成功率 +55%、恐懼成功率 +55%、擊退／擊倒抗性 +20%、束縛抗性 +15%、速度 +20。使用技能時對附近敵人附加 Titan's Charisma，持續 3 秒；有一定機率使附近敵人陷入 Anxiety（恐懼）。",
+        "desc": "最大 生命值 +50%（立即恢復增加的 生命值）、物理攻擊 +35%、物理防禦 +15%、魔法防禦 +15%、基礎攻擊與物理技能暴擊率 +65%、基礎攻擊與物理技能暴擊傷害 +65%、物理技能傷害 +20%、擊退／擊倒成功率 +55%、恐懼成功率 +55%、擊退／擊倒抗性 +20%、束縛抗性 +15%、速度 +20。使用技能時對附近敵人附加 Titan's Charisma，持續 3 秒；有一定機率使附近敵人陷入 Anxiety（恐懼）。",
         "balance": {
             "mpCost": 300,
             "pwr": 5,
@@ -17519,7 +17519,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers 127 of the target's HP.",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "恢復目標 127 HP。",
+        "desc": "恢復目標 127 生命值。",
         "balance": {
             "mpCost": 32,
             "pwr": 20,
@@ -17715,7 +17715,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Uses blood magic to attack the target bound to the target.Deals M. damage. Power",
         "canonicalCooldown": "15 sec.",
         "canonicalCooldownMs": 15000,
-        "desc": "使用血魔法攻擊與目標相連的敵人，造成魔法傷害，威力 234。有 30% 機率觸發追加攻擊；帶有弱化／異常狀態的敵人受到更多傷害。另有 30% 機率恢復 1000 HP。PvP／PvE 最多攻擊 6 個目標。",
+        "desc": "使用血魔法攻擊與目標相連的敵人，造成魔法傷害，威力 234。有 30% 機率觸發追加攻擊；帶有弱化／異常狀態的敵人受到更多傷害。另有 30% 機率恢復 1000 生命值。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。",
         "balance": {
             "mpCost": 97,
             "pwr": 234,
@@ -17807,7 +17807,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Casting Spd. +10%Speed +2M. Skill Critical Rate +15%M. Skill Critical Damage +15",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "施法速度 +10%、速度 +2、魔法技能暴擊率 +15%、魔法技能暴擊傷害 +15%、受到基礎暴擊傷害 -30%、受到基礎暴擊率 -30%、HP 恢復率 +20%、MP 恢復率 +20%、PvE 傷害 +23%，並反射受到傷害的 10%。",
+        "desc": "施法速度 +10%、速度 +2、魔法技能暴擊率 +15%、魔法技能暴擊傷害 +15%、受到基礎暴擊傷害 -30%、受到基礎暴擊率 -30%、生命值 恢復率 +20%、魔力 恢復率 +20%、對怪物戰鬥 傷害 +23%，並反射受到傷害的 10%。",
         "balance": {
             "mpCost": 172,
             "pwr": 1,
@@ -18052,7 +18052,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies. Power 129.Ignores Shield Defense.Ignores ",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "攻擊目標與附近敵人，威力 129。無視盾牌防禦與目標 10% 防禦力。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "攻擊目標與附近敵人，威力 129。無視盾牌防禦與目標 10% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 49,
             "pwr": 129,
@@ -18144,7 +18144,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies. Power 181.Ignores Shield Defense.Ignores ",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "攻擊目標與附近敵人，威力 181。無視盾牌防禦與目標 10% 防禦力。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "攻擊目標與附近敵人，威力 181。無視盾牌防禦與目標 10% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 57,
             "pwr": 181,
@@ -18330,7 +18330,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Speed +2Debuff/ Anomaly Resistance +10%With a 80% chance, absorbs 7% of damage a",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "速度 +2、弱化／異常抗性 +10%。有 80% 機率將造成傷害的 7% 吸收為 HP。",
+        "desc": "速度 +2、弱化／異常抗性 +10%。有 80% 機率將造成傷害的 7% 吸收為 生命值。",
         "balance": {
             "mpCost": 40,
             "pwr": 1,
@@ -18360,7 +18360,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "M. Def. -60%P. Def. +10%Note!Cannot be used with Convert.",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "M.Def -60%、P.Def +10%。注意：無法與 Convert 同時使用。",
+        "desc": "魔法防禦 -60%、物理防禦 +10%。注意：無法與 Convert 同時使用。",
         "balance": {
             "mpCost": 54,
             "pwr": 6,
@@ -18391,7 +18391,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max MP -50%Max HP +10%Note!Cannot be used with Swap Defense.",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "最大 MP -50%、最大 HP +10%。注意：無法與 Swap Defense 同時使用。",
+        "desc": "最大 魔力 -50%、最大 生命值 +10%。注意：無法與 Swap Defense 同時使用。",
         "balance": {
             "mpCost": 54,
             "pwr": 5,
@@ -18453,7 +18453,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Deals M. damage to the target and nearby enemies. Power 234.With a 30% chance, t",
         "canonicalCooldown": "15 sec.",
         "canonicalCooldownMs": 15000,
-        "desc": "對目標與附近敵人造成魔法傷害，威力 234。有 30% 機率觸發追加攻擊。10 秒內降低 HP／MP；HP 降低量依自身 M.Atk 計算。對單一目標使用時效果會強化（僅一次）。PvP／PvE 最多攻擊 6 個目標。",
+        "desc": "對目標與附近敵人造成魔法傷害，威力 234。有 30% 機率觸發追加攻擊。10 秒內降低 生命值／魔力；生命值 降低量依自身 魔法攻擊 計算。對單一目標使用時效果會強化（僅一次）。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。",
         "balance": {
             "mpCost": 97,
             "pwr": 234,
@@ -18513,7 +18513,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max CP +20%Speed +12Casting Spd. +10%Casting Spd. +50M. Skill Critical Rate +15%",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "最大 CP +20%、速度 +12、施法速度 +10%、施法速度 +50、魔法技能暴擊率 +15%、魔法技能暴擊傷害 +15%、CP 恢復率 +20%、PvE 傷害 +23%。",
+        "desc": "最大 戰鬥點數 +20%、速度 +12、施法速度 +10%、施法速度 +50、魔法技能暴擊率 +15%、魔法技能暴擊傷害 +15%、戰鬥點數 恢復率 +20%、對怪物戰鬥 傷害 +23%。",
         "balance": {
             "mpCost": 172,
             "pwr": 2,
@@ -18636,7 +18636,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Recovers nearby allies' CP. Power 690.Number of targets: up to 5 (caster include",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "恢復附近盟友的 CP，威力 690。最多影響 5 個目標（包含施法者）。",
+        "desc": "恢復附近盟友的 戰鬥點數，威力 690。最多影響 5 個目標（包含施法者）。",
         "balance": {
             "mpCost": 263,
             "pwr": 500,
@@ -18727,7 +18727,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. -10%Atk. Spd. -30%Basic Critical Rate -30%Basic Critical Damage -30%M. D",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "P.Atk -10%、攻速 -30%、基礎暴擊率 -30%、基礎暴擊傷害 -30%、M.Def -30%、物理命中 -6、速度 -20%。",
+        "desc": "物理攻擊 -10%、攻速 -30%、基礎暴擊率 -30%、基礎暴擊傷害 -30%、魔法防禦 -30%、物理命中 -6、速度 -20%。",
         "balance": {
             "mpCost": 107,
             "pwr": 1,
@@ -18817,7 +18817,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Restores target's CP by 863.",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "恢復目標 863 CP。",
+        "desc": "恢復目標 863 戰鬥點數。",
         "balance": {
             "mpCost": 132,
             "pwr": 20,
@@ -18878,7 +18878,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Rush/ Knockdown skill>Deals P. damage to the target and nearby enemies. Power 6",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "<突進／擊倒技能>對目標與附近敵人造成物理傷害，威力 6800。有一定機率擊倒 2 秒。無視盾牌防禦與目標 10% 防禦力。PvP／PvE 最多攻擊 5 個目標。使用技能時，5 秒內增加 Rushing Retreat 的施放距離與後退距離。",
+        "desc": "<突進／擊倒技能>對目標與附近敵人造成物理傷害，威力 6800。有一定機率擊倒 2 秒。無視盾牌防禦與目標 10% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。使用技能時，5 秒內增加 Rushing Retreat 的施放距離與後退距離。",
         "balance": {
             "mpCost": 60,
             "pwr": 500,
@@ -18938,7 +18938,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies. Power 6243.For 5 sec., the target's P. De",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "攻擊目標與附近敵人，威力 6243。5 秒內目標 P.Def -23%、擊退／擊倒抗性 -10%。無視盾牌防禦與目標 10% 防禦力。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "攻擊目標與附近敵人，威力 6243。5 秒內目標 物理防禦 -23%、擊退／擊倒抗性 -10%。無視盾牌防禦與目標 10% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 64,
             "pwr": 500,
@@ -18968,7 +18968,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target. Power 195.For 20 sec., P. Def. -30%.",
         "canonicalCooldown": "1s",
         "canonicalCooldownMs": 1000,
-        "desc": "攻擊目標，威力 195。20 秒內 P.Def -30%。",
+        "desc": "攻擊目標，威力 195。20 秒內 物理防禦 -30%。",
         "balance": {
             "mpCost": 60,
             "pwr": 195,
@@ -19118,7 +19118,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Base effect>Max HP +20%Momentarily recovers bonus HP.Atk. Spd. +30%Skill Power ",
         "canonicalCooldown": "5 min.",
         "canonicalCooldownMs": 300000,
-        "desc": "<基礎效果>最大 HP +20%（立即恢復增加的 HP）、攻速 +30%、技能威力 +5%、PvE 傷害 +5%、速度 +30、物理技能 MP 消耗 -50%、增益解除抗性 +40%、擊退／擊倒成功率 +20%，持續 1 分鐘。<PvP 效果><恐懼技能>攻擊附近敵人並施加 Anxiety，持續 3 秒，威力 12000；無視盾牌防禦與目標 10% 防禦力。有 40% 機率使目前 HP -30%、目前 MP -30%。<PvE 效果>連續 2 次攻擊附近敵人，威力 12000；無視盾牌防禦與目標 10% 防禦力。PvP 最多攻擊 5 個目標，PvE 最多攻擊 12 個目標。",
+        "desc": "<基礎效果>最大 生命值 +20%（立即恢復增加的 生命值）、攻速 +30%、技能威力 +5%、對怪物戰鬥 傷害 +5%、速度 +30、物理技能 魔力 消耗 -50%、增益解除抗性 +40%、擊退／擊倒成功率 +20%，持續 1 分鐘。<玩家對戰 效果><恐懼技能>攻擊附近敵人並施加 Anxiety，持續 3 秒，威力 12000；無視盾牌防禦與目標 10% 防禦力。有 40% 機率使目前 生命值 -30%、目前 魔力 -30%。<對怪物戰鬥 效果>連續 2 次攻擊附近敵人，威力 12000；無視盾牌防禦與目標 10% 防禦力。玩家對戰 最多攻擊 5 個目標，對怪物戰鬥 最多攻擊 12 個目標。",
         "balance": {
             "mpCost": 300,
             "pwr": 500,
@@ -19149,7 +19149,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "M. Atk. +100P. Def. +300M. Skill Critical Rate +1%Received M. Skill Critical Dam",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "M.Atk +100、P.Def +300、魔法技能暴擊率 +1%、受到魔法技能暴擊傷害 -10%、弱化／異常抗性 +20%。",
+        "desc": "魔法攻擊 +100、物理防禦 +300、魔法技能暴擊率 +1%、受到魔法技能暴擊傷害 -10%、弱化／異常抗性 +20%。",
         "balance": {
             "mpCost": 40,
             "pwr": 0,
@@ -19272,7 +19272,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Swings the spear to attack nearby targets. Power 3878.Ignores Shield Defense.PvP",
         "canonicalCooldown": "8 sec.",
         "canonicalCooldownMs": 8000,
-        "desc": "揮動長槍攻擊附近目標，威力 3878。無視盾牌防禦。PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "揮動長槍攻擊附近目標，威力 3878。無視盾牌防禦。玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 90,
             "pwr": 500,
@@ -19304,7 +19304,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "For 5 sec., inflicts Imprisonment on the target and nearby enemies turning them ",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "使目標與附近敵人陷入禁錮 5 秒並化為黃金雕像。被禁錮的目標無法移動、攻擊、傳送、使用技能或恢復 HP／MP／CP。禁錮結束時攻擊敵人，威力 3256；並使 P.Def／M.Def／速度 -10%，持續 5 秒。PvP／PvE 最多攻擊 9 個目標。",
+        "desc": "使目標與附近敵人陷入禁錮 5 秒並化為黃金雕像。被禁錮的目標無法移動、攻擊、傳送、使用技能或恢復 生命值／魔力／戰鬥點數。禁錮結束時攻擊敵人，威力 3256；並使 物理防禦／魔法防禦／速度 -10%，持續 5 秒。玩家對戰／對怪物戰鬥 最多攻擊 9 個目標。",
         "balance": {
             "mpCost": 60,
             "pwr": 500,
@@ -19776,7 +19776,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "When using a sword, a blunt weapon, or a spear:P. Atk. +12%With a certain chance",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "使用劍、鈍器或長槍時：P.Atk +12%。基礎攻擊時有一定機率附加 Physical Damage 弱化效果：攻速／施法速度 -10%，持續 15 秒；觸發冷卻 15 秒。",
+        "desc": "使用劍、鈍器或長槍時：物理攻擊 +12%。基礎攻擊時有一定機率附加 Physical Damage 弱化效果：攻速／施法速度 -10%，持續 15 秒；觸發冷卻 15 秒。",
         "balance": {
             "mpCost": 40,
             "pwr": 1,
@@ -19877,7 +19877,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max HP +20%Max HP +2500P. Skill Power +5%With a certain chance when attacking a ",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "最大 HP +20%、最大 HP +2500、物理技能威力 +5%。攻擊團體首領與部分怪物時有一定機率附加 Fortune Seeker's Mark，持續 2 分鐘（觸發冷卻 10 秒）。標記生效時，擊殺團體首領或部分怪物可掉落額外獎勵。<額外獎勵與掉落率>幸運時刻箱－首領團體：1%：稀有飾品強化卷軸、改良稀有飾品強化卷軸、超越升級石。幸運時刻箱－指揮頻道團體：0.8%：改良／詛咒 A 級武器／防具強化卷軸、祝福卷軸－武器／防具、充能石：技能強化－3 星（10%）、超越升級石。幸運時刻箱－特殊怪物：1%：火／水／地／風精靈進化石、A 級武器／防具強化卷軸、改良／詛咒 A 級武器／防具強化卷軸、祝福卷軸－武器／防具。幸運時刻箱－守護團體：0.8%：守護墜飾 Lv.1、守護之書兌換券－1～3 星、守護戒指／耳環、守護飾品強化卷軸。<注意>額外獎勵只能從特定首領與怪物取得；對已帶有 Fortune Seeker's Mark 的首領或怪物再次施放，不會刷新標記持續時間。",
+        "desc": "最大 生命值 +20%、最大 生命值 +2500、物理技能威力 +5%。攻擊團體首領與部分怪物時有一定機率附加 Fortune Seeker's Mark，持續 2 分鐘（觸發冷卻 10 秒）。標記生效時，擊殺團體首領或部分怪物可掉落額外獎勵。<額外獎勵與掉落率>幸運時刻箱－首領團體：1%：稀有飾品強化卷軸、改良稀有飾品強化卷軸、超越升級石。幸運時刻箱－指揮頻道團體：0.8%：改良／詛咒 A 級武器／防具強化卷軸、祝福卷軸－武器／防具、充能石：技能強化－3 星（10%）、超越升級石。幸運時刻箱－特殊怪物：1%：火／水／地／風精靈進化石、A 級武器／防具強化卷軸、改良／詛咒 A 級武器／防具強化卷軸、祝福卷軸－武器／防具。幸運時刻箱－守護團體：0.8%：守護墜飾 等級 1、守護之書兌換券－1～3 星、守護戒指／耳環、守護飾品強化卷軸。<注意>額外獎勵只能從特定首領與怪物取得；對已帶有 Fortune Seeker's Mark 的首領或怪物再次施放，不會刷新標記持續時間。",
         "balance": {
             "mpCost": 102,
             "pwr": 2,
@@ -20067,7 +20067,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Beast skill>The beast attacks the target with its claws.Deals damage based on y",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "<野獸技能>野獸以利爪攻擊目標，傷害依自身 P.Atk 計算，威力 8087。無視盾牌防禦與目標 10% 防禦力。",
+        "desc": "<野獸技能>野獸以利爪攻擊目標，傷害依自身 物理攻擊 計算，威力 8087。無視盾牌防禦與目標 10% 防禦力。",
         "balance": {
             "mpCost": 61,
             "pwr": 500,
@@ -20158,7 +20158,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Beast skill>The beast's materialized soul strikes at the target.Attacks the tar",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "<野獸技能>野獸實體化的靈魂打擊目標，連續 2 次攻擊目標與附近敵人，傷害依自身 P.Atk 計算，威力 3773。無視盾牌防禦與目標 10% 防禦力。",
+        "desc": "<野獸技能>野獸實體化的靈魂打擊目標，連續 2 次攻擊目標與附近敵人，傷害依自身 物理攻擊 計算，威力 3773。無視盾牌防禦與目標 10% 防禦力。",
         "balance": {
             "mpCost": 88,
             "pwr": 500,
@@ -20369,7 +20369,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "The effect is applied on servitors.P. Def. +8%Max HP +5%",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "效果套用於召喚獸：P.Def +8%、最大 HP +5%。",
+        "desc": "效果套用於召喚獸：物理防禦 +8%、最大 生命值 +5%。",
         "balance": {
             "mpCost": 35,
             "pwr": 1,
@@ -20400,7 +20400,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Repairs the summoned golem to recover the golem's HP by 8%.",
         "canonicalCooldown": "2 sec.",
         "canonicalCooldownMs": 2000,
-        "desc": "修復召喚出的魔像，恢復魔像 8% HP。",
+        "desc": "修復召喚出的魔像，恢復魔像 8% 生命值。",
         "balance": {
             "mpCost": 61,
             "pwr": 1,
@@ -20431,7 +20431,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "The effect is applied on servitors.P. Atk. +8%Atk. Spd. +3%",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "效果套用於召喚獸：P.Atk +8%、攻速 +3%。",
+        "desc": "效果套用於召喚獸：物理攻擊 +8%、攻速 +3%。",
         "balance": {
             "mpCost": 24,
             "pwr": 1,
@@ -20595,7 +20595,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Swings a rapier.Attacks 2 times ignoring 20% of P. Def. Power 5500.With a 50% ch",
         "canonicalCooldown": "25 sec.",
         "canonicalCooldownMs": 25000,
-        "desc": "揮動細劍連續攻擊 2 次，無視目標 20% P.Def，威力 5500。有 50% 機率觸發 Sword Strike 追加魔法傷害，威力 152。若目標帶有 Detect Vulnerability（Spirit Weakness），則觸發 Lightning 追加攻擊。PvP／PvE 最多攻擊 6 個目標。Sword Strike：PvP 降低麻痺抗性與 P.Def／M.Def；PvE 降低 P.Def／M.Def。Lightning：PvP 施加麻痺並降低 P.Def／M.Def；PvE 降低 P.Def／M.Def。",
+        "desc": "揮動細劍連續攻擊 2 次，無視目標 20% 物理防禦，威力 5500。有 50% 機率觸發 Sword Strike 追加魔法傷害，威力 152。若目標帶有 Detect Vulnerability（Spirit Weakness），則觸發 Lightning 追加攻擊。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。Sword Strike：玩家對戰 降低麻痺抗性與 物理防禦／魔法防禦；對怪物戰鬥 降低 物理防禦／魔法防禦。Lightning：玩家對戰 施加麻痺並降低 物理防禦／魔法防禦；對怪物戰鬥 降低 物理防禦／魔法防禦。",
         "balance": {
             "mpCost": 100,
             "pwr": 500,
@@ -20625,7 +20625,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +30%Skill Critical Rate +10%Skill Critical Damage +10%Skill Power +5%Par",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "P.Atk +30%、技能暴擊率 +10%、技能暴擊傷害 +10%、技能威力 +5%、麻痺成功率 +20%、麻痺抗性 +20%。可使用 Leopold。",
+        "desc": "物理攻擊 +30%、技能暴擊率 +10%、技能暴擊傷害 +10%、技能威力 +5%、麻痺成功率 +20%、麻痺抗性 +20%。可使用 Leopold。",
         "balance": {
             "mpCost": 100,
             "pwr": 3,
@@ -20696,7 +20696,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Rush skill>Rushes to the target.Makes 1 attack ignoring 10% of P. Def. Power 60",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "<突進技能>快速衝向目標，進行 1 次攻擊並無視目標 10% P.Def，威力 6013。有 30% 機率觸發 Lightning 追加魔法傷害，威力 78。Lightning：PvP 施加麻痺並降低 P.Def／M.Def；PvE 降低 P.Def／M.Def。",
+        "desc": "<突進技能>快速衝向目標，進行 1 次攻擊並無視目標 10% 物理防禦，威力 6013。有 30% 機率觸發 Lightning 追加魔法傷害，威力 78。Lightning：玩家對戰 施加麻痺並降低 物理防禦／魔法防禦；對怪物戰鬥 降低 物理防禦／魔法防禦。",
         "balance": {
             "mpCost": 72,
             "pwr": 500,
@@ -20809,7 +20809,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Swings a rapier in a half-circle.Makes 1 attack ignoring 15% of P. Def. Power 48",
         "canonicalCooldown": "12 sec.",
         "canonicalCooldownMs": 12000,
-        "desc": "以半圓軌跡揮動細劍，進行 1 次攻擊並無視目標 15% P.Def，威力 4820。有 30% 機率觸發 Sword Strike 追加魔法傷害，威力 100。PvP／PvE 最多攻擊 4 個目標。Sword Strike：PvP 降低麻痺抗性與 P.Def／M.Def；PvE 降低 P.Def／M.Def。",
+        "desc": "以半圓軌跡揮動細劍，進行 1 次攻擊並無視目標 15% 物理防禦，威力 4820。有 30% 機率觸發 Sword Strike 追加魔法傷害，威力 100。玩家對戰／對怪物戰鬥 最多攻擊 4 個目標。Sword Strike：玩家對戰 降低麻痺抗性與 物理防禦／魔法防禦；對怪物戰鬥 降低 物理防禦／魔法防禦。",
         "balance": {
             "mpCost": 91,
             "pwr": 500,
@@ -20839,7 +20839,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Makes a rapier attack.Makes 1 attack ignoring 15% of P. Def. Power 4715.With a 3",
         "canonicalCooldown": "1 sec.",
         "canonicalCooldownMs": 1000,
-        "desc": "以細劍攻擊，進行 1 次攻擊並無視目標 15% P.Def，威力 4715。有 30% 機率觸發 Sword Strike 追加魔法傷害，威力 120。Sword Strike：PvP 降低麻痺抗性與 P.Def／M.Def；PvE 降低 P.Def／M.Def。",
+        "desc": "以細劍攻擊，進行 1 次攻擊並無視目標 15% 物理防禦，威力 4715。有 30% 機率觸發 Sword Strike 追加魔法傷害，威力 120。Sword Strike：玩家對戰 降低麻痺抗性與 物理防禦／魔法防禦；對怪物戰鬥 降低 物理防禦／魔法防禦。",
         "balance": {
             "mpCost": 84,
             "pwr": 500,
@@ -21015,7 +21015,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Strikes the target with intertwining lightnings.Incessantly attacks the target i",
         "canonicalCooldown": "8 sec.",
         "canonicalCooldownMs": 8000,
-        "desc": "以交織閃電打擊目標，連續攻擊並無視目標 15% P.Def，威力 5060。有 40% 機率觸發 Lightning 追加魔法傷害，威力 152。PvP／PvE 最多攻擊 4 個目標。Lightning：PvP 施加麻痺並降低 P.Def／M.Def；PvE 降低 P.Def／M.Def。",
+        "desc": "以交織閃電打擊目標，連續攻擊並無視目標 15% 物理防禦，威力 5060。有 40% 機率觸發 Lightning 追加魔法傷害，威力 152。玩家對戰／對怪物戰鬥 最多攻擊 4 個目標。Lightning：玩家對戰 施加麻痺並降低 物理防禦／魔法防禦；對怪物戰鬥 降低 物理防禦／魔法防禦。",
         "balance": {
             "mpCost": 100,
             "pwr": 500,
@@ -21137,7 +21137,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Strengthens yourself with the power of your soul.Max HP +30%P. Atk. +1500PvE dam",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "以靈魂力量強化自身：最大 HP +30%、P.Atk +1500、PvE 傷害 +20%。",
+        "desc": "以靈魂力量強化自身：最大 生命值 +30%、物理攻擊 +1500、對怪物戰鬥 傷害 +20%。",
         "balance": {
             "mpCost": 50,
             "pwr": 3,
@@ -21332,7 +21332,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Enuma Elish's energy drives you forward.Attacks the target and nearby enemies. P",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "艾努瑪艾利什的能量推動你向前，攻擊目標與附近敵人，威力 5077。無視盾牌防禦與目標 15% 防禦力。PvP／PvE 最多攻擊 3 個目標。",
+        "desc": "艾努瑪艾利什的能量推動你向前，攻擊目標與附近敵人，威力 5077。無視盾牌防禦與目標 15% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 3 個目標。",
         "balance": {
             "mpCost": 59,
             "pwr": 500,
@@ -21365,7 +21365,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Swings your ancient sword to attack the enemy. Applies Soul Stamp on the target ",
         "canonicalCooldown": "40 sec.",
         "canonicalCooldownMs": 40000,
-        "desc": "揮動古代劍攻擊敵人，對目標附加 Soul Stamp，封鎖物理技能與吸取能力。攻擊目標與附近敵人，威力 6072。無視盾牌防禦與目標 15% 防禦力。Soul Stamp：HP 吸收率 -20%、MP 吸收率 -20%，持續 7 秒；P.Def -30%，持續 7 秒。PvP／PvE 最多攻擊 7 個目標。",
+        "desc": "揮動古代劍攻擊敵人，對目標附加 Soul Stamp，封鎖物理技能與吸取能力。攻擊目標與附近敵人，威力 6072。無視盾牌防禦與目標 15% 防禦力。Soul Stamp：生命值 吸收率 -20%、魔力 吸收率 -20%，持續 7 秒；物理防禦 -30%，持續 7 秒。玩家對戰／對怪物戰鬥 最多攻擊 7 個目標。",
         "balance": {
             "mpCost": 86,
             "pwr": 500,
@@ -21396,7 +21396,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Rush/ Shock skill>Charges at the target and nearby enemies attacking them. Powe",
         "canonicalCooldown": "3 sec.",
         "canonicalCooldownMs": 3000,
-        "desc": "<突進／休克技能>衝向目標與附近敵人並攻擊，威力 2800。有一定機率暈眩 2 秒。PvP 中有 2% 機率中斷目標施法。與目標距離超過 100 時可使用。PvP／PvE 最多攻擊 3 個目標。注意：連續施放 3 秒不中斷時會施加失能效果；失能生效期間使用此技能，會降低自身 MP，並降低受擊時的 MP 吸取。",
+        "desc": "<突進／休克技能>衝向目標與附近敵人並攻擊，威力 2800。有一定機率暈眩 2 秒。玩家對戰 中有 2% 機率中斷目標施法。與目標距離超過 100 時可使用。玩家對戰／對怪物戰鬥 最多攻擊 3 個目標。注意：連續施放 3 秒不中斷時會施加失能效果；失能生效期間使用此技能，會降低自身 魔力，並降低受擊時的 魔力 吸取。",
         "balance": {
             "mpCost": 45,
             "pwr": 500,
@@ -21532,7 +21532,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Unravels potential and increases M. Atk.P. Atk. Shock Atk. Rate +30%",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "釋放潛能並提高魔法攻擊力。P.Atk、休克成功率 +30%。",
+        "desc": "釋放潛能並提高魔法攻擊力。物理攻擊、休克成功率 +30%。",
         "balance": {
             "mpCost": 45,
             "pwr": 3,
@@ -21598,7 +21598,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Weakens the target's magic abilities.M. Atk. -23%",
         "canonicalCooldown": "2 sec.",
         "canonicalCooldownMs": 2000,
-        "desc": "削弱目標的魔法能力：M.Atk -23%。",
+        "desc": "削弱目標的魔法能力：魔法攻擊 -23%。",
         "balance": {
             "mpCost": 40,
             "pwr": 2,
@@ -21660,7 +21660,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Awakens Kamael's true powers.P. Atk. +35%P. Atk. +300Atk. Spd. +30%P. Skill Crit",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "喚醒卡麥爾真正力量：P.Atk +35%、P.Atk +300、攻速 +30%、物理技能暴擊率 +30%、物理技能暴擊傷害 +30%、物理技能威力 +15%、最大 HP +20%（立即恢復增加的 HP）、休克成功率 +20%、牽引成功率 +20%。攻擊時追加相當於自身戰鬥力 30% 的額外傷害，計入傷害上限。攻擊時有 2% 機率附加 Overwhelming Force：物理技能暴擊率 +20%、物理技能暴擊傷害 +20%、受到技能暴擊傷害 -50%、速度 +20；使用 Soul Smash／Soul Impulse 時觸發追加攻擊，持續 10 秒，觸發冷卻 11 秒。並將 Soul Smash、Soul Impulse 強化為 Force 版本：提高威力，對屏障額外傷害 +50%。Soul Prison：提高威力、牽引成功率、強化 PvP 弱化效果，並增加 PvE 目標數。",
+        "desc": "喚醒卡麥爾真正力量：物理攻擊 +35%、物理攻擊 +300、攻速 +30%、物理技能暴擊率 +30%、物理技能暴擊傷害 +30%、物理技能威力 +15%、最大 生命值 +20%（立即恢復增加的 生命值）、休克成功率 +20%、牽引成功率 +20%。攻擊時追加相當於自身戰鬥力 30% 的額外傷害，計入傷害上限。攻擊時有 2% 機率附加 Overwhelming Force：物理技能暴擊率 +20%、物理技能暴擊傷害 +20%、受到技能暴擊傷害 -50%、速度 +20；使用 Soul Smash／Soul Impulse 時觸發追加攻擊，持續 10 秒，觸發冷卻 11 秒。並將 Soul Smash、Soul Impulse 強化為 Force 版本：提高威力，對屏障額外傷害 +50%。Soul Prison：提高威力、牽引成功率、強化 玩家對戰 弱化效果，並增加 對怪物戰鬥 目標數。",
         "balance": {
             "mpCost": 100,
             "pwr": 4,
@@ -22613,7 +22613,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Changing skill>Uses spirit powers in combat.Attacks the target twice. Power 100",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "<變化技能>運用靈魂力量戰鬥，連續攻擊目標 2 次，威力 1001。遠程攻擊時有一定機率恢復 1% MP（觸發冷卻 30 秒）。此觸發冷卻同樣套用於 Stealthy Swiftness、Greater Wind Shot。",
+        "desc": "<變化技能>運用靈魂力量戰鬥，連續攻擊目標 2 次，威力 1001。遠程攻擊時有一定機率恢復 1% 魔力（觸發冷卻 30 秒）。此觸發冷卻同樣套用於 Stealthy Swiftness、Greater Wind Shot。",
         "balance": {
             "mpCost": 32,
             "pwr": 500,
@@ -22677,7 +22677,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Charges to the target and attacks them. Power 1650. Applies Rush Jump on the cas",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "衝向目標並攻擊，威力 1650。對自身附加 Rush Jump。無視盾牌防禦與目標 10% 防禦力。Rush Jump 持續 4 秒：P.Atk +300、攻速 +120、速度 +20、物理命中 +10。",
+        "desc": "衝向目標並攻擊，威力 1650。對自身附加 Rush Jump。無視盾牌防禦與目標 10% 防禦力。Rush Jump 持續 4 秒：物理攻擊 +300、攻速 +120、速度 +20、物理命中 +10。",
         "balance": {
             "mpCost": 40,
             "pwr": 500,
@@ -22708,7 +22708,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies. Power 2731.Ignores Shield Defense.Ignores",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "攻擊目標與附近敵人，威力 2731。無視盾牌防禦與目標 15% 防禦力。PvP／PvE 最多攻擊 2 個目標。",
+        "desc": "攻擊目標與附近敵人，威力 2731。無視盾牌防禦與目標 15% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 2 個目標。",
         "balance": {
             "mpCost": 52,
             "pwr": 500,
@@ -22995,7 +22995,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Changing skill>The spirit power makes your attacks as swift as the wind.Attacks",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "<變化技能>以靈魂力量讓攻擊如疾風般迅速，連續攻擊目標 3 次，威力 5052。無視盾牌防禦與目標 10% 防禦力。遠程攻擊時有一定機率恢復 1% MP。觸發冷卻 30 秒；此觸發冷卻同樣套用於 Dual Blow、Triple Blow。",
+        "desc": "<變化技能>以靈魂力量讓攻擊如疾風般迅速，連續攻擊目標 3 次，威力 5052。無視盾牌防禦與目標 10% 防禦力。遠程攻擊時有一定機率恢復 1% 魔力。觸發冷卻 30 秒；此觸發冷卻同樣套用於 Dual Blow、Triple Blow。",
         "balance": {
             "mpCost": 75,
             "pwr": 500,
@@ -23025,7 +23025,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Changing/ Knockdown skill>Shoots enemies with bullets enhanced by fearsome wind",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "<變化／擊倒技能>發射由強風精靈強化的彈丸。距離小於 700：攻擊目標與附近敵人並擊倒，威力 7107，無視盾牌防禦與目標 15% 防禦力，PvP／PvE 最多攻擊 8 個目標。距離 700 以上：攻擊目標與攻擊路徑上的敵人並擊倒，威力 8440，無視盾牌防禦與目標 20% 防禦力，PvP／PvE 最多攻擊 5 個目標。",
+        "desc": "<變化／擊倒技能>發射由強風精靈強化的彈丸。距離小於 700：攻擊目標與附近敵人並擊倒，威力 7107，無視盾牌防禦與目標 15% 防禦力，玩家對戰／對怪物戰鬥 最多攻擊 8 個目標。距離 700 以上：攻擊目標與攻擊路徑上的敵人並擊倒，威力 8440，無視盾牌防禦與目標 20% 防禦力，玩家對戰／對怪物戰鬥 最多攻擊 5 個目標。",
         "balance": {
             "mpCost": 121,
             "pwr": 500,
@@ -23085,7 +23085,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Changing skill>Strikes so swiftly that the target does not see you.Attacks the ",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "<變化技能>以快到目標無法察覺的速度連續攻擊 3 次，威力 4971。無視盾牌防禦與目標 10% 防禦力。遠程攻擊時有一定機率恢復 1% MP（觸發冷卻 30 秒）。此觸發冷卻同樣套用於 Dual Blow、Triple Blow。",
+        "desc": "<變化技能>以快到目標無法察覺的速度連續攻擊 3 次，威力 4971。無視盾牌防禦與目標 10% 防禦力。遠程攻擊時有一定機率恢復 1% 魔力（觸發冷卻 30 秒）。此觸發冷卻同樣套用於 Dual Blow、Triple Blow。",
         "balance": {
             "mpCost": 110,
             "pwr": 500,
@@ -23236,7 +23236,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies. Power 5124.Ignores 10% of the target's de",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "攻擊目標與附近敵人，威力 5124。無視目標 10% 防禦力。PvP／PvE 最多攻擊 4 個目標。",
+        "desc": "攻擊目標與附近敵人，威力 5124。無視目標 10% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 4 個目標。",
         "balance": {
             "mpCost": 40,
             "pwr": 500,
@@ -23297,7 +23297,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the target and nearby enemies twice. Power 10,200. With a certain chance",
         "canonicalCooldown": "15 sec.",
         "canonicalCooldownMs": 15000,
-        "desc": "連續攻擊目標與附近敵人 2 次，威力 10200。有一定機率附加 Soul Rift。無視目標 15% 防禦力。Soul Rift 持續 12 秒：P.Atk／M.Atk -4%、物理技能暴擊傷害 -2%、物理技能威力 -1%、弓抗性 -10%。PvP／PvE 最多攻擊 8 個目標。",
+        "desc": "連續攻擊目標與附近敵人 2 次，威力 10200。有一定機率附加 Soul Rift。無視目標 15% 防禦力。Soul Rift 持續 12 秒：物理攻擊／魔法攻擊 -4%、物理技能暴擊傷害 -2%、物理技能威力 -1%、弓抗性 -10%。玩家對戰／對怪物戰鬥 最多攻擊 8 個目標。",
         "balance": {
             "mpCost": 30,
             "pwr": 500,
@@ -23328,7 +23328,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Applies Cunning Method (triggered in 6 sec.) on the enemy. Attacks the enemy twi",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "對敵人附加 Cunning Method（6 秒後觸發），並連續攻擊 2 次，威力 10179。無視目標 20% 防禦力。PvP／PvE 最多攻擊 8 個目標。Cunning Method 持續 6 秒：若目標為角色／守護者／召喚獸，效果結束時攻擊敵人，威力 6000，並有一定機率觸發以下其中一種效果：牽引（40%）將敵人拉近；束縛（40%，持續 3 秒）使敵人無法移動；牽引＋束縛（20%，持續 3 秒）拉近並定身。PvP／PvE 最多攻擊 20 個目標。若目標為 NPC／怪物，則不施加異常狀態，改為引發爆炸造成威力 6000 的傷害。",
+        "desc": "對敵人附加 Cunning Method（6 秒後觸發），並連續攻擊 2 次，威力 10179。無視目標 20% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 8 個目標。Cunning Method 持續 6 秒：若目標為角色／守護者／召喚獸，效果結束時攻擊敵人，威力 6000，並有一定機率觸發以下其中一種效果：牽引（40%）將敵人拉近；束縛（40%，持續 3 秒）使敵人無法移動；牽引＋束縛（20%，持續 3 秒）拉近並定身。玩家對戰／對怪物戰鬥 最多攻擊 20 個目標。若目標為 NPC／怪物，則不施加異常狀態，改為引發爆炸造成威力 6000 的傷害。",
         "balance": {
             "mpCost": 100,
             "pwr": 500,
@@ -23358,7 +23358,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max HP +25%P. Atk. +20%Atk. Spd. +100P. Skill Power +10%Bow damage bonus +5%<Ski",
         "canonicalCooldown": ".-",
         "canonicalCooldownMs": 1000,
-        "desc": "最大 HP +25%、P.Atk +20%、攻速 +100、物理技能威力 +10%、弓傷害 +5%。<技能強化>Cunning Shot → Cunning Shot: Advantage：縮短施放時間、縮短冷卻時間、增加攻擊次數。",
+        "desc": "最大 生命值 +25%、物理攻擊 +20%、攻速 +100、物理技能威力 +10%、弓傷害 +5%。<技能強化>Cunning Shot → Cunning Shot: Advantage：縮短施放時間、縮短冷卻時間、增加攻擊次數。",
         "balance": {
             "mpCost": 150,
             "pwr": 3,
@@ -23388,7 +23388,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +1100P. Accuracy +10P. Skill Critical Rate +15%P. Skill Critical Damage ",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "P.Atk +1100、物理命中 +10、物理技能暴擊率 +15%、物理技能暴擊傷害 +10%、PvE 傷害 +2%。<技能強化>Cunning Throw → Cunning Throw: Focus：縮短施放時間，並追加 Shooting Domination 效果。",
+        "desc": "物理攻擊 +1100、物理命中 +10、物理技能暴擊率 +15%、物理技能暴擊傷害 +10%、對怪物戰鬥 傷害 +2%。<技能強化>Cunning Throw → Cunning Throw: Focus：縮短施放時間，並追加 Shooting Domination 效果。",
         "balance": {
             "mpCost": 100,
             "pwr": 2,
@@ -23418,7 +23418,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Absolute skillMax HP +1200; momentarily recovers HP.P./ M. Def. +1000Debuff/ Ano",
         "canonicalCooldown": "4 min.",
         "canonicalCooldownMs": 240000,
-        "desc": "絕對技能：最大 HP +1200，並立即恢復增加的 HP；P.Def／M.Def +1000、弱化／異常抗性 +30%、技能迴避 +20%、速度 +30、最大速度 +20、受到物理技能暴擊傷害 -20%。",
+        "desc": "絕對技能：最大 生命值 +1200，並立即恢復增加的 生命值；物理防禦／魔法防禦 +1000、弱化／異常抗性 +30%、技能迴避 +20%、速度 +30、最大速度 +20、受到物理技能暴擊傷害 -20%。",
         "balance": {
             "mpCost": 100,
             "pwr": 3,
@@ -23478,7 +23478,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Manual useSteps back from the target and applies Relocation on yourself.Auto-use",
         "canonicalCooldown": "45 sec.",
         "canonicalCooldownMs": 45000,
-        "desc": "手動使用：向後跳離目標，並對自身附加 Relocation。自動使用：使用突進技能後向後跳離目標，並對自身附加 Relocation。Relocation：觸發率 50%，持續 3 秒；技能距離 +20、PvP 傷害 +1%。",
+        "desc": "手動使用：向後跳離目標，並對自身附加 Relocation。自動使用：使用突進技能後向後跳離目標，並對自身附加 Relocation。Relocation：觸發率 50%，持續 3 秒；技能距離 +20、玩家對戰 傷害 +1%。",
         "balance": {
             "mpCost": 15,
             "pwr": 5,
@@ -23620,7 +23620,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Def. +10, M. Def. +20",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "永久提高 P.Def 與 M.Def。",
+        "desc": "永久提高 物理防禦 與 魔法防禦。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -23652,7 +23652,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +10",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "永久提高 P.Atk。",
+        "desc": "永久提高 物理攻擊。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -23717,7 +23717,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the enemy. Power 6200.Ignores Shield Defense.Ignores 10% of the target's",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "攻擊敵人，威力 6200。無視盾牌防禦與目標 10% 防禦力。使用技能時對自身附加 Rush Jump，持續 4 秒：P.Atk +300、攻速 +120、速度 +20、物理命中 +10。",
+        "desc": "攻擊敵人，威力 6200。無視盾牌防禦與目標 10% 防禦力。使用技能時對自身附加 Rush Jump，持續 4 秒：物理攻擊 +300、攻速 +120、速度 +20、物理命中 +10。",
         "balance": {
             "mpCost": 40,
             "pwr": 500,
@@ -23807,7 +23807,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the enemies twice. Power 6240.Ignores Shield Defense.Ignores 15% of the ",
         "canonicalCooldown": "45 sec.",
         "canonicalCooldownMs": 45000,
-        "desc": "連續攻擊敵人 2 次，威力 6240。無視盾牌防禦與目標 15% 防禦力。PvP／PvE 最多攻擊 8 個目標。",
+        "desc": "連續攻擊敵人 2 次，威力 6240。無視盾牌防禦與目標 15% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 8 個目標。",
         "balance": {
             "mpCost": 108,
             "pwr": 500,
@@ -23837,7 +23837,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "PvP effectDeals P. damage to the target. Power 5740. With a certain chance, appl",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "PvP 效果：對目標造成物理傷害，威力 5740。有一定機率附加 Weapon Break。無視盾牌防禦與目標 25% 防禦力。Weapon Break：目標武器失去所有效果並自動卸下；修理費用為 Spirit Ore 100 個（不含護甲修理費）。此技能只能對相互敵對的角色使用。PvE 效果：連續攻擊目標 2 次造成物理傷害，威力 5740。無視盾牌防禦與目標 25% 防禦力。",
+        "desc": "玩家對戰 效果：對目標造成物理傷害，威力 5740。有一定機率附加 Weapon Break。無視盾牌防禦與目標 25% 防禦力。Weapon Break：目標武器失去所有效果並自動卸下；修理費用為 Spirit Ore 100 個（不含護甲修理費）。此技能只能對相互敵對的角色使用。對怪物戰鬥 效果：連續攻擊目標 2 次造成物理傷害，威力 5740。無視盾牌防禦與目標 25% 防禦力。",
         "balance": {
             "mpCost": 84,
             "pwr": 500,
@@ -23867,7 +23867,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the enemies twice. Power 5101.Ignores Shield Defense.Ignores 10% of the ",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "連續攻擊敵人 2 次，威力 5101。無視盾牌防禦與目標 10% 防禦力。對目標附加 Weakness Detection。PvP／PvE 最多攻擊 2 個目標。Weakness Detection 持續 8 秒：受到物理技能暴擊率 +20%、受到物理技能暴擊傷害 +15%、擊退／擊倒抗性 -30%。使用 Twist／Full Twist 時，Disastrous Shriek 的攻擊次數 +1。",
+        "desc": "連續攻擊敵人 2 次，威力 5101。無視盾牌防禦與目標 10% 防禦力。對目標附加 Weakness Detection。玩家對戰／對怪物戰鬥 最多攻擊 2 個目標。Weakness Detection 持續 8 秒：受到物理技能暴擊率 +20%、受到物理技能暴擊傷害 +15%、擊退／擊倒抗性 -30%。使用 Twist／Full Twist 時，Disastrous Shriek 的攻擊次數 +1。",
         "balance": {
             "mpCost": 84,
             "pwr": 500,
@@ -23897,7 +23897,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks the enemies twice. Power 6480. Applies the Scratch effect.Ignores Shield",
         "canonicalCooldown": "20 sec.",
         "canonicalCooldownMs": 20000,
-        "desc": "連續攻擊敵人 2 次，威力 6480，並附加 Scratch。無視盾牌防禦與目標 15% 防禦力。Scratch 持續 5 秒：HP 吸收率 -10%。PvP／PvE 最多攻擊 8 個目標。若目標為一般怪物，會將其拉向自己。",
+        "desc": "連續攻擊敵人 2 次，威力 6480，並附加 Scratch。無視盾牌防禦與目標 15% 防禦力。Scratch 持續 5 秒：生命值 吸收率 -10%。玩家對戰／對怪物戰鬥 最多攻擊 8 個目標。若目標為一般怪物，會將其拉向自己。",
         "balance": {
             "mpCost": 96,
             "pwr": 500,
@@ -23927,7 +23927,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +5%P. Skill Critical Rate +5%P. Def. +5000Debuff/ Anomaly Resistance +15",
         "canonicalCooldown": ":",
         "canonicalCooldownMs": 1000,
-        "desc": "P.Atk +5%、物理技能暴擊率 +5%、P.Def +5000、弱化／異常抗性 +15%、Enhanced Body 5%。有 20% 機率觸發 Provoke resistance。受擊時有 10% 機率附加 Breath of Blood（Determination 結束時一併解除）。Breath of Blood：持續 5 秒，冷卻 10 秒；每 2 秒恢復 10000 HP，攻擊時吸收造成傷害的 30% 為 HP，吸收率 80%。",
+        "desc": "物理攻擊 +5%、物理技能暴擊率 +5%、物理防禦 +5000、弱化／異常抗性 +15%、Enhanced Body 5%。有 20% 機率觸發 Provoke resistance。受擊時有 10% 機率附加 Breath of Blood（Determination 結束時一併解除）。Breath of Blood：持續 5 秒，冷卻 10 秒；每 2 秒恢復 10000 生命值，攻擊時吸收造成傷害的 30% 為 生命值，吸收率 80%。",
         "balance": {
             "mpCost": 15,
             "pwr": 1,
@@ -23987,7 +23987,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "You feel the presence of an alien power.Nearby enemies' CP -35%Max HP +20% (mome",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "感受到異界力量的存在。附近敵人 CP -35%。自身最大 HP +20%（立即恢復增加的 HP）、最大 MP +20%、P.Def +10%、M.Def +10%、P.Atk +30%、物理技能暴擊率 +20%、物理技能暴擊傷害 +20%、物理技能傷害 +10%、物理技能威力 +5%、擊退／擊倒成功率 +15%、弱化／異常抗性 +10%。可使用 Battojutsu。",
+        "desc": "感受到異界力量的存在。附近敵人 戰鬥點數 -35%。自身最大 生命值 +20%（立即恢復增加的 生命值）、最大 魔力 +20%、物理防禦 +10%、魔法防禦 +10%、物理攻擊 +30%、物理技能暴擊率 +20%、物理技能暴擊傷害 +20%、物理技能傷害 +10%、物理技能威力 +5%、擊退／擊倒成功率 +15%、弱化／異常抗性 +10%。可使用 Battojutsu。",
         "balance": {
             "mpCost": 300,
             "pwr": 4,
@@ -24017,7 +24017,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +20%P. Skill damage bonus +10%One-handed sword damage bonus +10%Skill up",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "P.Atk +20%、物理技能傷害 +10%、單手劍傷害 +10%。技能強化：Single Flash → Double Flash。使用 Double Flash 時追加攻擊。Triple Strike：觸發率 40%，追加 1 次攻擊。",
+        "desc": "物理攻擊 +20%、物理技能傷害 +10%、單手劍傷害 +10%。技能強化：Single Flash → Double Flash。使用 Double Flash 時追加攻擊。Triple Strike：觸發率 40%，追加 1 次攻擊。",
         "balance": {
             "mpCost": 80,
             "pwr": 2,
@@ -24204,7 +24204,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Nature magicDeals M. damage to the target. Power 120.Plants grow on the target.A",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "自然魔法。對目標造成魔法傷害，威力 120，並使植物在目標身上生長。2 秒後 Plants 轉為 Twining Plants。Plants：全武器抗性 -30%、M.Def -15%。Twining Plants：全武器抗性 -60%、M.Def -30%，並有一定機率施加束縛。若被 Twining Plants 束縛的目標受到光系魔法攻擊，會移除 Twining Plants 並觸發 Mistilteinn 造成額外傷害。Mistilteinn：造成強力魔法傷害，並使全武器抗性 -60%、M.Def -30%，持續 2 秒。",
+        "desc": "自然魔法。對目標造成魔法傷害，威力 120，並使植物在目標身上生長。2 秒後 Plants 轉為 Twining Plants。Plants：全武器抗性 -30%、魔法防禦 -15%。Twining Plants：全武器抗性 -60%、魔法防禦 -30%，並有一定機率施加束縛。若被 Twining Plants 束縛的目標受到光系魔法攻擊，會移除 Twining Plants 並觸發 Mistilteinn 造成額外傷害。Mistilteinn：造成強力魔法傷害，並使全武器抗性 -60%、魔法防禦 -30%，持續 2 秒。",
         "balance": {
             "mpCost": 93,
             "pwr": 120,
@@ -24264,7 +24264,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Ice magicSummons a frosty glacier.Deals M. damage to the target and nearby enemi",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "冰系魔法。召喚冰霜冰河，對目標與附近敵人造成魔法傷害，威力 137。對目標附加 Fire Vulnerability 與 Icy Wind。Fire Vulnerability：降低火屬性抗性；若目標已有 Ice Vulnerability，則移除 Ice Vulnerability。Icy Wind：若目標已有 Blazing Whirlwind，則移除 Blazing Whirlwind 並觸發 Circle Explosion。Circle Explosion：造成魔法傷害，威力 137，M.Def -23%。PvP／PvE 最多攻擊 8 個目標。",
+        "desc": "冰系魔法。召喚冰霜冰河，對目標與附近敵人造成魔法傷害，威力 137。對目標附加 Fire Vulnerability 與 Icy Wind。Fire Vulnerability：降低火屬性抗性；若目標已有 Ice Vulnerability，則移除 Ice Vulnerability。Icy Wind：若目標已有 Blazing Whirlwind，則移除 Blazing Whirlwind 並觸發 Circle Explosion。Circle Explosion：造成魔法傷害，威力 137，魔法防禦 -23%。玩家對戰／對怪物戰鬥 最多攻擊 8 個目標。",
         "balance": {
             "mpCost": 124,
             "pwr": 137,
@@ -24294,7 +24294,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Fire magicSummons a blazing whirlwind.Deals M. damage to the target and nearby e",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "火系魔法。召喚燃燒旋風，對目標與附近敵人造成魔法傷害，威力 137。對目標附加 Ice Vulnerability 與 Blazing Whirlwind。Ice Vulnerability：降低冰屬性抗性；若目標已有 Fire Vulnerability，則移除 Fire Vulnerability。Blazing Whirlwind：若目標已有 Icy Wind，則移除 Icy Wind 並觸發 Circle Explosion。Circle Explosion：造成魔法傷害，威力 137，M.Def -23%。PvP／PvE 最多攻擊 8 個目標。",
+        "desc": "火系魔法。召喚燃燒旋風，對目標與附近敵人造成魔法傷害，威力 137。對目標附加 Ice Vulnerability 與 Blazing Whirlwind。Ice Vulnerability：降低冰屬性抗性；若目標已有 Fire Vulnerability，則移除 Fire Vulnerability。Blazing Whirlwind：若目標已有 Icy Wind，則移除 Icy Wind 並觸發 Circle Explosion。Circle Explosion：造成魔法傷害，威力 137，魔法防禦 -23%。玩家對戰／對怪物戰鬥 最多攻擊 8 個目標。",
         "balance": {
             "mpCost": 124,
             "pwr": 137,
@@ -24324,7 +24324,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Light magicSummons a shining sword that attacks the target and nearby enemies.De",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "光系魔法。召喚閃耀之劍攻擊目標與附近敵人，連續造成 2 次魔法傷害，威力 174。若目標受到 Twining Plants 影響，則觸發 Mistilteinn。Mistilteinn：造成魔法傷害，威力 174。PvP／PvE 最多攻擊 8 個目標。",
+        "desc": "光系魔法。召喚閃耀之劍攻擊目標與附近敵人，連續造成 2 次魔法傷害，威力 174。若目標受到 Twining Plants 影響，則觸發 Mistilteinn。Mistilteinn：造成魔法傷害，威力 174。玩家對戰／對怪物戰鬥 最多攻擊 8 個目標。",
         "balance": {
             "mpCost": 106,
             "pwr": 174,
@@ -24385,7 +24385,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Light magicSummons the light of the universe.Deals M. damage to the target and n",
         "canonicalCooldown": "3 min.",
         "canonicalCooldownMs": 180000,
-        "desc": "光系魔法。召喚宇宙之光，連續 3 次對目標與附近敵人造成魔法傷害，威力 450。若目標受到 Twining Plants 影響，則觸發 Mistilteinn。Mistilteinn：造成魔法傷害，威力 450。PvP／PvE 最多攻擊 16 個目標。特殊效果：對施法者附加 Light Influence，持續 10 秒：魔法技能距離 +200、魔法技能威力 +5%、沉默成功率 +25%。使用魔法技能時以 Powerful Light 攻擊；若攻擊次數尚未用完，會刷新持續時間（最多攻擊 2 次）。",
+        "desc": "光系魔法。召喚宇宙之光，連續 3 次對目標與附近敵人造成魔法傷害，威力 450。若目標受到 Twining Plants 影響，則觸發 Mistilteinn。Mistilteinn：造成魔法傷害，威力 450。玩家對戰／對怪物戰鬥 最多攻擊 16 個目標。特殊效果：對施法者附加 Light Influence，持續 10 秒：魔法技能距離 +200、魔法技能威力 +5%、沉默成功率 +25%。使用魔法技能時以 Powerful Light 攻擊；若攻擊次數尚未用完，會刷新持續時間（最多攻擊 2 次）。",
         "balance": {
             "mpCost": 330,
             "pwr": 450,
@@ -24478,7 +24478,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "<Rush/ Knockdown skill>Encouraged by the power of light, leaps to the target.Att",
         "canonicalCooldown": "5 sec.",
         "canonicalCooldownMs": 5000,
-        "desc": "<突進／擊倒技能>受到光之力量鼓舞，飛躍至目標身邊。攻擊目標與附近敵人，威力 4514。有一定機率使敵人 P.Def -30%，並有一定機率將敵人擊倒。無視目標 10% 防禦力。PvP／PvE 最多攻擊 6 個目標。學習 Divine Guardian 後：對敵人使用技能時獲得光之點數；無論戰鬥力多少，固定獲得 50 點光之點數。",
+        "desc": "<突進／擊倒技能>受到光之力量鼓舞，飛躍至目標身邊。攻擊目標與附近敵人，威力 4514。有一定機率使敵人 物理防禦 -30%，並有一定機率將敵人擊倒。無視目標 10% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。學習 Divine Guardian 後：對敵人使用技能時獲得光之點數；無論戰鬥力多少，固定獲得 50 點光之點數。",
         "balance": {
             "mpCost": 84,
             "pwr": 500,
@@ -24540,7 +24540,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Attacks enemies with the sword filled with the power of light.Deals damage twice",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "以灌注光之力量的劍攻擊敵人，連續造成 2 次傷害，威力 8124。無視目標 20% 防禦力。PvP／PvE 最多攻擊 6 個目標。學習 Divine Guardian 後：對敵人使用技能時獲得光之點數。戰鬥力 1～500：600 點；500～999：750 點；1000～1499：850 點；1500～1999：1550 點；2000 以上：2300 點。",
+        "desc": "以灌注光之力量的劍攻擊敵人，連續造成 2 次傷害，威力 8124。無視目標 20% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。學習 Divine Guardian 後：對敵人使用技能時獲得光之點數。戰鬥力 1～500：600 點；500～999：750 點；1000～1499：850 點；1500～1999：1550 點；2000 以上：2300 點。",
         "balance": {
             "mpCost": 116,
             "pwr": 500,
@@ -24691,7 +24691,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "The skill effect is changed based on its target.Fires an accumulated light charg",
         "canonicalCooldown": "30 sec.",
         "canonicalCooldownMs": 30000,
-        "desc": "技能效果依目標類型改變，釋放累積的光能。對敵人：連續攻擊目標與附近敵人 2 次，並有一定機率使其暈眩，威力 5632。無視目標 20% 防禦力。PvP／PvE 最多攻擊 6 個目標。對盟友：依自身 M.Atk 恢復 HP，威力 1900，最多影響 6 個目標，之後持續恢復 HP。學習 Divine Guardian 後：對敵人使用技能時獲得光之點數。戰鬥力 1～500：720 點；500～999：900 點；1000～1499：1050 點；1500～1999：2050 點；2000 以上：3000 點。",
+        "desc": "技能效果依目標類型改變，釋放累積的光能。對敵人：連續攻擊目標與附近敵人 2 次，並有一定機率使其暈眩，威力 5632。無視目標 20% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 6 個目標。對盟友：依自身 魔法攻擊 恢復 生命值，威力 1900，最多影響 6 個目標，之後持續恢復 生命值。學習 Divine Guardian 後：對敵人使用技能時獲得光之點數。戰鬥力 1～500：720 點；500～999：900 點；1000～1499：1050 點；1500～1999：2050 點；2000 以上：3000 點。",
         "balance": {
             "mpCost": 103,
             "pwr": 500,
@@ -24751,7 +24751,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "On using the skill, its effect affects both enemies and allies.Creates a circle ",
         "canonicalCooldown": "3 min.",
         "canonicalCooldownMs": 180000,
-        "desc": "使用技能時同時影響敵人與盟友，創造光之法陣。敵人：Judgment of Light，連續攻擊附近敵人 2 次，威力 20000；10 秒內使被攻擊目標的弱化／異常抗性 -4%；無視目標 30% 防禦力。PvP／PvE 最多攻擊 16 個目標。盟友：Light Protection，持續 10 秒；每 2 秒恢復 3000 HP、受到傷害 -10%，最多影響 16 個目標。學習 Divine Guardian 後：對敵人使用技能時獲得光之點數；無論戰鬥力多少，固定獲得 50000 點光之點數。",
+        "desc": "使用技能時同時影響敵人與盟友，創造光之法陣。敵人：Judgment of Light，連續攻擊附近敵人 2 次，威力 20000；10 秒內使被攻擊目標的弱化／異常抗性 -4%；無視目標 30% 防禦力。玩家對戰／對怪物戰鬥 最多攻擊 16 個目標。盟友：Light Protection，持續 10 秒；每 2 秒恢復 3000 生命值、受到傷害 -10%，最多影響 16 個目標。學習 Divine Guardian 後：對敵人使用技能時獲得光之點數；無論戰鬥力多少，固定獲得 50000 點光之點數。",
         "balance": {
             "mpCost": 200,
             "pwr": 500,
@@ -24782,7 +24782,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +15%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "使用劍或鈍器時提高 P.Atk。",
+        "desc": "使用劍或鈍器時提高 物理攻擊。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -24821,7 +24821,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +20%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "使用雙劍或雙匕首時提高 P.Atk。",
+        "desc": "使用雙劍或雙匕首時提高 物理攻擊。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -24852,7 +24852,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +25%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "使用弓時提高 P.Atk。",
+        "desc": "使用弓時提高 物理攻擊。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -24886,7 +24886,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +20%, Critical Rate +10",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "使用匕首時提高 P.Atk 與暴擊率。",
+        "desc": "使用匕首時提高 物理攻擊 與暴擊率。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -24921,7 +24921,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +20%, Max targets +3",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "使用長槍或長柄武器時提高 P.Atk 與攻擊目標數。",
+        "desc": "使用長槍或長柄武器時提高 物理攻擊 與攻擊目標數。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -24952,7 +24952,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +20%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "使用拳套武器時提高 P.Atk。",
+        "desc": "使用拳套武器時提高 物理攻擊。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -24983,7 +24983,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +25%, Critical Damage +15%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "使用雙手武器時提高 P.Atk 與暴擊傷害。",
+        "desc": "使用雙手武器時提高 物理攻擊 與暴擊傷害。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25015,7 +25015,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "M. Atk. +20%, Magic Critical Rate +10",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "提高 M.Atk 與魔法暴擊率。",
+        "desc": "提高 魔法攻擊 與魔法暴擊率。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25050,7 +25050,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Def. +60, Received Critical Damage -10%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "裝備重甲時提高 P.Def。",
+        "desc": "裝備重甲時提高 物理防禦。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25088,7 +25088,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Def. +40, Evasion +6, Atk. Spd +5%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "裝備輕甲時提高 P.Def 與迴避。",
+        "desc": "裝備輕甲時提高 物理防禦 與迴避。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25129,7 +25129,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Def. +30, Cast. Spd +10%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "裝備法袍時提高 P.Def 與施法速度。",
+        "desc": "裝備法袍時提高 物理防禦 與施法速度。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25198,7 +25198,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Max MP +200, M. Atk. +10%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "裝備符印時提高最大 MP 與 M.Atk。",
+        "desc": "裝備符印時提高最大 魔力 與 魔法攻擊。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25230,7 +25230,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "M. Def. +90",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "提高 M.Def 與魔法傷害抗性。",
+        "desc": "提高 魔法防禦 與魔法傷害抗性。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25415,7 +25415,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "HP/MP Recovery +30%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "坐下或休息時提高 HP 與 MP 恢復率。",
+        "desc": "坐下或休息時提高 生命值 與 魔力 恢復率。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25625,7 +25625,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "MP Recovery +10 per tick",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "戰鬥中持續恢復 MP。",
+        "desc": "戰鬥中持續恢復 魔力。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25740,7 +25740,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "MP Gain +20%",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "提高從藥水與恢復魔法獲得的 MP。",
+        "desc": "提高從藥水與恢復魔法獲得的 魔力。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25778,7 +25778,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +150, Max HP +1000, Max CP +1500",
         "canonicalCooldown": "N/A",
         "canonicalCooldownMs": 0,
-        "desc": "超越級戰鬥精通，提高 P.Atk 與最大 CP／HP。",
+        "desc": "超越級戰鬥精通，提高 物理攻擊 與最大 戰鬥點數／生命值。",
         "balance": {
             "mpCost": 0,
             "pwr": 0,
@@ -25947,7 +25947,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Transforms into a Legendary Archer Master. Max HP +10%, P. Atk. +20%, P. Skill Critical Rate +30%, P. Skill Critical Damage +30%, PvE Damage +10%, Melee Resistance +10%. Triggers Carpet Bombing & Tactical Error.",
         "canonicalCooldown": "1 min.",
         "canonicalCooldownMs": 60000,
-        "desc": "變身為傳說弓手大師。最大 HP +10%、P.Atk +20%、物理技能暴擊率 +30%、物理技能暴擊傷害 +30%、PvE 傷害 +10%、近戰抗性 +10%。可使用 Legendary Shot，並觸發 Carpet Bombing（範圍威力 15000）與 Tactical Error。",
+        "desc": "變身為傳說弓手大師。最大 生命值 +10%、物理攻擊 +20%、物理技能暴擊率 +30%、物理技能暴擊傷害 +30%、對怪物戰鬥 傷害 +10%、近戰抗性 +10%。可使用 Legendary Shot，並觸發 Carpet Bombing（範圍威力 15000）與 Tactical Error。",
         "balance": {
             "mpCost": 250,
             "pwr": 1,
@@ -26010,7 +26010,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Master stance of the Titan Champion. Max HP +40%, P. Atk. +50%, Critical Damage +35%.",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "喚醒遠古泰坦之怒。HP 低於 60% 時獲得強大耐久力與無可阻擋的破壞力。",
+        "desc": "喚醒遠古泰坦之怒。生命值 低於 60% 時獲得強大耐久力與無可阻擋的破壞力。",
         "balance": {
             "mpCost": 200,
             "pwr": 1,
@@ -26131,7 +26131,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Transcends into the Sovereign of Death. All attacks gain vampiric drain and hellfire burst.",
         "canonicalCooldown": "2 min.",
         "canonicalCooldownMs": 120000,
-        "desc": "喚醒真正的深淵領主。將造成傷害的 20% 轉為 HP，並以黑色火焰點燃敵人。",
+        "desc": "喚醒真正的深淵領主。將造成傷害的 20% 轉為 生命值，並以黑色火焰點燃敵人。",
         "balance": {
             "mpCost": 240,
             "pwr": 1,
@@ -26281,7 +26281,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "Absolute divine sanctuary. Complete immunity to damage and debuffs for 10 seconds.",
         "canonicalCooldown": "3 min.",
         "canonicalCooldownMs": 180000,
-        "desc": "以無法破壞的神聖屏障包覆聖者，同時將所有隊伍成員 HP 恢復至滿。",
+        "desc": "以無法破壞的神聖屏障包覆聖者，同時將所有隊伍成員 生命值 恢復至滿。",
         "balance": {
             "mpCost": 300,
             "pwr": 1,
