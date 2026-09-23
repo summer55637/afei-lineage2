@@ -265,7 +265,7 @@ export const IDLE_MARKUP = `
             <p class="log-entry system"><span class="log-time">[00:00:00]</span> <span class="log-badge badge-sys">系統</span> 選擇種族與職業，開始你的旅程。</p>
           </div>
           <button id="log-scroll-down-btn" style="display:none; position:absolute; bottom:12px; left:50%; transform:translateX(-50%); background:rgba(30,35,45,0.92); border:1px solid rgba(212,167,68,0.6); color:#fef08a; font-family:'Cinzel',serif; font-size:11px; font-weight:bold; padding:4px 14px; border-radius:20px; cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,0.6); z-index:10; animation:bounce 1.5s infinite;" onclick="window.scrollLogToBottom && window.scrollLogToBottom()">
-            ⬇️ Novas Mensagens
+            ⬇️ 新訊息
           </button>
         </div>
         <form id="chat-form" class="chat-input-bar">
