@@ -208,7 +208,7 @@ export function renderGatheringUI(state) {
         </p>
         <div style="margin-bottom:12px; font-size:12px; font-family:'Cinzel',serif;">
           ${gState.inspected 
-            ? `<span style="color:#f4d58a;">[純度：${gState.targetedNodePurity}%－危險：${({ none: '無', thorn: '荊棘', toxin: '毒素', resin: '樹脂' })[gState.targetedNodeHazard] || gState.targetedNodeHazard}]</span>` 
+            ? `<span style="color:#f4d58a;">[純度：${gState.targetedNodePurity}%－危險：${({ none: '無', thorn: '荊棘', toxin: '毒素', resin: '樹脂' })[gState.targetedNodeHazard] || '未知危險'}]</span>` 
             : `<span style="color:#94a3b8;">[純度：未知（檢查嫩芽）]</span>`}
         </div>
         <p style="margin:0 0 12px 0; font-size:11px; color:#aaa;">
@@ -259,7 +259,7 @@ export function renderGatheringUI(state) {
           <p style="margin:0 0 6px 0; font-size:11px; color:#aaa; font-style:italic;">"${gState.targetedNodeSignal}"</p>
           <div style="font-size:11px; font-weight:bold;">
             ${gState.inspected 
-              ? `<span style="color:${gState.targetedNodeHazard === 'none' ? '#6ee7b7' : gState.targetedNodeHazard === 'thorn' ? '#f87171' : gState.targetedNodeHazard === 'toxin' ? '#a78bfa' : '#fbbf24'};">[純度：${gState.targetedNodePurity}%－危險：${({ none: '無', thorn: '荊棘', toxin: '毒素', resin: '樹脂' })[gState.targetedNodeHazard] || gState.targetedNodeHazard}]</span>` 
+              ? `<span style="color:${gState.targetedNodeHazard === 'none' ? '#6ee7b7' : gState.targetedNodeHazard === 'thorn' ? '#f87171' : gState.targetedNodeHazard === 'toxin' ? '#a78bfa' : '#fbbf24'};">[純度：${gState.targetedNodePurity}%－危險：${({ none: '無', thorn: '荊棘', toxin: '毒素', resin: '樹脂' })[gState.targetedNodeHazard] || '未知危險'}]</span>` 
               : `<span style="color:#94a3b8;">[純度：未知（檢查嫩芽）]</span>`}
           </div>
         </div>
