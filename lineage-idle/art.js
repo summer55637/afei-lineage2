@@ -733,7 +733,19 @@ function getAssetUrl(p) {
     baseUrl = window.__BASE_URL__;
   }
   if (baseUrl) {
+    if (!baseUrl.startsWith('/') && !/^https?:\/\//i.test(baseUrl)) baseUrl = '/' + baseUrl;
     if (!baseUrl.endsWith('/')) baseUrl += '/';
+
+    // GitHub Pages 的發佈後處理會先把 /img、/assets 等根路徑補上專案前綴。
+    // 若路徑已經包含 BASE_URL，這裡必須直接沿用，避免變成
+    // /afei-lineage2/afei-lineage2/... 而造成角色、地圖與技能圖片 404。
+    if (!/^https?:\/\//i.test(baseUrl)) {
+      const basePath = baseUrl.replace(/^\/+|\/+$/g, '');
+      if (basePath && (cleanPath === basePath || cleanPath.startsWith(basePath + '/'))) {
+        return '/' + cleanPath;
+      }
+    }
+
     return baseUrl + cleanPath;
   }
   return '/' + cleanPath;
