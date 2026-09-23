@@ -38,7 +38,7 @@ export const SEASONS_DATA = {
   2: {
     id: 2,
     title: "第 2 季：血盟與城堡時代",
-    subtitle: "編年史 II — 戰爭領主進軍",
+    subtitle: "編年史二 — 戰爭領主進軍",
     maxLevel: 75,
     maxGrade: "A",
     active: false,
@@ -59,7 +59,7 @@ export const SEASONS_DATA = {
   3: {
     id: 3,
     title: "第 3 季：七封印與奧林匹亞",
-    subtitle: "編年史 III — 封印覺醒與英雄王座",
+    subtitle: "編年史三 — 封印覺醒與英雄王座",
     maxLevel: 85,
     maxGrade: "S",
     active: false,
@@ -81,7 +81,7 @@ export const SEASONS_DATA = {
   4: {
     id: 4,
     title: "第 4 季：巨龍之怒與多重世界",
-    subtitle: "編年史 IV — 遠古怒吼與次元之戰",
+    subtitle: "編年史四 — 遠古怒吼與次元之戰",
     maxLevel: 120,
     maxGrade: "S84",
     active: false,
