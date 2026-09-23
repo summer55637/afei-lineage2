@@ -1986,8 +1986,8 @@ function updateStatsUI() {
   const gpsEl = el('gps-text'); if (gpsEl) gpsEl.textContent = gps > 0 ? `${gps.toFixed(1)}/秒` : '—';
   
   const _clEl = el('craft-level-stat'); if (_clEl) _clEl.textContent = state.craftLevel;
-  const _rcEl = el('race-text'); if (_rcEl) _rcEl.textContent = (state.race && RACES?.[state.race]?.name) || state.race || '-';
-  const _clsEl = el('class-text'); if (_clsEl) _clsEl.textContent = (getClass(state.class)?.name) || state.class || '-';
+  const _rcEl = el('race-text'); if (_rcEl) _rcEl.textContent = (state.race && RACES?.[state.race]?.name) || '未知種族';
+  const _clsEl = el('class-text'); if (_clsEl) _clsEl.textContent = (getClass(state.class)?.name) || '未知職業';
   // 5.1 & 5.3 Cosméticos — Auras & Títulos Honoríficos
   CosmeticService.ensureState(state);
   const activeAura = CosmeticService.getActiveAura(state);
