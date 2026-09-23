@@ -2011,7 +2011,7 @@ function updateStatsUI() {
       _customTitleBadge.style.display = 'none';
     }
   }
-  const _sgEl = el('saga-text'); if (_sgEl) _sgEl.textContent = (state.currentSaga ? (getSagaDef(state.currentSaga)?.name || state.currentSaga) : '-');
+  const _sgEl = el('saga-text'); if (_sgEl) _sgEl.textContent = (state.currentSaga ? (getSagaDef(state.currentSaga)?.name || '未知編年史') : '-');
   const _sz = el('stage-zone');
   if (_sz) { const _t = (state.zone && ZONES?.[state.zone]) ? ZONES[state.zone].name + (ZONES[state.zone].town ? ' · 城鎮' : '') : '—'; if (_sz.textContent !== _t) _sz.textContent = _t; }
   const _zn = el('zone-name');
