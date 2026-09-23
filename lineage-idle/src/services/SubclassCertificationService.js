@@ -399,7 +399,7 @@ export class SubclassCertificationService {
     const subLevel = Number(sub.level) || 40;
     const archetype = this.getArchetypeForClass(sub.classId);
     const subCerts = state.subclassCertifications?.[sub.id] || {};
-    const archetypeLabel = ({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[archetype] || archetype;
+    const archetypeLabel = ({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[archetype] || '其他職業';
 
     const milestones = [
       {
@@ -493,10 +493,11 @@ export class SubclassCertificationService {
       abilityDef = Object.values(DIVINE_TRANSFORMATIONS).find(d => d.id === abilityId);
     }
 
-    const abilityName = abilityDef?.name || abilityId;
+    const abilityName = abilityDef?.name || '認證技能';
+    const classDisplayName = (typeof window !== 'undefined' && window.EchoData?.CLASSES_ECHO?.[sub.classId]?.name) || '副職業';
 
     if (callbacks.log) {
-      callbacks.log(`📜✨ **取得認證！** [${sub.classId?.toUpperCase()}] 已學會 **${abilityName}**！`, 'rarity-legendary');
+      callbacks.log(`📜✨ **取得認證！** [${classDisplayName}] 已學會 **${abilityName}**！`, 'rarity-legendary');
       callbacks.log(`所有加成都已永久綁定至主職業！（+${abilityDef?.cp || 1500} 戰鬥力）`, 'rarity-epic');
     }
 
