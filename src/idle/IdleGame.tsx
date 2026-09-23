@@ -164,7 +164,7 @@ export default function IdleGame() {
     class: string;
     gender: 'M' | 'F';
   }>({
-    charName: 'Tristan',
+    charName: '冒險者',
     race: 'human',
     class: 'fighter',
     gender: 'M'
@@ -288,7 +288,7 @@ export default function IdleGame() {
 
     (window as any).onOpenCharacterCreationModal = (data: any) => {
       setCreationInitialData({
-        charName: data?.charName || 'Tristan',
+        charName: data?.charName || '冒險者',
         race: data?.race || 'human',
         class: data?.class || 'fighter',
         gender: data?.gender || 'M'
