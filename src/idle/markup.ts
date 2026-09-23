@@ -2113,18 +2113,7 @@ export const IDLE_MARKUP = `
               </div>
             </div>
 
-            <!-- Danger Zone: Database & Server Zero Wipe -->
-            <div class="admin-section" style="margin-top: 14px; border: 1px solid rgba(239, 68, 68, 0.5); background: rgba(127, 29, 29, 0.2); border-radius: 6px; padding: 12px;">
-              <h3 style="color: #f87171; display:flex; align-items:center; gap:6px; margin-top:0;">
-                🔥 危險區：伺服器重置與 Firestore 雲端資料
-              </h3>
-              <p style="font-size: 11px; color: #fca5a5; line-height: 1.4; margin: 4px 0 10px 0;">
-                將雲端資料庫中的全部 17 個正式集合（帳號、角色、血盟、市場、排行榜）完全清除，並強制全體玩家回到角色建立流程。此操作僅限官方管理員（<code>duuh.alaminos@gmail.com</code>）。
-              </p>
-              <button id="admin-wipe-database-btn" class="admin-preset-btn danger" style="background:rgba(220,38,38,0.4); border-color:#ef4444; color:#fee2e2; font-weight:bold; width:100%; padding:10px; font-size:12px; cursor:pointer;">
-                🔥 完整清空資料庫（伺服器歸零）
-              </button>
-            </div>
+
           </div>
         </div>
       </div>
