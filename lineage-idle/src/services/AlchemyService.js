@@ -240,7 +240,7 @@ export function dissolveItem(state, uid, callbacks = {}) {
   state.essences[yieldData.essenceType] = (state.essences[yieldData.essenceType] || 0) + yieldData.count;
 
   const typeLabels = { fire: '火 🔥', earth: '地 🛡️', wind: '風 🍃', water: '水 💧' };
-  log(`🔥 靈魂熔爐：已分解 [${def.name}]（+${yieldData.count} ${typeLabels[yieldData.essenceType] || yieldData.essenceType} 精華）！`, 'loot');
+  log(`🔥 靈魂熔爐：已分解 [${def.name}]（+${yieldData.count} ${typeLabels[yieldData.essenceType] || '未知'} 精華）！`, 'loot');
 
   updateAllUI();
   save();
