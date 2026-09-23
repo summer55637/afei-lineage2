@@ -240,17 +240,17 @@ const RACES_INFO: Record<string, {
 };
 
 const RANDOM_NAMES = [
-  'Astaroth', 'Valerius', 'Kaelen', 'Sylas', 'Lyrion',
-  'Ignis', 'Morgana', 'Vaelin', 'Darian', 'Balthazar',
-  'Thorne', 'Elysia', 'Gideon', 'Zephyr', 'Orion',
-  'Aethelgard', 'Aerion', 'Caelum', 'Elowen', 'Fenris',
-  'Galadriel', 'Isolden', 'Malakor', 'Naelis', 'Thalor',
-  'Azrael', 'Belial', 'Kaelen', 'Malakor', 'Moros',
-  'Nocturna', 'Oberon', 'Ravena', 'Soren', 'Vesper',
-  'Aethelstan', 'Boran', 'Cassian', 'Draven', 'Eldrin',
-  'Garrick', 'Kaelith', 'Ragnar', 'Valen', 'Varian',
-  'Astraea', 'Celestia', 'Eridanus', 'Hesperos', 'Lyra',
-  'Nebula', 'Solon', 'Tenebris', 'Vael', 'Zorion'
+  '阿斯塔洛', '瓦雷里斯', '凱伊倫', '賽拉斯', '利里昂',
+  '伊格尼斯', '摩甘娜', '維艾林', '達里安', '巴爾薩澤',
+  '索爾恩', '伊莉西亞', '吉迪恩', '澤菲爾', '奧里昂',
+  '艾瑟加德', '艾里昂', '凱魯姆', '艾洛溫', '芬里斯',
+  '凱蘭崔爾', '伊索爾德', '瑪拉科爾', '奈艾莉絲', '薩洛爾',
+  '阿茲拉爾', '貝利亞爾', '凱倫德', '瑪拉科斯', '莫羅斯',
+  '諾克圖娜', '奧伯隆', '拉維娜', '索雷恩', '維斯佩爾',
+  '艾瑟斯坦', '博蘭恩', '卡西安', '德雷文', '艾爾德林',
+  '加里克', '凱利斯', '拉格納', '瓦倫德', '瓦里安',
+  '阿斯特蕾雅', '賽蕾絲緹亞', '艾利達努斯', '赫斯佩羅斯', '萊莉亞',
+  '涅布拉', '索洛恩', '泰涅布里斯', '維艾爾', '佐里昂'
 ];
 
 export const CharacterCreation: React.FC<CharacterCreationProps> = ({
