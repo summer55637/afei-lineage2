@@ -143,23 +143,23 @@ export function equipSkill(state, slotName, skillId, skillDefs) {
 
   // Validate slot name
   if (!ALL_SLOT_NAMES.includes(slotName)) {
-    return { success: false, error: `無效的技能欄位：${slotName}` };
+    return { success: false, error: '無效的技能欄位。' };
   }
 
   // Validate slot is unlocked
   const unlockedSlots = getUnlockedSlots(state.level || 1);
   if (!unlockedSlots.includes(slotName)) {
-    return { success: false, error: `技能欄位「${slotName}」在等級 ${state.level} 尚未解鎖` };
+    return { success: false, error: `此技能欄位在等級 ${state.level} 尚未解鎖。` };
   }
 
   // Validate skill is learned
   if (!state.skills || !state.skills[skillId] || state.skills[skillId] <= 0) {
-    return { success: false, error: `技能「${skillId}」尚未學會` };
+    return { success: false, error: '此技能尚未學會。' };
   }
 
   // Validate skill is not purged
   if (isPurgedSkill(skillId)) {
-    return { success: false, error: `技能「${skillId}」目前不可使用（坐騎／外觀限制）` };
+    return { success: false, error: '此技能目前不可使用（坐騎／外觀限制）。' };
   }
 
   // Validate skill is not passive
@@ -173,7 +173,7 @@ export function equipSkill(state, slotName, skillId, skillDefs) {
 
   // Validate skill belongs to character's progression path (when not using mock defs)
   if (state.class && !skillDefs && !isSkillInProgressionPath(state, skillId)) {
-    return { success: false, error: `技能「${skillId}」不屬於職業「${state?.class}」的成長路線` };
+    return { success: false, error: '此技能不屬於目前職業的成長路線。' };
   }
 
   // If skill is already in another slot, remove it from there (move)
