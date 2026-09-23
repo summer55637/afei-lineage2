@@ -251,7 +251,7 @@ export class CombatValidatorEngine {
     const currentMp = characterState.mp || characterState.stats?.mp || 100;
     const costMp = skillDef.mpCost || skillDef.manaCost || 10;
     if (currentMp < costMp) {
-      return { canCast: false, error: 'MP 不足，無法施放此技能。' };
+      return { canCast: false, error: '魔力不足，無法施放此技能。' };
     }
 
     return { canCast: true };
