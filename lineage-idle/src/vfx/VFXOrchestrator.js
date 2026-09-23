@@ -566,7 +566,7 @@ export class VFXOrchestrator {
       if (!badge) {
         badge = doc.createElement('div');
         badge.className = 'vfx-profiler-badge';
-        badge.title = 'VFX 60 幀效能監控（點擊切換）';
+        badge.title = '視覺效果 60 幀效能監控（點擊切換）';
         badge.onclick = () => this.toggleProfiler(false);
         this.stageElement.appendChild(badge);
       }
