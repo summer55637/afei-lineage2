@@ -204,7 +204,7 @@ export class SevenSignsService {
 
     ss.ancientAdena -= cost;
     armorItem.isUnsealed = true;
-    armorItem.name = armorItem.name ? armorItem.name.replace('(Sealed)', '').trim() + '（已解除封印 ✨）' : '已解除封印的防具 ✨';
+    armorItem.name = armorItem.name ? armorItem.name.replace(/\s*(?:\(Sealed\)|（封印）|\(封印\))\s*/g, '').trim() + '（已解除封印 ✨）' : '已解除封印的防具 ✨';
     
     hooks.log?.(`⚒️ 馬門鐵匠已解除 **${armorItem.name}** 的古代封印！裝備已釋放完整潛能！`, 'gain');
     hooks.onUpdate?.();
