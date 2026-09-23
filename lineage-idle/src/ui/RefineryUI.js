@@ -57,7 +57,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
 
       let inputsHtml = '';
       for (const inp of rec.inputs) {
-        const matDef = RESOURCE_DICTIONARY[inp.matId] || { name: inp.matId, icon: 'materials/stem.png' };
+        const matDef = RESOURCE_DICTIONARY[inp.matId] || { name: '未知材料', icon: 'materials/stem.png' };
         const have = RefineryService.getMaterialCount(state, inp.matId);
         const hasEnough = have >= inp.qty;
 
