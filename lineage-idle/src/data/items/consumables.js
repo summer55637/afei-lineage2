@@ -57,7 +57,7 @@ export const CONSUMABLES = {
   "scroll_enchant_weapon_s": {"id":"scroll_enchant_weapon_s","name":"S 級武器強化卷軸","slot":"consumable","tier":6,"healAmt":0,"stack":99999,"price":50000,"icon":"scrolls/scroll_of_enchant_weapon_.png","desc":"可使 S 級武器強化 +1。"},
   "scroll_enchant_armor_s": {"id":"scroll_enchant_armor_s","name":"S 級防具強化卷軸","slot":"consumable","tier":6,"healAmt":0,"stack":99999,"price":35000,"icon":"scrolls/scroll_of_enchant_armor.png","desc":"可使 S 級防具強化 +1。"},
   "life_stone_mid": {"id":"life_stone_mid","name":"中級生命石","slot":"consumable","tier":3,"healAmt":0,"stack":99,"price":5000,"icon":"scrolls/exp_scroll.png","desc":"中級生命石：可為武器附加精煉效果（被動或主動能力）。高級效果出現率 40%。適用於 D 級至 C 級武器。"},
-  "adena_coins": {"id":"adena_coins","name":"亞丁幣（AC）💎","slot":"currency","tier":6,"stack":999999,"price":0,"icon":"materials/coin_gold.png","desc":"亞丁王國的神聖貨幣，可從團隊首領與全球活動取得，用於 亞丁幣商店購買限定物品。"},
+  "adena_coins": {"id":"adena_coins","name":"亞丁幣 💎","slot":"currency","tier":6,"stack":999999,"price":0,"icon":"materials/coin_gold.png","desc":"亞丁王國的神聖貨幣，可從團隊首領與全球活動取得，用於 亞丁幣商店購買限定物品。"},
   "staff_goddess_rain_song": {"id":"staff_goddess_rain_song","name":"女神法杖：雨之歌 🔱","slot":"quest","tier":5,"stack":1,"price":0,"icon":"weapons/staff.png","desc":"伊娃女神的神聖法杖，擊敗團隊首領巴拉基艾爾後取得的傳說遺物，也是 貴族任務線的重要必需品。"},
   "giants_codex": {"id":"giants_codex","name":"巨人秘典 📜","slot":"spellbook","tier":5,"stack":999,"price":80000,"icon":"scrolls/scroll_of_enchant_weapon_.png","desc":"古代巨人的秘典，可用於強化與提升職業技能。"},
   "teleport_scroll": {"id":"teleport_scroll","name":"傳送卷軸","slot":"consumable","tier":1,"healAmt":0,"stack":99999,"price":200,"icon":"scrolls/teleport_scroll.png","desc":"傳送至一座城鎮。"},
