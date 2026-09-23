@@ -95,7 +95,7 @@ export function buyMysticItem(state, itemId, rarity, callbacks = {}) {
   }
 
   state.gold -= price;
-  const rarityName = gData?.RARITY?.[rarity]?.name || rarity;
+  const rarityName = gData?.RARITY?.[rarity]?.name || '未知稀有度';
   if (callbacks.log) callbacks.log(`✨ 神秘購買：${def.name} [${rarityName}]，花費 💰 ${price.toLocaleString()} 金幣！`, 'rarity-' + rarity);
 
   // Remove o item comprado do estoque místico atual
