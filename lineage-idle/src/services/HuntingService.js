@@ -445,8 +445,8 @@ export const HuntingService = {
     hState.isHunting = false;
     hState.trackedPreyId = null;
 
-    const primaryDisplayName = getCanonicalResourceDef(primaryMat)?.name || primaryMat;
-    const secondaryDisplayName = secMat ? (getCanonicalResourceDef(secMat)?.name || secMat) : null;
+    const primaryDisplayName = getCanonicalResourceDef(primaryMat)?.name || '未知素材';
+    const secondaryDisplayName = secMat ? (getCanonicalResourceDef(secMat)?.name || '未知素材') : null;
 
     if (callbacks.log) {
       const qualityPrefix = quality.tier === 'perfect' ? '🌟 **完美剝皮！**'
