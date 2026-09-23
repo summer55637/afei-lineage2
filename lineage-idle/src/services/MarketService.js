@@ -479,7 +479,7 @@ export const MarketService = {
     const realItemId = item.itemId || (typeof item.id === 'string' && !item.id.startsWith('item_') && !item.id.includes('.') ? item.id : null);
     const def = getItemDefinition(realItemId) || getItemDefinition(item.id) || {};
     const finalItemId = def.id || realItemId || item.itemId || item.id || 'short_sword';
-    const finalName = item.name || def.name || finalItemId.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    const finalName = item.name || def.name || '未知物品';
     const finalSlot = item.slot || def.slot || 'material';
     const finalType = item.type || def.type || finalSlot || 'item';
     const finalTier = Number(item.tier || def.tier) || 1;
