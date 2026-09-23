@@ -564,7 +564,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
                   <span className="font-bold text-amber-200 flex items-center gap-1.5">
                     <img
                       src={getClassIcon(selectedClass)}
-                      alt={selectedClass}
+                      alt={currentRaceObj.allowedClasses.find(c => c.id === selectedClass)?.name || '職業圖示'}
                       className="w-5 h-5 object-contain rounded bg-black/60 border border-amber-500/40 p-0.5"
                       onError={(e) => { e.currentTarget.style.display = 'none'; }}
                     />
