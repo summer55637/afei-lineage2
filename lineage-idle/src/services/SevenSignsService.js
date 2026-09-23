@@ -239,13 +239,13 @@ export class SevenSignsService {
     if (ss.faction !== winner) {
       return {
         allowed: false,
-        message: `限制進入：本週只有勝利陣營【${FACTIONS[winner]?.name || winner}】的成員能獲得瑪門隱藏鐵匠的祝福。`
+        message: `限制進入：本週只有勝利陣營【${FACTIONS[winner]?.name || '未知陣營'}】的成員能獲得瑪門隱藏鐵匠的祝福。`
       };
     }
 
     return {
       allowed: true,
-      message: `允許進入：歡迎來到瑪門隱藏鍛造所，【${FACTIONS[winner]?.name || winner}】陣營的尊貴勇士。`
+      message: `允許進入：歡迎來到瑪門隱藏鍛造所，【${FACTIONS[winner]?.name || '未知陣營'}】陣營的尊貴勇士。`
     };
   }
 
