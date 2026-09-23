@@ -3467,7 +3467,7 @@ export function updateCharacterUI(state) {
         <div class="l2-equip-power-card">
           <div class="l2-ep-slot-icon">${meta.icon}</div>
           <div class="l2-ep-info">
-            <div class="l2-ep-name">${encPrefix}${def.name || invItem.name || slotKey}</div>
+            <div class="l2-ep-name">${encPrefix}${def.name || invItem.name || '未知裝備'}</div>
             <div class="l2-ep-stats">${meta.label} · 品級 ${grade.toUpperCase() === 'NG' ? '無級' : grade.toUpperCase()}</div>
           </div>
           <div class="l2-ep-cp-chip">+${itemCp.toLocaleString()} 戰鬥力</div>
@@ -3977,7 +3977,7 @@ export function updateSkillUI(state, callbacks = {}) {
               <div class="legacy-passive-node">
                 <span class="legacy-passive-icon">✦</span>
                 <div class="legacy-passive-body">
-                  <div class="legacy-passive-name">${p.name || p.originalSkill}</div>
+                  <div class="legacy-passive-name">${p.name || '血統被動技能'}</div>
                   <div class="legacy-passive-effect">${p.desc || `+${((p.val || 0) * 100).toFixed(1)}% ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[p.stat] || '其他屬性'}`}</div>
                 </div>
               </div>
@@ -4296,7 +4296,7 @@ export function updateSkillInfoPanel(state, callbacks = {}) {
   if (state.legacyPassives && Object.keys(state.legacyPassives).length > 0) {
     const listHtml = Object.values(state.legacyPassives).map(p => `
       <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.3); border:1px solid rgba(255,215,0,0.25); border-radius:4px; padding:4px 8px; margin-top:4px; font-size:11px;">
-        <span style="color:#ffd700; font-weight:bold;">🧬 ${p.name || p.originalSkill}</span>
+        <span style="color:#ffd700; font-weight:bold;">🧬 ${p.name || '血統被動技能'}</span>
         <span style="color:#34d399; font-weight:bold;">+${(p.val * 100).toFixed(1)}% ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[p.stat] || '其他屬性'}</span>
       </div>
     `).join('');
