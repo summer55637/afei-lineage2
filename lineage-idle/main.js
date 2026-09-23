@@ -11428,7 +11428,7 @@ export function init() {
       
       state = { ...def, ...cloudData };
       state.gender = cloudData.gender || cloudData.charGender || cloudData.sex || def.gender || 'M';
-      state.charName = cloudData.charName || cloudData.heroName || cloudData.playerName || cloudData.name || def.charName || 'Tristan';
+      state.charName = cloudData.charName || cloudData.heroName || cloudData.playerName || cloudData.name || def.charName || '冒險者';
       state.heroName = state.charName;
       state.playerName = state.charName;
       state.name = state.charName;
