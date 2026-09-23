@@ -265,7 +265,7 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
           ) : (
             <>
               <div className="text-amber-200 font-semibold text-center py-1">
-                Salvamento na 雲端
+                雲端存檔
               </div>
               <button
                 onClick={() => { setShowPopover(false); setIsOpen(true); }}
