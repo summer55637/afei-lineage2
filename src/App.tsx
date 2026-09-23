@@ -138,7 +138,7 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boole
       return (
         <div className="fixed inset-0 flex flex-col items-center justify-center bg-[#06080f] text-white p-6 text-center z-50">
           <h2 className="text-2xl font-bold text-amber-300 mb-2">糟糕！發生未預期的錯誤。</h2>
-          <p className="text-sm text-white/60 mb-4">{this.state.error?.message || "遊戲執行錯誤。"}</p>
+          <p className="text-sm text-white/60 mb-4">遊戲執行時發生錯誤，請重新載入後再試。</p>
           <button
             onClick={() => window.location.reload()}
             className="px-4 py-2 bg-amber-500 text-black font-bold rounded-xl hover:bg-amber-400 transition"
