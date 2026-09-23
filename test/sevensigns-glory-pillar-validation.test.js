@@ -69,7 +69,7 @@ describe('Glory Pillar — Subtab 4: Seven Signs & Mammon (Sete Selos & Mammon)'
     const sealedArmor = {
       uid: 'tallum_1',
       itemId: 'tallum_armor',
-      name: 'Tallum Heavy Armor (Sealed)',
+      name: '塔魯姆重甲（封印）',
       slot: 'armor',
       isUnsealed: false
     };
@@ -77,7 +77,7 @@ describe('Glory Pillar — Subtab 4: Seven Signs & Mammon (Sete Selos & Mammon)'
     const unsealRes = SevenSignsService.unsealArmor(state, sealedArmor);
     assert.equal(unsealRes.success, true);
     assert.equal(sealedArmor.isUnsealed, true);
-    assert.ok(sealedArmor.name.includes('Unsealed'));
+    assert.ok(sealedArmor.name.includes('已解除封印'));
     assert.ok(state.sevenSigns.ancientAdena <= 150000);
   });
 
