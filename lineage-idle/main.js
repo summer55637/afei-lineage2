@@ -11587,7 +11587,6 @@ export function init() {
 
     window.openAdminModal = openAdminModal;
     window.isAuthorizedAdmin = isAuthorizedAdmin;
-    window.AUTHORIZED_ADMIN_EMAILS = AUTHORIZED_ADMIN_EMAILS;
     window.setServerRate = setServerRate;
     window.applyServerRatePreset = applyServerRatePreset;
     window.toggleVFXProfiler = (enable) => globalVFXOrchestrator.toggleProfiler(enable);
