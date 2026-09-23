@@ -3265,7 +3265,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "CON +1MEN +1",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "CON +1、MEN +1。",
+        "desc": "體質 +1、精神 +1。",
         "balance": {
             "mpCost": 15,
             "pwr": 20,
@@ -14271,7 +14271,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "P. Atk. +10%",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "P.Atk +10%。",
+        "desc": "物理攻擊 +10%。",
         "balance": {
             "mpCost": 10,
             "pwr": 1,
@@ -14333,7 +14333,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "PvP effectP. Atk. -740, P. Def. -740PvE effectP. Atk. -300, P. Def. -23%",
         "canonicalCooldown": "40 sec.",
         "canonicalCooldownMs": 40000,
-        "desc": "PvP：P.Atk -740、P.Def -740；PvE：P.Atk -300、P.Def -23%。",
+        "desc": "玩家對戰：物理攻擊 -740、物理防禦 -740；對怪物戰鬥：物理攻擊 -300、物理防禦 -23%。",
         "balance": {
             "mpCost": 10,
             "pwr": 2,
@@ -18422,7 +18422,7 @@ export const CANONICAL_SKILL_REGISTRY_V2 = Object.freeze({
         "canonicalEffect": "M. Atk. -70%P. Atk. +100%",
         "canonicalCooldown": "10 sec.",
         "canonicalCooldownMs": 10000,
-        "desc": "M.Atk -70%、P.Atk +100%。",
+        "desc": "魔法攻擊 -70%、物理攻擊 +100%。",
         "balance": {
             "mpCost": 65,
             "pwr": 7,
