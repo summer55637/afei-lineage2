@@ -1,11 +1,11 @@
-// 寵物Service.js — Gerenciador de Mascotes & 夥伴s de Batalha
+// PetService.js — Gerenciador de Mascotes & 夥伴s de Batalha
 import { PET_CATALOG } from '../data/pets.js';
 
 export const PetService = {
-  get寵物State(state) {
+  getPetState(state) {
     if (!state.petData) {
       state.petData = {
-        active寵物Id: null,
+        activePetId: null,
         pets: {},
         lastFeedTime: Date.now()
       };
@@ -13,11 +13,11 @@ export const PetService = {
     return state.petData;
   },
 
-  adopt寵物(state, petId, callbacks = {}) {
+  adoptPet(state, petId, callbacks = {}) {
     const petDef = PET_CATALOG[petId];
     if (!petDef) return { success: false, reason: 'invalid_pet' };
 
-    const pState = this.get寵物State(state);
+    const pState = this.getPetState(state);
     if (pState.pets[petId]) {
       if (callbacks.log) callbacks.log(`你已經擁有 ${petDef.name}！`, 'warning');
       return { success: false, reason: 'already_owned' };
@@ -44,8 +44,8 @@ export const PetService = {
       adoptedAt: Date.now()
     };
 
-    if (!pState.active寵物Id) {
-      pState.active寵物Id = petId;
+    if (!pState.activePetId) {
+      pState.activePetId = petId;
     }
 
     if (callbacks.log) callbacks.log(`🎉 你已領養夥伴 **${petDef.name}**！`, 'rarity-epic');
@@ -56,12 +56,12 @@ export const PetService = {
     return { success: true };
   },
 
-  summon寵物(state, petId, callbacks = {}) {
-    const pState = this.get寵物State(state);
+  summonPet(state, petId, callbacks = {}) {
+    const pState = this.getPetState(state);
     if (petId && !pState.pets[petId]) return { success: false, reason: 'not_owned' };
 
-    pState.active寵物Id = pState.active寵物Id === petId ? null : petId;
-    const active = pState.pets[pState.active寵物Id];
+    pState.activePetId = pState.activePetId === petId ? null : petId;
+    const active = pState.pets[pState.activePetId];
 
     if (callbacks.log) {
       if (active) callbacks.log(`🐾 你召喚了 **${active.name}**（等級 ${active.level}）並肩作戰！`, 'gain');
@@ -70,12 +70,12 @@ export const PetService = {
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
-    return { success: true, active寵物Id: pState.active寵物Id };
+    return { success: true, activePetId: pState.activePetId };
   },
 
-  feed寵物(state, callbacks = {}) {
-    const pState = this.get寵物State(state);
-    if (!pState.active寵物Id || !pState.pets[pState.active寵物Id]) {
+  feedPet(state, callbacks = {}) {
+    const pState = this.getPetState(state);
+    if (!pState.activePetId || !pState.pets[pState.activePetId]) {
       if (callbacks.log) callbacks.log('目前沒有可餵食的出戰寵物。', 'warning');
       return { success: false, reason: 'no_active_pet' };
     }
@@ -87,7 +87,7 @@ export const PetService = {
     }
 
     state.gold -= feedCost;
-    const pet = pState.pets[pState.active寵物Id];
+    const pet = pState.pets[pState.activePetId];
     pet.hunger = 100;
     pState.lastFeedTime = Date.now();
 
@@ -97,11 +97,11 @@ export const PetService = {
     return { success: true };
   },
 
-  add寵物Xp(state, xpAmount, callbacks = {}) {
-    const pState = this.get寵物State(state);
-    if (!pState.active寵物Id || !pState.pets[pState.active寵物Id]) return;
+  addPetXp(state, xpAmount, callbacks = {}) {
+    const pState = this.getPetState(state);
+    if (!pState.activePetId || !pState.pets[pState.activePetId]) return;
 
-    const pet = pState.pets[pState.active寵物Id];
+    const pet = pState.pets[pState.activePetId];
     if (pet.level >= 60) return; // Cap 60
 
     pet.xp = (pet.xp || 0) + Math.floor(xpAmount * 0.25); // 25% do XP do herói
@@ -115,11 +115,11 @@ export const PetService = {
     }
   },
 
-  getActive寵物Bonus(state) {
-    const pState = this.get寵物State(state);
-    if (!pState.active寵物Id || !pState.pets[pState.active寵物Id]) return null;
+  getActivePetBonus(state) {
+    const pState = this.getPetState(state);
+    if (!pState.activePetId || !pState.pets[pState.activePetId]) return null;
 
-    const pet = pState.pets[pState.active寵物Id];
+    const pet = pState.pets[pState.activePetId];
     const def = PET_CATALOG[pet.id];
     if (!def) return null;
 
