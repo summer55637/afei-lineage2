@@ -11115,7 +11115,7 @@ function renderSevenSignsMammonView(ss, state) {
       ${accessCheck.allowed ? `
         <div style="grid-column:1/-1; background:rgba(34,197,94,0.15); border:1px solid #22c55e; border-radius:8px; padding:10px 14px; font-size:12px; color:#86efac; display:flex; align-items:center; gap:8px;">
           <span>✅</span>
-          <div><strong>封印祝福已啟用：</strong>你的陣營【${({ DAWN: '黎明', DUSK: '黃昏', dawn: '黎明', dusk: '黃昏' })[ss.winnerFaction || ss.faction || 'DAWN'] || (ss.winnerFaction || ss.faction || '黎明')}】主宰本週循環！瑪門鐵匠已開放特殊能力與防具解封功能。</div>
+          <div><strong>封印祝福已啟用：</strong>你的陣營【${({ DAWN: '黎明', DUSK: '黃昏', dawn: '黎明', dusk: '黃昏' })[ss.winnerFaction || ss.faction || 'DAWN'] || '未知陣營'}】主宰本週循環！瑪門鐵匠已開放特殊能力與防具解封功能。</div>
         </div>
       ` : `
         <div style="grid-column:1/-1; background:rgba(239,68,68,0.15); border:1px solid #ef4444; border-radius:8px; padding:10px 14px; font-size:12px; color:#fca5a5; display:flex; align-items:center; gap:8px;">
