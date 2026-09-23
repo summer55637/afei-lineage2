@@ -426,29 +426,14 @@ const TIER_NAMES = ['基礎', '修練', '精通', '昇華', '傳奇'];
 
 // --------------------------- STATE ---------------------------
 let state = getState();
-// Whitelist canônica de administradores autorizados para testes e operações GM
-const AUTHORIZED_ADMIN_EMAILS = ['duuh.alaminos@gmail.com', 'eduardol.alaminos@gmail.com'];
-
+// GM access is intentionally local-only on the public single-player build.
+// A private browser-side test helper may set currentUserIsAdmin for local testing.
 function isAuthorizedAdmin() {
   if (typeof window === 'undefined') return false;
 
-  // 1. Verificação direta do status autenticado pelo Firebase Auth no shell React
   if (window.currentUserIsAdmin === true) return true;
 
-  // 2. Verificação de e-mail na whitelist autorizada
-  const email = (
-    window.currentUserEmail ||
-    window.FirebaseBridge?.getCurrentUserEmail?.() ||
-    window.lineageIdleCloud?.getCurrentUserEmail?.() ||
-    ''
-  ).toLowerCase().trim();
-
-  if (email && AUTHORIZED_ADMIN_EMAILS.includes(email)) {
-    window.currentUserIsAdmin = true;
-    return true;
-  }
-
-  // 3. Opt-in de desenvolvimento local (se configurado explicitamente)
+  // Explicit opt-in remains available only for local developer builds.
   if (typeof import.meta !== 'undefined' && import.meta.env?.DEV && import.meta.env?.VITE_ENABLE_DEV_ADMIN === 'true') {
     return true;
   }
