@@ -121,7 +121,7 @@ export class CashShopService {
       addItem('scroll_teleport', 5);
 
       if (callbacks.log) {
-        callbacks.log(`🎉 已領取 **${pack.name}**！你獲得 ${archetype === 'heavy' ? '重甲' : archetype === 'light' ? '輕甲' : archetype === 'robe' ? '法袍' : archetype} 傳承套裝（等級 1～40）、職業傳承武器與 2,000 發彈藥！`, 'system');
+        callbacks.log(`🎉 已領取 **${pack.name}**！你獲得 ${archetype === 'heavy' ? '重甲' : archetype === 'light' ? '輕甲' : archetype === 'robe' ? '法袍' : '未知類型'} 傳承套裝（等級 1～40）、職業傳承武器與 2,000 發彈藥！`, 'system');
       }
     }
 
@@ -153,7 +153,7 @@ export class CashShopService {
       state.title = '先驅者';
 
       if (callbacks.log) {
-        callbacks.log(`👑 **${pack.name}** 已啟用！獲得 ${archetype === 'heavy' ? '重甲' : archetype === 'light' ? '輕甲' : archetype === 'robe' ? '法袍' : archetype} 傳承套裝、傳承武器、5 件傳承珠寶、5,000 發彈藥與稱號 **[先驅者]**！`, 'system');
+        callbacks.log(`👑 **${pack.name}** 已啟用！獲得 ${archetype === 'heavy' ? '重甲' : archetype === 'light' ? '輕甲' : archetype === 'robe' ? '法袍' : '未知類型'} 傳承套裝、傳承武器、5 件傳承珠寶、5,000 發彈藥與稱號 **[先驅者]**！`, 'system');
       }
     }
 
@@ -202,7 +202,7 @@ export class CashShopService {
       state.activeAgathion = 'agathion_golden_dragon';
 
       if (callbacks.log) {
-        callbacks.log(`✨ **君主至尊套組已啟用！**你獲得完整的 ${archetype === 'heavy' ? '重甲' : archetype === 'light' ? '輕甲' : archetype === 'robe' ? '法袍' : archetype} 動態傳承套裝（等級 1～40）、職業傳承武器、飾品、披風、腰帶、王冠、15,000 發彈藥、30 天貴賓通行證、黃金巨龍亞加西翁，以及稱號 **【君主至尊】**！`, 'system');
+        callbacks.log(`✨ **君主至尊套組已啟用！**你獲得完整的 ${archetype === 'heavy' ? '重甲' : archetype === 'light' ? '輕甲' : archetype === 'robe' ? '法袍' : '未知類型'} 動態傳承套裝（等級 1～40）、職業傳承武器、飾品、披風、腰帶、王冠、15,000 發彈藥、30 天貴賓通行證、黃金巨龍亞加西翁，以及稱號 **【君主至尊】**！`, 'system');
       }
     }
 
