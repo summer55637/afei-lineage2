@@ -37,16 +37,6 @@ export function buyItem(state, itemId, qty = 1, rarity = 'common', callbacks = {
     if (callbacks.log) callbacks.log('金幣不足，無法購買！', 'system');
     return false;
   }
-  const reqLvl = def.req?.level || def.reqLvl || 1;
-  if (reqLvl > (state.level || 1)) {
-    if (callbacks.log) callbacks.log(`等級不足，需要等級 ${reqLvl}。`, 'system');
-    return false;
-  }
-  if (def.classReq && callbacks.classSatisfies && !callbacks.classSatisfies(state.class, def.classReq)) {
-    if (callbacks.log) callbacks.log('你的職業無法使用此物品。', 'system');
-    return false;
-  }
-
   if (!addToInventory(state, itemId, cleanQty, rarity, false, callbacks)) {
     if (callbacks.log) callbacks.log('背包已滿！請先騰出空間。', 'system');
     return false;
@@ -80,15 +70,6 @@ export function buyMysticItem(state, itemId, rarity, callbacks = {}) {
     if (callbacks.log) callbacks.log('金幣不足，無法向神秘商人購買！', 'system');
     return false;
   }
-  if (def.req && def.req.level > (state.level || 1)) {
-    if (callbacks.log) callbacks.log('等級不足，無法使用此遺物。', 'system');
-    return false;
-  }
-  if (def.classReq && callbacks.classSatisfies && !callbacks.classSatisfies(state.class, def.classReq)) {
-    if (callbacks.log) callbacks.log('你的職業無法使用此物品。', 'system');
-    return false;
-  }
-
   if (!addToInventory(state, itemId, 1, rarity, false, callbacks)) {
     if (callbacks.log) callbacks.log('背包已滿！請先騰出空間。', 'system');
     return false;
@@ -321,37 +302,13 @@ export function rerollMysticStock(state, rollStockFn, callbacks = {}) {
  */
 export function rollMysticStock(stateOrLevel) {
   const gData = D();
-  const level = typeof stateOrLevel === 'number' ? stateOrLevel : (stateOrLevel?.level || 1);
   const rarities = ['rare', 'epic', 'legendary'];
 
-  // Season Gating Canônico para o Estoque Místico:
-  // Season 1 (Lv 1-40): No-Grade, D-Grade, C-Grade
-  // Season 2 (Lv 41-80): B-Grade (52+), A-Grade (62+), S-Grade (76+)
-  // Season 3 (Lv 81+): S80, S84, Top
-  let allowedMaxGrade = 'c';
-  if (level >= 81) allowedMaxGrade = 's84';
-  else if (level >= 76) allowedMaxGrade = 's';
-  else if (level >= 62) allowedMaxGrade = 'a';
-  else if (level >= 52) allowedMaxGrade = 'b';
-  else if (level >= 40) allowedMaxGrade = 'c';
-  else if (level >= 20) allowedMaxGrade = 'd';
-  else allowedMaxGrade = 'ng';
-
-  const GRADE_ORDER = { ng: 0, d: 1, c: 2, b: 3, a: 4, s: 5, s80: 6, s84: 7 };
-  const maxGradeIdx = GRADE_ORDER[allowedMaxGrade] ?? 2;
-
+  // 商店限制已取消：神秘商店不再依角色等級、季節或品級限制商品池。
   const baseConsumables = ['scroll_of_enchant_weapon_', 'scroll_of_enchant_armor', 'scroll_of_resurrection', 'teleport_scroll'];
   const pool = gData?.MYSTIC_POOL || ["weapon_anais_first", "weapon_anakim_pistols", "jewel_ring_core"];
-
-  const filteredPool = pool.filter(id => {
-    const itDef = gData?.ALL_ITEMS?.[id];
-    if (!itDef) return false;
-    const itGrade = String(itDef.grade || 'ng').toLowerCase();
-    const gIdx = GRADE_ORDER[itGrade] ?? 0;
-    return gIdx <= maxGradeIdx;
-  });
-
-  const candidateIds = [...(filteredPool.length > 0 ? filteredPool : pool.slice(0, 3)), ...baseConsumables];
+  const candidateIds = [...new Set([...pool, ...baseConsumables])]
+    .filter(id => gData?.ALL_ITEMS?.[id]);
   const stock = [];
   const chosen = new Set();
 
