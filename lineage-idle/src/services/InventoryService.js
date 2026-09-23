@@ -166,7 +166,7 @@ export function processAutoRecycleItem(item, def, state, callbacks = {}) {
       }
     }
 
-    const matName = gData?.ALL_ITEMS?.[matId]?.name || matId;
+    const matName = gData?.ALL_ITEMS?.[matId]?.name || '未知材料';
     if (callbacks.log) {
       callbacks.log(`🔨 [掛機自動回收] ${def.name} 已分解為 +${matAmount}× ${matName}`, 'loot');
     }
@@ -885,7 +885,7 @@ export function getBatchSellPreview(state, uids) {
     items.push({
       uid: item.uid,
       itemId: item.itemId,
-      name: def.name || item.itemId,
+      name: def.name || '未知物品',
       count: itemQty,
       enchant,
       rarity: item.rarity || 'common',
@@ -959,7 +959,7 @@ export function getBatchSalvagePreview(state, uids) {
     items.push({
       uid: item.uid,
       itemId: item.itemId,
-      name: def.name || item.itemId,
+      name: def.name || '未知物品',
       rarity: item.rarity || 'common',
       enchant: Number(item.enchant) || 0,
       matId,
@@ -1051,7 +1051,7 @@ export function getCrystallizationPreview(state, uids) {
     items.push({
       uid: item.uid,
       itemId: item.itemId,
-      name: def.name || item.itemId,
+      name: def.name || '未知物品',
       rarity: item.rarity || 'common',
       enchant,
       crystalId: cId,
