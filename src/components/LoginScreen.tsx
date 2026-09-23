@@ -16,6 +16,8 @@ import {
 import { CharacterCreation, CharacterCreationData } from './CharacterCreation';
 import { getStarterKit } from '../data/starterKits';
 import { getClassIcon } from '../services/IconService';
+// @ts-expect-error 此權威職業資料表由 JavaScript 模組維護。
+import { CANONICAL_CLASS_REGISTRY } from '../../lineage-idle/src/data/classes/CanonicalClassRegistry.js';
 
 interface LoginScreenProps {
   onEnterGame: (cloudState?: any) => void;
@@ -449,7 +451,8 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
   // Dados reais do herói extraídos diretamente do Firebase
   const heroName = cloudState?.charName || cloudState?.heroName || cloudState?.name || '冒險者';
   const heroLevel = cloudState?.level || 1;
-  const heroClass = (cloudState?.class || 'FIGHTER').toUpperCase();
+  const heroClassId = String(cloudState?.class || 'fighter');
+  const heroClass = CANONICAL_CLASS_REGISTRY?.[heroClassId]?.name || '未知職業';
   const heroGold = cloudState?.gold !== undefined ? cloudState.gold : 0;
   const isPrivileged = (cloudState?.privilegeLevel || 0) >= 1;
   const highestFloor = cloudState?.tower?.highestFloor || 0;
@@ -544,7 +547,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
                     <div className="flex items-center justify-between text-[11px] text-[#c5a059] font-medium font-serif">
                       <span className="inline-flex items-center gap-1.5">
                         <img
-                          src={getClassIcon(cloudState?.class || heroClass)}
+                          src={getClassIcon(heroClassId)}
                           alt={heroClass}
                           className="w-4 h-4 object-contain rounded bg-black/60 border border-[#c5a059]/40 p-0.5"
                           onError={(e) => { e.currentTarget.style.display = 'none'; }}
@@ -567,7 +570,7 @@ export function LoginScreen({ onEnterGame }: LoginScreenProps) {
                         <div>
                           <span className="text-[#64748b]">高塔：</span>
                           <span className="text-sky-300 font-bold font-mono">
-                            🏰 F{highestFloor}
+                            🏰 第 {highestFloor} 層
                           </span>
                         </div>
                       )}
