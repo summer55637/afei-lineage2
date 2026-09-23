@@ -8,29 +8,29 @@
 export const ENCHANT_ROUTES = {
   power: {
     id: 'power',
-    name: 'Rota de Poder (Power) ⚔️',
-    desc: 'Aumenta o dano base e eficácia da habilidade em +3% por nível (+90% no +30).',
+    name: '力量路線 ⚔️',
+    desc: '每級提升技能基礎傷害與效果 3%（+30 時共 +90%）。',
     bonusPerLevel: 0.03,
     type: 'damage'
   },
   cost: {
     id: 'cost',
-    name: 'Rota de Custo (Cost) 💧',
-    desc: 'Reduz o consumo de MP da habilidade em -2.5% por nível (-75% no +30).',
+    name: '消耗路線 💧',
+    desc: '每級降低技能魔力消耗 2.5%（+30 時共 -75%）。',
     bonusPerLevel: 0.025,
     type: 'mp_cost'
   },
   chance: {
     id: 'chance',
-    name: 'Rota de Acerto & Duração (Chance/Time) 🎯',
-    desc: 'Aumenta a taxa de acerto de debuff em +2% por nível ou estende o tempo de buff.',
+    name: '命中／持續路線 🎯',
+    desc: '每級提高減益命中率 2%，或延長增益持續時間。',
     bonusPerLevel: 0.02,
     type: 'chance_duration'
   },
   element: {
     id: 'element',
-    name: 'Rota Elemental (Element) 🔥❄️',
-    desc: 'Imbui o golpe com +12 de Atributo Elemental por nível (+360 Element no +30).',
+    name: '元素路線 🔥❄️',
+    desc: '每級增加 12 點元素屬性（+30 時共 +360 元素）。',
     bonusPerLevel: 12,
     type: 'elemental_power'
   }
@@ -70,15 +70,15 @@ export function getEnchantLevelData(targetLevel) {
 export const ENCHANT_ITEMS = {
   giants_codex: {
     id: 'giants_codex',
-    name: "Giant's Codex 📜",
-    desc: "Tomo sagrado dos Gigantes de Aden. Usado para encantar habilidades de +1 a +30. Em caso de falha, o encantamento retorna a +0.",
+    name: "巨人秘典 📜",
+    desc: "亞丁巨人的神聖秘典，用於技能 +1～+30 強化；失敗時強化歸零。",
     icon: 'gradespecial/scrolls/scroll_enchant_weapon_s.png',
     price: 1500000
   },
   giants_codex_mastery: {
     id: 'giants_codex_mastery',
-    name: "Giant's Codex - Mastery 🌟",
-    desc: "Tomo supremo selado por Einhasad. Em caso de falha, o nível de encantamento atual é PRESERVADO (não reseta).",
+    name: "巨人秘典－精通 🌟",
+    desc: "由殷海薩封印的最高秘典，強化失敗時保留目前技能強化等級。",
     icon: 'gradespecial/scrolls/scroll_blessed_weapon_s.png',
     price: 5000000
   }

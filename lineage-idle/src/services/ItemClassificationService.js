@@ -194,12 +194,12 @@ export function parseEnchantScroll(itemOrDef) {
  */
 export function isItemCompatibleWithScroll(targetDef, scrollDef) {
   if (!targetDef || !isEquippableItem(targetDef)) {
-    return { ok: false, reason: 'O item alvo não é um equipamento elegível para encantamento.' };
+    return { ok: false, reason: '目標物品不是可強化的裝備。' };
   }
 
   const scrollInfo = parseEnchantScroll(scrollDef);
   if (!scrollInfo.isScroll) {
-    return { ok: false, reason: 'O item selecionado não é um pergaminho de encantamento válido.' };
+    return { ok: false, reason: '所選物品不是有效的強化卷軸。' };
   }
 
   const eqType = getEquipmentType(targetDef);
@@ -207,11 +207,11 @@ export function isItemCompatibleWithScroll(targetDef, scrollDef) {
   // Validação de Tipo de Equipamento
   if (scrollInfo.targetType === EQUIPMENT_TYPES.WEAPON) {
     if (eqType !== EQUIPMENT_TYPES.WEAPON) {
-      return { ok: false, reason: 'Este pergaminho só pode ser aplicado em Armas.' };
+      return { ok: false, reason: '此卷軸只能用於武器。' };
     }
   } else if (scrollInfo.targetType === EQUIPMENT_TYPES.ARMOR) {
     if (eqType === EQUIPMENT_TYPES.WEAPON) {
-      return { ok: false, reason: 'Este pergaminho só pode ser aplicado em Armaduras, Joias ou Escudos.' };
+      return { ok: false, reason: '此卷軸只能用於防具、珠寶或盾牌。' };
     }
   }
 
@@ -221,7 +221,7 @@ export function isItemCompatibleWithScroll(targetDef, scrollDef) {
     if (scrollInfo.grade !== itemGrade) {
       return {
         ok: false,
-        reason: `Incompatibilidade de Grau: O pergaminho é Grau ${scrollInfo.grade}, mas o item é Grau ${itemGrade}.`
+        reason: `等級不相容：卷軸為 ${scrollInfo.grade} 級，但物品為 ${itemGrade} 級。`
       };
     }
   }

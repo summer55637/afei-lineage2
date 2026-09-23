@@ -7,11 +7,11 @@ import { CharacterState } from '../models/character.model';
 
 export class CharacterService {
   private _state: CharacterState = {
-    name: 'Aventureiro',
+    name: '冒險者',
     level: 1,
     race: 'human',
     classId: 'fighter',
-    className: 'Human Fighter',
+    className: '人類戰士',
     hp: 100,
     maxHp: 100,
     mp: 50,
@@ -22,7 +22,7 @@ export class CharacterService {
     gold: 0,
     adenCoins: 0,
     isCombatActive: true,
-    activeZone: 'Talking Island',
+    activeZone: '說話之島',
     attributes: {
       atk: 10,
       def: 5,

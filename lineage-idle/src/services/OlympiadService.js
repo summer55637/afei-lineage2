@@ -1,10 +1,10 @@
 /**
- * OlympiadService.js — Motor da Grand Olympiad e Sistema de Heróis de Classe.
+ * 奧林匹亞Service.js — Motor da Grand 奧林匹亞 e Sistema de Heróis de Classe.
  *
  * Responsável por:
  * 1. Validação estrita de Nível 76+ e Status de Noblesse (`isNoblesse: true`).
  * 2. Matchmaking e resolução de combates ranqueados 1v1 no Coliseu.
- * 3. Gestão de Pontos de Ranqueamento (ELO) e Olympiad Tokens (Noblesse Gate Pass).
+ * 3. Gestão de Pontos de Ranqueamento (ELO) e 奧林匹亞 Tokens (Noblesse Gate Pass).
  * 4. Coroação de Herói (Hero Status), concessão da Aura Dourada e Armas Infinity.
  * 5. Transações comerciais na Loja de Tokens de Olimpíada.
  */
@@ -14,7 +14,7 @@ import { NoblesseService } from './NoblesseService.js';
 
 export class OlympiadService {
   /**
-   * Retorna o status completo do herói na Grand Olympiad.
+   * Retorna o status completo do herói na Grand 奧林匹亞.
    * @param {Object} state
    * @returns {Object}
    */
@@ -27,8 +27,8 @@ export class OlympiadService {
         losses: 0,
         isHero: false,
         canEnter: false,
-        reason: 'Estado inválido',
-        tierName: 'Iniciante'
+        reason: '狀態無效',
+        tierName: '新手'
       };
     }
 
@@ -39,11 +39,11 @@ export class OlympiadService {
     const losses = state.olympiadLosses ?? 0;
     const isHero = Boolean(state.isHero);
 
-    let tierName = '🛡️ Nobre Desafiante';
-    if (isHero) tierName = '👑 GRAND OLYMPIAD HERO';
-    else if (points >= 1500) tierName = '⭐ Mestre da Arena';
-    else if (points >= 1300) tierName = '⚔️ Gladiador de Elite';
-    else if (points >= 1150) tierName = '🛡️ Combatente Veterano';
+    let tierName = '🛡️ 貴族挑戰者';
+    if (isHero) tierName = '👑 大奧林匹亞英雄';
+    else if (points >= 1500) tierName = '⭐ 競技場大師';
+    else if (points >= 1300) tierName = '⚔️ 菁英鬥士';
+    else if (points >= 1150) tierName = '🛡️ 資深鬥士';
 
     return {
       points,
@@ -70,7 +70,7 @@ export class OlympiadService {
       return { ok: false, reason: status.reason };
     }
     if (state.isRaidActive) {
-      return { ok: false, reason: 'Finalize o combate de Raid Boss antes de entrar na Arena!' };
+      return { ok: false, reason: '請先結束團隊首領戰，再進入競技場！' };
     }
     return { ok: true };
   }
@@ -126,8 +126,8 @@ export class OlympiadService {
           return {
             id: chosen.id,
             name: chosen.charName,
-            title: `Lv. ${level} ${chosen.className || 'Combatente'} [Player Real 🛡️]`,
-            clanName: chosen.clanName || 'Sem Clã',
+            title: `等級 ${level} ${chosen.className || '鬥士'}【真人玩家 🛡️】`,
+            clanName: chosen.clanName || '無血盟',
             hp,
             currentHp: hp,
             atk,
@@ -139,7 +139,7 @@ export class OlympiadService {
           };
         }
       } catch (err) {
-        console.warn('[Olympiad] Falha ao carregar oponente real do Firebase, usando gladiador offline:', err);
+        console.warn('[奧林匹亞] 無法從 Firebase 載入真實對手，改用離線鬥士：', err);
       }
     }
 
@@ -148,7 +148,7 @@ export class OlympiadService {
   }
 
   /**
-   * Executa um duelo 1v1 na arena mágica da Grand Olympiad.
+   * Executa um duelo 1v1 na arena mágica da Grand 奧林匹亞.
    * @param {Object} state
    * @param {Object} callbacks
    * @returns {Promise<Object>}
@@ -162,7 +162,7 @@ export class OlympiadService {
 
     const gladiator = await this.getMatchmakingOpponent(state);
     if (callbacks.log) {
-      callbacks.log(`⚔️ [Grand Olympiad] **DUELO INICIADO:** ${state.heroName || state.charName || 'Você'} vs ${gladiator.name} (${gladiator.title})!`, gladiator.isRealPlayer ? 'rarity-legendary' : 'rarity-epic');
+      callbacks.log(`⚔️ [大奧林匹亞] **決鬥開始：** ${state.heroName || state.charName || '你'} 對戰 ${gladiator.name}（${gladiator.title}）！`, gladiator.isRealPlayer ? 'rarity-legendary' : 'rarity-epic');
     }
 
     // Atributos do Herói
@@ -187,14 +187,14 @@ export class OlympiadService {
       const heroHit = Math.max(Math.round((rawHeroDmg * (100 / (100 + gladDefense * 0.15))) * (0.9 + Math.random() * 0.2)), 50);
 
       gladHp = Math.max(0, gladHp - heroHit);
-      battleLog.push(`Round ${round}: Você causou **${heroHit.toLocaleString()}** de dano em ${gladiator.name}. (HP do Oponente: ${gladHp.toLocaleString()}/${gladiator.hp.toLocaleString()})`);
+      battleLog.push(`第 ${round} 回合：你對 ${gladiator.name} 造成 **${heroHit.toLocaleString()}** 傷害。（對手生命值：${gladHp.toLocaleString()}/${gladiator.hp.toLocaleString()}）`);
 
       if (gladHp <= 0) break;
 
       // 2. Gladiador ataca Herói
       const gladDmg = Math.max(Math.round((gladiator.atk * 1.25 * (100 / (100 + heroDef * 0.15))) * (0.85 + Math.random() * 0.3)), 40);
       heroHp = Math.max(0, heroHp - gladDmg);
-      battleLog.push(`Round ${round}: ${gladiator.name} desferiu golpe causando **${gladDmg.toLocaleString()}** de dano em você! (Seu HP: ${heroHp.toLocaleString()}/${heroHpMax.toLocaleString()})`);
+      battleLog.push(`第 ${round} 回合：${gladiator.name} 對你造成 **${gladDmg.toLocaleString()}** 傷害！（你的生命值：${heroHp.toLocaleString()}/${heroHpMax.toLocaleString()}）`);
 
       round++;
     }
@@ -210,14 +210,14 @@ export class OlympiadService {
       state.olympiadWins = (state.olympiadWins ?? 0) + 1;
 
       if (callbacks.log) {
-        callbacks.log(`🏆 **VITÓRIA GLORIOSA NA GRAND OLYMPIAD!**`, 'rarity-legendary');
-        callbacks.log(`Você derrotou ${gladiator.name}! Ganhou **+${pointsGained} Pontos de Olimpíada** e **+${tokensGained} Olympiad Tokens**!`, 'rarity-epic');
+        callbacks.log(`🏆 **大奧林匹亞榮耀勝利！**`, 'rarity-legendary');
+        callbacks.log(`你擊敗了 ${gladiator.name}！獲得 **+${pointsGained} 奧林匹亞積分** 與 **+${tokensGained} 奧林匹亞代幣**！`, 'rarity-epic');
       }
 
       // Checagem de Elegibilidade para HERO
       if (state.olympiadPoints >= 1500 && !state.isHero) {
         if (callbacks.log) {
-          callbacks.log('👑✨ **VOCÊ ATINGIU PONTUAÇÃO DE HERÓI (1500+ PONTOS)!** Reivindique sua coroa no Monumento de Heróis!', 'rarity-legendary');
+          callbacks.log('👑✨ **你已達到英雄積分門檻（1500+）！** 到英雄紀念碑領取王冠！', 'rarity-legendary');
         }
       }
 
@@ -240,7 +240,7 @@ export class OlympiadService {
       state.olympiadLosses = (state.olympiadLosses ?? 0) + 1;
 
       if (callbacks.log) {
-        callbacks.log(`💀 **DERROTA NA ARENA.** ${gladiator.name} venceu o duelo. (-${pointsLost} Pontos, +${tokensGained} Tokens de consolação)`, 'system');
+        callbacks.log(`💀 **競技場敗北。** ${gladiator.name} 贏得決鬥。（-${pointsLost} 積分，+${tokensGained} 安慰代幣）`, 'system');
       }
 
       if (callbacks.onUpdate) callbacks.onUpdate();
@@ -257,7 +257,7 @@ export class OlympiadService {
   }
 
   /**
-   * Consagra o jogador como HERÓI DE CLASSE (Grand Olympiad Hero).
+   * Consagra o jogador como HERÓI DE CLASSE (Grand 奧林匹亞 Hero).
    * @param {Object} state
    * @param {string} infinityWeaponId
    * @param {Object} callbacks
@@ -267,12 +267,12 @@ export class OlympiadService {
     if (!state) return false;
     const points = state.olympiadPoints ?? 1000;
     if (points < 1500) {
-      if (callbacks.log) callbacks.log('❌ Requer pelo menos 1.500 Pontos de Olimpíada para ser coroado Herói!', 'system');
+      if (callbacks.log) callbacks.log('❌ 至少需要 1,500 奧林匹亞積分才能加冕為英雄！', 'system');
       return false;
     }
 
     state.isHero = true;
-    state.heroTitle = 'Grand Olympiad Hero 👑';
+    state.heroTitle = '大奧林匹亞英雄 👑';
     state.heroAura = 'golden_hero_aura';
 
     // Adiciona as 4 Habilidades Heroicas
@@ -294,8 +294,8 @@ export class OlympiadService {
     });
 
     if (callbacks.log) {
-      callbacks.log('👑🌟 **COROAÇÃO DE HERÓI SUPREMO DE ADEN!** 🌟👑', 'rarity-legendary');
-      callbacks.log(`Você recebeu a **Aura Dourada Cintilante**, as 4 **Habilidades Heroicas** e a **${weaponDef.name}**!`, 'rarity-legendary');
+      callbacks.log('👑🌟 **亞丁至尊英雄加冕！** 🌟👑', 'rarity-legendary');
+      callbacks.log(`你獲得了 **閃耀金色光環**、4 項 **英雄技能** 與 **${weaponDef.name}**！`, 'rarity-legendary');
     }
 
     if (callbacks.onUpdate) callbacks.onUpdate();
@@ -313,13 +313,13 @@ export class OlympiadService {
     if (!state || !itemId) return false;
     const item = OLYMPIAD_SHOP_CATALOG.find(i => i.id === itemId);
     if (!item) {
-      if (callbacks.log) callbacks.log('❌ Item de Olimpíada não encontrado!', 'system');
+      if (callbacks.log) callbacks.log('❌ 找不到奧林匹亞物品！', 'system');
       return false;
     }
 
     const currentTokens = state.olympiadTokens ?? 0;
     if (currentTokens < item.priceTokens) {
-      if (callbacks.log) callbacks.log(`❌ Olympiad Tokens insuficientes! Necessário: ${item.priceTokens} (Você tem: ${currentTokens})`, 'system');
+      if (callbacks.log) callbacks.log(`❌ 奧林匹亞代幣不足！需要：${item.priceTokens}（目前擁有：${currentTokens}）`, 'system');
       return false;
     }
 
@@ -335,7 +335,7 @@ export class OlympiadService {
     });
 
     if (callbacks.log) {
-      callbacks.log(`🛍️ **Compra Concluída:** Você adquiriu **${item.name}** por ${item.priceTokens} Tokens de Olimpíada!`, 'rarity-epic');
+      callbacks.log(`🛍️ **購買完成：**你以 ${item.priceTokens} 奧林匹亞代幣購買了 **${item.name}**！`, 'rarity-epic');
     }
 
     if (callbacks.onUpdate) callbacks.onUpdate();

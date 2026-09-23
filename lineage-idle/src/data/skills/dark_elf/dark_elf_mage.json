@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "hurricane",
-        "name": "Furacão",
+        "name": "颶風",
         "classId": "dark_elf_mage",
         "race": "dark_elf",
         "tier": "core_1",
@@ -14,7 +14,7 @@
         "tags": [
           "Wind"
         ],
-        "description": "Furacão — Habilidade Especialista de dark_elf_mage."
+        "description": "颶風——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -166,7 +166,7 @@
     {
       "identity": {
         "id": "chain_lightning",
-        "name": "Corrente de Raios",
+        "name": "連鎖閃電",
         "classId": "dark_elf_mage",
         "race": "dark_elf",
         "tier": "core_2",
@@ -176,7 +176,7 @@
         "tags": [
           "Lightning"
         ],
-        "description": "Corrente de Raios — Habilidade Especialista de dark_elf_mage."
+        "description": "連鎖閃電——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -328,7 +328,7 @@
     {
       "identity": {
         "id": "curse_of_shadow",
-        "name": "Maldição das Sombras",
+        "name": "暗影詛咒",
         "classId": "dark_elf_mage",
         "race": "dark_elf",
         "tier": "specialization",
@@ -338,7 +338,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Maldição das Sombras — Habilidade Especialista de dark_elf_mage."
+        "description": "暗影詛咒——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -490,7 +490,7 @@
     {
       "identity": {
         "id": "gale_slash",
-        "name": "Corte de Rajada",
+        "name": "烈風斬",
         "classId": "dark_elf_mage",
         "race": "dark_elf",
         "tier": "elemental_specialization",
@@ -500,7 +500,7 @@
         "tags": [
           "Wind"
         ],
-        "description": "Corte de Rajada — Habilidade Especialista de dark_elf_mage."
+        "description": "烈風斬——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -670,7 +670,7 @@
     {
       "identity": {
         "id": "tempest_of_the_abyss",
-        "name": "Tempest of the Abyss",
+        "name": "深淵風暴",
         "classId": "dark_elf_mage",
         "race": "dark_elf",
         "tier": "ultimate",
@@ -680,7 +680,7 @@
         "tags": [
           "Wind"
         ],
-        "description": "Tempest of the Abyss — Habilidade Ultimate (★★★★) de dark_elf_mage."
+        "description": "深淵風暴——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -865,7 +865,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "TEMPEST OF THE ABYSS!",
+          "text": "深淵風暴！",
           "style": "gold_banner",
           "banner": true
         }
@@ -886,7 +886,7 @@
     {
       "identity": {
         "id": "master_tempest_of_the_abyss",
-        "name": "Master: Tempest of the Abyss",
+        "name": "大師：深淵風暴",
         "classId": "dark_elf_mage",
         "race": "dark_elf",
         "tier": "master_ultimate",
@@ -896,7 +896,7 @@
         "tags": [
           "Wind"
         ],
-        "description": "Master: Tempest of the Abyss — Habilidade Master Ultimate (★★★★★) de dark_elf_mage."
+        "description": "大師：深淵風暴——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1082,7 +1082,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: TEMPEST OF THE ABYSS!",
+          "text": "大師：深淵風暴！",
           "style": "mythic_banner",
           "banner": true
         }

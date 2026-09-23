@@ -5,7 +5,7 @@
 export const ACTIVE_SKILLS = {
   power_strike_f: {
     id: "power_strike_f",
-    name: "Power Strike",
+    name: "強力打擊",
     type: "active",
     rarity: "1★",
     cost: 5,
@@ -16,11 +16,11 @@ export const ACTIVE_SKILLS = {
     pwr: 30,
     effect: "dmg",
     baseCd: 5000,
-    info: "Golpe físico concentrado causando 150% de dano."
+    info: "集中力量造成 150% 物理傷害的重擊。"
   },
   mortal_blow: {
     id: "mortal_blow",
-    name: "Mortal Blow",
+    name: "致命刺擊",
     type: "active",
     rarity: "1★",
     cost: 5,
@@ -31,11 +31,11 @@ export const ACTIVE_SKILLS = {
     pwr: 35,
     effect: "dmg",
     baseCd: 6000,
-    info: "Golpe com adaga e chance de dano crítico elevada."
+    info: "以匕首發動攻擊，具有較高的暴擊傷害機率。"
   },
   stun_attack: {
     id: "stun_attack",
-    name: "Stun Attack",
+    name: "暈眩攻擊",
     type: "active",
     rarity: "2★",
     cost: 15,
@@ -46,11 +46,11 @@ export const ACTIVE_SKILLS = {
     pwr: 28,
     effect: "stun",
     baseCd: 8000,
-    info: "Ataque pesado que causa 175% de dano e atordoa por 3s."
+    info: "重擊造成 175% 傷害，並使目標暈眩 3 秒。"
   },
   triple_slash: {
     id: "triple_slash",
-    name: "Triple Slash",
+    name: "三連斬",
     type: "active",
     rarity: "2★",
     cost: 15,
@@ -61,11 +61,11 @@ export const ACTIVE_SKILLS = {
     pwr: 40,
     effect: "dmg",
     baseCd: 4000,
-    info: "Três cortes consecutivos com lâminas duplas."
+    info: "以雙刃連續斬擊三次。"
   },
   sonicBlasterG: {
     id: "sonicBlasterG",
-    name: "Sonic Blaster",
+    name: "音速爆擊",
     type: "active",
     rarity: "2★",
     cost: 20,
@@ -76,11 +76,11 @@ export const ACTIVE_SKILLS = {
     pwr: 55,
     effect: "dmg",
     baseCd: 6000,
-    info: "Lança uma onda sônica cortante à distância."
+    info: "從遠距離釋放切裂型音速波。"
   },
   wind_strike: {
     id: "wind_strike",
-    name: "Wind Strike",
+    name: "風之打擊",
     type: "active",
     rarity: "1★",
     cost: 5,
@@ -91,11 +91,11 @@ export const ACTIVE_SKILLS = {
     pwr: 25,
     effect: "dmg",
     baseCd: 3500,
-    info: "Lança uma lâmina de vento mágica contra o inimigo."
+    info: "向敵人射出魔法風刃。"
   },
   energy_bolt_m: {
     id: "energy_bolt_m",
-    name: "Energy Bolt",
+    name: "能量箭",
     type: "active",
     rarity: "1★",
     cost: 5,
@@ -106,11 +106,11 @@ export const ACTIVE_SKILLS = {
     pwr: 28,
     effect: "dmg",
     baseCd: 3000,
-    info: "Dispara uma esfera de energia arcana pura."
+    info: "發射純粹秘法能量球。"
   },
   prominence: {
     id: "prominence",
-    name: "Prominence",
+    name: "烈焰之柱",
     type: "active",
     rarity: "2★",
     cost: 15,
@@ -121,11 +121,11 @@ export const ACTIVE_SKILLS = {
     pwr: 60,
     effect: "dmg",
     baseCd: 5500,
-    info: "Invoca uma coluna de fogo solar devastadora."
+    info: "召喚毀滅性的太陽火柱。"
   },
   hydro_blast: {
     id: "hydro_blast",
-    name: "Hydro Blast",
+    name: "水流爆擊",
     type: "active",
     rarity: "2★",
     cost: 15,
@@ -136,11 +136,11 @@ export const ACTIVE_SKILLS = {
     pwr: 58,
     effect: "dmg",
     baseCd: 4500,
-    info: "Disparo concentrado de água sob alta pressão."
+    info: "發射高壓集中的水流衝擊。"
   },
   death_spike_n: {
     id: "death_spike_n",
-    name: "Death Spike",
+    name: "死亡尖刺",
     type: "active",
     rarity: "2★",
     cost: 15,
@@ -151,11 +151,11 @@ export const ACTIVE_SKILLS = {
     pwr: 62,
     effect: "dmg",
     baseCd: 6000,
-    info: "Dispara um osso das sombras impregnado de maldição."
+    info: "射出帶有詛咒力量的暗影骨刺。"
   },
   self_heal: {
     id: "self_heal",
-    name: "Self Heal",
+    name: "自我治癒",
     type: "active",
     rarity: "1★",
     cost: 5,
@@ -166,6 +166,6 @@ export const ACTIVE_SKILLS = {
     pwr: 0,
     effect: "heal",
     baseCd: 12000,
-    info: "Restaura 25% do HP máximo do personagem."
+    info: "恢復角色最大生命值的 25%。"
   }
 };

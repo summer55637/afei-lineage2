@@ -10,8 +10,8 @@
 export const RAID_BOSS_BALANCE = {
   queen_ant: {
     id: 'queen_ant',
-    name: 'Queen Ant 👑',
-    title: 'Rainha dos Ermos de Gludio',
+    name: '蟻后 👑',
+    title: '古魯丁荒野女王',
     lvl: 40,
     reqLvl: 30,
     minimumCP: 7750,
@@ -27,14 +27,14 @@ export const RAID_BOSS_BALANCE = {
     sp: 350,
     gold: [15000, 30000],
     fatalSkill: {
-      name: 'Erupção de Feromônio Ácido',
+      name: '酸性費洛蒙爆發',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.30
     },
     mechanics: [
-      { name: 'Nuvem de Veneno Corrosivo', triggerHp: 0.75, damagePercent: 0.10, text: '⚠️ Queen Ant liberou Nuvem de Veneno Ácido!' },
-      { name: 'Chamado das Formigas Nutrizes', triggerHp: 0.35, healPercent: 0.10, text: '✨ Formigas Nutrizes curaram a Rainha em +10% HP!' }
+      { name: '腐蝕毒雲', triggerHp: 0.75, damagePercent: 0.10, text: '⚠️ 蟻后釋放了酸性毒雲！' },
+      { name: '護理蟻召喚', triggerHp: 0.35, healPercent: 0.10, text: '✨ 護理蟻為女王恢復了 10% 生命值！' }
     ],
     targetMetrics: {
       ttkMin: 40,      // Early Epic Canonical TTK
@@ -45,8 +45,8 @@ export const RAID_BOSS_BALANCE = {
 
   core: {
     id: 'core',
-    name: 'Core da Torre Cruma 🔮',
-    title: 'Núcleo Arcano da Civilização Antiga',
+    name: '克魯瑪之塔核心 🔮',
+    title: '古代文明的秘法核心',
     lvl: 50,
     reqLvl: 45,
     minimumCP: 13000,
@@ -62,22 +62,22 @@ export const RAID_BOSS_BALANCE = {
     sp: 650,
     gold: [35000, 65000],
     fatalSkill: {
-      name: 'Cataclismo Quântico de Plasma',
+      name: '量子電漿浩劫',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.30
     },
     mechanics: [
-      { name: 'Barreira Eletromagnética', triggerHp: 0.60, damagePercent: 0.12, text: '⚡ Core ativou Barreira Refletiva causando choque em área!' },
-      { name: 'Sobrecarga de Plasma', triggerHp: 0.25, damagePercent: 0.15, text: '💥 Sobrecarga de Plasma de Alta Voltagem disparada!' }
+      { name: '電磁屏障', triggerHp: 0.60, damagePercent: 0.12, text: '⚡ 核心啟動反射屏障，造成範圍電擊！' },
+      { name: '電漿超載', triggerHp: 0.25, damagePercent: 0.15, text: '💥 高壓電漿超載已觸發！' }
     ],
     targetMetrics: { ttkMin: 60, ttkMax: 120, ttdBase: 35 }
   },
 
   orfen: {
     id: 'orfen',
-    name: 'Orfen das Sombras 🕷️',
-    title: 'Senhora do Mar de Esporos',
+    name: '暗影歐爾芬 🕷️',
+    title: '孢子之海女王',
     lvl: 55,
     reqLvl: 50,
     minimumCP: 18000,
@@ -93,22 +93,22 @@ export const RAID_BOSS_BALANCE = {
     sp: 950,
     gold: [50000, 95000],
     fatalSkill: {
-      name: 'Esporo Mortal Devorador de Almas',
+      name: '噬魂致命孢子',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.32
     },
     mechanics: [
-      { name: 'Névoa Alucinógena de Esporos', triggerHp: 0.70, damagePercent: 0.12, text: '🌫️ Orfen cobriu a arena com Névoa Venenosa de Esporos!' },
-      { name: 'Teletransporte para o Ninho', triggerHp: 0.30, healPercent: 0.10, text: '🕷️ Orfen recuou para as sombras e regenerou +10% de HP!' }
+      { name: '致幻孢子霧', triggerHp: 0.70, damagePercent: 0.12, text: '🌫️ 歐爾芬以劇毒孢子霧籠罩競技場！' },
+      { name: '瞬移回巢', triggerHp: 0.30, healPercent: 0.10, text: '🕷️ 歐爾芬退入暗影並恢復了 10% 生命值！' }
     ],
     targetMetrics: { ttkMin: 60, ttkMax: 120, ttdBase: 35 }
   },
 
   zaken: {
     id: 'zaken',
-    name: 'Capitão Zaken 🏴‍☠️',
-    title: 'Senhor Imortal da Ilha do Diabo',
+    name: '札肯船長 🏴‍☠️',
+    title: '惡魔島的不死領主',
     lvl: 60,
     reqLvl: 55,
     minimumCP: 24000,
@@ -124,22 +124,22 @@ export const RAID_BOSS_BALANCE = {
     sp: 1600,
     gold: [80000, 160000],
     fatalSkill: {
-      name: 'Valsa Sangrenta das Trevas Eternas',
+      name: '永恆黑暗血色華爾滋',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.32
     },
     mechanics: [
-      { name: 'Passo das Sombras', triggerHp: 0.65, damagePercent: 0.14, text: '🌑 Zaken se desmaterializou nas sombras e atacou pelas costas!' },
-      { name: 'Banquete de Sangue Vampírico', triggerHp: 0.30, healPercent: 0.10, damagePercent: 0.10, text: '🩸 Banquete de Sangue: Zaken drenou sua vida!' }
+      { name: '暗影步', triggerHp: 0.65, damagePercent: 0.14, text: '🌑 札肯融入暗影並從背後發動攻擊！' },
+      { name: '吸血盛宴', triggerHp: 0.30, healPercent: 0.10, damagePercent: 0.10, text: '🩸 吸血盛宴：札肯吸取了你的生命！' }
     ],
     targetMetrics: { ttkMin: 60, ttkMax: 120, ttdBase: 32 }
   },
 
   barakiel: {
     id: 'barakiel',
-    name: 'Flame of Splendor Barakiel 🔥',
-    title: 'Nobre Guardião Sagrado de Goddard',
+    name: '光輝烈焰巴拉基艾爾 🔥',
+    title: '高達特高貴的神聖守護者',
     lvl: 75,
     reqLvl: 75,
     minimumCP: 40000,
@@ -155,21 +155,21 @@ export const RAID_BOSS_BALANCE = {
     sp: 2800,
     gold: [150000, 300000],
     fatalSkill: {
-      name: 'Chama Nobre da Purificação',
+      name: '高貴淨化之炎',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.32
     },
     mechanics: [
-      { name: 'Aura Radiante', triggerHp: 0.50, damagePercent: 0.15, text: '🌟 Barakiel libera a Chama Nobre Sagrada!' }
+      { name: '光輝靈氣', triggerHp: 0.50, damagePercent: 0.15, text: '🌟 巴拉基艾爾釋放神聖高貴之炎！' }
     ],
     targetMetrics: { ttkMin: 75, ttkMax: 150, ttdBase: 32 }
   },
 
   baium: {
     id: 'baium',
-    name: 'Imperador Baium ⚡',
-    title: 'Soberano da Torre da Insolência',
+    name: '巴溫皇帝 ⚡',
+    title: '傲慢之塔君王',
     lvl: 75,
     reqLvl: 70,
     minimumCP: 45000,
@@ -185,22 +185,22 @@ export const RAID_BOSS_BALANCE = {
     sp: 3200,
     gold: [180000, 360000],
     fatalSkill: {
-      name: 'Juízo do Titã Imperial',
+      name: '帝國泰坦審判',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.35
     },
     mechanics: [
-      { name: 'Punho Esmagador dos Trovões', triggerHp: 0.70, damagePercent: 0.15, text: '⚡ Baium desferiu o Punho Esmagador dos Trovões!' },
-      { name: 'Fúria da Divindade Aprisionada', triggerHp: 0.30, damagePercent: 0.18, text: '🌩️ Fúria Imperial: Baium aumentou seu poder de ataque massivamente!' }
+      { name: '雷霆粉碎拳', triggerHp: 0.70, damagePercent: 0.15, text: '⚡ 巴溫施展了雷霆粉碎拳！' },
+      { name: '被囚神祇之怒', triggerHp: 0.30, damagePercent: 0.18, text: '🌩️ 帝王之怒：巴溫大幅提升了攻擊力！' }
     ],
     targetMetrics: { ttkMin: 75, ttkMax: 150, ttdBase: 30 }
   },
 
   frintezza: {
     id: 'frintezza',
-    name: 'Príncipe Frintezza & Halisha 🎻',
-    title: 'Maestro do Sepulcro Imperial',
+    name: '弗林特莎王子與哈里夏 🎻',
+    title: '帝國陵墓樂章大師',
     lvl: 85,
     reqLvl: 80,
     minimumCP: 60000,
@@ -216,22 +216,22 @@ export const RAID_BOSS_BALANCE = {
     sp: 5800,
     gold: [350000, 700000],
     fatalSkill: {
-      name: 'Sinfonia Apocalíptica de Halisha',
+      name: '哈里夏末日交響曲',
       triggerHps: [0.50, 0.25],
       duration: 5000,
       damageHeroPercent: 0.35
     },
     mechanics: [
-      { name: 'Réquiem da Hipnose', triggerHp: 0.65, damagePercent: 0.14, text: '🎼 A melodia de Frintezza confunde seus sentidos!' },
-      { name: 'Transformação Demoníaca de Halisha', triggerHp: 0.25, damagePercent: 0.18, text: '👹 Scarlet van Halisha assume sua Forma de Demônio Alado!' }
+      { name: '催眠安魂曲', triggerHp: 0.65, damagePercent: 0.14, text: '🎼 弗林特莎的旋律擾亂了你的感官！' },
+      { name: '哈里夏惡魔變身', triggerHp: 0.25, damagePercent: 0.18, text: '👹 史卡雷特・馮・哈里夏化身為翼魔形態！' }
     ],
     targetMetrics: { ttkMin: 75, ttkMax: 150, ttdBase: 28 }
   },
 
   antharas: {
     id: 'antharas',
-    name: 'Dragão da Terra Antharas 🐉',
-    title: 'Senhor dos Abismos Subterrâneos',
+    name: '地龍安塔瑞斯 🐉',
+    title: '地下深淵之主',
     lvl: 95,
     reqLvl: 85,
     minimumCP: 80000,
@@ -247,22 +247,22 @@ export const RAID_BOSS_BALANCE = {
     sp: 12000,
     gold: [700000, 1400000],
     fatalSkill: {
-      name: 'Colapso Geológico Ancestral',
+      name: '遠古地脈崩裂',
       triggerHps: [0.50, 0.20],
       duration: 5000,
       damageHeroPercent: 0.35
     },
     mechanics: [
-      { name: 'Terremoto Fóssil', triggerHp: 0.70, damagePercent: 0.14, text: '🌋 Terremoto Fóssil: O chão estremece causando dano maciço!' },
-      { name: 'Rugido do Pavor Ancestral', triggerHp: 0.35, damagePercent: 0.16, text: '🐉 Rugido Aterrorizante de Antharas rompe as defesas!' }
+      { name: '化石地震', triggerHp: 0.70, damagePercent: 0.14, text: '🌋 化石地震：地面劇烈震動，造成巨大傷害！' },
+      { name: '遠古恐懼咆哮', triggerHp: 0.35, damagePercent: 0.16, text: '🐉 安塔瑞斯的恐懼咆哮撕裂了防禦！' }
     ],
     targetMetrics: { ttkMin: 90, ttkMax: 180, ttdBase: 25 }
   },
 
   valakas: {
     id: 'valakas',
-    name: 'Dragão do Fogo Valakas 🔥',
-    title: 'Senhor Supremo do Vulcão Forja dos Deuses',
+    name: '火龍巴拉卡斯 🔥',
+    title: '諸神熔爐火山的至高領主',
     lvl: 100,
     reqLvl: 90,
     minimumCP: 105000,
@@ -278,14 +278,14 @@ export const RAID_BOSS_BALANCE = {
     sp: 25000,
     gold: [1500000, 3000000],
     fatalSkill: {
-      name: 'Meteoro da Extinção Dracônica',
+      name: '龍族滅絕隕石',
       triggerHps: [0.50, 0.20],
       duration: 5000,
       damageHeroPercent: 0.35
     },
     mechanics: [
-      { name: 'Sopro Infernal', triggerHp: 0.70, damagePercent: 0.12, text: '🔥 Sopro de Fogo Primordial reduz defesas a cinzas!' },
-      { name: 'Inferno Vulcânico', triggerHp: 0.35, damagePercent: 0.14, text: '🌋 Vulcão entra em Erupção Máxima!' }
+      { name: '煉獄吐息', triggerHp: 0.70, damagePercent: 0.12, text: '🔥 太古火焰吐息將防禦焚燒殆盡！' },
+      { name: '火山煉獄', triggerHp: 0.35, damagePercent: 0.14, text: '🌋 火山進入最大規模爆發！' }
     ],
     targetMetrics: { ttkMin: 90, ttkMax: 180, ttdBase: 22 }
   }

@@ -11,128 +11,128 @@ export const HEIRLOOM_ITEMS = {
   // ─── ARMAS DE HERANÇA (HEIRLOOM WEAPONS) ───────────────────────────────────
   weapon_heirloom_sword: {
     id: 'weapon_heirloom_sword',
-    name: 'Espada de Herança do Lorde',
+    name: '領主傳承之劍',
     slot: 'weapon',
     weaponType: 'sword',
     rarity: 'heirloom',
     tier: 3, // Grade C na maturidade plena
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Espada ancestral que evolui em poder com o crescimento do seu portador do Nível 1 ao 40.',
+    desc: '會隨持有者從等級 1 成長至 40 而逐步提升力量的古代長劍。',
     icon: 'gradec/weapons/weapon_samurai_longsword.png',
     base: { atk: 138, crit: 8, hit: 12 },
     heirloomScaling: {
-      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 38, crit: 5, hit: 5 }, label: 'No-Grade Superior (+50%)' },
-      phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 85, crit: 7, hit: 8 }, label: 'D-Grade Superior (+50%)' },
-      phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 138, crit: 8, hit: 12, enchantGlow: true }, label: 'C-Grade Pleno (+4 Glow)' }
+      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 38, crit: 5, hit: 5 }, label: '高階 無等級（+50%）' },
+      phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 85, crit: 7, hit: 8 }, label: '高階 D 級（+50%）' },
+      phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 138, crit: 8, hit: 12, enchantGlow: true }, label: '完整 C 級（+4 光效）' }
     }
   },
   weapon_heirloom_spear: {
     id: 'weapon_heirloom_spear',
-    name: 'Lança de Herança do Vanguarda',
+    name: '先鋒傳承長槍',
     slot: 'weapon',
     weaponType: 'spear',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Lança lendária de montaria que se fortalece conforme o herói avança de nível (Lv. 1 ao 40).',
+    desc: '會隨英雄等級提升而成長的傳說騎戰長槍（等級 1～40）。',
     icon: 'gradec/weapons/weapon_spiked_spear.png',
     base: { atk: 138, crit: 6, hit: 10, aoeTargets: 4 },
     heirloomScaling: {
-      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 38, crit: 4, hit: 4, aoeTargets: 2 }, label: 'No-Grade Superior (+50%)' },
-      phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 85, crit: 5, hit: 7, aoeTargets: 3 }, label: 'D-Grade Superior (+50%)' },
-      phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 138, crit: 6, hit: 10, aoeTargets: 4, enchantGlow: true }, label: 'C-Grade Pleno (+4 Glow)' }
+      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 38, crit: 4, hit: 4, aoeTargets: 2 }, label: '高階 無等級（+50%）' },
+      phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 85, crit: 5, hit: 7, aoeTargets: 3 }, label: '高階 D 級（+50%）' },
+      phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 138, crit: 6, hit: 10, aoeTargets: 4, enchantGlow: true }, label: '完整 C 級（+4 光效）' }
     }
   },
   weapon_heirloom_dagger: {
     id: 'weapon_heirloom_dagger',
-    name: 'Adaga de Herança das Sombras',
+    name: '暗影傳承匕首',
     slot: 'weapon',
     weaponType: 'dagger',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Lâmina precisa forjada em aço estelar que amplia a letalidade do portador (Lv. 1 ao 40).',
+    desc: '以星辰鋼鍛造的精準刀刃，會隨等級 1～40 成長並提升致命能力。',
     icon: 'gradec/weapons/weapon_darkelven_dagger.png',
     base: { atk: 118, crit: 18, hit: 15, eva: 8 },
     heirloomScaling: {
-      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 32, crit: 10, hit: 6, eva: 3 }, label: 'No-Grade Superior (+50%)' },
-      phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 72, crit: 14, hit: 10, eva: 5 }, label: 'D-Grade Superior (+50%)' },
-      phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 118, crit: 18, hit: 15, eva: 8, enchantGlow: true }, label: 'C-Grade Pleno (+4 Glow)' }
+      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 32, crit: 10, hit: 6, eva: 3 }, label: '高階 無等級（+50%）' },
+      phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 72, crit: 14, hit: 10, eva: 5 }, label: '高階 D 級（+50%）' },
+      phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 118, crit: 18, hit: 15, eva: 8, enchantGlow: true }, label: '完整 C 級（+4 光效）' }
     }
   },
   weapon_heirloom_bow: {
     id: 'weapon_heirloom_bow',
-    name: 'Arco de Herança da Floresta',
+    name: '森林傳承之弓',
     slot: 'weapon',
     weaponType: 'bow',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Arco flexível entalhado em madeira élfica sagrada que dispara flechas com força crescente.',
+    desc: '以神聖精靈木雕製的柔韌長弓，箭矢威力會持續成長。',
     icon: 'gradec/weapons/weapon_eminence_bow.png',
     base: { atk: 168, crit: 15, hit: 14 },
     heirloomScaling: {
-      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 45, crit: 8, hit: 5 }, label: 'No-Grade Superior (+50%)' },
-      phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 105, crit: 12, hit: 9 }, label: 'D-Grade Superior (+50%)' },
-      phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 168, crit: 15, hit: 14, enchantGlow: true }, label: 'C-Grade Pleno (+4 Glow)' }
+      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 45, crit: 8, hit: 5 }, label: '高階 無等級（+50%）' },
+      phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 105, crit: 12, hit: 9 }, label: '高階 D 級（+50%）' },
+      phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 168, crit: 15, hit: 14, enchantGlow: true }, label: '完整 C 級（+4 光效）' }
     }
   },
   weapon_heirloom_staff: {
     id: 'weapon_heirloom_staff',
-    name: 'Cajado de Herança do Arcano',
+    name: '奧術傳承法杖',
     slot: 'weapon',
     weaponType: 'staff',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Cajado ornado com cristal arcano que amplifica a potência dos feitiços mágicos.',
+    desc: '鑲嵌奧術水晶的法杖，可強化魔法威力。',
     icon: 'gradec/weapons/weapon_crystal_staff.png',
     base: { atk: 68, matk: 165, mdef: 18, mp: 80 },
     heirloomScaling: {
-      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 18, matk: 45, mdef: 6, mp: 20 }, label: 'No-Grade Superior (+50%)' },
-      phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 42, matk: 102, mdef: 12, mp: 45 }, label: 'D-Grade Superior (+50%)' },
-      phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 68, matk: 165, mdef: 18, mp: 80, enchantGlow: true }, label: 'C-Grade Pleno (+4 Glow)' }
+      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 18, matk: 45, mdef: 6, mp: 20 }, label: '高階 無等級（+50%）' },
+      phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 42, matk: 102, mdef: 12, mp: 45 }, label: '高階 D 級（+50%）' },
+      phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 68, matk: 165, mdef: 18, mp: 80, enchantGlow: true }, label: '完整 C 級（+4 光效）' }
     }
   },
   weapon_heirloom_duals: {
     id: 'weapon_heirloom_duals',
-    name: 'Espadas Duplas de Herança do Gladiador',
+    name: '角鬥士傳承雙劍',
     slot: 'weapon',
     weaponType: 'dual_sword',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Par de lâminas forjadas para guerreiros velozes que desferem golpes duplos mortais.',
+    desc: '為高速戰士鍛造的雙刃武器，可施展致命連斬。',
     icon: 'gradec/weapons/weapon_dual_revolution_sword.png',
     base: { atk: 148, crit: 10, hit: 12 },
     heirloomScaling: {
-      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 40, crit: 6, hit: 5 }, label: 'No-Grade Superior (+50%)' },
-      phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 92, crit: 8, hit: 8 }, label: 'D-Grade Superior (+50%)' },
-      phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 148, crit: 10, hit: 12, enchantGlow: true }, label: 'C-Grade Pleno (+4 Glow)' }
+      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 40, crit: 6, hit: 5 }, label: '高階 無等級（+50%）' },
+      phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 92, crit: 8, hit: 8 }, label: '高階 D 級（+50%）' },
+      phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 148, crit: 10, hit: 12, enchantGlow: true }, label: '完整 C 級（+4 光效）' }
     }
   },
   weapon_heirloom_blunt: {
     id: 'weapon_heirloom_blunt',
-    name: 'Martelo de Herança do Artífice',
+    name: '工匠傳承戰鎚',
     slot: 'weapon',
     weaponType: 'blunt',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Martelo pesado de forja que esmaga armaduras inimigas com grande impacto.',
+    desc: '沉重鍛造戰鎚，能以強烈衝擊粉碎敵方防具。',
     icon: 'gradec/weapons/weapon_big_hammer.png',
     base: { atk: 142, crit: 6, hit: 10, stunChance: 0.15 },
     heirloomScaling: {
-      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 39, crit: 4, hit: 4, stunChance: 0.05 }, label: 'No-Grade Superior (+50%)' },
-      phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 88, crit: 5, hit: 7, stunChance: 0.10 }, label: 'D-Grade Superior (+50%)' },
-      phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 142, crit: 6, hit: 10, stunChance: 0.15, enchantGlow: true }, label: 'C-Grade Pleno (+4 Glow)' }
+      phase1: { maxLvl: 19, baseMult: 1.5, stats: { atk: 39, crit: 4, hit: 4, stunChance: 0.05 }, label: '高階 無等級（+50%）' },
+      phase2: { maxLvl: 39, baseMult: 1.5, stats: { atk: 88, crit: 5, hit: 7, stunChance: 0.10 }, label: '高階 D 級（+50%）' },
+      phase3: { maxLvl: 40, baseMult: 1.0, stats: { atk: 142, crit: 6, hit: 10, stunChance: 0.15, enchantGlow: true }, label: '完整 C 級（+4 光效）' }
     }
   },
 
@@ -141,7 +141,7 @@ export const HEIRLOOM_ITEMS = {
   // 1. CONJUNTO PESADO (HEAVY - GUERREIROS, TANKS, VANGUARD)
   armor_heirloom_chest_heavy: {
     id: 'armor_heirloom_chest_heavy',
-    name: 'Armadura de Placas de Herança',
+    name: '傳承板甲',
     slot: 'armor',
     armorType: 'heavy',
     rarity: 'heirloom',
@@ -149,7 +149,7 @@ export const HEIRLOOM_ITEMS = {
     isHeirloom: true,
     set: 'heirloom_set',
     maxHeirloomLevel: 40,
-    desc: 'Peitoral de placas forjado para suportar o impacto de investidas e monstros colossais.',
+    desc: '為承受衝鋒與巨型怪物衝擊而打造的板甲胸甲。',
     icon: 'gradec/armors/armor_full_plate_heavy_armor.png',
     base: { def: 98, hp: 280, mdef: 36, weightBonus: 2000 },
     heirloomScaling: {
@@ -160,7 +160,7 @@ export const HEIRLOOM_ITEMS = {
   },
   armor_heirloom_legs_heavy: {
     id: 'armor_heirloom_legs_heavy',
-    name: 'Grevas de Placas de Herança',
+    name: '傳承板甲護腿',
     slot: 'legs',
     armorType: 'heavy',
     rarity: 'heirloom',
@@ -168,7 +168,7 @@ export const HEIRLOOM_ITEMS = {
     isHeirloom: true,
     set: 'heirloom_set',
     maxHeirloomLevel: 40,
-    desc: 'Proteção articulada para as pernas de guerreiros de linha de frente.',
+    desc: '為前線戰士設計的可動式腿部防具。',
     icon: 'gradec/armors/armor_plated_leather_light_pants.png',
     base: { def: 62, hp: 180, mdef: 24 },
     heirloomScaling: {
@@ -179,7 +179,7 @@ export const HEIRLOOM_ITEMS = {
   },
   armor_heirloom_helmet_heavy: {
     id: 'armor_heirloom_helmet_heavy',
-    name: 'Elmo de Placas de Herança',
+    name: '傳承板甲頭盔',
     slot: 'helmet',
     armorType: 'heavy',
     rarity: 'heirloom',
@@ -187,7 +187,7 @@ export const HEIRLOOM_ITEMS = {
     isHeirloom: true,
     set: 'heirloom_set',
     maxHeirloomLevel: 40,
-    desc: 'Elmo de ferro polido com viseira protetora.',
+    desc: '配有防護面罩的拋光鐵製頭盔。',
     icon: 'gradec/armors/armor_full_plate_heavy_helmet.png',
     base: { def: 42, hp: 120, mdef: 18 },
     heirloomScaling: {
@@ -198,7 +198,7 @@ export const HEIRLOOM_ITEMS = {
   },
   armor_heirloom_gloves_heavy: {
     id: 'armor_heirloom_gloves_heavy',
-    name: 'Manoplas de Ferro de Herança',
+    name: '傳承鐵製護手',
     slot: 'gloves',
     armorType: 'heavy',
     rarity: 'heirloom',
@@ -206,7 +206,7 @@ export const HEIRLOOM_ITEMS = {
     isHeirloom: true,
     set: 'heirloom_set',
     maxHeirloomLevel: 40,
-    desc: 'Manoplas sólidas para empunhar armas pesadas com firmeza.',
+    desc: '堅固護手，可更穩定地揮舞重型武器。',
     icon: 'gradec/armors/armor_full_plate_heavy_gloves.png',
     base: { def: 32, atkSpeed: 5, hit: 6, mdef: 14 },
     heirloomScaling: {
@@ -217,7 +217,7 @@ export const HEIRLOOM_ITEMS = {
   },
   armor_heirloom_boots_heavy: {
     id: 'armor_heirloom_boots_heavy',
-    name: 'Botas de Ferro de Herança',
+    name: '傳承鐵製戰靴',
     slot: 'boots',
     armorType: 'heavy',
     rarity: 'heirloom',
@@ -225,7 +225,7 @@ export const HEIRLOOM_ITEMS = {
     isHeirloom: true,
     set: 'heirloom_set',
     maxHeirloomLevel: 40,
-    desc: 'Botas reforçadas para máxima estabilidade em combate corpo-a-corpo.',
+    desc: '強化戰靴，可提升近身戰鬥時的穩定性。',
     icon: 'gradec/armors/armor_full_plate_heavy_boots.png',
     base: { def: 32, speed: 6, mdef: 14 },
     heirloomScaling: {
@@ -238,7 +238,7 @@ export const HEIRLOOM_ITEMS = {
   // 2. CONJUNTO LEVE (LIGHT - ARQUEIROS, ASSASSINOS, KAMAEL)
   armor_heirloom_chest_light: {
     id: 'armor_heirloom_chest_light',
-    name: 'Colete de Couro de Herança',
+    name: '傳承皮革背心',
     slot: 'armor',
     armorType: 'light',
     rarity: 'heirloom',
@@ -246,7 +246,7 @@ export const HEIRLOOM_ITEMS = {
     isHeirloom: true,
     set: 'heirloom_set',
     maxHeirloomLevel: 40,
-    desc: 'Colete de couro flexível reforçado que permite movimentação ágil e esquiva refinada.',
+    desc: '強化柔韌皮革製成，兼顧靈活移動與精準閃避。',
     icon: 'gradec/armors/armor_theca_light_armor.png',
     base: { def: 78, eva: 8, crit: 6, mdef: 32 },
     heirloomScaling: {
@@ -257,7 +257,7 @@ export const HEIRLOOM_ITEMS = {
   },
   armor_heirloom_legs_light: {
     id: 'armor_heirloom_legs_light',
-    name: 'Calças de Couro de Herança',
+    name: '傳承皮革長褲',
     slot: 'legs',
     armorType: 'light',
     rarity: 'heirloom',
@@ -265,7 +265,7 @@ export const HEIRLOOM_ITEMS = {
     isHeirloom: true,
     set: 'heirloom_set',
     maxHeirloomLevel: 40,
-    desc: 'Calças leves de caçador que não restringem passos furtivos.',
+    desc: '輕巧獵人長褲，不會妨礙潛行步伐。',
     icon: 'gradec/armors/armor_theca_light_pants.png',
     base: { def: 50, eva: 6, speed: 4, mdef: 20 },
     heirloomScaling: {
@@ -276,7 +276,7 @@ export const HEIRLOOM_ITEMS = {
   },
   armor_heirloom_helmet_light: {
     id: 'armor_heirloom_helmet_light',
-    name: 'Boina de Couro de Herança',
+    name: '傳承皮革帽',
     slot: 'helmet',
     armorType: 'light',
     rarity: 'heirloom',
@@ -284,7 +284,7 @@ export const HEIRLOOM_ITEMS = {
     isHeirloom: true,
     set: 'heirloom_set',
     maxHeirloomLevel: 40,
-    desc: 'Proteção de cabeça leve com visor aberto para máxima precisão de mira.',
+    desc: '開放式輕型頭部防具，可維持最佳瞄準精度。',
     icon: 'gradec/armors/armor_theca_light_helmet.png',
     base: { def: 34, hit: 6, mdef: 16 },
     heirloomScaling: {
@@ -295,7 +295,7 @@ export const HEIRLOOM_ITEMS = {
   },
   armor_heirloom_gloves_light: {
     id: 'armor_heirloom_gloves_light',
-    name: 'Luvas de Couro de Herança',
+    name: '傳承皮革手套',
     slot: 'gloves',
     armorType: 'light',
     rarity: 'heirloom',
@@ -303,7 +303,7 @@ export const HEIRLOOM_ITEMS = {
     isHeirloom: true,
     set: 'heirloom_set',
     maxHeirloomLevel: 40,
-    desc: 'Luvas de couro de dragão que aumentam a velocidade de ataque e disparo de flechas.',
+    desc: '龍皮製成的手套，可提高攻擊與箭矢射擊速度。',
     icon: 'gradec/armors/armor_theca_light_gloves.png',
     base: { def: 26, atkSpeed: 8, crit: 4, mdef: 12 },
     heirloomScaling: {
@@ -314,7 +314,7 @@ export const HEIRLOOM_ITEMS = {
   },
   armor_heirloom_boots_light: {
     id: 'armor_heirloom_boots_light',
-    name: 'Botas de Couro de Herança',
+    name: '傳承皮革靴',
     slot: 'boots',
     armorType: 'light',
     rarity: 'heirloom',
@@ -322,7 +322,7 @@ export const HEIRLOOM_ITEMS = {
     isHeirloom: true,
     set: 'heirloom_set',
     maxHeirloomLevel: 40,
-    desc: 'Botas macias que silenciam passos e conferem velocidade de corrida.',
+    desc: '柔軟靴子可降低腳步聲並提升奔跑速度。',
     icon: 'gradec/armors/armor_theca_light_boots.png',
     base: { def: 26, speed: 10, eva: 6, mdef: 12 },
     heirloomScaling: {
@@ -335,7 +335,7 @@ export const HEIRLOOM_ITEMS = {
   // 3. CONJUNTO MÁGICO (ROBE - MAGOS, FEITICEIROS, HEALERS)
   armor_heirloom_chest_robe: {
     id: 'armor_heirloom_chest_robe',
-    name: 'Túnica Arcana de Herança',
+    name: '傳承奧術法袍',
     slot: 'armor',
     armorType: 'robe',
     rarity: 'heirloom',
@@ -343,7 +343,7 @@ export const HEIRLOOM_ITEMS = {
     isHeirloom: true,
     set: 'heirloom_set',
     maxHeirloomLevel: 40,
-    desc: 'Manto tecido com fios etéreos que potencializa o poder mágico e regeneração de mana.',
+    desc: '以乙太絲線編織的法袍，可提升魔法力量與 魔力 恢復。',
     icon: 'gradec/armors/armor_karmian_robe_armor.png',
     base: { def: 56, matk: 35, mp: 250, mdef: 58, mpRegen: 8 },
     heirloomScaling: {
@@ -354,7 +354,7 @@ export const HEIRLOOM_ITEMS = {
   },
   armor_heirloom_legs_robe: {
     id: 'armor_heirloom_legs_robe',
-    name: 'Calças Arcanas de Herança',
+    name: '傳承奧術長褲',
     slot: 'legs',
     armorType: 'robe',
     rarity: 'heirloom',
@@ -362,7 +362,7 @@ export const HEIRLOOM_ITEMS = {
     isHeirloom: true,
     set: 'heirloom_set',
     maxHeirloomLevel: 40,
-    desc: 'Vestimenta inferior mágica que estabiliza o fluxo de mana.',
+    desc: '可穩定魔力流動的魔法下裝。',
     icon: 'gradec/armors/armor_karmian_robe_pants.png',
     base: { def: 38, mp: 160, mdef: 40 },
     heirloomScaling: {
@@ -373,7 +373,7 @@ export const HEIRLOOM_ITEMS = {
   },
   armor_heirloom_helmet_robe: {
     id: 'armor_heirloom_helmet_robe',
-    name: 'Tiara Arcana de Herança',
+    name: '傳承奧術頭冠',
     slot: 'helmet',
     armorType: 'robe',
     rarity: 'heirloom',
@@ -381,7 +381,7 @@ export const HEIRLOOM_ITEMS = {
     isHeirloom: true,
     set: 'heirloom_set',
     maxHeirloomLevel: 40,
-    desc: 'Diadema de prata com safira que clareia a mente durante a conjuração de magias.',
+    desc: '鑲嵌藍寶石的銀色頭冠，可在施法時保持思緒清晰。',
     icon: 'gradec/armors/armor_karmian_helmet.png',
     base: { def: 26, matk: 15, mdef: 32 },
     heirloomScaling: {
@@ -392,7 +392,7 @@ export const HEIRLOOM_ITEMS = {
   },
   armor_heirloom_gloves_robe: {
     id: 'armor_heirloom_gloves_robe',
-    name: 'Luvas de Seda de Herança',
+    name: '傳承絲綢手套',
     slot: 'gloves',
     armorType: 'robe',
     rarity: 'heirloom',
@@ -400,7 +400,7 @@ export const HEIRLOOM_ITEMS = {
     isHeirloom: true,
     set: 'heirloom_set',
     maxHeirloomLevel: 40,
-    desc: 'Luvas de seda pura encantada que aceleram a velocidade de conjuração mágica (Cast Speed).',
+    desc: '以純淨魔法絲綢製成，可提升施法速度。',
     icon: 'gradec/armors/armor_karmian_robe_gloves.png',
     base: { def: 20, castSpeed: 15, mdef: 24 },
     heirloomScaling: {
@@ -411,7 +411,7 @@ export const HEIRLOOM_ITEMS = {
   },
   armor_heirloom_boots_robe: {
     id: 'armor_heirloom_boots_robe',
-    name: 'Sandálias Arcanas de Herança',
+    name: '傳承奧術涼鞋',
     slot: 'boots',
     armorType: 'robe',
     rarity: 'heirloom',
@@ -419,7 +419,7 @@ export const HEIRLOOM_ITEMS = {
     isHeirloom: true,
     set: 'heirloom_set',
     maxHeirloomLevel: 40,
-    desc: 'Sandálias leves que canalizam mana da terra para o conjurador.',
+    desc: '可將大地魔力導向施法者的輕型涼鞋。',
     icon: 'gradec/armors/armor_karmian_robe_boots.png',
     base: { def: 20, speed: 7, mpRegen: 4, mdef: 24 },
     heirloomScaling: {
@@ -432,14 +432,14 @@ export const HEIRLOOM_ITEMS = {
   // Aliases de compatibilidade
   armor_heirloom_chest: {
     id: 'armor_heirloom_chest_heavy',
-    name: 'Armadura de Placas de Herança',
+    name: '傳承板甲',
     slot: 'armor',
     armorType: 'heavy',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Peitoral de placas forjado para suportar o impacto de investidas e monstros colossais.',
+    desc: '為承受衝鋒與巨型怪物衝擊而打造的板甲胸甲。',
     icon: 'gradec/armors/armor_full_plate_heavy_armor.png',
     base: { def: 98, hp: 280, mdef: 36, weightBonus: 2000 },
     heirloomScaling: {
@@ -450,14 +450,14 @@ export const HEIRLOOM_ITEMS = {
   },
   armor_heirloom_legs: {
     id: 'armor_heirloom_legs_heavy',
-    name: 'Grevas de Placas de Herança',
+    name: '傳承板甲護腿',
     slot: 'legs',
     armorType: 'heavy',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Proteção articulada para as pernas de guerreiros de linha de frente.',
+    desc: '為前線戰士設計的可動式腿部防具。',
     icon: 'gradec/armors/armor_plated_leather_light_pants.png',
     base: { def: 62, hp: 180, mdef: 24 },
     heirloomScaling: {
@@ -468,14 +468,14 @@ export const HEIRLOOM_ITEMS = {
   },
   armor_heirloom_helmet: {
     id: 'armor_heirloom_helmet_heavy',
-    name: 'Elmo de Placas de Herança',
+    name: '傳承板甲頭盔',
     slot: 'helmet',
     armorType: 'heavy',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Elmo de ferro polido com viseira protetora.',
+    desc: '配有防護面罩的拋光鐵製頭盔。',
     icon: 'gradec/armors/armor_full_plate_heavy_helmet.png',
     base: { def: 42, hp: 120, mdef: 18 },
     heirloomScaling: {
@@ -486,14 +486,14 @@ export const HEIRLOOM_ITEMS = {
   },
   armor_heirloom_gloves: {
     id: 'armor_heirloom_gloves_heavy',
-    name: 'Manoplas de Ferro de Herança',
+    name: '傳承鐵製護手',
     slot: 'gloves',
     armorType: 'heavy',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Manoplas sólidas para empunhar armas pesadas com firmeza.',
+    desc: '堅固護手，可更穩定地揮舞重型武器。',
     icon: 'gradec/armors/armor_full_plate_heavy_gloves.png',
     base: { def: 32, atkSpeed: 5, hit: 6, mdef: 14 },
     heirloomScaling: {
@@ -504,14 +504,14 @@ export const HEIRLOOM_ITEMS = {
   },
   armor_heirloom_boots: {
     id: 'armor_heirloom_boots_heavy',
-    name: 'Botas de Ferro de Herança',
+    name: '傳承鐵製戰靴',
     slot: 'boots',
     armorType: 'heavy',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Botas reforçadas para máxima estabilidade em combate corpo-a-corpo.',
+    desc: '強化戰靴，可提升近身戰鬥時的穩定性。',
     icon: 'gradec/armors/armor_full_plate_heavy_boots.png',
     base: { def: 32, speed: 6, mdef: 14 },
     heirloomScaling: {
@@ -522,13 +522,13 @@ export const HEIRLOOM_ITEMS = {
   },
   shield_heirloom_aegis: {
     id: 'shield_heirloom_aegis',
-    name: 'Escudo de Herança da Égide',
+    name: '神盾傳承之盾',
     slot: 'shield',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Escudo guardião que bloqueia projéteis e ataques contundentes.',
+    desc: '可阻擋投射物與重擊的守護之盾。',
     icon: 'gradec/armors/armor_full_plate_shield.png',
     base: { def: 74, blockRate: 25, hp: 150 },
     heirloomScaling: {
@@ -541,13 +541,13 @@ export const HEIRLOOM_ITEMS = {
   // ─── JOIAS DE HERANÇA (HEIRLOOM JEWELRY) ───────────────────────────────────
   jewelry_heirloom_necklace: {
     id: 'jewelry_heirloom_necklace',
-    name: 'Colar de Herança de Aden',
+    name: '亞丁傳承項鍊',
     slot: 'necklace',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Amuleto real que concede proteção mágica superior e vitalidade.',
+    desc: '皇家護身符，可提供更高魔法防護與生命力。',
     icon: 'gradec/jewels/jewel_blessed_necklace.png',
     base: { mdef: 48, hp: 160, mp: 80 },
     heirloomScaling: {
@@ -558,13 +558,13 @@ export const HEIRLOOM_ITEMS = {
   },
   jewelry_heirloom_earring_1: {
     id: 'jewelry_heirloom_earring_1',
-    name: 'Brinco de Herança da Lua',
+    name: '月之傳承耳環',
     slot: 'earring1',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Brinco místico banhado pela luz da lua conferindo defesa e resistência.',
+    desc: '沐浴月光的神秘耳環，可提升防禦與抗性。',
     icon: 'gradec/jewels/jewel_blessed_earing.png',
     base: { mdef: 36, hp: 90, stunResist: 0.10 },
     heirloomScaling: {
@@ -575,13 +575,13 @@ export const HEIRLOOM_ITEMS = {
   },
   jewelry_heirloom_earring_2: {
     id: 'jewelry_heirloom_earring_2',
-    name: 'Brinco de Herança do Sol',
+    name: '日之傳承耳環',
     slot: 'earring2',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Brinco brilhante banhado pela energia solar conferindo regeneração.',
+    desc: '承載太陽能量的閃耀耳環，可提升恢復能力。',
     icon: 'gradec/jewels/jewel_blessed_earing.png',
     base: { mdef: 36, hp: 90, hpRegen: 5 },
     heirloomScaling: {
@@ -592,13 +592,13 @@ export const HEIRLOOM_ITEMS = {
   },
   jewelry_heirloom_ring_1: {
     id: 'jewelry_heirloom_ring_1',
-    name: 'Anel de Herança do Destino',
+    name: '命運傳承戒指',
     slot: 'ring1',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Anel cravado com safira ancestral que aumenta o poder de ataque.',
+    desc: '鑲嵌古代藍寶石，可提升攻擊力。',
     icon: 'gradec/jewels/jewel_blessed_ring.png',
     base: { mdef: 24, atk: 12, critDmg: 0.05 },
     heirloomScaling: {
@@ -609,13 +609,13 @@ export const HEIRLOOM_ITEMS = {
   },
   jewelry_heirloom_ring_2: {
     id: 'jewelry_heirloom_ring_2',
-    name: 'Anel de Herança da Glória',
+    name: '榮耀傳承戒指',
     slot: 'ring2',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Anel cravado com rubi ancestral que eleva a taxa de acerto crítico.',
+    desc: '鑲嵌古代紅寶石，可提升暴擊率。',
     icon: 'gradec/jewels/jewel_blessed_ring.png',
     base: { mdef: 24, crit: 5, matk: 15 },
     heirloomScaling: {
@@ -628,13 +628,13 @@ export const HEIRLOOM_ITEMS = {
   // ─── ACESSÓRIOS ESPECIAIS DE HERANÇA (CLOAK, BELT, CROWN) ─────────────────
   cloak_heirloom_royal: {
     id: 'cloak_heirloom_royal',
-    name: 'Capa Real de Herança',
+    name: '傳承皇家披風',
     slot: 'cloak',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Capa de veludo bordada com fios de ouro que protege contra todos os elementos.',
+    desc: '以金線刺繡的天鵝絨披風，可抵禦各種元素。',
     icon: 'gradec/armors/armor_full_plate_cloack.png',
     base: { def: 18, mdef: 22, hp: 100 },
     heirloomScaling: {
@@ -645,13 +645,13 @@ export const HEIRLOOM_ITEMS = {
   },
   belt_heirloom_champion: {
     id: 'belt_heirloom_champion',
-    name: 'Cinto de Herança do Campeão',
+    name: '冠軍傳承腰帶',
     slot: 'belt',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Cinto de couro de dragão que expande a capacidade de carga e inventário.',
+    desc: '龍皮腰帶，可提升負重與背包容量。',
     icon: 'gradec/armors/armor_full_plate_belt.png',
     base: { def: 14, hp: 80, weightBonus: 3000, invSlots: 20 },
     heirloomScaling: {
@@ -662,13 +662,13 @@ export const HEIRLOOM_ITEMS = {
   },
   hair_heirloom_crown: {
     id: 'hair_heirloom_crown',
-    name: 'Coroa Alada do Lorde Soberano',
+    name: '至尊領主翼冠',
     slot: 'hair1',
     rarity: 'heirloom',
     tier: 3,
     isHeirloom: true,
     maxHeirloomLevel: 40,
-    desc: 'Diadema dourado brilhante com asas laterais que irradia majestade e autoridade.',
+    desc: '帶有雙翼的閃耀金色頭冠，散發威嚴與權威。',
     icon: 'acessories/noble_gold_crown.png',
     base: { def: 10, mdef: 15, hp: 100, xpBoost: 0.10 },
     heirloomScaling: {

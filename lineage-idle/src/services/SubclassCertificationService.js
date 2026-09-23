@@ -26,49 +26,49 @@ export const SUBCLASS_ARCHETYPES = {
 export const EMERGENT_ABILITIES = {
   emergent_patk: {
     id: 'emergent_patk',
-    name: 'Sub-Class: Physical Attack',
+    name: '副職業：物理攻擊',
     icon: '⚔️',
-    desc: '+35 P.Atk & +2.5% Ataque Físico permanente',
+    desc: '+35 物理攻擊 與永久物理攻擊 +2.5%',
     stats: { pAtk: 35, pAtkPercent: 0.025 },
     cp: 1500
   },
   emergent_pdef: {
     id: 'emergent_pdef',
-    name: 'Sub-Class: Physical Defence',
+    name: '副職業：物理防禦',
     icon: '🛡️',
-    desc: '+30 P.Def & +2.5% Defesa Física permanente',
+    desc: '+30 物理防禦 與永久物理防禦 +2.5%',
     stats: { pDef: 30, pDefPercent: 0.025 },
     cp: 1500
   },
   emergent_matk: {
     id: 'emergent_matk',
-    name: 'Sub-Class: Magical Attack',
+    name: '副職業：魔法攻擊',
     icon: '🔮',
-    desc: '+45 M.Atk & +3.0% Ataque Mágico permanente',
+    desc: '+45 魔法攻擊 與永久魔法攻擊 +3.0%',
     stats: { mAtk: 45, mAtkPercent: 0.03 },
     cp: 1500
   },
   emergent_mdef: {
     id: 'emergent_mdef',
-    name: 'Sub-Class: Magical Defence',
+    name: '副職業：魔法防禦',
     icon: '✨',
-    desc: '+30 M.Def & +3.0% Defesa Mágica permanente',
+    desc: '+30 魔法防禦，並永久 +3.0% 魔法防禦',
     stats: { mDef: 30, mDefPercent: 0.03 },
     cp: 1500
   },
   emergent_crit: {
     id: 'emergent_crit',
-    name: 'Sub-Class: Critical Rate',
+    name: '副職業：暴擊率',
     icon: '💥',
-    desc: '+15 Taxa de Crítico Físico & Mágico',
+    desc: '+15 物理與魔法暴擊率',
     stats: { critRate: 15 },
     cp: 1500
   },
   emergent_cast: {
     id: 'emergent_cast',
-    name: 'Sub-Class: Casting & Atk Speed',
+    name: '副職業：施法與攻擊速度',
     icon: '⚡',
-    desc: '+25 Casting Speed & +15 Atk.Spd permanente',
+    desc: '永久 +25 施法速度、+15 攻擊速度',
     stats: { castSpd: 25, atkSpd: 15 },
     cp: 1500
   }
@@ -79,19 +79,19 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
   [SUBCLASS_ARCHETYPES.WARRIOR]: [
     {
       id: 'master_haste',
-      name: 'Chance Haste',
+      name: '機率加速',
       icon: '⚡',
-      badge: 'Proc Atk.Spd',
-      desc: 'Ao desferir ataques: 6% de chance de ativar +32% Atk.Spd por 10s',
+      badge: '觸發攻速',
+      desc: '攻擊時有 6% 機率觸發 +32% 攻擊速度，持續 10 秒',
       stats: { hasteProc: true, atkSpdPercent: 0.05 },
       cp: 3800
     },
     {
       id: 'master_boost_cp',
-      name: 'Boost CP',
+      name: '提升戰鬥力',
       icon: '🛡️',
-      badge: 'Max CP',
-      desc: '+18% Max CP & +35% Taxa de Regeneração de CP',
+      badge: '最大戰鬥力',
+      desc: '+18% 最大戰鬥力、+35% 戰鬥力恢復率',
       stats: { maxCpPercent: 0.18, regenCpPercent: 0.35 },
       cp: 3500
     }
@@ -99,19 +99,19 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
   [SUBCLASS_ARCHETYPES.KNIGHT]: [
     {
       id: 'master_defense',
-      name: 'Counter Defense',
+      name: '反擊防禦',
       icon: '🛡️',
-      badge: 'Proc Def',
-      desc: 'Ao receber dano: 6% de chance de ativar +25% P.Def & +25% M.Def por 10s',
+      badge: '觸發防禦',
+      desc: '受到傷害時有 6% 機率觸發 +25% 物理防禦與 +25% 魔法防禦，持續 10 秒',
       stats: { defenceProc: true, pDefPercent: 0.04, mDefPercent: 0.04 },
       cp: 3800
     },
     {
       id: 'master_boost_hp',
-      name: 'Boost HP',
+      name: '提升生命值',
       icon: '❤️',
-      badge: 'Max HP',
-      desc: '+14% Max HP & +25% Taxa de Regeneração de HP',
+      badge: '最大生命值',
+      desc: '+14% 最大生命值、+25% 生命值恢復率',
       stats: { maxHpPercent: 0.14, regenHpPercent: 0.25 },
       cp: 3500
     }
@@ -119,28 +119,28 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
   [SUBCLASS_ARCHETYPES.ROGUE]: [
     {
       id: 'master_critical',
-      name: 'Chance Critical',
+      name: '機率暴擊',
       icon: '💥',
-      badge: 'Proc Crit',
-      desc: 'Ao atacar: 6% de chance de ativar +35% Critical Rate & +10% Crit Dmg por 10s',
+      badge: '觸發暴擊',
+      desc: '攻擊時有 6% 機率觸發 +35% 暴擊率與 +10% 暴擊傷害，持續 10 秒',
       stats: { critProc: true, critRate: 20 },
       cp: 3800
     },
     {
       id: 'master_evasion',
-      name: 'Evasion & Agility',
+      name: '迴避與敏捷',
       icon: '👟',
-      badge: 'Esquiva',
-      desc: '+8 Esquiva física & +6% Chance de Esquivar de Habilidades',
+      badge: '迴避',
+      desc: '+8 物理迴避、+6% 技能迴避率',
       stats: { evasion: 8, skillEvasionPercent: 0.06 },
       cp: 3500
     },
     {
       id: 'master_long_shot',
-      name: 'Long Shot',
+      name: '遠距射擊',
       icon: '🏹',
-      badge: 'Alcance',
-      desc: '+150 Alcance de Ataque & +6% Dano de Ataque Físico',
+      badge: '射程',
+      desc: '+150 攻擊距離、+6% 物理攻擊傷害',
       stats: { pAtkPercent: 0.06, range: 150 },
       cp: 3500
     }
@@ -148,19 +148,19 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
   [SUBCLASS_ARCHETYPES.WIZARD]: [
     {
       id: 'master_anti_magic',
-      name: 'Anti-Magic & Mana Gain',
+      name: '抗魔與魔力增益',
       icon: '🔮',
-      badge: 'M.Def & MP',
-      desc: '+10% M.Def permanente & +25 Resistência Elemental Mágica',
+      badge: '魔防與魔力',
+      desc: '永久 +10% 魔法防禦、+25 魔法元素抗性',
       stats: { mDefPercent: 0.10, elementalResist: 25 },
       cp: 3500
     },
     {
       id: 'master_boost_mp',
-      name: 'Boost MP & Acumen',
+      name: '提升魔力 與靈敏',
       icon: '💙',
-      badge: 'Max MP',
-      desc: '+16% Max MP, +30 Casting Speed & +25% Regeneração de MP',
+      badge: '最大魔力',
+      desc: '+16% 最大魔力、+30 施法速度、+25% 魔力恢復率',
       stats: { maxMpPercent: 0.16, castSpd: 30, regenMpPercent: 0.25 },
       cp: 3500
     }
@@ -168,19 +168,19 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
   [SUBCLASS_ARCHETYPES.SUMMONER]: [
     {
       id: 'master_spirit',
-      name: 'Counter Spirit',
+      name: '反擊之魂',
       icon: '👻',
-      badge: 'Proc All Stats',
-      desc: 'Ao receber dano: 5% de chance de ativar +10% P.Atk, +10% M.Atk e +10% Atk.Spd por 10s',
+      badge: '觸發全屬性',
+      desc: '受到傷害時有 5% 機率觸發 +10% 物理攻擊、+10% 魔法攻擊與 +10% 攻擊速度，持續 10 秒',
       stats: { spiritProc: true, pAtkPercent: 0.03, mAtkPercent: 0.03 },
       cp: 3800
     },
     {
       id: 'master_boost_hp_mp',
-      name: 'Boost HP & MP',
+      name: '提升生命值與魔力',
       icon: '💖',
-      badge: 'HP & MP',
-      desc: '+10% Max HP & +12% Max MP permanente',
+      badge: '生命值與魔力',
+      desc: '永久 +10% 最大生命值、+12% 最大魔力',
       stats: { maxHpPercent: 0.10, maxMpPercent: 0.12 },
       cp: 3500
     }
@@ -188,19 +188,19 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
   [SUBCLASS_ARCHETYPES.HEALER]: [
     {
       id: 'master_prayer',
-      name: 'Prayer & Divine Grace',
+      name: '祈禱與神聖恩典',
       icon: '🕊️',
-      badge: 'Cura Recebida',
-      desc: '+18% Eficiência de Cura Recebida & +6% Max HP',
+      badge: '受到治療',
+      desc: '+18% 受到治癒效果、+6% 最大生命值',
       stats: { healReceivePercent: 0.18, maxHpPercent: 0.06 },
       cp: 3500
     },
     {
       id: 'master_resist_trait',
-      name: 'Resist Trait',
+      name: '異常抗性',
       icon: '🛡️',
-      badge: 'Resistência Debuff',
-      desc: '+18% Resistência a Stun, Paralyze, Silence, Bleed e Debuffs',
+      badge: '減益抗性',
+      desc: '+18% 暈眩、麻痺、沉默、流血與減益抗性',
       stats: { debuffResistPercent: 0.18, mDefPercent: 0.05 },
       cp: 3500
     }
@@ -208,19 +208,19 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
   [SUBCLASS_ARCHETYPES.ENCHANTER]: [
     {
       id: 'master_barrier',
-      name: 'Barrier (Celestial Shield)',
+      name: '屏障（天界之盾）',
       icon: '🌟',
-      badge: 'Proc Imunidade',
-      desc: 'Ao receber dano: 4% de chance de ativar Escudo Celestial (Invulnerabilidade) por 5s',
+      badge: '觸發無敵',
+      desc: '受到傷害時有 4% 機率觸發天界之盾（無敵），持續 5 秒',
       stats: { celestialProc: true, pDefPercent: 0.03, mDefPercent: 0.03 },
       cp: 4200
     },
     {
       id: 'master_boost_mana',
-      name: 'Master Mana Clarity',
+      name: '大師魔力澄明',
       icon: '📜',
-      badge: 'Eficiência MP',
-      desc: '-10% Custo de MP de todas as habilidades & +10% Max MP',
+      badge: '魔力效率',
+      desc: '所有技能魔力消耗 -10%，最大魔力 +10%',
       stats: { mpCostReduction: 0.10, maxMpPercent: 0.10 },
       cp: 3500
     }
@@ -231,70 +231,70 @@ export const MASTER_ABILITIES_BY_ARCHETYPE = {
 export const DIVINE_TRANSFORMATIONS = {
   [SUBCLASS_ARCHETYPES.WARRIOR]: {
     id: 'divine_warrior',
-    name: 'Transform: Divine Warrior',
+    name: '變身：神聖戰士',
     icon: '⚔️',
-    title: 'Guerreiro Sagrado de Einhasad',
-    desc: 'Desbloqueia a Forma Divine Warrior (War Cry +25% P.Atk, Sonic Blaster) e concede Aura permanente de +8% P.Atk e +15 Crit Rate.',
+    title: '殷海薩神聖戰士',
+    desc: '解鎖神聖戰士形態（戰吼 +25% 物理攻擊、音速爆破），並永久獲得 +8% 物理攻擊與 +15 暴擊率光環。',
     passiveStats: { pAtkPercent: 0.08, critRate: 15 },
     transformationBuffs: { pAtkPercent: 0.25, critDmgPercent: 0.15 },
     cp: 6500
   },
   [SUBCLASS_ARCHETYPES.KNIGHT]: {
     id: 'divine_knight',
-    name: 'Transform: Divine Knight',
+    name: '變身：神聖騎士',
     icon: '🛡️',
-    title: 'Bastião Sagrado de Aden',
-    desc: 'Desbloqueia a Forma Divine Knight (Ultimate Defence +100% Def, Hate Aura) e concede Aura permanente de +8% P.Def, +8% M.Def e +5% Max HP.',
+    title: '亞丁神聖堡壘',
+    desc: '解鎖神聖騎士形態（終極防禦 +100% 防禦、仇恨光環），並永久獲得 +8% 物理防禦、+8% 魔法防禦與 +5% 最大生命值 光環。',
     passiveStats: { pDefPercent: 0.08, mDefPercent: 0.08, maxHpPercent: 0.05 },
     transformationBuffs: { pDefPercent: 0.50, mDefPercent: 0.50 },
     cp: 6500
   },
   [SUBCLASS_ARCHETYPES.ROGUE]: {
     id: 'divine_rogue',
-    name: 'Transform: Divine Rogue',
+    name: '變身：神聖盜賊',
     icon: '🗡️',
-    title: 'Sombra Sagrada dos Ventos',
-    desc: 'Desbloqueia a Forma Divine Rogue (Stun Shot, Double Shot, Agility) e concede Aura permanente de +30 Crit Rate e +6 Esquiva.',
+    title: '神聖疾風之影',
+    desc: '解鎖神聖盜賊形態（暈眩射擊、雙重射擊、敏捷），並永久獲得 +30 暴擊率與 +6 迴避光環。',
     passiveStats: { critRate: 30, evasion: 6 },
     transformationBuffs: { critRate: 40, evasion: 8, speedPercent: 0.10 },
     cp: 6500
   },
   [SUBCLASS_ARCHETYPES.WIZARD]: {
     id: 'divine_wizard',
-    name: 'Transform: Divine Wizard',
+    name: '變身：神聖巫師',
     icon: '🔮',
-    title: 'Arquimago Divino do Éter',
-    desc: 'Desbloqueia a Forma Divine Wizard (Divine Flare, Divine Strike, Sleep AoE) e concede Aura permanente de +10% M.Atk e +30 Casting Speed.',
+    title: '乙太神聖大法師',
+    desc: '解鎖神聖巫師形態（神聖閃焰、神聖打擊、範圍睡眠），並永久獲得 +10% 魔法攻擊與 +30 施法速度光環。',
     passiveStats: { mAtkPercent: 0.10, castSpd: 30 },
     transformationBuffs: { mAtkPercent: 0.30, castSpd: 60 },
     cp: 6500
   },
   [SUBCLASS_ARCHETYPES.SUMMONER]: {
     id: 'divine_summoner',
-    name: 'Transform: Divine Summoner',
+    name: '變身：神聖召喚師',
     icon: '🦄',
-    title: 'Invocador Místico Celestial',
-    desc: 'Desbloqueia a Forma Divine Summoner (Transfer Pain, Final Servitor) e concede Aura permanente de +8% Max HP e +5% Vampiric Lifesteal.',
+    title: '天界神秘召喚師',
+    desc: '解鎖神聖召喚師形態（轉移傷害、終極使魔），並永久獲得 +8% 最大生命值 與 +5% 吸血光環。',
     passiveStats: { maxHpPercent: 0.08, lifestealPercent: 0.05 },
     transformationBuffs: { maxHpPercent: 0.20, lifestealPercent: 0.10 },
     cp: 6500
   },
   [SUBCLASS_ARCHETYPES.HEALER]: {
     id: 'divine_healer',
-    name: 'Transform: Divine Healer',
+    name: '變身：神聖治癒師',
     icon: '🕊️',
-    title: 'Sacerdote da Luz Divina',
-    desc: 'Desbloqueia a Forma Divine Healer (Major Heal, Cleanse, Ressurreição 70%) e concede Aura permanente de +10% M.Def e +12% Cura Recebida.',
+    title: '神聖光之祭司',
+    desc: '解鎖神聖治療者形態（強效治療、淨化、70% 復活），並永久獲得 魔法防禦 +10%、受到治療 +12%。',
     passiveStats: { mDefPercent: 0.10, healReceivePercent: 0.12 },
     transformationBuffs: { mDefPercent: 0.25, regenHpPercent: 0.50 },
     cp: 6500
   },
   [SUBCLASS_ARCHETYPES.ENCHANTER]: {
     id: 'divine_enchanter',
-    name: 'Transform: Divine Enchanter',
+    name: '變身：神聖強化師',
     icon: '📜',
-    title: 'Arauto dos Cânticos Antigos',
-    desc: 'Desbloqueia a Forma Divine Enchanter (Chant of Victory +10% All Stats) e concede Aura permanente de +5% All Stats e +8% Speed.',
+    title: '古代聖歌使者',
+    desc: '解鎖神聖強化師形態（勝利頌歌 +10% 全屬性），並永久獲得 +5% 全屬性與 +8% 速度光環。',
     passiveStats: { pAtkPercent: 0.05, mAtkPercent: 0.05, pDefPercent: 0.05, mDefPercent: 0.05, speedPercent: 0.08 },
     transformationBuffs: { pAtkPercent: 0.15, mAtkPercent: 0.15, speedPercent: 0.15, castSpd: 40 },
     cp: 6500
@@ -399,14 +399,15 @@ export class SubclassCertificationService {
     const subLevel = Number(sub.level) || 40;
     const archetype = this.getArchetypeForClass(sub.classId);
     const subCerts = state.subclassCertifications?.[sub.id] || {};
+    const archetypeLabel = ({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[archetype] || '其他職業';
 
     const milestones = [
       {
         tier: 1,
         milestoneKey: 'lv65',
         requiredLevel: 65,
-        title: 'Certificado Emergente I (Lv. 65)',
-        badge: 'Emergent I',
+        title: '新興認證一（等級 65）',
+        badge: '新興一',
         isUnlocked: subLevel >= 65,
         isLearned: Boolean(subCerts.lv65),
         learnedId: subCerts.lv65 || null,
@@ -416,8 +417,8 @@ export class SubclassCertificationService {
         tier: 2,
         milestoneKey: 'lv70',
         requiredLevel: 70,
-        title: 'Certificado Emergente II (Lv. 70)',
-        badge: 'Emergent II',
+        title: '新興認證二（等級 70）',
+        badge: '新興二',
         isUnlocked: subLevel >= 70,
         isLearned: Boolean(subCerts.lv70),
         learnedId: subCerts.lv70 || null,
@@ -427,8 +428,8 @@ export class SubclassCertificationService {
         tier: 3,
         milestoneKey: 'lv75',
         requiredLevel: 75,
-        title: `Habilidade Mestra de ${archetype.toUpperCase()} (Lv. 75)`,
-        badge: 'Master Ability',
+        title: `${archetypeLabel}大師技能（等級 75）`,
+        badge: '大師技能',
         isUnlocked: subLevel >= 75,
         isLearned: Boolean(subCerts.lv75),
         learnedId: subCerts.lv75 || null,
@@ -438,8 +439,8 @@ export class SubclassCertificationService {
         tier: 4,
         milestoneKey: 'lv80',
         requiredLevel: 80,
-        title: `Transformação Divina de ${archetype.toUpperCase()} (Lv. 80)`,
-        badge: 'Divine Form',
+        title: `${archetypeLabel}神聖變身（等級 80）`,
+        badge: '神聖變身',
         isUnlocked: subLevel >= 80,
         isLearned: Boolean(subCerts.lv80),
         learnedId: subCerts.lv80 || null,
@@ -464,7 +465,7 @@ export class SubclassCertificationService {
 
     const sub = state.subclasses.find(s => s.id === subId);
     if (!sub) {
-      if (callbacks.log) callbacks.log('❌ Subclasse não encontrada.', 'system');
+      if (callbacks.log) callbacks.log('❌ 找不到副職業。', 'system');
       return false;
     }
 
@@ -473,7 +474,7 @@ export class SubclassCertificationService {
     const req = reqLevels[milestoneKey];
 
     if (!req || subLevel < req) {
-      if (callbacks.log) callbacks.log(`❌ Requer Nível ${req}+ na subclasse para certificar.`, 'system');
+      if (callbacks.log) callbacks.log(`❌ 副職業需要達到 ${req} 級以上才能取得認證。`, 'system');
       return false;
     }
 
@@ -492,11 +493,12 @@ export class SubclassCertificationService {
       abilityDef = Object.values(DIVINE_TRANSFORMATIONS).find(d => d.id === abilityId);
     }
 
-    const abilityName = abilityDef?.name || abilityId;
+    const abilityName = abilityDef?.name || '認證技能';
+    const classDisplayName = (typeof window !== 'undefined' && window.EchoData?.CLASSES_ECHO?.[sub.classId]?.name) || '副職業';
 
     if (callbacks.log) {
-      callbacks.log(`📜✨ **CERTIFICAÇÃO ADQUIRIDA!** [${sub.classId?.toUpperCase()}] aprendeu **${abilityName}**!`, 'rarity-legendary');
-      callbacks.log(`Todos os bônus foram vinculados permanentemente à sua Classe Principal! (+${abilityDef?.cp || 1500} CP)`, 'rarity-epic');
+      callbacks.log(`📜✨ **取得認證！** [${classDisplayName}] 已學會 **${abilityName}**！`, 'rarity-legendary');
+      callbacks.log(`所有加成都已永久綁定至主職業！（+${abilityDef?.cp || 1500} 戰鬥力）`, 'rarity-epic');
     }
 
     if (callbacks.onUpdate) callbacks.onUpdate();
@@ -512,13 +514,13 @@ export class SubclassCertificationService {
    */
   static resetSubclassCertifications(state, subId, callbacks = {}) {
     if (!state || !state.subclassCertifications || !state.subclassCertifications[subId]) {
-      if (callbacks.log) callbacks.log('Nenhuma certificação para resetar nesta subclasse.', 'system');
+      if (callbacks.log) callbacks.log('此副職業沒有可重置的認證。', 'system');
       return false;
     }
 
     const costAdena = 1000000; // 1kk Adena
     if ((state.gold || 0) < costAdena) {
-      if (callbacks.log) callbacks.log(`❌ Adena insuficiente para redefinir certificações (Requer 1.000.000 Adena).`, 'system');
+      if (callbacks.log) callbacks.log(`❌ 金幣不足，無法重置認證（需要 1,000,000 金幣）。`, 'system');
       return false;
     }
 
@@ -526,7 +528,7 @@ export class SubclassCertificationService {
     delete state.subclassCertifications[subId];
 
     if (callbacks.log) {
-      callbacks.log(`🔄 **Certificações Redefinidas!** Os certificados foram devolvidos para redistribuição. (-1.000.000 Adena)`, 'system');
+      callbacks.log(`🔄 **認證已重置！** 認證點已返還，可重新分配。（-1,000,000 金幣）`, 'system');
     }
 
     if (callbacks.onUpdate) callbacks.onUpdate();

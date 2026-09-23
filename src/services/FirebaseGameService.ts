@@ -153,7 +153,7 @@ export class FirebaseGameService {
       return { success: true, expGained };
     } catch (e: any) {
       console.error('Erro ao executar Forja no Firestore:', e);
-      return { success: false, expGained: 0, error: e?.message || 'Falha na forja.' };
+      return { success: false, expGained: 0, error: '鍛造失敗，請稍後再試。' };
     }
   }
 }

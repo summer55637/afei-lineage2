@@ -379,7 +379,7 @@ try {
     window.IconIndex = await _res.json();
   }
 } catch (e) {
-  console.warn("[main] Não foi possível carregar icon_index.json — usando fallback ICON_MAP:", e?.message || e);
+  console.warn("[main] 無法載入 icon_index.json，改用備用 ICON_MAP：", e?.message || e);
 }
 // ========================================
 // Lineage Idle - Main Game Logic
@@ -421,7 +421,7 @@ const SKILL_TREE_LAYOUT = new Proxy({}, {
   getOwnPropertyDescriptor: (_, prop) => Reflect.getOwnPropertyDescriptor(window.EchoData?.SKILL_TREE_LAYOUT_ECHO || {}, prop)
 });
 
-const TIER_NAMES = ['Foundation', 'Discipline', 'Mastery', 'Ascendancy', 'Legend'];
+const TIER_NAMES = ['基礎', '修練', '精通', '昇華', '傳奇'];
 // ======================================================
 
 // --------------------------- STATE ---------------------------
@@ -513,9 +513,9 @@ function load() {
       updateSeasonTabBadges(ROOT);
       updateTabVisibilityByLevel(state);
     } catch (_) {}
-    log('✨ Atualização de versão carregada com sucesso! Seu progresso e itens foram 100% mantidos.', 'rarity-legendary');
+    log('✨ 版本更新載入成功！你的進度與物品已完整保留。', 'rarity-legendary');
     if (state.godMode) {
-      log('🛡️ [AVISO ADMIN] God Mode (Invencibilidade) está ATIVADO neste save! Digite //god no chat para desativar.', 'warning');
+      log('🛡️ [管理員提醒] 此存檔已啟用無敵模式！在聊天輸入 //god 可關閉。', 'warning');
     }
     if (state.lastSaveTime) {
       setTimeout(() => checkOfflineProgress(state.lastSaveTime), 600);
@@ -526,7 +526,7 @@ function load() {
 
 
 function resetSave() {
-  if (confirm('Deseja reiniciar o personagem por completo? Todo o progresso será zerado e você poderá escolher uma nova raça e classe.')) {
+  if (confirm('確定要完整重置角色嗎？所有進度都會歸零，之後可以重新選擇種族與職業。')) {
     managerResetState();
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('aden_pending_char_creation', '1');
@@ -583,8 +583,8 @@ function openClassTransferModal(classInfo) {
 
   const titleEl = el('class-modal-heading');
   if (titleEl) {
-    const stageNames = ['1ª Troca de Classe', '2ª Troca de Classe', '3ª Troca de Classe (3rd Job)'];
-    titleEl.textContent = `📜 ${stageNames[currentStage] || 'Cerimônia de Avanço de Classe'}`;
+    const stageNames = ['第一次轉職', '第二次轉職', '第三次轉職'];
+    titleEl.textContent = `📜 ${stageNames[currentStage] || '轉職儀式'}`;
   }
 
   const echoClasses = (typeof window !== 'undefined' && window.EchoData)
@@ -659,14 +659,14 @@ function openClassTransferModal(classInfo) {
     if (closeBtn) closeBtn.style.display = '';
     const titleEl = el('class-modal-heading');
     if (titleEl) {
-      const stageNames = ['1ª Troca de Classe', '2ª Troca de Classe', '3ª Troca de Classe (3rd Job)'];
-      titleEl.textContent = `📜 ${stageNames[currentStage] || 'Cerimônia de Avanço de Classe'}`;
+      const stageNames = ['第一次轉職', '第二次轉職', '第三次轉職'];
+      titleEl.textContent = `📜 ${stageNames[currentStage] || '轉職儀式'}`;
     }
 
     if (!candidates.length) {
       container.innerHTML = `
         <div style="padding:24px; text-align:center; color:var(--text-muted); font-size:13px; background:rgba(0,0,0,0.4); border:1px solid rgba(212,175,55,0.2); border-radius:8px;">
-          ⚠️ Nenhuma opção de evolução disponível para <strong>${currentClassDef?.name || state.class}</strong> na etapa ${targetStage}.
+          ⚠️ <strong>${currentClassDef?.name || '未知職業'}</strong> 在階段 ${targetStage} 沒有可用的進階選項。
         </div>
       `;
       return;
@@ -689,21 +689,21 @@ function openClassTransferModal(classInfo) {
 
       const statsStr = Object.entries(clsDef.base || {})
         .filter(([, v]) => v > 0)
-        .map(([k, v]) => `+${v} ${k.toUpperCase()}`)
+        .map(([k, v]) => `+${v} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[k] || '其他屬性'}`)
         .join(' · ');
 
       const archetypeIcons = {
-        fighter: '⚔️ Guerreiro',
-        tank: '🛡️ Tanque Guardião',
-        mage: '🔮 Mago Elemental',
-        healer: '✨ Clérigo / Cura',
-        bard: '🎵 Dançarino / Bardo',
-        assassin: '🗡️ Assassino Mortal',
-        archer: '🏹 Atirador',
-        artisan: '⚒️ Artesão Master',
-        soulbreaker: '⚡ Soulbreaker'
+        fighter: '⚔️ 戰士',
+        tank: '🛡️ 守護坦克',
+        mage: '🔮 元素法師',
+        healer: '✨ 牧師／治療',
+        bard: '🎵 舞者／吟遊詩人',
+        assassin: '🗡️ 致命刺客',
+        archer: '🏹 射手',
+        artisan: '⚒️ 工匠大師',
+        soulbreaker: '⚡ 靈魂破壞者'
       };
-      const archLabel = archetypeIcons[clsDef.archetype] || clsDef.archetype || 'Especialista';
+      const archLabel = archetypeIcons[clsDef.archetype] || clsDef.archetype || '專家';
 
       const avatarHtml = (ART && typeof ART.heroSVG === 'function')
         ? ART.heroSVG({
@@ -728,12 +728,12 @@ function openClassTransferModal(classInfo) {
                 ${archLabel}
               </span>
             </div>
-            <p style="margin:4px 0; font-size:12px; color:var(--text-muted); line-height:1.4;">${clsDef.desc || 'Evolução de ordem avançada.'}</p>
-            ${statsStr ? `<div style="font-size:11px; color:#6ee7b7; font-weight:bold; background:rgba(110,231,183,0.1); padding:4px 8px; border-radius:4px; border:1px solid rgba(110,231,183,0.2); margin-top:4px;">✨ Bônus de Atributos: ${statsStr}</div>` : ''}
+            <p style="margin:4px 0; font-size:12px; color:var(--text-muted); line-height:1.4;">${clsDef.desc || '高階職業晉升。'}</p>
+            ${statsStr ? `<div style="font-size:11px; color:#6ee7b7; font-weight:bold; background:rgba(110,231,183,0.1); padding:4px 8px; border-radius:4px; border:1px solid rgba(110,231,183,0.2); margin-top:4px;">✨ 屬性加成： ${statsStr}</div>` : ''}
           </div>
         </div>
         <button class="action-btn action-btn--primary promote-btn" data-class-id="${clsId}" style="margin-top:8px; padding:10px; width:100%; font-weight:bold; font-family:'Cinzel',serif; font-size:13px; cursor:pointer;">
-          ⚔️ Escolher &amp; Avançar para ${clsDef.name}
+          ⚔️ 選擇並晉升為 ${clsDef.name}
         </button>
       `;
 
@@ -753,7 +753,7 @@ function openClassTransferModal(classInfo) {
     // Lista de habilidades aprendidas na classe anterior
     const learnedSkills = Object.entries(state.skills || {})
       .filter(([, lvl]) => lvl > 0)
-      .map(([sId, lvl]) => ({ id: sId, lvl, def: skillDefs[sId] || { name: sId } }));
+      .map(([sId, lvl]) => ({ id: sId, lvl, def: skillDefs[sId] || { name: '未知技能' } }));
 
     if (learnedSkills.length === 0) {
       // Se não aprendeu nenhuma habilidade, avança diretamente
@@ -767,10 +767,10 @@ function openClassTransferModal(classInfo) {
   function renderLegacySelectionStep(clsId, clsDef, learnedSkills) {
     const titleEl = el('class-modal-heading');
     if (titleEl) {
-      titleEl.textContent = `🧬 Consagração de Linhagem: ${clsDef.name}`;
+      titleEl.textContent = `🧬 血統傳承： ${clsDef.name}`;
     }
 
-    // Oculta o botão 'Fechar' genérico do rodapé para não duplicar ações com Voltar/Consagrar
+    // Oculta o botão '關閉' genérico do rodapé para não duplicar ações com Voltar/Consagrar
     const closeBtn = el('close-class-modal-btn');
     if (closeBtn) closeBtn.style.display = 'none';
 
@@ -790,22 +790,22 @@ function openClassTransferModal(classInfo) {
         </div>
         <div style="flex:1; min-width:0;">
           <h3 style="margin:0; font-family:'Cinzel',serif; color:var(--gilt-bright); font-size:17px; letter-spacing:0.04em;">${clsDef.name}</h3>
-          <p style="margin:3px 0 0 0; font-size:11px; color:#cbd5e1; line-height:1.4;">${clsDef.desc || 'Nova classe consagrada de Aden.'}</p>
+          <p style="margin:3px 0 0 0; font-size:11px; color:#cbd5e1; line-height:1.4;">${clsDef.desc || '新的亞丁高階職業。'}</p>
         </div>
       </div>
       <div style="background:rgba(212,167,68,0.08); border:1px solid rgba(212,167,68,0.25); border-radius:8px; padding:10px 14px; margin-bottom:14px; font-size:12px; color:#e2e8f0; line-height:1.45;">
         <div style="font-weight:bold; color:#fde047; margin-bottom:4px; display:flex; align-items:center; gap:6px;">
-          <span>✨</span> <span>Selecione até 2 habilidades para eternizar como Passivas de Linhagem (20% de eficácia):</span>
+          <span>✨</span> <span>最多選擇 2 個技能作為永久血統被動技能（效果 20%）。</span>
         </div>
-        <div style="font-size:11px; color:#94a3b8;">🔄 As habilidades ativas da classe anterior serão purificadas e todo o SP investido será 100% devolvido para a nova jornada.</div>
+        <div style="font-size:11px; color:#94a3b8;">🔄 前一職業的主動技能會被清除，已投入的技能點將 100% 返還。</div>
       </div>
       <div id="legacy-skills-grid" style="display:flex; flex-direction:column; gap:10px; margin-bottom:14px; min-height:140px; max-height:360px; overflow-y:auto; padding-right:4px;"></div>
       <div style="font-size:11px; color:#a1a1aa; text-align:center; margin-bottom:12px; line-height:1.4;">
-        📖 <em>Aviso: Habilidades de 2ª Classe (Lv. 40+) exigirão Livros de Magia (1★–4★) e SP para desbloqueio.</em>
+        📖 <em>提醒：第二職業（等級 40+）技能需要技能書（1★–4★）與技能點才能解鎖。</em>
       </div>
       <div style="display:flex; gap:12px; justify-content:space-between; margin-top:6px;">
-        <button id="legacy-back-btn" class="action-btn" style="flex:1; padding:10px; font-weight:bold;">⬅️ Voltar</button>
-        <button id="legacy-confirm-btn" class="action-btn action-btn--primary" style="flex:2; padding:10px; font-weight:bold; font-family:'Cinzel',serif; font-size:14px;">✨ Consagrar Linhagem &amp; Evoluir</button>
+        <button id="legacy-back-btn" class="action-btn" style="flex:1; padding:10px; font-weight:bold;">⬅️ 返回</button>
+        <button id="legacy-confirm-btn" class="action-btn action-btn--primary" style="flex:2; padding:10px; font-weight:bold; font-family:'Cinzel',serif; font-size:14px;">✨ 昇華血統並進化</button>
       </div>
     `;
 
@@ -829,12 +829,12 @@ function openClassTransferModal(classInfo) {
       const baseEffectVal = 0.15 + (lvl * 0.03);
       const passiveVal = +(baseEffectVal * 0.20).toFixed(4);
 
-      let statKey = 'P.ATK';
+      let statKey = '物理攻擊';
       const sName = (def.name || '').toLowerCase();
-      if (sName.includes('def') || sName.includes('shield') || sName.includes('aegis') || sName.includes('iron') || sName.includes('will') || sName.includes('armor')) statKey = 'P.DEF';
-      else if (sName.includes('magic') || sName.includes('mage') || sName.includes('mystic') || sName.includes('elem') || sName.includes('fire') || sName.includes('water') || sName.includes('wind') || sName.includes('mana')) statKey = 'M.ATK';
-      else if (sName.includes('crit') || sName.includes('fury') || sName.includes('stance') || sName.includes('focus')) statKey = 'CRIT';
-      else if (sName.includes('speed') || sName.includes('wind') || sName.includes('dash') || sName.includes('step') || sName.includes('haste') || sName.includes('agility')) statKey = 'SPEED';
+      if (sName.includes('def') || sName.includes('shield') || sName.includes('aegis') || sName.includes('iron') || sName.includes('will') || sName.includes('armor')) statKey = '物理防禦';
+      else if (sName.includes('magic') || sName.includes('mage') || sName.includes('mystic') || sName.includes('elem') || sName.includes('fire') || sName.includes('water') || sName.includes('wind') || sName.includes('mana')) statKey = '魔法攻擊';
+      else if (sName.includes('crit') || sName.includes('fury') || sName.includes('stance') || sName.includes('focus')) statKey = '暴擊';
+      else if (sName.includes('speed') || sName.includes('wind') || sName.includes('dash') || sName.includes('step') || sName.includes('haste') || sName.includes('agility')) statKey = '速度';
 
       const row = mkEl('div');
       row.className = 'legacy-skill-select-row';
@@ -857,11 +857,11 @@ function openClassTransferModal(classInfo) {
         <div style="display:flex; align-items:center; gap:12px;">
           <input type="checkbox" ${selected.has(s.id) ? 'checked' : ''} style="cursor:pointer; width:18px; height:18px; accent-color:#f5df93;" />
           <div>
-            <div style="font-weight:bold; color:#ffd877; font-size:13px; font-family:'Cinzel',serif;">${def.name || s.id} <span style="font-size:11px; color:#94a3b8; font-family:sans-serif; font-weight:normal;">(Nv. ${lvl})</span></div>
-            <div style="font-size:12px; color:#86efac; font-weight:600; margin-top:2px;">🧬 Passiva de Linhagem: +${(passiveVal * 100).toFixed(1)}% ${statKey}</div>
+            <div style="font-weight:bold; color:#ffd877; font-size:13px; font-family:'Cinzel',serif;">${def.name || '未知技能'} <span style="font-size:11px; color:#94a3b8; font-family:sans-serif; font-weight:normal;">（等級 ${lvl}）</span></div>
+            <div style="font-size:12px; color:#86efac; font-weight:600; margin-top:2px;">🧬 血統被動：+${(passiveVal * 100).toFixed(1)}% ${statKey}</div>
           </div>
         </div>
-        <span style="font-size:11px; font-weight:bold; color:${selected.has(s.id) ? '#fde047' : '#64748b'};">${selected.has(s.id) ? '✅ Selecionado' : 'Clique para escolher'}</span>
+        <span style="font-size:11px; font-weight:bold; color:${selected.has(s.id) ? '#fde047' : '#64748b'};">${selected.has(s.id) ? '✅ 已選擇' : '點擊選擇'}</span>
       `;
 
       row.onclick = (e) => {
@@ -873,7 +873,7 @@ function openClassTransferModal(classInfo) {
         if (isChecked) {
           if (selected.size >= 2) {
             row.querySelector('input').checked = false;
-            if (typeof log === 'function') log('Você pode selecionar no máximo 2 Passivas de Linhagem!', 'warning');
+            if (typeof log === 'function') log('最多只能選擇 2 個血統被動技能！', 'warning');
             return;
           }
           selected.add(s.id);
@@ -898,7 +898,7 @@ function openClassTransferModal(classInfo) {
         if (chk) chk.checked = isSel;
         const statusSpan = r.querySelector('span:last-child');
         if (statusSpan) {
-          statusSpan.textContent = isSel ? '✅ Selecionado' : 'Clique para escolher';
+          statusSpan.textContent = isSel ? '✅ 已選擇' : '點擊選擇';
           statusSpan.style.color = isSel ? '#fde047' : '#64748b';
         }
       });
@@ -950,7 +950,7 @@ function depositToWarehouse(uid, amount = 1) {
   if (invIdx < 0) return false;
   const item = state.inventory[invIdx];
   if (item.equipped) {
-    log('Desequipe o item antes de guardá-lo no baú.', 'system');
+    log('請先卸下裝備，再放入倉庫。', 'system');
     return false;
   }
 
@@ -973,7 +973,7 @@ function depositToWarehouse(uid, amount = 1) {
         remaining -= add;
       } else {
         if (state.warehouse.length >= maxSlots) {
-          log('Baú cheio!', 'system');
+          log('倉庫已滿！', 'system');
           return false;
         }
         const add = Math.min(maxStack, remaining);
@@ -988,7 +988,7 @@ function depositToWarehouse(uid, amount = 1) {
     }
   } else {
     if (state.warehouse.length >= maxSlots) {
-      log('Baú cheio!', 'system');
+      log('倉庫已滿！', 'system');
       return false;
     }
     state.inventory.splice(invIdx, 1);
@@ -996,7 +996,7 @@ function depositToWarehouse(uid, amount = 1) {
   }
 
   const formattedName = uiFormatItemDisplayName(item, def);
-  log(`📦 Guardou ${formattedName} no Baú.`, 'loot');
+  log(`📦 已將 ${formattedName} 放入倉庫。`, 'loot');
   hideItemTooltip();
   updateInventoryUI();
   updateWarehouseUI();
@@ -1028,7 +1028,7 @@ function withdrawFromWarehouse(uid, amount = 1) {
         remaining -= add;
       } else {
         if (state.inventory.length >= maxInvSlots) {
-          log('Mochila cheia!', 'system');
+          log('背包已滿！', 'system');
           return false;
         }
         const add = Math.min(maxStack, remaining);
@@ -1043,7 +1043,7 @@ function withdrawFromWarehouse(uid, amount = 1) {
     }
   } else {
     if (state.inventory.length >= maxInvSlots) {
-      log('Mochila cheia!', 'system');
+      log('背包已滿！', 'system');
       return false;
     }
     state.warehouse.splice(whIdx, 1);
@@ -1051,7 +1051,7 @@ function withdrawFromWarehouse(uid, amount = 1) {
   }
 
   const formattedName = uiFormatItemDisplayName(item, def);
-  log(`🎒 Retirou ${formattedName} do Baú.`, 'loot');
+  log(`🎒 已從倉庫取出 ${formattedName}。`, 'loot');
   hideItemTooltip();
   updateInventoryUI();
   updateWarehouseUI();
@@ -1102,19 +1102,19 @@ function salvageItem(uid) {
   const idx = state.inventory.findIndex(i => String(i.uid) === String(uid));
   if (idx < 0) return;
   const item = state.inventory[idx];
-  if (item.equipped) { log('Desequipe o item antes de desmontar!', 'system'); return; }
+  if (item.equipped) { log('請先卸下物品再進行拆解！', 'system'); return; }
   const def = D().ALL_ITEMS[item.itemId];
   if (!def) return;
   const targetSlot = resolveEquipSlot(def.slot);
   const isEquip = (def.slot && def.slot !== 'consumable' && def.slot !== 'material' && def.slot !== 'scroll' && def.slot !== 'powerup') || ALL_EQUIP_SLOTS.includes(targetSlot);
   if (!isEquip) {
-    log('Apenas equipamentos podem ser desmontados.', 'system');
+    log('只有裝備可以拆解。', 'system');
     return;
   }
 
   if (isHighValueItem(item)) {
-    const rarityName = D().RARITY?.[item.rarity]?.name || item.rarity;
-    if (!confirm(`⚠️ Deseja realmente SUCATEAR o item valioso "${def.name}" [${rarityName}]?`)) {
+    const rarityName = D().RARITY?.[item.rarity]?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(item.rarity || 'common').toLowerCase()] || '一般';
+    if (!confirm(`⚠️ 確定要拆解珍貴物品「${def.name}」[${rarityName}] 嗎？`)) {
       return;
     }
   }
@@ -1124,17 +1124,17 @@ function salvageItem(uid) {
   const rarityMult = item.rarity ? (D().RARITY?.[item.rarity]?.mult || 1) : 1;
 
   let matId = 'iron_ore';
-  if (grade === 'S Grade' || def.tier === 6) matId = 'crystal_s';
-  else if (grade === 'A Grade') matId = 'crystal_a';
-  else if (grade === 'B Grade') matId = 'crystal_b';
-  else if (grade === 'C Grade') matId = 'crystal_c';
-  else if (grade === 'D Grade') matId = 'crystal_d';
+  if (grade === 'S 級' || def.tier === 6) matId = 'crystal_s';
+  else if (grade === 'A 級') matId = 'crystal_a';
+  else if (grade === 'B 級') matId = 'crystal_b';
+  else if (grade === 'C 級') matId = 'crystal_c';
+  else if (grade === 'D 級') matId = 'crystal_d';
   else matId = (def.slot === 'weapon') ? 'iron_ore' : 'cloth';
 
   const amount = Math.max(1, Math.floor((reqLvl / 5 + 1) * rarityMult));
   state.inventory.splice(idx, 1);
   addToInventory(matId, amount);
-  log(`🔨 Desmontou ${def.name} em ${amount}x ${D().ALL_ITEMS[matId]?.name || matId}!`, 'loot');
+  log(`🔨 已將 ${def.name} 拆解為 ${amount}× ${D().ALL_ITEMS[matId]?.name || '未知材料'}！`, 'loot');
   hideItemTooltip();
   updateAllUI(); save();
 }
@@ -1197,7 +1197,7 @@ function clearItemSelection() {
 
 function sellSelectedItems() {
   const set = getSelectedSet();
-  if (set.size === 0) { log('Nenhum item selecionado para vender.', 'system'); return; }
+  if (set.size === 0) { log('尚未選擇要出售的物品。', 'system'); return; }
   const toDelete = Array.from(set);
   
   const hasHighValue = toDelete.some(uid => {
@@ -1205,7 +1205,7 @@ function sellSelectedItems() {
     return isHighValueItem(item);
   });
   if (hasHighValue) {
-    if (!confirm(`⚠️ A seleção contém itens de alta raridade (Raro ou superior). Deseja realmente vender?`)) {
+    if (!confirm(`⚠️ 選取內容包含高稀有度物品（稀有以上）。確定要出售嗎？`)) {
       return;
     }
   }
@@ -1227,14 +1227,14 @@ function sellSelectedItems() {
   
   set.clear();
   state.gold += totalGold;
-  log(`💰 Vendeu ${count} item(ns) selecionado(s) por ${totalGold.toLocaleString()}g!`, 'loot');
+  log(`💰 已出售 ${count} 件所選物品，獲得 ${totalGold.toLocaleString()} 金幣！`, 'loot');
   updateAllUI();
   save();
 }
 
 function salvageSelectedItems() {
   const set = getSelectedSet();
-  if (set.size === 0) { log('Nenhum item selecionado para desmontar.', 'system'); return; }
+  if (set.size === 0) { log('尚未選擇要分解的物品。', 'system'); return; }
   const toDelete = Array.from(set);
 
   const hasHighValue = toDelete.some(uid => {
@@ -1242,7 +1242,7 @@ function salvageSelectedItems() {
     return isHighValueItem(item);
   });
   if (hasHighValue) {
-    if (!confirm(`⚠️ A seleção contém itens de alta raridade (Raro ou superior). Deseja realmente sucatear?`)) {
+    if (!confirm(`⚠️ 選取內容包含高稀有度物品（稀有以上）。確定要分解嗎？`)) {
       return;
     }
   }
@@ -1265,11 +1265,11 @@ function salvageSelectedItems() {
     const rarityMult = item.rarity ? (D().RARITY?.[item.rarity]?.mult || 1) : 1;
 
     let matId = 'iron_ore';
-    if (grade === 'S Grade' || def.tier === 6) matId = 'crystal_s';
-    else if (grade === 'A Grade') matId = 'crystal_a';
-    else if (grade === 'B Grade') matId = 'crystal_b';
-    else if (grade === 'C Grade') matId = 'crystal_c';
-    else if (grade === 'D Grade') matId = 'crystal_d';
+    if (grade === 'S 級' || def.tier === 6) matId = 'crystal_s';
+    else if (grade === 'A 級') matId = 'crystal_a';
+    else if (grade === 'B 級') matId = 'crystal_b';
+    else if (grade === 'C 級') matId = 'crystal_c';
+    else if (grade === 'D 級') matId = 'crystal_d';
     else matId = (def.slot === 'weapon') ? 'iron_ore' : 'cloth';
 
     const amount = Math.max(1, Math.floor((reqLvl / 5 + 1) * rarityMult));
@@ -1282,13 +1282,13 @@ function salvageSelectedItems() {
 
   set.clear();
   const summaryStr = Object.entries(yieldSummary)
-    .map(([mId, amt]) => `${amt}x ${D().ALL_ITEMS[mId]?.name || mId}`)
+    .map(([mId, amt]) => `${amt}× ${D().ALL_ITEMS[mId]?.name || '未知材料'}`)
     .join(', ');
 
   if (count > 0) {
-    log(`🔨 Desmontou ${count} equipamento(s) e obteve: ${summaryStr || 'materiais'}!`, 'loot');
+    log(`🔨 已分解 ${count} 件裝備並取得：${summaryStr || '材料'}！`, 'loot');
   } else {
-    log('Nenhum equipamento válido selecionado para desmontar.', 'system');
+    log('尚未選擇可分解的有效裝備。', 'system');
   }
   updateAllUI();
   save();
@@ -1320,13 +1320,13 @@ function crystallizeSelectedItems() {
   }
 
   if (itemsToCrystallize.length === 0) {
-    log('Nenhum equipamento de Grau D a S disponível para cristalização.', 'system');
+    log('目前沒有可結晶化的 D～S 級裝備。', 'system');
     return;
   }
 
   const hasHighValue = itemsToCrystallize.some(i => isHighValueItem(i));
   if (hasHighValue) {
-    if (!confirm(`💎 A seleção contém ${itemsToCrystallize.length} equipamento(s), incluindo peças de alta raridade (Raro ou superior). Deseja realmente cristalizá-las em Cristais elementares?`)) {
+    if (!confirm(`💎 選取內容包含 ${itemsToCrystallize.length} 件裝備，其中有高稀有度物品（稀有以上）。確定要結晶化為元素水晶嗎？`)) {
       return;
     }
   }
@@ -1364,14 +1364,14 @@ function crystallizeSelectedItems() {
 
   set.clear();
   const summaryStr = Object.entries(yieldSummary)
-    .map(([mId, amt]) => `${amt}x ${D().ALL_ITEMS[mId]?.name || mId}`)
+    .map(([mId, amt]) => `${amt}× ${D().ALL_ITEMS[mId]?.name || '未知材料'}`)
     .join(', ');
 
   if (count > 0) {
-    log(`💎 Cristalizou ${count} equipamento(s) com sucesso e obteve: **${summaryStr}**!`, 'rarity-legendary');
-    if (typeof floatText === 'function') floatText(`💎 CRISTALIZADO (+${count}x)`, 'float-jackpot');
+    log(`💎 已成功結晶化 ${count} 件裝備並取得：**${summaryStr}**！`, 'rarity-legendary');
+    if (typeof floatText === 'function') floatText(`💎 已結晶（+${count}×）`, 'float-jackpot');
   } else {
-    log('Nenhum item válido para cristalização.', 'system');
+    log('沒有可結晶化的有效物品。', 'system');
   }
   updateAllUI();
   save();
@@ -1400,7 +1400,7 @@ function useItem(uid) {
     } else if (typeof window !== 'undefined' && typeof window.openEnchantModalWithScroll === 'function') {
       window.openEnchantModalWithScroll(uid);
     } else {
-      log('Abra o menu de Encantamento para utilizar este pergaminho.', 'system');
+      log('請開啟強化選單來使用這張卷軸。', 'system');
     }
     return;
   }
@@ -1416,7 +1416,7 @@ function useItem(uid) {
       existing.amount = Math.max(existing.amount, amt);
     } else { state.buffs[key] = { amount: amt, until: newUntil }; }
   };
-  const fmtDur = (s) => s >= 3600 ? `${(s/3600).toFixed(s%3600?1:0)}h` : s >= 60 ? `${Math.round(s/60)}m` : `${s}s`;
+  const fmtDur = (s) => s >= 3600 ? `${(s/3600).toFixed(s%3600?1:0)} 小時` : s >= 60 ? `${Math.round(s/60)} 分鐘` : `${s} 秒`;
   
   // ── HP Potions ─────────────────────────────────────────────────────────────
   if (def.type === 'heal' || item.itemId.startsWith('hp_potion')) {
@@ -1427,8 +1427,8 @@ function useItem(uid) {
     state._lastHpPotTime = potNow;
     const healAmt = def.amount || def.healAmt || 100;
     state.hp = Math.min(state.maxHp, state.hp + healAmt);
-    log(`✨ Usou ${def.name}: +${healAmt} HP`, 'heal');
-    if (typeof floatText === 'function') floatText(`+${healAmt} HP`, 'sf-heal');
+    log(`✨ 使用 ${def.name}：+${healAmt} 生命值`, 'heal');
+    if (typeof floatText === 'function') floatText(`+${healAmt} 生命值`, 'sf-heal');
   }
   // ── MP Potions ─────────────────────────────────────────────────────────────
   else if (def.type === 'mana' || item.itemId.startsWith('mp_potion')) {
@@ -1439,106 +1439,106 @@ function useItem(uid) {
     state._lastMpPotTime = potNow;
     const manaAmt = def.amount || def.healAmt || 80;
     state.mp = Math.min(state.maxMp, state.mp + manaAmt);
-    log(`💧 Usou ${def.name}: +${manaAmt} MP`, 'heal');
-    if (typeof floatText === 'function') floatText(`+${manaAmt} MP`, 'sf-heal');
+    log(`💧 使用 ${def.name}：+${manaAmt} 魔力`, 'heal');
+    if (typeof floatText === 'function') floatText(`+${manaAmt} 魔力`, 'sf-heal');
   }
   // ── Buff Potions ───────────────────────────────────────────────────────────
   else if (def.type === 'buff') {
     applyBuff(def.stat, def.amount, def.duration || 1800);
-    log(`⚡ Usou ${def.name}: +${def.amount} ${def.stat.toUpperCase()} por ${fmtDur(def.duration || 1800)}`, 'heal');
-    if (typeof floatText === 'function') floatText(`⚡ +${def.amount} ${def.stat.toUpperCase()}`, 'sf-heal');
+    log(`⚡ 使用 ${def.name}：+${def.amount} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[def.stat] || '其他屬性'}，持續 ${fmtDur(def.duration || 1800)}`, 'heal');
+    if (typeof floatText === 'function') floatText(`⚡ +${def.amount} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[def.stat] || '其他屬性'}`, 'sf-heal');
   }
   else if (item.itemId === 'attack_potion') {
-    applyBuff('atk', 0.20, 1800); log(`⚡ Usou ${def.name}: +20% ATK por 30min`, 'heal');
-    if (typeof floatText === 'function') floatText('⚡ +20% ATK (30m)', 'sf-heal');
+    applyBuff('atk', 0.20, 1800); log(`⚡ 使用 ${def.name}：+20% 攻擊，持續 30 分鐘`, 'heal');
+    if (typeof floatText === 'function') floatText('⚡ +20% 攻擊（30 分鐘）', 'sf-heal');
   }
   else if (item.itemId === 'defense_potion') {
-    applyBuff('def', 0.20, 1800); log(`🛡️ Usou ${def.name}: +20% DEF por 30min`, 'heal');
-    if (typeof floatText === 'function') floatText('🛡️ +20% DEF (30m)', 'sf-heal');
+    applyBuff('def', 0.20, 1800); log(`🛡️ 使用 ${def.name}：+20% 防禦，持續 30 分鐘`, 'heal');
+    if (typeof floatText === 'function') floatText('🛡️ +20% 防禦（30 分鐘）', 'sf-heal');
   }
   else if (item.itemId === 'speed_potion') {
-    applyBuff('spd', 0.15, 1800); log(`💨 Usou ${def.name}: +15% SPD por 30min`, 'heal');
-    if (typeof floatText === 'function') floatText('💨 +15% SPD (30m)', 'sf-heal');
+    applyBuff('spd', 0.15, 1800); log(`💨 使用 ${def.name}：+15% 速度，持續 30 分鐘`, 'heal');
+    if (typeof floatText === 'function') floatText('💨 +15% 速度（30 分鐘）', 'sf-heal');
   }
   else if (item.itemId === 'potion_haste') {
     applyBuff('atkSpd', 0.15, 1800); applyBuff('spd', 0.15, 1800);
-    log(`⚡ Usou ${def.name}: +15% AtkSpd/SPD por 30min`, 'heal');
-    if (typeof floatText === 'function') floatText('⚡ HASTE +15% (30m)', 'sf-heal');
+    log(`⚡ 使用 ${def.name}：+15% 攻擊速度／移動速度，持續 30 分鐘`, 'heal');
+    if (typeof floatText === 'function') floatText('⚡ 急速 +15%（30 分鐘）', 'sf-heal');
   }
   else if (item.itemId === 'aegis_draught') {
     applyBuff('def', 0.25, 3600); applyBuff('magicRes', 0.20, 3600);
-    log(`🛡️ Usou ${def.name}: +25% DEF, +20% Resistência Mágica por 1h`, 'heal');
-    if (typeof floatText === 'function') floatText('🛡️ AEGIS +25% DEF (1h)', 'sf-heal');
+    log(`🛡️ 使用 ${def.name}：防禦 +25%、魔法抗性 +20%，持續 1 小時`, 'heal');
+    if (typeof floatText === 'function') floatText('🛡️ 神盾：防禦 +25%（1 小時）', 'sf-heal');
   }
   else if (item.itemId === 'berserker_elixir') {
     applyBuff('atk', 0.30, 3600); applyBuff('critRate', 0.15, 3600);
-    log(`🔥 Usou ${def.name}: +30% ATK, +15% Crit por 1h`, 'heal');
-    if (typeof floatText === 'function') floatText('🔥 BERSERKER +30% ATK (1h)', 'float-crit');
+    log(`🔥 使用 ${def.name}：+30% 攻擊、+15% 暴擊率，持續 1 小時`, 'heal');
+    if (typeof floatText === 'function') floatText('🔥 狂戰士：攻擊 +30%（1 小時）', 'float-crit');
   }
   else if (item.itemId === 'sages_tea') {
     applyBuff('mpRegen', 5, 3600);
-    log(`🍵 Usou ${def.name}: +5 MP/tick por 1h`, 'heal');
-    if (typeof floatText === 'function') floatText('🍵 SAGES TEA: MP REGEN (1h)', 'sf-heal');
+    log(`🍵 使用 ${def.name}：每次回復 +5 魔力，持續 1 小時`, 'heal');
+    if (typeof floatText === 'function') floatText('🍵 賢者茶：魔力回復（1 小時）', 'sf-heal');
   }
   else if (item.itemId === 'antidote') {
     state.poisoned = false; state.bled = false;
     state.poisonTicks = 0; state.bleedTicks = 0;
-    log(`🧪 Usou ${def.name}: Envenenamento e Sangramento curados!`, 'heal');
-    if (typeof floatText === 'function') floatText('🧪 ANTÍDOTO', 'sf-heal');
+    log(`🧪 使用 ${def.name}：已解除中毒與流血！`, 'heal');
+    if (typeof floatText === 'function') floatText('🧪 解毒劑', 'sf-heal');
   }
   // ── Boosts ─────────────────────────────────────────────────────────────────
   else if (def.type === 'xpBoost' || item.itemId === 'xp_boost_1h' || item.itemId === 'exp_boost_1h') {
     const pct = def.amount || 0.50; const dur = def.duration || 3600;
     applyBuff('xpBoost', pct, dur);
-    log(`📖 Usou ${def.name}: +${Math.round(pct*100)}% XP por ${fmtDur(dur)}`, 'xp');
-    if (typeof floatText === 'function') floatText(`📖 +${Math.round(pct*100)}% XP (${fmtDur(dur)})`, 'float-jackpot');
+    log(`📖 使用 ${def.name}：+${Math.round(pct*100)}% 經驗值，持續 ${fmtDur(dur)}`, 'xp');
+    if (typeof floatText === 'function') floatText(`📖 +${Math.round(pct*100)}% 經驗值（${fmtDur(dur)}）`, 'float-jackpot');
   }
   else if (def.type === 'goldBoost' || item.itemId === 'gold_boost_1h' || item.itemId === 'gold_boost_4h') {
     const pct = def.amount || 0.50; const dur = def.duration || (item.itemId === 'gold_boost_4h' ? 14400 : 3600);
     applyBuff('goldBoost', pct, dur);
-    log(`💰 Usou ${def.name}: +${Math.round(pct*100)}% Adena por ${fmtDur(dur)}`, 'loot');
-    if (typeof floatText === 'function') floatText(`💰 +${Math.round(pct*100)}% ADENA (${fmtDur(dur)})`, 'float-jackpot');
+    log(`💰 使用 ${def.name}：金幣 +${Math.round(pct*100)}%，持續 ${fmtDur(dur)}`, 'loot');
+    if (typeof floatText === 'function') floatText(`💰 金幣 +${Math.round(pct*100)}%（${fmtDur(dur)}）`, 'float-jackpot');
   }
   else if (def.type === 'luckBoost' || item.itemId === 'luck_boost_1h') {
     const pct = def.amount || 0.50; const dur = def.duration || 3600;
     applyBuff('luckBoost', pct, dur);
-    log(`🍀 Usou ${def.name}: +${Math.round(pct*100)}% Sorte por ${fmtDur(dur)}`, 'loot');
-    if (typeof floatText === 'function') floatText(`🍀 +${Math.round(pct*100)}% SORTE (${fmtDur(dur)})`, 'float-jackpot');
+    log(`🍀 使用 ${def.name}：幸運 +${Math.round(pct*100)}%，持續 ${fmtDur(dur)}`, 'loot');
+    if (typeof floatText === 'function') floatText(`🍀 幸運 +${Math.round(pct*100)}%（${fmtDur(dur)}）`, 'float-jackpot');
   }
-  else if (def.type === 'autoPotion') { applyBuff('autoPotion', 1, def.duration); log(`Used ${def.name}: auto-potion active for ${fmtDur(def.duration)}`, 'heal'); }
+  else if (def.type === 'autoPotion') { applyBuff('autoPotion', 1, def.duration); log(`使用 ${def.name}：自動藥水已啟用，持續 ${fmtDur(def.duration)}`, 'heal'); }
   // ── EXP Scroll ────────────────────────────────────────────────────────────
   else if (item.itemId === 'exp_scroll') {
     const xpGain = def.amount || (state.level * 2500);
     state.xp = (state.xp || 0) + xpGain;
-    log(`📜 Usou ${def.name}: +${xpGain.toLocaleString()} XP`, 'xp');
-    if (typeof floatText === 'function') floatText(`+${xpGain.toLocaleString()} XP`, 'float-jackpot');
+    log(`📜 使用 ${def.name}：+${xpGain.toLocaleString()} 經驗值`, 'xp');
+    if (typeof floatText === 'function') floatText(`+${xpGain.toLocaleString()} 經驗值`, 'float-jackpot');
     if (typeof checkLevelUp === 'function') checkLevelUp();
   }
   // ── Elixirs ───────────────────────────────────────────────────────────────
   else if (item.itemId === 'elixir_berserker') {
     applyBuff('atk', 0.15, 3600); applyBuff('atkSpd', 0.15, 3600);
-    log(`🧪 Usou ${def.name}: +15% P.Atk, +15% AtkSpd por 1h`, 'heal');
-    if (typeof floatText === 'function') floatText('🧪 BERSERKER ELIXIR (1h)', 'float-crit');
+    log(`🧪 使用 ${def.name}：+15% 物理攻擊、+15% 攻擊速度，持續 1 小時`, 'heal');
+    if (typeof floatText === 'function') floatText('🧪 狂戰士靈藥（1 小時）', 'float-crit');
   }
   else if (item.itemId === 'elixir_arcanist') {
     applyBuff('matk', 0.20, 3600); applyBuff('mpRegen', 3, 3600);
-    log(`🧪 Usou ${def.name}: +20% M.Atk, +MP Regen por 1h`, 'heal');
-    if (typeof floatText === 'function') floatText('🧪 ARCANIST ELIXIR (1h)', 'sf-heal');
+    log(`🧪 使用 ${def.name}：+20% 魔法攻擊、提升魔力回復，持續 1 小時`, 'heal');
+    if (typeof floatText === 'function') floatText('🧪 奧術師靈藥（1 小時）', 'sf-heal');
   }
   else if (item.itemId === 'elixir_fortune') {
     applyBuff('goldBoost', 0.25, 3600); applyBuff('luckBoost', 0.25, 3600);
-    log(`🧪 Usou ${def.name}: +25% Adena, +25% Sorte por 1h`, 'loot');
-    if (typeof floatText === 'function') floatText('🧪 FORTUNE ELIXIR (1h)', 'float-jackpot');
+    log(`🧪 使用 ${def.name}：金幣 +25%、幸運 +25%，持續 1 小時`, 'loot');
+    if (typeof floatText === 'function') floatText('🧪 幸運靈藥（1 小時）', 'float-jackpot');
   }
   else if (item.itemId === 'elixir_titan') {
     applyBuff('maxHpBonus', 0.25, 3600); applyBuff('def', 0.25, 3600);
-    log(`🧪 Usou ${def.name}: +25% MaxHP, +25% DEF por 1h`, 'heal');
-    if (typeof floatText === 'function') floatText('🧪 TITAN ELIXIR (1h)', 'sf-heal');
+    log(`🧪 使用 ${def.name}：+25% 最大生命值、+25% 防禦，持續 1 小時`, 'heal');
+    if (typeof floatText === 'function') floatText('🧪 泰坦靈藥（1 小時）', 'sf-heal');
   }
   else if (item.itemId === 'elixir_transcendence') {
     applyBuff('xpBoost', 0.20, 3600); applyBuff('spBoost', 0.20, 3600);
-    log(`🧪 Usou ${def.name}: +20% EXP, +20% SP por 1h`, 'xp');
-    if (typeof floatText === 'function') floatText('🧪 TRANSCENDENCE ELIXIR (1h)', 'float-jackpot');
+    log(`🧪 使用 ${def.name}：+20% 經驗值、+20% 技能點，持續 1 小時`, 'xp');
+    if (typeof floatText === 'function') floatText('🧪 超越靈藥（1 小時）', 'float-jackpot');
   } 
   else if (def.type === 'teleport') {
     state.hp = state.maxHp; state.mp = state.maxMp;
@@ -1548,35 +1548,35 @@ function useItem(uid) {
       state.currentZone = town;
       state.lastHuntingZone = town;
       const zn = el('zone-name');
-      if (zn) zn.textContent = ZONES[state.zone]?.name || town;
+      if (zn) zn.textContent = ZONES[state.zone]?.name || '未知城鎮';
       stopCombat();
       setTimeout(startCombat, 300);
     }
-    log(`Used ${def.name}: returned to ${ZONES[town]?.name || town}, fully healed.`, 'heal');
+    log(`使用 ${def.name}：已返回 ${ZONES[town]?.name || '未知城鎮'}，生命值與魔力完全恢復。`, 'heal');
     updateAllUI();
   } else if (def.type === 'elixir_vigor' || item.itemId === 'elixir_vigor_1h') {
     applyBuff('xpBoost', 0.30, 3600);
     applyBuff('goldBoost', 0.30, 3600);
-    log(`🧪 Usou ${def.name}: +30% EXP e +30% Adena por 1 hora!`, 'heal');
-    if (typeof floatText === 'function') floatText('🧪 VIGOR: +30% EXP & OURO (1h)', 'float-crit');
+    log(`🧪 使用 ${def.name}：經驗值 +30%、金幣 +30%，持續 1 小時！`, 'heal');
+    if (typeof floatText === 'function') floatText('🧪 活力：經驗值 +30%、金幣 +30%（1 小時）', 'float-crit');
   } else if (def.type === 'inventory_expand' || item.itemId === 'pack_inventory_expand_30') {
     state.bonusInventorySlots = (state.bonusInventorySlots || 0) + 30;
     const totalSlots = getMaxInventorySlots(state);
-    log(`🎒 Mochila Expandida! +30 slots permanentes adicionados (Capacidade Máxima: ${totalSlots} slots)!`, 'loot');
-    if (typeof floatText === 'function') floatText(`🎒 MOCHILA +30 SLOTS (${totalSlots})`, 'float-jackpot');
+    log(`🎒 背包已擴充！永久增加 30 個欄位（最大容量：${totalSlots} 格）！`, 'loot');
+    if (typeof floatText === 'function') floatText(`🎒 背包 +30 格（${totalSlots}）`, 'float-jackpot');
   } else if (def.type === 'vip_pass' || item.itemId === 'pass_vip_teleport_30d') {
     state.vipTeleportUntil = Math.max(Date.now(), state.vipTeleportUntil || 0) + (30 * 24 * 3600 * 1000);
-    log('🌟 Passe VIP de Teleporte ativado! Teleportes gratuitos liberados por 30 dias.', 'system');
-    if (typeof floatText === 'function') floatText('🌟 VIP 30 DIAS ATIVADO!', 'float-jackpot');
+    log('🌟 貴賓傳送通行證已啟用！30 天內可免費傳送。', 'system');
+    if (typeof floatText === 'function') floatText('🌟 貴賓通行證 30 天已啟用！', 'float-jackpot');
   } else if (item.itemId === 'scroll_blessed_weapon' || item.itemId === 'scroll_blessed_armor') {
     const isWpn = item.itemId.includes('weapon');
-    log(`📜 Pergaminho Abençoado de ${isWpn ? 'Arma' : 'Armadura'} selecionado! Abrindo Forja com Proteção Total (+100% de Segurança contra perdas).`, 'system');
+    log(`📜 已選擇祝福的${isWpn ? '武器' : '防具'}強化卷軸！正在開啟具完全保護效果的鍛造介面。`, 'system');
     if (typeof openPanel === 'function') openPanel('forge');
     if (typeof window.switchForgeSubtab === 'function') window.switchForgeSubtab('enchant');
     return;
   } else if (def.type === 'skin_weapon' || item.itemId.startsWith('skin_weapon_')) {
     state.activeSkin = (state.activeSkin === item.itemId) ? null : item.itemId;
-    log(`🎨 ${state.activeSkin ? 'Equipou' : 'Desequipou'} a ${def.name}!`, 'system');
+    log(`🎨 ${state.activeSkin ? '已裝備' : '已卸下'} ${def.name}！`, 'system');
     if (state.activeSkin) {
       const auraColor = state.activeSkin === 'skin_weapon_frost_lord' ? '140,225,255' : (state.activeSkin === 'skin_weapon_infernal_dragon' ? '255,120,40' : '255,235,140');
       playCombatVFX('hero_skin_aura', { color: auraColor, duration: 1200 });
@@ -1586,7 +1586,7 @@ function useItem(uid) {
     return;
   } else if (def.type === 'costume' || item.itemId.startsWith('costume_')) {
     state.activeCostume = (state.activeCostume === item.itemId) ? null : item.itemId;
-    log(`🥋 ${state.activeCostume ? 'Equipou' : 'Desequipou'} o ${def.name}!`, 'system');
+    log(`🥋 ${state.activeCostume ? '已裝備' : '已卸下'} ${def.name}！`, 'system');
     updateAllUI(); save();
     return;
   } else if (def.type === 'title_token' || item.itemId.startsWith('title_')) {
@@ -1595,33 +1595,33 @@ function useItem(uid) {
     state.titleColor = def.titleColor || '#ffd700';
     state.unlockedTitles = state.unlockedTitles || [];
     if (!state.unlockedTitles.includes(titleName)) state.unlockedTitles.push(titleName);
-    log(`👑 Título [${titleName}] ativado no seu perfil e chat!`, 'system');
+    log(`👑 稱號 [${titleName}] 已套用到個人資料與聊天！`, 'system');
     updateAllUI(); save();
     return;
   } else if (def.type === 'avatar_frame' || item.itemId.startsWith('frame_')) {
     state.activeAvatarFrame = (state.activeAvatarFrame === item.itemId) ? null : item.itemId;
-    log(`🖼️ Moldura de Avatar atualizada!`, 'system');
+    log(`🖼️ 頭像框已更新！`, 'system');
     updateAllUI(); save();
     return;
   } else if (def.type === 'combat_aura' || item.itemId.startsWith('aura_')) {
     state.activeCombatAura = (state.activeCombatAura === item.itemId) ? null : item.itemId;
-    log(`🔥 Aura de Combate atualizada!`, 'system');
+    log(`🔥 戰鬥光環已更新！`, 'system');
     updateAllUI(); save();
     return;
   } else if (def.type === 'raceClassChange' || item.itemId === 'scroll_race_class_change') {
     if (typeof window !== 'undefined' && typeof window.onOpenRaceClassChangeModal === 'function') {
       window.onOpenRaceClassChangeModal({
         scrollUid: uid,
-        charName: state.charName || 'Aventureiro',
+        charName: state.charName || '冒險者',
         race: state.race || 'human',
         class: state.class || 'fighter'
       });
     } else {
-      log('Abra o menu de Reespecialização para utilizar o Scroll of Race & Class Change.', 'system');
+      log('請開啟重新專精選單以使用種族／職業變更卷軸。', 'system');
     }
     return;
-  } else if (def.type === 'resurrect') { log('Scrolls auto-use on death.', 'system'); return; } 
-  else { log(`Used ${def.name}`, 'heal'); }
+  } else if (def.type === 'resurrect') { log('復活卷軸會在死亡時自動使用。', 'system'); return; } 
+  else { log(`使用 ${def.name}`, 'heal'); }
   
   // Robust stack deduction — handles both item.count and item.qty
   const currentQty = (item.count != null ? item.count : item.qty) ?? 1;
@@ -1695,7 +1695,7 @@ window.executeRaceClassChange = (scrollUid, newRace, newClass) => {
   // 7. Save & Update UI
   updateAllUI();
   save();
-  log(`✨ Troca de Raça & Classe realizada com sucesso para ${(raceObj.name || newRace).toUpperCase()} ${(clsObj?.name || newClass).toUpperCase()}! ${refundedSp} SP devolvidos e equipamentos guardados no inventário.`, 'rarity-legendary');
+  log(`✨ 種族與職業已成功變更為 ${raceObj.name || '未知種族'} ${clsObj?.name || '未知職業'}！返還 ${refundedSp} 技能點，裝備已存回背包。`, 'rarity-legendary');
 };
 
 window.onCharacterCreated = (data) => {
@@ -1706,7 +1706,7 @@ window.onCharacterCreated = (data) => {
   if (typeof window !== 'undefined' && typeof window.saveCloudNow === 'function') {
     window.saveCloudNow(state, true);
   }
-  log(`🎉 Personagem criado com sucesso: ${data.charName || state.charName} (${data.race} - ${data.className})! Starter Kit No-Grade equipado!`, 'rarity-legendary');
+  log(`🎉 角色建立成功：${data.charName || state.charName}（${RACES?.[data.race]?.name || '未知種族'} · ${getClass(data.className)?.name || '未知職業'}）！已裝備初始無等級套裝！`, 'rarity-legendary');
 };
 
 // --------------------------- LEVEL UP wrapper ---------------------------
@@ -1724,7 +1724,7 @@ function checkLevelUp() {
       state.inventory.push({
         uid: `ref_${Date.now()}`,
         itemId: 'scroll_blessed_weapon',
-        name: 'Pergaminho Abençoado de Arma (Universal)',
+        name: '祝福的武器強化卷軸（通用）',
         count: 5
       });
     }
@@ -1735,8 +1735,8 @@ function checkLevelUp() {
         console.debug('Record referral level 40 error:', e);
       }
     }
-    log(`🎉 **Parabéns pelo Nível 40!** Recompensa especial por ingressar pelo link de [${state.referredBy}] resgatada: **+50 AC** e **5x Pergaminhos Abençoados de Arma**!`, 'loot');
-    if (typeof floatText === 'function') floatText('🎁 RECOMPENSA DE INDICAÇÃO (50 AC)!', 'float-jackpot');
+    log(`🎉 **恭喜升到 40 級！** 透過 [${state.referredBy}] 推薦連結加入的特殊獎勵已領取：**+50 亞丁幣** 與 **5 張祝福武器強化卷軸**！`, 'loot');
+    if (typeof floatText === 'function') floatText('🎁 推薦獎勵（50 亞丁幣）！', 'float-jackpot');
     updateAllUI();
     save();
   }
@@ -1749,13 +1749,13 @@ export function sellItem(uid) {
   const idx = state.inventory.findIndex(i => i.uid === uid);
   if (idx < 0) return;
   const item = state.inventory[idx];
-  if (item.equipped) { log('Desequipe o item antes de vender.', 'system'); return; }
+  if (item.equipped) { log('請先卸下裝備，再出售。', 'system'); return; }
   const def = D()?.ALL_ITEMS?.[item.itemId];
   if (!def) return;
 
   if (isHighValueItem(item)) {
-    const rarityName = D().RARITY?.[item.rarity]?.name || item.rarity;
-    if (!confirm(`⚠️ Deseja realmente VENDER o item valioso "${def.name}" [${rarityName}]?`)) return;
+    const rarityName = D().RARITY?.[item.rarity]?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(item.rarity || 'common').toLowerCase()] || '一般';
+    if (!confirm(`⚠️ 確定要出售這件高價值物品「${def.name}」[${rarityName}]？`)) return;
   }
 
   const qty = item.count || 1;
@@ -1775,7 +1775,7 @@ export function sellItem(uid) {
   state.inventory.splice(idx, 1);
   state.gold += goldEarned;
   const name = uiFormatItemDisplayName(item, def);
-  log(`💰 Vendeu ${name} por ${goldEarned.toLocaleString()}g!`, 'loot');
+  log(`💰 已出售 ${name}，獲得 ${goldEarned.toLocaleString()} 金幣！`, 'loot');
   hideItemTooltip();
   updateAllUI();
   save();
@@ -1859,7 +1859,7 @@ function getLogTime() {
 
 function resolveLogCategory(type, msg) {
   // Spawn de Boss/Elite, Sagas e Avisos do Servidor pertencem à aba Sistema
-  if (type === 'boss' || type === 'system' || msg.includes('surgiu') || msg.includes('apareceu') || msg.includes('DESPERTADO') || msg.includes('desbloqueada') || msg.includes('DESBLOQUEADA') || msg.includes('Salvo') || msg.includes('carregado') || msg.includes('Élite') || msg.includes('CHEFÃO') || msg.includes('Miniboss')) {
+  if (type === 'boss' || type === 'system' || msg.includes('surgiu') || msg.includes('apareceu') || msg.includes('DESPERTADO') || msg.includes('desbloqueada') || msg.includes('DESBLOQUEADA') || msg.includes('Salvo') || msg.includes('carregado') || msg.includes('菁英') || msg.includes('首領') || msg.includes('Miniboss')) {
     return 'system';
   }
   if (type === 'xp' || type === 'gold' || msg.includes('XP') || msg.includes('SP') || msg.includes('Adena') || msg.includes('JACKPOT') || msg.includes('Level Up')) {
@@ -1875,24 +1875,24 @@ function resolveLogCategory(type, msg) {
 }
 
 function getLogBadgeHtml(type, category, msg = '') {
-  if (type === 'boss' || msg.includes('CHEFÃO') || msg.includes('Élite') || msg.includes('Miniboss')) {
-    return '<span class="log-badge badge-boss">BOSS</span>';
+  if (type === 'boss' || msg.includes('首領') || msg.includes('菁英') || msg.includes('Miniboss')) {
+    return '<span class="log-badge badge-boss">首領</span>';
   }
   if (category === 'loot') {
-    if (type === 'rarity-legendary') return '<span class="log-badge badge-legendary">LENDÁRIO</span>';
-    if (type === 'rarity-epic') return '<span class="log-badge badge-rare">ÉPICO</span>';
-    if (type === 'rarity-rare') return '<span class="log-badge badge-rare">RARO</span>';
-    return '<span class="log-badge badge-loot">DROP</span>';
+    if (type === 'rarity-legendary') return '<span class="log-badge badge-legendary">傳說</span>';
+    if (type === 'rarity-epic') return '<span class="log-badge badge-rare">史詩</span>';
+    if (type === 'rarity-rare') return '<span class="log-badge badge-rare">稀有</span>';
+    return '<span class="log-badge badge-loot">掉落</span>';
   }
   if (category === 'gold_xp') {
-    if (type === 'xp') return '<span class="log-badge badge-xp">XP</span>';
-    return '<span class="log-badge badge-gold">OURO</span>';
+    if (type === 'xp') return '<span class="log-badge badge-xp">經驗</span>';
+    return '<span class="log-badge badge-gold">金幣</span>';
   }
   if (category === 'combat') {
-    if (type === 'heal') return '<span class="log-badge badge-loot">CURA</span>';
-    return '<span class="log-badge badge-combat">LUTA</span>';
+    if (type === 'heal') return '<span class="log-badge badge-loot">治療</span>';
+    return '<span class="log-badge badge-combat">戰鬥</span>';
   }
-  return '<span class="log-badge badge-sys">SISTEMA</span>';
+  return '<span class="log-badge badge-sys">系統</span>';
 }
 
 function log(msg, type = 'system', explicitCategory = null) {
@@ -1981,13 +1981,13 @@ function updateStatsUI() {
   const _gEl = el('gold-text-stat');
   if (_gEl) { _gEl.textContent = state.gold.toLocaleString(); if (_gEl._lastGold != null && state.gold > _gEl._lastGold) { _gEl.classList.remove('pulse'); void _gEl.offsetWidth; _gEl.classList.add('pulse'); } _gEl._lastGold = state.gold; }
   const _acEl = el('top-ac-amount');
-  if (_acEl) _acEl.textContent = `${(state.adenCoins || 0).toLocaleString()} AC`;
+  if (_acEl) _acEl.textContent = `${(state.adenCoins || 0).toLocaleString()} 亞丁幣`;
   const gps = getGoldPerSec();
-  const gpsEl = el('gps-text'); if (gpsEl) gpsEl.textContent = gps > 0 ? `${gps.toFixed(1)}/s` : '—';
+  const gpsEl = el('gps-text'); if (gpsEl) gpsEl.textContent = gps > 0 ? `${gps.toFixed(1)}/秒` : '—';
   
   const _clEl = el('craft-level-stat'); if (_clEl) _clEl.textContent = state.craftLevel;
-  const _rcEl = el('race-text'); if (_rcEl) _rcEl.textContent = (state.race && RACES?.[state.race]?.name) || state.race || '-';
-  const _clsEl = el('class-text'); if (_clsEl) _clsEl.textContent = (getClass(state.class)?.name) || state.class || '-';
+  const _rcEl = el('race-text'); if (_rcEl) _rcEl.textContent = (state.race && RACES?.[state.race]?.name) || '未知種族';
+  const _clsEl = el('class-text'); if (_clsEl) _clsEl.textContent = (getClass(state.class)?.name) || '未知職業';
   // 5.1 & 5.3 Cosméticos — Auras & Títulos Honoríficos
   CosmeticService.ensureState(state);
   const activeAura = CosmeticService.getActiveAura(state);
@@ -2011,9 +2011,9 @@ function updateStatsUI() {
       _customTitleBadge.style.display = 'none';
     }
   }
-  const _sgEl = el('saga-text'); if (_sgEl) _sgEl.textContent = (state.currentSaga ? (getSagaDef(state.currentSaga)?.name || state.currentSaga) : '-');
+  const _sgEl = el('saga-text'); if (_sgEl) _sgEl.textContent = (state.currentSaga ? (getSagaDef(state.currentSaga)?.name || '未知編年史') : '-');
   const _sz = el('stage-zone');
-  if (_sz) { const _t = (state.zone && ZONES?.[state.zone]) ? ZONES[state.zone].name + (ZONES[state.zone].town ? ' · town' : '') : '—'; if (_sz.textContent !== _t) _sz.textContent = _t; }
+  if (_sz) { const _t = (state.zone && ZONES?.[state.zone]) ? ZONES[state.zone].name + (ZONES[state.zone].town ? ' · 城鎮' : '') : '—'; if (_sz.textContent !== _t) _sz.textContent = _t; }
   const _zn = el('zone-name');
   if (_zn) { const _tzn = (state.zone && ZONES?.[state.zone]) ? ZONES[state.zone].name : '—'; if (_zn.textContent !== _tzn) _zn.textContent = _tzn; }
   const _spaEl = el('sp-available'); if (_spaEl) _spaEl.textContent = state.sp;
@@ -2037,7 +2037,7 @@ function updateStatsUI() {
           state.buffs[eId] = {
             name: rec ? rec.name : eId,
             icon: rec ? rec.icon : '🧪',
-            desc: rec ? rec.desc : 'Elixir Alquímico Ativo',
+            desc: rec ? rec.desc : '啟用中的鍊金靈藥',
             amount: 1,
             until: exp,
             isElixir: true
@@ -2048,25 +2048,25 @@ function updateStatsUI() {
 
     const items = Object.entries(state.buffs || {}).filter(([,b]) => b && typeof b.until === 'number' && b.until > now).map(([k,b]) => {
       const map = {
-        xpBoost: ['📘', `+${Math.round((b.amount||0)*100)}% XP`],
-        goldBoost: ['🪙', `+${Math.round((b.amount||0)*100)}% G`],
-        luckBoost: ['🍀', `+${Math.round((b.amount||0)*100)}% L`],
-        autoPotion: ['🧪', 'Auto-Heal'],
-        atk: ['⚔', `+${b.amount} ATK`],
-        def: ['🛡', `+${b.amount} DEF`],
-        matk: ['✦', `+${b.amount} MATK`],
-        speed: ['⚡', `+${b.amount} SPD`],
-        warcry: ['🗣', `+${(b.amount||0)*100}% ATK`],
-        elixir_berserker: ['⚔️', 'Elixir Berserker (+15% Atk, +10 Spd)'],
-        elixir_arcanist: ['🔮', 'Elixir Arcanista (+20% M.Atk, +50% MP)'],
-        elixir_fortune: ['💰', 'Elixir da Fortuna (+25% Drop, +30% Ouro)'],
-        elixir_titan: ['🛡️', 'Elixir de Titã (+25% HP, +20% Def)'],
-        elixir_transcendence: ['✨', 'Elixir Transcendência (+20% XP/SP)']
+        xpBoost: ['📘', `+${Math.round((b.amount||0)*100)}% 經驗值`],
+        goldBoost: ['🪙', `+${Math.round((b.amount||0)*100)}% 金幣`],
+        luckBoost: ['🍀', `+${Math.round((b.amount||0)*100)}% 幸運`],
+        autoPotion: ['🧪', '自動治療'],
+        atk: ['⚔', `+${b.amount} 物理攻擊`],
+        def: ['🛡', `+${b.amount} 物理防禦`],
+        matk: ['✦', `+${b.amount} 魔法攻擊`],
+        speed: ['⚡', `+${b.amount} 速度`],
+        warcry: ['🗣', `+${(b.amount||0)*100}% 物理攻擊`],
+        elixir_berserker: ['⚔️', '狂戰士靈藥（+15% 攻擊、+10 速度）'],
+        elixir_arcanist: ['🔮', '奧術師靈藥（魔法攻擊 +20%、魔力 +50%）'],
+        elixir_fortune: ['💰', '幸運靈藥（掉落 +25%、金幣 +30%）'],
+        elixir_titan: ['🛡️', '泰坦靈藥（生命值 +25%、防禦 +20%）'],
+        elixir_transcendence: ['✨', '超越靈藥（經驗值／技能點 +20%）']
       };
       const e = map[k] || (b.icon ? [b.icon, b.desc || b.name || k] : ['🧪', b.name || k]);
       return `<span class="ab-chip" title="${e[1]} · ${fmtCountdown(b.until-now)}">${e[0]}<em>${fmtCountdown(b.until-now)}</em></span>`;
     }).filter(Boolean);
-    abEl.innerHTML = items.length ? items.join('') : '<span class="ab-empty">No active buffs</span>';
+    abEl.innerHTML = items.length ? items.join('') : '<span class="ab-empty">目前沒有啟用中的增益效果</span>';
   }
 }
 
@@ -2098,6 +2098,15 @@ function updateDetailedEquipStatsUI() {
     helmet: '⛑️', armor: '🛡️', chest: '🛡️', legs: '👖', shield: '🛡️', boots: '👢',
     hair2: '🎭', earring1: '💎', earring2: '💎', ring2: '💍', cloak: '🧥', talisman: '🔮', agathion: '🧚‍♂️', brooch: '❇️', talisman_bracelet: '🔮', agathion_bracelet: '🧚‍♂️'
   };
+  const defaultSlotLabels = {
+    hair: '頭飾 1', hair2: '頭飾 2', helmet: '頭盔', necklace: '項鍊',
+    earring1: '耳環 1', earring2: '耳環 2', armor: '防具', chest: '防具',
+    gloves: '手套', belt: '腰帶', legs: '褲子', boots: '靴子',
+    weapon: '主手武器', weapon2: '副手武器', shield: '盾牌',
+    ring: '戒指 1', ring2: '戒指 2', cloak: '披風', talisman: '護符',
+    agathion: '阿加希翁', brooch: '胸針', talisman_bracelet: '護符手鐲',
+    agathion_bracelet: '阿加希翁手鐲'
+  };
 
   for (const slot of ALL_EQUIP_SLOTS) {
     if (slot === 'armor') continue; // chest é o slot canônico do paperdoll
@@ -2113,11 +2122,11 @@ function updateDetailedEquipStatsUI() {
     if (!uid) {
       if (pdSlot) { 
         pdSlot.className = `l2inv-pd-slot equip-slot`; 
-        pdSlot.title = `${slot} · vazio`; 
+        pdSlot.title = `${defaultSlotLabels[slot] || '未知欄位'} · 空`; 
         pdSlot.innerHTML = `<span class="l2inv-pd-icon">${defaultEmoji}</span><span class="l2inv-pd-item" id="pd-item-${slot}"></span>`;
       }
-      if (elem) { elem.textContent = 'Empty'; elem.style.color = ''; elem.title = ''; }
-      if (wrap) { wrap.style.borderColor = ''; wrap.title = slot + ' · empty'; }
+      if (elem) { elem.textContent = '空'; elem.style.color = ''; elem.title = ''; }
+      if (wrap) { wrap.style.borderColor = ''; wrap.title = (defaultSlotLabels[slot] || '未知欄位') + ' · 空'; }
       continue;
     }
 
@@ -2126,11 +2135,11 @@ function updateDetailedEquipStatsUI() {
       state.equipment[slot] = null;
       if (pdSlot) { 
         pdSlot.className = `l2inv-pd-slot equip-slot`; 
-        pdSlot.title = `${slot} · vazio`; 
+        pdSlot.title = `${defaultSlotLabels[slot] || '未知欄位'} · 空`; 
         pdSlot.innerHTML = `<span class="l2inv-pd-icon">${defaultEmoji}</span><span class="l2inv-pd-item" id="pd-item-${slot}"></span>`;
       }
-      if (elem) { elem.textContent = 'Empty'; elem.style.color = ''; elem.title = ''; }
-      if (wrap) { wrap.style.borderColor = ''; wrap.title = slot + ' · empty'; }
+      if (elem) { elem.textContent = '空'; elem.style.color = ''; elem.title = ''; }
+      if (wrap) { wrap.style.borderColor = ''; wrap.title = (defaultSlotLabels[slot] || '未知欄位') + ' · 空'; }
       continue;
     }
 
@@ -2142,7 +2151,7 @@ function updateDetailedEquipStatsUI() {
 
     if (pdSlot) {
       pdSlot.className = `l2inv-pd-slot equip-slot has-item rarity-${rarity}`;
-      pdSlot.title = `${enchantStr ? enchantStr + ' ' : ''}${def.name} (${slot})`;
+      pdSlot.title = `${enchantStr ? enchantStr + ' ' : ''}${def.name}（${defaultSlotLabels[slot] || '未知欄位'}）`;
       pdSlot.innerHTML = `${getItemIcon(def)}<span class="l2inv-pd-item" id="pd-item-${slot}">${enchantStr}</span>`;
       pdSlot.onmouseenter = (e) => { cancelHideTooltip(); showItemTooltip(item, e); };
       pdSlot.onmouseleave = scheduleHideTooltip;
@@ -2163,9 +2172,9 @@ function updateDetailedEquipStatsUI() {
   const eb = getTotalEquipBonuses(); const list = el('bonus-list');
   if (list) {
     list.innerHTML = '';
-    const labels = { atk: 'ATK', def: 'DEF', matk: 'MATK', mdef: 'MDEF', hp: 'HP', mp: 'MP', eva: 'EVA', crit: 'CRIT', speed: 'SPD', lifesteal: 'LIFE STEAL' };
+    const labels = { atk: '物理攻擊', def: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', mp: '魔力', eva: '迴避', crit: '暴擊', speed: '速度', lifesteal: '吸血' };
     for (const [k, label] of Object.entries(labels)) { if (eb[k]) { const div = mkEl('div'); div.innerHTML = `<span>${label}</span><span class="bonus-val">+${eb[k]}${k==='crit'?'%':''}</span>`; list.appendChild(div); } }
-    if (!list.children.length) list.innerHTML = '<div style="color:var(--text-muted)">No equipment</div>';
+    if (!list.children.length) list.innerHTML = '<div style="color:var(--text-muted)">目前沒有裝備</div>';
   }
   renderStageHero();
 }
@@ -2397,7 +2406,7 @@ function showSkillTooltip(skillId, e) {
   const lvl = state.skills[skillId] || 0;
   const max = def.max || def.maxLevel || 5;
   const reqs = SKILL_REQS[skillId];
-  const reqText = reqs ? Object.entries(reqs).map(([s, v]) => `${SKILL_DEFS[s]?.name || s} ${v}`).join(', ') : 'Nenhum';
+  const reqText = reqs ? Object.entries(reqs).map(([s, v]) => `${SKILL_DEFS[s]?.name || '未知前置技能'} ${v}`).join(', ') : '無';
   const tier = TIER_NAMES[def.tier] || '';
 
   const iconData = getSkillIcon(skillId, def);
@@ -2409,16 +2418,16 @@ function showSkillTooltip(skillId, e) {
     : `<span class="tt-icon">${def.icon || '✦'}</span>`;
 
   const elemBadge = semantic?.element
-    ? `<span class="tt-elem-pill elem-${semantic.element.toLowerCase()}">${semantic.element}</span>`
+    ? `<span class="tt-elem-pill elem-${semantic.element.toLowerCase()}">${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗', physical: '物理', none: '無屬性' })[String(semantic.element).toLowerCase()] || '其他屬性'}</span>`
     : '';
   const roleBadge = semantic?.role
-    ? `<span class="tt-role-pill">${semantic.role.toUpperCase()}</span>`
+    ? `<span class="tt-role-pill">${({ physical: '物理', magic: '魔法', buff: '增益', debuff: '減益', heal: '治療', healing: '治療', control: '控制', passive: '被動', active: '主動', summon: '召喚', aoe: '範圍', utility: '輔助' })[String(semantic.role).toLowerCase()] || '技能'}</span>`
     : '';
   const starBadge = (def.starRank >= 4 || def.tier >= 4)
     ? `<span class="tt-star-pill">${def.starRank || (def.tier === 5 ? 5 : 4)}★</span>`
     : '';
   const cdText = (def.baseCd || def.gameplay?.cooldown)
-    ? `<span class="tt-cd-badge">⏱️ ${((def.baseCd || def.gameplay?.cooldown) / 1000).toFixed(1)}s</span>`
+    ? `<span class="tt-cd-badge">⏱️ ${((def.baseCd || def.gameplay?.cooldown) / 1000).toFixed(1)} 秒</span>`
     : '';
 
   tt.innerHTML = `
@@ -2430,7 +2439,7 @@ function showSkillTooltip(skillId, e) {
           ${starBadge}
         </div>
         <div class="tt-slot" style="display:flex; align-items:center; gap:6px; margin-top:2px;">
-          <span>${tier} · Lv.${lvl}/${max}</span>
+          <span>${tier} · 等級 ${lvl}/${max}</span>
           ${elemBadge}
           ${roleBadge}
           ${cdText}
@@ -2440,7 +2449,7 @@ function showSkillTooltip(skillId, e) {
     <div class="tt-body" style="padding-top:6px;">
       <p class="tt-desc">${def.desc || def.info || ''}</p>
       <div class="tt-effect" style="margin-top:6px; color:#f0d080; font-weight:600;">${window.SkillScaling ? window.SkillScaling.buildSkillEffectText(def, lvl) : (def.info || '')}</div>
-      <div style="margin-top:6px; font-size:10px; color:#888;">Requisitos: ${reqText} (Lv.${def.reqLvl || def.requiredLevel || 1})</div>
+      <div style="margin-top:6px; font-size:10px; color:#888;">需求：${reqText}（等級 ${def.reqLvl || def.requiredLevel || 1}）</div>
     </div>
   `;
 
@@ -2474,7 +2483,7 @@ function shopRow(def, id, price, extra = '') {
   const statsLine = buildStatLine(def);
   const lockLvl = def.req && def.req.level > state.level; 
   const lockCls = def.classReq && def.classReq !== state.class;
-  const lockReason = lockLvl ? `Lv.${def.req.level}` : lockCls ? `Needs ${getClass(def.classReq)?.name}` : '';
+  const lockReason = lockLvl ? `等級 ${def.req.level}` : lockCls ? `需要 ${getClass(def.classReq)?.name}` : '';
   const row = mkEl('div'); 
   row.className = 'shop-item' + (lockLvl || lockCls ? ' locked' : '');
 
@@ -2484,17 +2493,17 @@ function shopRow(def, id, price, extra = '') {
   if (isStackable && !lockLvl && !lockCls) {
     buyActionHtml = `
       <div class="shop-bulk-actions">
-        <button class="item-action" data-buy="${id}" data-qty="1" ${state.gold < price ? 'disabled' : ''}>1x (${price}g)</button>
-        <button class="item-action" data-buy="${id}" data-qty="10" ${state.gold < price * 10 ? 'disabled' : ''}>10x (${(price * 10).toLocaleString()}g)</button>
-        <button class="item-action" data-buy="${id}" data-qty="100" ${state.gold < price * 100 ? 'disabled' : ''}>100x (${(price * 100).toLocaleString()}g)</button>
-        <button class="item-action" data-buy="${id}" data-qty="1000" ${state.gold < price * 1000 ? 'disabled' : ''}>1000x (${(price * 1000).toLocaleString()}g)</button>
+        <button class="item-action" data-buy="${id}" data-qty="1" ${state.gold < price ? 'disabled' : ''}>1×（${price} 金幣）</button>
+        <button class="item-action" data-buy="${id}" data-qty="10" ${state.gold < price * 10 ? 'disabled' : ''}>10×（${(price * 10).toLocaleString()} 金幣）</button>
+        <button class="item-action" data-buy="${id}" data-qty="100" ${state.gold < price * 100 ? 'disabled' : ''}>100×（${(price * 100).toLocaleString()} 金幣）</button>
+        <button class="item-action" data-buy="${id}" data-qty="1000" ${state.gold < price * 1000 ? 'disabled' : ''}>1000×（${(price * 1000).toLocaleString()} 金幣）</button>
       </div>
     `;
   } else {
-    buyActionHtml = `<button class="item-action" data-buy="${id}" data-qty="1" ${(!canAfford || lockLvl || lockCls) ? 'disabled' : ''}>${price.toLocaleString()}g</button>`;
+    buyActionHtml = `<button class="item-action" data-buy="${id}" data-qty="1" ${(!canAfford || lockLvl || lockCls) ? 'disabled' : ''}>${price.toLocaleString()} 金幣</button>`;
   }
 
-  row.innerHTML = `<div class="item-info"><div class="item-name">${def.name}${def.tier ? ' <span class="tier-tag">T'+def.tier+'</span>' : ''}</div><div class="item-desc">${def.desc || ''}</div>${statsLine ? `<div class="item-stats">${statsLine}</div>` : ''}${lockReason ? `<div class="lock-reason">🔒 ${lockReason}</div>` : ''}</div>${buyActionHtml}${extra}`;
+  row.innerHTML = `<div class="item-info"><div class="item-name">${def.name}${def.tier ? ' <span class="tier-tag">第 '+def.tier+' 階</span>' : ''}</div><div class="item-desc">${def.desc || ''}</div>${statsLine ? `<div class="item-stats">${statsLine}</div>` : ''}${lockReason ? `<div class="lock-reason">🔒 ${lockReason}</div>` : ''}</div>${buyActionHtml}${extra}`;
   return row;
 }
 
@@ -2506,7 +2515,7 @@ function buildStatLine(def) {
 
 function renderShopGear(list) {
   const zone = ZONES[state.zone], shopId = zone?.shop, items = shopId ? D().SHOP_INVENTORY[shopId] : null;
-  if (!items) { list.innerHTML = '<p class="shop-empty">No gear merchant in this area.</p>'; return; }
+  if (!items) { list.innerHTML = '<p class="shop-empty">此區域沒有裝備商人。</p>'; return; }
   let count = 0;
   for (const shopItem of items) { 
     const def = D().ALL_ITEMS[shopItem.id]; 
@@ -2514,29 +2523,29 @@ function renderShopGear(list) {
     list.appendChild(shopRow(def, shopItem.id, def.price)); 
     count++; 
   }
-  if (!count) list.innerHTML = '<p class="shop-empty">The merchant has no gear for you yet.</p>';
+  if (!count) list.innerHTML = '<p class="shop-empty">商人目前沒有適合你的裝備。</p>';
 }
 function renderShopPotions(list) {
   const zone = ZONES[state.zone], shopId = zone?.shop, items = shopId ? D().SHOP_INVENTORY[shopId] : null;
   const base = ['soulshot_ng','spiritshot_ng','hp_potion_s','hp_potion_m','hp_potion_l','hp_potion_xl','mp_potion_s','mp_potion_m','mp_potion_l','mp_potion_xl','antidote','scroll_of_resurrection','scroll_of_rebirth','spellbook_1star','spellbook_2star','spellbook_3star','spellbook_4star'];
   const shown = new Set(), list2 = [...base, ...(items || []).map(i => i.id)]; let count = 0;
   for (const id of list2) { if (shown.has(id)) continue; const def = D().ALL_ITEMS[id]; if (!def || (def.slot !== 'consumable' && def.slot !== 'scroll') || (def.req && def.req.level > state.level)) continue; shown.add(id); list.appendChild(shopRow(def, id, def.price)); count++; }
-  if (!count) list.innerHTML = '<p class="shop-empty">No potions in stock.</p>';
+  if (!count) list.innerHTML = '<p class="shop-empty">目前沒有藥水庫存。</p>';
 }
 function renderShopPowerups(list) {
   const powerupIds = ['xp_boost_1h','xp_boost_4h','gold_boost_1h','gold_boost_4h','luck_boost_1h','auto_potion_1h','teleport_scroll','berserker_elixir','aegis_draught','sages_tea'];
   const activeBuffs = Object.entries(state.buffs || {}).filter(([k,b]) => ['xpBoost','goldBoost','luckBoost','autoPotion'].includes(k) && b.until > Date.now());
   if (activeBuffs.length) {
-    const hdr = mkEl('div'); hdr.className = 'shop-header'; hdr.innerHTML = '<h4>Active Powerups</h4>'; list.appendChild(hdr);
-    for (const [k, b] of activeBuffs) { const remaining = Math.max(0, b.until - Date.now()); const names = { xpBoost: '📘 XP Boost', goldBoost: '🪙 Gold Boost', luckBoost: '🍀 Luck Boost', autoPotion: '🧪 Auto-Potion' }; const row = mkEl('div'); row.className = 'shop-item active-buff'; row.innerHTML = `<div class="item-info"><div class="item-name">${names[k] || k}</div><div class="item-desc">+${Math.round(b.amount*100)}% · ${fmtCountdown(remaining)}</div></div><div class="buff-pulse"></div>`; list.appendChild(row); }
-    const sep = mkEl('div'); sep.className = 'shop-header'; sep.innerHTML = '<h4>Buy More</h4>'; list.appendChild(sep);
+    const hdr = mkEl('div'); hdr.className = 'shop-header'; hdr.innerHTML = '<h4>啟用中的增益效果</h4>'; list.appendChild(hdr);
+    for (const [k, b] of activeBuffs) { const remaining = Math.max(0, b.until - Date.now()); const names = { xpBoost: '📘 經驗值加成', goldBoost: '🪙 金幣加成', luckBoost: '🍀 幸運加成', autoPotion: '🧪 自動藥水' }; const row = mkEl('div'); row.className = 'shop-item active-buff'; row.innerHTML = `<div class="item-info"><div class="item-name">${names[k] || '增益效果'}</div><div class="item-desc">+${Math.round(b.amount*100)}% · ${fmtCountdown(remaining)}</div></div><div class="buff-pulse"></div>`; list.appendChild(row); }
+    const sep = mkEl('div'); sep.className = 'shop-header'; sep.innerHTML = '<h4>購買更多</h4>'; list.appendChild(sep);
   }
   for (const id of powerupIds) { const def = D().ALL_ITEMS[id]; if (def) list.appendChild(shopRow(def, id, def.price)); }
 }
 function renderShopClass(list) {
-  const clsName = state.class ? (getClass(state.class)?.name || state.class) : 'Aventureiro';
+  const clsName = state.class ? (getClass(state.class)?.name || '冒險者') : '冒險者';
   const hdr = mkEl('div'); hdr.className = 'shop-header';
-  hdr.innerHTML = `<h4>🎖️ ${clsName} Exclusivos &amp; Avanço de Ordem</h4><p>Equipamentos mestres e emblemas da sua ordem.</p>`;
+  hdr.innerHTML = `<h4>🎖️ ${clsName} 專屬裝備與階級晉升</h4><p>大師級裝備與職業徽章。</p>`;
   list.appendChild(hdr);
   
   let count = 0;
@@ -2561,7 +2570,7 @@ function renderShopClass(list) {
 
 function renderShopMystic(list) {
   const rot = D().getMysticRotation(), hdr = mkEl('div'); hdr.className = 'shop-header mystic-header';
-  hdr.innerHTML = `<h4>✦ Relíquias &amp; Tesouros Místicos ✦</h4><p>Ofertas raras e encantos ancestrais. Renovação em <span id="mystic-timer">${fmtCountdown(rot[0]?.msLeft || 0)}</span></p>`;
+  hdr.innerHTML = `<h4>✦ 神秘遺物與寶藏 ✦</h4><p>稀有商品與古代強化物。刷新倒數：<span id="mystic-timer">${fmtCountdown(rot[0]?.msLeft || 0)}</span></p>`;
   list.appendChild(hdr);
   
   for (const pick of rot) {
@@ -2574,14 +2583,14 @@ function renderShopMystic(list) {
     const row = mkEl('div');
     row.className = `shop-item rarity-${pick.rarity}` + (lockLvl || lockCls ? ' locked' : '');
     const statsLine = buildStatLine(cloned);
-    const rLabel = D().RARITY?.[pick.rarity]?.name || pick.rarity;
-    row.innerHTML = `<div class="item-info"><div class="item-name rarity-${pick.rarity}">${def.name} <span class="rarity-tag">${rLabel}</span></div><div class="item-desc">${def.desc || ''}</div>${statsLine ? `<div class="item-stats">${statsLine}</div>` : ''}</div><button class="item-action mystic-buy" data-buy-rarity="${pick.id}" data-rarity="${pick.rarity}" ${(!canAfford || lockLvl || lockCls) ? 'disabled' : ''}>${price.toLocaleString()}g</button>`;
+    const rLabel = D().RARITY?.[pick.rarity]?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(pick.rarity || 'common').toLowerCase()] || '一般';
+    row.innerHTML = `<div class="item-info"><div class="item-name rarity-${pick.rarity}">${def.name} <span class="rarity-tag">${rLabel}</span></div><div class="item-desc">${def.desc || ''}</div>${statsLine ? `<div class="item-stats">${statsLine}</div>` : ''}</div><button class="item-action mystic-buy" data-buy-rarity="${pick.id}" data-rarity="${pick.rarity}" ${(!canAfford || lockLvl || lockCls) ? 'disabled' : ''}>${price.toLocaleString()} 金幣</button>`;
     list.appendChild(row);
   }
 
   // Mystic Enchant Scrolls & Artifacts
   const mysticArtifacts = ['scroll_of_enchant_weapon_', 'scroll_of_enchant_armor', 'scroll_of_resurrection', 'teleport_scroll'];
-  const sep = mkEl('div'); sep.className = 'shop-header'; sep.innerHTML = '<h4>✦ Pergaminhos Místicos Ancestrais</h4>'; list.appendChild(sep);
+  const sep = mkEl('div'); sep.className = 'shop-header'; sep.innerHTML = '<h4>✦ 古代神秘卷軸</h4>'; list.appendChild(sep);
   for (const id of mysticArtifacts) {
     const def = D().ALL_ITEMS[id]; if (def) list.appendChild(shopRow(def, id, Math.floor(def.price * 1.2)));
   }
@@ -2605,7 +2614,7 @@ function buyMysticItem(itemId, rarity) {
 function toggleSoulshot() {
   state.soulshotActive = !state.soulshotActive;
   updateCombatControlsUI();
-  log(`Soulshots ${state.soulshotActive ? 'ATIVADOS (Consome soulshots para +100% DANO)' : 'DESATIVADOS'}.`, 'system');
+  log(`魂彈${state.soulshotActive ? '已啟用（消耗魂彈，傷害 +100%）' : '已停用'}。`, 'system');
   save();
 }
 
@@ -2614,7 +2623,7 @@ function toggleAutoPotion() {
   updateCombatControlsUI();
   const hpPct = Math.round((state.autoPotionSettings?.hpThreshold || 0.6) * 100);
   const mpPct = Math.round((state.autoPotionSettings?.mpThreshold || 0.4) * 100);
-  log(`Auto-Poções ${state.autoPotionActive ? `ATIVADAS (Gatilhos: HP < ${hpPct}%, MP < ${mpPct}%)` : 'DESATIVADAS'}.`, 'system');
+  log(`自動藥水${state.autoPotionActive ? `已啟用（生命值 < ${hpPct}%、魔力 < ${mpPct}% 時觸發）` : '已停用'}。`, 'system');
   save();
 }
 
@@ -2625,7 +2634,7 @@ function toggleCombatSpeed() {
     if (combatInterval) clearInterval(combatInterval);
     combatInterval = setInterval(attackMonster, Math.round(200 / state.combatSpeed));
   }
-  log(`Velocidade de combate: ${state.combatSpeed}x ${state.combatSpeed === 2 ? 'TURBO ⏩' : 'Normal'}.`, 'system');
+  log(`戰鬥速度：${state.combatSpeed}× ${state.combatSpeed === 2 ? '加速 ⏩' : '一般'}。`, 'system');
   save();
 }
 
@@ -2639,9 +2648,9 @@ function toggleCombatState() {
   }
   updateCombatControlsUI();
   const isActive = state.isCombatActive !== false;
-  log(`Caça Automática **${isActive ? 'RETOMADA ▶️' : 'PAUSADA 🛑'}**.`, 'system');
+  log(`自動狩獵**${isActive ? '已繼續 ▶️' : '已暫停 🛑'}**。`, 'system');
   if (typeof window !== 'undefined' && window.floatText) {
-    window.floatText(isActive ? '▶️ CAÇA RETOMADA' : '🛑 CAÇA PAUSADA', 'float-gold');
+    window.floatText(isActive ? '▶️ 已繼續狩獵' : '🛑 狩獵已暫停', 'float-gold');
   }
   save();
 }
@@ -2651,7 +2660,7 @@ function updateCombatControlsUI() {
   if (combatBtn) {
     const isActive = state.isCombatActive !== false;
     combatBtn.classList.toggle('active', isActive);
-    combatBtn.innerHTML = `<span class="combat-stance-gem"></span> <span>${isActive ? '⚔️ Caçando' : '⏸️ Parado'}</span>`;
+    combatBtn.innerHTML = `<span class="combat-stance-gem"></span> <span>${isActive ? '⚔️ 狩獵中' : '⏸️ 停止'}</span>`;
     combatBtn.style.removeProperty('background');
     combatBtn.style.removeProperty('borderColor');
     combatBtn.style.removeProperty('color');
@@ -2681,9 +2690,9 @@ function updateCombatControlsUI() {
       }
     }
     
-    const shotLabel = isMage ? '✨ SPS' : '⚡ SS';
+    const shotLabel = isMage ? '✨ 魔靈彈' : '⚡ 靈魂彈';
     ssBtn.innerHTML = `<span>${shotLabel}</span> <span style="font-size:9px; color:${isSsActive ? '#fef08a' : '#94a3b8'};">(${shotCount})</span>`;
-    ssBtn.title = `${isMage ? 'Spiritshot Abençoado' : 'Soulshot'}: ${isSsActive ? 'LIGADO' : 'DESLIGADO'} (Estoque: ${shotCount})`;
+    ssBtn.title = `${isMage ? '魔靈彈' : '靈魂彈'}：${isSsActive ? '開啟' : '關閉'}（庫存：${shotCount}）`;
   }
   const apBtn = el('autopotion-toggle-btn');
   if (apBtn) {
@@ -2692,21 +2701,21 @@ function updateCombatControlsUI() {
     const hpCount = getInventoryCount('hp_potion_s') + getInventoryCount('hp_potion_m') + getInventoryCount('hp_potion_l') + getInventoryCount('hp_potion_xl');
     const mpCount = getInventoryCount('mp_potion_s') + getInventoryCount('mp_potion_m') + getInventoryCount('mp_potion_l') + getInventoryCount('mp_potion_xl');
     const hpPct = Math.round((state.autoPotionSettings?.hpThreshold || 0.6) * 100);
-    apBtn.innerHTML = `<span>🧪 Auto-Pot</span> <span style="font-size:9px; color:${isApActive ? '#ffd877' : '#94a3b8'};">(${hpCount} HP / ${mpCount} MP)</span>`;
-    apBtn.title = `Auto-Poções: ${isApActive ? 'LIGADO' : 'DESLIGADO'} (HP < ${hpPct}%) - Clique para alternar ou configure no botão Macro ⚙️`;
+    apBtn.innerHTML = `<span>🧪 自動藥水</span> <span style="font-size:9px; color:${isApActive ? '#ffd877' : '#94a3b8'};">（生命藥水 ${hpCount}／魔力藥水 ${mpCount}）</span>`;
+    apBtn.title = `自動藥水：${isApActive ? '開啟' : '關閉'}（生命值 < ${hpPct}%）－點擊切換，或在巨集按鈕中設定 ⚙️`;
   }
   const spdBtn = el('speed-toggle-btn');
   if (spdBtn) {
     const isFast = state.combatSpeed === 2;
     spdBtn.classList.toggle('active', isFast);
-    spdBtn.innerHTML = `<span>⏩ ${state.combatSpeed || 1}x</span>`;
+    spdBtn.innerHTML = `<span>⏩ ${state.combatSpeed || 1}×</span>`;
   }
 }
 
 function clearLog() {
   const logEl = el('log');
   if (logEl) {
-    logEl.innerHTML = '<p class="log-entry system">Histórico de log limpo.</p>';
+    logEl.innerHTML = '<p class="log-entry system">日誌紀錄已清除。</p>';
   }
 }
 
@@ -2755,13 +2764,13 @@ function checkOfflineProgress(lastTime) {
     state.buffs = state.buffs || {};
     state.buffs['rested_warrior'] = {
       until: Date.now() + (2 * 3600 * 1000),
-      name: 'Bênção do Guerreiro Retornado (+50% EXP)',
+      name: '回歸戰士祝福（經驗值 +50%）',
       amount: 1
     };
     state.gold = (state.gold || 0) + 250000;
     serviceAddToInventory(state, 'soulshot_ng', 1000);
     serviceAddToInventory(state, 'hp_potion_xl', 100);
-    log('👑 **[Tributo de Retorno]** Bem-vindo de volta a Aden! Bênção de +50% EXP por 2h e suprimentos imperiais creditados!', 'rarity-legendary');
+    log('👑 **[回歸禮讚]** 歡迎回到亞丁！獲得 2 小時經驗值 +50% 祝福與帝國補給！', 'rarity-legendary');
   }
 
   checkLevelUp();
@@ -2798,34 +2807,34 @@ function checkOfflineProgress(lastTime) {
   const modalEl = el('offline-modal');
   if (rewardsEl && modalEl) {
     rewardsEl.innerHTML = `
-      <div style="color:var(--rarity-epic); font-weight:bold; margin-bottom:8px;">🌙 Eficiência Auto-Hunt Offline: 30% (vs 100% Online)</div>
-      <div>⏱️ Tempo Ausente: <strong>${minutesOffline} minutos</strong></div>
-      <div>⚔️ Monstros Derrotados (30%): <strong>~${kills}</strong></div>
-      <div>💰 Ouro Ganho: <strong style="color:var(--gilt-bright);">+${goldEarned.toLocaleString()}g</strong></div>
-      <div>📘 XP Ganho: <strong style="color:#60a5fa;">+${xpEarned.toLocaleString()} XP</strong></div>
-      <div>✨ SP Ganho: <strong style="color:#a855f7;">+${spEarned.toLocaleString()} SP</strong></div>
+      <div style="color:var(--rarity-epic); font-weight:bold; margin-bottom:8px;">🌙 離線自動狩獵效率：30%（線上為 100%）</div>
+      <div>⏱️ 離線時間：<strong>${minutesOffline} 分鐘</strong></div>
+      <div>⚔️ 擊敗怪物（30% 效率）：<strong>約 ${kills}</strong></div>
+      <div>💰 獲得金幣： <strong style="color:var(--gilt-bright);">+${goldEarned.toLocaleString()} 金幣</strong></div>
+      <div>📘 獲得經驗值：<strong style="color:#60a5fa;">+${xpEarned.toLocaleString()}</strong></div>
+      <div>✨ 獲得技能點：<strong style="color:#a855f7;">+${spEarned.toLocaleString()}</strong></div>
       ${fishOfflineResult && fishOfflineResult.totalCaught > 0 ? `
-        <div style="color:#38bdf8; margin-top:4px; font-weight:bold;">🎣 Pescados Coletados (AFK): <strong>+${fishOfflineResult.totalCaught} peixes (+${fishOfflineResult.xpGained} XP Pesca)</strong></div>
+        <div style="color:#38bdf8; margin-top:4px; font-weight:bold;">🎣 離線釣魚收益：<strong>+${fishOfflineResult.totalCaught} 條魚（+${fishOfflineResult.xpGained} 釣魚經驗值）</strong></div>
       ` : ''}
       ${huntOfflineResult && huntOfflineResult.actualHunts > 0 ? `
-        <div style="color:#34d399; margin-top:4px; font-weight:bold;">🐾 Peles & Couros (Caça AFK): <strong>+${huntOfflineResult.actualHunts} presas (+${huntOfflineResult.totalXp} XP Caça)</strong></div>
+        <div style="color:#34d399; margin-top:4px; font-weight:bold;">🐾 毛皮與皮革（離線狩獵）：<strong>+${huntOfflineResult.actualHunts} 份獵物（+${huntOfflineResult.totalXp} 狩獵經驗值）</strong></div>
       ` : ''}
       ${gatherOfflineResult && gatherOfflineResult.actualHarvests > 0 ? `
-        <div style="color:#a3e635; margin-top:4px; font-weight:bold;">🌿 Ervas & Madeira (Coleta AFK): <strong>+${gatherOfflineResult.actualHarvests} colheitas (+${gatherOfflineResult.totalXp} XP Coleta)</strong></div>
+        <div style="color:#a3e635; margin-top:4px; font-weight:bold;">🌿 草藥與木材（離線採集）：<strong>+${gatherOfflineResult.actualHarvests} 次採集（+${gatherOfflineResult.totalXp} 採集經驗值）</strong></div>
       ` : ''}
       ${mineOfflineResult && mineOfflineResult.actualMines > 0 ? `
-        <div style="color:#fbbf24; margin-top:4px; font-weight:bold;">⛏️ Minérios & Gemas (Mineração AFK): <strong>+${mineOfflineResult.actualMines} extrações (+${mineOfflineResult.totalXp} XP Mineração)</strong></div>
+        <div style="color:#fbbf24; margin-top:4px; font-weight:bold;">⛏️ 礦石與寶石（離線採礦）：<strong>+${mineOfflineResult.actualMines} 次採掘（+${mineOfflineResult.totalXp} 採礦經驗值）</strong></div>
       ` : ''}
       ${isReturnPlayer ? `
         <div style="background:linear-gradient(135deg,rgba(234,179,8,0.2),rgba(0,0,0,0.5)); border:1px solid #fde047; border-radius:8px; padding:10px; margin-top:10px; text-align:center;">
           <div style="font-family:'Cinzel',serif; font-size:13px; font-weight:bold; color:#fde047; margin-bottom:4px;">
-            👑 TRIBUTO DO GUERREIRO RETORNADO!
+            👑 回歸勇士禮讚！
           </div>
           <div style="font-size:11.5px; color:#e2e8f0; margin-bottom:6px;">
-            Você esteve ausente por mais de 24 horas! As deusas de Aden te agraciam com suprimentos de retorno:
+            你已離線超過 24 小時！亞丁眾神賜予你回歸補給：
           </div>
           <div style="font-size:11px; color:#a3e635; font-weight:bold;">
-            ✨ +50% Bônus de EXP por 2 Horas · 💰 +250.000 Adena · ⚡ 1.000x Soulshots · 🧪 100x Poções XL
+            ✨ 經驗值 +50% 持續 2 小時 · 💰 +250,000 金幣 · ⚡ 1,000× 魂彈 · 🧪 100× XL 藥水
           </div>
         </div>
       ` : ''}
@@ -2938,7 +2947,7 @@ function updateEnchantUI() {
     });
     
     if (!equippable.length) {
-      ws.innerHTML = '<p class="shop-empty">Você não possui equipamentos na mochila para encantar.</p>';
+      ws.innerHTML = '<p class="shop-empty">背包中沒有可強化的裝備。</p>';
       continue;
     }
 
@@ -2953,19 +2962,19 @@ function updateEnchantUI() {
       const isFullBody = def.slot === 'fullbody' || (def.slot === 'chest' && (def.isOnePiece || def.name?.toLowerCase().includes('full body') || def.name?.toLowerCase().includes('robe')));
       const safeLimit = isFullBody ? 4 : 3;
       const baseProb = getEnchantSuccessChance(grade, enchant, safeLimit);
-      const safeMsg = enchant < safeLimit ? `100% Seguro (Até +${safeLimit})` : `Sucesso: ${Math.round(baseProb * 100)}% (Grau ${grade})`;
+      const safeMsg = enchant < safeLimit ? `100% 安全（安全至 +${safeLimit}）` : `成功率：${Math.round(baseProb * 100)}%（品級 ${grade}）`;
       
       const card = mkEl('div'); card.className = 'enchant-card';
-      const title = (enchant > 0 ? `+${enchant} ` : '') + def.name + (item.rarity ? ` [${D().RARITY?.[item.rarity]?.name || item.rarity}]` : '');
+      const title = (enchant > 0 ? `+${enchant} ` : '') + def.name + (item.rarity ? ` [${D().RARITY?.[item.rarity]?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(item.rarity || 'common').toLowerCase()] || '一般'}]` : '');
       
       card.innerHTML = `
         <div class="enchant-card-info">
-          <div class="enchant-item-title" style="color:${rarityColor}">${title} ${item.equipped ? '⚡ (EQUIPADO)' : ''}</div>
-          <div class="enchant-item-sub">Scroll Normal: ${normalCount}x · Blessed: ${blessedCount}x · ${safeMsg}</div>
+          <div class="enchant-item-title" style="color:${rarityColor}">${title} ${item.equipped ? '⚡（已裝備）' : ''}</div>
+          <div class="enchant-item-sub">一般卷軸：${normalCount}× · 祝福卷軸：${blessedCount}× · ${safeMsg}</div>
         </div>
         <div class="enchant-card-actions" style="display:flex; gap:6px; align-items:center;">
-          <button class="item-action" data-enchant="${item.uid}" data-blessed="false" ${normalCount < 1 ? 'disabled title="Sem Pergaminhos Normais"' : ''}>⚡ Normal</button>
-          <button class="item-action blessed-btn" data-enchant="${item.uid}" data-blessed="true" style="background:linear-gradient(135deg, #7e22ce, #b45309); color:#fff; border:1px solid #f59e0b; font-weight:bold;" ${blessedCount < 1 ? 'disabled title="Sem Pergaminhos Abençoados (Blessed)"' : ''}>✨ Blessed</button>
+          <button class="item-action" data-enchant="${item.uid}" data-blessed="false" ${normalCount < 1 ? 'disabled title="沒有一般強化卷軸"' : ''}>⚡ 一般強化</button>
+          <button class="item-action blessed-btn" data-enchant="${item.uid}" data-blessed="true" style="background:linear-gradient(135deg, #7e22ce, #b45309); color:#fff; border:1px solid #f59e0b; font-weight:bold;" ${blessedCount < 1 ? 'disabled title="沒有祝福強化卷軸"' : ''}>✨ 祝福強化</button>
         </div>
       `;
       ws.appendChild(card);
@@ -2984,7 +2993,7 @@ function enchantItem(uid, useBlessed = false) {
   const grade = (def.grade || 'NG').toUpperCase();
   const scrollItem = findEnchantScrollItem(isWeapon, useBlessed, grade);
   if (!scrollItem) { 
-    log(useBlessed ? `Pergaminho Abençoado (Blessed ${grade}) necessário!` : `Pergaminho de encantamento (${grade}) necessário!`, 'system'); 
+    log(useBlessed ? `需要祝福強化卷軸（${grade}）！` : `需要 ${grade} 級強化卷軸！`, 'system'); 
     return; 
   }
   
@@ -3019,19 +3028,19 @@ function renderZoneInfoCard() {
   const monsterIds = [...(z.monsters || [])];
   if (z.boss && !monsterIds.includes(z.boss)) monsterIds.push(z.boss);
 
-  const curDiff = MonsterAIEngine.getDifficulty(state) || { color: '#10b981', icon: '🟢', name: 'Normal', xpMult: 1, dropMult: 1 };
+  const curDiff = MonsterAIEngine.getDifficulty(state) || { color: '#10b981', icon: '🟢', name: '一般', xpMult: 1, dropMult: 1 };
   const monsterHtml = monsterIds.map(mId => {
     const mon = MONSTERS[mId];
     if (!mon) return '';
-    const badge = mon.boss ? '<span class="z-badge boss">★ Boss</span>' : (mon.elite ? '<span class="z-badge elite">⚔ Elite</span>' : '');
+    const badge = mon.boss ? '<span class="z-badge boss">★ 首領</span>' : (mon.elite ? '<span class="z-badge elite">⚔ 菁英</span>' : '');
     const mLvl = mon.lvl || z.level || 1;
     const archKey = mon.archetype || MonsterAIEngine.getMonsterArchetype(mon);
     const arch = ARCHETYPE_INFO[archKey] || ARCHETYPE_INFO.berserker;
     const archBadge = `<span class="z-badge arch" style="background:${arch.bg}; color:${arch.color}; border:1px solid ${arch.border}; padding:1px 5px; border-radius:3px; font-size:10px; margin-left:4px;" title="${arch.desc}">${arch.icon} ${arch.label}</span>`;
     return `
       <div class="z-mon-item">
-        <span class="z-mon-name"><span class="z-mon-lvl">Lv.${mLvl}</span> ${mon.name || mId} ${badge} ${archBadge}</span>
-        <span class="z-mon-stats">❤️ ${(mon.hp || 0).toLocaleString()} HP | ⚔️ ${mon.atk || 0} ATK</span>
+        <span class="z-mon-name"><span class="z-mon-lvl">等級 ${mLvl}</span> ${mon.name || '未知怪物'} ${badge} ${archBadge}</span>
+        <span class="z-mon-stats">❤️ 生命值 ${(mon.hp || 0).toLocaleString()}｜⚔️ 攻擊 ${mon.atk || 0}</span>
       </div>
     `;
   }).filter(Boolean).join('');
@@ -3052,23 +3061,23 @@ function renderZoneInfoCard() {
     <div class="z-card-header">
       <div class="z-card-title">
         <h3>🗺️ ${z.name}</h3>
-        <span class="z-card-req">Requisito: Lv. ${z.level}</span>
+        <span class="z-card-req">需求：等級 ${z.level}</span>
         <div style="margin-top:4px; font-size:11px; color:${curDiff.color || '#10b981'}; font-weight:bold;">
-          ${curDiff.icon || '🟢'} Dificuldade: <strong>${curDiff.name || 'Normal'}</strong> (${curDiff.xpMult || 1}x XP/Gold · ${curDiff.dropMult || 1}x Drops)
+          ${curDiff.icon || '🟢'} 難度：<strong>${curDiff.name || '一般'}</strong>（${curDiff.xpMult || 1} 倍經驗值／金幣 · ${curDiff.dropMult || 1} 倍掉落）
         </div>
       </div>
-      <div class="z-card-kills">⚔️ Caça: ${currentKills}/50 (Chefão)</div>
+      <div class="z-card-kills">⚔️ 狩獵：${currentKills}/50（首領）</div>
     </div>
 
     <div class="z-card-body">
       <div class="z-card-sec">
-        <h4>👹 Monstros da Região</h4>
-        <div class="z-mon-list">${monsterHtml || '<p class="z-empty">Nenhum monstro registrado.</p>'}</div>
+        <h4>👹 區域怪物</h4>
+        <div class="z-mon-list">${monsterHtml || '<p class="z-empty">尚未登錄任何怪物。</p>'}</div>
       </div>
 
       <div class="z-card-sec">
-        <h4>🎁 Loot & Drops Possíveis</h4>
-        <div class="z-drops-grid">${dropsHtml || '<p class="z-empty">Sem prévia de drops.</p>'}</div>
+        <h4>🎁 可能掉落</h4>
+        <div class="z-drops-grid">${dropsHtml || '<p class="z-empty">目前沒有掉落預覽。</p>'}</div>
       </div>
     </div>
   `;
@@ -3090,10 +3099,10 @@ function updateRaceClassUI() {
   const display = el('hero-race-class-display');
   const raceObj = RACES[state.race];
   const clsObj = getClass(state.class);
-  const rName = raceObj ? raceObj.name : (state.race || 'Humano');
-  const cName = clsObj ? clsObj.name : (state.class || 'Guerreiro');
+  const rName = raceObj ? raceObj.name : (state.race || '人類');
+  const cName = clsObj ? clsObj.name : (state.class || '戰士');
   if (display) {
-    display.textContent = `${rName} · ${cName} (Nv. ${state.level})`;
+    display.textContent = `${rName} · ${cName}（等級 ${state.level}）`;
   }
   const _rcEl = el('race-text'); if (_rcEl) _rcEl.textContent = rName;
   const _clsEl = el('class-text'); if (_clsEl) _clsEl.textContent = cName;
@@ -3117,7 +3126,7 @@ function updateGameModeUI() {
   const currentEl = el('game-mode-current');
   const gameEl = el('game');
   const currentMode = state.gameMode === 'arena' ? 'arena' : state.gameMode === 'pixel2d' ? 'pixel2d' : 'idle';
-  if (currentEl) currentEl.textContent = currentMode === 'arena' ? '3D Arena' : currentMode === 'pixel2d' ? 'Aden Pixel 2D' : 'Idle';
+  if (currentEl) currentEl.textContent = currentMode === 'arena' ? '3D 競技場' : currentMode === 'pixel2d' ? '亞丁像素 2D' : '放置模式';
   if (switchEl) switchEl.classList.toggle('arena', currentMode === 'arena');
   if (gameEl) {
     gameEl.classList.remove('mode-idle', 'mode-arena', 'mode-pixel2d');
@@ -3134,8 +3143,8 @@ function setGameMode(mode) {
   const nextMode = mode === 'arena' ? 'arena' : mode === 'pixel2d' ? 'pixel2d' : 'idle';
   state.gameMode = nextMode;
   updateGameModeUI();
-  const label = nextMode === 'arena' ? '⚔ 3D Arena' : nextMode === 'pixel2d' ? '👾 Aden Pixel 2D' : '📜 Idle Chronicle';
-  log(`Modo de jogo alterado para ${label}.`, 'system');
+  const label = nextMode === 'arena' ? '⚔ 3D 競技場' : nextMode === 'pixel2d' ? '👾 亞丁像素 2D' : '📜 放置編年史';
+  log(`遊戲模式已切換為 ${label}。`, 'system');
   save();
   if (typeof window !== 'undefined' && typeof window.onReactSetMode === 'function') {
     window.onReactSetMode(nextMode);
@@ -3203,7 +3212,7 @@ if (typeof window !== 'undefined') {
         const installBtn = document.getElementById('btn-pwa-install');
         if (installBtn) installBtn.style.display = 'none';
       } else {
-        alert('Para instalar o Aden Arena no celular:\n\n• No Chrome (Android): Toque nos 3 pontinhos e escolha "Instalar aplicativo"\n• No Safari (iOS): Toque no botão Compartilhar e escolha "Adicionar à Tela de Início" 📲');
+        alert('要在手機安裝亞丁競技場：\n\n• Chrome（Android）：點右上角三個點，選擇「安裝應用程式」\n• Safari（iOS）：點「分享」按鈕，再選擇「加入主畫面」📲');
       }
     };
   });
@@ -3231,7 +3240,7 @@ function checkQuestResets() {
       delete state.quests.progress[q.id];
       state.quests.claimed = state.quests.claimed.filter(id => id !== q.id);
     });
-    log('📜 Missões Diárias foram renovadas!', 'rarity-legendary');
+    log('📜 每日任務已更新！', 'rarity-legendary');
   }
 
   if (!state.quests.lastWeeklyReset || (now - state.quests.lastWeeklyReset) >= ONE_WEEK) {
@@ -3240,7 +3249,7 @@ function checkQuestResets() {
       delete state.quests.progress[q.id];
       state.quests.claimed = state.quests.claimed.filter(id => id !== q.id);
     });
-    log('📅 Missões Semanais foram renovadas!', 'rarity-legendary');
+    log('📅 每週任務已更新！', 'rarity-legendary');
   }
 }
 
@@ -3287,11 +3296,11 @@ function updateQuestsUI() {
     const cardsHtml = QUEST_DEFS.daily.map(q => {
       const isLocked = q.unlockLevel && currentLvl < q.unlockLevel;
       const rewardsText = [];
-      if (q.reward.gold) rewardsText.push(`💰 +${q.reward.gold.toLocaleString()}g`);
-      if (q.reward.sp) rewardsText.push(`✦ +${q.reward.sp} SP`);
-      if (q.reward.craftPoints) rewardsText.push(`⚒️ +${q.reward.craftPoints} Craft`);
-      if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} Lâmpada`);
-      if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} XP Passe`);
+      if (q.reward.gold) rewardsText.push(`💰 +${q.reward.gold.toLocaleString()} 金幣`);
+      if (q.reward.sp) rewardsText.push(`✦ +${q.reward.sp} 技能點`);
+      if (q.reward.craftPoints) rewardsText.push(`⚒️ +${q.reward.craftPoints} 鍛造點數`);
+      if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} 神燈`);
+      if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} 通行證經驗值`);
 
       if (isLocked) {
         return `
@@ -3299,14 +3308,14 @@ function updateQuestsUI() {
             <div class="quest-info-group">
               <span class="quest-icon">🔒</span>
               <div class="quest-details">
-                <span class="quest-name" style="color:#94a3b8;">${q.name} <span style="font-size:10px; color:#f87171; font-weight:bold;">(Requer Nível ${q.unlockLevel})</span></span>
+                <span class="quest-name" style="color:#94a3b8;">${q.name} <span style="font-size:10px; color:#f87171; font-weight:bold;">(需要等級 ${q.unlockLevel})</span></span>
                 <span class="quest-desc" style="color:#64748b;">${q.desc}</span>
                 <div class="quest-rewards-line" style="opacity:0.7;">${rewardsText.join(' · ')}</div>
               </div>
             </div>
             <div class="quest-action-group">
-              <span class="quest-progress-num" style="color:#f87171;">Bloqueada</span>
-              <button class="claim-quest-btn" disabled style="opacity:0.4; cursor:not-allowed;">🔒 Nv. ${q.unlockLevel}</button>
+              <span class="quest-progress-num" style="color:#f87171;">已鎖定</span>
+              <button class="claim-quest-btn" disabled style="opacity:0.4; cursor:not-allowed;">🔒 等級 ${q.unlockLevel}</button>
             </div>
           </div>
         `;
@@ -3320,7 +3329,7 @@ function updateQuestsUI() {
       const pct = Math.floor((progress / q.target) * 100);
       const cardClass = isClaimed ? 'quest-card completed' : (isCompleted ? 'quest-card can-claim' : 'quest-card');
 
-      const btnLabel = isClaimed ? '✓ Reclamado' : (isCompleted ? '🎁 Reclamar' : 'Em Progresso');
+      const btnLabel = isClaimed ? '✓ 已領取' : (isCompleted ? '🎁 領取' : '進行中');
       const btnDisabled = !isCompleted || isClaimed ? 'disabled' : '';
 
       return `
@@ -3350,19 +3359,19 @@ function updateQuestsUI() {
               ${DAILY_COMPLETION_BONUS.name}
             </div>
             <div style="font-size:11px; color:#94a3b8; margin:2px 0 4px 0;">
-              Conclua as caçadas diárias ativas (${dailyClaimedCount}/${availableDaily.length}) para resgatar o tesouro supremo.
+              完成目前每日狩獵任務（${dailyClaimedCount}/${availableDaily.length}）即可領取最高獎勵。
             </div>
             <div style="font-size:11px; color:#86efac; font-weight:bold;">
-              ✦ +500 SP Extra · 💰 +50.000g · 🪔 +2 Lâmpadas Mágicas · 🎫 +250 XP Passe
+              ✦ 額外 +500 技能點 · 💰 +50,000 金幣 · 🪔 +2 魔法神燈 · 🎫 通行證經驗值 +250
             </div>
           </div>
         </div>
         <div>
           ${isDailyBonusClaimed ? `
-            <span style="font-size:11px; color:#10b981; font-weight:bold; padding:6px 14px; border:1px solid #10b981; border-radius:6px; background:rgba(16,185,129,0.15);">✓ Resgatado Hoje</span>
+            <span style="font-size:11px; color:#10b981; font-weight:bold; padding:6px 14px; border:1px solid #10b981; border-radius:6px; background:rgba(16,185,129,0.15);">✓ 今日已領取</span>
           ` : `
             <button id="claim-grand-daily-btn" class="action-btn action-btn--primary" style="padding:8px 18px; font-weight:bold; font-size:12px; ${allDailyDone ? 'background:linear-gradient(180deg,#d4a744,#8a641c); border:1px solid #ffe699; color:#000; box-shadow:0 0 12px rgba(234,179,8,0.5); cursor:pointer;' : 'opacity:0.5; cursor:not-allowed;'}" ${!allDailyDone ? 'disabled' : ''}>
-              ${allDailyDone ? '🎁 Resgatar Baú (+500 SP)' : `${dailyClaimedCount}/${availableDaily.length} Diárias`}
+              ${allDailyDone ? '🎁 領取寶箱（+500 技能點）' : `${dailyClaimedCount}/${availableDaily.length} 每日任務`}
             </button>
           `}
         </div>
@@ -3371,7 +3380,7 @@ function updateQuestsUI() {
 
     dailyContainer.innerHTML = grandBonusHtml + cardsHtml;
 
-    if (dailyBadge) dailyBadge.textContent = `${dailyClaimedCount}/${availableDaily.length} Concluídas`;
+    if (dailyBadge) dailyBadge.textContent = `${dailyClaimedCount}/${availableDaily.length} 已完成`;
 
     dailyContainer.querySelectorAll('[data-quest]').forEach(btn => {
       btn.onclick = () => claimQuestReward(btn.dataset.quest);
@@ -3397,12 +3406,12 @@ function updateQuestsUI() {
       const cardClass = isClaimed ? 'quest-card completed' : (isCompleted ? 'quest-card can-claim' : 'quest-card');
 
       const rewardsText = [];
-      if (q.reward.gold) rewardsText.push(`💰 +${q.reward.gold.toLocaleString()}g`);
-      if (q.reward.sp) rewardsText.push(`✦ +${q.reward.sp} SP`);
-      if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} Lâmpadas`);
-      if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} XP Passe`);
+      if (q.reward.gold) rewardsText.push(`💰 +${q.reward.gold.toLocaleString()} 金幣`);
+      if (q.reward.sp) rewardsText.push(`✦ +${q.reward.sp} 技能點`);
+      if (q.reward.magicLamps) rewardsText.push(`🪔 +${q.reward.magicLamps} 魔法神燈`);
+      if (q.reward.passXp) rewardsText.push(`🎫 +${q.reward.passXp} 通行證經驗值`);
 
-      const btnLabel = isClaimed ? '✓ Reclamado' : (isCompleted ? '🎁 Reclamar' : 'Em Progresso');
+      const btnLabel = isClaimed ? '✓ 已領取' : (isCompleted ? '🎁 領取' : '進行中');
       const btnDisabled = !isCompleted || isClaimed ? 'disabled' : '';
 
       return `
@@ -3423,7 +3432,7 @@ function updateQuestsUI() {
       `;
     }).join('');
 
-    if (weeklyBadge) weeklyBadge.textContent = `${weeklyClaimedCount}/${QUEST_DEFS.weekly.length} Concluídas`;
+    if (weeklyBadge) weeklyBadge.textContent = `${weeklyClaimedCount}/${QUEST_DEFS.weekly.length} 已完成`;
 
     weeklyContainer.querySelectorAll('[data-quest]').forEach(btn => {
       btn.onclick = () => claimQuestReward(btn.dataset.quest);
@@ -3457,13 +3466,13 @@ function renderBattlePassUI() {
   const pct = nextTierIndex !== -1 ? Math.min(100, Math.floor(((currentXp - prevReqXp) / Math.max(1, nextReqXp - prevReqXp)) * 100)) : 100;
 
   const lvlText = el('pass-level-text');
-  if (lvlText) lvlText.textContent = `Nível ${currentLvl}`;
+  if (lvlText) lvlText.textContent = `等級 ${currentLvl}`;
 
   const statusText = el('pass-status-text');
-  if (statusText) statusText.textContent = state.battlePass.unlockedPremium ? '👑 Passe Premium Ativo' : 'Passe de Batalha Grátis';
+  if (statusText) statusText.textContent = state.battlePass.unlockedPremium ? '👑 高級通行證已啟用' : '戰鬥通行證免費獎勵';
 
   const xpText = el('pass-xp-text');
-  if (xpText) xpText.textContent = `${currentXp.toLocaleString()} / ${nextReqXp.toLocaleString()} XP do Passe`;
+  if (xpText) xpText.textContent = `${currentXp.toLocaleString()} / ${nextReqXp.toLocaleString()} 通行證經驗值`;
 
   const xpBar = el('pass-xp-bar');
   if (xpBar) xpBar.style.width = `${pct}%`;
@@ -3471,11 +3480,11 @@ function renderBattlePassUI() {
   const unlockBtn = el('unlock-premium-pass-btn');
   if (unlockBtn) {
     if (state.battlePass.unlockedPremium) {
-      unlockBtn.textContent = '👑 Passe Premium Ativo';
+      unlockBtn.textContent = '👑 高級通行證已啟用';
       unlockBtn.disabled = true;
       unlockBtn.style.opacity = '0.7';
     } else {
-      unlockBtn.textContent = '👑 Obter Passe Premium (R$ 15,00)';
+      unlockBtn.textContent = '👑 取得高級通行證（15 巴西雷亞爾）';
       unlockBtn.disabled = false;
       unlockBtn.onclick = () => {
         window.open('https://pay.cakto.com.br/36g8n4b_1054492', '_blank');
@@ -3490,22 +3499,22 @@ function renderBattlePassUI() {
       const freeClaimed = Array.isArray(state.battlePass.claimedFree) && state.battlePass.claimedFree.includes(tier.level);
       const premClaimed = Array.isArray(state.battlePass.claimedPremium) && state.battlePass.claimedPremium.includes(tier.level);
 
-      const freeLabel = freeClaimed ? '✓' : (isUnlocked ? 'Reclamar' : 'Tranca');
-      const premLabel = premClaimed ? '✓' : (isUnlocked && state.battlePass.unlockedPremium ? 'Reclamar' : (state.battlePass.unlockedPremium ? 'Tranca' : '👑 R$ 15'));
+      const freeLabel = freeClaimed ? '✓' : (isUnlocked ? '領取' : '已鎖定');
+      const premLabel = premClaimed ? '✓' : (isUnlocked && state.battlePass.unlockedPremium ? '領取' : (state.battlePass.unlockedPremium ? '已鎖定' : '👑 15 巴西雷亞爾'));
 
       const freeRewardStr = Object.entries(tier.free).map(([k, v]) => `${k === 'gold' ? '💰 ' + v : k === 'sp' ? '✦ ' + v : v}`).join(', ');
       const premRewardStr = Object.entries(tier.premium).map(([k, v]) => `${k === 'gold' ? '💰 ' + v : k === 'title' ? '🏷️ ' + v : v}`).join(', ');
 
       return `
         <div class="pass-tier-card ${isUnlocked ? 'unlocked' : ''}">
-          <span class="pass-tier-lvl">Nv. ${tier.level}</span>
+          <span class="pass-tier-lvl">等級 ${tier.level}</span>
           <div class="pass-reward-box">
-            <span style="font-weight:bold;color:var(--gilt);">Grátis</span><br/>
+            <span style="font-weight:bold;color:var(--gilt);">免費</span><br/>
             <span>${freeRewardStr}</span><br/>
             <button class="inv-batch-btn" data-pass-free="${tier.level}" ${!isUnlocked || freeClaimed ? 'disabled' : ''} style="margin-top:4px;font-size:9px;">${freeLabel}</button>
           </div>
           <div class="pass-reward-box premium">
-            <span style="font-weight:bold;color:#fef08a;">👑 Premium</span><br/>
+            <span style="font-weight:bold;color:#fef08a;">👑 高級</span><br/>
             <span>${premRewardStr}</span><br/>
             <button class="inv-batch-btn gold-glow-btn" data-pass-prem="${tier.level}" ${premClaimed ? 'disabled' : ''} style="margin-top:4px;font-size:9px;">${premLabel}</button>
           </div>
@@ -3549,10 +3558,10 @@ function updateTowerUI() {
   const nextFloor = Math.min(100, highest + 1);
 
   const highestText = el('tower-highest-floor-text');
-  if (highestText) highestText.textContent = `Andar Atual: ${highest} / 100`;
+  if (highestText) highestText.textContent = `目前樓層：${highest} / 100`;
 
   const bonusText = el('tower-bonus-text');
-  if (bonusText) bonusText.textContent = `Bônus Passivo Ativo: +${highest}% ATK, DEF & MATK`;
+  if (bonusText) bonusText.textContent = `啟用中的被動加成：+${highest}% 攻擊、防禦與魔法攻擊`;
 
   const nextNumText = el('tower-next-floor-num');
   if (nextNumText) nextNumText.textContent = `${nextFloor}`;
@@ -3560,10 +3569,10 @@ function updateTowerUI() {
   const challengeBtn = el('tower-challenge-btn');
   if (challengeBtn) {
     if (highest >= 100) {
-      challengeBtn.textContent = '🏆 Torre 100% Concluída';
+      challengeBtn.textContent = '🏆 高塔 100% 完成';
       challengeBtn.disabled = true;
     } else {
-      challengeBtn.textContent = `⚔️ Desafiar Andar ${nextFloor}`;
+      challengeBtn.textContent = `⚔️ 挑戰第 ${nextFloor} 層`;
       challengeBtn.disabled = false;
       challengeBtn.onclick = () => challengeTowerFloor();
     }
@@ -3579,22 +3588,22 @@ function updateTowerUI() {
 
   const nextDef = getTowerFloorDef(nextFloor);
   const recommendEl = el('tower-floor-recommend');
-  if (recommendEl) recommendEl.textContent = `Lv. Requerido: ${nextDef.reqLvl}`;
+  if (recommendEl) recommendEl.textContent = `需求等級：${nextDef.reqLvl}`;
 
   const detailsCard = el('tower-floor-details-card');
   if (detailsCard) {
     const rewardsStr = [];
-    rewardsStr.push(`💰 +${nextDef.gold.toLocaleString()}g`);
-    rewardsStr.push(`✦ +${nextDef.sp} SP`);
-    if (nextDef.rewardLamps > 0) rewardsStr.push(`🪔 +${nextDef.rewardLamps} Lâmpadas`);
-    if (nextDef.rewardCrystals) rewardsStr.push(`✨ +3x ${D().ALL_ITEMS[nextDef.rewardCrystals]?.name || nextDef.rewardCrystals}`);
+    rewardsStr.push(`💰 +${nextDef.gold.toLocaleString()} 金幣`);
+    rewardsStr.push(`✦ +${nextDef.sp} 技能點`);
+    if (nextDef.rewardLamps > 0) rewardsStr.push(`🪔 +${nextDef.rewardLamps} 魔法神燈`);
+    if (nextDef.rewardCrystals) rewardsStr.push(`✨ +3× ${D().ALL_ITEMS[nextDef.rewardCrystals]?.name || nextDef.rewardCrystals}`);
 
     detailsCard.innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:center;">
         <span style="font-weight:bold; font-size:13px; color:var(--gilt-bright);">${nextDef.name}</span>
-        <span style="font-size:11px; color:#fb7185;">HP: ${nextDef.hp.toLocaleString()} · ATK: ${nextDef.atk.toLocaleString()}</span>
+        <span style="font-size:11px; color:#fb7185;">生命值：${nextDef.hp.toLocaleString()} · 攻擊：${nextDef.atk.toLocaleString()}</span>
       </div>
-      <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Recompensas de Primeiro Abate: ${rewardsStr.join(' · ')}</div>
+      <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">首次擊殺獎勵：${rewardsStr.join(' · ')}</div>
     `;
   }
 
@@ -3611,7 +3620,7 @@ function updateTowerUI() {
       else if (isCurrent) cls += ' current';
       if (isBoss) cls += ' boss-floor';
 
-      html += `<div class="${cls}"><span>${isBoss ? '👑' : '🏰'} Andar ${f}</span><span style="font-size:9px;opacity:0.8;">${isCleared ? '✓ Cleared' : (isCurrent ? '★ Desafio' : `Nv.${getTowerFloorDef(f).reqLvl}`)}</span></div>`;
+      html += `<div class="${cls}"><span>${isBoss ? '👑' : '🏰'} 第 ${f} 層</span><span style="font-size:9px;opacity:0.8;">${isCleared ? '✓ 已通關' : (isCurrent ? '★ 挑戰' : `等級 ${getTowerFloorDef(f).reqLvl}`)}</span></div>`;
     }
     grid.innerHTML = html;
   }
@@ -3820,7 +3829,7 @@ function updateWorldBossBadgeUI() {
         badge.style.borderColor = '#ef4444';
         badge.style.color = '#fee2e2';
       } else {
-        badge.innerHTML = `⏳ World Boss: ${status.timeFormatted}`;
+        badge.innerHTML = `⏳ 世界首領：${status.timeFormatted}`;
         badge.style.background = 'rgba(30,41,59,0.5)';
         badge.style.borderColor = 'rgba(255,255,255,0.2)';
         badge.style.color = '#94a3b8';
@@ -3921,28 +3930,28 @@ function _performFullUIUpdate() {
 function completeFateWhisperQuest() {
   const activeMainLevel = state.activeSubclassIndex === null ? state.level : (state.mainClassData?.level || 1);
   if (activeMainLevel < 52) {
-    log('⚠️ Requer Nível 52 na Classe Principal para completar a Quest Fate\'s Whisper!', 'warning');
+    log('⚠️ 主職業需要達到 52 級才能完成「命運的低語」任務！', 'warning');
     return false;
   }
   state.fateWhisperQuest = true;
-  log('📜 QUEST FATE\'S WHISPER CONCLUÍDA! Subclasses desbloqueadas!', 'rarity-legendary');
-  floatText('SUBCLASSES DESBLOQUEADAS!', 'float-gold');
+  log('📜 「命運的低語」任務完成！副職業已解鎖！', 'rarity-legendary');
+  floatText('副職業已解鎖！', 'float-gold');
   updateAllUI(); save();
   return true;
 }
 
 function selectMasterAbilityModal() {
   const abilities = [
-    { key: 'boostHp', name: '❤️ Boost HP (+8% HP, +20% HP Regen)' },
-    { key: 'boostMp', name: '💙 Boost MP (+12% MP, +20% MP Regen)' },
-    { key: 'evasion', name: '👟 Evasion (+5 Esquiva)' },
-    { key: 'haste', name: '⚡ Haste Proc (+32% Atk.Spd)' },
-    { key: 'barrier', name: '🌟 Barrier (Celestial Shield Invencível)' },
-    { key: 'boostCp', name: '🛡️ Boost CP (+20% CP)' },
-    { key: 'resistAttribute', name: '🔥 Resist Attribute (+20 Res. Elementais)' }
+    { key: 'boostHp', name: '❤️ 生命值強化（+8% 生命值、+20% 生命值回復）' },
+    { key: 'boostMp', name: '💙 魔力強化（+12% 魔力、+20% 魔力回復）' },
+    { key: 'evasion', name: '👟 迴避（+5 迴避）' },
+    { key: 'haste', name: '⚡ 急速觸發（+32% 攻擊速度）' },
+    { key: 'barrier', name: '🌟 屏障（無敵天界護盾）' },
+    { key: 'boostCp', name: '🛡️ 戰鬥力強化（+20% 戰鬥力）' },
+    { key: 'resistAttribute', name: '🔥 屬性抗性（+20 元素抗性）' }
   ];
 
-  const choice = prompt(`Escolha sua Habilidade Mestra (Master Ability Lv.75):\n\n${abilities.map((a, i) => `${i + 1}. ${a.name}`).join('\n')}\n\nDigite o número desejado:`);
+  const choice = prompt(`選擇你的大師技能（等級 75）：\n\n${abilities.map((a, i) => `${i + 1}. ${a.name}`).join('\n')}\n\n請輸入選項編號：`);
   if (!choice) return;
   const idx = parseInt(choice, 10) - 1;
   if (isNaN(idx) || idx < 0 || idx >= abilities.length) return;
@@ -3952,23 +3961,23 @@ function selectMasterAbilityModal() {
   if (!state.masterAbilities.includes(selectedKey)) {
     state.masterAbilities.push(selectedKey);
   }
-  log(`🏆 HABILIDADE MESTRA **${abilities[idx].name.toUpperCase()}** APRENDIDA!`, 'rarity-legendary');
-  floatText('MASTER ABILITY APRENDIDA!', 'float-gold');
+  log(`🏆 已學會大師技能 **${abilities[idx].name.toUpperCase()}**！`, 'rarity-legendary');
+  floatText('大師能力已學習！', 'float-gold');
   updateAllUI(); save();
 }
 
 function selectDivineTransformationModal() {
   const transList = [
-    { key: 'divineWarrior', name: '⚔️ Divine Warrior (War Cry +25% P.Atk, Sonic Blaster)' },
-    { key: 'divineKnight', name: '🛡️ Divine Knight (Ultimate Defence +100% Def, Hate Aura)' },
-    { key: 'divineRogue', name: '🗡️ Divine Rogue (Stun Shot, Double Shot, +4 Eva)' },
-    { key: 'divineWizard', name: '🔮 Divine Wizard (Divine Flare, Divine Strike, Sleep AoE)' },
-    { key: 'divineSummoner', name: '🦄 Divine Summoner (Transfer Pain, Final Servitor)' },
-    { key: 'divineHealer', name: '🕊️ Divine Healer (Major Heal, Cleanse, Ress 70%)' },
-    { key: 'divineEnchanter', name: '📜 Divine Enchanter (Chant of Victory +10% Stats)' }
+    { key: 'divineWarrior', name: '⚔️ 神聖戰士（戰吼：物理攻擊 +25%、音速爆擊）' },
+    { key: 'divineKnight', name: '🛡️ 神聖騎士（終極防禦：防禦 +100%、仇恨光環）' },
+    { key: 'divineRogue', name: '🗡️ 神聖遊俠（暈眩射擊、雙重射擊、迴避 +4）' },
+    { key: 'divineWizard', name: '🔮 神聖巫師（神聖閃焰、神聖打擊、範圍睡眠）' },
+    { key: 'divineSummoner', name: '🦄 神聖召喚師（傷害轉移、終極召喚獸）' },
+    { key: 'divineHealer', name: '🕊️ 神聖治癒師（強效治癒、淨化、70% 復活）' },
+    { key: 'divineEnchanter', name: '📜 神聖賦予師（勝利頌歌：全屬性 +10%）' }
   ];
 
-  const choice = prompt(`Escolha sua Transformação Divina (Divine Transformation Lv.80):\n\n${transList.map((t, i) => `${i + 1}. ${t.name}`).join('\n')}\n\nDigite o número desejado:`);
+  const choice = prompt(`選擇你的神聖變身（等級 80）：\n\n${transList.map((t, i) => `${i + 1}. ${t.name}`).join('\n')}\n\n請輸入選項編號：`);
   if (!choice) return;
   const idx = parseInt(choice, 10) - 1;
   if (isNaN(idx) || idx < 0 || idx >= transList.length) return;
@@ -3976,8 +3985,8 @@ function selectDivineTransformationModal() {
   const selectedKey = transList[idx].key;
   state.activeTransformation = (state.activeTransformation === selectedKey) ? null : selectedKey;
 
-  log(`👼 TRANSFORMAÇÃO DIVINA **${transList[idx].name.toUpperCase()}** ${state.activeTransformation ? 'ATIVADA' : 'DESATIVADA'}!`, 'rarity-legendary');
-  floatText('TRANSFORMAÇÃO DIVINA!', 'float-gold');
+  log(`👼 神聖變身 **${transList[idx].name}** ${state.activeTransformation ? '已啟用' : '已停用'}！`, 'rarity-legendary');
+  floatText('神聖變身！', 'float-gold');
   updateAllUI(); save();
 }
 
@@ -3993,22 +4002,22 @@ export function renderSubclassesUI() {
   const isUnlocked = isSeasonUnlocked && (state.fateWhisperQuest || activeMainLevel >= 52);
 
   if (countBadge) {
-    countBadge.textContent = !isSeasonUnlocked ? 'Subclasses (Bloqueado Season 1/2)' : `Subclasses (${(state.subclasses || []).length}/3)`;
+    countBadge.textContent = !isSeasonUnlocked ? '副職業（第 1／2 季尚未解鎖）' : `副職業（${(state.subclasses || []).length}/3）`;
   }
 
   if (addBtn) {
     const isMax = (state.subclasses || []).length >= 3;
     addBtn.disabled = isMax || !isSeasonUnlocked || !isUnlocked;
     addBtn.textContent = isMax
-      ? '🔒 Limite Máximo Atingido (3/3 Subclasses)'
+      ? '🔒 已達副職業上限（3/3）'
       : (!isSeasonUnlocked
-        ? '🔒 Bloqueado: Temporada 3 (Crônica III — Os Sete Selos)'
-        : (!isUnlocked ? '🔒 Conclua Quest Fate\'s Whisper (Lv.52)' : '➕ Adicionar Nova Subclasse (Sem Restrição Racial)'));
+        ? '🔒 未開放：第 3 賽季（第三編年史－七封印）'
+        : (!isUnlocked ? '🔒 完成「命運的低語」任務（等級 52）' : '➕ 新增副職業（無種族限制）'));
     addBtn.onclick = () => {
       if (!isSeasonUnlocked) {
-        log('O Sistema de Subclasses requer a Temporada 3 (Crônica III — Os Sete Selos).', 'warning');
+        log('副職業系統需要第 3 賽季（第三編年史－七封印）。', 'warning');
       } else if (!state.fateWhisperQuest && activeMainLevel < 52) {
-        log('Requer Nível 52+ para iniciar a jornada de Subclasses.', 'system');
+        log('需要等級 52 以上才能開始副職業旅程。', 'system');
       } else if (!state.fateWhisperQuest) {
         completeFateWhisperQuest();
       } else {
@@ -4029,14 +4038,14 @@ export function renderSubclassesUI() {
   mainCard.innerHTML = `
     <div>
       <div style="font-weight:bold; color:${isMainActive ? 'var(--gilt-bright)' : 'var(--bone)'}; font-size:13px; display:flex; align-items:center; gap:6px;">
-        <span>👑 Classe Principal:</span>
-        <span style="color:#fde047;">${mainClassDef?.name || mainClassId}</span>
-        <span style="color:#60a5fa; font-size:11px; background:rgba(96,165,250,0.15); padding:1px 6px; border-radius:4px;">Lv.${activeMainLevel}</span>
+        <span>👑 主職業：</span>
+        <span style="color:#fde047;">${mainClassDef?.name || '未知職業'}</span>
+        <span style="color:#60a5fa; font-size:11px; background:rgba(96,165,250,0.15); padding:1px 6px; border-radius:4px;">等級 ${activeMainLevel}</span>
       </div>
-      <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Origem primária — Todas as certificações das subclasses acumulam bônus permanentes aqui.</div>
+      <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">主要職業來源－所有副職業認證的永久加成都會累積在此。</div>
     </div>
     <button class="action-btn" style="padding:6px 12px; font-size:11px;" ${isMainActive ? 'disabled' : ''} onclick="switchSubclass(null)">
-      ${isMainActive ? '✓ Em Uso' : 'Alternar 👑'}
+      ${isMainActive ? '✓ 使用中' : '切換 👑'}
     </button>
   `;
   container.appendChild(mainCard);
@@ -4063,28 +4072,28 @@ export function renderSubclassesUI() {
         }
 
         const icon = optDef?.icon || '✨';
-        const name = optDef?.name || m.learnedId;
+        const name = optDef?.name || '未知認證';
         milestoneSlotsHtml += `
           <div style="flex:1; min-width:110px; background:rgba(212,175,55,0.15); border:1px solid rgba(212,175,55,0.4); border-radius:6px; padding:6px; font-size:10px; display:flex; flex-direction:column; gap:2px;" title="${optDef?.desc || ''}">
             <div style="color:#fde047; font-weight:bold; display:flex; align-items:center; gap:4px;">
               <span>${icon}</span>
               <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${name}</span>
             </div>
-            <div style="color:#94a3b8; font-size:9px;">${m.badge} · <strong style="color:#38bdf8;">+${optDef?.cp || 1500} CP</strong></div>
+            <div style="color:#94a3b8; font-size:9px;">${m.badge} · <strong style="color:#38bdf8;">+${optDef?.cp || 1500} 戰鬥力</strong></div>
           </div>
         `;
       } else if (m.isUnlocked) {
         milestoneSlotsHtml += `
           <div style="flex:1; min-width:110px; background:rgba(16,185,129,0.15); border:1px dashed #10b981; border-radius:6px; padding:6px; font-size:10px; display:flex; flex-direction:column; justify-content:space-between; gap:4px;">
             <div style="color:#10b981; font-weight:bold;">✨ ${m.badge}</div>
-            <button class="action-btn action-btn--primary" style="padding:3px 6px; font-size:9px; font-weight:bold;" onclick="window.openCertificationModal('${sub.id}', '${m.milestoneKey}')">Aprender 📜</button>
+            <button class="action-btn action-btn--primary" style="padding:3px 6px; font-size:9px; font-weight:bold;" onclick="window.openCertificationModal('${sub.id}', '${m.milestoneKey}')">學習 📜</button>
           </div>
         `;
       } else {
         milestoneSlotsHtml += `
           <div style="flex:1; min-width:110px; background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.08); border-radius:6px; padding:6px; font-size:10px; display:flex; flex-direction:column; gap:2px; opacity:0.6;">
             <div style="color:#64748b; font-weight:bold;">🔒 ${m.badge}</div>
-            <div style="color:#475569; font-size:9px;">Requer Nível ${m.requiredLevel}</div>
+            <div style="color:#475569; font-size:9px;">需要等級 ${m.requiredLevel}</div>
           </div>
         `;
       }
@@ -4094,17 +4103,17 @@ export function renderSubclassesUI() {
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
         <div>
           <div style="font-weight:bold; color:${isSubActive ? '#34d399' : 'var(--bone)'}; font-size:13px; display:flex; align-items:center; gap:6px;">
-            <span>⚔️ Subclasse ${idx + 1}:</span>
-            <span style="color:#fde047;">${subClassDef?.name || sub.classId}</span>
-            <span style="color:#60a5fa; font-size:11px; background:rgba(96,165,250,0.15); padding:1px 6px; border-radius:4px;">Lv.${sub.level}/85</span>
-            <span style="color:#a855f7; font-size:10px; background:rgba(168,85,247,0.15); padding:1px 5px; border-radius:4px; text-transform:uppercase;">${archetype}</span>
+            <span>⚔️ 副職業 ${idx + 1}：</span>
+            <span style="color:#fde047;">${subClassDef?.name || '未知職業'}</span>
+            <span style="color:#60a5fa; font-size:11px; background:rgba(96,165,250,0.15); padding:1px 6px; border-radius:4px;">等級 ${sub.level}/85</span>
+            <span style="color:#a855f7; font-size:10px; background:rgba(168,85,247,0.15); padding:1px 5px; border-radius:4px; text-transform:uppercase;">${({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[archetype] || '戰士'}</span>
           </div>
-          <div style="font-size:10px; color:var(--text-muted); margin-top:2px;">Certificados MasterWork disponíveis nos Lvs. 65, 70, 75 e 80.</div>
+          <div style="font-size:10px; color:var(--text-muted); margin-top:2px;">名匠認證可於等級 65、70、75、80 取得。</div>
         </div>
         <div style="display:flex; gap:6px;">
-          <button class="inv-batch-btn" style="padding:4px 8px; font-size:10px;" onclick="window.openResetCertificationsModal('${sub.id}')" title="Redistribuir certificações desta subclasse">🔄 Resetar (1kk)</button>
+          <button class="inv-batch-btn" style="padding:4px 8px; font-size:10px;" onclick="window.openResetCertificationsModal('${sub.id}')" title="重新分配此副職業的認證">🔄 重置（1,000,000 金幣）</button>
           <button class="action-btn" style="padding:6px 12px; font-size:11px;" ${isSubActive ? 'disabled' : ''} onclick="switchSubclass(${idx})">
-            ${isSubActive ? '✓ Em Uso' : 'Alternar ⚔️'}
+            ${isSubActive ? '✓ 使用中' : '切換 ⚔️'}
           </button>
         </div>
       </div>
@@ -4122,40 +4131,40 @@ export function renderSubclassesUI() {
   const totalCertCp = SubclassCertificationService.calculateCertificationCP(state);
 
   if (cpBadge) {
-    cpBadge.textContent = `+${totalCertCp.toLocaleString('pt-BR')} CP`;
+    cpBadge.textContent = `+${totalCertCp.toLocaleString('zh-TW')} 戰鬥力`;
   }
 
   if (summaryEl) {
-    const activeTransStr = state.activeTransformation ? `<div style="margin-top:4px; color:#fde047; font-weight:bold;">👼 Transformação Divina Ativa: ${state.activeTransformation.toUpperCase()}</div>` : '';
+    const activeTransStr = state.activeTransformation ? `<div style="margin-top:4px; color:#fde047; font-weight:bold;">👼 神聖變身已啟用：${Object.values(DIVINE_TRANSFORMATIONS).find(d => d.id === state.activeTransformation)?.name || ({ divineWarrior: '神聖戰士', divineKnight: '神聖騎士', divineRogue: '神聖遊俠', divineWizard: '神聖巫師', divineSummoner: '神聖召喚師', divineHealer: '神聖治癒師', divineEnchanter: '神聖賦予師' })[state.activeTransformation] || '未知變身'}</div>` : '';
     
     if (certBonuses.totalCertCount === 0) {
-      summaryEl.innerHTML = `Nenhuma certificação aprendida ainda. Suba suas subclasses aos Lvs. 65, 70, 75 e 80 para acumular bônus permanentes!`;
+      summaryEl.innerHTML = `目前尚未學習任何認證。將副職業提升至等級 65、70、75、80 即可累積永久加成！`;
     } else {
       const parts = [];
-      if (certBonuses.pAtk) parts.push(`+${certBonuses.pAtk} P.Atk`);
-      if (certBonuses.pDef) parts.push(`+${certBonuses.pDef} P.Def`);
-      if (certBonuses.mAtk) parts.push(`+${certBonuses.mAtk} M.Atk`);
-      if (certBonuses.mDef) parts.push(`+${certBonuses.mDef} M.Def`);
-      if (certBonuses.pAtkPercent) parts.push(`+${Math.round(certBonuses.pAtkPercent * 100)}% P.Atk`);
-      if (certBonuses.pDefPercent) parts.push(`+${Math.round(certBonuses.pDefPercent * 100)}% P.Def`);
-      if (certBonuses.mAtkPercent) parts.push(`+${Math.round(certBonuses.mAtkPercent * 100)}% M.Atk`);
-      if (certBonuses.mDefPercent) parts.push(`+${Math.round(certBonuses.mDefPercent * 100)}% M.Def`);
-      if (certBonuses.maxHpPercent) parts.push(`+${Math.round(certBonuses.maxHpPercent * 100)}% Max HP`);
-      if (certBonuses.maxMpPercent) parts.push(`+${Math.round(certBonuses.maxMpPercent * 100)}% Max MP`);
-      if (certBonuses.maxCpPercent) parts.push(`+${Math.round(certBonuses.maxCpPercent * 100)}% Max CP`);
-      if (certBonuses.critRate) parts.push(`+${certBonuses.critRate} Crit Rate`);
-      if (certBonuses.castSpd) parts.push(`+${certBonuses.castSpd} Cast Speed`);
-      if (certBonuses.evasion) parts.push(`+${certBonuses.evasion} Esquiva`);
-      if (certBonuses.celestialProc) parts.push(`🌟 Escudo Celestial (Proc)`);
-      if (certBonuses.hasteProc) parts.push(`⚡ Chance Haste (Proc)`);
-      if (certBonuses.defenceProc) parts.push(`🛡️ Counter Defense (Proc)`);
-      if (certBonuses.spiritProc) parts.push(`👻 Counter Spirit (Proc)`);
-      if (certBonuses.critProc) parts.push(`💥 Chance Critical (Proc)`);
+      if (certBonuses.pAtk) parts.push(`+${certBonuses.pAtk} 物理攻擊`);
+      if (certBonuses.pDef) parts.push(`+${certBonuses.pDef} 物理防禦`);
+      if (certBonuses.mAtk) parts.push(`+${certBonuses.mAtk} 魔法攻擊`);
+      if (certBonuses.mDef) parts.push(`+${certBonuses.mDef} 魔法防禦`);
+      if (certBonuses.pAtkPercent) parts.push(`+${Math.round(certBonuses.pAtkPercent * 100)}% 物理攻擊`);
+      if (certBonuses.pDefPercent) parts.push(`+${Math.round(certBonuses.pDefPercent * 100)}% 物理防禦`);
+      if (certBonuses.mAtkPercent) parts.push(`+${Math.round(certBonuses.mAtkPercent * 100)}% 魔法攻擊`);
+      if (certBonuses.mDefPercent) parts.push(`+${Math.round(certBonuses.mDefPercent * 100)}% 魔法防禦`);
+      if (certBonuses.maxHpPercent) parts.push(`+${Math.round(certBonuses.maxHpPercent * 100)}% 最大生命值`);
+      if (certBonuses.maxMpPercent) parts.push(`+${Math.round(certBonuses.maxMpPercent * 100)}% 最大魔力`);
+      if (certBonuses.maxCpPercent) parts.push(`+${Math.round(certBonuses.maxCpPercent * 100)}% 最大戰鬥力`);
+      if (certBonuses.critRate) parts.push(`+${certBonuses.critRate} 暴擊率`);
+      if (certBonuses.castSpd) parts.push(`+${certBonuses.castSpd} 施法速度`);
+      if (certBonuses.evasion) parts.push(`+${certBonuses.evasion} 迴避`);
+      if (certBonuses.celestialProc) parts.push(`🌟 天界護盾（觸發）`);
+      if (certBonuses.hasteProc) parts.push(`⚡ 急速觸發機率`);
+      if (certBonuses.defenceProc) parts.push(`🛡️ 反擊防禦（觸發）`);
+      if (certBonuses.spiritProc) parts.push(`👻 反擊之魂（觸發）`);
+      if (certBonuses.critProc) parts.push(`💥 暴擊觸發機率`);
 
       summaryEl.innerHTML = `
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-          <span style="color:#fde047; font-weight:bold;">Certificados Ativos: ${certBonuses.totalCertCount}/12</span>
-          <button class="inv-batch-btn" style="padding:2px 8px; font-size:9px;" onclick="window.openDivineTransformationToggleModal()">👼 Gerenciar Transformação</button>
+          <span style="color:#fde047; font-weight:bold;">已啟用認證：${certBonuses.totalCertCount}/12</span>
+          <button class="inv-batch-btn" style="padding:2px 8px; font-size:9px;" onclick="window.openDivineTransformationToggleModal()">👼 管理變身</button>
         </div>
         <div style="line-height:1.5; color:var(--bone); font-size:11px;">
           ${parts.join(' · ')}
@@ -4194,10 +4203,10 @@ function openCertificationModal(subId, milestoneKey) {
             ${opt.badge ? `<span style="font-size:10px; background:rgba(212,175,55,0.2); color:#ffd700; padding:1px 6px; border-radius:4px;">${opt.badge}</span>` : ''}
           </div>
           <div style="font-size:11px; color:#d1d5db; margin-top:4px; line-height:1.4;">${opt.desc}</div>
-          <div style="font-size:10px; color:#38bdf8; margin-top:4px;">Contribuição de Poder: <strong>+${(opt.cp || 1500).toLocaleString('pt-BR')} CP</strong></div>
+          <div style="font-size:10px; color:#38bdf8; margin-top:4px;">戰鬥力貢獻： <strong>+${(opt.cp || 1500).toLocaleString('zh-TW')} 戰鬥力</strong></div>
         </div>
         <button class="action-btn action-btn--primary" style="padding:8px 14px; font-size:11px; white-space:nowrap;" onclick="window.confirmLearnCertification('${subId}', '${milestoneKey}', '${opt.id}')">
-          Aprender 📜
+          學習 📜
         </button>
       </div>
     `;
@@ -4206,7 +4215,7 @@ function openCertificationModal(subId, milestoneKey) {
   body.innerHTML = `
     <div style="margin-bottom:14px;">
       <h3 style="margin:0; color:#fde047; font-family:'Cinzel',serif; font-size:16px;">📜 ${milestone.title}</h3>
-      <p style="margin:4px 0 0 0; font-size:11px; color:var(--text-muted);">Subclasse: <strong>${subClassDef?.name || sub.classId}</strong> (Arquétipo: <span style="text-transform:uppercase; color:#a855f7;">${archetype}</span>)</p>
+      <p style="margin:4px 0 0 0; font-size:11px; color:var(--text-muted);">副職業：<strong>${subClassDef?.name || '未知職業'}</strong>（定位： <span style="text-transform:uppercase; color:#a855f7;">${({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[archetype] || '戰士'}</span>）</p>
     </div>
     <div style="display:flex; flex-direction:column; gap:8px; max-height:360px; overflow-y:auto; padding-right:4px;">
       ${optionsHtml}
@@ -4228,7 +4237,7 @@ function confirmLearnCertification(subId, milestoneKey, abilityId) {
   const success = SubclassCertificationService.learnCertification(state, subId, milestoneKey, abilityId, {
     log: (msg, type) => log(msg, type),
     onUpdate: () => {
-      floatText('✨ CERTIFICAÇÃO ADQUIRIDA!', 'float-jackpot');
+      floatText('✨ 已取得認證！', 'float-jackpot');
       updateAllUI();
       save();
     }
@@ -4253,16 +4262,16 @@ function openResetCertificationsModal(subId) {
 
   body.innerHTML = `
     <div style="margin-bottom:14px;">
-      <h3 style="margin:0; color:#ef4444; font-family:'Cinzel',serif; font-size:16px;">🔄 Redefinir Certificações</h3>
-      <p style="margin:4px 0 0 0; font-size:12px; color:var(--bone);">Deseja redefinir e redistribuir todas as certificações de <strong>${subClassDef?.name || sub.classId}</strong>?</p>
+      <h3 style="margin:0; color:#ef4444; font-family:'Cinzel',serif; font-size:16px;">🔄 重置認證</h3>
+      <p style="margin:4px 0 0 0; font-size:12px; color:var(--bone);">確定要重置並重新分配所有認證： <strong>${subClassDef?.name || '未知職業'}</strong>？</p>
     </div>
     <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:12px; font-size:11px; color:#d1d5db; line-height:1.4;">
-      <p style="margin:0 0 6px 0;">Ao confirmar, todos os certificados já aprendidos nesta subclasse serão devolvidos, permitindo que você escolha novas habilidades para os Lvs. 65, 70, 75 e 80.</p>
-      <p style="margin:0; color:${hasAdena ? '#fde047' : '#ef4444'}; font-weight:bold;">Custo de Redefinição: 1.000.000 Adena (${(state.gold || 0).toLocaleString('pt-BR')} Adena atual)</p>
+      <p style="margin:0 0 6px 0;">確認後，此副職業已學習的所有認證將退還，讓你可以重新選擇等級 65、70、75、80 的技能。</p>
+      <p style="margin:0; color:${hasAdena ? '#fde047' : '#ef4444'}; font-weight:bold;">重置費用：1,000,000 金幣（目前持有 ${(state.gold || 0).toLocaleString('zh-TW')} 金幣）</p>
     </div>
     <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:14px;">
-      <button class="action-btn" onclick="window.closeCertificationModal()">Cancelar</button>
-      <button class="action-btn action-btn--danger" ${!hasAdena ? 'disabled' : ''} onclick="window.confirmResetCertifications('${subId}')">Confirmar Reset (-1kk Adena)</button>
+      <button class="action-btn" onclick="window.closeCertificationModal()">取消</button>
+      <button class="action-btn action-btn--danger" ${!hasAdena ? 'disabled' : ''} onclick="window.confirmResetCertifications('${subId}')">確認重置（-1,000,000 金幣）</button>
     </div>
   `;
 
@@ -4308,9 +4317,9 @@ function openDivineTransformationToggleModal() {
     body.innerHTML = `
       <div style="text-align:center; padding:20px 10px;">
         <div style="font-size:32px; margin-bottom:8px;">🔒</div>
-        <h3 style="color:#fde047; margin:0 0 6px 0;">Nenhuma Transformação Divina Desbloqueada</h3>
-        <p style="font-size:12px; color:var(--text-muted); margin:0;">Alcance o Nível 80 com qualquer Subclasse para desbloquear sua Forma Divina correspondente!</p>
-        <button class="action-btn" style="margin-top:14px;" onclick="window.closeCertificationModal()">Fechar</button>
+        <h3 style="color:#fde047; margin:0 0 6px 0;">尚未解鎖神聖變身</h3>
+        <p style="font-size:12px; color:var(--text-muted); margin:0;">任一副職業達到等級 80，即可解鎖對應的神聖變身！</p>
+        <button class="action-btn" style="margin-top:14px;" onclick="window.closeCertificationModal()">關閉</button>
       </div>
     `;
   } else {
@@ -4323,12 +4332,12 @@ function openDivineTransformationToggleModal() {
             <div style="font-weight:bold; color:#fde047; font-size:13px; display:flex; align-items:center; gap:6px;">
               <span>${dt.icon}</span>
               <span>${dt.name}</span>
-              ${isActive ? '<span style="font-size:10px; background:#ffd700; color:#000; font-weight:bold; padding:1px 6px; border-radius:4px;">ATIVA</span>' : ''}
+              ${isActive ? '<span style="font-size:10px; background:#ffd700; color:#000; font-weight:bold; padding:1px 6px; border-radius:4px;">啟用中</span>' : ''}
             </div>
             <div style="font-size:11px; color:#d1d5db; margin-top:2px;">${dt.desc}</div>
           </div>
           <button class="action-btn ${isActive ? 'action-btn--danger' : 'action-btn--primary'}" style="padding:6px 12px; font-size:11px; white-space:nowrap;" onclick="window.toggleDivineTransformation('${dt.id}')">
-            ${isActive ? 'Desativar ❌' : 'Ativar 👼'}
+            ${isActive ? '停用 ❌' : '啟用 👼'}
           </button>
         </div>
       `;
@@ -4336,8 +4345,8 @@ function openDivineTransformationToggleModal() {
 
     body.innerHTML = `
       <div style="margin-bottom:14px;">
-        <h3 style="margin:0; color:#fde047; font-family:'Cinzel',serif; font-size:16px;">👼 Transformações Divinas Disponíveis</h3>
-        <p style="margin:4px 0 0 0; font-size:11px; color:var(--text-muted);">Ative a forma divina para receber bônus devastadores em combate e sieges.</p>
+        <h3 style="margin:0; color:#fde047; font-family:'Cinzel',serif; font-size:16px;">👼 可用神聖變身</h3>
+        <p style="margin:4px 0 0 0; font-size:11px; color:var(--text-muted);">啟用神聖形態即可在戰鬥與攻城中獲得強力加成。</p>
       </div>
       <div style="display:flex; flex-direction:column; gap:8px; max-height:360px; overflow-y:auto;">
         ${listHtml}
@@ -4354,11 +4363,11 @@ function openDivineTransformationToggleModal() {
 function toggleDivineTransformation(transId) {
   if (state.activeTransformation === transId) {
     state.activeTransformation = null;
-    log('👼 Transformação Divina desativada.', 'system');
+    log('👼 神聖變身已停用。', 'system');
   } else {
     state.activeTransformation = transId;
-    log(`👼 **TRANSFORMAÇÃO DIVINA ATIVADA!** (+${transId.toUpperCase()})`, 'rarity-legendary');
-    floatText('TRANSFORMAÇÃO DIVINA!', 'float-jackpot');
+    log(`👼 **神聖變身已啟用！** （${Object.values(DIVINE_TRANSFORMATIONS).find(d => d.id === transId)?.name || '未知變身'}）`, 'rarity-legendary');
+    floatText('神聖變身！', 'float-jackpot');
   }
 
   closeCertificationModal();
@@ -4372,7 +4381,7 @@ function openAddSubclassModal() {
   const availableClasses = Object.keys(CLASSES).filter(cId => cId !== currentClass && !(state.subclasses || []).some(s => s.classId === cId));
 
   if (availableClasses.length === 0) {
-    log('Todas as classes já foram aprendidas como subclasse.', 'system');
+    log('所有可用職業都已學習為副職業。', 'system');
     return;
   }
 
@@ -4387,11 +4396,11 @@ function openAddSubclassModal() {
     classOptionsHtml += `
       <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px; display:flex; justify-content:space-between; align-items:center; gap:8px;">
         <div>
-          <div style="font-weight:bold; color:#fde047; font-size:12px;">${cDef?.name || cId}</div>
-          <div style="font-size:10px; color:#a855f7; text-transform:uppercase;">Arquétipo: ${arch}</div>
+          <div style="font-weight:bold; color:#fde047; font-size:12px;">${cDef?.name || '未知職業'}</div>
+          <div style="font-size:10px; color:#a855f7; text-transform:uppercase;">定位：${({ warrior: '戰士', knight: '騎士', rogue: '盜賊', wizard: '法師', summoner: '召喚師', healer: '治療師', enchanter: '輔助師' })[arch] || '戰士'}</div>
         </div>
         <button class="action-btn action-btn--primary" style="padding:6px 12px; font-size:11px;" onclick="window.confirmAddSubclass('${cId}')">
-          Adicionar ⚔️
+          新增 ⚔️
         </button>
       </div>
     `;
@@ -4399,8 +4408,8 @@ function openAddSubclassModal() {
 
   body.innerHTML = `
     <div style="margin-bottom:14px;">
-      <h3 style="margin:0; color:#fde047; font-family:'Cinzel',serif; font-size:16px;">➕ Adicionar Nova Subclasse</h3>
-      <p style="margin:4px 0 0 0; font-size:11px; color:var(--text-muted);">MasterWork Edition — Sem Restrição Racial. Inicia no Nível 40.</p>
+      <h3 style="margin:0; color:#fde047; font-family:'Cinzel',serif; font-size:16px;">➕ 新增副職業</h3>
+      <p style="margin:4px 0 0 0; font-size:11px; color:var(--text-muted);">名匠版本－無種族限制，從等級 40 開始。</p>
     </div>
     <div style="display:flex; flex-direction:column; gap:6px; max-height:340px; overflow-y:auto; padding-right:4px;">
       ${classOptionsHtml}
@@ -4416,7 +4425,7 @@ function openAddSubclassModal() {
 function confirmAddSubclass(chosenClassId) {
   state.subclasses = state.subclasses || [];
   if (state.subclasses.length >= 3) {
-    log('Limite máximo de 3 subclasses atingido.', 'system');
+    log('已達 3 個副職業上限。', 'system');
     closeCertificationModal();
     return;
   }
@@ -4431,8 +4440,8 @@ function confirmAddSubclass(chosenClassId) {
     skills: {}
   });
 
-  log(`🌟 Parabéns! Você aprendeu a Subclasse **${CLASSES[chosenClassId]?.name || chosenClassId}** (Nível 40)!`, 'rarity-legendary');
-  floatText(`🌟 SUBCLASSE APRENDIDA!`, 'float-jackpot');
+  log(`🌟 恭喜！你已學會副職業 **${CLASSES[chosenClassId]?.name || '未知職業'}**（等級 40）！`, 'rarity-legendary');
+  floatText(`🌟 已學會副職業！`, 'float-jackpot');
 
   closeCertificationModal();
   updateAllUI();
@@ -4455,7 +4464,7 @@ export function switchSubclass(targetIndex) {
   // Season gating: subclasses are locked in Seasons prior to Season 3
   const isSeasonUnlocked = isFeatureUnlocked('subclasses');
   if (!isSeasonUnlocked && resolvedTarget !== null && state.activeSubclassIndex === null) {
-    log('O Sistema de Subclasses está bloqueado na Temporada atual (Disponível na Temporada 3).', 'warning');
+    log('目前賽季尚未開放副職業系統（第 3 賽季開放）。', 'warning');
     return false;
   }
 
@@ -4527,7 +4536,7 @@ export function switchSubclass(targetIndex) {
       state.equipment = restoredEquip;
     }
 
-    log(`👑 Alternado para a Classe Principal (**${getClass(state.class).name}**)!`, 'system');
+    log(`👑 已切換至主職業（**${getClass(state.class).name}**）！`, 'system');
   } else {
     const targetSub = state.subclasses[resolvedTarget];
     if (targetSub) {
@@ -4551,7 +4560,7 @@ export function switchSubclass(targetIndex) {
       }
 
       const clsObj = getClass(state.class);
-      log(`⚔️ Alternado para a Subclasse **${clsObj?.name || state.class}** (Lv.${state.level})!`, 'rarity-rare');
+      log(`⚔️ 已切換至副職業 **${clsObj?.name || '未知職業'}**（等級 ${state.level}）！`, 'rarity-rare');
     }
   }
 
@@ -4626,7 +4635,7 @@ function updateZoneBackground() {
 
   if (stageZone && name) {
     const isTown = state.zone && ZONES[state.zone]?.town;
-    stageZone.textContent = name.toUpperCase() + (isTown ? ' · TOWN' : '');
+    stageZone.textContent = name.toUpperCase() + (isTown ? ' · 城鎮' : '');
   }
 
   if (zoneNameEl && name) {
@@ -4662,7 +4671,7 @@ function updateMonsterHP() {
   const curHp = Math.max(0, Math.min(maxHp, Math.round(mon.hp !== undefined ? mon.hp : maxHp)));
   const pct = Math.max(0, Math.min(100, (curHp / maxHp) * 100));
   if (fill) fill.style.width = `${pct}%`;
-  if (text) text.textContent = `HP: ${curHp.toLocaleString()} / ${maxHp.toLocaleString()}`;
+  if (text) text.textContent = `生命值：${curHp.toLocaleString()} / ${maxHp.toLocaleString()}`;
 }
 
 function reflow(n) { /* non-blocking no-op to eliminate layout thrashing */ }
@@ -4691,7 +4700,7 @@ function stageMonsterHurt(dmg, crit, reaction = null, reactionDuration = 450) {
     });
   } 
   const floatClass = crit ? 'sf-crit crit-hit-text' : 'sf-dmg';
-  stageFloat((crit ? '💥 CRIT! ' : '') + Math.round(dmg), floatClass, 'right'); 
+  stageFloat((crit ? '💥 暴擊！ ' : '') + Math.round(dmg), floatClass, 'right'); 
 }
 function stageMonsterDie() { 
   const fill = el('monster-hp-fill') || el('m-hp-fill') || document.querySelector('#monster-hp-fill, .stage-hp-fill');
@@ -4699,7 +4708,7 @@ function stageMonsterDie() {
   if (fill) fill.style.width = '0%'; 
   if (text && state.activeMonster) {
     const maxHp = Math.max(1, Math.round(state.activeMonster._maxHp || state.activeMonster.maxHp || 100));
-    text.textContent = `HP: 0 / ${maxHp.toLocaleString()}`;
+    text.textContent = `生命值：0 / ${maxHp.toLocaleString()}`;
   }
   const m = el('stage-monster'); 
   if (m) { 
@@ -4710,7 +4719,7 @@ function stageMonsterDie() {
       setTimeout(() => m.classList.remove('is-dying'), 350); 
     });
   } 
-  stageFloat('SLAIN', 'sf-slain', 'right'); 
+  stageFloat('擊殺', 'sf-slain', 'right'); 
   try {
     if (globalVFXOrchestrator && typeof globalVFXOrchestrator.clear === 'function') {
       globalVFXOrchestrator.clear();
@@ -4744,7 +4753,7 @@ function stageHeroHurt(dmg) {
   }
   stageFloat('-' + Math.round(dmg), 'sf-hurt', 'left');
 }
-function stageHeroBlock() { stageFloat('BLOCK', 'sf-block', 'left'); }
+function stageHeroBlock() { stageFloat('格擋', 'sf-block', 'left'); }
 const MAX_FLOAT_ITEMS = 12;
 function stageFloat(text, cls, side) {
   const c = el('stage-floats');
@@ -5224,8 +5233,8 @@ function processMonsterDefeat(monster, killingSkill = null) {
     const killHeal = Math.floor(state.maxHp * (procBonuses.on_kill_heal / 100));
     if (killHeal > 0) {
       state.hp = Math.min(state.maxHp, state.hp + killHeal);
-      log(`🩸 Execução! Curou ${killHeal} HP ao derrotar ${monster.name}`, 'heal');
-      floatText(`+${killHeal} HP`, 'sf-heal');
+      log(`🩸 處決！擊敗 ${monster.name} 後恢復 ${killHeal} 生命值`, 'heal');
+      floatText(`+${killHeal} 生命值`, 'sf-heal');
     }
   }
   if (!monster.boss && !monster.isTower && state.zone) {
@@ -5236,7 +5245,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
 
   state.killStreak = (state.killStreak || 0) + 1;
   if (state.killStreak % 5 === 0 && state.killStreak >= 5) {
-    stageFloat(`🔥 STREAK x${state.killStreak}!`, 'sf-crit', 'right');
+    stageFloat(`🔥 連殺 x${state.killStreak}！`, 'sf-crit', 'right');
   }
 
   const sRates = state.serverRates || { xp: 1, sp: 1, adena: 1, drop: 1, spoil: 1, enchant: 1, book: 1 };
@@ -5289,13 +5298,13 @@ function processMonsterDefeat(monster, killingSkill = null) {
   state.stats.monstersKilled = (state.stats.monstersKilled || 0) + 1;
 
   if (overhitBonusPct > 0) {
-    log(`💥 **OVER-HIT!** Golpe fatal com **${killingSkill.def?.name || killingSkill.name}**! Bônus de **+${overhitBonusPct}% EXP/SP** concedido!`, 'rarity-legendary', 'gold_xp');
+    log(`💥 **過量傷害！** 使用 **${killingSkill.def?.name || '未知技能'}** 完成致命一擊！獲得 **+${overhitBonusPct}% 經驗值／技能點** 額外獎勵！`, 'rarity-legendary', 'gold_xp');
     if (typeof floatText === 'function') {
-      floatText(`💥 OVER-HIT! (+${overhitBonusPct}% EXP)`, 'float-jackpot');
+      floatText(`💥 過量傷害！（+${overhitBonusPct}% 經驗值）`, 'float-jackpot');
     }
   }
 
-  log(`Derrotou **${monster.name}**! Recebeu **+${xpGain.toLocaleString()} XP**${spGain > 0 ? ` e **+${spGain} SP**` : ''}${gapMods.isTough ? ' (🔥 Desafio de Alto Risco)' : ''}`, 'xp', 'gold_xp');
+  log(`擊敗 **${monster.name}**！獲得 **+${xpGain.toLocaleString()} 經驗值**${spGain > 0 ? ` 與 **+${spGain} 技能點**` : ''}${gapMods.isTough ? '（🔥 高風險挑戰）' : ''}`, 'xp', 'gold_xp');
 
   // Drenagem de Alma para Soul Crystals (Níveis 1 a 15 e Epic Bosses)
   try {
@@ -5320,23 +5329,23 @@ function processMonsterDefeat(monster, killingSkill = null) {
     }
   }
 
-  // Acúmulo de Lâmpada Mágica & Craft Points por Abate
+  // Acúmulo de 神燈 Mágica & Craft Points por Abate
   state.magicLampExp = (state.magicLampExp || 0) + Math.floor(xpGain * 0.4);
   state.craftPoints = (state.craftPoints || 0) + Math.floor((monster.boss ? 50 : 10) * spoilRate);
 
   if (state.magicLampExp >= 50000) {
     state.magicLampExp -= 50000;
     state.magicLamps = (state.magicLamps || 0) + 1;
-    log(`🪔 NOVA LÂMPADA MÁGICA ACUMULADA! (Total: ${state.magicLamps})`, 'rarity-legendary');
+    log(`🪔 新的魔法神燈已累積！（總數：${state.magicLamps}）`, 'rarity-legendary');
     if (typeof window !== 'undefined' && window.floatText) {
-      window.floatText('🪔 LÂMPADA MÁGICA +1!', 'float-jackpot');
+      window.floatText('🪔 魔法神燈 +1！', 'float-jackpot');
     }
   }
 
   if (state.craftPoints >= 1000) {
     state.craftPoints -= 1000;
     state.craftCharges = Math.min(100, (state.craftCharges || 0) + 1);
-    log(`🛠️ CARGA DE CRAFT ACUMULADA! (Total: ${state.craftCharges})`, 'rarity-rare');
+    log(`🛠️ 已累積製作充能！（總計：${state.craftCharges}）`, 'rarity-rare');
   }
 
   const baseGold = monster.gold[0] + Math.random() * (monster.gold[1] - monster.gold[0]), jackpot = Math.random() < (monster.boss ? 0.08 : 0.015);
@@ -5347,13 +5356,13 @@ function processMonsterDefeat(monster, killingSkill = null) {
   state.gold += gold;
   if (gold > 0) trackGold(gold);
   if (gapMods.isGrey) {
-    log(`⚠️ [Penalidade de Nível] Monstro insignificante (${gapMods.reason}). 0 Adena coletada.`, 'warning', 'gold_xp');
+    log(`⚠️ [等級懲罰] 怪物等級過低（${gapMods.reason}），無法獲得金幣。`, 'warning', 'gold_xp');
   } else if (jackpot) { 
-    log(`🪙 JACKPOT! Coletou **+${gold.toLocaleString()} Adena** (×10)!`, 'rarity-legendary', 'gold_xp'); 
-    floatText(`🪙 +${gold} Adena`, 'float-jackpot'); 
+    log(`🪙 大獎！獲得 **+${gold.toLocaleString()} 金幣**（×10）！`, 'rarity-legendary', 'gold_xp'); 
+    floatText(`🪙 +${gold} 金幣`, 'float-jackpot'); 
   } else { 
-    log(`Coletou **+${gold.toLocaleString()} Adena** de ${monster.name}`, 'gold', 'gold_xp'); 
-    if (gold >= 20) floatText(`+${gold} Adena`, 'float-gold'); 
+    log(`從 ${monster.name} 獲得 **+${gold.toLocaleString()} 金幣**`, 'gold', 'gold_xp'); 
+    if (gold >= 20) floatText(`+${gold} 金幣`, 'float-gold'); 
   }
 
   // Penalidade de Nível Canônica para Drop + Bônus de Dificuldade de Caça (15.5)
@@ -5372,12 +5381,12 @@ function processMonsterDefeat(monster, killingSkill = null) {
       const isEquip = drop.isEquipment || !['material', 'potion', 'consumable', 'scroll', 'gem'].includes(def.slot);
       if (isEquip) {
         addToInventory(dropId, 1, drop.rarity || 'common');
-        const rName = D()?.RARITY?.[drop.rarity || 'common']?.name || (drop.rarity || 'common');
-        log(`✦ Obteve **${def.name}** [${rName}]!`, 'rarity-' + (drop.rarity || 'common'), 'loot');
-        floatText(`✦ ${rName}!`, 'float-' + (drop.rarity || 'common'));
+        const rName = D()?.RARITY?.[drop.rarity || 'common']?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(drop.rarity || 'common').toLowerCase()] || '一般';
+        log(`✦ 獲得 **${def.name}** [${rName}]！`, 'rarity-' + (drop.rarity || 'common'), 'loot');
+        floatText(`✦ ${rName}！`, 'float-' + (drop.rarity || 'common'));
       } else {
         addToInventory(dropId, drop.amount || 1);
-        log(`📦 Obteve **${drop.amount || 1}x ${def.name}**`, 'loot', 'loot');
+        log(`📦 獲得 **${drop.amount || 1}× ${def.name}**`, 'loot', 'loot');
       }
     }
   }
@@ -5395,8 +5404,8 @@ function processMonsterDefeat(monster, killingSkill = null) {
       const bookDef = D().ALL_ITEMS[droppedBookId];
       if (bookDef) {
         addToInventory(droppedBookId, 1);
-        log(`📖 DROP DE GRIMÓRIO! Obteve **${bookDef.name}** de ${monster.name}!`, 'rarity-legendary', 'loot');
-        floatText(`📖 ${bookDef.name}!`, 'float-jackpot');
+        log(`📖 魔法書掉落！從 ${monster.name} 獲得 **${bookDef.name}**！`, 'rarity-legendary', 'loot');
+        floatText(`📖 ${bookDef.name}！`, 'float-jackpot');
       }
     }
   }
@@ -5409,8 +5418,8 @@ function processMonsterDefeat(monster, killingSkill = null) {
     const dropChance = (cardDef.dropChance || (monster.isRaid ? 0.015 : (monster.boss ? 0.008 : 0.0005))) * levelGapPenalty;
     if (Math.random() < dropChance) {
       addToInventory(cardId, 1);
-      log(`🃏 DROP RARO! Obteve **${cardDef.name}** [${(cardDef.rarity || 'rare').toUpperCase()}]!`, 'rarity-' + (cardDef.rarity || 'rare'), 'loot');
-      floatText(`🃏 CARTA DE MONSTRO!`, 'float-jackpot');
+      log(`🃏 稀有掉落！獲得 **${cardDef.name}** [${D()?.RARITY?.[cardDef.rarity || 'rare']?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(cardDef.rarity || 'rare').toLowerCase()] || '稀有'}]！`, 'rarity-' + (cardDef.rarity || 'rare'), 'loot');
+      floatText(`🃏 怪物卡片！`, 'float-jackpot');
     }
   }
 
@@ -5429,8 +5438,8 @@ function processMonsterDefeat(monster, killingSkill = null) {
       state.dolls = state.dolls || [];
       const dollDef = BOSS_DOLLS[candidateDollId];
       state.dolls.push({ uid: 'doll_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4), dollId: candidateDollId, level: 1 });
-      log(`🧸 DROP DE DOLL! Conquistou **${dollDef.name}** [Lv.1]!`, 'rarity-rare', 'loot');
-      floatText(`🧸 ${dollDef.name}!`, 'float-jackpot');
+      log(`🧸 娃娃掉落！獲得 **${dollDef.name}** [等級 1]！`, 'rarity-rare', 'loot');
+      floatText(`🧸 ${dollDef.name}！`, 'float-jackpot');
       if (typeof updateDollsUI === 'function') updateDollsUI();
     }
   }
@@ -5447,7 +5456,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
       const count = monster.boss ? (Math.floor(Math.random() * 4) + 3) : (monster.elite ? 2 : 1);
       if (stoneDef) {
         addToInventory(pickedStone, count);
-        log(`🔷 [Seven Signs] Coletou **${count}x ${stoneDef.name}**!`, 'gain', 'loot');
+        log(`🔷 [七封印] 獲得 **${count}× ${stoneDef.name}**！`, 'gain', 'loot');
         floatText(`🔷 +${count} ${stoneDef.name}`, 'float-jackpot');
       }
     }
@@ -5505,8 +5514,8 @@ export function attackMonster() {
     const elapsed = Date.now() - (state.towerStartTime || Date.now());
     if (elapsed > 60000) {
       state.towerCombatActive = false;
-      log('⏱️ Tempo de Instância Esgotado (60s)! Desafio da Torre Falhou!', 'warning');
-      if (typeof window !== 'undefined' && window.floatText) window.floatText('⏱️ TEMPO ESGOTADO!', 'float-warning');
+      log('⏱️ 副本時間已結束（60 秒）！高塔挑戰失敗！', 'warning');
+      if (typeof window !== 'undefined' && window.floatText) window.floatText('⏱️ 時間已到！', 'float-warning');
       state.activeMonster = null;
       if (state.lastHuntingZone) state.zone = state.lastHuntingZone;
       pickRandomMonster();
@@ -5538,13 +5547,13 @@ export function attackMonster() {
     monster._bleedTicks--;
     const bDmg = monster._bleedDamage || 20;
     monster.hp -= bDmg;
-    log(`🩸 Sangramento Profundo: ${monster.name} sofreu ${bDmg} de dano contínuo!`, 'combat');
-    if (typeof stageFloat === 'function') stageFloat(`-${bDmg} BLEED`, 'sf-crit', 'right');
+    log(`🩸 深度流血：${monster.name} 持續受到 ${bDmg} 傷害！`, 'combat');
+    if (typeof stageFloat === 'function') stageFloat(`-${bDmg} 流血`, 'sf-crit', 'right');
   }
 
   if (stats.regenHp > 0) {
     state._regenAcc = (state._regenAcc || 0) + 0.2; 
-    if (state._regenAcc >= 10) { state._regenAcc = 0; const heal = Math.max(1, Math.floor(state.maxHp * stats.regenHp)); if (state.hp < state.maxHp) { state.hp = Math.min(state.maxHp, state.hp + heal); log(`Holy Light: +${heal} HP`, 'heal'); } }
+    if (state._regenAcc >= 10) { state._regenAcc = 0; const heal = Math.max(1, Math.floor(state.maxHp * stats.regenHp)); if (state.hp < state.maxHp) { state.hp = Math.min(state.maxHp, state.hp + heal); log(`聖光：+${heal} 生命值`, 'heal'); } }
   }
   if (stats.mpRegen > 0) {
     state._mpRegenAcc = (state._mpRegenAcc || 0) + 0.2;
@@ -5685,7 +5694,7 @@ export function attackMonster() {
         const buffObj = { amount: buffAmt, until: realNow + buffDuration, effect: 'warcry' };
         state.buffs[skill.id] = buffObj;
         state.buffs['warcry'] = buffObj;
-        log(`🗣 ${skill.def.name}! ${skill.def.info || 'Buff Ativo por 60s'}`, 'rarity-rare');
+        log(`🗣 ${skill.def.name}！${skill.def.info || '增益效果持續 60 秒'}`, 'rarity-rare');
         floatText(skill.def.name, 'float-epic');
 
         // Dispara VFX Premium de Aura de Buff (ancorado aos pés do herói)
@@ -5723,8 +5732,8 @@ export function attackMonster() {
       } else if (isHeal) {
         const healAmt = window.SkillScaling ? window.SkillScaling.getSkillHealAtLevel(stats.maxHp, skill.lvl, stats.matk) : Math.floor(stats.maxHp * (0.25 + skill.lvl * 0.05));
         state.hp = Math.min(stats.maxHp, state.hp + healAmt);
-        log(`✨ ${skill.def.name}! Curou ${healAmt} HP`, 'heal');
-        floatText(`+${healAmt} HP`, 'sf-heal');
+        log(`✨ ${skill.def.name}！恢復 ${healAmt} 生命值`, 'heal');
+        floatText(`+${healAmt} 生命值`, 'sf-heal');
 
         // Dispara VFX Premium de Cura Sagrada (ancorado aos pés do herói)
         const source = getHeroBasePoint();
@@ -5817,8 +5826,8 @@ export function attackMonster() {
           const vHeal = calculateVampiricHeal(sDmg, stats.maxHp || state.maxHp, COMBAT_CONFIG.lifestealRatioDefault);
           if (vHeal > 0) {
             state.hp = Math.min(stats.maxHp || state.maxHp, state.hp + vHeal);
-            if (typeof floatText === 'function') floatText(`+${vHeal} HP`, 'sf-heal');
-            log(`🦇 Vampirismo! Absorveu ${vHeal} HP`, 'heal');
+            if (typeof floatText === 'function') floatText(`+${vHeal} 生命值`, 'sf-heal');
+            log(`🦇 吸血！吸收 ${vHeal} 生命值`, 'heal');
           }
         }
         const skinReaction = state.activeSkin === 'skin_weapon_frost_lord' ? 'is-frozen' : (state.activeSkin === 'skin_weapon_infernal_dragon' ? 'is-ignited' : (state.activeSkin === 'skin_weapon_celestial_holy' ? 'is-consecrated' : null));
@@ -5893,10 +5902,10 @@ export function attackMonster() {
           }
         }
 
-        log(`💥 ${skill.def.name}! ${sDmg} ${type} damage`, 'rarity-epic');
+        log(`💥 ${skill.def.name}！造成 ${sDmg} ${type === 'magic' ? '魔法' : '物理'}傷害`, 'rarity-epic');
         if (skill.def.effect === 'stun' && !killedBySkill) {
            monster._stunnedUntil = realNow + 3500;
-           log(`💫 ${monster.name} foi Atordoado!`, 'rarity-rare');
+           log(`💫 ${monster.name} 被暈眩了！`, 'rarity-rare');
         }
 
         if (killedBySkill) {
@@ -5928,8 +5937,8 @@ export function attackMonster() {
   if (gap >= 3) {
     const missChance = gap >= 10 ? 0.70 : (gap >= 5 ? 0.35 : 0.15);
     if (Math.random() < missChance) {
-      log(`❌ MISS! ${monster.name} esquivou do seu ataque (Diferença de Nível +${gap})!`, 'warning');
-      if (typeof stageFloat === 'function') stageFloat('MISS', 'sf-miss', 'right');
+      log(`❌ 未命中！${monster.name} 閃避了你的攻擊（等級差 +${gap}）！`, 'warning');
+      if (typeof stageFloat === 'function') stageFloat('未命中', 'sf-miss', 'right');
       return;
     }
   }
@@ -6005,10 +6014,10 @@ export function attackMonster() {
 
       if (isMageClass) {
         if (shotItem.itemId === 'blessed_spiritshot_universal') soulshotCritBonus = 5;
-        const label = isUniversal ? 'SPS Univ (+30%)' : 'SPS (+100%)';
+        const label = isUniversal ? '通用魔靈彈（+30%）' : '魔靈彈（+100%）';
         stageFloat(`✨ ${label}`, 'sf-crit', 'left');
       } else {
-        const label = isUniversal ? 'SS Univ (+30%)' : 'SS (+100%)';
+        const label = isUniversal ? '通用魂彈（+30%）' : '魂彈（+100%）';
         stageFloat(`⚡ ${label}`, 'sf-crit', 'left');
       }
       updateCombatControlsUI();
@@ -6018,9 +6027,9 @@ export function attackMonster() {
   if (Math.random() < (stats.crit + soulshotCritBonus) / 100) { 
     damage = Math.floor(damage * 1.5 * stats.critDmg); 
     wasCrit = true; 
-    log(`CRIT! ${damage} damage to ${monster.name}`, 'combat'); 
+    log(`暴擊！對 ${monster.name} 造成 ${damage} 傷害`, 'combat'); 
   } else { 
-    log(`${damage} basic damage to ${monster.name}`, 'damage'); 
+    log(`對 ${monster.name} 造成 ${damage} 基礎傷害`, 'damage'); 
   }
   
   if (stats.lifeDrain > 0) {
@@ -6062,8 +6071,8 @@ export function attackMonster() {
 
   if (procBonuses.stun_chance > 0 && Math.random() * 100 < procBonuses.stun_chance) {
     monster._stunnedUntil = realNowAttack + 1500;
-    log(`💫 Stun Proc! ${monster.name} foi Atordoado por 1.5s`, 'rarity-rare');
-    floatText('STUN!', 'float-epic');
+    log(`💫 暈眩觸發！${monster.name} 被暈眩 1.5 秒`, 'rarity-rare');
+    floatText('暈眩！', 'float-epic');
   }
 
   // Procs de Certificação de Subclasse ao Atacar (Warrior: Counter Haste, Rogue: Chance Critical)
@@ -6071,16 +6080,16 @@ export function attackMonster() {
   if (stats.hasteProc && Math.random() < 0.06) {
     state.buffs = state.buffs || {};
     state.buffs['counter_haste'] = { amount: 32, until: realNowAttack + 10000 };
-    log(`⚡ **[Subclasse] Counter Haste ativado!** +32% Atk.Spd por 10s!`, 'rarity-legendary');
-    if (typeof stageFloat === 'function') stageFloat('⚡ HASTE!', 'sf-crit', 'left');
-    else if (typeof floatText === 'function') floatText('⚡ HASTE!', 'float-jackpot');
+    log(`⚡ **[副職業] 反擊急速觸發！** +32% 攻擊速度，持續 10 秒！`, 'rarity-legendary');
+    if (typeof stageFloat === 'function') stageFloat('⚡ 急速！', 'sf-crit', 'left');
+    else if (typeof floatText === 'function') floatText('⚡ 急速！', 'float-jackpot');
   }
   if (stats.critProc && Math.random() < 0.06) {
     state.buffs = state.buffs || {};
     state.buffs['chance_critical'] = { amount: 35, until: realNowAttack + 10000 };
-    log(`💥 **[Subclasse] Chance Critical ativado!** +35 Crit Rate & +10% Crit Dmg por 10s!`, 'rarity-legendary');
-    if (typeof stageFloat === 'function') stageFloat('💥 CRITICAL!', 'sf-crit', 'left');
-    else if (typeof floatText === 'function') floatText('💥 CRITICAL!', 'float-jackpot');
+    log(`💥 **[副職業] 暴擊觸發！** +35 暴擊率、+10% 暴擊傷害，持續 10 秒！`, 'rarity-legendary');
+    if (typeof stageFloat === 'function') stageFloat('💥 暴擊！', 'sf-crit', 'left');
+    else if (typeof floatText === 'function') floatText('💥 暴擊！', 'float-jackpot');
   }
 
   // IA do Monstro: Reações defensivas (Bloqueio, Esquiva Ladina, Barreira, Enrage)
@@ -6115,7 +6124,7 @@ export function attackMonster() {
   if (activePetBonus && activePetBonus.atk > 0 && combatTick % 2 === 0 && monster.hp > 0) {
     const petDmg = Math.max(1, Math.floor(dealDamage(monster, activePetBonus.atk, 'physical') * 1.2));
     monster.hp -= petDmg;
-    log(`🐾 [${activePetBonus.name}] Ataque de Mascote! ${petDmg} physical damage`, 'damage');
+    log(`🐾 [${activePetBonus.name}] 寵物攻擊！造成 ${petDmg} 點物理傷害`, 'damage');
   }
 
   const attackVfx = getWeaponAttackVfx(wasCrit, useMagic, primaryWeaponType);
@@ -6235,8 +6244,8 @@ function monsterAttack(monster) {
   const dodgeChance = (cpRatio < 0.6) ? 0.02 : Math.max(0.02, Math.min(0.65, 0.15 + (evaDiff * 0.01)));
 
   if (Math.random() < dodgeChance) {
-    log(`${monster.name} errou o ataque!`, 'combat');
-    stageFloat('DODGE', 'sf-miss', 'left');
+    log(`${monster.name} 的攻擊未命中！`, 'combat');
+    stageFloat('閃避', 'sf-miss', 'left');
     return;
   }
   
@@ -6257,17 +6266,17 @@ function monsterAttack(monster) {
 
       // Efeitos secundários de skills de monstros
       if (sk.effect === 'stun') {
-        stageFloat('💫 STUNNED', 'sf-crit', 'left');
-        log(`💫 **${monster.name}** usou [${skillName}] e te atordoou!`, 'warning');
+        stageFloat('💫 暈眩', 'sf-crit', 'left');
+        log(`💫 **${monster.name}** 使用 [${skillName}] 使你暈眩！`, 'warning');
       } else if (sk.effect === 'root') {
-        stageFloat('🌿 PRESO', 'sf-block', 'left');
-        log(`🌿 **${monster.name}** usou [${skillName}] e enraizou seus pés!`, 'warning');
+        stageFloat('🌿 定身', 'sf-block', 'left');
+        log(`🌿 **${monster.name}** 使用 [${skillName}] 使你定身！`, 'warning');
       } else if (sk.effect === 'bleed') {
-        stageFloat('🩸 SANGRANDO', 'sf-hurt', 'left');
-        log(`🩸 **${monster.name}** usou [${skillName}] causando sangramento!`, 'warning');
+        stageFloat('🩸 流血', 'sf-hurt', 'left');
+        log(`🩸 **${monster.name}** 使用 [${skillName}] 造成流血！`, 'warning');
       } else if (sk.effect === 'poison') {
-        stageFloat('🧪 ENVENENADO', 'sf-hurt', 'left');
-        log(`🧪 **${monster.name}** usou [${skillName}] causando envenenamento!`, 'warning');
+        stageFloat('🧪 中毒', 'sf-hurt', 'left');
+        log(`🧪 **${monster.name}** 使用 [${skillName}] 造成中毒！`, 'warning');
       }
     }
   }
@@ -6285,15 +6294,15 @@ function monsterAttack(monster) {
   }
   if (aiAttack.isCrit) {
     damage = Math.floor(damage * aiAttack.critMultiplier);
-    stageFloat('💥 CRITICAL!', 'sf-crit', 'left');
+    stageFloat('💥 暴擊！', 'sf-crit', 'left');
   }
   if (aiAttack.manaBurnAmt > 0 && state.mp > 0) {
     state.mp = Math.max(0, state.mp - aiAttack.manaBurnAmt);
-    log(`🔥 [Mana Burn] **${monster.name}** drenou ${aiAttack.manaBurnAmt} MP seu!`, 'warning');
-    stageFloat(`-${aiAttack.manaBurnAmt} MP`, 'sf-hurt', 'left');
+    log(`🔥 [魔力燃燒] **${monster.name}** 燃燒了你 ${aiAttack.manaBurnAmt} 點魔力！`, 'warning');
+    stageFloat(`-${aiAttack.manaBurnAmt} 魔力`, 'sf-hurt', 'left');
   }
   if (aiAttack.appliedDebuff) {
-    log(`🔮 [Maldição] **${monster.name}** conjurou ${aiAttack.appliedDebuff.name}!`, 'warning');
+    log(`🔮 [詛咒] **${monster.name}** 施放了 ${aiAttack.appliedDebuff.name}！`, 'warning');
     stageFloat(aiAttack.appliedDebuff.name, 'sf-block', 'left');
   }
 
@@ -6314,21 +6323,21 @@ function monsterAttack(monster) {
     const crushMult = 1.0 + (1.0 - rawCpRatio) * 2.5;
     damage = Math.max(1, Math.floor(damage * crushMult));
     isCrushingHit = true;
-    log(`⚠️ [EQUIPAMENTO OBSOLETO] **${monster.name}** desferiu Golpe Esmagador! Causou **${damage}** de dano (${Math.round(crushMult * 100)}% de impacto)!`, 'warning');
-    if (typeof stageFloat === 'function') stageFloat('CRUSHING!', 'sf-crit', 'left');
+    log(`⚠️ [裝備落後] **${monster.name}** 施展粉碎重擊！造成 **${damage}** 傷害（衝擊倍率 ${Math.round(crushMult * 100)}%）！`, 'warning');
+    if (typeof stageFloat === 'function') stageFloat('粉碎！', 'sf-crit', 'left');
   }
 
   if (state.godMode) {
-    log(`🛡️ [GOD MODE ATIVADO] ${monster.name} causaria ${damage} de dano (anulado por Invencibilidade de Admin)! Digite //god para desativar.`, 'warning');
+    log(`🛡️ [無敵模式已啟用] ${monster.name} 原本會造成 ${damage} 傷害，但已被管理員無敵狀態抵消！輸入 //god 可停用。`, 'warning');
     damage = 0;
   }
 
   // Counter Barrier (Celestial Shield - Invulnerabilidade Total L2)
   if (state.buffs?.['counter_barrier'] && state.buffs['counter_barrier'].until > realNow) {
     damage = 0;
-    if (typeof stageFloat === 'function') stageFloat('🌟 INVULNERÁVEL', 'sf-block', 'left');
-    else if (typeof floatText === 'function') floatText('🌟 INVULNERÁVEL', 'float-jackpot');
-    log('🌟 [Celestial Shield] Escudo Divino absorveu todo o impacto!', 'rarity-legendary');
+    if (typeof stageFloat === 'function') stageFloat('🌟 無敵', 'sf-block', 'left');
+    else if (typeof floatText === 'function') floatText('🌟 無敵', 'float-jackpot');
+    log('🌟 [天界護盾] 神聖護盾吸收了全部傷害！', 'rarity-legendary');
   }
 
   if (damage > 0) {
@@ -6336,37 +6345,37 @@ function monsterAttack(monster) {
     if (stats.celestial && Math.random() < 0.05) {
       state.buffs = state.buffs || {};
       state.buffs['counter_barrier'] = { until: realNow + 5000 };
-      log('🌟 **[Subclasse] Counter Barrier ativado!** Imunidade total por 5 segundos!', 'rarity-legendary');
-      if (typeof stageFloat === 'function') stageFloat('🌟 CELESTIAL!', 'sf-heal', 'left');
-      else if (typeof floatText === 'function') floatText('🌟 CELESTIAL SHIELD!', 'float-jackpot');
+      log('🌟 **[副職業] 反擊屏障觸發！** 完全免疫傷害 5 秒！', 'rarity-legendary');
+      if (typeof stageFloat === 'function') stageFloat('🌟 天界護盾！', 'sf-heal', 'left');
+      else if (typeof floatText === 'function') floatText('🌟 天界護盾！', 'float-jackpot');
     }
     if (stats.defenceProc && Math.random() < 0.06) {
       state.buffs = state.buffs || {};
       state.buffs['counter_defense'] = { amount: 25, until: realNow + 10000 };
-      log('🛡️ **[Subclasse] Counter Defense ativado!** +25% P.Def & +25% M.Def por 10s!', 'rarity-epic');
-      if (typeof stageFloat === 'function') stageFloat('🛡️ COUNTER DEF!', 'sf-block', 'left');
-      else if (typeof floatText === 'function') floatText('🛡️ COUNTER DEFENSE!', 'float-epic');
+      log('🛡️ **[副職業] 反擊防禦觸發！** +25% 物理防禦、+25% 魔法防禦，持續 10 秒！', 'rarity-epic');
+      if (typeof stageFloat === 'function') stageFloat('🛡️ 反擊防禦！', 'sf-block', 'left');
+      else if (typeof floatText === 'function') floatText('🛡️ 反擊防禦！', 'float-epic');
     }
     if (stats.spiritProc && Math.random() < 0.05) {
       state.buffs = state.buffs || {};
       state.buffs['counter_spirit'] = { amount: 10, until: realNow + 10000 };
-      log('👻 **[Subclasse] Counter Spirit ativado!** +10% P.Atk, M.Atk e Atk.Spd por 10s!', 'rarity-epic');
-      if (typeof stageFloat === 'function') stageFloat('👻 COUNTER SPIRIT!', 'sf-crit', 'left');
-      else if (typeof floatText === 'function') floatText('👻 COUNTER SPIRIT!', 'float-epic');
+      log('👻 **[副職業] 反擊之魂觸發！** +10% 物理攻擊、魔法攻擊與攻擊速度，持續 10 秒！', 'rarity-epic');
+      if (typeof stageFloat === 'function') stageFloat('👻 反擊之魂！', 'sf-crit', 'left');
+      else if (typeof floatText === 'function') floatText('👻 反擊之魂！', 'float-epic');
     }
 
     state.hp -= damage;
     if (isSkillCast && skillName) {
-      log(`⚡ **${monster.name}** acertou [${skillName}] em você causando **${damage}** de dano!`, 'combat');
+      log(`⚡ **${monster.name}** 使用 [${skillName}] 命中你，造成 **${damage}** 傷害！`, 'combat');
     } else if (!isCrushingHit) {
-      log(`${monster.name} te atingiu por ${damage} de dano`, 'damage');
+      log(`${monster.name} 對你造成 ${damage} 傷害`, 'damage');
     }
     stageHeroHurt(damage);
     if (aiAttack.vampiricHeal > 0) {
       const vHeal = Math.max(1, Math.floor(damage * aiAttack.vampiricHeal));
       monster.hp = Math.min(monster._maxHp, monster.hp + vHeal);
-      log(`🦇 [Vampirismo] **${monster.name}** absorveu ${vHeal} de vida de você!`, 'warning');
-      stageFloat(`+${vHeal} HP`, 'sf-heal', 'right');
+      log(`🦇 [吸血] **${monster.name}** 從你身上吸收了 ${vHeal} 生命值！`, 'warning');
+      stageFloat(`+${vHeal} 生命值`, 'sf-heal', 'right');
     }
   }
   if (state.hp <= 0) {
@@ -6385,7 +6394,7 @@ function spawnAdminItem(itemId, qty = 1, rarity = 'common', enchant = 0, affixCh
     return;
   }
   const def = getItemDef(itemId);
-  if (!def) { log(`[Admin] Item '${itemId}' não encontrado.`, 'system'); return; }
+  if (!def) { log(`[管理員] 找不到物品「${itemId}」。`, 'system'); return; }
   const realId = def.id || itemId;
   
   if (def.stack && (def.slot === 'consumable' || def.slot === 'material' || def.slot === 'scroll' || def.slot === 'powerup') && rarity === 'common' && !isFoundation) {
@@ -6419,9 +6428,9 @@ function spawnAdminItem(itemId, qty = 1, rarity = 'common', enchant = 0, affixCh
   }
 
   const enchantStr = enchant > 0 ? `+${enchant} ` : '';
-  const foundationStr = isFoundation ? '✨ [FOUNDATION] ' : '';
-  log(`🎁 [Admin] ${qty}x ${foundationStr}${enchantStr}${def.name} [${rarity}] gerado(s) na mochila!`, 'rarity-legendary');
-  floatText('🎁 ITEM GERADO!', 'float-jackpot');
+  const foundationStr = isFoundation ? '✨ [基底] ' : '';
+  log(`🎁 [管理員] 已在背包生成 ${qty}× ${foundationStr}${enchantStr}${def.name} [${({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(rarity).toLowerCase()] || '一般'}]！`, 'rarity-legendary');
+  floatText('🎁 物品已生成！', 'float-jackpot');
   updateAllUI();
   save(true, true);
 }
@@ -6468,8 +6477,8 @@ function applyAdminLevelChange(targetLevel) {
 
   // 4. Log e feedback visual do nível
   playSfx('levelUp');
-  log(`⚡ [Admin] Nível alterado para ${newLvl}! SP (+${cumulativeSp + 1000}), HP/MP, Sagas, Mapa de Caça e Habilidades sincronizados.`, 'rarity-legendary');
-  floatText(`⚡ NIVEL ${newLvl}!`, 'float-jackpot');
+  log(`⚡ [管理員] 等級已調整為 ${newLvl}！技能點（+${cumulativeSp + 1000}）、生命值／魔力、史詩任務、狩獵地圖與技能已同步。`, 'rarity-legendary');
+  floatText(`⚡ 等級 ${newLvl}！`, 'float-jackpot');
 
   // 5. Atualiza todos os módulos visuais (Troca de classe, Árvore de Skills, Mapa, Subclasses, Raids, Missões)
   checkClassAdvancement();
@@ -6491,7 +6500,7 @@ function handleChatSubmit(inputStr) {
   const isAdminCmd = lower.startsWith('//') || lower === '/admin' || lower === 'admin' || lower === 'gm' || lower === '//gm';
   if (isAdminCmd) {
     if (!isAuthorizedAdmin()) {
-      log('⛔ Acesso negado: comandos administrativos são restritos aos administradores autorizados.', 'system');
+      log('⛔ 存取遭拒：管理員指令僅限授權管理員使用。', 'system');
       return;
     }
     state.privilegeLevel = 1;
@@ -6501,7 +6510,7 @@ function handleChatSubmit(inputStr) {
   // Open Admin Console secret commands
   if (isAuthorizedAdmin() && (lower === '//admin' || lower === '/admin' || lower === '//gm' || lower === 'admin' || lower === 'gm')) {
     openAdminModal();
-    log('🛡️ [GM Console] Acesso Concedido! Painel de Administrador desbloqueado.', 'rarity-legendary');
+    log('🛡️ [管理員控制台] 已授權存取！管理員面板已解鎖。', 'rarity-legendary');
     return;
   }
 
@@ -6540,7 +6549,7 @@ function handleChatSubmit(inputStr) {
     if (!isNaN(amt)) {
       state.gold += amt;
       triggerQuestEvent('gold', amt);
-      log(`🪙 [Admin] +${amt.toLocaleString()} Gold concedido!`, 'rarity-legendary');
+      log(`🪙 [管理員] 已增加 ${amt.toLocaleString()} 金幣！`, 'rarity-legendary');
       updateAllUI();
       save(true, true);
     }
@@ -6551,7 +6560,7 @@ function handleChatSubmit(inputStr) {
     const amt = parseInt(lower.replace('//sp ', '').trim());
     if (!isNaN(amt)) {
       state.sp += amt;
-      log(`✦ [Admin] +${amt.toLocaleString()} SP concedido!`, 'rarity-legendary');
+      log(`✦ [管理員] 已增加 ${amt.toLocaleString()} 技能點！`, 'rarity-legendary');
       updateSkillUI();
       updateAllUI();
       save(true, true);
@@ -6569,8 +6578,8 @@ function handleChatSubmit(inputStr) {
 
   if (lower === '//god') {
     state.godMode = !state.godMode;
-    log(`🛡️ [Admin] God Mode (Invencibilidade): ${state.godMode ? 'ATIVADO' : 'DESATIVADO'}`, 'rarity-legendary');
-    if (typeof floatText === 'function') floatText(`🛡️ GOD MODE: ${state.godMode ? 'ON' : 'OFF'}`, 'float-jackpot');
+    log(`🛡️ [管理員] 無敵模式：${state.godMode ? '已啟用' : '已停用'}`, 'rarity-legendary');
+    if (typeof floatText === 'function') floatText(`🛡️ 無敵模式：${state.godMode ? '開啟' : '關閉'}`, 'float-jackpot');
     updateAllUI();
     save(true, true);
     return;
@@ -6587,17 +6596,17 @@ function handleChatSubmit(inputStr) {
   }
 
   // Normal Player Chat Message
-  const heroName = (RACES[state.race]?.name || 'Hero') + ' ' + (getClass(state.class)?.name || 'Adventurer');
-  log(`💬 [Global] ${heroName}: ${raw}`, 'system');
+  const heroName = (RACES[state.race]?.name || '英雄') + ' ' + (getClass(state.class)?.name || '冒險者');
+  log(`💬 [世界] ${heroName}：${raw}`, 'system');
 }
 
 const RATE_PRESETS = {
-  classic: { name: '🛡️ Retail Classic (1x)', rates: { xp: 1, sp: 1, adena: 1, drop: 1, spoil: 1, enchant: 1, book: 1 } },
-  aden: { name: '⚔️ Aden Dynamic (3x)', rates: { xp: 3, sp: 3, adena: 2, drop: 2, spoil: 2, enchant: 1.2, book: 2 } },
-  mid: { name: '🔥 Mid-Rate Oficial (10x)', rates: { xp: 10, sp: 10, adena: 8, drop: 5, spoil: 5, enchant: 1.5, book: 5 } },
-  high: { name: '👑 High-Rate / Evento (50x)', rates: { xp: 50, sp: 50, adena: 25, drop: 15, spoil: 10, enchant: 2.0, book: 10 } },
-  turbo: { name: '⚡ Turbo PvP (100x)', rates: { xp: 100, sp: 100, adena: 50, drop: 30, spoil: 20, enchant: 2.5, book: 20 } },
-  reset: { name: '🔄 Padrão (1x)', rates: { xp: 1, sp: 1, adena: 1, drop: 1, spoil: 1, enchant: 1, book: 1 } }
+  classic: { name: '🛡️ 經典原倍率（1×）', rates: { xp: 1, sp: 1, adena: 1, drop: 1, spoil: 1, enchant: 1, book: 1 } },
+  aden: { name: '⚔️ 亞丁動態倍率（3×）', rates: { xp: 3, sp: 3, adena: 2, drop: 2, spoil: 2, enchant: 1.2, book: 2 } },
+  mid: { name: '🔥 官方中倍率（10×）', rates: { xp: 10, sp: 10, adena: 8, drop: 5, spoil: 5, enchant: 1.5, book: 5 } },
+  high: { name: '👑 高倍率／活動（50×）', rates: { xp: 50, sp: 50, adena: 25, drop: 15, spoil: 10, enchant: 2.0, book: 10 } },
+  turbo: { name: '⚡ 極速玩家對戰（100 倍）', rates: { xp: 100, sp: 100, adena: 50, drop: 30, spoil: 20, enchant: 2.5, book: 20 } },
+  reset: { name: '🔄 標準（1×）', rates: { xp: 1, sp: 1, adena: 1, drop: 1, spoil: 1, enchant: 1, book: 1 } }
 };
 
 function ensureServerRates() {
@@ -6617,17 +6626,17 @@ function setServerRate(key, val, silent = false) {
   state.serverRates[key] = num;
   if (!silent) {
     const labels = {
-      xp: 'Rate de XP',
-      sp: 'Rate de SP',
-      adena: 'Rate de Adena',
-      drop: 'Rate de Drop de Itens',
-      spoil: 'Rate de Spoil & Craft',
-      enchant: 'Rate de Encantamento',
-      book: 'Rate de Grimórios'
+      xp: '經驗值倍率',
+      sp: '技能點倍率',
+      adena: '金幣倍率',
+      drop: '物品掉落倍率',
+      spoil: '搜刮與製作倍率',
+      enchant: '強化倍率',
+      book: '魔法書倍率'
     };
     const title = labels[key] || key.toUpperCase();
-    log(`⚡ [Admin] ${title} atualizada para **x${num}**! Efeito imediato aplicado.`, 'rarity-legendary');
-    if (typeof floatText === 'function') floatText(`⚡ ${title.toUpperCase()}: x${num}!`, 'float-jackpot');
+    log(`⚡ [管理員] ${title} 已更新為 **×${num}**！效果立即生效。`, 'rarity-legendary');
+    if (typeof floatText === 'function') floatText(`⚡ ${title.toUpperCase()}：×${num}！`, 'float-jackpot');
   }
   try {
     if (typeof localStorage !== 'undefined') {
@@ -6649,8 +6658,8 @@ function applyServerRatePreset(presetKey) {
     state.serverRates[k] = v;
   });
   
-  log(`🚀 [Admin] Preset aplicado: **${preset.name}**! Todas as rates foram reajustadas ao vivo.`, 'rarity-legendary');
-  if (typeof floatText === 'function') floatText(`🚀 PRESET ${presetKey.toUpperCase()} ATIVADO!`, 'float-jackpot');
+  log(`🚀 [管理員] 已套用預設：**${preset.name}**！所有倍率已即時更新。`, 'rarity-legendary');
+  if (typeof floatText === 'function') floatText(`🚀 預設 ${preset.name} 已啟用！`, 'float-jackpot');
   
   try {
     if (typeof localStorage !== 'undefined') {
@@ -6669,13 +6678,13 @@ function syncAdminRatesUI() {
   // Update header live summary
   const summaryEl = el('admin-live-rates-summary');
   if (summaryEl) {
-    summaryEl.textContent = `Rates Ativas: XP x${r.xp} · SP x${r.sp} · Adena x${r.adena} · Drop x${r.drop} · Spoil x${r.spoil} · Enchant x${r.enchant} · Grimórios x${r.book}`;
+    summaryEl.textContent = `目前倍率：經驗值 ×${r.xp} · 技能點 ×${r.sp} · 金幣 ×${r.adena} · 掉落 ×${r.drop} · 搜刮 ×${r.spoil} · 強化 ×${r.enchant} · 魔法書 ×${r.book}`;
   }
   
   // Update badges on rate cards
   ['xp', 'sp', 'adena', 'drop', 'spoil', 'enchant', 'book'].forEach(k => {
     const badge = el(`rate-val-${k}`);
-    if (badge) badge.textContent = `x${r[k]}`;
+    if (badge) badge.textContent = `×${r[k]}`;
     
     // Highlight matching pill buttons
     qsa(`[data-rate-set^="${k}:"]`).forEach(btn => {
@@ -6762,8 +6771,8 @@ function populateAdminItemSelect(query = '') {
         def.type || '',
         def.weaponType || '',
         grade,
-        `grade ${grade}`,
-        `lv.${def.req?.level || 1}`
+        `品級 ${grade}`,
+        `等級 ${def.req?.level || 1}`
       ].join(' ').toLowerCase();
 
       const matchesAllTerms = queryTerms.every(term => searchableText.includes(term));
@@ -6778,7 +6787,7 @@ function populateAdminItemSelect(query = '') {
   if (list.length === 0) {
     const opt = mkEl('option');
     opt.value = '';
-    opt.textContent = `⚠️ Nenhum item encontrado para "${query}"`;
+    opt.textContent = `⚠️ 找不到「${query}」相關物品`;
     opt.disabled = true;
     sel.appendChild(opt);
     return;
@@ -6788,7 +6797,7 @@ function populateAdminItemSelect(query = '') {
     const opt = mkEl('option');
     opt.value = id;
     const grade = getItemGrade(def.req?.level || 1);
-    opt.textContent = `${def.name} [${grade}] (${def.slot || 'Item'} · Lv.${def.req?.level || 1})`;
+    opt.textContent = `${def.name} [${grade}]（${({ weapon: '武器', weapon2: '副武器', shield: '盾牌', helmet: '頭盔', armor: '胸甲', chest: '胸甲', fullbody: '全身甲', legs: '褲子', gloves: '手套', boots: '靴子', cloak: '披風', belt: '腰帶', necklace: '項鍊', earring: '耳環', earring1: '耳環 1', earring2: '耳環 2', ring: '戒指', ring1: '戒指 1', ring2: '戒指 2', hair: '頭飾', consumable: '消耗品', material: '材料', scroll: '卷軸', crystal: '水晶' })[def.slot] || '物品'} · 等級 ${def.req?.level || 1}）`;
     sel.appendChild(opt);
   }
 }
@@ -6802,8 +6811,8 @@ function addAdminXP(amount) {
   checkClassAdvancement();
   updateSkillUI();
   updateRaceClassUI();
-  log(`🌟 [Admin] +${amt.toLocaleString()} XP concedido(s)! (Nível atual: ${state.level})`, 'rarity-legendary');
-  floatText(`🌟 +${amt.toLocaleString()} XP!`, 'float-jackpot');
+  log(`🌟 [管理員] 已增加 ${amt.toLocaleString()} 經驗值！（目前等級：${state.level}）`, 'rarity-legendary');
+  floatText(`🌟 +${amt.toLocaleString()} 經驗值！`, 'float-jackpot');
   updateAllUI();
   save(true, true);
 }
@@ -6814,8 +6823,8 @@ function addAdminGold(amount) {
   if (amt <= 0) return;
   state.gold = (state.gold || 0) + amt;
   triggerQuestEvent('gold', amt);
-  log(`🪙 [Admin] +${amt.toLocaleString()} Adena concedido(s)!`, 'rarity-legendary');
-  floatText(`🪙 +${amt.toLocaleString()} Adena!`, 'float-gold');
+  log(`🪙 [管理員] 已增加 ${amt.toLocaleString()} 金幣！`, 'rarity-legendary');
+  floatText(`🪙 +${amt.toLocaleString()} 金幣！`, 'float-gold');
   updateAllUI();
   save(true, true);
 }
@@ -6825,8 +6834,8 @@ function addAdminSP(amount) {
   const amt = parseInt(amount) || 0;
   if (amt <= 0) return;
   state.sp = (state.sp || 0) + amt;
-  log(`✦ [Admin] +${amt.toLocaleString()} SP concedido(s)!`, 'rarity-legendary');
-  floatText(`✦ +${amt.toLocaleString()} SP!`, 'float-jackpot');
+  log(`✦ [管理員] 已增加 ${amt.toLocaleString()} 技能點！`, 'rarity-legendary');
+  floatText(`✦ +${amt.toLocaleString()} 技能點！`, 'float-jackpot');
   updateSkillUI();
   updateAllUI();
   save(true, true);
@@ -6837,8 +6846,8 @@ function addAdminAC(amount) {
   const amt = parseInt(amount) || 0;
   if (amt <= 0) return;
   state.adenCoins = (state.adenCoins || 0) + amt;
-  log(`🪙 [Admin] +${amt.toLocaleString()} Aden Coins (AC) concedida(s)!`, 'rarity-legendary');
-  floatText(`🪙 +${amt.toLocaleString()} AC!`, 'float-gold');
+  log(`🪙 [管理員] 已增加 ${amt.toLocaleString()} 亞丁幣！`, 'rarity-legendary');
+  floatText(`🪙 +${amt.toLocaleString()} 亞丁幣！`, 'float-gold');
   updateAllUI();
   save(true, true);
 }
@@ -6850,8 +6859,8 @@ function adminUnlockSagas() {
   for (const sagaId of Object.keys(sagas)) {
     state.unlockedSagas[sagaId] = true;
   }
-  log('📜 [Admin] Todas as Sagas foram DESBLOQUEADAS!', 'rarity-legendary');
-  floatText('📜 SAGAS DESBLOQUEADAS', 'float-jackpot');
+  log('📜 [管理員] 所有史詩任務已解鎖！', 'rarity-legendary');
+  floatText('📜 史詩任務已解鎖', 'float-jackpot');
   updateAllUI();
   save(true, true);
 }
@@ -6863,13 +6872,13 @@ function adminCompleteQuest() {
       q.progress = q.target;
       q.completed = true;
     }
-    log('✅ [Admin] Todas as Missões Ativas foram CONCLUÍDAS!', 'rarity-legendary');
-    floatText('✅ MISSÕES CONCLUÍDAS', 'float-jackpot');
+    log('✅ [管理員] 所有進行中的任務都已完成！', 'rarity-legendary');
+    floatText('✅ 任務已完成', 'float-jackpot');
     updateQuestUI();
     updateAllUI();
     save(true, true);
   } else {
-    log('Nenhuma missão ativa encontrada para concluir.', 'system');
+    log('目前沒有可完成的進行中任務。', 'system');
   }
 }
 
@@ -6879,8 +6888,8 @@ function adminMaxCraft() {
   state.craftXp = 0;
   state.craftCharges = 100;
   state.craftPoints = 0;
-  log('⚒️ [Admin] Forja no Level Máximo (50) + 100 Cargas de Random Craft!', 'rarity-legendary');
-  floatText('⚒️ CRAFT MÁXIMO', 'float-jackpot');
+  log('⚒️ [管理員] 鍛造已提升至最高等級 50，並增加 100 次隨機製作充能！', 'rarity-legendary');
+  floatText('⚒️ 製作等級最高', 'float-jackpot');
   updateAllUI();
   save(true, true);
 }
@@ -6903,8 +6912,8 @@ function adminMaxSkills() {
       if (sid && (isPurgedSkill(sid) || !state.skills[sid])) state.skillLoadout[slot] = null;
     }
   }
-  log('📖 [Admin] Todas as Habilidades da Classe foram MAXIMIZADAS!', 'rarity-legendary');
-  floatText('📖 SKILLS MÁXIMAS', 'float-jackpot');
+  log('📖 [管理員] 所有職業技能已提升至最高！', 'rarity-legendary');
+  floatText('📖 技能已全滿', 'float-jackpot');
   updateSkillUI();
   updateAllUI();
   save(true, true);
@@ -6914,11 +6923,11 @@ function adminKillMonster() {
   if (!isAuthorizedAdmin()) return;
   const monster = state.currentMonster;
   if (monster) {
-    log(`⚡ [Admin] Matou o monstro ${monster.name} instantaneamente!`, 'rarity-legendary');
+    log(`⚡ [管理員] 已立即擊殺怪物 ${monster.name}！`, 'rarity-legendary');
     monster.hp = 0;
     onMonsterDefeated(monster);
   } else {
-    log('Nenhum monstro em combate ativo.', 'system');
+    log('目前沒有正在戰鬥的怪物。', 'system');
   }
 }
 
@@ -6930,18 +6939,18 @@ function syncAdminSeasonAndCapUI() {
   const seasonBadge = el('admin-current-season-badge');
   if (seasonBadge) {
     if (isUnlockedAll) {
-      seasonBadge.textContent = 'Crônicas: TODAS DESBLOQUEADAS (God Mode)';
+      seasonBadge.textContent = '編年史：全部解鎖（無敵模式）';
       seasonBadge.style.color = '#34d399';
       seasonBadge.style.borderColor = '#34d399';
       seasonBadge.style.background = 'rgba(16,185,129,0.2)';
     } else {
       const titles = {
-        1: 'Crônica I: O Despertar (Lv.40)',
-        2: 'Crônica II: Clãs & Castelos (Lv.75)',
-        3: 'Crônica III: Sete Selos (Lv.85)',
-        4: 'Crônica IV: High Five (Lv.120)'
+        1: '編年史 I：覺醒（等級 40）',
+        2: '編年史二：血盟與城堡（等級 75）',
+        3: '編年史三：七封印（等級 85）',
+        4: '編年史四：巔峰篇（等級 120）'
       };
-      seasonBadge.textContent = `Crônica Ativa: ${titles[curSeason] || 'Stage ' + curSeason}`;
+      seasonBadge.textContent = `目前編年史：${titles[curSeason] || '階段 ' + curSeason}`;
       seasonBadge.style.color = '#38bdf8';
       seasonBadge.style.borderColor = '#38bdf8';
       seasonBadge.style.background = 'rgba(56,189,248,0.2)';
@@ -6950,7 +6959,7 @@ function syncAdminSeasonAndCapUI() {
 
   const capBadge = el('admin-current-cap-badge');
   if (capBadge) {
-    capBadge.textContent = `Cap Atual: Nível ${curCap}`;
+    capBadge.textContent = `目前等級上限：${curCap}`;
   }
 
   // Atualiza destaque visual dos botões de temporada
@@ -6969,10 +6978,10 @@ function syncAdminSeasonAndCapUI() {
   if (unlockAllBtn) {
     if (isUnlockedAll) {
       unlockAllBtn.style.boxShadow = '0 0 12px rgba(52,211,153,0.8)';
-      unlockAllBtn.textContent = '🌟 TODAS AS CRÔNICAS & ABAS ESTÃO DESBLOQUEADAS (ATIVO)';
+      unlockAllBtn.textContent = '🌟 所有編年史與分頁皆已解鎖（啟用中）';
     } else {
       unlockAllBtn.style.boxShadow = '';
-      unlockAllBtn.textContent = '🔓 Desbloquear TODAS as Crônicas & Abas (100% Liberado / Modo Teste)';
+      unlockAllBtn.textContent = '🔓 解鎖所有編年史與分頁（100% 開放／測試模式）';
     }
   }
 
@@ -7016,14 +7025,14 @@ function setServerSeason(seasonId) {
   updateTabVisibilityByLevel(state);
 
   const seasonNames = {
-    1: 'Crônica I: O Despertar de Aden',
-    2: 'Crônica II: A Era dos Clãs & Castelos',
-    3: 'Crônica III: Os Sete Selos & Olimpíadas',
-    4: 'Crônica IV: A Fúria dos Dragões & Multiverso'
+    1: '編年史 I：亞丁覺醒',
+    2: '編年史二：血盟與城堡時代',
+    3: '編年史三：七封印與奧林匹亞',
+    4: '編年史四：巨龍之怒與多重世界'
   };
 
-  log(`📜 [CRÔNICA REAL] ${seasonNames[sid] || 'Stage ' + sid} ativado! Todas as abas e sistemas foram sincronizados permanentemente.`, 'rarity-legendary');
-  if (typeof floatText === 'function') floatText(`📜 CRÔNICA ${sid} DESBLOQUEADA!`, 'float-jackpot');
+  log(`📜 [皇家編年史] ${seasonNames[sid] || '階段 ' + sid} 已啟用！所有分頁與系統已永久同步。`, 'rarity-legendary');
+  if (typeof floatText === 'function') floatText(`📜 編年史 ${sid} 已解鎖！`, 'float-jackpot');
 
   syncAdminSeasonAndCapUI();
   updateAllUI();
@@ -7052,8 +7061,8 @@ function unlockAllSeasons() {
   updateSeasonTabBadges(ROOT);
   updateTabVisibilityByLevel(state);
 
-  log('🌟 [Admin] TODAS AS TEMPORADAS, CRÔNICAS E ABAS FORAM 100% DESBLOQUEADAS! Acesso irrestrito a todo o conteúdo do jogo.', 'rarity-legendary');
-  if (typeof floatText === 'function') floatText('🌟 TODAS AS ABAS LIBERADAS!', 'float-jackpot');
+  log('🌟 [管理員] 所有季節、編年史與分頁已 100% 解鎖！現在可自由存取全部遊戲內容。', 'rarity-legendary');
+  if (typeof floatText === 'function') floatText('🌟 所有分頁已解鎖！', 'float-jackpot');
 
   syncAdminSeasonAndCapUI();
   updateAllUI();
@@ -7072,8 +7081,8 @@ function setServerLevelCap(cap) {
     localStorage.setItem('aden_server_cap', String(nCap));
   }
 
-  log(`📢 [DECRETO REAL] O Lorde Soberano de Aden estabeleceu o Cap Máximo de Nível do Servidor em **Nível ${nCap}**!`, 'rarity-legendary');
-  if (typeof floatText === 'function') floatText(`👑 CAP DO SERVIDOR: LV. ${nCap}!`, 'float-jackpot');
+  log(`📢 [皇家敕令] 亞丁至尊領主已將伺服器最高等級上限設定為 **${nCap} 級**！`, 'rarity-legendary');
+  if (typeof floatText === 'function') floatText(`👑 伺服器等級上限：${nCap}！`, 'float-jackpot');
   
   // Sincroniza o stage da temporada com o cap escolhido
   const CAP_TO_SEASON = { 40: 1, 60: 1, 75: 2, 85: 3, 100: 3, 120: 4 };
@@ -7122,15 +7131,15 @@ function executeAdminCmd(cmd) {
   else if (cmd === 'ac2000') { addAdminAC(2000); }
   else if (cmd === 'godmode') { 
     state.godMode = !state.godMode; 
-    log(`🛡️ [Admin] Invencibilidade: ${state.godMode ? 'ATIVADO' : 'DESATIVADO'}!`, 'rarity-legendary'); 
-    if (typeof floatText === 'function') floatText(`🛡️ GOD MODE: ${state.godMode ? 'ON' : 'OFF'}`, 'float-jackpot');
+    log(`🛡️ [管理員] 無敵狀態：${state.godMode ? '已啟用' : '已停用'}！`, 'rarity-legendary'); 
+    if (typeof floatText === 'function') floatText(`🛡️ 無敵模式：${state.godMode ? '開啟' : '關閉'}`, 'float-jackpot');
   }
   else if (cmd === 'healfull') { 
     const stats = getStats(); 
     state.hp = stats.maxHp; 
     state.mp = stats.maxMp; 
-    log('❤️ [Admin] HP/MP Restaurados 100%!', 'rarity-legendary'); 
-    if (typeof floatText === 'function') floatText('❤️ HP/MP FULL!', 'float-jackpot');
+    log('❤️ [管理員] 生命值／魔力已恢復 100%！', 'rarity-legendary'); 
+    if (typeof floatText === 'function') floatText('❤️ 生命值／魔力全滿！', 'float-jackpot');
   }
   else if (cmd === 'unlocksagas') { adminUnlockSagas(); }
   else if (cmd === 'completequest') { adminCompleteQuest(); }
@@ -7150,11 +7159,11 @@ function updateZoneKillProgressUI() {
     state.zoneKills = state.zoneKills || {};
     const count = state.zoneKills[state.zone] || 0;
     const req = 50;
-    killEl.textContent = `⚔️ ${count}/${req} Caçados`;
+    killEl.textContent = `⚔️ 已擊殺 ${count}/${req}`;
     if (count >= req) {
       killEl.style.color = '#ef4444';
       killEl.style.borderColor = 'rgba(239,68,68,0.5)';
-      killEl.textContent = `🚨 CHEFÃO DISPONÍVEL!`;
+      killEl.textContent = `🚨 首領可挑戰！`;
     } else {
       killEl.style.color = '#f59e0b';
       killEl.style.borderColor = 'rgba(245,158,11,0.3)';
@@ -7192,8 +7201,8 @@ function showSagaModal(saga) {
   if (!modal) return;
   const titleEl = el('saga-title');
   const descEl  = el('saga-desc');
-  if (titleEl) titleEl.textContent = saga?.name || 'Nova Saga Desbloqueada!';
-  if (descEl)  descEl.textContent  = saga?.desc || 'Novas zonas aguardam.';
+  if (titleEl) titleEl.textContent = saga?.name || '新的史詩任務已解鎖！';
+  if (descEl)  descEl.textContent  = saga?.desc || '新的區域正在等待你探索。';
   modal.classList.add('active');
 }
 
@@ -7217,7 +7226,7 @@ function resetSP() { return engineResetSP(state, { log, floatText, updateAllUI, 
 function autoEquipBest() {
   const proposal = generateAutoEquipProposal(state);
   if (!proposal || !proposal.changes || proposal.changes.length === 0) {
-    log('Você já está usando os melhores equipamentos da mochila!', 'system');
+    log('你目前已經穿著背包中最好的裝備！', 'system');
     return;
   }
   const res = commitAutoEquipProposal(state, proposal, {
@@ -7231,11 +7240,11 @@ function autoEquipBest() {
     floatText: typeof floatText === 'function' ? floatText : null
   });
   if (res.success) {
-    log(`⚡ Auto-equipado: ${res.appliedChanges} equipamento(s) atualizado(s)! (CP: ${proposal.deltas.cpDelta >= 0 ? '+' : ''}${proposal.deltas.cpDelta})`, 'rarity-legendary');
+    log(`⚡ 自動裝備完成：已更新 ${res.appliedChanges} 件裝備！（戰鬥力：${proposal.deltas.cpDelta >= 0 ? '+' : ''}${proposal.deltas.cpDelta}）`, 'rarity-legendary');
     updateAllUI();
     save();
   } else {
-    log(`Falha no auto-equip: ${res.reason}`, 'system');
+    log(`自動裝備失敗：${res.reason}`, 'system');
   }
 }
 
@@ -7249,12 +7258,12 @@ function unequipAll() {
     }
   }
   if (count > 0) {
-    log(`🛡️ Desequipou todos os ${count} itens da armadura.`, 'system');
-    floatText('🛡️ DESEQUIPADO!', 'sf-heal');
+    log(`🛡️ 已卸下全部 ${count} 件防具。`, 'system');
+    floatText('🛡️ 已卸下！', 'sf-heal');
     updateAllUI();
     save();
   } else {
-    log('Nenhum item equipado para remover.', 'system');
+    log('目前沒有可卸下的已裝備物品。', 'system');
   }
 }
 
@@ -7304,12 +7313,12 @@ function setClass(classId) {
 }
 function startGame() {
   if (!state.race || !state.class) {
-    log('Select race and class before beginning the saga.', 'system');
+    log('開始冒險前，請先選擇種族與職業。', 'system');
     return;
   }
   state.zone = RACES[state.race]?.startZone || 'talkingIsland';
   const zoneEl = el('zone-name');
-  if (zoneEl) zoneEl.textContent = ZONES[state.zone]?.name || 'Talking Island';
+  if (zoneEl) zoneEl.textContent = ZONES[state.zone]?.name || '說話之島';
   updateAllUI();
   startCombat();
   save();
@@ -7364,8 +7373,8 @@ function updateCodexUI() {
   const tabsNav = mkEl('div');
   tabsNav.style.cssText = 'display:flex; gap:8px; margin-bottom:14px; border-bottom:1px solid rgba(212,175,55,0.25); padding-bottom:8px;';
   tabsNav.innerHTML = `
-    <button class="inv-batch-btn ${subTab === 'sets' ? 'active' : ''}" style="font-family:\'Cinzel\',serif; font-weight:bold; ${subTab === 'sets' ? 'background:linear-gradient(180deg,#d4a744,#8a641c); color:#000;' : ''}" onclick="window.setCodexSubTab('sets')">📜 Coleções de Equipamentos</button>
-    <button class="inv-batch-btn ${subTab === 'cards' ? 'active' : ''}" style="font-family:\'Cinzel\',serif; font-weight:bold; ${subTab === 'cards' ? 'background:linear-gradient(180deg,#d4a744,#8a641c); color:#000;' : ''}" onclick="window.setCodexSubTab('cards')">🃏 Álbum de Cartas & Dolls de Monstros</button>
+    <button class="inv-batch-btn ${subTab === 'sets' ? 'active' : ''}" style="font-family:\'Cinzel\',serif; font-weight:bold; ${subTab === 'sets' ? 'background:linear-gradient(180deg,#d4a744,#8a641c); color:#000;' : ''}" onclick="window.setCodexSubTab('sets')">📜 裝備收藏</button>
+    <button class="inv-batch-btn ${subTab === 'cards' ? 'active' : ''}" style="font-family:\'Cinzel\',serif; font-weight:bold; ${subTab === 'cards' ? 'background:linear-gradient(180deg,#d4a744,#8a641c); color:#000;' : ''}" onclick="window.setCodexSubTab('cards')">🃏 怪物卡片與娃娃圖鑑</button>
   `;
   grid.appendChild(tabsNav);
 
@@ -7386,20 +7395,20 @@ function updateCodexUI() {
     card.style.cssText = 'border: 1px solid var(--border-gilt); padding: 12px; border-radius: 8px; background: rgba(15,18,25,0.8); margin-bottom: 12px;';
 
     const itemsHtml = setDef.items.map(itemId => {
-      const itemDef = D().ALL_ITEMS[itemId] || { name: itemId };
+      const itemDef = D().ALL_ITEMS[itemId] || { name: '未知物品' };
       const isReg = regList.includes(itemId);
       const inInv = getInventoryCount(itemId) > 0 || getWarehouseCount(itemId) > 0;
       let btn = '';
-      if (isReg) btn = '<span style="color:#10b981; font-weight:bold;">✓ Registrado</span>';
-      else if (inInv) btn = `<button class="action-btn action-btn--primary codex-reg-btn" style="padding: 2px 8px; font-size: 11px;" data-set="${setId}" data-item="${itemId}" onclick="registerCodexItem('${setId}', '${itemId}')">Registrar 📥</button>`;
-      else btn = '<span style="color:var(--text-muted); font-size: 11px;">Não possui</span>';
+      if (isReg) btn = '<span style="color:#10b981; font-weight:bold;">✓ 已登錄</span>';
+      else if (inInv) btn = `<button class="action-btn action-btn--primary codex-reg-btn" style="padding: 2px 8px; font-size: 11px;" data-set="${setId}" data-item="${itemId}" onclick="registerCodexItem('${setId}', '${itemId}')">登錄 📥</button>`;
+      else btn = '<span style="color:var(--text-muted); font-size: 11px;">未持有</span>';
 
       return `<div style="display:flex; justify-content:space-between; align-items:center; margin: 4px 0; font-size: 12px;"><span>${itemDef.name}</span>${btn}</div>`;
     }).join('');
 
     card.innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <h4 style="margin:0; color:${isComplete ? '#10b981' : 'var(--gilt-bright)'}">${setDef.name} ${isComplete ? '🏆 (Completo)' : ''}</h4>
+        <h4 style="margin:0; color:${isComplete ? '#10b981' : 'var(--gilt-bright)'}">${setDef.name} ${isComplete ? '🏆（已完成）' : ''}</h4>
         <span style="font-size:11px; background:rgba(0,0,0,0.5); padding:2px 8px; border-radius:10px; color:#f59e0b;">${setDef.label}</span>
       </div>
       <p style="font-size:11px; color:var(--text-muted); margin: 4px 0 8px 0;">${setDef.desc}</p>
@@ -7414,7 +7423,7 @@ function updateCodexUI() {
 
   if (summaryEl) {
     const b = getCodexBonuses();
-    summaryEl.innerHTML = `<span style="color:var(--gilt-bright); font-weight:bold;">Coleções Concluídas: ${completedSets}/${totalSets}</span> · Bônus Totais: +${b.atk} ATK, +${b.def} DEF, +${b.matk} MATK, +${b.hp} HP`;
+    summaryEl.innerHTML = `<span style="color:var(--gilt-bright); font-weight:bold;">已完成收藏：${completedSets}/${totalSets}</span> · 總加成：+${b.atk} 攻擊、+${b.def} 防禦、+${b.matk} 魔法攻擊、+${b.hp} 生命值`;
   }
 }
 
@@ -7435,14 +7444,14 @@ function renderMonsterCardsCodex(container, summaryEl) {
       <input 
         type="text" 
         id="card-search-input" 
-        placeholder="🔍 Buscar por nome do monstro ou carta..." 
+        placeholder="🔍 依怪物或卡片名稱搜尋..." 
         value="${window._cardSearchQuery || ''}"
         style="width:100%; background:#090b10; color:#fff; border:1px solid rgba(212,167,68,0.3); border-radius:6px; padding:6px 10px; font-size:12px; font-family:sans-serif;"
       />
     </div>
     <div style="display:flex; flex-wrap:wrap; gap:4px;">
       ${['all', 'common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic'].map(r => {
-        const labels = { all: 'Todas', common: 'Comum', uncommon: 'Incomum', rare: 'Rara', epic: 'Épica', legendary: 'Lendária', mythic: 'Mítica+' };
+        const labels = { all: '全部', common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話以上' };
         const isActive = rarityFilter === r;
         return `
           <button 
@@ -7511,7 +7520,7 @@ function renderMonsterCardsCodex(container, summaryEl) {
     const bonusLabel = Object.entries(cardDef.codexBonus || {})
       .map(([stat, val]) => {
         const multipliedVal = isAbsorbed ? Math.round(val * rankMult) : val;
-        return `+${typeof val === 'number' && val < 1 ? (val * 100).toFixed(0) + '%' : multipliedVal} ${stat.toUpperCase()}`;
+        return `+${typeof val === 'number' && val < 1 ? (val * 100).toFixed(0) + '%' : multipliedVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[stat] || '其他屬性'}`;
       })
       .join(', ');
 
@@ -7537,10 +7546,10 @@ function renderMonsterCardsCodex(container, summaryEl) {
             </div>
             <div style="display:flex; gap:6px; align-items:center; margin-top:4px;">
               <span style="font-size:9px; padding:1px 6px; border-radius:4px; background:rgba(0,0,0,0.6); color:${rStyle.text}; text-transform:uppercase; font-weight:bold; border:1px solid ${rStyle.border};">
-                ${cardDef.rarity}
+                ${({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[rKey] || '一般'}
               </span>
               <span style="font-size:10px; color:#94a3b8;">
-                Drop: <strong>${dropPct}%</strong>
+                掉落率：<strong>${dropPct}%</strong>
               </span>
             </div>
           </div>
@@ -7549,20 +7558,20 @@ function renderMonsterCardsCodex(container, summaryEl) {
         <!-- Bônus Passivo da Coleção -->
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.08); padding:8px 10px; border-radius:6px; margin:10px 0 8px 0; font-size:11px;">
           <div style="display:flex; justify-content:space-between; margin-bottom:2px;">
-            <span style="color:${rStyle.text}; font-weight:bold;">Bônus Passivo na Conta:</span>
-            ${isAbsorbed ? `<span style="color:#fde047; font-size:10px;">(x${rankMult.toFixed(2)})</span>` : ''}
+            <span style="color:${rStyle.text}; font-weight:bold;">帳號永久被動加成：</span>
+            ${isAbsorbed ? `<span style="color:#fde047; font-size:10px;">(×${rankMult.toFixed(2)})</span>` : ''}
           </div>
-          <div style="color:#e2e8f0; font-family:sans-serif;">${bonusLabel || 'Nenhum'}</div>
+          <div style="color:#e2e8f0; font-family:sans-serif;">${bonusLabel || '無'}</div>
         </div>
 
         <!-- Rank e Progresso -->
         <div style="margin-bottom:8px;">
           <div style="display:flex; justify-content:space-between; font-size:11px; margin-bottom:3px;">
             <span style="color:${isAbsorbed ? '#86efac' : '#94a3b8'}; font-weight:bold;">
-              ${isAbsorbed ? `⭐ Rank ${current.rank}/5 (${current.count} absorvidas)` : '⚪ Não Absorvida'}
+              ${isAbsorbed ? `⭐ 階級 ${current.rank}/5（已吸收 ${current.count} 張）` : '⚪ 尚未吸收'}
             </span>
             <span style="font-size:10px; color:#94a3b8;">
-              ${current.rank >= 5 ? 'Rank Máximo' : `Próximo Rank: ${current.count}/${nextRankReq}`}
+              ${current.rank >= 5 ? '最高階級' : `下一階級：${current.count}/${nextRankReq}`}
             </span>
           </div>
           <div style="width:100%; height:6px; background:rgba(0,0,0,0.6); border-radius:3px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
@@ -7574,13 +7583,13 @@ function renderMonsterCardsCodex(container, summaryEl) {
       <!-- Ações -->
       <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.08); padding-top:8px; margin-top:4px;">
         <span style="font-size:11px; color:${invCount > 0 ? '#86efac' : '#64748b'}; font-weight:bold;">
-          ${invCount > 0 ? `📦 Possui: ${invCount}x` : 'Sem cartas no inventário'}
+          ${invCount > 0 ? `📦 持有：${invCount}×` : '背包中沒有卡片'}
         </span>
         <div style="display:flex; gap:6px;">
           ${invCount > 0 ? `
-            <button class="action-btn action-btn--primary" style="padding:4px 10px; font-size:11px; font-weight:bold;" onclick="window.absorbCardAction('${cardId}', false)">Absorver 📥</button>
+            <button class="action-btn action-btn--primary" style="padding:4px 10px; font-size:11px; font-weight:bold;" onclick="window.absorbCardAction('${cardId}', false)">吸收 📥</button>
             ${invCount > 1 ? `
-              <button class="action-btn" style="padding:4px 8px; font-size:11px; font-weight:bold; background:rgba(212,167,68,0.2); border-color:#d4a744; color:#fde047;" onclick="window.absorbCardAction('${cardId}', true)">Todas (${invCount})</button>
+              <button class="action-btn" style="padding:4px 8px; font-size:11px; font-weight:bold; background:rgba(212,167,68,0.2); border-color:#d4a744; color:#fde047;" onclick="window.absorbCardAction('${cardId}', true)">全部（${invCount}）</button>
             ` : ''}
           ` : ''}
         </div>
@@ -7593,14 +7602,14 @@ function renderMonsterCardsCodex(container, summaryEl) {
   if (matchingCardsCount === 0) {
     const emptyBox = mkEl('div');
     emptyBox.style.cssText = 'grid-column:1/-1; text-align:center; padding:30px; color:#94a3b8; font-size:13px; background:rgba(0,0,0,0.3); border-radius:8px;';
-    emptyBox.textContent = 'Nenhuma carta de monstro encontrada para os filtros selecionados.';
+    emptyBox.textContent = '依目前篩選條件找不到怪物卡片。';
     cardsContainer.appendChild(emptyBox);
   }
 
   container.appendChild(cardsContainer);
 
   if (summaryEl) {
-    summaryEl.innerHTML = `<span style="color:var(--gilt-bright); font-weight:bold;">Álbum de Cartas: ${absorbedCards}/${totalCards} Cartas Absorvidas</span> · Bônus Permanentes Ativos na Conta`;
+    summaryEl.innerHTML = `<span style="color:var(--gilt-bright); font-weight:bold;">卡片圖鑑：${absorbedCards}/${totalCards} 已吸收</span> · 帳號永久加成已生效`;
   }
 }
 
@@ -7617,7 +7626,7 @@ function registerCodexItem(setId, itemId) {
       state.warehouse.splice(whIdx, 1);
       foundInWarehouse = true;
     } else {
-      log('Você não possui este item para registrar no Codex.', 'system');
+      log('你沒有可登錄到圖鑑的這件物品。', 'system');
       return;
     }
   }
@@ -7627,14 +7636,14 @@ function registerCodexItem(setId, itemId) {
   if (!state.codex[setId].includes(itemId)) state.codex[setId].push(itemId);
 
   const itemDef = D().ALL_ITEMS[itemId];
-  log(`📜 Item **${itemDef?.name || itemId}** registrado com sucesso no Codex!${foundInWarehouse ? ' (Retirado do Baú)' : ''}`, 'rarity-rare');
-  floatText('📜 CODEX REGISTRADO!', 'float-jackpot');
+  log(`📜 物品 **${itemDef?.name || '未知物品'}** 已成功登錄圖鑑！${foundInWarehouse ? '（已從倉庫取出）' : ''}`, 'rarity-rare');
+  floatText('📜 圖鑑登錄完成！', 'float-jackpot');
   triggerQuestEvent('codex', 1);
 
   const setDef = CODEX_SETS[setId];
   if (setDef && setDef.items.every(i => state.codex[setId].includes(i))) {
-    log(`🏆 PARABÉNS! Coleção **${setDef.name}** 100% Completa! Bônus Permanente Ativado: ${setDef.label}`, 'rarity-legendary');
-    floatText('🏆 COLEÇÃO COMPLETA!', 'float-jackpot');
+    log(`🏆 恭喜！收藏 **${setDef.name}** 已 100% 完成！永久加成已啟用：${setDef.label}`, 'rarity-legendary');
+    floatText('🏆 收藏完成！', 'float-jackpot');
   }
 
   updateAllUI(); save();
@@ -7671,8 +7680,8 @@ function updateDollsUI() {
   const d1 = state.dolls.find(i => i.uid === state.synthSelected[0]);
   const d2 = state.dolls.find(i => i.uid === state.synthSelected[1]);
 
-  if (slot1El) slot1El.textContent = d1 ? `${BOSS_DOLLS[d1.dollId]?.name} Lv.${d1.level}` : 'Doll Base';
-  if (slot2El) slot2El.textContent = d2 ? `${BOSS_DOLLS[d2.dollId]?.name} Lv.${d2.level}` : 'Doll Material';
+  if (slot1El) slot1El.textContent = d1 ? `${BOSS_DOLLS[d1.dollId]?.name} 等級 ${d1.level}` : '基底娃娃';
+  if (slot2El) slot2El.textContent = d2 ? `${BOSS_DOLLS[d2.dollId]?.name} 等級 ${d2.level}` : '材料娃娃';
 
   const synthBtn = el('start-doll-synth-btn');
   if (synthBtn) synthBtn.onclick = synthesizeDolls;
@@ -7690,11 +7699,11 @@ function updateDollsUI() {
       <div style="display:flex; align-items:center; gap: 10px;">
         <span style="font-size: 24px;">${def.icon}</span>
         <div>
-          <div style="font-weight:bold; color:var(--gilt-bright);">${def.name} <span style="color:#60a5fa;">Lv.${d.level || 1}</span></div>
+          <div style="font-weight:bold; color:var(--gilt-bright);">${def.name} <span style="color:#60a5fa;">等級 ${d.level || 1}</span></div>
           <div style="font-size:11px; color:#10b981;">${lvlInfo?.label || ''}</div>
         </div>
       </div>
-      <button class="action-btn synth-doll-btn" style="padding: 4px 8px; font-size: 11px;" data-uid="${d.uid}" onclick="selectDollForSynth('${d.uid}')">${isSel1 ? 'Slot 1' : isSel2 ? 'Slot 2' : 'Selecionar 🔮'}</button>
+      <button class="action-btn synth-doll-btn" style="padding: 4px 8px; font-size: 11px;" data-uid="${d.uid}" onclick="selectDollForSynth('${d.uid}')">${isSel1 ? '欄位 1' : isSel2 ? '欄位 2' : '選擇 🔮'}</button>
     `;
     item.querySelectorAll('.synth-doll-btn').forEach(b => {
       b.onclick = () => selectDollForSynth(b.dataset.uid);
@@ -7704,7 +7713,7 @@ function updateDollsUI() {
 
   if (summaryEl) {
     const b = getDollsBonuses();
-    summaryEl.innerHTML = `Dolls na Coleção: <strong>${state.dolls.length}</strong> · Bônus Totais: +${b.atk} ATK, +${b.def} DEF, +${b.matk} MATK`;
+    summaryEl.innerHTML = `收藏娃娃：<strong>${state.dolls.length}</strong> · 總加成：+${b.atk} 攻擊、+${b.def} 防禦、+${b.matk} 魔法攻擊`;
   }
 
   // Render Enciclopédia de Boss Dolls & Fontes de Obtenção
@@ -7713,7 +7722,7 @@ function updateDollsUI() {
     let encHtml = `
       <div style="background:rgba(12,16,26,0.95); border:1px solid rgba(212,167,68,0.4); border-radius:12px; padding:14px;">
         <h4 style="margin:0 0 12px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px; display:flex; align-items:center; gap:8px;">
-          📚 Enciclopédia de Boss Dolls &amp; Fontes de Drop
+          📚 首領娃娃圖鑑與掉落來源
         </h4>
     `;
 
@@ -7729,8 +7738,8 @@ function updateDollsUI() {
         const isThisLvl = maxOwnedLvl === lvl;
         lvlBadgesHtml += `
           <div style="font-size:11px; padding:5px 8px; border-radius:6px; background:${isThisLvl ? 'rgba(52,211,153,0.2)' : 'rgba(0,0,0,0.4)'}; border:1px solid ${isThisLvl ? '#34d399' : 'rgba(255,255,255,0.08)'}; color:${isThisLvl ? '#34d399' : '#aaa'}; display:flex; justify-content:space-between; align-items:center;">
-            <span><strong>Lv.${lvl}:</strong> ${info.label}</span>
-            ${isThisLvl ? '<span style="color:#34d399; font-weight:bold;">[ATIVO]</span>' : ''}
+            <span><strong>等級 ${lvl}：</strong> ${info.label}</span>
+            ${isThisLvl ? '<span style="color:#34d399; font-weight:bold;">[啟用中]</span>' : ''}
           </div>
         `;
       }
@@ -7742,7 +7751,7 @@ function updateDollsUI() {
               <span style="font-size:26px;">${def.icon}</span>
               <div>
                 <h4 style="margin:0; font-family:'Cinzel',serif; color:${isUnlocked ? '#f4d58a' : '#aaa'}; font-size:14px; display:flex; align-items:center; gap:6px;">
-                  ${def.name} ${isUnlocked ? `<span style="font-size:10px; background:rgba(52,211,153,0.2); border:1px solid #34d399; color:#34d399; padding:1px 6px; border-radius:4px;">Nível Ativo: Lv.${maxOwnedLvl}</span>` : '<span style="font-size:10px; background:rgba(239,68,68,0.2); border:1px solid #ef4444; color:#fca5a5; padding:1px 6px; border-radius:4px;">🔒 Não Bloqueado</span>'}
+                  ${def.name} ${isUnlocked ? `<span style="font-size:10px; background:rgba(52,211,153,0.2); border:1px solid #34d399; color:#34d399; padding:1px 6px; border-radius:4px;">目前生效等級：${maxOwnedLvl}</span>` : '<span style="font-size:10px; background:rgba(239,68,68,0.2); border:1px solid #ef4444; color:#fca5a5; padding:1px 6px; border-radius:4px;">🔒 尚未解鎖</span>'}
                 </h4>
                 <p style="margin:2px 0 0 0; font-size:11px; color:#94a3b8;">${def.desc}</p>
               </div>
@@ -7776,15 +7785,15 @@ function selectDollForSynth(uid) {
 function synthesizeDolls() {
   state.synthSelected = state.synthSelected || [null, null];
   const u1 = state.synthSelected[0], u2 = state.synthSelected[1];
-  if (!u1 || !u2 || u1 === u2) { log('Selecione 2 Dolls idênticas no altar de síntese.', 'system'); return; }
+  if (!u1 || !u2 || u1 === u2) { log('請在合成祭壇選擇 2 隻相同娃娃。', 'system'); return; }
 
   const idx1 = state.dolls.findIndex(d => d.uid === u1);
   const idx2 = state.dolls.findIndex(d => d.uid === u2);
   if (idx1 < 0 || idx2 < 0) return;
 
   const d1 = state.dolls[idx1], d2 = state.dolls[idx2];
-  if (d1.dollId !== d2.dollId || d1.level !== d2.level) { log('As duas Dolls devem ser do mesmo tipo e nível!', 'system'); return; }
-  if (d1.level >= 5) { log('Sua Doll já está no Nível Máximo (Lv. 5)!', 'system'); return; }
+  if (d1.dollId !== d2.dollId || d1.level !== d2.level) { log('兩隻娃娃必須是相同種類且相同等級！', 'system'); return; }
+  if (d1.level >= 5) { log('你的娃娃已達最高等級（等級 5）！', 'system'); return; }
 
   const rates = { 1: 0.70, 2: 0.55, 3: 0.40, 4: 0.25 };
   const chance = rates[d1.level] || 0.30;
@@ -7795,11 +7804,11 @@ function synthesizeDolls() {
 
   if (roll < chance) {
     d1.level += 1;
-    log(`🎉 SÍNTESE DE SUCESSO! Sua **${BOSS_DOLLS[d1.dollId]?.name}** evoluiu para o **Nível ${d1.level}**!`, 'rarity-legendary');
-    floatText('✨ SÍNTESE SUCESSO!', 'float-jackpot');
+    log(`🎉 合成成功！你的 **${BOSS_DOLLS[d1.dollId]?.name}** 已提升至 **等級 ${d1.level}**！`, 'rarity-legendary');
+    floatText('✨ 合成成功！', 'float-jackpot');
   } else {
-    log(`💔 SÍNTESE FALHOU! A Doll de material foi consumida, mas a Doll base foi mantida.`, 'system');
-    floatText('💔 FALHOU', 'float-gold');
+    log(`💔 合成失敗！材料娃娃已消耗，但基底娃娃保留。`, 'system');
+    floatText('💔 失敗', 'float-gold');
   }
 
   updateAllUI(); save();
@@ -7813,7 +7822,7 @@ function updateMagicLampUI() {
   const pct = Math.min(100, Math.floor(((state.magicLampExp || 0) / 50000) * 100));
   if (bar) bar.style.width = pct + '%';
   if (countLabel) {
-    countLabel.textContent = `${state.magicLamps || 0} Lâmpadas Prontas (${pct}% para a próxima)`;
+    countLabel.textContent = `${state.magicLamps || 0} 個神燈可用（下一個進度 ${pct}%）`;
   }
 
   const btn = el('use-magic-lamp-btn');
@@ -7825,7 +7834,7 @@ function updateMagicLampUI() {
 
 function useMagicLamp() {
   if (!state.magicLamps || state.magicLamps < 1) {
-    log('Você não possui Lâmpadas Mágicas para sortear!', 'system');
+    log('你沒有可使用的魔法神燈！', 'system');
     return;
   }
 
@@ -7839,7 +7848,7 @@ function useMagicLamp() {
   const cardRes = el('lamp-result-card');
   if (cardRes) {
     const cardClass = result.cardType === 'red' ? 'card-red' : (result.cardType === 'purple' ? 'card-purple' : 'card-blue');
-    const badgeText = result.cardType === 'red' ? '🔥 REVELAÇÃO JACKPOT!' : (result.cardType === 'purple' ? '✨ CARTA RARA' : '🌟 CARTA MÁGICA');
+    const badgeText = result.cardType === 'red' ? '🔥 大獎揭曉！' : (result.cardType === 'purple' ? '✨ 稀有卡牌' : '🌟 魔法卡牌');
     const badgeColor = result.cardType === 'red' ? '#ef4444' : (result.cardType === 'purple' ? '#a855f7' : '#3b82f6');
 
     cardRes.innerHTML = `
@@ -7849,22 +7858,22 @@ function useMagicLamp() {
         </div>
         <h4 style="margin:0; font-size:18px; font-family:'Cinzel',serif; color:#ffd877;">${result.cardName}</h4>
         <div style="font-size:16px; font-family:'IBM Plex Mono',monospace; font-weight:bold; color:#67e8f9; margin:10px 0 6px 0;">
-          +${result.expWon.toLocaleString()} EXP &bull; +${result.spWon.toLocaleString()} SP
+          +${result.expWon.toLocaleString()} 經驗值 &bull; +${result.spWon.toLocaleString()} 技能點
         </div>
-        <span style="font-size:11px; color:#94a3b8; font-family:'IBM Plex Mono',monospace;">Faixa de Nível: ${result.bracket}</span>
+        <span style="font-size:11px; color:#94a3b8; font-family:'IBM Plex Mono',monospace;">等級區間：${result.bracket}</span>
       </div>
     `;
   }
 
-  log(`🪔 Lâmpada Mágica utilizada! Sorteou **${result.cardName}** (+${result.expWon.toLocaleString()} XP, +${result.spWon.toLocaleString()} SP) [${result.bracket}]!`, 'rarity-legendary');
-  floatText(`🪔 +${result.expWon.toLocaleString()} XP!`, 'float-jackpot');
+  log(`🪔 已使用魔法神燈！抽中 **${result.cardName}**（+${result.expWon.toLocaleString()} 經驗值、+${result.spWon.toLocaleString()} 技能點）[${result.bracket}]！`, 'rarity-legendary');
+  floatText(`🪔 +${result.expWon.toLocaleString()} 經驗值！`, 'float-jackpot');
 
   updateAllUI();
   save();
 }
 
 function updateCraftGaugeUI() {
-  // Desacoplado da Lâmpada: Random Craft unificado na Forja Imperial (#tab-craft)
+  // Desacoplado da 神燈: Random Craft unificado na Forja Imperial (#tab-craft)
 }
 
 function refreshRandomCraftWheel() {
@@ -7872,7 +7881,7 @@ function refreshRandomCraftWheel() {
 }
 
 function renderRandomCraftWheelUI() {
-  // Desacoplado da Lâmpada: Renderizado na Forja Imperial
+  // Desacoplado da 神燈: Renderizado na Forja Imperial
 }
 
 function spinRandomCraft() {
@@ -7884,10 +7893,10 @@ function renderSpecialCraftRecipes() {
   grid.innerHTML = '';
 
   const recipes = [
-    { id: 'spellbook_selector', name: '📖 Selector 4⭐ Star Spellbook', costCharges: 5, crystalId: 'crystal_s', crystalQty: 10, resultId: 'spellbook_4star' },
-    { id: 'boss_doll_box', name: '📦 Caixas de Boss Dolls (Queen Ant/Baium/Zaken)', costCharges: 3, crystalId: 'crystal_a', crystalQty: 5, resultDoll: 'doll_queen_ant' },
-    { id: 's_weapon_chest', name: '⚔️ Baú de Armas S-Grade', costCharges: 4, crystalId: 'crystal_a', crystalQty: 10, resultId: 'dragon_slayer' },
-    { id: 'enchant_scroll_s', name: '📜 Scroll Enchant S-Grade', costCharges: 1, crystalId: 'crystal_b', crystalQty: 5, resultId: 'crystal_s' }
+    { id: 'spellbook_selector', name: '📖 4★ 技能書選擇箱', costCharges: 5, crystalId: 'crystal_s', crystalQty: 10, resultId: 'spellbook_4star' },
+    { id: 'boss_doll_box', name: '📦 首領娃娃箱（蟻后／巴溫／札肯）', costCharges: 3, crystalId: 'crystal_a', crystalQty: 5, resultDoll: 'doll_queen_ant' },
+    { id: 's_weapon_chest', name: '⚔️ S 級武器寶箱', costCharges: 4, crystalId: 'crystal_a', crystalQty: 10, resultId: 'dragon_slayer' },
+    { id: 'enchant_scroll_s', name: '📜 S 級強化卷軸', costCharges: 1, crystalId: 'crystal_b', crystalQty: 5, resultId: 'crystal_s' }
   ];
 
   recipes.forEach(r => {
@@ -7895,8 +7904,8 @@ function renderSpecialCraftRecipes() {
     card.style.cssText = 'border:1px solid var(--border-gilt); padding:10px; border-radius:8px; background:rgba(15,20,30,0.8);';
     card.innerHTML = `
       <div style="font-weight:bold; color:var(--gilt-bright); font-size:12px;">${r.name}</div>
-      <div style="font-size:11px; color:var(--text-muted); margin:4px 0;">Custo: ${r.costCharges} Cargas + ${r.crystalQty}x ${D().ALL_ITEMS[r.crystalId]?.name || r.crystalId}</div>
-      <button class="action-btn action-btn--primary special-craft-btn" style="padding:2px 8px; font-size:11px; width:100%; margin-top:6px;" data-recipe="${r.id}" onclick="craftSpecialRecipe('${r.id}')">Forjar ✨</button>
+      <div style="font-size:11px; color:var(--text-muted); margin:4px 0;">費用：${r.costCharges} 次充能 + ${r.crystalQty}× ${D().ALL_ITEMS[r.crystalId]?.name || '未知水晶'}</div>
+      <button class="action-btn action-btn--primary special-craft-btn" style="padding:2px 8px; font-size:11px; width:100%; margin-top:6px;" data-recipe="${r.id}" onclick="craftSpecialRecipe('${r.id}')">鍛造 ✨</button>
     `;
     card.querySelectorAll('.special-craft-btn').forEach(b => {
       b.onclick = () => craftSpecialRecipe(b.dataset.recipe);
@@ -7921,28 +7930,28 @@ function removeFromInventoryByItemId(itemId, count = 1) {
 
 function craftSpecialRecipe(recipeId) {
   if (recipeId === 'spellbook_selector') {
-    if ((state.craftCharges || 0) < 5 || getInventoryCount('crystal_s') < 10) { log('Recursos insuficientes! Requer 5 Cargas de Craft e 10x Crystal S.', 'system'); return; }
+    if ((state.craftCharges || 0) < 5 || getInventoryCount('crystal_s') < 10) { log('資源不足！需要 5 次製作充能與 10 個 S 級水晶。', 'system'); return; }
     state.craftCharges -= 5; removeFromInventoryByItemId('crystal_s', 10);
     addToInventory('spellbook_4star', 1);
-    log('✨ SPECIAL CRAFT! Criou 1x Spellbook 4-Star ⭐!', 'rarity-legendary');
+    log('✨ 特殊製作成功！製作 1 本 4★ 魔法書 ⭐！', 'rarity-legendary');
   } else if (recipeId === 'boss_doll_box') {
-    if ((state.craftCharges || 0) < 3 || getInventoryCount('crystal_a') < 5) { log('Recursos insuficientes! Requer 3 Cargas de Craft e 5x Crystal A.', 'system'); return; }
+    if ((state.craftCharges || 0) < 3 || getInventoryCount('crystal_a') < 5) { log('資源不足！需要 3 次製作充能與 5 個 A 級水晶。', 'system'); return; }
     state.craftCharges -= 3; removeFromInventoryByItemId('crystal_a', 5);
     const dollKeys = ['doll_queen_ant', 'doll_baium', 'doll_orfen', 'doll_zaken'];
     const chosen = dollKeys[Math.floor(Math.random() * dollKeys.length)];
     state.dolls = state.dolls || [];
     state.dolls.push({ uid: 'doll_' + Date.now(), dollId: chosen, level: 1 });
-    log(`✨ SPECIAL CRAFT! Abriu a caixa e obteve: **${BOSS_DOLLS[chosen]?.name}**!`, 'rarity-legendary');
+    log(`✨ 特殊製作成功！打開箱子並獲得：**${BOSS_DOLLS[chosen]?.name}**！`, 'rarity-legendary');
   } else if (recipeId === 's_weapon_chest') {
-    if ((state.craftCharges || 0) < 4 || getInventoryCount('crystal_a') < 10) { log('Recursos insuficientes! Requer 4 Cargas de Craft e 10x Crystal A.', 'system'); return; }
+    if ((state.craftCharges || 0) < 4 || getInventoryCount('crystal_a') < 10) { log('資源不足！需要 4 次製作充能與 10 個 A 級水晶。', 'system'); return; }
     state.craftCharges -= 4; removeFromInventoryByItemId('crystal_a', 10);
     addToInventory('dragon_slayer', 1, 'epic');
-    log('✨ SPECIAL CRAFT! Criou 1x Dragon Slayer (S-Grade)!', 'rarity-legendary');
+    log('✨ 特殊製作成功！製作 1 把屠龍者（S 級）！', 'rarity-legendary');
   } else if (recipeId === 'enchant_scroll_s') {
-    if ((state.craftCharges || 0) < 1 || getInventoryCount('crystal_b') < 5) { log('Recursos insuficientes! Requer 1 Carga de Craft e 5x Crystal B.', 'system'); return; }
+    if ((state.craftCharges || 0) < 1 || getInventoryCount('crystal_b') < 5) { log('資源不足！需要 1 次製作充能與 5 個 B 級水晶。', 'system'); return; }
     state.craftCharges -= 1; removeFromInventoryByItemId('crystal_b', 5);
     addToInventory('crystal_s', 2);
-    log('✨ SPECIAL CRAFT! Forjou 2x Crystal S!', 'rarity-rare');
+    log('✨ 特殊製作成功！鍛造 2 個 S 級水晶！', 'rarity-rare');
   }
   triggerQuestEvent('craft', 1);
   updateAllUI(); save();
@@ -7973,34 +7982,34 @@ Object.entries(PILLAR_TABS_MAP).forEach(([pillar, tabs]) => {
 });
 
 export const TAB_NAMES_MAP = {
-  battle: 'Combate',
-  hero: 'Herói',
-  character: 'Personagem',
-  inventory: 'Mochila',
-  skills: 'Skills',
-  astral: 'Maestria',
-  dolls: 'Dolls & Pets',
-  cosmetics: 'Cosméticos',
-  quests: 'Missões',
-  zones: 'Caça & Zonas',
-  raids: 'Raids & Bosses',
-  tower: 'Torre da Insolência',
-  colosseum: 'Coliseu PvP',
-  expeditions: 'Expedições',
-  fishing: 'Pesca',
-  market: 'Mercado Giran',
-  shop: 'Mercador',
-  craft: 'Forja Imperial',
-  alchemy: 'Alquimia',
-  warehouse: 'Baú Privado',
-  magiclamp: 'Lâmpada Mágica',
-  clan: 'Clã & Castelos',
-  olympiad: 'Olimpíadas',
-  rankings: 'Rankings Mundiais',
-  sevensigns: 'Sete Selos',
-  fortress: 'Fortalezas',
-  enchant: 'Encantamento',
-  codex: 'Codex'
+  battle: '戰鬥',
+  hero: '英雄',
+  character: '角色',
+  inventory: '背包',
+  skills: '技能',
+  astral: '專精',
+  dolls: '娃娃與寵物',
+  cosmetics: '外觀',
+  quests: '任務',
+  zones: '狩獵與區域',
+  raids: '團隊首領與首領',
+  tower: '傲慢之塔',
+  colosseum: '玩家對戰競技場',
+  expeditions: '遠征',
+  fishing: '釣魚',
+  market: '奇岩市場',
+  shop: '商人',
+  craft: '帝國鍛造',
+  alchemy: '鍊金',
+  warehouse: '私人倉庫',
+  magiclamp: '魔法神燈',
+  clan: '血盟與城堡',
+  olympiad: '奧林匹亞',
+  rankings: '世界排行榜',
+  sevensigns: '七封印',
+  fortress: '要塞',
+  enchant: '強化',
+  codex: '圖鑑'
 };
 
 export function switchPillar(pillarKey) {
@@ -8052,8 +8061,8 @@ export function openPanel(tabName) {
   if (!isBypass && targetTab !== 'zones' && (currentLvl < reqLvl || reqLvl > globalCap)) {
     const tabLabel = TAB_NAMES_MAP[targetTab] || targetTab;
     const msg = currentLvl < reqLvl 
-      ? `🔒 Aba [${tabLabel}] desbloqueia no Nível ${reqLvl}!` 
-      : `🔒 Aba [${tabLabel}] bloqueada pelo Cap da Temporada Atual (Lv. ${globalCap})!`;
+      ? `🔒 分頁 [${tabLabel}] 將於等級 ${reqLvl} 解鎖！` 
+      : `🔒 分頁 [${tabLabel}] 受到目前季節等級上限限制（等級 ${globalCap}）！`;
     if (typeof showToast === 'function') showToast(msg, 'warning');
     else if (typeof log === 'function') log(`❌ ${msg}`, 'system');
     return;
@@ -8156,7 +8165,7 @@ export function openPanel(tabName) {
 function depositAllToWarehouse() {
   const unequipped = state.inventory.filter(i => !i.equipped);
   if (unequipped.length === 0) {
-    log('Nenhum item desequipado na mochila para guardar.', 'system');
+    log('背包中沒有可存入倉庫的未裝備物品。', 'system');
     return;
   }
   let movedCount = 0;
@@ -8168,7 +8177,7 @@ function depositAllToWarehouse() {
     }
   }
   if (movedCount > 0) {
-    log(`📦 ${movedCount} item(ns) guardado(s) no Baú.`, 'loot');
+    log(`📦 已將 ${movedCount} 件物品存入倉庫。`, 'loot');
     updateAllUI(); save();
   }
 }
@@ -8176,7 +8185,7 @@ function depositAllToWarehouse() {
 function depositSelectedToWarehouse() {
   const selectedSet = getSelectedSet(state);
   if (!selectedSet || selectedSet.size === 0) {
-    log('Nenhum item selecionado na mochila. Marque os itens para guardar.', 'system');
+    log('背包中沒有選取物品，請先勾選要存入倉庫的物品。', 'system');
     return;
   }
   let movedCount = 0;
@@ -8188,7 +8197,7 @@ function depositSelectedToWarehouse() {
     }
   }
   if (movedCount > 0) {
-    log(`📦 ${movedCount} item(ns) selecionado(s) guardado(s) no Baú.`, 'loot');
+    log(`📦 已將選取的 ${movedCount} 件物品存入倉庫。`, 'loot');
     updateAllUI(); save();
   }
 }
@@ -8202,7 +8211,7 @@ function depositMaterialsToWarehouse() {
     return ['consumable', 'material', 'scroll', 'powerup', 'potion', 'food', 'spellbook'].includes(slot) || !!def.stack;
   });
   if (unequipped.length === 0) {
-    log('Nenhum material ou consumível desequipado para guardar.', 'system');
+    log('沒有可存入倉庫的未裝備材料或消耗品。', 'system');
     return;
   }
   let movedCount = 0;
@@ -8214,14 +8223,14 @@ function depositMaterialsToWarehouse() {
     }
   }
   if (movedCount > 0) {
-    log(`📥 ${movedCount} material(is)/consumível(is) guardado(s) no Baú.`, 'loot');
+    log(`📥 已將 ${movedCount} 件材料／消耗品存入倉庫。`, 'loot');
     updateAllUI(); save();
   }
 }
 
 function withdrawAllFromWarehouse() {
   if (!state.warehouse || state.warehouse.length === 0) {
-    log('O Baú está vazio.', 'system');
+    log('倉庫是空的。', 'system');
     return;
   }
   let movedCount = 0;
@@ -8233,7 +8242,7 @@ function withdrawAllFromWarehouse() {
     }
   }
   if (movedCount > 0) {
-    log(`🎒 ${movedCount} item(ns) retirado(s) do Baú.`, 'loot');
+    log(`🎒 已從倉庫取出 ${movedCount} 件物品。`, 'loot');
     updateAllUI(); save();
   }
 }
@@ -8241,7 +8250,7 @@ function withdrawAllFromWarehouse() {
 function withdrawSelectedFromWarehouse() {
   const selectedSet = getSelectedSet(state);
   if (!selectedSet || selectedSet.size === 0) {
-    log('Nenhum item selecionado no Baú. Marque os itens para retirar.', 'system');
+    log('倉庫中沒有選取物品，請先勾選要取出的物品。', 'system');
     return;
   }
   let movedCount = 0;
@@ -8253,7 +8262,7 @@ function withdrawSelectedFromWarehouse() {
     }
   }
   if (movedCount > 0) {
-    log(`🎒 ${movedCount} item(ns) selecionado(s) retirado(s) do Baú.`, 'loot');
+    log(`🎒 已從倉庫取出選取的 ${movedCount} 件物品。`, 'loot');
     updateAllUI(); save();
   }
 }
@@ -8285,7 +8294,7 @@ export function bindEvents() {
       } else if (e.key === ' ' || e.code === 'Space') {
         e.preventDefault();
         state.combatSpeed = state.combatSpeed === 1 ? 2 : (state.combatSpeed === 2 ? 4 : 1);
-        log(`⚡ Velocidade de Combate: ${state.combatSpeed}x`, 'system');
+        log(`⚡ 戰鬥速度：${state.combatSpeed}×`, 'system');
         updateAllUI();
       } else if (e.key === 's' || e.key === 'S') {
         if (e.ctrlKey || e.metaKey) e.preventDefault();
@@ -8301,8 +8310,8 @@ export function bindEvents() {
           const reqLvl = TAB_UNLOCK_LEVELS[tabName] || 1;
           const globalCap = Number(window.globalServerCap) || Number(state?.serverCap) || Number(state?.serverMaxLevel) || 40;
           const msg = (state.level || 1) < reqLvl
-            ? `🔒 Esta aba requer Nível ${reqLvl} para ser desbloqueada.`
-            : `🔒 Conteúdo bloqueado na Temporada Atual (Cap Lv. ${globalCap}).`;
+            ? `🔒 此分頁需要等級 ${reqLvl} 才能解鎖。`
+            : `🔒 此內容受目前季節限制（等級上限 ${globalCap}）。`;
           if (typeof showToast === 'function') showToast(msg, 'warning');
           else log(`❌ ${msg}`, 'system');
           return;
@@ -8333,7 +8342,7 @@ export function bindEvents() {
       });
 
       // Update mobile title badges in top return bar
-      const badgeTitle = TAB_NAMES_MAP[state.mobileView] || (state.mobileView === 'hero' ? 'Herói' : 'Menu');
+      const badgeTitle = TAB_NAMES_MAP[state.mobileView] || (state.mobileView === 'hero' ? '英雄' : '選單');
       qsa('.mobile-current-tab-badge, #mobile-tabs-current-badge').forEach(b => {
         b.textContent = badgeTitle;
       });
@@ -8444,7 +8453,7 @@ export function bindEvents() {
     const autoEquipBtn = el('auto-equip-btn'); if (autoEquipBtn) autoEquipBtn.onclick = () => { if (typeof openAutoEquipPreviewModal === 'function') openAutoEquipPreviewModal(state, { updateAllUI, save, log }); else autoEquipBest(); };
     const organizeInvBtn = el('organize-inv-btn'); if (organizeInvBtn) organizeInvBtn.onclick = () => {
       const res = organizeInventory(state, state.inventorySortCriteria || 'recommended');
-      log(`🧹 Mochila organizada: ${res.freedSlots} espaço(s) liberado(s)!`, 'loot');
+      log(`🧹 背包整理完成：已釋放 ${res.freedSlots} 個欄位！`, 'loot');
       updateAllUI();
       save();
     };
@@ -8478,7 +8487,7 @@ export function bindEvents() {
           openAdminModal();
         } else {
           adminTopBtn.style.display = 'none';
-          log('⛔ Acesso negado: comandos administrativos são restritos aos administradores autorizados.', 'system');
+          log('⛔ 存取遭拒：管理員指令僅限授權管理員使用。', 'system');
         }
       };
       adminTopBtn.style.display = isAuthorizedAdmin() ? 'inline-flex' : 'none';
@@ -8582,60 +8591,60 @@ export function bindEvents() {
     if (adminWipeBtn) {
       adminWipeBtn.onclick = async () => {
         const confirm1 = confirm(
-          '🚨 ATENÇÃO CRÍTICA: Deseja realmente executar o WIPE GERAL do servidor?\n\n' +
-          'Esta ação irá DELETAR TODAS as 17 coleções canônicas do Cloud Firestore:\n' +
-          '• Contas, Personagens, Nomes de Heróis\n' +
-          '• Clãs e Membros de Clã\n' +
-          '• Rankings PvP, Registros de Olimpíadas e Mercado\n' +
-          '• Presença, Amizades, Pedidos de Amizade, Mentorias e Bloqueios\n\n' +
-          'Todos os jogadores serão desconectados e iniciarão do zero na Criação de Personagem.\n\n' +
-          'Pressione OK se você tem certeza absoluta.'
+          '🚨 嚴重警告：確定要執行伺服器完整清除嗎？\n\n' +
+          '此操作將刪除 Cloud Firestore 中全部 17 個正式資料集合：\n' +
+          '• 帳號、角色、英雄名稱\n' +
+          '• 血盟與血盟成員\n' +
+          '• 玩家對戰排行榜、奧林匹亞紀錄與市場\n' +
+          '• 上線狀態、好友、好友邀請、導師與封鎖資料\n\n' +
+          '所有玩家都會被登出，並從角色建立畫面重新開始。\n\n' +
+          '如果你完全確定，請按「確定」。'
         );
         if (!confirm1) return;
 
-        const confirm2 = prompt('Para confirmar a destruição de dados, digite exatamente "WIPE ZERO":');
-        if (confirm2 !== 'WIPE ZERO') {
-          alert('Operação cancelada. O texto digitado não confere com "WIPE ZERO".');
+        const confirm2 = prompt('若要確認刪除資料，請完整輸入「確認清空全部資料」：');
+        if (confirm2 !== '確認清空全部資料') {
+          alert('操作已取消。輸入文字與「確認清空全部資料」不符。');
           return;
         }
 
         try {
           adminWipeBtn.disabled = true;
-          adminWipeBtn.textContent = '⏳ Executando Wipe Geral nas 17 coleções do Firestore...';
+          adminWipeBtn.textContent = '⏳ 正在清除雲端資料庫的 17 個資料集合……';
 
           const wipeFn = (typeof window !== 'undefined' && window.FirebaseBridge?.wipeEntireGameDatabase) || 
                          (typeof window !== 'undefined' && window.wipeEntireGameDatabase);
           if (typeof wipeFn !== 'function') {
-            throw new Error('Função wipeEntireGameDatabase não encontrada. Verifique se o módulo Firebase está inicializado.');
+            throw new Error('找不到 wipeEntireGameDatabase 函式，請確認 Firebase 模組已初始化。');
           }
 
           const result = await wipeFn();
           console.log('[Admin Wipe] Resultado da operação:', result);
 
           if (!result.success || (result.errors && result.errors.length > 0)) {
-            let errorMsg = `❌ O Firestore bloqueou a exclusão por falta de permissão!\n\n`;
-            errorMsg += `Erros retornados (${result.errors.length}):\n${result.errors.slice(0, 4).join('\n')}\n\n`;
-            errorMsg += `⚠️ MOTIVO: As Regras do Firestore (firestore.rules) ainda NÃO foram publicadas no Firebase Console!\n\n`;
-            errorMsg += `👉 SOLUÇÃO:\n1. Acesse o Firebase Console.\n2. Vá na aba "Regras" (ao lado de "Dados").\n3. Cole as regras do arquivo firestore.rules e clique em "Publicar".`;
+            let errorMsg = `❌ Firestore 因權限不足而阻擋刪除！\n\n`;
+            errorMsg += `回傳錯誤（${result.errors.length}）：\n${result.errors.slice(0, 4).join('\n')}\n\n`;
+            errorMsg += `⚠️ 原因：Firestore 規則（firestore.rules）尚未發布到 Firebase Console！\n\n`;
+            errorMsg += `👉 解決方式：\n1. 開啟 Firebase Console。\n2. 前往「Rules／規則」分頁（位於「Data／資料」旁）。\n3. 貼上 firestore.rules 內容並點擊「Publish／發布」。`;
             alert(errorMsg);
             adminWipeBtn.disabled = false;
-            adminWipeBtn.textContent = '🔥 WIPE GERAL DO BANCO DE DADOS (SERVIDOR ZERO)';
+            adminWipeBtn.textContent = '🔥 完整清空資料庫（伺服器歸零）';
             return;
           }
 
-          let msg = '✅ WIPE DO BANCO DE DADOS CONCLUÍDO COM SUCESSO!\n\nDocumentos deletados por coleção:\n';
+          let msg = '✅ 資料庫完整清除成功！\n\n各資料集合刪除文件數：\n';
           let totalDeleted = 0;
           for (const [col, count] of Object.entries(result.deletedCounts || {})) {
             if (count > 0) {
-              msg += `• ${col}: ${count} doc(s)\n`;
+              msg += `• ${col}：${count} 份文件\n`;
               totalDeleted += count;
             }
           }
           if (totalDeleted === 0) {
-            msg += '• (Nenhum documento residual nas coleções)\n';
+            msg += '•（資料集合中沒有殘留文件）\n';
           }
 
-          alert(msg + '\n\nO servidor está zerado. A aplicação será reiniciada na Criação de Personagem.');
+          alert(msg + '\n\n伺服器資料已歸零，應用程式將重新啟動並回到角色建立畫面。');
 
           if (typeof localStorage !== 'undefined') {
             localStorage.setItem('aden_pending_char_creation', '1');
@@ -8645,9 +8654,9 @@ export function bindEvents() {
           location.reload();
         } catch (err) {
           console.error('[Admin Wipe] Erro na execução:', err);
-          alert(`❌ Falha ao executar o Wipe Geral: ${err.message || err}\n\nCertifique-se de estar autenticado com a conta administrativa duuh.alaminos@gmail.com.`);
+          alert(`❌ 執行完整清除失敗：${err.message || err}\n\n請確認目前已使用管理員帳號登入。`);
           adminWipeBtn.disabled = false;
-          adminWipeBtn.textContent = '🔥 WIPE GERAL DO BANCO DE DADOS (SERVIDOR ZERO)';
+          adminWipeBtn.textContent = '🔥 完整清空資料庫（伺服器歸零）';
         }
       };
     }
@@ -8857,9 +8866,9 @@ function initPanelResizers() {
 
 function upgradeAstralNode(nodeId) {
   if (!state.prestigeLevel || state.prestigeLevel < 1) {
-    log('🔒 A Maestria Astral requer realizar a 1ª Reencarnação (Reborn no Nível 75+)!', 'warning');
+    log('🔒 星界精通需要先完成第一次轉生（等級 75+ 重生）！', 'warning');
     if (typeof window !== 'undefined' && window.floatText) {
-      window.floatText('🔒 Requer Reencarnação!', 'float-meteor');
+      window.floatText('🔒 需要轉生！', 'float-meteor');
     }
     return false;
   }
@@ -8869,20 +8878,20 @@ function upgradeAstralNode(nodeId) {
   if (!state.astralMastery) state.astralMastery = {};
   const currentLvl = state.astralMastery[nodeId] || 0;
   if (currentLvl >= node.max) {
-    log(`⚠️ ${node.name} já atingiu o nível máximo (${node.max})!`, 'warning');
+    log(`⚠️ ${node.name} 已達最高等級（${node.max}）！`, 'warning');
     return false;
   }
 
   const shards = state.astralShards || 0;
   if (shards < node.cost) {
-    log(`⚠️ Fragmentos Astrais insuficientes! Requer ${node.cost} Fragmentos.`, 'warning');
+    log(`⚠️ 星界碎片不足！需要 ${node.cost} 個碎片。`, 'warning');
     return false;
   }
 
   state.astralShards -= node.cost;
   state.astralMastery[nodeId] = currentLvl + 1;
 
-  log(`🌟 Desbloqueou ${node.name} (Nível ${currentLvl + 1}/${node.max})!`, 'rarity-legendary');
+  log(`🌟 已解鎖 ${node.name}（等級 ${currentLvl + 1}/${node.max}）！`, 'rarity-legendary');
   updateAllUI();
   save();
   return true;
@@ -8890,7 +8899,7 @@ function upgradeAstralNode(nodeId) {
 
 function reincarnateHero() {
   if ((state.level || 1) < 75) {
-    log('⚠️ Reencarnação Ancestral requer Nível 75 ou superior!', 'warning');
+    log('⚠️ 古代轉生需要等級 75 以上！', 'warning');
     return false;
   }
 
@@ -8913,15 +8922,15 @@ function reincarnateHero() {
   state.mp = state.maxMp || 50;
 
   const titles = [
-    'Aventureiro Renascido',
-    'Mestre da Constelação',
-    'Senhor da Reencarnação',
-    'Deus Ancestral de Aden'
+    '轉生冒險者',
+    '星座大師',
+    '轉生之主',
+    '亞丁遠古之神'
   ];
   const title = titles[Math.min(state.prestigeLevel - 1, titles.length - 1)];
 
-  log(`✨ REENCARNAÇÃO ANCESTRAL REALIZADA! Prestígio Nível ${state.prestigeLevel} (${title}). Conquistou +${earnedShards} Fragmentos Astrais!`, 'rarity-legendary');
-  floatText(`PRESTÍGIO Lv.${state.prestigeLevel}`, 'float-gold');
+  log(`✨ 古代轉生完成！聲望等級 ${state.prestigeLevel}（${title}），獲得 +${earnedShards} 個星界碎片！`, 'rarity-legendary');
+  floatText(`聲望等級 ${state.prestigeLevel}`, 'float-gold');
 
   updateAllUI();
   save();
@@ -8930,28 +8939,28 @@ function reincarnateHero() {
 
 // --------------------------- EXPEDITIONS & MANOR SYSTEM ---------------------------
 const MANOR_SEEDS = {
-  dark_coda: { id: 'dark_coda', name: 'Dark Coda Seed', level: 10, price: 100, reward1: 'stem', reward2: 'braided_hemp', ratio1: 5, ratio2: 2 },
-  red_coda: { id: 'red_coda', name: 'Red Coda Seed', level: 13, price: 200, reward1: 'varnish', reward2: 'cokes', ratio1: 5, ratio2: 2 },
-  chilly_coda: { id: 'chilly_coda', name: 'Chilly Coda Seed', level: 16, price: 350, reward1: 'suede', reward2: 'oriharukon_ore', ratio1: 5, ratio2: 2 },
-  blue_coda: { id: 'blue_coda', name: 'Blue Coda Seed', level: 19, price: 500, reward1: 'animal_skin', reward2: 'crafted_leather', ratio1: 5, ratio2: 2 },
-  red_cobol: { id: 'red_cobol', name: 'Red Cobol Seed', level: 31, price: 1000, reward1: 'charcoal', reward2: 'enria', ratio1: 10, ratio2: 2 },
-  chilly_cobol: { id: 'chilly_cobol', name: 'Chilly Cobol Seed', level: 34, price: 1500, reward1: 'animal_bone', reward2: 'steel', ratio1: 10, ratio2: 3 },
-  twin_codran: { id: 'twin_codran', name: 'Twin Codran Seed', level: 58, price: 3000, reward1: 'charcoal', reward2: 'mold_lubricant', ratio1: 15, ratio2: 3 },
-  king_coba: { id: 'king_coba', name: 'King Coba Seed', level: 85, price: 10000, reward1: 'metallic_thread', reward2: 'durable_metal_plate', ratio1: 20, ratio2: 5 }
+  dark_coda: { id: 'dark_coda', name: '黑暗柯達種子', level: 10, price: 100, reward1: 'stem', reward2: 'braided_hemp', ratio1: 5, ratio2: 2 },
+  red_coda: { id: 'red_coda', name: '紅色柯達種子', level: 13, price: 200, reward1: 'varnish', reward2: 'cokes', ratio1: 5, ratio2: 2 },
+  chilly_coda: { id: 'chilly_coda', name: '寒冷柯達種子', level: 16, price: 350, reward1: 'suede', reward2: 'oriharukon_ore', ratio1: 5, ratio2: 2 },
+  blue_coda: { id: 'blue_coda', name: '藍色柯達種子', level: 19, price: 500, reward1: 'animal_skin', reward2: 'crafted_leather', ratio1: 5, ratio2: 2 },
+  red_cobol: { id: 'red_cobol', name: '紅色柯博種子', level: 31, price: 1000, reward1: 'charcoal', reward2: 'enria', ratio1: 10, ratio2: 2 },
+  chilly_cobol: { id: 'chilly_cobol', name: '寒冷柯博種子', level: 34, price: 1500, reward1: 'animal_bone', reward2: 'steel', ratio1: 10, ratio2: 3 },
+  twin_codran: { id: 'twin_codran', name: '雙生柯德蘭種子', level: 58, price: 3000, reward1: 'charcoal', reward2: 'mold_lubricant', ratio1: 15, ratio2: 3 },
+  king_coba: { id: 'king_coba', name: '王者柯巴種子', level: 85, price: 10000, reward1: 'metallic_thread', reward2: 'durable_metal_plate', ratio1: 20, ratio2: 5 }
 };
 
 const CASTLES_DEFS = {
-  dion: { id: 'dion', name: 'Castelo de Dion', reqLevel: 30, taxPerHour: 5000, desc: '+5.000 Adena por hora', enemyName: 'Guarda de Dion (Lv. 30)' },
-  giran: { id: 'giran', name: 'Castelo de Giran', reqLevel: 50, taxPerHour: 15000, desc: '+15.000 Adena por hora & 5% Desconto na Loja', enemyName: 'Guarda de Giran (Lv. 50)' },
-  goddard: { id: 'goddard', name: 'Castelo de Goddard', reqLevel: 70, taxPerHour: 35000, desc: '+35.000 Adena por hora & +5% XP Bônus', enemyName: 'Guarda de Goddard (Lv. 70)' },
-  aden: { id: 'aden', name: 'Castelo Imperial de Aden', reqLevel: 85, taxPerHour: 75000, desc: '+75.000 Adena por hora & +10% Dano Geral', enemyName: 'Guarda Imperial de Aden (Lv. 85)' }
+  dion: { id: 'dion', name: '狄恩城堡', reqLevel: 30, taxPerHour: 5000, desc: '每小時 +5,000 金幣', enemyName: '狄恩守衛（等級 30）' },
+  giran: { id: 'giran', name: '奇岩城堡', reqLevel: 50, taxPerHour: 15000, desc: '每小時 +15,000 金幣，商店折扣 5%', enemyName: '奇岩守衛（等級 50）' },
+  goddard: { id: 'goddard', name: '高達特城堡', reqLevel: 70, taxPerHour: 35000, desc: '每小時 +35,000 金幣，並獲得 +5% 經驗值加成', enemyName: '高達特守衛（等級 70）' },
+  aden: { id: 'aden', name: '亞丁帝國城堡', reqLevel: 85, taxPerHour: 75000, desc: '每小時 +75,000 金幣，總傷害 +10%', enemyName: '亞丁帝國守衛（等級 85）' }
 };
 
 const EXPEDITION_DESTINATIONS = {
-  branded: { id: 'branded', name: 'Catacumbas de Branded', duration: 3600000, cost: 5000, minGold: 20000, maxGold: 30000, desc: 'Expedição rápida (1 hora) com saque de ouro e pergaminhos' },
-  martyrs: { id: 'martyrs', name: 'Necrópole dos Martírios', duration: 14400000, cost: 20000, minGold: 100000, maxGold: 150000, desc: 'Expedição média (4 horas) com baús C/B e materiais' },
-  dragon_valley: { id: 'dragon_valley', name: 'Vale dos Dragões Abissais', duration: 28800000, cost: 50000, minGold: 300000, maxGold: 400000, desc: 'Expedição longa (8 horas) com baús A/S e Fragmentos Astrais' },
-  shilen_temple: { id: 'shilen_temple', name: 'Templo da Deusa Shilen', duration: 43200000, cost: 100000, minGold: 800000, maxGold: 1200000, desc: 'Expedição mítica (12 horas) com Baú Frost Lord e 25 Fragmentos Astrais' }
+  branded: { id: 'branded', name: '烙印地下墓穴', duration: 3600000, cost: 5000, minGold: 20000, maxGold: 30000, desc: '快速遠征（1 小時），可取得金幣與卷軸戰利品' },
+  martyrs: { id: 'martyrs', name: '殉道者墓地', duration: 14400000, cost: 20000, minGold: 100000, maxGold: 150000, desc: '中型遠征（4 小時），可取得 C／B 級寶箱與材料' },
+  dragon_valley: { id: 'dragon_valley', name: '深淵龍之谷', duration: 28800000, cost: 50000, minGold: 300000, maxGold: 400000, desc: '長程遠征（8 小時），可取得 A／S 級寶箱與星界碎片' },
+  shilen_temple: { id: 'shilen_temple', name: '席琳女神神殿', duration: 43200000, cost: 100000, minGold: 800000, maxGold: 1200000, desc: '神話遠征（12 小時），可取得霜之領主寶箱與 25 個星界碎片' }
 };
 
 function buyManorSeed(seedId, qty = 1) {
@@ -8961,7 +8970,7 @@ function buyManorSeed(seedId, qty = 1) {
   const totalCost = seed.price * count;
 
   if ((state.gold || 0) < totalCost) {
-    log(`⚠️ Ouro insuficiente! Requer ${totalCost.toLocaleString()}g.`, 'warning');
+    log(`⚠️ 金幣不足！需要 ${totalCost.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -8969,7 +8978,7 @@ function buyManorSeed(seedId, qty = 1) {
   if (!state.manorSeeds) state.manorSeeds = {};
   state.manorSeeds[seedId] = (state.manorSeeds[seedId] || 0) + count;
 
-  log(`🌾 Comprou ${count}x Semente ${seed.name}!`, 'loot');
+  log(`🌾 已購買 ${count}× ${seed.name} 種子！`, 'loot');
   updateAllUI();
   save();
   return true;
@@ -8981,7 +8990,7 @@ function exchangeManorCrop(seedId, rewardOption = 1) {
 
   const ownedCrops = state.manorCrops ? (state.manorCrops[seedId] || 0) : 0;
   if (ownedCrops <= 0) {
-    log(`⚠️ Você não possui Colheita de ${seed.name} para entregar!`, 'warning');
+    log(`⚠️ 你沒有可交付的 ${seed.name} 收成物！`, 'warning');
     return false;
   }
 
@@ -8990,7 +8999,7 @@ function exchangeManorCrop(seedId, rewardOption = 1) {
   const matAmount = Math.max(1, Math.floor(ownedCrops / ratio));
 
   if (matAmount < 1) {
-    log(`⚠️ Colheita insuficiente! Requer pelo menos ${ratio}x colheitas para trocar por 1 material.`, 'warning');
+    log(`⚠️ 採集數量不足！至少需要 ${ratio} 次採集才能兌換 1 份材料。`, 'warning');
     return false;
   }
 
@@ -8998,7 +9007,7 @@ function exchangeManorCrop(seedId, rewardOption = 1) {
   state.manorCrops[seedId] -= cropsUsed;
 
   addToInventory(matKey, matAmount);
-  log(`🌾 Entregou ${cropsUsed}x Colheita no Manor Manager e recebeu +${matAmount}x ${matKey.toUpperCase()}!`, 'rarity-legendary');
+  log(`🌾 已向莊園管理員交付 ${cropsUsed}× 收成，獲得 +${matAmount}× ${D()?.ALL_ITEMS?.[matKey]?.name || '未知材料'}！`, 'rarity-legendary');
 
   updateAllUI();
   save();
@@ -9011,13 +9020,13 @@ function conquerCastle(castleId) {
 
   if (!state.castles) state.castles = {};
   if (state.castles[castleId]?.conquered) {
-    log(`⚠️ Você já domina o ${castle.name}!`, 'warning');
+    log(`⚠️ 你已控制 ${castle.name}！`, 'warning');
     return false;
   }
 
   const playerLvl = state.level || 1;
   if (playerLvl < castle.reqLevel) {
-    log(`⚠️ Nível insuficiente para desafiar o ${castle.name}! Requer Nível ${castle.reqLevel}.`, 'warning');
+    log(`⚠️ 等級不足，無法挑戰 ${castle.name}！需要等級 ${castle.reqLevel}。`, 'warning');
     return false;
   }
 
@@ -9026,8 +9035,8 @@ function conquerCastle(castleId) {
     lastTaxClaim: Date.now()
   };
 
-  log(`🏰 CONQUISTOU O ${castle.name.toUpperCase()}! Bônus ativado: ${castle.desc}.`, 'rarity-legendary');
-  floatText(`DOMINOU ${castle.name.toUpperCase()}`, 'float-gold');
+  log(`🏰 已征服 ${castle.name.toUpperCase()}！加成已啟用：${castle.desc}。`, 'rarity-legendary');
+  floatText(`已征服 ${castle.name}`, 'float-gold');
 
   updateAllUI();
   save();
@@ -9040,7 +9049,7 @@ function claimCastleTaxes(castleId) {
 
   const data = state.castles ? state.castles[castleId] : null;
   if (!data || !data.conquered) {
-    log(`⚠️ Você não domina o ${castle.name}!`, 'warning');
+    log(`⚠️ 你尚未控制 ${castle.name}！`, 'warning');
     return false;
   }
 
@@ -9048,7 +9057,7 @@ function claimCastleTaxes(castleId) {
   const hoursPassed = (now - (data.lastTaxClaim || now)) / 3600000;
   if (hoursPassed < 1) {
     const minsLeft = Math.ceil((1 - hoursPassed) * 60);
-    log(`⚠️ Aguarde mais ${minsLeft} minutos para recolher os impostos de ${castle.name}.`, 'warning');
+    log(`⚠️ 還需要等待 ${minsLeft} 分鐘才能領取 ${castle.name} 的稅收。`, 'warning');
     return false;
   }
 
@@ -9058,7 +9067,7 @@ function claimCastleTaxes(castleId) {
   data.lastTaxClaim = now;
   state.gold = (state.gold || 0) + adenaEarned;
 
-  log(`💰 Coletou ${adenaEarned.toLocaleString()} Adena em impostos de ${castle.name} (${hoursToClaim}h)!`, 'rarity-legendary');
+  log(`💰 已從 ${castle.name} 領取 ${adenaEarned.toLocaleString()} 金幣稅收（${hoursToClaim} 小時）！`, 'rarity-legendary');
 
   updateAllUI();
   save();
@@ -9072,12 +9081,12 @@ function startExpedition(destId) {
   if (!state.expeditions) state.expeditions = [];
   const activeExp = state.expeditions.find(e => e.destId === destId && !e.claimed);
   if (activeExp) {
-    log(`⚠️ Já existe uma expedição ativa para ${dest.name}!`, 'warning');
+    log(`⚠️ ${dest.name} 已有進行中的遠征！`, 'warning');
     return false;
   }
 
   if ((state.gold || 0) < dest.cost) {
-    log(`⚠️ Ouro insuficiente para equipar a expedição! Requer ${dest.cost.toLocaleString()}g.`, 'warning');
+    log(`⚠️ 金幣不足，無法準備遠征！需要 ${dest.cost.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -9091,7 +9100,7 @@ function startExpedition(destId) {
     claimed: false
   });
 
-  log(`🧭 Esquadrão de Mercenários enviado para ${dest.name}! Duração: ${dest.duration / 3600000}h.`, 'loot');
+  log(`🧭 傭兵小隊已派往 ${dest.name}！時間：${dest.duration / 3600000} 小時。`, 'loot');
 
   updateAllUI();
   save();
@@ -9109,7 +9118,7 @@ function claimExpeditionReward(expId) {
 
   const now = Date.now();
   if (now < exp.startTime + exp.duration) {
-    log('⚠️ Esta expedição ainda está em andamento!', 'warning');
+    log('⚠️ 這次遠征仍在進行中！', 'warning');
     return false;
   }
 
@@ -9135,7 +9144,7 @@ function claimExpeditionReward(expId) {
 
   state.expeditions.splice(expIdx, 1);
 
-  log(`🎁 Expedição de ${dest.name} concluída! Resgatou ${goldEarned.toLocaleString()}g e recompensas valiosas!`, 'rarity-legendary');
+  log(`🎁 ${dest.name} 遠征完成！獲得 ${goldEarned.toLocaleString()} 金幣 與珍貴獎勵！`, 'rarity-legendary');
 
   updateAllUI();
   save();
@@ -9148,7 +9157,7 @@ function buySoulCrystal(color = 'red', stage = 1) {
   const cost = prices[stage] || 15000;
 
   if ((state.gold || 0) < cost) {
-    log(`⚠️ Ouro insuficiente! Requer ${cost.toLocaleString()}g.`, 'warning');
+    log(`⚠️ 金幣不足！需要 ${cost.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -9157,7 +9166,7 @@ function buySoulCrystal(color = 'red', stage = 1) {
   const key = `${color}_stage${stage}`;
   state.soulCrystals[key] = (state.soulCrystals[key] || 0) + 1;
 
-  log(`🔮 Comprou Soul Crystal ${color.toUpperCase()} (Stage ${stage})!`, 'rarity-legendary');
+  log(`🔮 已購買 ${({ red: '紅色', green: '綠色', blue: '藍色' })[color] || '未知顏色'} 靈魂水晶（階段 ${stage}）！`, 'rarity-legendary');
   updateAllUI();
   save();
   return true;
@@ -9168,7 +9177,7 @@ function fuseSoulCrystals(color = 'red', stage = 1) {
   const key = `${color}_stage${stage}`;
   const owned = state.soulCrystals ? (state.soulCrystals[key] || 0) : 0;
   if (owned < 2) {
-    log(`⚠️ Você precisa de pelo menos 2x Soul Crystals do mesmo estágio para fundir!`, 'warning');
+    log(`⚠️ 至少需要 2 個相同階段的靈魂水晶才能合成！`, 'warning');
     return false;
   }
 
@@ -9176,7 +9185,7 @@ function fuseSoulCrystals(color = 'red', stage = 1) {
   const nextKey = `${color}_stage${stage + 1}`;
   state.soulCrystals[nextKey] = (state.soulCrystals[nextKey] || 0) + 1;
 
-  log(`✨ SÍNTESE BEM SUCEDIDA! Soul Crystal subiu para Stage ${stage + 1}!`, 'rarity-legendary');
+  log(`✨ 合成成功！靈魂水晶已提升至階段 ${stage + 1}！`, 'rarity-legendary');
   updateAllUI();
   save();
   return true;
@@ -9185,7 +9194,7 @@ function fuseSoulCrystals(color = 'red', stage = 1) {
 function socketSoulCrystalToWeapon(effect = 'focus', stage = 1) {
   const wpnUid = state.equipment?.weapon;
   if (!wpnUid) {
-    log('⚠️ Equipe uma arma antes de engastar uma Pedra de Alma SA!', 'warning');
+    log('⚠️ 請先裝備武器，再鑲嵌特殊能力靈魂水晶！', 'warning');
     return false;
   }
 
@@ -9195,8 +9204,8 @@ function socketSoulCrystalToWeapon(effect = 'focus', stage = 1) {
     stage: Math.min(13, Math.max(1, stage))
   };
 
-  log(`🔮 ENGASTOU SOUL CRYSTAL SA [${effect.toUpperCase()} Stage ${stage}] NA ARMA EQUIPADA!`, 'rarity-legendary');
-  floatText(`SA ${effect.toUpperCase()} ATIVADO`, 'float-gold');
+  log(`🔮 已將特殊能力靈魂水晶 [${({ focus: '專注', acumen: '靈敏', health: '生命', empower: '魔力增幅', guidance: '導引' })[effect] || '未知效果'} 階段 ${stage}] 鑲嵌到目前武器！`, 'rarity-legendary');
+  floatText(`特殊能力 ${({ focus: '專注', acumen: '靈敏', health: '生命', empower: '魔力增幅', guidance: '導引' })[effect] || '未知效果'} 已啟用`, 'float-gold');
 
   updateAllUI();
   save();
@@ -9220,16 +9229,16 @@ function upgradeItemToMasterwork(itemUid) {
 
   const req = costs[tier] || costs[3];
   if ((state.gold || 0) < req.adena) {
-    log(`⚠️ Adena insuficiente no Mestre Pushkin! Requer ${req.adena.toLocaleString()}g.`, 'warning');
+    log(`⚠️ 金幣不足！普希金大師需要 ${req.adena.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
   state.gold -= req.adena;
   item.isMasterwork = true;
-  item.name = item.name ? (item.name.includes('[Foundation MW]') ? item.name : `${item.name} [Foundation MW]`) : `${itemDef.name} [Foundation MW]`;
+  item.name = item.name ? ((item.name.includes('[Foundation MW]') || item.name.includes('[名匠]')) ? item.name.replace('[Foundation MW]', '[名匠]') : `${item.name} [名匠]`) : `${itemDef.name} [名匠]`;
 
-  log(`✨ MESTRE FERREIRO PUSHKIN FORJOU ${item.name.toUpperCase()} (MASTERWORK RARE)!`, 'rarity-legendary');
-  floatText('MASTERWORK RARE!', 'float-gold');
+  log(`✨ 鐵匠大師普希金打造了 ${item.name.toUpperCase()}（稀有名匠裝備）！`, 'rarity-legendary');
+  floatText('稀有名匠裝備！', 'float-gold');
 
   updateAllUI();
   save();
@@ -9239,13 +9248,13 @@ function upgradeItemToMasterwork(itemUid) {
 function applyTattoo(plusStat = 'str', minusStat = 'con', val = 4) {
   if (!state.tattoos) state.tattoos = [];
   if (state.tattoos.length >= 3) {
-    log('⚠️ Você já possui o limite máximo de 3 Tatuagens aplicadas!', 'warning');
+    log('⚠️ 你已達到最多 3 個刺青的上限！', 'warning');
     return false;
   }
 
   const cost = val * 50000;
   if ((state.gold || 0) < cost) {
-    log(`⚠️ Adena insuficiente para aplicar a Tatuagem! Requer ${cost.toLocaleString()}g.`, 'warning');
+    log(`⚠️ 金幣不足！套用刺青需要 ${cost.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -9257,7 +9266,7 @@ function applyTattoo(plusStat = 'str', minusStat = 'con', val = 4) {
     minusVal: val
   });
 
-  log(`🖋️ TATUAGEM APLICADA: +${val} ${plusStat.toUpperCase()} / -${val} ${minusStat.toUpperCase()}!`, 'rarity-legendary');
+  log(`🖋️ 刺青已套用：+${val} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[plusStat] || '其他屬性'} / -${val} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[minusStat] || '其他屬性'}！`, 'rarity-legendary');
   updateAllUI();
   save();
   return true;
@@ -9266,7 +9275,7 @@ function applyTattoo(plusStat = 'str', minusStat = 'con', val = 4) {
 function removeTattoo(index) {
   if (!state.tattoos || !state.tattoos[index]) return false;
   const removed = state.tattoos.splice(index, 1);
-  log(`🖋️ Removeu Tatuagem (+${removed[0]?.plusVal} ${removed[0]?.plusStat?.toUpperCase()}).`, 'loot');
+  log(`🖋️ 已移除刺青（+${removed[0]?.plusVal} ${({ str: '力量', dex: '敏捷', con: '體質', int: '智力', wit: '智慧', men: '精神', atk: '物理攻擊', patk: '物理攻擊', def: '物理防禦', pdef: '物理防禦', matk: '魔法攻擊', mdef: '魔法防禦', hp: '生命值', maxHp: '最大生命值', mp: '魔力', maxMp: '最大魔力', eva: '迴避', crit: '暴擊', speed: '速度', spd: '速度', accuracy: '命中', hit: '命中', critDmg: '暴擊傷害', hpRegen: '生命恢復', mpRegen: '魔力恢復' })[removed[0]?.plusStat] || '其他屬性'}）。`, 'loot');
   updateAllUI();
   save();
   return true;
@@ -9275,16 +9284,16 @@ function removeTattoo(index) {
 // --------------------------- BASIC MECHANICS: ATTRIBUTES, BELTS & LIFE STONES ---------------------------
 function addSkillCharge() {
   state.charges = Math.min(8, (state.charges || 0) + 1);
-  log(`⚡ Carga de Habilidade acumulada: **Nível ${state.charges}/8** (+${(state.charges - 1) * 20}% Dano de Skill)!`, 'rarity-legendary');
-  floatText(`CARGA NÍVEL ${state.charges}!`, 'float-gold');
+  log(`⚡ 技能充能累積：**${state.charges}/8 級**（技能傷害 +${(state.charges - 1) * 20}%）！`, 'rarity-legendary');
+  floatText(`充能等級 ${state.charges}！`, 'float-gold');
   updateAllUI(); save();
   return true;
 }
 
 function addKamaelSoul() {
   state.souls = Math.min(5, (state.souls || 0) + 1);
-  log(`👻 Alma Kamael absorvida: **${state.souls}/5 Almas** (+${state.souls * 5}% Dano de Skill)!`, 'rarity-legendary');
-  floatText(`ALMA ABSORVIDA (${state.souls}/5)!`, 'float-gold');
+  log(`👻 已吸收卡麥爾靈魂：**${state.souls}/5**（技能傷害 +${state.souls * 5}%）！`, 'rarity-legendary');
+  floatText(`已吸收靈魂（${state.souls}/5）！`, 'float-gold');
   updateAllUI(); save();
   return true;
 }
@@ -9292,12 +9301,12 @@ function addKamaelSoul() {
 function insertAttributeStone(itemUid, elemType = 'fire') {
   const item = state.inventory?.find(i => i.uid === itemUid);
   if (!item) {
-    log('⚠️ Item não encontrado no inventário!', 'warning');
+    log('⚠️ 背包中找不到該物品！', 'warning');
     return false;
   }
   const cost = 250000;
   if ((state.gold || 0) < cost) {
-    log(`⚠️ Adena insuficiente para engaste elemental! Requer ${cost.toLocaleString()}g.`, 'warning');
+    log(`⚠️ 金幣不足！元素鑲嵌需要 ${cost.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -9309,8 +9318,8 @@ function insertAttributeStone(itemUid, elemType = 'fire') {
   item.elemental.type = elemType;
   item.elemental.val = Math.min(300, item.elemental.val + inc);
 
-  log(`🔥 ENGASTE ELEMENTAL BEM SUCEDIDO! **${item.name || 'Item'}** recebeu +${inc} Atributo ${elemType.toUpperCase()} (Total: ${item.elemental.val})!`, 'rarity-legendary');
-  floatText(`ATRIBUTO ${elemType.toUpperCase()} +${inc}!`, 'float-gold');
+  log(`🔥 元素鑲嵌成功！**${item.name || '物品'}** 獲得 +${inc} ${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗' })[elemType] || '其他屬性'} 屬性（總值：${item.elemental.val}）！`, 'rarity-legendary');
+  floatText(`屬性 ${({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗' })[elemType] || '其他屬性'} +${inc}！`, 'float-gold');
   updateAllUI(); save();
   return true;
 }
@@ -9318,7 +9327,7 @@ function insertAttributeStone(itemUid, elemType = 'fire') {
 function compoundBelts() {
   const cost = 500000;
   if ((state.gold || 0) < cost) {
-    log(`⚠️ Adena insuficiente para síntese de Cinto! Requer ${cost.toLocaleString()}g.`, 'warning');
+    log(`⚠️ 金幣不足！腰帶合成需要 ${cost.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -9326,10 +9335,10 @@ function compoundBelts() {
   const roll = Math.random();
   if (roll <= 0.70) {
     addToInventory('blessed_top_belt', 1, 'legendary');
-    log('✨ SÍNTESE DE CINTO BEM SUCEDIDA! Forjou Blessed Top-Grade Belt [S] (+7.2% Defesa / +6% Dano)!', 'rarity-legendary');
-    floatText('CINTO SAGRADO FORJADO!', 'float-gold');
+    log('✨ 腰帶合成成功！已打造祝福頂級腰帶 [S]（+7.2% 防禦／+6% 傷害）！', 'rarity-legendary');
+    floatText('神聖腰帶鍛造完成！', 'float-gold');
   } else {
-    log('⚠️ Falha na síntese do cinto! Tente novamente.', 'warning');
+    log('⚠️ 腰帶合成失敗！請再試一次。', 'warning');
   }
 
   updateAllUI(); save();
@@ -9342,34 +9351,34 @@ function augmentWithLifeStone(itemUid) {
 
   const cost = 750000;
   if ((state.gold || 0) < cost) {
-    log(`⚠️ Adena insuficiente para Augmentation! Requer ${cost.toLocaleString()}g.`, 'warning');
+    log(`⚠️ 金幣不足！精煉需要 ${cost.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
   state.gold -= cost;
   const options = [
-    { name: 'Might (+8% P.Atk)', stat: 'patkMult', val: 0.08 },
-    { name: 'Empower (+15% M.Atk)', stat: 'matkMult', val: 0.15 },
-    { name: 'Shield (+10% P.Def)', stat: 'defMult', val: 0.10 },
-    { name: 'Focus (+50 Crit Rate)', stat: 'crit', val: 50 },
-    { name: 'Lesser Celestial Shield (7s Invencível)', stat: 'celestial', val: true }
+    { name: '力量（物理攻擊 +8%）', stat: 'patkMult', val: 0.08 },
+    { name: '魔力強化（魔法攻擊 +15%）', stat: 'matkMult', val: 0.15 },
+    { name: '盾牌（物理防禦 +10%）', stat: 'defMult', val: 0.10 },
+    { name: '專注（+50 暴擊率）', stat: 'crit', val: 50 },
+    { name: '次級天界護盾（無敵 7 秒）', stat: 'celestial', val: true }
   ];
   const chosen = options[Math.floor(Math.random() * options.length)];
   item.augmentation = chosen;
 
-  log(`🔮 AUGMENTATION SUPERIOR CONCLUÍDO! **${item.name || 'Item'}** recebeu **Item Skill: ${chosen.name}**!`, 'rarity-legendary');
-  floatText(`AUGMENTATION: ${chosen.name}!`, 'float-gold');
+  log(`🔮 高級精煉完成！**${item.name || '物品'}** 獲得 **物品技能：${chosen.name}**！`, 'rarity-legendary');
+  floatText(`精煉：${chosen.name}！`, 'float-gold');
   updateAllUI(); save();
   return true;
 }
 
 function executeCompoundAction(targetUid, ingredientUid) {
   if (!targetUid || !ingredientUid) {
-    log('⚠️ Selecione o Item Base e o Item Ingrediente para realizar o Compound!', 'warning');
+    log('⚠️ 請選擇基底物品與材料物品後再進行合成！', 'warning');
     return false;
   }
   if (targetUid === ingredientUid) {
-    log('⚠️ O Item Ingrediente deve ser diferente do Item Base!', 'warning');
+    log('⚠️ 材料物品不可與基底物品相同！', 'warning');
     return false;
   }
 
@@ -9377,12 +9386,12 @@ function executeCompoundAction(targetUid, ingredientUid) {
   const ingredient = state.inventory?.find(i => i.uid === ingredientUid);
 
   if (!target || !ingredient) {
-    log('⚠️ Itens não encontrados no inventário!', 'warning');
+    log('⚠️ 背包中找不到這些物品！', 'warning');
     return false;
   }
 
   if (target.itemId !== ingredient.itemId) {
-    log('⚠️ Os itens para Compound devem ser exatamente do mesmo tipo!', 'warning');
+    log('⚠️ 合成用的兩件物品必須是完全相同類型！', 'warning');
     return false;
   }
 
@@ -9390,7 +9399,7 @@ function executeCompoundAction(targetUid, ingredientUid) {
   const cost = 100000 * Math.pow(2, Math.min(8, curLv - 1));
 
   if ((state.gold || 0) < cost) {
-    log(`⚠️ Adena insuficiente! Custo de Compound Lv.${curLv}: ${cost.toLocaleString()}g.`, 'warning');
+    log(`⚠️ 金幣不足！等級 ${curLv} 合成費用為 ${cost.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -9418,11 +9427,11 @@ function executeCompoundAction(targetUid, ingredientUid) {
     // Scale item stats by +15% per compound level
     target.statsMult = 1 + (nextLv - 1) * 0.15;
     
-    log(`✨ COMPOUND BEM-SUCEDIDO! **${target.name || 'Item'}** evoluiu para **Nível ${nextLv}**!`, 'rarity-legendary');
-    floatText(`COMPOUND SUCESSO! Lv.${nextLv}`, 'float-gold');
+    log(`✨ 合成成功！**${target.name || '物品'}** 已提升至 **等級 ${nextLv}**！`, 'rarity-legendary');
+    floatText(`合成成功！等級 ${nextLv}`, 'float-gold');
   } else {
-    log(`💥 FALHA NO COMPOUND! **${target.name || 'Item'}** permaneceu no Nível ${curLv}. O ingrediente foi consumido.`, 'warning');
-    floatText('COMPOUND FALHOU!', 'float-dmg');
+    log(`💥 合成失敗！**${target.name || '物品'}** 維持在等級 ${curLv}，材料已消耗。`, 'warning');
+    floatText('合成失敗！', 'float-dmg');
   }
 
   updateAllUI();
@@ -9443,7 +9452,7 @@ function renderDailyRewardModal() {
   }
 
   if (streakEl) {
-    streakEl.textContent = `${status.streak} ${status.streak === 1 ? 'Dia de Glória' : 'Dias Consecutivos'} 🔥`;
+    streakEl.textContent = `${status.streak} ${status.streak === 1 ? '天連續簽到' : '天連續簽到'} 🔥`;
   }
 
   if (statusBadge) {
@@ -9451,12 +9460,12 @@ function renderDailyRewardModal() {
       statusBadge.style.background = 'rgba(34,197,94,0.2)';
       statusBadge.style.borderColor = 'rgba(34,197,94,0.5)';
       statusBadge.style.color = '#4ade80';
-      statusBadge.textContent = `✨ Recompensa do Dia ${status.currentDay} Disponível!`;
+      statusBadge.textContent = `✨ 第 ${status.currentDay} 天獎勵可領取！`;
     } else {
       statusBadge.style.background = 'rgba(107,114,128,0.2)';
       statusBadge.style.borderColor = 'rgba(107,114,128,0.4)';
       statusBadge.style.color = '#9ca3af';
-      statusBadge.textContent = '✓ Check-in de Hoje Concluído';
+      statusBadge.textContent = '✓ 今日簽到已完成';
     }
   }
 
@@ -9465,8 +9474,8 @@ function renderDailyRewardModal() {
     claimBtn.style.opacity = status.canClaim ? '1' : '0.5';
     claimBtn.style.cursor = status.canClaim ? 'pointer' : 'not-allowed';
     claimBtn.textContent = status.canClaim
-      ? `✨ Resgatar Presente do Dia ${status.currentDay}`
-      : `✓ Dia ${status.currentDay > 1 ? status.currentDay - 1 : 28} Resgatado (Volte Amanhã)`;
+      ? `✨ 領取第 ${status.currentDay} 天禮物`
+      : `✓ 第 ${status.currentDay > 1 ? status.currentDay - 1 : 28} 天已領取（明天再來）`;
   }
 
   if (!grid) return;
@@ -9509,14 +9518,14 @@ function renderDailyRewardModal() {
 
     card.innerHTML = `
       <div style="font-size:10px; font-weight:bold; color:${isCurrent ? '#fef08a' : (isClaimed ? '#4ade80' : '#9ca3af')};">
-        ${item.isMilestone ? '⭐ ' : ''}Dia ${item.day}
+        ${item.isMilestone ? '⭐ ' : ''}第 ${item.day} 天
       </div>
       <div style="font-size:22px; margin:4px 0;">${item.icon}</div>
       <div style="font-size:10px; font-weight:600; color:#f3f4f6; line-height:1.2; max-width:80px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${item.desc}">
         ${item.name}
       </div>
       <div style="font-size:9px; color:${isClaimed ? '#4ade80' : (isCurrent ? '#f59e0b' : '#6b7280')}; margin-top:2px; font-weight:bold;">
-        ${isClaimed ? '✓ Coletado' : (isCurrent ? '🎁 Resgatar' : '🔒')}
+        ${isClaimed ? '✓ 已領取' : (isCurrent ? '🎁 領取' : '🔒')}
       </div>
     `;
 
@@ -9579,7 +9588,7 @@ export function init() {
     window.startRaidBoss = startRaidBoss;
     window.toggleGodMode = () => {
       state.godMode = !state.godMode;
-      log(`🛡️ [Admin] God Mode (Invencibilidade): ${state.godMode ? 'ATIVADO' : 'DESATIVADO'}`, 'rarity-legendary');
+      log(`🛡️ [管理員] 無敵模式：${state.godMode ? '已啟用' : '已停用'}`, 'rarity-legendary');
       save();
       return state.godMode;
     };
@@ -9728,7 +9737,7 @@ export function init() {
         squad.splice(idx, 1);
       } else {
         if (squad.length >= 3) {
-          log('⚠️ Esquadrão já atingiu a capacidade máxima de 3 mercenários!', 'warning');
+          log('⚠️ 小隊已達最多 3 名傭兵的上限！', 'warning');
           return;
         }
         squad.push(mercUid);
@@ -9846,7 +9855,7 @@ export function init() {
           if (!s.unlocked) {
             card.innerHTML = `
               <div style="font-size:11px; font-weight:bold; color:#f87171;">🔒 ${s.name}</div>
-              <div style="font-size:11px; color:#94a3b8;">Desbloqueia no Nível ${s.requiredLvl}+</div>
+              <div style="font-size:11px; color:#94a3b8;">等級 ${s.requiredLvl}+ 解鎖</div>
             `;
           } else if (s.tattoo) {
             card.innerHTML = `
@@ -9856,19 +9865,19 @@ export function init() {
                   <span style="font-size:14px;">${s.tattoo.icon || '✨'}</span>
                 </div>
                 <div style="font-weight:bold; font-size:13px; color:#86efac;">${s.tattoo.shortName || s.tattoo.name}</div>
-                <div style="font-size:10px; color:#cbd5e1; margin-top:2px;">Gravado em ${new Date(s.tattoo.engravedAt || Date.now()).toLocaleDateString()}</div>
+                <div style="font-size:10px; color:#cbd5e1; margin-top:2px;">刻印日期：${new Date(s.tattoo.engravedAt || Date.now()).toLocaleDateString()}</div>
               </div>
               <button class="action-btn action-btn--danger" onclick="window.removeDyeAction(${s.index})" style="padding:4px 8px; font-size:11px; margin-top:6px;">
-                🧹 Remover (10k Adena)
+                🧹 移除（10,000 金幣）
               </button>
             `;
           } else {
             card.innerHTML = `
               <div>
                 <div style="font-size:11px; font-weight:bold; color:#60a5fa;">✨ ${s.name}</div>
-                <div style="font-size:11px; color:#94a3b8; margin-top:4px;">Slot Vazio Disponível</div>
+                <div style="font-size:11px; color:#94a3b8; margin-top:4px;">可用空白欄位</div>
               </div>
-              <div style="font-size:10px; color:#cbd5e1;">Selecione uma Henna abaixo para gravar</div>
+              <div style="font-size:10px; color:#cbd5e1;">請從下方選擇染料進行刻印</div>
             `;
           }
           slotsContainer.appendChild(card);
@@ -9878,20 +9887,20 @@ export function init() {
       // 2. Render Net Summary Bar
       if (summaryContainer) {
         const statsList = [
-          { key: 'str', label: 'STR', color: '#f87171' },
-          { key: 'dex', label: 'DEX', color: '#60a5fa' },
-          { key: 'con', label: 'CON', color: '#4ade80' },
-          { key: 'int', label: 'INT', color: '#c084fc' },
-          { key: 'wit', label: 'WIT', color: '#fde047' },
-          { key: 'men', label: 'MEN', color: '#38bdf8' }
+          { key: 'str', label: '力量', color: '#f87171' },
+          { key: 'dex', label: '敏捷', color: '#60a5fa' },
+          { key: 'con', label: '體質', color: '#4ade80' },
+          { key: 'int', label: '智力', color: '#c084fc' },
+          { key: 'wit', label: '智慧', color: '#fde047' },
+          { key: 'men', label: '精神', color: '#38bdf8' }
         ];
         summaryContainer.innerHTML = `
-          <div style="font-weight:bold; color:#ffd877;">📊 Bônus Líquidos Ativos (Cap +5):</div>
+          <div style="font-weight:bold; color:#ffd877;">📊 目前生效的淨屬性加成（上限 +5）：</div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             ${statsList.map(st => {
               const val = net[st.key] || 0;
               const sign = val > 0 ? `+${val}` : `${val}`;
-              return `<span style="font-weight:bold; color:${st.color};">${st.label}: ${sign}</span>`;
+              return `<span style="font-weight:bold; color:${st.color};">${st.label}：${sign}</span>`;
             }).join(' · ')}
           </div>
         `;
@@ -9927,7 +9936,7 @@ export function init() {
                 <div style="font-weight:bold; color:#ffd877; font-size:13px;">${dye.name}</div>
                 <div style="font-size:11px; color:#cbd5e1;">${dye.desc}</div>
                 <div style="font-size:10px; color:#94a3b8; margin-top:2px;">
-                  Possui: <strong style="color:${hasReq ? '#86efac' : '#f87171'};">${count}/10 tintas</strong> · Taxa: <strong>${(dye.fee || 50000).toLocaleString()} Adena</strong>
+                  持有：<strong style="color:${hasReq ? '#86efac' : '#f87171'};">${count}/10 染料</strong> · 費用：<strong>${(dye.fee || 50000).toLocaleString()} 金幣</strong>
                 </div>
               </div>
             </div>
@@ -9937,10 +9946,10 @@ export function init() {
                         style="padding:6px 12px; font-size:11px; font-weight:bold;"
                         ${!hasReq || !canAfford ? 'disabled' : ''}
                         onclick="window.drawDyeAction(${nextEmptySlot}, '${dye.id}')">
-                  ✍️ Gravar (Slot ${nextEmptySlot + 1})
+                  ✍️ 刻印（欄位 ${nextEmptySlot + 1}）
                 </button>
               ` : `
-                <span style="font-size:10px; color:#94a3b8;">Sem slots vagos</span>
+                <span style="font-size:10px; color:#94a3b8;">沒有可用欄位</span>
               `}
             </div>
           `;
@@ -10004,21 +10013,21 @@ export function init() {
               <div style="display:flex; align-items:center; gap:12px;">
                 <span style="font-size:36px;">${def?.icon || '🐾'}</span>
                 <div>
-                  <div style="font-family:'Cinzel',serif; font-weight:bold; color:#ffd877; font-size:16px;">${activePet.name} (Lv. ${activePet.level}/60)</div>
-                  <div style="font-size:11px; color:#86efac; margin-top:2px;">✨ Bônus Ativo: ${bonus?.desc || ''} (+${Math.round((bonus?.val || 0) * 100)}%)</div>
-                  <div style="font-size:11px; color:#93c5fd; margin-top:2px;">⚔️ Ataque de Suporte: ${bonus?.atk || 0} Dano Físico</div>
+                  <div style="font-family:'Cinzel',serif; font-weight:bold; color:#ffd877; font-size:16px;">${activePet.name}（等級 ${activePet.level}/60）</div>
+                  <div style="font-size:11px; color:#86efac; margin-top:2px;">✨ 生效加成：${bonus?.desc || ''} (+${Math.round((bonus?.val || 0) * 100)}%)</div>
+                  <div style="font-size:11px; color:#93c5fd; margin-top:2px;">⚔️ 支援攻擊：${bonus?.atk || 0} 物理傷害</div>
                   <div style="width:160px; height:6px; background:rgba(0,0,0,0.6); border-radius:3px; margin-top:6px; overflow:hidden;">
                     <div style="width:${xpPct}%; height:100%; background:#eab308;"></div>
                   </div>
-                  <div style="font-size:9px; color:#94a3b8; margin-top:2px;">XP Pet: ${activePet.xp || 0} / ${reqXp} (${xpPct}%)</div>
+                  <div style="font-size:9px; color:#94a3b8; margin-top:2px;">寵物經驗值：${activePet.xp || 0} / ${reqXp}（${xpPct}%）</div>
                 </div>
               </div>
               <div style="display:flex; flex-direction:column; gap:6px;">
                 <button class="action-btn action-btn--primary" onclick="window.feedPetAction()" style="padding:6px 12px; font-size:11px; font-weight:bold;">
-                  🍖 Alimentar (5k Adena)
+                  🍖 餵食（5,000 金幣）
                 </button>
                 <button class="action-btn" onclick="window.summonPetAction('${activePet.id}')" style="padding:6px 12px; font-size:11px;">
-                  🛑 Recolher Mascote
+                  🛑 收回寵物
                 </button>
               </div>
             </div>
@@ -10026,7 +10035,7 @@ export function init() {
         } else {
           activeContainer.innerHTML = `
             <div style="padding:16px; text-align:center; background:rgba(0,0,0,0.4); border:1px dashed rgba(212,167,68,0.3); border-radius:8px; color:#94a3b8; font-size:12px;">
-              🐾 Nenhum mascote invocado no momento. Invoque um dos seus companheiros abaixo para lutar ao seu lado!
+              🐾 目前沒有召喚寵物。請從下方選擇一名夥伴召喚，與你並肩作戰！
             </div>
           `;
         }
@@ -10057,19 +10066,19 @@ export function init() {
             <div style="display:flex; align-items:center; gap:10px;">
               <span style="font-size:28px;">${petDef.icon}</span>
               <div>
-                <div style="font-weight:bold; color:#ffd877; font-size:13px;">${petDef.name} ${owned ? `(Lv. ${petData.level})` : `(Exige Lv. ${petDef.unlockLvl})`}</div>
+                <div style="font-weight:bold; color:#ffd877; font-size:13px;">${petDef.name} ${owned ? `（等級 ${petData.level}）` : `（需要等級 ${petDef.unlockLvl}）`}</div>
                 <div style="font-size:11px; color:#cbd5e1; margin-top:2px;">${petDef.desc}</div>
-                <div style="font-size:10px; color:#60a5fa; margin-top:2px;">Habilidade: <strong>${petDef.skillName}</strong> — ${petDef.skillDesc}</div>
+                <div style="font-size:10px; color:#60a5fa; margin-top:2px;">技能：<strong>${petDef.skillName}</strong> — ${petDef.skillDesc}</div>
               </div>
             </div>
             <div>
               ${owned ? `
                 <button class="action-btn ${isActive ? '' : 'action-btn--primary'}" style="padding:6px 12px; font-size:11px; font-weight:bold;" onclick="window.summonPetAction('${petDef.id}')">
-                  ${isActive ? '🛑 Recolher' : '⚔️ Invocar'}
+                  ${isActive ? '🛑 收回' : '⚔️ 召喚'}
                 </button>
               ` : `
                 <button class="action-btn ${canUnlock && canAfford ? 'action-btn--primary' : ''}" style="padding:6px 12px; font-size:11px; font-weight:bold;" ${!canUnlock || !canAfford ? 'disabled' : ''} onclick="window.adoptPetAction('${petDef.id}')">
-                  🐾 Adotar (${petDef.cost.toLocaleString()}g)
+                  🐾 領養（${petDef.cost.toLocaleString()} 金幣）
                 </button>
               `}
             </div>
@@ -10145,18 +10154,18 @@ export function init() {
             <div>
               <div style="font-family:'Cinzel',serif; font-weight:bold; color:#ffd877; font-size:14px;">
                 ${inst.name}
-                <span style="font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(212,167,68,0.2); margin-left:6px; color:#fde047;">Lv. ${inst.minLvl}+</span>
+                <span style="font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(212,167,68,0.2); margin-left:6px; color:#fde047;">等級 ${inst.minLvl}+</span>
               </div>
-              <div style="font-size:11px; color:#cbd5e1; margin-top:2px;">Chefe: <strong style="color:#f87171;">${inst.bossName}</strong> (HP: ${inst.bossHp.toLocaleString()} · Atk: ${inst.bossAtk})</div>
-              <div style="font-size:10px; color:#6ee7b7; margin-top:2px;">🎁 Recompensas: +${inst.rewards.xp.toLocaleString()} XP · +${inst.rewards.gold.toLocaleString()}g · +${inst.rewards.sp} SP · ${inst.rewards.guaranteedRewardText}</div>
+              <div style="font-size:11px; color:#cbd5e1; margin-top:2px;">首領：<strong style="color:#f87171;">${inst.bossName}</strong> （生命值：${inst.bossHp.toLocaleString()} · 攻擊：${inst.bossAtk}）</div>
+              <div style="font-size:10px; color:#6ee7b7; margin-top:2px;">🎁 獎勵：+${inst.rewards.xp.toLocaleString()} 經驗值 · +${inst.rewards.gold.toLocaleString()} 金幣 · +${inst.rewards.sp} 技能點 · ${inst.rewards.guaranteedRewardText}</div>
             </div>
           </div>
           <div>
             ${completed ? `
-              <span style="font-size:11px; font-weight:bold; color:#86efac; background:rgba(34,197,94,0.2); padding:4px 8px; border-radius:4px;">✅ Concluído Hoje</span>
+              <span style="font-size:11px; font-weight:bold; color:#86efac; background:rgba(34,197,94,0.2); padding:4px 8px; border-radius:4px;">✅ 今日已完成</span>
             ` : `
               <button class="action-btn ${canEnter ? 'action-btn--primary' : ''}" style="padding:8px 16px; font-size:12px; font-weight:bold; font-family:'Cinzel',serif;" ${!canEnter ? 'disabled' : ''} onclick="window.challengeInstanceAction('${inst.id}')">
-                ⚔️ Entrar
+                ⚔️ 進入
               </button>
             `}
           </div>
@@ -10223,24 +10232,24 @@ export function init() {
               <span style="font-size:24px;">${prov.icon}</span>
               <div>
                 <div style="font-family:'Cinzel',serif; font-weight:bold; color:#ffd877; font-size:14px;">${prov.name}</div>
-                <div style="font-size:11px; color:#94a3b8;">Zona Recomendada: Lv. ${prov.minLvl} - ${prov.maxLvl}</div>
+                <div style="font-size:11px; color:#94a3b8;">建議區域等級：${prov.minLvl}～${prov.maxLvl}</div>
               </div>
             </div>
             <div style="display:flex; align-items:center; gap:6px;">
-              <span style="font-size:11px; color:#cbd5e1;">Sementes Ativas: <strong style="color:#fde047;">${seedCount}x</strong> · Colheitas: <strong style="color:#86efac;">${cropCount}x</strong></span>
+              <span style="font-size:11px; color:#cbd5e1;">使用中的種子：<strong style="color:#fde047;">${seedCount}×</strong> · 收成：<strong style="color:#86efac;">${cropCount}×</strong></span>
             </div>
           </div>
           <div style="background:rgba(212,167,68,0.1); padding:8px 10px; border-radius:6px; font-size:11px; color:#cbd5e1; display:flex; justify-content:space-between; align-items:center;">
             <div>
-              🌱 <strong>${prov.seed.name}</strong> (${prov.seed.cost}g cada)<br>
-              📦 Troca no Castelo: <strong>${prov.seed.exchangeRate}x Colheitas $\rightarrow$ 1x ${prov.seed.rewardItemName}</strong>
+              🌱 <strong>${prov.seed.name}</strong> （${prov.seed.cost} 金幣／個）<br>
+              📦 城堡交換：<strong>${prov.seed.exchangeRate} 份收成 $\rightarrow$ 1 個 ${prov.seed.rewardItemName}</strong>
             </div>
             <div style="display:flex; gap:6px;">
               <button class="action-btn" style="padding:6px 10px; font-size:11px;" onclick="window.buyManorSeedsAction('${prov.id}', 20)">
-                🌱 Comprar 20x (${(prov.seed.cost * 20).toLocaleString()}g)
+                🌱 購買 20 個（${(prov.seed.cost * 20).toLocaleString()} 金幣）
               </button>
               <button class="action-btn ${canExchange ? 'action-btn--primary' : ''}" style="padding:6px 10px; font-size:11px; font-weight:bold;" ${!canExchange ? 'disabled' : ''} onclick="window.exchangeManorCropsAction('${prov.id}')">
-                📦 Entregar Colheita
+                📦 交付收成
               </button>
             </div>
           </div>
@@ -10307,20 +10316,20 @@ export function init() {
       const code = (rawCode || '').trim();
 
       if (!code) {
-        log('⚠️ Por favor, digite o nome do aventureiro que te indicou.', 'warning');
+        log('⚠️ 請輸入推薦你的冒險者名稱。', 'warning');
         return;
       }
       if ((state.level || 1) > 20) {
-        log('⚠️ O vínculo manual de código de indicação só é permitido até o Nível 20.', 'warning');
+        log('⚠️ 手動綁定推薦碼僅限等級 20 以前。', 'warning');
         return;
       }
       if (state.referredBy) {
-        log(`⚠️ Você já possui uma indicação vinculada a [${state.referredBy}].`, 'warning');
+        log(`⚠️ 你已經綁定推薦人 [${state.referredBy}]。`, 'warning');
         return;
       }
       const myName = (state.name || state.charName || '').trim().toLowerCase();
       if (code.toLowerCase() === myName) {
-        log('⚠️ Você não pode indicar a si mesmo!', 'warning');
+        log('⚠️ 你不能推薦自己！', 'warning');
         return;
       }
 
@@ -10330,7 +10339,7 @@ export function init() {
         try {
           const referrerPlayer = await window.FirebaseBridge.getPlayerByName(code);
           if (!referrerPlayer) {
-            log(`⚠️ O herói [${code}] não foi encontrado em Aden. Verifique a grafia do nome.`, 'error');
+            log(`⚠️ 在亞丁找不到英雄 [${code}]，請確認名稱拼字。`, 'error');
             return;
           }
           resolvedReferrerName = referrerPlayer.name;
@@ -10354,7 +10363,7 @@ export function init() {
           state.inventory.push({
             uid: `ref_shots_${Date.now()}`,
             itemId: 'soulshot_ng',
-            name: 'Soulshot: No-Grade',
+            name: '魂彈：無級別',
             count: 1000,
             rarity: 'common',
             type: 'consumable'
@@ -10375,8 +10384,8 @@ export function init() {
         }
       }
 
-      log(`✨ **Vínculo Confirmado!** Você foi indicado por **${code}**! Bônus de novato ativado: **+10% EXP permanente** e **+1.000 Shots** concedidos!`, 'rarity-legendary');
-      if (typeof floatText === 'function') floatText('✨ VÍNCULO DE INDICAÇÃO ATIVADO (+10% EXP)!', 'float-jackpot');
+      log(`✨ **推薦綁定成功！** 你已由 **${code}** 推薦！新手加成已啟用：**永久 +10% 經驗值**，並獲得 **1,000 發魂彈**！`, 'rarity-legendary');
+      if (typeof floatText === 'function') floatText('✨ 推薦連結已啟用（經驗值 +10%）！', 'float-jackpot');
       updateAllUI();
       save();
       uiOpenReferralModal(state);
@@ -10389,7 +10398,7 @@ export function init() {
       const btn = document.getElementById('ref-check-rewards-btn');
       if (btn) {
         btn.disabled = true;
-        btn.innerHTML = '⏳ Verificando no servidor...';
+        btn.innerHTML = '⏳ 正在伺服器上檢查...';
       }
 
       try {
@@ -10415,7 +10424,7 @@ export function init() {
             state.inventory.push({
               uid: `ref_${Date.now()}`,
               itemId: 'scroll_blessed_weapon',
-              name: 'Pergaminho Abençoado de Arma (Universal)',
+              name: '祝福的武器強化卷軸（通用）',
               count: totalScrolls,
               rarity: 'rare',
               type: 'consumable'
@@ -10423,20 +10432,20 @@ export function init() {
           }
 
           state.referralRewardsClaimed = (state.referralRewardsClaimed || 0) + result.claimableRewards;
-          log(`🎉 **Recompensa de Indicação Resgatada!** Seus amigos indicados atingiram o Nv. 40! Você recebeu **+${totalAC} AC** e **${totalScrolls}x Pergaminhos Abençoados de Arma**!`, 'rarity-legendary');
-          if (typeof floatText === 'function') floatText(`🎁 +${totalAC} AC DE INDICAÇÃO!`, 'float-jackpot');
+          log(`🎉 **推薦獎勵已領取！** 你推薦的朋友已達等級 40！獲得 **+${totalAC} 亞丁幣** 與 **${totalScrolls}× 祝福武器強化卷軸**！`, 'rarity-legendary');
+          if (typeof floatText === 'function') floatText(`🎁 推薦獎勵 +${totalAC} 亞丁幣！`, 'float-jackpot');
           updateAllUI();
           save();
         } else {
-          log('ℹ️ Nenhuma recompensa pendente no momento. Quando seus amigos indicados alcançarem o Nível 40, suas 50 AC e 5x Blessed Scrolls estarão disponíveis aqui!', 'info');
-          if (typeof floatText === 'function') floatText('Nenhuma recompensa pendente', 'float-normal');
+          log('ℹ️ 目前沒有待領獎勵。當你推薦的朋友達到等級 40 後，可在這裡領取 50 亞丁幣與 5 張祝福強化卷軸！', 'info');
+          if (typeof floatText === 'function') floatText('沒有待領獎勵', 'float-normal');
         }
       } catch (err) {
         console.error('Erro ao verificar recompensas de indicação:', err);
       } finally {
         if (btn) {
           btn.disabled = false;
-          btn.innerHTML = '🔄 Verificar & Resgatar Recompensas de Amigos';
+          btn.innerHTML = '🔄 檢查並領取好友獎勵';
         }
         uiOpenReferralModal(state);
       }
@@ -10520,7 +10529,7 @@ export function init() {
           CardCodexService.absorbCardIntoCodex(state, cardId, { log });
           absorbedCount = 1;
         } else {
-          log('Você não possui esta carta para absorver.', 'system');
+          log('你沒有這張可吸收的卡片。', 'system');
           return;
         }
       } else {
@@ -10531,7 +10540,7 @@ export function init() {
         if (absorbedCount > 0) {
           const cardDef = MONSTER_CARDS[cardId];
           const cur = state.cardCodex?.[cardId] || {};
-          log(`🃏 Absorvidas **${absorbedCount}x cartas de ${cardDef?.name || cardId}** no Codex! (Rank ${cur.rank}/5 · Total: ${cur.count})`, 'gain');
+          log(`🃏 已將 **${absorbedCount} 張 ${cardDef?.name || '未知卡片'} 卡片**吸收到圖鑑！（階級 ${cur.rank}/5 · 總計：${cur.count}）`, 'gain');
         }
       }
 
@@ -10595,68 +10604,68 @@ export function init() {
       if (tab === 'journey') {
         contentEl.innerHTML = `
           <div style="background:rgba(0,0,0,0.35); padding:12px; border-radius:8px; border:1px solid rgba(212,175,55,0.2); margin-bottom:10px;">
-            <h4 style="color:#fbbf24; margin:0 0 6px 0;">🐣 Nível 1 a 20 — Os Primeiros Passos (No-Grade)</h4>
-            <p style="margin:0 0 4px 0;">• <strong>Zonas:</strong> Talking Island, Elven Forest, Dark Forest, Orc Village, Dwarven Mine, Kamael Lair, Ruined Outpost, Howling Moor.</p>
-            <p style="margin:0 0 4px 0;">• <strong>O que fazer:</strong> Equipe o Starter Kit da sua classe. Suas habilidades exigem a arma correta (ex: Arco para arqueiros, Adaga para assassinos). Desmanche itens sobressalentes na Forja para subir o Nível de Forja da Conta.</p>
-            <p style="margin:0; color:#34d399; font-weight:bold;">🏆 Marco: 1ª Troca de Classe no Nível 20 (Desbloqueia Grau D e Saga Prelude of War).</p>
+            <h4 style="color:#fbbf24; margin:0 0 6px 0;">🐣 等級 1～20 — 初次冒險（無級別）</h4>
+            <p style="margin:0 0 4px 0;">• <strong>區域：</strong>說話之島、精靈森林、黑暗森林、半獸人村莊、矮人礦坑、卡麥爾巢穴、荒廢前哨、呼嘯荒原。</p>
+            <p style="margin:0 0 4px 0;">• <strong>該怎麼做：</strong> 裝備你的職業新手套裝。技能需要正確武器才能使用（例如弓手使用弓、刺客使用匕首）。把多餘裝備送到鍛造系統拆解，以提升帳號鍛造等級。</p>
+            <p style="margin:0; color:#34d399; font-weight:bold;">🏆 里程碑：等級 20 完成第一次轉職（解鎖 D 級與「戰爭序曲」史詩任務）。</p>
           </div>
 
           <div style="background:rgba(0,0,0,0.35); padding:12px; border-radius:8px; border:1px solid rgba(212,175,55,0.2); margin-bottom:10px;">
-            <h4 style="color:#fbbf24; margin:0 0 6px 0;">🛡️ Nível 20 a 40 — Grau D &amp; Primeiro Raid Boss</h4>
-            <p style="margin:0 0 4px 0;">• <strong>Zonas:</strong> Giran Outskirts, Orcen Ruins, Forsaken Crypt, Black Citadel.</p>
-            <p style="margin:0 0 4px 0;">• <strong>Raid Boss:</strong> Enfrente a <strong>Queen Ant 👑 (Lv. 40)</strong> para dropar o <em>Ring of Queen Ant</em> e a <em>Queen Ant Doll</em> (Codex).</p>
-            <p style="margin:0 0 4px 0;">• <strong>Sete Selos:</strong> Colete Seal Stones (Red, Green, Blue) caídas dos monstros para contribuir na vitória semanal da sua facção.</p>
-            <p style="margin:0; color:#34d399; font-weight:bold;">🏆 Marco: 2ª Troca de Classe no Nível 40 (Desbloqueia Grau C e Saga The Awakening).</p>
+            <h4 style="color:#fbbf24; margin:0 0 6px 0;">🛡️ 等級 20～40 — D 級與首位團隊首領</h4>
+            <p style="margin:0 0 4px 0;">• <strong>區域：</strong>奇岩郊區、歐肯遺跡、遺忘墓穴、黑色城塞。</p>
+            <p style="margin:0 0 4px 0;">• <strong>團隊首領：</strong>挑戰<strong>蟻后 👑（等級 40）</strong>，有機會獲得<em>蟻后戒指</em>與<em>蟻后娃娃</em>（圖鑑）。</p>
+            <p style="margin:0 0 4px 0;">• <strong>七封印：</strong>蒐集怪物掉落的紅／綠／藍封印石，為陣營每週勝利累積貢獻。</p>
+            <p style="margin:0; color:#34d399; font-weight:bold;">🏆 里程碑：等級 40 完成第二次轉職（解鎖 C 級與「覺醒」史詩任務）。</p>
           </div>
 
           <div style="background:rgba(0,0,0,0.35); padding:12px; border-radius:8px; border:1px solid rgba(212,175,55,0.2); margin-bottom:10px;">
-            <h4 style="color:#fbbf24; margin:0 0 6px 0;">⚔️ Nível 40 a 75 — Grau C/B/A, Barreira de Forja &amp; Noblesse</h4>
-            <p style="margin:0 0 4px 0;">• <strong>Zonas:</strong> Gludio Castle, Wolf Mountain, Rift of the Void, Emerald Grove, Gates of the Underworld, Valley of Saints, Swamp of Screams.</p>
-            <p style="margin:0 0 4px 0;">• <strong>Raid Bosses:</strong> Core (Lv. 50), Orfen (Lv. 55), Zaken (Lv. 60).</p>
-            <p style="margin:0 0 4px 0;">• <strong>Forja Nível 10:</strong> Ao atingir o Nível 10 de Forja, o <strong>Mercado Global</strong> é desbloqueado para comercializar itens livremente.</p>
-            <p style="margin:0 0 4px 0;">• <strong>Saga de Noblesse (Lv. 75):</strong> Complete as 4 partes da quest em Valley of Saints, Swamp of Screams e derrote o <strong>Raid Boss Barakiel</strong> para se consagrar Noblesse!</p>
-            <p style="margin:0; color:#34d399; font-weight:bold;">🏆 Marco: 3ª Troca de Classe no Nível 76 (Sagas Ancestrais e Grau S).</p>
+            <h4 style="color:#fbbf24; margin:0 0 6px 0;">⚔️ 等級 40～75 — C／B／A 級、鍛造門檻與貴族</h4>
+            <p style="margin:0 0 4px 0;">• <strong>區域：</strong>古魯丁城堡、狼山、虛空裂隙、翡翠樹林、冥界之門、聖者之谷、悲鳴沼澤。</p>
+            <p style="margin:0 0 4px 0;">• <strong>團隊首領：</strong>核心（等級 50）、歐爾芬（等級 55）、札肯（等級 60）。</p>
+            <p style="margin:0 0 4px 0;">• <strong>鍛造等級 10：</strong>鍛造達到等級 10 後，將解鎖<strong>全球市場</strong>，可自由交易物品。</p>
+            <p style="margin:0 0 4px 0;">• <strong>貴族任務（等級 75）：</strong>完成 4 個階段，前往聖者之谷與悲鳴沼澤，並擊敗<strong>團隊首領巴拉基爾</strong>，即可正式成為貴族！</p>
+            <p style="margin:0; color:#34d399; font-weight:bold;">🏆 里程碑：等級 76 完成第三次轉職（解鎖遠古史詩任務與 S 級）。</p>
           </div>
 
           <div style="background:rgba(0,0,0,0.35); padding:12px; border-radius:8px; border:1px solid rgba(212,175,55,0.2);">
-            <h4 style="color:#fbbf24; margin:0 0 6px 0;">👑 Nível 76 a 95+ — Endgame, Dragões &amp; Transcendência (Reset)</h4>
-            <p style="margin:0 0 4px 0;">• <strong>Zonas:</strong> Aden City, Dragon Valley, Imperial Tomb, Antharas' Lair, Forge of the Gods.</p>
-            <p style="margin:0 0 4px 0;">• <strong>Raid Bosses Épicos:</strong> Imperador Baium (Lv. 75), Frintezza (Lv. 85), Antharas (Lv. 95) e Valakas (Lv. 100).</p>
-            <p style="margin:0 0 4px 0;">• <strong>Grand Olympiad:</strong> Nobres disputam o título de Herói Supremo todo fim de semana.</p>
-            <p style="margin:0; color:#ffd700; font-weight:bold;">♾️ Rebirth / Reset: Ao atingir o Nível 85, você pode Transcender (Reset) para o Nível 1 acumulando +60 Pontos de Atributos Permanentes!</p>
+            <h4 style="color:#fbbf24; margin:0 0 6px 0;">👑 等級 76～95+ — 後期內容、巨龍與超越（重置）</h4>
+            <p style="margin:0 0 4px 0;">• <strong>區域：</strong>亞丁城、龍之谷、帝國陵墓、安塔瑞斯巢穴、諸神熔爐。</p>
+            <p style="margin:0 0 4px 0;">• <strong>史詩團隊首領：</strong>皇帝巴溫（等級 75）、弗林泰沙（等級 85）、安塔瑞斯（等級 95）、巴拉卡斯（等級 100）。</p>
+            <p style="margin:0 0 4px 0;">• <strong>大奧林匹亞：</strong>貴族玩家每週末爭奪至高英雄稱號。</p>
+            <p style="margin:0; color:#ffd700; font-weight:bold;">♾️ 重生／重置：達到等級 85 後可進行超越，重置回等級 1，並累積 +60 永久屬性點數！</p>
           </div>
         `;
       } else if (tab === 'forge') {
         contentEl.innerHTML = `
-          <h4 style="color:#fbbf24; margin-top:0;">🔨 Nível de Forja da Conta &amp; Economia Circular</h4>
-          <p>• <strong>Como subir o Nível de Forja:</strong> Ao desmanchar equipamentos sobressalentes na mochila ou forjar receitas, você ganha <strong>EXP de Forja</strong>.</p>
-          <p>• <strong>Por que a Forja é essencial:</strong> Níveis mais altos aumentam a chance de criar itens Masterwork (Pushkin), reduzem custos e liberam receitas de Grau A, S e Soberanas.</p>
-          <p>• <strong>Desbloqueio do Mercado Global (Lv. 10):</strong> Para combater bots e valorizar os jogadores dedicados, o Mercado Global exige Nível 10 de Forja da Conta.</p>
-          <p>• <strong>Item Sinks Massivos:</strong> No Endgame, você pode sacrificar armas antigas no Ferreiro Oculto para condensar Energia Ancestral e forjar Relíquias Soberanas.</p>
+          <h4 style="color:#fbbf24; margin-top:0;">🔨 帳號鍛造等級與循環經濟</h4>
+          <p>• <strong>如何提升鍛造等級：</strong>拆解背包中的多餘裝備或製作配方，都可獲得<strong>鍛造經驗值</strong>。</p>
+          <p>• <strong>為什麼鍛造很重要：</strong>更高的鍛造等級會提高製作名匠裝備（普希金）的機率、降低成本，並解鎖 A 級、S 級與至尊級配方。</p>
+          <p>• <strong>全球市場解鎖（等級 10）：</strong>為降低機器人濫用並鼓勵正常遊玩，帳號鍛造等級需達 10 才能使用全球市場。</p>
+          <p>• <strong>大量物品消耗機制：</strong>後期可在隱藏鐵匠處犧牲舊武器，凝聚遠古能量並打造至尊遺物。</p>
         `;
       } else if (tab === 'codex') {
         contentEl.innerHTML = `
-          <h4 style="color:#fbbf24; margin-top:0;">🃏 Codex de Coleções &amp; Cartas de Monstros</h4>
-          <p>• <strong>Coleções de Itens:</strong> Registre armas e armaduras de treino para desbloquear bônus passivos permanentes de ATK, DEF e HP para toda a sua conta.</p>
-          <p>• <strong>Cartas de Monstros &amp; Boss Dolls:</strong> Ao derrotar Chefes de Raid (Queen Ant, Core, Orfen, Zaken, Baium, Antharas, Valakas), você tem chance de dropar suas Cartas Raras.</p>
-          <p>• <strong>Absorver no Codex:</strong> Absorver a carta no Álbum concede atributos perpétuos na conta (P.ATK, M.ATK, Vampirismo, etc.).</p>
-          <p>• <strong>Engaste em Equipamentos:</strong> Você também pode engastar cartas em slots de armas para potencializar seu dano elemental e crítico.</p>
+          <h4 style="color:#fbbf24; margin-top:0;">🃏 收藏圖鑑與怪物卡片</h4>
+          <p>• <strong>物品收藏：</strong>登錄訓練武器與防具，可為整個帳號解鎖永久攻擊、防禦、生命值被動加成。</p>
+          <p>• <strong>怪物卡與首領娃娃：</strong>擊敗團隊首領（蟻后、核心、歐爾芬、札肯、巴溫、安塔瑞斯、巴拉卡斯）時，有機會掉落對應稀有卡片。</p>
+          <p>• <strong>吸收到圖鑑：</strong>將卡片吸收到圖鑑後，可為帳號永久增加屬性（物理攻擊、魔法攻擊、吸血等）。</p>
+          <p>• <strong>裝備鑲嵌：</strong>也可將卡片鑲嵌到武器欄位，提高元素傷害與暴擊能力。</p>
         `;
       } else if (tab === 'combat') {
         contentEl.innerHTML = `
-          <h4 style="color:#fbbf24; margin-top:0;">⚔️ Restrições de Combate, Movesets &amp; Grimórios 4★</h4>
-          <p>• <strong>Moveset por Arma:</strong> Habilidades físicas exigem o arquétipo correto de arma equipado (ex: Habilidades de tiro exigem Arco, Danças exigem Espadas Duplas, etc.).</p>
-          <p>• <strong>Fraquezas Elementais:</strong> Monstros e chefes possuem elementos (Fogo, Água, Vento, Terra, Sagrado, Trevas). Usar a fraqueza oposta concede até +50% de dano bônus.</p>
-          <p>• <strong>Habilidades Supremas (4★):</strong> Habilidades 4-Star exigem o respectivo <em>Spellbook: 4-Star</em> na mochila para serem aprendidas pela 1ª vez. Uma vez aprendida, o livro é consumido e a habilidade pode ser usada para sempre!</p>
-          <p>• <strong>Hard DPS Check:</strong> Chefes de Raid possuem temporizadores de Enrage. Se o grupo não causar dano suficiente dentro do tempo limite, o Boss entra em fúria mortal.</p>
+          <h4 style="color:#fbbf24; margin-top:0;">⚔️ 戰鬥限制、武器招式與 4★ 魔法書</h4>
+          <p>• <strong>武器招式限制：</strong>物理技能需要裝備正確武器類型（例如射擊技能需要弓、劍舞技能需要雙劍等）。</p>
+          <p>• <strong>元素弱點：</strong>怪物與首領具有火、水、風、地、神聖、黑暗等屬性。使用相剋屬性最高可獲得 +50% 額外傷害。</p>
+          <p>• <strong>終極技能（4★）：</strong>首次學習 4★ 技能時，背包必須持有對應的<em>4★ 魔法書</em>。學會後魔法書會消耗，但技能可永久使用。</p>
+          <p>• <strong>硬性傷害輸出檢定：</strong>團隊首領具有狂暴倒數。若隊伍無法在期限內造成足夠傷害，首領將進入致命狂暴狀態。</p>
         `;
       } else if (tab === 'sevensigns') {
         contentEl.innerHTML = `
-          <h4 style="color:#fbbf24; margin-top:0;">🏛️ Sete Selos (Seven Signs), Mammon &amp; Noblesse</h4>
-          <p>• <strong>Ciclo Semanal das Seven Signs:</strong> Escolha entre <strong>Senhores do Amanhecer (Dawn)</strong> ou <strong>Revolucionários do Crepúsculo (Dusk)</strong>. Entregue Seal Stones obtidas nas caças para acumular pontos de vitória.</p>
-          <p>• <strong>Ferreiro &amp; Mercador de Mammon:</strong> A facção vencedora ganha acesso exclusivo ao Ferreiro de Mammon para remoção de selos, trocas de armas Grau A/S e serviços sem perda de encanto usando Ancient Adena.</p>
-          <p>• <strong>Questline de Noblesse (Possessor of a Precious Soul):</strong> No Nível 75, cumpra as 4 etapas da jornada em Valley of Saints e Swamp of Screams e derrote o Raid Boss <strong>Barakiel</strong> para conquistar o status de Noblesse.</p>
-          <p>• <strong>Grand Olympiad:</strong> Nobres Nível 76+ podem lutar na arena 1v1 pelas cobiçadas Armas da Infinidade e o manto de Herói Supremo de Aden!</p>
+          <h4 style="color:#fbbf24; margin-top:0;">🏛️ 七封印、馬門與貴族</h4>
+          <p>• <strong>七封印每週循環：</strong>選擇<strong>黎明領主</strong>或<strong>黃昏革命軍</strong>陣營，繳交狩獵取得的封印石來累積勝利點數。</p>
+          <p>• <strong>馬門鐵匠與商人：</strong>勝利陣營可使用馬門服務，包括解除封印、A／S 級武器交換，以及使用古代金幣進行不降低強化值的特殊服務。</p>
+          <p>• <strong>貴族任務線（珍貴靈魂的擁有者）：</strong>達到等級 75 後，完成聖者之谷與悲鳴沼澤的 4 個階段，並擊敗團隊首領<strong>巴拉基爾</strong>，即可取得貴族資格。</p>
+          <p>• <strong>大奧林匹亞：</strong>等級 76 以上貴族可參加 1 對 1 競技，爭奪無限武器與亞丁至高英雄披風！</p>
         `;
       }
     };
@@ -10964,7 +10973,7 @@ export function init() {
     window.refreshRankingsAction = () => {
       uiSetActiveRankingTab(window._activeRankingCat || 'cp');
       updateRankingsUI();
-      log('🏆 Rankings e Combat Powers globais atualizados.', 'system');
+      log('🏆 世界排行榜與戰鬥力資料已更新。', 'system');
     };
     window.challengeRankingPlayerAction = (charName, oppCP) => {
       openPanel('colosseum');
@@ -10974,7 +10983,7 @@ export function init() {
       }, {
         charName,
         name: charName,
-        className: 'Rival do Ranking',
+        className: '排行榜對手',
         statsSnapshot: {
           hp: Math.floor(oppCP * 0.08),
           pAtk: Math.floor(oppCP * 0.06),
@@ -11037,14 +11046,14 @@ export function init() {
       });
 
       contentEl.innerHTML = `
-        <!-- Section 1: Auto-Poções Avançadas -->
+        <!-- Section 1: 自動藥水 Avançadas -->
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(212,167,68,0.3); border-radius:10px; padding:14px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
             <div style="font-family:'Cinzel',serif; font-size:14px; font-weight:bold; color:#ffd877; display:flex; align-items:center; gap:8px;">
-              <span>🧪 Gatilhos de Auto-Poção</span>
+              <span>🧪 自動藥水觸發條件</span>
             </div>
             <button onclick="window.toggleCombatAutoPotionAction()" style="background:${state.autoPotionActive ? 'linear-gradient(180deg,#22c55e,#15803d)' : 'rgba(255,255,255,0.1)'}; border:1px solid ${state.autoPotionActive ? '#86efac' : 'rgba(255,255,255,0.2)'}; color:#fff; border-radius:6px; padding:4px 12px; font-size:12px; font-weight:bold; cursor:pointer;">
-              ${state.autoPotionActive ? '🟢 Ativado' : '⚪ Desativado'}
+              ${state.autoPotionActive ? '🟢 已啟用' : '⚪ 已停用'}
             </button>
           </div>
 
@@ -11054,15 +11063,15 @@ export function init() {
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                 <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-weight:bold; font-size:12px; color:#fca5a5;">
                   <input type="checkbox" ${ap.autoHp !== false ? 'checked' : ''} onchange="window.setMacroToggleHp(this.checked)" />
-                  Auto-Poção de Vida (HP)
+                  自動使用生命藥水
                 </label>
                 <span style="font-weight:bold; color:#ef4444; font-size:12px;">&lt; ${hpVal}%</span>
               </div>
               <input type="range" min="20" max="90" step="5" value="${hpVal}" oninput="window.setMacroHpThreshold(this.value)" style="width:100%; accent-color:#ef4444; cursor:pointer;" />
               <div style="display:flex; justify-content:space-between; font-size:10px; color:#94a3b8; margin-top:2px;">
-                <span>20% (Crítico)</span>
+                <span>20%（危急）</span>
                 <span>50%</span>
-                <span>90% (Seguro)</span>
+                <span>90%（安全）</span>
               </div>
             </div>
 
@@ -11071,15 +11080,15 @@ export function init() {
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                 <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-weight:bold; font-size:12px; color:#93c5fd;">
                   <input type="checkbox" ${ap.autoMp !== false ? 'checked' : ''} onchange="window.setMacroToggleMp(this.checked)" />
-                  Auto-Poção de Mana (MP)
+                  自動使用魔力藥水
                 </label>
                 <span style="font-weight:bold; color:#3b82f6; font-size:12px;">&lt; ${mpVal}%</span>
               </div>
               <input type="range" min="15" max="85" step="5" value="${mpVal}" oninput="window.setMacroMpThreshold(this.value)" style="width:100%; accent-color:#3b82f6; cursor:pointer;" />
               <div style="display:flex; justify-content:space-between; font-size:10px; color:#94a3b8; margin-top:2px;">
-                <span>15% (Baixo)</span>
+                <span>15%（低）</span>
                 <span>40%</span>
-                <span>85% (Alto)</span>
+                <span>85%（高）</span>
               </div>
             </div>
           </div>
@@ -11090,16 +11099,16 @@ export function init() {
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
             <div>
               <div style="font-family:'Cinzel',serif; font-size:14px; font-weight:bold; color:#ffd877;">
-                ⚡ Rotação &amp; Prioridade de Habilidades
+                ⚡ 技能循環與優先順序
               </div>
               <div style="font-size:11px; color:#94a3b8;">
-                Defina a ordem de execução do combate automático. O herói tentará usar as primeiras skills da lista sempre que o tempo de recarga (CD) estiver disponível.
+                設定自動戰鬥的技能施放順序。只要冷卻時間結束，角色會優先嘗試使用列表前方的技能。
               </div>
             </div>
           </div>
 
           <div style="display:flex; flex-direction:column; gap:6px; max-height:260px; overflow-y:auto; padding-right:4px;">
-            ${knownActiveSkills.length === 0 ? '<div style="color:#94a3b8; font-size:12px; text-align:center; padding:16px;">Nenhuma habilidade ativa aprendida ainda.</div>' : knownActiveSkills.map((sk, idx) => {
+            ${knownActiveSkills.length === 0 ? '<div style="color:#94a3b8; font-size:12px; text-align:center; padding:16px;">目前尚未學習任何主動技能。</div>' : knownActiveSkills.map((sk, idx) => {
               const isAuto = state.skillAutoCast[sk.id] !== false;
               const cdSec = Math.round((sk.def.baseCd || 5000) / 1000);
               const mpCost = sk.def.mpCost || 0;
@@ -11108,19 +11117,19 @@ export function init() {
                   <div style="display:flex; align-items:center; gap:10px;">
                     <span style="font-size:12px; font-weight:bold; color:#ffd877; width:20px; text-align:center;">#${idx + 1}</span>
                     <div>
-                      <div style="font-weight:bold; font-size:13px; color:#f8fafc; font-family:'Cinzel',serif;">${sk.def.name} <span style="font-size:11px; color:#86efac;">(Nv. ${sk.lvl})</span></div>
-                      <div style="font-size:10px; color:#94a3b8;">Recarga: ${cdSec}s | MP: ${mpCost} | Tier: ${sk.def.tier || 1}</div>
+                      <div style="font-weight:bold; font-size:13px; color:#f8fafc; font-family:'Cinzel',serif;">${sk.def.name} <span style="font-size:11px; color:#86efac;">（等級 ${sk.lvl}）</span></div>
+                      <div style="font-size:10px; color:#94a3b8;">冷卻：${cdSec} 秒 | 魔力：${mpCost} | 階級：${sk.def.tier || 1}</div>
                     </div>
                   </div>
 
                   <div style="display:flex; align-items:center; gap:8px;">
                     <label style="display:flex; align-items:center; gap:4px; font-size:11px; cursor:pointer; color:${isAuto ? '#86efac' : '#94a3b8'};">
                       <input type="checkbox" ${isAuto ? 'checked' : ''} onchange="window.toggleSkillAutoCastAction('${sk.id}')" />
-                      Auto-Usar
+                      自動使用
                     </label>
                     <div style="display:flex; gap:3px;">
-                      <button ${idx === 0 ? 'disabled' : ''} onclick="window.moveSkillPriorityAction('${sk.id}', -1)" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#fff; border-radius:4px; padding:2px 6px; cursor:${idx === 0 ? 'default' : 'pointer'}; opacity:${idx === 0 ? 0.3 : 1};" title="Subir prioridade">▲</button>
-                      <button ${idx === knownActiveSkills.length - 1 ? 'disabled' : ''} onclick="window.moveSkillPriorityAction('${sk.id}', 1)" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#fff; border-radius:4px; padding:2px 6px; cursor:${idx === knownActiveSkills.length - 1 ? 'default' : 'pointer'}; opacity:${idx === knownActiveSkills.length - 1 ? 0.3 : 1};" title="Descer prioridade">▼</button>
+                      <button ${idx === 0 ? 'disabled' : ''} onclick="window.moveSkillPriorityAction('${sk.id}', -1)" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#fff; border-radius:4px; padding:2px 6px; cursor:${idx === 0 ? 'default' : 'pointer'}; opacity:${idx === 0 ? 0.3 : 1};" title="提高優先順序">▲</button>
+                      <button ${idx === knownActiveSkills.length - 1 ? 'disabled' : ''} onclick="window.moveSkillPriorityAction('${sk.id}', 1)" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#fff; border-radius:4px; padding:2px 6px; cursor:${idx === knownActiveSkills.length - 1 ? 'default' : 'pointer'}; opacity:${idx === knownActiveSkills.length - 1 ? 0.3 : 1};" title="降低優先順序">▼</button>
                     </div>
                   </div>
                 </div>
@@ -11133,14 +11142,14 @@ export function init() {
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(212,167,68,0.3); border-radius:10px; padding:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
           <div>
             <div style="font-family:'Cinzel',serif; font-size:14px; font-weight:bold; color:#ffd877;">
-              ♻️ Filtro de Descarte &amp; Auto-Recycle AFK
+              ♻️ 丟棄篩選與掛機自動回收
             </div>
             <div style="font-size:11px; color:#94a3b8;">
-              Status atual: <strong>${state.autoRecycle?.enabled ? '🟢 ATIVADO (' + (state.autoRecycle.mode === 'sell' ? 'Auto-Venda' : 'Desmanche em Cristais') + ')' : '⚪ DESATIVADO'}</strong>. Suporta No-Grade até Grade A com salvaguarda inviolável de itens +enchant e raros.
+              目前狀態：<strong>${state.autoRecycle?.enabled ? '🟢 已啟用（' + (state.autoRecycle.mode === 'sell' ? '自動出售' : '分解成水晶') + '）' : '⚪ 已停用'}</strong>。支援無級別至 A 級，並會強制保護有強化值與稀有物品。
             </div>
           </div>
           <button onclick="window.openAutoRecycleModal()" style="background:linear-gradient(180deg,#d4a744,#8a641c); border:1px solid #ffe699; color:#000; font-family:'Cinzel',serif; font-weight:bold; font-size:12px; border-radius:6px; padding:8px 16px; cursor:pointer;">
-            Configurar Filtro AFK ⚙️
+            設定掛機篩選 ⚙️
           </button>
         </div>
       `;
@@ -11226,31 +11235,31 @@ export function init() {
         contentEl.innerHTML = `
           <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(234,179,8,0.3); border-radius:8px; padding:14px; margin-bottom:14px;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-              <span style="font-weight:bold; color:#fde047; font-size:14px;">Status do Evento:</span>
-              <span style="background:rgba(34,197,94,0.2); color:#4ade80; border:1px solid #22c55e; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:bold;">● ATIVO AGORA</span>
+              <span style="font-weight:bold; color:#fde047; font-size:14px;">活動狀態：</span>
+              <span style="background:rgba(34,197,94,0.2); color:#4ade80; border:1px solid #22c55e; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:bold;">● 目前啟用</span>
             </div>
             <p style="margin:0 0 10px 0; font-size:12px; color:#cbd5e1;">${evt.desc}</p>
             <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:8px;">
               <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:6px; text-align:center; border:1px solid rgba(255,255,255,0.1);">
-                <div style="font-size:11px; color:#94a3b8;">Bônus Adena</div>
+                <div style="font-size:11px; color:#94a3b8;">金幣加成</div>
                 <div style="font-size:15px; font-weight:bold; color:#facc15;">+${Math.round((evt.modifiers.goldMult - 1) * 100)}%</div>
               </div>
               <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:6px; text-align:center; border:1px solid rgba(255,255,255,0.1);">
-                <div style="font-size:11px; color:#94a3b8;">Bônus EXP</div>
+                <div style="font-size:11px; color:#94a3b8;">經驗值加成</div>
                 <div style="font-size:15px; font-weight:bold; color:#38bdf8;">+${Math.round((evt.modifiers.xpMult - 1) * 100)}%</div>
               </div>
               <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:6px; text-align:center; border:1px solid rgba(255,255,255,0.1);">
-                <div style="font-size:11px; color:#94a3b8;">Bônus SP</div>
+                <div style="font-size:11px; color:#94a3b8;">技能點加成</div>
                 <div style="font-size:15px; font-weight:bold; color:#c084fc;">+${Math.round((evt.modifiers.spMult - 1) * 100)}%</div>
               </div>
               <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:6px; text-align:center; border:1px solid rgba(255,255,255,0.1);">
-                <div style="font-size:11px; color:#94a3b8;">Forja / Síntese</div>
+                <div style="font-size:11px; color:#94a3b8;">鍛造／合成</div>
                 <div style="font-size:15px; font-weight:bold; color:#fb923c;">+${Math.round(evt.modifiers.enchantBonus * 100)}%</div>
               </div>
             </div>
           </div>
           <div style="font-size:11px; color:#94a3b8; text-align:center; font-style:italic;">
-            Os eventos de Live-Ops atualizam automaticamente em tempo real com base no calendário do reino.
+            即時活動會依王國行事曆自動更新。
           </div>
         `;
       }
@@ -11271,8 +11280,8 @@ export function init() {
         const pct = Math.round((status.claimedCount / 7) * 100);
         overviewEl.innerHTML = `
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-            <span style="font-weight:bold; color:#fef08a; font-size:14px; font-family:'Cinzel',serif;">Progresso dos 7 Passos:</span>
-            <span style="font-weight:bold; color:#38bdf8; font-size:13px;">${status.claimedCount} / 7 Concluídos (${pct}%)</span>
+            <span style="font-weight:bold; color:#fef08a; font-size:14px; font-family:'Cinzel',serif;">7 個步驟進度：</span>
+            <span style="font-weight:bold; color:#38bdf8; font-size:13px;">${status.claimedCount} / 7 已完成（${pct}%）</span>
           </div>
           <div style="width:100%; height:8px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;">
             <div style="width:${pct}%; height:100%; background:linear-gradient(90deg, #eab308, #22c55e); transition:width 0.3s;"></div>
@@ -11289,11 +11298,11 @@ export function init() {
 
           let btnHtml = '';
           if (isClaimed) {
-            btnHtml = `<button disabled style="background:rgba(255,255,255,0.05); color:#9ca3af; border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:6px 12px; font-size:12px; cursor:default;">✅ Resgatado</button>`;
+            btnHtml = `<button disabled style="background:rgba(255,255,255,0.05); color:#9ca3af; border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:6px 12px; font-size:12px; cursor:default;">✅ 已領取</button>`;
           } else if (canClaim) {
-            btnHtml = `<button onclick="window.claimStarterJourneyStepAction('${step.id}')" style="background:linear-gradient(180deg, #22c55e, #16a34a); color:#fff; border:1px solid #4ade80; border-radius:6px; padding:6px 14px; font-size:12px; font-weight:bold; cursor:pointer; box-shadow:0 0 10px rgba(34,197,94,0.4);">🎁 Resgatar</button>`;
+            btnHtml = `<button onclick="window.claimStarterJourneyStepAction('${step.id}')" style="background:linear-gradient(180deg, #22c55e, #16a34a); color:#fff; border:1px solid #4ade80; border-radius:6px; padding:6px 14px; font-size:12px; font-weight:bold; cursor:pointer; box-shadow:0 0 10px rgba(34,197,94,0.4);">🎁 領取</button>`;
           } else {
-            btnHtml = `<button disabled style="background:rgba(0,0,0,0.4); color:#64748b; border:1px solid rgba(255,255,255,0.08); border-radius:6px; padding:6px 12px; font-size:12px; cursor:not-allowed;">Em Progresso</button>`;
+            btnHtml = `<button disabled style="background:rgba(0,0,0,0.4); color:#64748b; border:1px solid rgba(255,255,255,0.08); border-radius:6px; padding:6px 12px; font-size:12px; cursor:not-allowed;">進行中</button>`;
           }
 
           return `
@@ -11302,7 +11311,7 @@ export function init() {
                 <div style="font-size:26px; width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.3); border-radius:8px; border:1px solid rgba(255,255,255,0.1);">${step.icon}</div>
                 <div style="flex:1;">
                   <div style="display:flex; align-items:center; gap:8px;">
-                    <span style="font-size:11px; background:rgba(234,179,8,0.2); color:#fde047; padding:1px 6px; border-radius:4px; font-weight:bold;">Passo ${step.stepNumber}</span>
+                    <span style="font-size:11px; background:rgba(234,179,8,0.2); color:#fde047; padding:1px 6px; border-radius:4px; font-weight:bold;">步驟 ${step.stepNumber}</span>
                     <span style="font-weight:bold; color:#f8fafc; font-size:14px; font-family:'Cinzel',serif;">${step.title}</span>
                   </div>
                   <div style="font-size:12px; color:#94a3b8; margin:3px 0 6px 0;">${step.desc}</div>
@@ -11419,7 +11428,7 @@ export function init() {
       
       state = { ...def, ...cloudData };
       state.gender = cloudData.gender || cloudData.charGender || cloudData.sex || def.gender || 'M';
-      state.charName = cloudData.charName || cloudData.heroName || cloudData.playerName || cloudData.name || def.charName || 'Tristan';
+      state.charName = cloudData.charName || cloudData.heroName || cloudData.playerName || cloudData.name || def.charName || '冒險者';
       state.heroName = state.charName;
       state.playerName = state.charName;
       state.name = state.charName;
@@ -11487,13 +11496,13 @@ export function init() {
       if (cloudData.lastSaveTime) {
         setTimeout(() => checkOfflineProgress(cloudData.lastSaveTime), 600);
       }
-      log(`☁️ Progresso de Nível ${state.level} carregado da nuvem com sucesso!`, 'rarity-legendary');
+      log(`☁️ 已成功從雲端載入等級 ${state.level} 的進度！`, 'rarity-legendary');
     };
     window.toggleMuteAudio = () => {
       if (typeof window !== 'undefined' && window.idleAudio) {
         const isMuted = window.idleAudio.toggleMute();
         const btn = el('audio-mute-btn');
-        if (btn) btn.textContent = isMuted ? '🔇 Muted' : '🔊 Audio';
+        if (btn) btn.textContent = isMuted ? '🔇 已靜音' : '🔊 音效';
       }
     };
 
@@ -11510,7 +11519,7 @@ export function init() {
             tier: cardDef.rarity === 'sovereign' ? 6 : (cardDef.rarity === 'primordial' ? 5 : (cardDef.rarity === 'mythic' ? 4 : (cardDef.rarity === 'legendary' ? 3 : 2))),
             price: cardDef.level ? cardDef.level * 250 : 2500,
             icon: cardDef.icon || '/assets/2d/monsters/low-level-32x/PNG/Transperent/Icon1.png',
-            desc: `Carta Colecionável do Monstro ${cardDef.monster}. Absorva no Codex para bônus passivos permanentes em toda a conta!`
+            desc: `怪物 ${cardDef.monster} 的收藏卡片。吸收到圖鑑後，可為整個帳號提供永久被動加成！`
           };
         }
       }
@@ -11602,7 +11611,7 @@ export function init() {
               state.battlePass.unlockedPremium = true;
               updateAllUI();
               save();
-              log('🎉 Pagamento aprovado! Seu Passe Premium foi ativado com sucesso!', 'rarity-legendary');
+              log('🎉 付款成功！你的高級通行證已啟用！', 'rarity-legendary');
             }
           }
         }
@@ -11650,7 +11659,7 @@ export function init() {
       window.buyInitialSoulCrystal = () => {
         const cost = 50000;
         if ((state.gold || 0) < cost) {
-          log('Adena insuficiente para adquirir o Soul Crystal Inicial (50.000 Adena necessária).', 'system');
+          log('金幣不足！購買初始靈魂水晶需要 50,000 金幣。', 'system');
           return;
         }
         state.gold -= cost;
@@ -11662,7 +11671,7 @@ export function init() {
           crystal.crystalLevel = 1;
           crystal.absorbedSouls = 0;
         }
-        log('🔮 Soul Crystal Adquirido! Mantenha na mochila para absorver almas.', 'rarity-epic');
+        log('🔮 已取得靈魂水晶！請放在背包中以吸收靈魂。', 'rarity-epic');
         updateAllUI();
         save();
       };
@@ -11670,7 +11679,7 @@ export function init() {
       window.applySAAction = (color, saKey, targetUid) => {
         const wpnUid = targetUid || window._selectedSAWeaponUid || state.equipment?.weapon;
         if (!wpnUid) {
-          log('Selecione ou equipe uma arma para engastar o Soul Crystal!', 'system');
+          log('請選擇或裝備一把武器，再鑲嵌靈魂水晶！', 'system');
           return;
         }
         ElementalService.applySoulCrystalToWeapon(state, wpnUid, color, saKey, { log, updateAllUI, save, floatText });
@@ -11696,12 +11705,12 @@ export function init() {
         state.dyeSymbols = state.dyeSymbols || [null, null, null];
         const freeSlot = state.dyeSymbols.findIndex(s => !s);
         if (freeSlot === -1) {
-          log('Todos os 3 slots de tatuagem estão ocupados! Remova uma tatuagem existente primeiro.', 'system');
+          log('3 個刺青欄位都已使用！請先移除一個現有刺青。', 'system');
           return;
         }
         const cost = 10000;
         if ((state.gold || 0) < cost) {
-          log('Adena insuficiente para gravar o símbolo (10.000 Adena necessária).', 'system');
+          log('金幣不足！刻印符號需要 10,000 金幣。', 'system');
           return;
         }
         state.gold -= cost;
@@ -11738,7 +11747,7 @@ export function init() {
         const primary = pUid || el('belt-primary-select')?.value || window._synthesisTargetUid;
         const secondary = sUid || el('belt-secondary-select')?.value || window._synthesisIngredientUid;
         if (!primary || !secondary) {
-          log('Selecione os dois itens para a síntese!', 'system');
+          log('請選擇兩件物品進行合成！', 'system');
           return;
         }
         return window.executeSynthesisAction(primary, secondary);
@@ -11816,8 +11825,8 @@ export function init() {
           floatText(res.reason, 'float-warning');
           return;
         }
-        log(`⚡ Dificuldade de Caça ajustada para **${res.difficulty.name}** (${res.difficulty.xpMult}x XP/Adena, ${res.difficulty.dropMult}x Drops)!`, 'rarity-epic');
-        floatText(`⚡ MODO ${res.difficulty.name.toUpperCase()}!`, 'float-jackpot');
+        log(`⚡ 狩獵難度已調整為 **${res.difficulty.name}**（${res.difficulty.xpMult}× 經驗值／金幣、${res.difficulty.dropMult}× 掉落）！`, 'rarity-epic');
+        floatText(`⚡ ${res.difficulty.name.toUpperCase()} 模式！`, 'float-jackpot');
         state.activeMonster = null;
         pickRandomMonster();
         renderZoneMap();
@@ -11855,10 +11864,10 @@ export function init() {
           <div>
             <div style="display:flex; align-items:center; gap:8px;">
               <span style="font-size:12px; font-weight:bold; background:${status.isActive ? '#ef4444' : '#3b82f6'}; color:#fff; padding:2px 8px; border-radius:4px;">
-                ${status.isActive ? '● INVASÃO ATIVA AGORA' : '⏳ AGUARDANDO DESPERTAR'}
+                ${status.isActive ? '● 世界入侵進行中' : '⏳ 等待甦醒'}
               </span>
               <span style="font-size:13px; color:#cbd5e1; font-weight:bold;">
-                ${status.isActive ? 'Tempo restante no reino:' : 'Próxima Incursão em:'}
+                ${status.isActive ? '剩餘時間：' : '距離下次入侵：'}
               </span>
             </div>
             <div style="font-size:24px; font-family:'Cinzel',serif; font-weight:bold; color:${status.isActive ? '#f87171' : '#fde047'}; margin-top:4px;">
@@ -11869,11 +11878,11 @@ export function init() {
           <div>
             ${status.isActive ? `
               <button onclick="window.joinWorldBossFightAction()" style="padding:10px 20px; font-family:'Cinzel',serif; font-weight:bold; font-size:14px; background:linear-gradient(180deg,#ef4444,#991b1b); border:1px solid #fca5a5; color:#fff; border-radius:6px; cursor:pointer; box-shadow:0 0 16px rgba(239,68,68,0.6); animation:pulse 1.5s infinite;">
-                ⚔️ ENTRAR NA INCURSÃO AGORA!
+                ⚔️ 立即加入世界入侵！
               </button>
             ` : `
               <button disabled style="padding:10px 18px; font-family:'Cinzel',serif; font-size:12px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); color:#9ca3af; border-radius:6px; cursor:not-allowed;">
-                Aguardando Invasão (A cada 3h)
+                等待世界入侵（每 3 小時一次）
               </button>
             `}
           </div>
@@ -11888,17 +11897,17 @@ export function init() {
             <div style="display:flex; justify-content:space-between; align-items:baseline;">
               <div>
                 <h3 style="margin:0; font-family:'Cinzel',serif; font-size:18px; color:#fca5a5;">${boss.name}</h3>
-                <div style="font-size:12px; color:#ffd877; font-weight:bold;">${boss.title} (Nível ${boss.lvl})</div>
+                <div style="font-size:12px; color:#ffd877; font-weight:bold;">${boss.title}（等級 ${boss.lvl}）</div>
               </div>
-              <div style="font-size:13px; font-weight:bold; color:#ef4444;">HP: ${boss.hp.toLocaleString()}</div>
+              <div style="font-size:13px; font-weight:bold; color:#ef4444;">生命值：${boss.hp.toLocaleString()}</div>
             </div>
             <p style="margin:8px 0; font-size:12px; line-height:1.5; color:#94a3b8;">${boss.lore}</p>
             <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(110px, 1fr)); gap:6px; background:rgba(0,0,0,0.5); padding:8px; border-radius:6px; font-size:11px;">
-              <div>ATK: <strong style="color:#f87171;">${boss.atk}</strong></div>
-              <div>DEF: <strong style="color:#60a5fa;">${boss.def}</strong></div>
-              <div>M.DEF: <strong style="color:#c084fc;">${boss.mdef}</strong></div>
-              <div>Adena: <strong style="color:#facc15;">${boss.goldReward.toLocaleString()}</strong></div>
-              <div>Aden Coins: <strong style="color:#ffd700;">+${boss.adenCoinsReward} AC</strong></div>
+              <div>攻擊：<strong style="color:#f87171;">${boss.atk}</strong></div>
+              <div>防禦：<strong style="color:#60a5fa;">${boss.def}</strong></div>
+              <div>魔防：<strong style="color:#c084fc;">${boss.mdef}</strong></div>
+              <div>金幣：<strong style="color:#facc15;">${boss.goldReward.toLocaleString()}</strong></div>
+              <div>亞丁幣：<strong style="color:#ffd700;">+${boss.adenCoinsReward}</strong></div>
             </div>
           </div>
         </div>
@@ -11906,7 +11915,7 @@ export function init() {
         <!-- Recompensas Épicas da Incursão -->
         <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(212,167,68,0.25); border-radius:10px; padding:14px;">
           <div style="font-family:'Cinzel',serif; font-size:13px; font-weight:bold; color:#fef08a; margin-bottom:8px;">
-            🏆 Recompensas &amp; Drops de Participação Global:
+            🏆 全服參與獎勵與掉落：
           </div>
           <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:8px;">
             ${boss.drops.map(d => `
@@ -11914,7 +11923,7 @@ export function init() {
                 <span style="font-size:16px;">${d.isEpicJewel ? '💎' : d.itemId.includes('book') ? '📜' : '⚡'}</span>
                 <div>
                   <div style="font-weight:bold; color:${d.isEpicJewel ? '#d8b4fe' : '#f8fafc'};">${d.name}</div>
-                  <div style="color:#94a3b8; font-size:10px;">Chance: ${Math.round(d.chance * 100)}%</div>
+                  <div style="color:#94a3b8; font-size:10px;">機率：${Math.round(d.chance * 100)}%</div>
                 </div>
               </div>
             `).join('')}
@@ -11978,7 +11987,7 @@ export function init() {
 function tickUI() {
   const now = Date.now(); let buffChanged = false;
   for (const k of Object.keys(state.buffs || {})) { if (state.buffs[k].until < now) { delete state.buffs[k]; buffChanged = true; } }
-  const gpsEl = el('gps-text'); if (gpsEl) { gpsEl.textContent = getGoldPerSec() > 0 ? `${getGoldPerSec().toFixed(1)}/s` : '—'; }
+  const gpsEl = el('gps-text'); if (gpsEl) { gpsEl.textContent = getGoldPerSec() > 0 ? `${getGoldPerSec().toFixed(1)}/秒` : '—'; }
   safeUiUpdate('stats-tick', updateStatsUI);
   const mt = el('mystic-timer'); if (mt) { mt.textContent = fmtCountdown(D().getMysticRotation()[0]?.msLeft || 0); }
   if (buffChanged) { safeUiUpdate('shop-tick', updateShopUI); }

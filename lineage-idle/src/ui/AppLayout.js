@@ -203,13 +203,13 @@ export function updateTabVisibilityByLevel(state) {
       btn.style.order = String(100 + reqLvl);
       btn.style.opacity = '0.55';
       btn.title = currentLvl < reqLvl
-        ? `Desbloqueia no Nível ${reqLvl}`
-        : `Bloqueado na Temporada Atual (Cap Lv. ${globalCap})`;
+        ? `於等級 ${reqLvl} 解鎖`
+        : `目前季節尚未解鎖（等級上限 ${globalCap}）`;
       if (!btn.querySelector('.tab-lock-indicator')) {
         const lockSpan = document.createElement('span');
         lockSpan.className = 'tab-lock-indicator';
         lockSpan.style.cssText = 'font-size:9px; margin-left:4px; color:#94a3b8; font-weight:normal;';
-        lockSpan.textContent = `🔒Lv.${reqLvl}`;
+        lockSpan.textContent = `🔒等級 ${reqLvl}`;
         btn.appendChild(lockSpan);
       }
     } else {

@@ -89,17 +89,17 @@ export function equipItem(state, uid, targetSlotOrCallbacks = null, maybeCallbac
 
   // Validate level
   if (def.req?.level && state.level < def.req.level) {
-    if (callbacks.log) callbacks.log(`Nível insuficiente para equipar ${def.name}. (Req: Lv.${def.req.level})`, 'system');
+    if (callbacks.log) callbacks.log(`等級不足，無法裝備 ${def.name}。（需求：等級 ${def.req.level}）`, 'system');
     return;
   }
   // Validate class / armor type
   const equipCheck = canEquipByType(state.class, def, callbacks.classSatisfies);
   if (!equipCheck.ok) {
-    if (callbacks.log) callbacks.log(`Não pode equipar ${def.name}: ${equipCheck.reason || 'Classe incompatível'}`, 'system');
+    if (callbacks.log) callbacks.log(`無法裝備 ${def.name}：${equipCheck.reason || '職業不相容'}`, 'system');
     return;
   }
   if (!ALL_EQUIP_SLOTS.includes(targetSlot)) {
-    if (callbacks.log) callbacks.log(`${def.name} não pode ser equipado.`, 'system');
+    if (callbacks.log) callbacks.log(`${def.name} 無法裝備。`, 'system');
     return;
   }
 
@@ -125,8 +125,51 @@ export function equipItem(state, uid, targetSlotOrCallbacks = null, maybeCallbac
   item.equipped = true;
   item.equippedSlot = targetSlot;
 
-  const slotLabel = targetSlot === 'weapon2' ? 'Arma Secundária (Slot 2)' : (targetSlot === 'weapon' ? 'Arma Primária (Slot 1)' : (targetSlot === 'chest' || targetSlot === 'armor' ? 'Armadura / Peito' : targetSlot));
-  if (callbacks.log) callbacks.log(`Equipou ${def.name} [${slotLabel}]`, 'loot');
+  const equipSlotLabels = {
+    weapon: '主武器（欄位 1）',
+    weapon2: '副武器（欄位 2）',
+    shield: '盾牌',
+    armor: '防具／胸甲',
+    chest: '防具／胸甲',
+    helmet: '頭盔',
+    gloves: '手套',
+    boots: '靴子',
+    legs: '腿甲',
+    necklace: '項鍊',
+    earring1: '耳環 1',
+    earring2: '耳環 2',
+    ring1: '戒指 1',
+    ring2: '戒指 2',
+    cloak: '披風',
+    belt: '腰帶',
+    hair: '頭飾',
+    hair1: '飾品／髮飾 1',
+    hair2: '飾品／髮飾 2',
+    brooch: '胸針（珠寶盒）',
+    agathion_bracelet: '阿加希翁手鐲',
+    talisman_bracelet: '護符手鐲',
+    jewel1: '胸針寶石 1',
+    jewel2: '胸針寶石 2',
+    jewel3: '胸針寶石 3',
+    jewel4: '胸針寶石 4',
+    jewel5: '胸針寶石 5',
+    jewel6: '胸針寶石 6',
+    agathion1: '阿加希翁 1',
+    agathion2: '阿加希翁 2',
+    agathion3: '阿加希翁 3',
+    agathion4: '阿加希翁 4',
+    agathion5: '阿加希翁 5',
+    agathion6: '阿加希翁 6',
+    talisman1: '護符 1',
+    talisman2: '護符 2',
+    talisman3: '護符 3',
+    talisman4: '護符 4',
+    talisman5: '護符 5',
+    talisman6: '護符 6',
+    sigil: '符印'
+  };
+  const slotLabel = equipSlotLabels[targetSlot] || targetSlot;
+  if (callbacks.log) callbacks.log(`已裝備 ${def.name} [${slotLabel}]`, 'loot');
 
   const stats = getStats(state);
   state.maxHp = stats.maxHp; state.maxMp = stats.maxMp;
@@ -206,7 +249,22 @@ export function unequipItem(state, slotOrUid, callbacks = {}) {
   state.maxMp = stats.maxMp;
   state.hp = Math.min(state.hp, state.maxHp);
   state.mp = Math.min(state.mp, state.maxMp);
-  if (callbacks.log) callbacks.log(`Desequipou ${targetSlot}`, 'system');
+  const slotLabels = {
+    weapon: '主武器', weapon2: '副武器', shield: '盾牌', armor: '胸甲', chest: '胸甲', helmet: '頭盔',
+    gloves: '手套', boots: '靴子', legs: '腿甲', necklace: '項鍊',
+    earring1: '耳環 1', earring2: '耳環 2', ring1: '戒指 1', ring2: '戒指 2',
+    cloak: '披風', belt: '腰帶', hair: '頭飾', hair1: '飾品／髮飾 1', hair2: '飾品／髮飾 2',
+    brooch: '胸針（珠寶盒）', agathion_bracelet: '阿加希翁手鐲', talisman_bracelet: '護符手鐲',
+    jewel1: '胸針寶石 1', jewel2: '胸針寶石 2', jewel3: '胸針寶石 3',
+    jewel4: '胸針寶石 4', jewel5: '胸針寶石 5', jewel6: '胸針寶石 6',
+    agathion1: '阿加希翁 1', agathion2: '阿加希翁 2', agathion3: '阿加希翁 3',
+    agathion4: '阿加希翁 4', agathion5: '阿加希翁 5', agathion6: '阿加希翁 6',
+    talisman1: '護符 1', talisman2: '護符 2', talisman3: '護符 3',
+    talisman4: '護符 4', talisman5: '護符 5', talisman6: '護符 6',
+    sigil: '符印'
+  };
+  const targetSlotLabel = slotLabels[targetSlot] || targetSlot;
+  if (callbacks.log) callbacks.log(`已卸下 ${targetSlotLabel}`, 'system');
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save(true, true);
 }
@@ -431,11 +489,11 @@ export function generateAutoEquipProposal(state) {
   const propMainDef = propMainItem ? (allItems[propMainItem.itemId] || propMainItem) : null;
   if (propMainDef && isTwoHandedWeapon(propMainDef)) {
     if (proposedEquip.shield) {
-      changes.push({ slot: 'shield', currentUid: proposedEquip.shield, proposedUid: null, currentItem: state.inventory.find(i => i.uid === proposedEquip.shield), proposedItem: null, reason: 'Desequipado (Arma de 2 Mãos)' });
+      changes.push({ slot: 'shield', currentUid: proposedEquip.shield, proposedUid: null, currentItem: state.inventory.find(i => i.uid === proposedEquip.shield), proposedItem: null, reason: '已卸下（雙手武器）' });
       proposedEquip.shield = null;
     }
     if (proposedEquip.weapon2) {
-      changes.push({ slot: 'weapon2', currentUid: proposedEquip.weapon2, proposedUid: null, currentItem: state.inventory.find(i => i.uid === proposedEquip.weapon2), proposedItem: null, reason: 'Desequipado (Arma de 2 Mãos)' });
+      changes.push({ slot: 'weapon2', currentUid: proposedEquip.weapon2, proposedUid: null, currentItem: state.inventory.find(i => i.uid === proposedEquip.weapon2), proposedItem: null, reason: '已卸下（雙手武器）' });
       proposedEquip.weapon2 = null;
     }
   }
@@ -478,7 +536,7 @@ export function generateAutoEquipProposal(state) {
  */
 export function commitAutoEquipProposal(state, proposal, callbacks = {}) {
   if (!state || !proposal || !proposal.proposedLoadout) {
-    return { success: false, appliedChanges: 0, reason: 'Proposta de Auto-Equip inválida.' };
+    return { success: false, appliedChanges: 0, reason: '自動裝備建議無效。' };
   }
 
   const allItems = D()?.ALL_ITEMS || {};
@@ -488,11 +546,11 @@ export function commitAutoEquipProposal(state, proposal, callbacks = {}) {
     if (uid) {
       const item = state.inventory?.find(i => i.uid === uid);
       if (!item) {
-        return { success: false, appliedChanges: 0, reason: `Item ${uid} não encontrado na mochila.` };
+        return { success: false, appliedChanges: 0, reason: '背包中找不到指定物品。' };
       }
       const def = allItems[item.itemId] || item;
       if (!isEquippableItem(def)) {
-        return { success: false, appliedChanges: 0, reason: `Item não-equipável detectado: ${def.name || item.itemId}` };
+        return { success: false, appliedChanges: 0, reason: `偵測到無法裝備的物品：${def.name || '未知物品'}` };
       }
     }
   }
@@ -529,10 +587,10 @@ export function commitAutoEquipProposal(state, proposal, callbacks = {}) {
 
   const changesCount = proposal.changes?.length || 0;
   if (callbacks.log) {
-    callbacks.log(`⚡ Auto-Equip aplicado! (${changesCount} alteraç${changesCount === 1 ? 'ão' : 'ões'})`, 'rarity-legendary');
+    callbacks.log(`⚡ 自動裝備已套用！（${changesCount} 項變更）`, 'rarity-legendary');
   }
   if (callbacks.floatText) {
-    callbacks.floatText('⚡ EQUIPADO!', 'float-jackpot');
+    callbacks.floatText('⚡ 已裝備！', 'float-jackpot');
   }
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save(true, true);

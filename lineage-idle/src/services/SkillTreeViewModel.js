@@ -40,6 +40,8 @@ import {
 } from '../data/elemental/SkillProgression.js';
 
 import { getSkillIcon, getSkillSemanticData } from './SkillIconRegistry.js';
+import CANONICAL_CLASS_REGISTRY from '../data/classes/CanonicalClassRegistry.js';
+import CANONICAL_RACES from '../data/classes/CanonicalRaceRegistry.js';
 
 export const SKILL_CATEGORIES = Object.freeze({
   CORE: 'CORE',
@@ -64,42 +66,42 @@ export function getClassTheme(canonicalClass, race) {
   const r = String(race || '').toLowerCase();
 
   if (c.includes('sorcerer') || c.includes('archmage')) {
-    return { name: 'Fogo & Magma', accent: '#f97316', bgGlow: 'rgba(249,115,22,0.15)', icon: '🔥' };
+    return { name: '火焰與岩漿', accent: '#f97316', bgGlow: 'rgba(249,115,22,0.15)', icon: '🔥' };
   }
   if (c.includes('death_knight') || c.includes('hell_knight') || c.includes('soultaker') || c.includes('necromancer')) {
-    return { name: 'Trevas & Morte', accent: '#a855f7', bgGlow: 'rgba(168,85,247,0.15)', icon: '💀' };
+    return { name: '黑暗與死亡', accent: '#a855f7', bgGlow: 'rgba(168,85,247,0.15)', icon: '💀' };
   }
   if (c.includes('assassin') || c.includes('abyss') || c.includes('ghost')) {
-    return { name: 'Sombras & Veneno', accent: '#8b5cf6', bgGlow: 'rgba(139,92,246,0.15)', icon: '🗡️' };
+    return { name: '暗影與毒素', accent: '#8b5cf6', bgGlow: 'rgba(139,92,246,0.15)', icon: '🗡️' };
   }
   if (c.includes('blood_rose')) {
-    return { name: 'Espinhos Carmesins', accent: '#ec4899', bgGlow: 'rgba(236,72,153,0.15)', icon: '🌹' };
+    return { name: '緋紅荊棘', accent: '#ec4899', bgGlow: 'rgba(236,72,153,0.15)', icon: '🌹' };
   }
   if (c.includes('spellsinger') || c.includes('mystic_muse') || (r === 'elf' && isMageClass(c))) {
-    return { name: 'Água & Gelo', accent: '#38bdf8', bgGlow: 'rgba(56,189,248,0.15)', icon: '❄️' };
+    return { name: '水與冰', accent: '#38bdf8', bgGlow: 'rgba(56,189,248,0.15)', icon: '❄️' };
   }
   if (c.includes('spellhowler') || c.includes('storm_screamer') || c.includes('storm_blaster') || c.includes('marauder')) {
-    return { name: 'Vento & Tempestade', accent: '#22c55e', bgGlow: 'rgba(34,197,94,0.15)', icon: '🌪️' };
+    return { name: '風與暴風', accent: '#22c55e', bgGlow: 'rgba(34,197,94,0.15)', icon: '🌪️' };
   }
   if (c.includes('bishop') || c.includes('cardinal') || c.includes('templar') || c.includes('paladin') || c.includes('shinemaker')) {
-    return { name: 'Luz Sagrada & Divindade', accent: '#facc15', bgGlow: 'rgba(250,204,21,0.15)', icon: '✝️' };
+    return { name: '神聖之光與神性', accent: '#facc15', bgGlow: 'rgba(250,204,21,0.15)', icon: '✝️' };
   }
   if (c.includes('artisan') || c.includes('warsmith') || c.includes('maestro') || r === 'dwarf') {
-    return { name: 'Terra & Metalurgia', accent: '#eab308', bgGlow: 'rgba(234,179,8,0.15)', icon: '⚙️' };
+    return { name: '大地與冶金', accent: '#eab308', bgGlow: 'rgba(234,179,8,0.15)', icon: '⚙️' };
   }
   if (c.includes('shaman') || c.includes('overlord') || c.includes('warcryer') || c.includes('vanguard')) {
-    return { name: 'Fogo Totêmico & Guerra', accent: '#ef4444', bgGlow: 'rgba(239,68,68,0.15)', icon: '🪓' };
+    return { name: '圖騰烈火與戰爭', accent: '#ef4444', bgGlow: 'rgba(239,68,68,0.15)', icon: '🪓' };
   }
   if (c.includes('samurai') || c.includes('soulbreaker')) {
-    return { name: 'Corte da Alma & Katana', accent: '#06b6d4', bgGlow: 'rgba(6,182,212,0.15)', icon: '⚡' };
+    return { name: '靈魂斬與武士刀', accent: '#06b6d4', bgGlow: 'rgba(6,182,212,0.15)', icon: '⚡' };
   }
   if (c.includes('warg')) {
-    return { name: 'Fera Ancestral & Fúria', accent: '#f59e0b', bgGlow: 'rgba(245,158,11,0.15)', icon: '🐺' };
+    return { name: '祖靈野獸與狂怒', accent: '#f59e0b', bgGlow: 'rgba(245,158,11,0.15)', icon: '🐺' };
   }
   if (isMageClass(c)) {
-    return { name: 'Arcano & Mistério', accent: '#818cf8', bgGlow: 'rgba(129,140,248,0.15)', icon: '🔮' };
+    return { name: '奧術與秘法', accent: '#818cf8', bgGlow: 'rgba(129,140,248,0.15)', icon: '🔮' };
   }
-  return { name: 'Combate Físico', accent: '#e2e8f0', bgGlow: 'rgba(226,232,240,0.10)', icon: '⚔️' };
+  return { name: '物理戰鬥', accent: '#e2e8f0', bgGlow: 'rgba(226,232,240,0.10)', icon: '⚔️' };
 }
 
 /**
@@ -107,13 +109,13 @@ export function getClassTheme(canonicalClass, race) {
  */
 export function getStageTitle(stageNum) {
   switch (stageNum) {
-    case 0: return 'Estágio 0 — Base / Aprendiz';
-    case 1: return 'Estágio 1 — 1ª Transferência';
-    case 2: return 'Estágio 2 — Especialização';
-    case 3: return 'Estágio 3 — Maestria Arcana';
-    case 4: return 'Estágio 4 — Despertar Supremo';
-    case 5: return 'Estágio 5 — Mestre Supremo';
-    default: return `Estágio ${stageNum}`;
+    case 0: return '階段 0 — 基礎／學徒';
+    case 1: return '階段 1 — 第一次轉職';
+    case 2: return '階段 2 — 專精';
+    case 3: return '階段 3 — 奧術精通';
+    case 4: return '階段 4 — 至高覺醒';
+    case 5: return '階段 5 — 至高大師';
+    default: return `階段 ${stageNum}`;
   }
 }
 
@@ -163,14 +165,26 @@ export function getSkillTreeViewModel(character, options = {}) {
 
   const canonicalClass = resolveCanonicalClassId(charClass, charRace) || charClass;
   const canonicalDagClass = resolveCanonicalDagClassId(charClass, charRace);
+  const canonicalCharacterClass = getCanonicalCharacterClass(character);
   const stageNum = getProgressionStage(charLevel);
   const theme = getClassTheme(canonicalClass, charRace);
   const activeTab = options.activeTab || SKILL_TABS.ACTIVE;
 
+  const raceKey = String(charRace || 'human').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const classLookupIds = [canonicalCharacterClass, canonicalDagClass, canonicalClass, charClass].filter(Boolean);
+  const browserData = typeof window !== 'undefined' ? window : null;
+  const raceDef = CANONICAL_RACES[raceKey]
+    || browserData?.GameData?.RACES?.[charRace]
+    || browserData?.EchoData?.RACES_ECHO?.[charRace]
+    || null;
+  const classDef = classLookupIds.map(id => CANONICAL_CLASS_REGISTRY[id]).find(Boolean)
+    || classLookupIds.map(id => browserData?.GameData?.CLASSES?.[id] || browserData?.EchoData?.CLASSES_ECHO?.[id]).find(Boolean)
+    || null;
+
   // Header presentation data
   const header = {
-    race: String(charRace).charAt(0).toUpperCase() + String(charRace).slice(1),
-    className: String(charClass).charAt(0).toUpperCase() + String(charClass).slice(1),
+    race: raceDef?.name || '未知種族',
+    className: classDef?.name || '未知職業',
     canonicalClass,
     level: charLevel,
     sp: charSp,
@@ -287,7 +301,7 @@ export function getSkillTreeViewModel(character, options = {}) {
       },
       cooldown: def.baseCd || def.gameplay?.cooldown || 5000,
       description: def.desc || def.info || def.identity?.description || def.name,
-      effectText: def.effectText || `Multiplicador: ${(def.pwr ? def.pwr / 10 : 1.4).toFixed(1)}x`,
+      effectText: def.effectText || `倍率：${(def.pwr ? def.pwr / 10 : 1.4).toFixed(1)}x`,
       classReq: def.classReq || def.identity?.classId || canonicalClass
     });
   }
@@ -301,22 +315,22 @@ export function getSkillTreeViewModel(character, options = {}) {
   const activeCategories = [
     {
       id: SKILL_CATEGORIES.CORE,
-      title: 'Habilidades Fundamentais & Gerais (Lv. 1+)',
+      title: '基礎與通用技能（等級 1+）',
       skills: activeSkills.filter(s => s.category === SKILL_CATEGORIES.CORE)
     },
     {
       id: SKILL_CATEGORIES.CLASS,
-      title: 'Habilidades de Classe (1ª Transferência · Lv. 20+)',
+      title: '職業技能（第一次轉職 · 等級 20+）',
       skills: activeSkills.filter(s => s.category === SKILL_CATEGORIES.CLASS)
     },
     {
       id: SKILL_CATEGORIES.SPECIALIZATION,
-      title: 'Especialização Elemental & Combate (2ª Transferência · Lv. 40+)',
+      title: '元素與戰鬥專精（第二次轉職 · 等級 40+）',
       skills: activeSkills.filter(s => s.category === SKILL_CATEGORIES.SPECIALIZATION)
     },
     {
       id: SKILL_CATEGORIES.MASTERY,
-      title: 'Maestria Suprema (3ª Transferência · Lv. 76+)',
+      title: '最高精通（第三次轉職 · 等級 76+）',
       skills: activeSkills.filter(s => s.category === SKILL_CATEGORIES.MASTERY)
     }
   ].filter(cat => cat.skills.length > 0); // Omit empty categories
@@ -327,7 +341,7 @@ export function getSkillTreeViewModel(character, options = {}) {
   const tabs = {
     [SKILL_TABS.ACTIVE]: {
       id: SKILL_TABS.ACTIVE,
-      label: 'Ativas',
+      label: '主動',
       icon: '⚔️',
       count: activeSkills.length,
       categories: activeCategories,
@@ -335,7 +349,7 @@ export function getSkillTreeViewModel(character, options = {}) {
     },
     [SKILL_TABS.PASSIVE]: {
       id: SKILL_TABS.PASSIVE,
-      label: 'Passivas',
+      label: '被動',
       icon: '🛡️',
       count: passiveSkills.length + legacyPassives.length,
       skills: passiveSkills,
@@ -343,7 +357,7 @@ export function getSkillTreeViewModel(character, options = {}) {
     },
     [SKILL_TABS.ULTIMATE]: {
       id: SKILL_TABS.ULTIMATE,
-      label: 'Supremas',
+      label: '終極',
       icon: '🌟',
       count: ultimateSkills.length,
       skills: ultimateSkills,

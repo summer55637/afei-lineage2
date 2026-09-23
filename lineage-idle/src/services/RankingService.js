@@ -1,5 +1,5 @@
 /**
- * RankingService.js — Gerenciador de Rankings Globais e Matchmaking PvP Assíncrono
+ * 排行榜Service.js — Gerenciador de 排行榜s Globais e Matchmaking PvP Assíncrono
  * 
  * Sincroniza perfis de jogadores no Firebase Firestore, consulta quadros de líderes
  * e realiza matchmaking inteligente por Combat Power para Olimpíadas e Coliseu.
@@ -30,7 +30,7 @@ export const RankingService = {
     const stats = state.stats || {};
     
     // Identifica arma equipada principal
-    let topWeaponName = 'Sem Arma';
+    let topWeaponName = '無武器';
     let topWeaponEnchant = 0;
     let topWeaponGlow = null;
 
@@ -38,7 +38,7 @@ export const RankingService = {
       const wUid = state.equipment.weapon;
       const wItem = state.inventory?.find(i => i.uid === wUid || i.id === wUid);
       if (wItem) {
-        topWeaponName = wItem.name || 'Arma Lendária';
+        topWeaponName = wItem.name || '傳說武器';
         topWeaponEnchant = Number(wItem.enchant || wItem.enchantLevel) || 0;
         if (topWeaponEnchant > 0) {
           topWeaponName = `+${topWeaponEnchant} ${topWeaponName}`;
@@ -48,9 +48,9 @@ export const RankingService = {
     }
 
     return {
-      charName: state.heroName || state.name || state.charName || 'Hero of Aden',
+      charName: state.heroName || state.name || state.charName || '亞丁英雄',
       race: state.race || 'Human',
-      className: state.className || state.class || 'Warrior',
+      className: state.className || state.class || '戰士',
       level: Number(state.level) || 1,
       gold: Number(state.gold) || 0,
       combatPower: cp,
@@ -59,7 +59,7 @@ export const RankingService = {
       olympiadLosses: Number(state.olympiad?.losses) || 0,
       duelWins: Number(state.colosseum?.duelWins) || 0,
       duelLosses: Number(state.colosseum?.duelLosses) || 0,
-      clanName: state.clan?.name || 'Sem Clã',
+      clanName: state.clan?.name || '無血盟',
       castleLord: state.clan?.castle || (state.clan?.castles && state.clan.castles[0]) || null,
       isHero: Boolean(state.isHero || state.olympiad?.isHero),
       heroWeapon: state.olympiad?.heroWeapon || state.heroWeapon || null,
@@ -121,9 +121,9 @@ export const RankingService = {
       wealth: this._mergeCurrentPlayer(wealthList, state, 'wealth'),
       clans: this._mergeCurrentPlayer(clansList, state, 'clans'),
       castles: (_cachedRankings.castles && _cachedRankings.castles.length > 0) ? _cachedRankings.castles : [
-        { castle: 'Castelo de Aden', lord: 'LordValen', clan: 'BloodThorn', tax: '15%' },
-        { castle: 'Castelo de Giran', lord: 'SirAres', clan: 'GloryKnights', tax: '10%' },
-        { castle: 'Castelo de Dion', lord: 'LadyElena', clan: 'SilverDawn', tax: '5%' }
+        { castle: '亞丁城堡', lord: 'LordValen', clan: 'BloodThorn', tax: '15%' },
+        { castle: '奇岩城堡', lord: 'SirAres', clan: 'GloryKnights', tax: '10%' },
+        { castle: '狄恩城堡', lord: 'LadyElena', clan: 'SilverDawn', tax: '5%' }
       ]
     };
   },
@@ -131,17 +131,17 @@ export const RankingService = {
   /**
    * Reivindica recompensa diária de classificação com cooldown de 24h
    */
-  claimRankingReward(state, callbacks = {}) {
+  claim排行榜Reward(state, callbacks = {}) {
     const { log = console.log, floatText = () => {}, onUpdate = () => {} } = callbacks;
     if (!state) return { success: false };
 
     const now = Date.now();
     const cooldownMs = 24 * 60 * 60 * 1000;
-    const lastClaim = state.lastRankingRewardClaim || 0;
+    const lastClaim = state.last排行榜RewardClaim || 0;
 
     if (now - lastClaim < cooldownMs) {
       const remainingHours = Math.ceil((cooldownMs - (now - lastClaim)) / (60 * 60 * 1000));
-      log(`Recompensa de Ranking diária já coletada. Retorne em ${remainingHours}h.`, 'warning');
+      log(`今日排行榜獎勵已領取，請在 ${remainingHours} 小時後再回來。`, 'warning');
       return { success: false, reason: 'cooldown', remainingHours };
     }
 
@@ -169,7 +169,7 @@ export const RankingService = {
       adena = 1000000;
     }
 
-    state.lastRankingRewardClaim = now;
+    state.last排行榜RewardClaim = now;
     state.adenCoins = (state.adenCoins || 0) + coins;
     state.gold = (state.gold || 0) + adena;
 
@@ -178,7 +178,7 @@ export const RankingService = {
       const scrollItem = {
         uid: 'b_scrl_' + Date.now(),
         itemId: 'scrl_enchant_wp_b',
-        name: 'Scroll: Enchant Weapon (Grade B)',
+        name: '武器強化卷軸（B 級）',
         grade: 'b',
         qty: scrolls,
         type: 'scroll'
@@ -186,8 +186,8 @@ export const RankingService = {
       state.inventory.push(scrollItem);
     }
 
-    log(`🏆 **[Recompensa Diária de Ranking - Rank #${rank}]** Você recebeu ${coins} Aden Coins, ${adena.toLocaleString()} Adena${scrolls > 0 ? ` e ${scrolls}x Enchant Scrolls` : ''}!`, 'rarity-legendary');
-    floatText(`+${coins} COINS!`, 'float-jackpot');
+    log(`🏆 **[每日排行榜獎勵－排名 #${rank}]** 你獲得 ${coins} 亞丁幣、${adena.toLocaleString()} 金幣${scrolls > 0 ? `、${scrolls} 張強化卷軸` : ''}!`, 'rarity-legendary');
+    floatText(`+${coins} 亞丁幣！`, 'float-jackpot');
 
     onUpdate();
     return { success: true, rank, coins, adena, scrolls };
@@ -237,10 +237,10 @@ export const RankingService = {
     if (!state) return list;
 
     if (category === 'clans') {
-      const clan = state.clan || { name: 'Os Guardiões de Aden', level: 1, reputation: 100 };
+      const clan = state.clan || { name: '亞丁守護者', level: 1, reputation: 100 };
       const myClanEntry = {
         userId: 'player_clan',
-        charName: state.heroName || state.name || state.charName || 'Hero of Aden',
+        charName: state.heroName || state.name || state.charName || '亞丁英雄',
         clanName: clan.name,
         level: clan.level || 1,
         reputation: clan.reputation || 100,

@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "flame_totem",
-        "name": "Totem de Chamas",
+        "name": "火焰圖騰",
         "classId": "orc_shaman",
         "race": "orc",
         "tier": "core_1",
@@ -14,7 +14,7 @@
         "tags": [
           "Fire"
         ],
-        "description": "Totem de Chamas — Habilidade Especialista de orc_shaman."
+        "description": "火焰圖騰——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -167,7 +167,7 @@
     {
       "identity": {
         "id": "war_chant",
-        "name": "Cântico de Guerra",
+        "name": "戰爭頌歌",
         "classId": "orc_shaman",
         "race": "orc",
         "tier": "core_2",
@@ -177,7 +177,7 @@
         "tags": [
           "Fire"
         ],
-        "description": "Cântico de Guerra — Habilidade Especialista de orc_shaman."
+        "description": "戰爭頌歌——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -330,7 +330,7 @@
     {
       "identity": {
         "id": "ember_bolt",
-        "name": "Raio de Brasa",
+        "name": "餘燼箭",
         "classId": "orc_shaman",
         "race": "orc",
         "tier": "specialization",
@@ -340,7 +340,7 @@
         "tags": [
           "Fire"
         ],
-        "description": "Raio de Brasa — Habilidade Especialista de orc_shaman."
+        "description": "餘燼箭——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -493,7 +493,7 @@
     {
       "identity": {
         "id": "scorching_ground",
-        "name": "Solo Escaldante",
+        "name": "灼熱大地",
         "classId": "orc_shaman",
         "race": "orc",
         "tier": "elemental_specialization",
@@ -503,7 +503,7 @@
         "tags": [
           "Fire"
         ],
-        "description": "Solo Escaldante — Habilidade Especialista de orc_shaman."
+        "description": "灼熱大地——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -674,7 +674,7 @@
     {
       "identity": {
         "id": "apocalypse_totem",
-        "name": "Apocalypse Totem",
+        "name": "末日圖騰",
         "classId": "orc_shaman",
         "race": "orc",
         "tier": "ultimate",
@@ -684,7 +684,7 @@
         "tags": [
           "Fire"
         ],
-        "description": "Apocalypse Totem — Habilidade Ultimate (★★★★) de orc_shaman."
+        "description": "末日圖騰——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -870,7 +870,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "APOCALYPSE TOTEM!",
+          "text": "末日圖騰！",
           "style": "gold_banner",
           "banner": true
         }
@@ -891,7 +891,7 @@
     {
       "identity": {
         "id": "master_apocalypse_totem",
-        "name": "Master: Apocalypse Totem",
+        "name": "大師：末日圖騰",
         "classId": "orc_shaman",
         "race": "orc",
         "tier": "master_ultimate",
@@ -901,7 +901,7 @@
         "tags": [
           "Fire"
         ],
-        "description": "Master: Apocalypse Totem — Habilidade Master Ultimate (★★★★★) de orc_shaman."
+        "description": "大師：末日圖騰——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1088,7 +1088,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: APOCALYPSE TOTEM!",
+          "text": "大師：末日圖騰！",
           "style": "mythic_banner",
           "banner": true
         }

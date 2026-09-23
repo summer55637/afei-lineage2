@@ -12,6 +12,7 @@ import {
   MINING_TACTICS,
   getMiningZonesList
 } from '../data/mining.js';
+import { RESOURCE_DICTIONARY } from '../services/lifeActivities/ResourceDictionary.js';
 import { MiningService } from '../services/lifeActivities/MiningService.js';
 import { LIFE_ACTIVITY_LEVEL_TABLE } from '../services/lifeActivities/LifeActivityCore.js';
 
@@ -78,15 +79,15 @@ export function renderMiningUI(state) {
             ${z.icon} ${z.name}
           </strong>
           <span style="font-size:10px; color:${isUnlocked ? '#ffd877' : '#ef4444'}; font-weight:bold;">
-            ${isUnlocked ? '★'.repeat(z.difficulty) : `🔒 Lv. ${z.minLevel}`}
+            ${isUnlocked ? '★'.repeat(z.difficulty) : `🔒 等級 ${z.minLevel}`}
           </span>
         </div>
         <p style="font-size:11px; color:#94a3b8; margin:0 0 6px 0; line-height:1.3;">
           ${z.description}
         </p>
         <div style="display:flex; justify-content:space-between; font-size:10px; color:#aaa;">
-          <span>Lanterna: <strong style="color:#cbd5e1;">${reqLampDef ? reqLampDef.name : 'Qualquer'}</strong></span>
-          <span style="color:#f59e0b; font-weight:bold;">${isSelected ? '● ATUAL' : ''}</span>
+          <span>提燈： <strong style="color:#cbd5e1;">${reqLampDef ? reqLampDef.name : '任意'}</strong></span>
+          <span style="color:#f59e0b; font-weight:bold;">${isSelected ? '● 目前使用' : ''}</span>
         </div>
       </div>
     `;
@@ -102,14 +103,14 @@ export function renderMiningUI(state) {
 
     let actionBtn = '';
     if (isEquipped) {
-      actionBtn = `<span style="font-size:10px; color:#34d399; font-weight:bold; padding:4px 8px; border:1px solid #34d399; border-radius:4px; background:rgba(52,211,153,0.15);">EM USO</span>`;
+      actionBtn = `<span style="font-size:10px; color:#34d399; font-weight:bold; padding:4px 8px; border:1px solid #34d399; border-radius:4px; background:rgba(52,211,153,0.15);">使用中</span>`;
     } else if (isOwned) {
       actionBtn = `
         <button 
           onclick="window.equipMiningPickaxe('${pId}')"
           style="padding:4px 10px; font-size:10px; font-weight:bold; background:rgba(212,167,68,0.2); border:1px solid #d4a744; color:#ffd877; border-radius:4px; cursor:pointer;"
         >
-          EMPUNHAR
+          裝備
         </button>
       `;
     } else {
@@ -119,7 +120,7 @@ export function renderMiningUI(state) {
           ${(!canUnlock || !canAfford) ? 'disabled' : ''}
           style="padding:4px 10px; font-size:10px; font-weight:bold; background:${canUnlock && canAfford ? 'linear-gradient(180deg,#d4a744,#8a641c)' : 'rgba(50,50,50,0.4)'}; border:1px solid ${canUnlock && canAfford ? '#ffe699' : '#555'}; color:${canUnlock && canAfford ? '#000' : '#777'}; border-radius:4px; cursor:${canUnlock && canAfford ? 'pointer' : 'not-allowed'};"
         >
-          ${canUnlock ? `COMPRAR (${(pDef.buyPrice / 1000).toFixed(0)}k)` : `🔒 Nv. ${pDef.minMiningLevel}`}
+          ${canUnlock ? `購買（${pDef.buyPrice.toLocaleString()} 金幣）` : `🔒 採礦等級 ${pDef.minMiningLevel}`}
         </button>
       `;
     }
@@ -129,10 +130,10 @@ export function renderMiningUI(state) {
         <div>
           <div style="display:flex; align-items:center; gap:6px;">
             <strong style="font-size:12px; color:${isEquipped ? '#fbbf24' : '#f4d58a'};">${pDef.icon} ${pDef.name}</strong>
-            <span style="font-size:9px; background:rgba(0,0,0,0.5); padding:1px 5px; border-radius:3px; color:#aaa; font-weight:bold;">[${pDef.grade.toUpperCase()}]</span>
+            <span style="font-size:9px; background:rgba(0,0,0,0.5); padding:1px 5px; border-radius:3px; color:#aaa; font-weight:bold;">[${pDef.grade === 'none' ? '無級' : pDef.grade.toUpperCase()}]</span>
           </div>
           <div style="font-size:10px; color:#94a3b8; margin-top:2px;">
-            Durabilidade: ${pDef.durabilityMax} | Bônus Pureza: <strong style="color:#ffd877;">+${Math.round(pDef.qualityBonus * 100)}%</strong>
+            耐久度： ${pDef.durabilityMax} | 純度加成： <strong style="color:#ffd877;">+${Math.round(pDef.qualityBonus * 100)}%</strong>
           </div>
         </div>
         <div>
@@ -154,10 +155,10 @@ export function renderMiningUI(state) {
         <div style="flex:1;">
           <div style="display:flex; align-items:center; gap:6px;">
             <strong style="font-size:12px; color:${isSelected ? '#fbbf24' : '#f4d58a'};">${lDef.icon} ${lDef.name}</strong>
-            <span style="font-size:10px; color:#ffd877; font-weight:bold;">x${count}</span>
+            <span style="font-size:10px; color:#ffd877; font-weight:bold;">×${count}</span>
           </div>
           <div style="font-size:10px; color:#94a3b8; margin-top:2px;">
-            ${lDef.desc} (${lDef.buyPrice}g cada)
+            ${lDef.desc}（每個 ${lDef.buyPrice} 金幣）
           </div>
         </div>
         <div style="display:flex; gap:4px; align-items:center;">
@@ -173,7 +174,7 @@ export function renderMiningUI(state) {
             ${count <= 0 ? 'disabled' : ''}
             style="padding:4px 8px; font-size:10px; font-weight:bold; background:${isSelected ? 'rgba(245,158,11,0.3)' : 'rgba(70,70,70,0.3)'}; border:1px solid ${isSelected ? '#f59e0b' : '#666'}; color:${isSelected ? '#fbbf24' : count > 0 ? '#cbd5e1' : '#666'}; border-radius:4px; cursor:${count > 0 ? 'pointer' : 'not-allowed'};"
           >
-            ${isSelected ? 'ACESA' : 'EQUIPAR'}
+            ${isSelected ? '已點亮' : '裝備'}
           </button>
         </div>
       </div>
@@ -197,13 +198,13 @@ export function renderMiningUI(state) {
           ${node?.icon || '⛏️'}
         </div>
         <h3 style="margin:0 0 4px 0; font-family:'Cinzel',serif; color:#fbbf24; font-size:18px;">
-          ${node?.name || 'Veio Mineral Localizado'}
+          ${node?.name || '已發現礦脈'}
           <span style="font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(245,158,11,0.2); border:1px solid #f59e0b; color:#fde68a; margin-left:6px;">
             ${activeTacticDef.icon} ${activeTacticDef.name}
           </span>
         </h3>
         <p style="margin:0 0 12px 0; font-size:11px; color:#aaa;">
-          Minérios: <strong style="color:#cbd5e1;">${node?.yields?.primary?.toUpperCase()}</strong> ${node?.yields?.secondary ? `+ <strong style="color:#94a3b8;">${node?.yields?.secondary?.toUpperCase()}</strong>` : ''}
+          礦物： <strong style="color:#cbd5e1;">${RESOURCE_DICTIONARY[node?.yields?.primary]?.name || '未知材料'}</strong> ${node?.yields?.secondary ? `+ <strong style="color:#94a3b8;">${RESOURCE_DICTIONARY[node?.yields?.secondary]?.name || '未知材料'}</strong>` : ''}
         </p>
 
         <!-- Barra de Progresso de Escavação -->
@@ -229,23 +230,23 @@ export function renderMiningUI(state) {
               letter-spacing: 0.05em;
             "
           >
-            ${isReady ? '⛏️ EXTRAIR MINÉRIOS' : '🪨 QUEBRANDO A ROCHA...'}
+            ${isReady ? '⛏️ 開採礦物' : '🪨 正在破碎岩石...'}
           </button>
         </div>
       </div>
     `;
   } else {
-    const hazardName = mState.veinHazard === 'gas_pocket' ? 'Bolsão de Gás' 
-                     : mState.veinHazard === 'seismic_fault' ? 'Falha Sísmica' 
-                     : mState.veinHazard === 'dense_crystal' ? 'Veio Cristalino' : 'Rocha Estável';
-    const hazardDisplay = mState.veinProbed ? `[Perigo: ${hazardName}]` : '[Composição: Desconhecida (Sondar Veio)]';
+    const hazardName = mState.veinHazard === 'gas_pocket' ? '瓦斯囊' 
+                     : mState.veinHazard === 'seismic_fault' ? '地震裂隙' 
+                     : mState.veinHazard === 'dense_crystal' ? '水晶礦脈' : '穩定岩層';
+    const hazardDisplay = mState.veinProbed ? `[危險：${hazardName}]` : '[成分：未知（探勘礦脈）]';
     const hazardColor = mState.veinProbed && mState.veinHazard !== 'none' ? '#ef4444' : '#cbd5e1';
 
     const stability = mState.galleryStability ?? 100;
     const stabilityColor = stability > 60 ? 'linear-gradient(90deg, #34d399, #10b981)' 
                          : stability >= 25 ? 'linear-gradient(90deg, #fbbf24, #d97706)' 
                          : 'linear-gradient(90deg, #ef4444, #b91c1c)';
-    const stabilityText = stability > 60 ? 'Galeria Firme' : stability >= 25 ? 'Instabilidade Moderada' : 'Risco Crítico de Desabamento!';
+    const stabilityText = stability > 60 ? '坑道穩定' : stability >= 25 ? '中度不穩定' : '嚴重坍塌風險！';
     
     stageHtml = `
       <div style="text-align:center; padding:20px; background:radial-gradient(circle, rgba(35,20,12,0.85) 0%, rgba(15,10,8,0.95) 100%); border:1px solid rgba(212,167,68,0.3); border-radius:12px;">
@@ -253,7 +254,7 @@ export function renderMiningUI(state) {
         <!-- Stability Gauge -->
         <div style="margin-bottom:12px; text-align:left;">
           <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:bold; margin-bottom:4px; font-family:'Cinzel',serif;">
-            <span style="color:#f4d58a;">🏛️ Estabilidade da Galeria: ${stability}%</span>
+            <span style="color:#f4d58a;">🏛️ 坑道穩定度：${stability}%</span>
             <span style="color:${stability > 60 ? '#34d399' : stability >= 25 ? '#fbbf24' : '#ef4444'};">${stabilityText}</span>
           </div>
           <div style="width:100%; height:8px; background:rgba(0,0,0,0.6); border-radius:4px; border:1px solid rgba(212,167,68,0.2); overflow:hidden;">
@@ -265,7 +266,7 @@ export function renderMiningUI(state) {
           ⚒️
         </div>
         <h3 style="margin:0 0 4px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:16px;">
-          Frente de Extração em ${activeZone.name}
+          ${activeZone.name} 採掘工作面
         </h3>
         
         <!-- Vein Hazard -->
@@ -274,7 +275,7 @@ export function renderMiningUI(state) {
         </div>
 
         <p style="margin:0 0 14px 0; font-size:11px; color:#aaa; max-width:400px; margin-left:auto; margin-right:auto; line-height:1.4;">
-          Escolha como abordar este veio mineral.
+          選擇要如何開採這條礦脈。
         </p>
 
         <!-- Action Buttons -->
@@ -284,14 +285,14 @@ export function renderMiningUI(state) {
             ${mState.veinProbed ? 'disabled' : ''}
             style="padding:10px; font-family:'Cinzel',serif; font-size:11px; font-weight:bold; background:rgba(30,40,50,0.8); border:1px solid #3b82f6; color:#93c5fd; border-radius:6px; cursor:${mState.veinProbed ? 'not-allowed' : 'pointer'}; opacity:${mState.veinProbed ? '0.5' : '1'};"
           >
-            🔍 Sondagem Acústica
+            🔍 聲波探勘
           </button>
           
           <button 
             onclick="window.shoreUpMiningGallery()"
             style="padding:10px; font-family:'Cinzel',serif; font-size:11px; font-weight:bold; background:rgba(50,30,20,0.8); border:1px solid #d97706; color:#fcd34d; border-radius:6px; cursor:pointer;"
           >
-            🪵 Escorar Galeria (+35%)
+            🪵 加固坑道（+35%）
           </button>
 
           <button 
@@ -299,7 +300,7 @@ export function renderMiningUI(state) {
             ${isPickaxeDull ? 'disabled' : ''}
             style="padding:10px; font-family:'Cinzel',serif; font-size:11px; font-weight:bold; background:${isPickaxeDull ? 'rgba(60,50,40,0.5)' : 'rgba(20,50,20,0.8)'}; border:1px solid ${isPickaxeDull ? '#555' : '#22c55e'}; color:${isPickaxeDull ? '#777' : '#86efac'}; border-radius:6px; cursor:${isPickaxeDull ? 'not-allowed' : 'pointer'};"
           >
-            🎯 Cinzelamento Preciso
+            🎯 精準鑿採
           </button>
 
           <button 
@@ -307,7 +308,7 @@ export function renderMiningUI(state) {
             ${isPickaxeDull ? 'disabled' : ''}
             style="padding:10px; font-family:'Cinzel',serif; font-size:11px; font-weight:bold; background:${isPickaxeDull ? 'rgba(60,50,40,0.5)' : 'rgba(60,20,20,0.8)'}; border:1px solid ${isPickaxeDull ? '#555' : '#ef4444'}; color:${isPickaxeDull ? '#777' : '#fca5a5'}; border-radius:6px; cursor:${isPickaxeDull ? 'not-allowed' : 'pointer'};"
           >
-            💥 Golpe Demolidor
+            💥 強力破岩
           </button>
         </div>
       </div>
@@ -324,19 +325,19 @@ export function renderMiningUI(state) {
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
           <div>
             <h3 style="margin:0; font-family:'Cinzel',serif; color:#fbbf24; font-size:20px; display:flex; align-items:center; gap:8px;">
-              ⛏️ Corporação de Mineração dos Anões de Aden
+              ⛏️ 亞丁矮人採礦公會
             </h3>
             <p style="margin:4px 0 0 0; font-size:12px; color:#aaa;">
-              Desça aos subterrâneos mais profundos, parta rochas ancestrais e extraia Ferro, Prata, Mithril, Oriharukon e Adamantite!
+              深入地下礦坑、擊碎古老岩層，開採鐵、銀、米索莉、奧里哈魯根與精金！
             </p>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(245,158,11,0.3); border-radius:8px; padding:6px 14px; text-align:center;">
-              <div style="font-size:10px; color:#aaa; text-transform:uppercase;">Nível de Mineiro</div>
-              <div style="font-size:16px; font-weight:bold; color:#fbbf24; font-family:'Cinzel',serif;">Nv. ${skillLvl} / 40</div>
+              <div style="font-size:10px; color:#aaa; text-transform:uppercase;">採礦等級</div>
+              <div style="font-size:16px; font-weight:bold; color:#fbbf24; font-family:'Cinzel',serif;">等級 ${skillLvl} / 40</div>
             </div>
             <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(212,167,68,0.3); border-radius:8px; padding:6px 14px; text-align:center;">
-              <div style="font-size:10px; color:#aaa; text-transform:uppercase;">Veios Catalogados</div>
+              <div style="font-size:10px; color:#aaa; text-transform:uppercase;">已登錄礦脈</div>
               <div style="font-size:16px; font-weight:bold; color:#f4d58a; font-family:'Cinzel',serif;">${speciesDiscovered} / ${totalSpecies}</div>
             </div>
           </div>
@@ -345,7 +346,7 @@ export function renderMiningUI(state) {
         <!-- Barra de Maestria -->
         <div>
           <div style="display:flex; justify-content:space-between; font-size:10px; color:#94a3b8; margin-bottom:4px;">
-            <span>Progresso da Maestria: <strong style="color:#fbbf24;">${skillXp.toLocaleString()} / ${nextLvlXp.toLocaleString()} XP</strong></span>
+            <span>熟練度進度： <strong style="color:#fbbf24;">${skillXp.toLocaleString()} / ${nextLvlXp.toLocaleString()} 經驗值</strong></span>
             <span>${xpPct}%</span>
           </div>
           <div style="width:100%; height:6px; background:rgba(0,0,0,0.6); border-radius:3px; overflow:hidden; border:1px solid rgba(245,158,11,0.2);">
@@ -357,7 +358,7 @@ export function renderMiningUI(state) {
       <!-- Zonas de Mineração -->
       <div style="margin-bottom:20px;">
         <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px; display:flex; align-items:center; gap:6px;">
-          🧭 Galerias & Jazidas Minerais de Aden
+          🧭 亞丁坑道與礦床
         </h4>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           ${zonesHtml}
@@ -369,7 +370,7 @@ export function renderMiningUI(state) {
         <!-- Coluna Esquerda: Palco de Ação -->
         <div>
           <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#fbbf24; font-size:15px;">
-            ⛏️ Frente de Lavra & Extração
+            ⛏️ 採礦與挖掘區
           </h4>
           ${stageHtml}
 
@@ -377,13 +378,13 @@ export function renderMiningUI(state) {
           <div style="margin-top:12px; background:rgba(24,20,18,0.85); border:1px solid rgba(245,158,11,0.25); border-radius:8px; padding:12px; display:flex; justify-content:space-between; align-items:center;">
             <div>
               <div style="display:flex; align-items:center; gap:6px;">
-                <strong style="font-size:13px; color:#f4d58a;">⛏️ Mineração Automática (AFK)</strong>
+                <strong style="font-size:13px; color:#f4d58a;">⛏️ 自動採礦（掛機）</strong>
                 <span style="font-size:10px; background:${isAfkUnlocked ? 'rgba(245,158,11,0.2)' : 'rgba(239,68,68,0.2)'}; color:${isAfkUnlocked ? '#fbbf24' : '#fca5a5'}; padding:1px 6px; border-radius:4px; font-weight:bold;">
-                  ${isAfkUnlocked ? 'DESBLOQUEADO' : 'NV. 5 MINERAÇÃO REQUERIDO'}
+                  ${isAfkUnlocked ? '已解鎖' : '需要採礦等級 5'}
                 </span>
               </div>
               <p style="margin:2px 0 0 0; font-size:10px; color:#aaa;">
-                Extrai minérios pesados continuamente enquanto o jogo roda ou em segundo plano.
+                遊戲開啟或背景執行時持續自動採掘重型礦物。
               </p>
             </div>
             <button 
@@ -401,15 +402,15 @@ export function renderMiningUI(state) {
                 cursor: ${isAfkUnlocked ? 'pointer' : 'not-allowed'};
               "
             >
-              ${isAfkActive ? '⏸️ PAUSAR AFK' : '▶️ ATIVAR AFK'}
+              ${isAfkActive ? '⏸️ 暫停自動採礦' : '▶️ 開啟自動採礦'}
             </button>
           </div>
         </div>
 
-        <!-- Coluna Direita: Picareta Atual & Manutenção -->
+        <!-- Coluna Direita: Picareta Atual & 維護 -->
         <div>
           <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px;">
-            ⛏️ Picareta de Mineração & Manutenção
+            ⛏️ 採礦鎬與維護
           </h4>
           <div style="background:rgba(24,20,18,0.85); border:1px solid rgba(212,167,68,0.3); border-radius:10px; padding:12px; margin-bottom:12px;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
@@ -422,14 +423,14 @@ export function renderMiningUI(state) {
                 ${!isPickaxeDull && durPct >= 100 ? 'disabled' : ''}
                 style="padding:6px 12px; font-size:11px; font-weight:bold; background:linear-gradient(180deg,#fbbf24,#b45309); border:1px solid #fde047; color:#000; border-radius:6px; cursor:pointer;"
               >
-                ⚒️ REFORJAR PONTA
+                ⚒️ 重新鍛造鎬頭
               </button>
             </div>
 
             <!-- Barra de Durabilidade -->
             <div style="margin-top:8px;">
               <div style="display:flex; justify-content:space-between; font-size:10px; color:#94a3b8; margin-bottom:4px;">
-                <span>Fio da Broca: <strong style="color:${durPct > 20 ? '#34d399' : '#ef4444'};">${pickaxeDurability} / ${maxPickaxeDurability}</strong></span>
+                <span>礦鎬鋒利度： <strong style="color:${durPct > 20 ? '#34d399' : '#ef4444'};">${pickaxeDurability} / ${maxPickaxeDurability}</strong></span>
                 <span>${durPct}%</span>
               </div>
               <div style="width:100%; height:6px; background:rgba(0,0,0,0.6); border-radius:3px; overflow:hidden; border:1px solid rgba(212,167,68,0.2);">
@@ -440,7 +441,7 @@ export function renderMiningUI(state) {
 
           <!-- Arsenal de Picaretas -->
           <h5 style="margin:12px 0 6px 0; font-family:'Cinzel',serif; color:#ffd877; font-size:13px;">
-            Ferraria dos Anões (Coleção de Picaretas)
+            矮人鐵匠鋪（採礦鎬收藏）
           </h5>
           <div style="max-height:180px; overflow-y:auto; padding-right:4px;">
             ${pickaxesHtml}
@@ -451,7 +452,7 @@ export function renderMiningUI(state) {
       <!-- Seção Inferior: Lamparinas & Lanternas de Galeria -->
       <div style="background:rgba(24,20,18,0.85); border:1px solid rgba(212,167,68,0.25); border-radius:10px; padding:12px;">
         <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px;">
-          🏮 Lamparinas & Lanternas de Galeria Subterrânea
+          🏮 地下礦坑油燈與提燈
         </h4>
         <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:10px;">
           ${lampsHtml}

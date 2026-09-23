@@ -41,32 +41,32 @@ export class EntityValidator {
     const errors: string[] = [];
 
     if (!char || typeof char !== 'object') {
-      return { valid: false, errors: ['Entidade de personagem nula ou inválida.'] };
+      return { valid: false, errors: ['角色資料不存在或無效。'] };
     }
 
     if (!char.characterId || typeof char.characterId !== 'string' || !char.characterId.trim()) {
-      errors.push('characterId obrigatório e não pode ser vazio.');
+      errors.push('characterId 為必填且不可為空。');
     }
 
     if (!char.ownerUid || typeof char.ownerUid !== 'string' || !char.ownerUid.trim()) {
-      errors.push('ownerUid obrigatório.');
+      errors.push('ownerUid 為必填。');
     }
 
     if (!char.name || typeof char.name !== 'string' || char.name.trim().length < 3) {
-      errors.push('name deve ter no mínimo 3 caracteres.');
+      errors.push('名稱至少需要 3 個字元。');
     }
 
     if (char.entityType !== 'player') {
-      errors.push(`entityType inválido: ${char.entityType}. Esperado 'player'.`);
+      errors.push(`entityType 無效：${char.entityType}。預期值為 'player'。`);
     }
 
     if (char.playerType !== 'real' && char.playerType !== 'bot') {
-      errors.push(`playerType inválido: ${char.playerType}. Esperado 'real' ou 'bot'.`);
+      errors.push(`playerType 無效：${char.playerType}。預期值為 'real' 或 'bot'。`);
     }
 
     const level = Number(char.level);
     if (isNaN(level) || level < 1 || level > 120) {
-      errors.push(`level inválido: ${char.level}. Esperado entre 1 e 120.`);
+      errors.push(`等級無效：${char.level}。允許範圍為 1 到 120。`);
     }
 
     return {
@@ -86,7 +86,7 @@ export class EntityValidator {
         if (currentData[field] !== undefined && String(updateData[field]) !== String(currentData[field])) {
           return {
             allowed: false,
-            violation: `Tentativa ilegal de modificar campo imutável: '${field}' de '${currentData[field]}' para '${updateData[field]}'`
+            violation: `禁止修改不可變更欄位：'${field}'，原值 '${currentData[field]}'，新值 '${updateData[field]}'`
           };
         }
       }
@@ -100,10 +100,10 @@ export class EntityValidator {
    */
   static validateRelationship(charAId: string, charBId: string): { valid: boolean; reason?: string } {
     if (!charAId || !charBId) {
-      return { valid: false, reason: 'Identificadores de relacionamento não podem ser nulos.' };
+      return { valid: false, reason: '關係識別資料不可為空。' };
     }
     if (charAId === charBId) {
-      return { valid: false, reason: 'Auto-relacionamento proibido: um personagem não pode se relacionar consigo mesmo.' };
+      return { valid: false, reason: '禁止建立自身關係：角色不能與自己建立關係。' };
     }
     return { valid: true };
   }

@@ -5,9 +5,9 @@
 export const SOUL_CRYSTAL_ITEMS = {};
 
 const colors = [
-  { key: 'red', name: 'Vermelho', icon: 'gradespecial/jewels/jewel_necklace_of_valakas.png' },
-  { key: 'green', name: 'Verde', icon: 'gradespecial/jewels/jewel_ring_queen_ant.png' },
-  { key: 'blue', name: 'Azul', icon: 'gradespecial/jewels/jewel_ring_core.png' }
+  { key: 'red', name: '紅色', icon: 'gradespecial/jewels/jewel_necklace_of_valakas.png' },
+  { key: 'green', name: '綠色', icon: 'gradespecial/jewels/jewel_ring_queen_ant.png' },
+  { key: 'blue', name: '藍色', icon: 'gradespecial/jewels/jewel_ring_core.png' }
 ];
 
 for (const c of colors) {
@@ -15,7 +15,7 @@ for (const c of colors) {
     const itemId = `soul_crystal_${c.key}_stage${st}`;
     SOUL_CRYSTAL_ITEMS[itemId] = {
       id: itemId,
-      name: `Soul Crystal ${c.name} - Estágio ${st}${st === 15 ? ' (Lendário)' : ''}`,
+      name: `靈魂水晶 ${c.name}－階段 ${st}${st === 15 ? '（傳說）' : ''}`,
       slot: 'crystal',
       type: 'soul_crystal',
       isSoulCrystal: true,
@@ -26,7 +26,7 @@ for (const c of colors) {
       rarity: st === 15 ? 'sovereign' : st === 14 ? 'primordial' : st >= 10 ? 'legendary' : st >= 5 ? 'epic' : 'rare',
       price: st * 50000,
       icon: c.icon,
-      desc: `Soul Crystal ${c.name} Nível ${st}. Absorva almas de monstros para evoluir até o Estágio 15 e engaste em sua arma para liberar a Habilidade Especial (SA)!`
+      desc: `靈魂水晶 ${c.name} 等級 ${st}。吸收怪物靈魂可成長至階段 15，並可鑲嵌於武器上解鎖特殊能力！`
     };
   }
 }

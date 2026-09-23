@@ -1,11 +1,11 @@
 /**
- * NoblesseService.js — Gerenciamento da Questline de Noblesse (Possessor of a Precious Soul).
+ * 貴族Service.js — Gerenciamento da 任務line de 貴族 (Possessor of a Precious Soul).
  *
  * Responsável por:
- * 1. Controle das 4 etapas canônicas da saga de Noblesse (Lv. 75+).
+ * 1. Controle das 4 etapas canônicas da saga de 貴族 (Lv. 75+).
  * 2. Rastreamento de abates em Valley of Saints, Swamp of Screams e confronto contra Barakiel.
- * 3. Consagração como Noblesse (`state.isNoblesse = true`).
- * 4. Entrega da Noblesse Tiara e validação do requisito Nível 76+ Noblesse para a Grand Olympiad.
+ * 3. Consagração como 貴族 (`state.isNoblesse = true`).
+ * 4. Entrega da 貴族 Tiara e validação do requisito Nível 76+ 貴族 para a Grand Olympiad.
  */
 
 import { NOBLESSE_QUEST_DEFS } from '../data/quests.js';
@@ -27,9 +27,9 @@ export class NoblesseService {
     const isLevelOk = level >= 76;
 
     let reason = '';
-    if (!isNoblesse && !isLevelOk) reason = 'Requer Nível 76+ e Conclusão da Quest de Noblesse.';
-    else if (!isNoblesse) reason = 'Requer Conclusão da Saga de Noblesse (Possessor of a Precious Soul).';
-    else if (!isLevelOk) reason = 'Requer Nível 76+ para adentrar na Grand Olympiad.';
+    if (!isNoblesse && !isLevelOk) reason = '需要等級 76+ 並完成貴族任務。';
+    else if (!isNoblesse) reason = '需要完成貴族傳奇（珍貴靈魂的擁有者）。';
+    else if (!isLevelOk) reason = '需要等級 76+ 才能參加大奧林匹亞。';
 
     return {
       isNoblesse,
@@ -41,7 +41,7 @@ export class NoblesseService {
   }
 
   /**
-   * Valida se o herói pode iniciar/avançar uma determinada etapa da saga de Noblesse.
+   * Valida se o herói pode iniciar/avançar uma determinada etapa da saga de 貴族.
    * @param {Object} state
    * @param {number} step
    * @returns {{ok: boolean, reason?: string}}
@@ -49,27 +49,27 @@ export class NoblesseService {
   static canAdvanceStep(state, step) {
     const level = state.level || 1;
     if (level < 75) {
-      return { ok: false, reason: 'Requer Nível 75+ para realizar a Quest de Noblesse.' };
+      return { ok: false, reason: '需要等級 75 以上才能進行貴族任務。' };
     }
 
     const currentStep = state.noblesseStep || 1;
     if (state.isNoblesse) {
-      return { ok: false, reason: 'Você já alcançou o status supremo de Noblesse!' };
+      return { ok: false, reason: '你已經取得最高貴族身分！' };
     }
 
     if (step > currentStep) {
-      return { ok: false, reason: `Conclua a Parte ${currentStep} antes de avançar para a Parte ${step}.` };
+      return { ok: false, reason: `請先完成第 ${currentStep} 部分，才能進行第 ${step} 部分。` };
     }
 
     const prog = state.noblesseProgress || {};
     if (step === 1 && (prog.part1Kills || 0) < 25) {
-      return { ok: false, reason: `Derrote 25 monstros em Valley of Saints (${prog.part1Kills || 0}/25).` };
+      return { ok: false, reason: `在聖者之谷擊敗 25 隻怪物（${prog.part1Kills || 0}/25）。` };
     }
     if (step === 2 && (prog.part2Kills || 0) < 30) {
-      return { ok: false, reason: `Purifique 30 espíritos em Swamp of Screams (${prog.part2Kills || 0}/30).` };
+      return { ok: false, reason: `在悲鳴沼澤淨化 30 個靈魂（${prog.part2Kills || 0}/30）。` };
     }
     if (step === 3 && !prog.barakielKilled) {
-      return { ok: false, reason: 'Derrote o Raid Boss Flame of Splendor Barakiel para recuperar o cajado da Deusa!' };
+      return { ok: false, reason: '擊敗團隊首領「光輝之炎巴拉基爾」，取回女神權杖！' };
     }
 
     return { ok: true };
@@ -86,29 +86,29 @@ export class NoblesseService {
     state.noblesseProgress = state.noblesseProgress || { part1Kills: 0, part2Kills: 0, barakielKilled: false };
     const step = state.noblesseStep || 1;
 
-    // Parte 1: Valley of Saints
+    // 部分 1: Valley of Saints
     if (step === 1 && state.zone === 'valleyOfSaints') {
       if (state.noblesseProgress.part1Kills < 25) {
         state.noblesseProgress.part1Kills++;
         if (callbacks.log && state.noblesseProgress.part1Kills % 5 === 0) {
-          callbacks.log(`📜 [Noblesse] Páginas do Poema de Eva recuperadas: ${state.noblesseProgress.part1Kills}/25`, 'system');
+          callbacks.log(`📜 [貴族] 已找回伊娃詩篇：${state.noblesseProgress.part1Kills}/25`, 'system');
         }
       }
     }
-    // Parte 2: Swamp of Screams
+    // 部分 2: Swamp of Screams
     else if (step === 2 && state.zone === 'swampOfScreams') {
       if (state.noblesseProgress.part2Kills < 30) {
         state.noblesseProgress.part2Kills++;
         if (callbacks.log && state.noblesseProgress.part2Kills % 5 === 0) {
-          callbacks.log(`🔮 [Noblesse] Almas purificadas em Swamp of Screams: ${state.noblesseProgress.part2Kills}/30`, 'system');
+          callbacks.log(`🔮 [貴族] 悲鳴沼澤已淨化靈魂：${state.noblesseProgress.part2Kills}/30`, 'system');
         }
       }
     }
-    // Parte 3: Barakiel
+    // 部分 3: Barakiel
     else if (step === 3 && (monster.id === 'barakiel' || monster.name?.toLowerCase().includes('barakiel') || monster.isBarakiel)) {
       state.noblesseProgress.barakielKilled = true;
       if (callbacks.log) {
-        callbacks.log('⚡ [Noblesse] **Flame of Splendor Barakiel Derrotado!** Você recuperou o [Staff of Goddess: Rain Song]!', 'rarity-legendary');
+        callbacks.log('⚡ [貴族] **光輝火焰巴拉基艾爾已擊敗！** 你取回了 [女神法杖：雨之歌]！', 'rarity-legendary');
       }
     }
   }
@@ -141,14 +141,14 @@ export class NoblesseService {
     if (step < 4) {
       state.noblesseStep = step + 1;
       if (callbacks.log) {
-        callbacks.log(`🎉 **${def.name} Concluída!** Avançou para a Parte ${state.noblesseStep}!`, 'rarity-epic');
+        callbacks.log(`🎉 **${def.name} 已完成！** 已進入第 ${state.noblesseStep} 部分！`, 'rarity-epic');
       }
     } else {
-      // Conclusão Final: Consagração como Noblesse!
+      // Conclusão Final: Consagração como 貴族!
       state.noblesseStep = 5;
       state.isNoblesse = true;
 
-      // Entrega a Noblesse Tiara
+      // Entrega a 貴族 Tiara
       state.inventory = state.inventory || [];
       const uid = 'tiara_' + Date.now();
       state.inventory.push({
@@ -163,8 +163,8 @@ export class NoblesseService {
       state.skills['blessing_of_noble'] = 1;
 
       if (callbacks.log) {
-        callbacks.log('👑✨ **CONSAGRAÇÃO SAGRADA DE NOBLESSE!**', 'rarity-legendary');
-        callbacks.log('Você completou a lendária saga *Possessor of a Precious Soul*, recebeu a **Noblesse Tiara**, a bênção **Blessing of Noble** e obteve permissão para adentrar na **Grand Olympiad (Lv. 76+)**!', 'rarity-legendary');
+        callbacks.log('👑✨ **貴族神聖祝聖完成！**', 'rarity-legendary');
+        callbacks.log('你完成了傳奇任務 *珍貴靈魂的擁有者*，獲得 **貴族頭冠**、**貴族祝福**，並取得參加 **大奧林匹亞（等級 76+）** 的資格！', 'rarity-legendary');
       }
     }
 

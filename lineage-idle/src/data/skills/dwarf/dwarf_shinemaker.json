@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "radiant_hammer",
-        "name": "Martelo Radiante",
+        "name": "光輝戰鎚",
         "classId": "dwarf_shinemaker",
         "race": "dwarf",
         "tier": "core_1",
@@ -14,7 +14,7 @@
         "tags": [
           "Holy"
         ],
-        "description": "Martelo Radiante — Habilidade Especialista de dwarf_shinemaker."
+        "description": "光輝戰鎚——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -167,7 +167,7 @@
     {
       "identity": {
         "id": "guiding_light",
-        "name": "Luz Guia",
+        "name": "引導之光",
         "classId": "dwarf_shinemaker",
         "race": "dwarf",
         "tier": "core_2",
@@ -177,7 +177,7 @@
         "tags": [
           "Holy"
         ],
-        "description": "Luz Guia — Habilidade Especialista de dwarf_shinemaker."
+        "description": "引導之光——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -330,7 +330,7 @@
     {
       "identity": {
         "id": "celestial_forge",
-        "name": "Forja Celestial",
+        "name": "天界鍛爐",
         "classId": "dwarf_shinemaker",
         "race": "dwarf",
         "tier": "specialization",
@@ -340,7 +340,7 @@
         "tags": [
           "Holy"
         ],
-        "description": "Forja Celestial — Habilidade Especialista de dwarf_shinemaker."
+        "description": "天界鍛爐——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -493,7 +493,7 @@
     {
       "identity": {
         "id": "sunfall_smash",
-        "name": "Golpe do Sol Poente",
+        "name": "落日猛擊",
         "classId": "dwarf_shinemaker",
         "race": "dwarf",
         "tier": "elemental_specialization",
@@ -503,7 +503,7 @@
         "tags": [
           "Holy"
         ],
-        "description": "Golpe do Sol Poente — Habilidade Especialista de dwarf_shinemaker."
+        "description": "落日猛擊——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -674,7 +674,7 @@
     {
       "identity": {
         "id": "divine_forge",
-        "name": "Divine Forge",
+        "name": "神聖鍛爐",
         "classId": "dwarf_shinemaker",
         "race": "dwarf",
         "tier": "ultimate",
@@ -684,7 +684,7 @@
         "tags": [
           "Holy"
         ],
-        "description": "Divine Forge — Habilidade Ultimate (★★★★) de dwarf_shinemaker."
+        "description": "神聖鍛爐——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -870,7 +870,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "DIVINE FORGE!",
+          "text": "神聖鍛爐！",
           "style": "gold_banner",
           "banner": true
         }
@@ -891,7 +891,7 @@
     {
       "identity": {
         "id": "master_divine_forge",
-        "name": "Master: Divine Forge",
+        "name": "大師：神聖鍛爐",
         "classId": "dwarf_shinemaker",
         "race": "dwarf",
         "tier": "master_ultimate",
@@ -901,7 +901,7 @@
         "tags": [
           "Holy"
         ],
-        "description": "Master: Divine Forge — Habilidade Master Ultimate (★★★★★) de dwarf_shinemaker."
+        "description": "大師：神聖鍛爐——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1088,7 +1088,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: DIVINE FORGE!",
+          "text": "大師：神聖鍛爐！",
           "style": "mythic_banner",
           "banner": true
         }

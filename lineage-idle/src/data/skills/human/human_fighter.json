@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "shield_bash",
-        "name": "Investida de Escudo",
+        "name": "盾牌猛擊",
         "classId": "human_fighter",
         "race": "human",
         "tier": "core_1",
@@ -14,7 +14,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Investida de Escudo — Habilidade Especialista de human_fighter."
+        "description": "盾牌猛擊——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -167,7 +167,7 @@
     {
       "identity": {
         "id": "cleave_strike",
-        "name": "Golpe Ceifador",
+        "name": "劈砍打擊",
         "classId": "human_fighter",
         "race": "human",
         "tier": "core_2",
@@ -177,7 +177,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Golpe Ceifador — Habilidade Especialista de human_fighter."
+        "description": "劈砍打擊——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -330,7 +330,7 @@
     {
       "identity": {
         "id": "iron_stance",
-        "name": "Postura de Ferro",
+        "name": "鋼鐵姿態",
         "classId": "human_fighter",
         "race": "human",
         "tier": "specialization",
@@ -340,7 +340,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Postura de Ferro — Habilidade Especialista de human_fighter."
+        "description": "鋼鐵姿態——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -493,7 +493,7 @@
     {
       "identity": {
         "id": "concussive_stun",
-        "name": "Pancada Atordoante",
+        "name": "震盪暈擊",
         "classId": "human_fighter",
         "race": "human",
         "tier": "elemental_specialization",
@@ -503,7 +503,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Pancada Atordoante — Habilidade Especialista de human_fighter."
+        "description": "震盪暈擊——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -674,7 +674,7 @@
     {
       "identity": {
         "id": "titanbreaker",
-        "name": "Titanbreaker",
+        "name": "泰坦粉碎",
         "classId": "human_fighter",
         "race": "human",
         "tier": "ultimate",
@@ -684,7 +684,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Titanbreaker — Habilidade Ultimate (★★★★) de human_fighter."
+        "description": "泰坦粉碎——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -870,7 +870,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "TITANBREAKER!",
+          "text": "泰坦粉碎！",
           "style": "gold_banner",
           "banner": true
         }
@@ -891,7 +891,7 @@
     {
       "identity": {
         "id": "master_titanbreaker",
-        "name": "Master: Titanbreaker",
+        "name": "大師：泰坦粉碎",
         "classId": "human_fighter",
         "race": "human",
         "tier": "master_ultimate",
@@ -901,7 +901,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Master: Titanbreaker — Habilidade Master Ultimate (★★★★★) de human_fighter."
+        "description": "大師：泰坦粉碎——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1088,7 +1088,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: TITANBREAKER!",
+          "text": "大師：泰坦粉碎！",
           "style": "mythic_banner",
           "banner": true
         }

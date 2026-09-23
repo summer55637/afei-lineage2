@@ -9,6 +9,12 @@ import { CanonicalClassGraph } from '../data/classes/CanonicalClassGraph.js';
 import { SeasonAvailabilityService } from '../services/SeasonAvailabilityService.js';
 import EventBus from '../core/EventBus.js';
 
+const RACE_DISPLAY_NAMES = {
+  human: '人類', elf: '精靈', darkelf: '黑暗精靈', dark_elf: '黑暗精靈',
+  orc: '半獸人', dwarf: '矮人', kamael: '闇天使', sylph: '風精靈',
+  highelf: '高等精靈', high_elf: '高等精靈', ertheia: '艾爾提亞'
+};
+
 export class ClassProgressionEngine {
   /**
    * Evaluates all structural successors in the DAG and determines their promotion status.
@@ -40,14 +46,14 @@ export class ClassProgressionEngine {
       // 1. Level Rule
       if (playerLevel < targetNode.minLevel) {
         isEligible = false;
-        reasons.push(`Nível insuficiente. Requer nível ${targetNode.minLevel} (atual: ${playerLevel}).`);
+        reasons.push(`等級不足。需要等級 ${targetNode.minLevel}（目前：${playerLevel}）。`);
       }
 
       // 2. Race Rule
       const effectiveRace = playerRace || currentNode.race;
       if (effectiveRace && targetNode.race !== effectiveRace) {
         isEligible = false;
-        reasons.push(`Restrição de raça. Classe pertence a ${targetNode.race}.`);
+        reasons.push(`種族限制：此職業屬於 ${RACE_DISPLAY_NAMES[targetNode.race] || '指定種族'}。`);
       }
 
       // 3. Season Rule
@@ -55,7 +61,7 @@ export class ClassProgressionEngine {
       const isSeasonGated = !seasonCheck.available;
       if (isSeasonGated) {
         isEligible = false;
-        reasons.push(`Bloqueado na Temporada ${season}: Disponível em temporadas futuras (Nível 76+).`);
+        reasons.push(`第 ${season} 賽季尚未開放：將於後續賽季開放（等級 76+）。`);
       }
 
       return {
@@ -94,7 +100,7 @@ export class ClassProgressionEngine {
     const targetOption = options.find(opt => opt.targetClass.id === targetClassId);
 
     if (!targetOption) {
-      return { canPromote: false, reason: 'Classe alvo não é sucessora direta no grafo canônico.' };
+      return { canPromote: false, reason: '目標職業不是目前職業的直接進階分支。' };
     }
 
     if (!targetOption.isEligible) {

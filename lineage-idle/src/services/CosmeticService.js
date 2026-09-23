@@ -1,5 +1,5 @@
 ﻿/**
- * CosmeticService.js — Sistema de Cosméticos VFX (100% Visual / Idle).
+ * CosmeticService.js — Sistema de 外觀s VFX (100% Visual / Idle).
  * 
  * REGRA RIGOROSA: Nenhum cosmético fornece status de combate, HP, dano ou defesa.
  * São 100% visuais e cosméticos, servindo como prestige/sumidouro de Adena.
@@ -8,8 +8,8 @@
 export const AURAS_CATALOG = {
   aura_none: {
     id: 'aura_none',
-    name: 'Sem Aura',
-    desc: 'Oculta qualquer aura ativa no herói.',
+    name: '無光環',
+    desc: '隱藏角色目前啟用的所有光環。',
     cssClass: '',
     icon: '🚫',
     color: 'transparent',
@@ -18,8 +18,8 @@ export const AURAS_CATALOG = {
   },
   aura_hero_golden: {
     id: 'aura_hero_golden',
-    name: 'Aura Dourada do Herói',
-    desc: 'O resplendor canônico dourado dos campeões das Olimpíadas de Aden.',
+    name: '英雄金色光環',
+    desc: '亞丁奧林匹亞冠軍所散發的經典金色光輝。',
     cssClass: 'hero-aura-golden',
     icon: '👑',
     color: '#ffd700',
@@ -28,8 +28,8 @@ export const AURAS_CATALOG = {
   },
   aura_crimson_warlord: {
     id: 'aura_crimson_warlord',
-    name: 'Aura Escarlate da Guerra',
-    desc: 'Chamas carmesim emanadas pelo fervor e sede de mil batalhas.',
+    name: '緋紅戰爭光環',
+    desc: '歷經千場戰鬥的狂熱與戰意所化成的緋紅火焰。',
     cssClass: 'hero-aura-crimson',
     icon: '🔥',
     color: '#ef4444',
@@ -38,8 +38,8 @@ export const AURAS_CATALOG = {
   },
   aura_abyssal_shadow: {
     id: 'aura_abyssal_shadow',
-    name: 'Aura Abissal das Sombras',
-    desc: 'Vórtices de éter escuro e violeta das profundezas das Catacumbas.',
+    name: '深淵暗影光環',
+    desc: '來自地下墓穴深處的黑紫色乙太漩渦。',
     cssClass: 'hero-aura-abyssal',
     icon: '🌑',
     color: '#a855f7',
@@ -48,8 +48,8 @@ export const AURAS_CATALOG = {
   },
   aura_divine_seraph: {
     id: 'aura_divine_seraph',
-    name: 'Aura Serafim Divina',
-    desc: 'Clarão radiante celestial dos anjos guardiões do Templo de Einhasad.',
+    name: '神聖熾天使光環',
+    desc: '殷海薩神殿守護天使所散發的天界光芒。',
     cssClass: 'hero-aura-divine',
     icon: '✨',
     color: '#38bdf8',
@@ -58,8 +58,8 @@ export const AURAS_CATALOG = {
   },
   aura_frost_monarch: {
     id: 'aura_frost_monarch',
-    name: 'Aura Monarca Glacial',
-    desc: 'Cristais de geada perpétua que congelam o ar ao redor do campeão.',
+    name: '冰霜君王光環',
+    desc: '永恆霜晶使英雄周圍的空氣凝結。',
     cssClass: 'hero-aura-frost',
     icon: '❄️',
     color: '#67e8f9',
@@ -68,8 +68,8 @@ export const AURAS_CATALOG = {
   },
   aura_emerald_nature: {
     id: 'aura_emerald_nature',
-    name: 'Aura Esmeralda Silvestre',
-    desc: 'Radiação esmeralda ancestral abençoada pelos espíritos da Deusa Eva.',
+    name: '翠綠自然光環',
+    desc: '受伊娃女神精靈祝福的古老翠綠光輝。',
     cssClass: 'hero-aura-emerald',
     icon: '🌿',
     color: '#22c55e',
@@ -81,48 +81,48 @@ export const AURAS_CATALOG = {
 export const ITEM_FRAMES_CATALOG = {
   frame_default: {
     id: 'frame_default',
-    name: 'Moldura Padrão',
-    desc: 'Moldura de ferro rústico de Aden.',
+    name: '預設邊框',
+    desc: '亞丁樸實鐵製邊框。',
     cssClass: 'cosmetic-frame-default',
     icon: '🔲',
     costAdena: 0
   },
   frame_bronze: {
     id: 'frame_bronze',
-    name: 'Moldura Bronze Antigo',
-    desc: 'Borda clássica de bronze lapidado para os slots de equipamento.',
+    name: '古代青銅邊框',
+    desc: '為裝備欄位打造的經典雕刻青銅邊框。',
     cssClass: 'cosmetic-frame-bronze',
     icon: '🥉',
     costAdena: 250000
   },
   frame_silver: {
     id: 'frame_silver',
-    name: 'Moldura Prata Épica',
-    desc: 'Filetes prateados nobres com runas místicas gravadas.',
+    name: '史詩銀色邊框',
+    desc: '刻有神秘符文的高貴銀色飾邊。',
     cssClass: 'cosmetic-frame-silver',
     icon: '🥈',
     costAdena: 750000
   },
   frame_gold: {
     id: 'frame_gold',
-    name: 'Moldura Dourada Real',
-    desc: 'Bordas de ouro puro dignas da realeza e nobreza de Aden.',
+    name: '皇家金色邊框',
+    desc: '配得上亞丁王族與貴族的純金邊框。',
     cssClass: 'cosmetic-frame-gold',
     icon: '🥇',
     costAdena: 2000000
   },
   frame_obsidian: {
     id: 'frame_obsidian',
-    name: 'Moldura Obsidiana Mística',
-    desc: 'Pedra vulcânica negra banhada em éter arcano violeta.',
+    name: '神秘黑曜石邊框',
+    desc: '浸染紫色奧術乙太的黑色火山岩。',
     cssClass: 'cosmetic-frame-obsidian',
     icon: '🔮',
     costAdena: 3500000
   },
   frame_celestial: {
     id: 'frame_celestial',
-    name: 'Moldura Celestial dos Deuses',
-    desc: 'Resplendor divino pulsante forjado com as lágrimas de Shilen e Einhasad.',
+    name: '眾神天界邊框',
+    desc: '以席琳與殷海薩之淚鍛造出的脈動神聖光輝。',
     cssClass: 'cosmetic-frame-celestial',
     icon: '🌟',
     costAdena: 5000000
@@ -132,57 +132,57 @@ export const ITEM_FRAMES_CATALOG = {
 export const TITLES_CATALOG = {
   title_none: {
     id: 'title_none',
-    name: 'Sem Título',
+    name: '無稱號',
     titleText: '',
-    desc: 'Nenhum título honorífico exibido.',
+    desc: '不顯示任何榮譽稱號。',
     color: '#94a3b8',
     costAdena: 0
   },
   title_lenda: {
     id: 'title_lenda',
-    name: 'Lenda de Aden',
-    titleText: 'Lenda de Aden',
-    desc: 'Cantado pelos bardos de todas as tavernas do continente.',
+    name: '亞丁傳奇',
+    titleText: '亞丁傳奇',
+    desc: '其事蹟被大陸各地酒館的吟遊詩人傳唱。',
     color: '#ffd700',
     costAdena: 500000
   },
   title_dragonslayer: {
     id: 'title_dragonslayer',
-    name: 'Matador de Dragões',
-    titleText: 'Matador de Dragões',
-    desc: 'Guerreiro que desafiou as garras e o fogo dos dragões ancestrais.',
+    name: '屠龍者',
+    titleText: '屠龍者',
+    desc: '敢於挑戰古代巨龍利爪與烈焰的戰士。',
     color: '#ef4444',
     costAdena: 1000000
   },
   title_shadowlord: {
     id: 'title_shadowlord',
-    name: 'Senhor das Sombras',
-    titleText: 'Senhor das Sombras',
-    desc: 'Mestre indiscutível dos mistérios sombrios e das catacumbas.',
+    name: '暗影領主',
+    titleText: '暗影領主',
+    desc: '掌握黑暗奧秘與地下墓穴力量的絕對大師。',
     color: '#a855f7',
     costAdena: 1200000
   },
   title_aurora: {
     id: 'title_aurora',
-    name: 'Arauto da Alvorada',
-    titleText: 'Arauto da Alvorada',
-    desc: 'Campeão guardião da luz do Selo da Alvorada.',
+    name: '黎明使者',
+    titleText: '黎明使者',
+    desc: '守護黎明封印之光的英雄。',
     color: '#38bdf8',
     costAdena: 1200000
   },
   title_gladiator: {
     id: 'title_gladiator',
-    name: 'Gladiador Eterno',
-    titleText: 'Gladiador Eterno',
-    desc: 'Veterano invicto cujos passos estremecem as arenas de Aden.',
+    name: '永恆鬥士',
+    titleText: '永恆鬥士',
+    desc: '未嘗敗績的老練鬥士，其腳步足以震撼亞丁競技場。',
     color: '#f97316',
     costAdena: 1500000
   },
   title_immortal: {
     id: 'title_immortal',
-    name: 'O Imortal',
-    titleText: 'O Imortal',
-    desc: 'Aquele que superou a fragilidade terrena e conquistou a eternidade.',
+    name: '不死者',
+    titleText: '不死者',
+    desc: '超越凡人脆弱之軀並獲得永恆之人。',
     color: '#f8fafc',
     costAdena: 3000000
   }
@@ -208,7 +208,7 @@ export class CosmeticService {
     state.cosmetics.unlockedFrames = state.cosmetics.unlockedFrames || ['frame_default'];
     state.cosmetics.unlockedTitles = state.cosmetics.unlockedTitles || ['title_none'];
 
-    // Se o jogador é Herói das Olimpíadas, desbloqueia automaticamente a Aura Dourada
+    // Se o jogador é Herói das Olimpíadas, desbloqueia automaticamente a 光環 Dourada
     if ((state.isHero || state.heroStatus?.isHero) && !state.cosmetics.unlockedAuras.includes('aura_hero_golden')) {
       state.cosmetics.unlockedAuras.push('aura_hero_golden');
     }
@@ -246,7 +246,7 @@ export class CosmeticService {
   }
 
   /**
-   * Compra um cosmético (Aura, Moldura ou Título) com Adena.
+   * Compra um cosmético (光環, 邊框 ou 稱號) com Adena.
    */
   static buyCosmetic(state, category, itemId, callbacks = {}) {
     this.ensureState(state);
@@ -267,32 +267,32 @@ export class CosmeticService {
     }
 
     if (!catalog || !catalog[itemId]) {
-      log('Cosmético inválido.', 'error');
+      log('外觀物品無效。', 'error');
       return { success: false, reason: 'invalid_item' };
     }
 
     const def = catalog[itemId];
 
     if (unlockedList.includes(itemId)) {
-      log(`Você já possui o cosmético "${def.name}".`, 'info');
+      log(`你已擁有外觀「${def.name}」。`, 'info');
       return { success: false, reason: 'already_owned' };
     }
 
     if (def.reqHero && !state.isHero && !state.heroStatus?.isHero) {
-      log('Esta aura é exclusividade dos Heróis coroados da Grand Olympiad!', 'warning');
+      log('此光環只有大奧林匹亞加冕英雄才能使用！', 'warning');
       return { success: false, reason: 'hero_required' };
     }
 
     const cost = def.costAdena || 0;
     if ((state.gold || 0) < cost) {
-      log(`Adena insuficiente! Preço: ${cost.toLocaleString()} Adena (você tem ${(state.gold || 0).toLocaleString()}).`, 'error');
+      log(`金幣不足！價格：${cost.toLocaleString()} 金幣（你有 ${(state.gold || 0).toLocaleString()}）。`, 'error');
       return { success: false, reason: 'insufficient_funds' };
     }
 
     state.gold -= cost;
     unlockedList.push(itemId);
 
-    log(`✨ Você adquiriu o cosmético "${def.name}" por ${cost.toLocaleString()} Adena!`, 'system');
+    log(`✨ 你以 ${cost.toLocaleString()} 金幣購買了外觀「${def.name}」！`, 'system');
 
     // Equipa automaticamente ao comprar
     this.equipCosmetic(state, category, itemId, { log: () => {}, save, updateAllUI });
@@ -317,29 +317,29 @@ export class CosmeticService {
       catalog = AURAS_CATALOG;
       unlockedList = state.cosmetics.unlockedAuras;
       if (!unlockedList.includes(itemId) && itemId !== 'aura_none') {
-        log('Você precisa desbloquear esta aura primeiro.', 'error');
+        log('你必須先解鎖此光環。', 'error');
         return { success: false, reason: 'locked' };
       }
       state.cosmetics.activeAura = itemId;
-      log(`Aura alterada para "${catalog[itemId]?.name || 'Nenhuma'}".`, 'system');
+      log(`光環已變更為「${catalog[itemId]?.name || '無'}」。`, 'system');
     } else if (category === 'frame') {
       catalog = ITEM_FRAMES_CATALOG;
       unlockedList = state.cosmetics.unlockedFrames;
       if (!unlockedList.includes(itemId) && itemId !== 'frame_default') {
-        log('Você precisa desbloquear esta moldura primeiro.', 'error');
+        log('你必須先解鎖此邊框。', 'error');
         return { success: false, reason: 'locked' };
       }
       state.cosmetics.activeFrame = itemId;
-      log(`Moldura alterada para "${catalog[itemId]?.name || 'Padrão'}".`, 'system');
+      log(`邊框已變更為「${catalog[itemId]?.name || '預設'}」。`, 'system');
     } else if (category === 'title') {
       catalog = TITLES_CATALOG;
       unlockedList = state.cosmetics.unlockedTitles;
       if (!unlockedList.includes(itemId) && itemId !== 'title_none') {
-        log('Você precisa desbloquear este título primeiro.', 'error');
+        log('你必須先解鎖此稱號。', 'error');
         return { success: false, reason: 'locked' };
       }
       state.cosmetics.activeTitle = itemId;
-      log(`Título alterado para "${catalog[itemId]?.titleText || 'Nenhum'}".`, 'system');
+      log(`稱號已變更為「${catalog[itemId]?.titleText || '無'}」。`, 'system');
     }
 
     if (typeof save === 'function') save();

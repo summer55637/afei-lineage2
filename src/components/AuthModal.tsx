@@ -39,13 +39,13 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
           const cloudState = await loadPlayerStateFromCloud(currentUser.uid);
           if (cloudState && typeof cloudState === 'object' && cloudState.level !== undefined && onCloudDataLoaded) {
             onCloudDataLoaded(cloudState);
-            setMsg(`💾 Progresso de Nível ${cloudState.level} carregado da nuvem!`);
+            setMsg(`💾 已從雲端載入等級 ${cloudState.level} 的進度！`);
             setTimeout(() => setMsg(null), 5000);
           } else if (getCurrentState) {
             const currentState = getCurrentState();
             if (currentState && currentState.level > 1) {
               await savePlayerStateToCloud(currentUser.uid, currentState);
-              setMsg('☁️ Novo progresso sincronizado com a nuvem!');
+              setMsg('☁️ 新進度已同步至雲端！');
               setTimeout(() => setMsg(null), 5000);
             }
           }
@@ -103,11 +103,11 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
       setIsOpen(false);
     } catch (err: any) {
       if (err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential') {
-        setError('E-mail ou senha incorretos.');
+        setError('電子郵件或密碼錯誤。');
       } else if (err.code === 'auth/invalid-email') {
-        setError('E-mail inválido.');
+        setError('電子郵件格式無效。');
       } else {
-        setError(err.message || 'Erro ao realizar login.');
+        setError('登入時發生錯誤，請稍後再試。');
       }
     } finally {
       setLoading(false);
@@ -120,11 +120,11 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
     setMsg(null);
 
     if (password.length < 6) {
-      setError('A senha deve ter pelo menos 6 caracteres.');
+      setError('密碼至少需要 6 個字元。');
       return;
     }
     if (password !== confirmPassword) {
-      setError('As senhas não coincidem.');
+      setError('兩次輸入的密碼不一致。');
       return;
     }
 
@@ -134,11 +134,11 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
       setIsOpen(false);
     } catch (err: any) {
       if (err.code === 'auth/email-already-in-use') {
-        setError('Este e-mail já está cadastrado.');
+        setError('這個電子郵件已經註冊。');
       } else if (err.code === 'auth/weak-password') {
-        setError('Senha muito fraca. Use pelo menos 6 caracteres.');
+        setError('密碼強度不足，請至少使用 6 個字元。');
       } else {
-        setError(err.message || 'Erro ao criar conta.');
+        setError('建立帳號時發生錯誤，請稍後再試。');
       }
     } finally {
       setLoading(false);
@@ -153,7 +153,7 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
       await signInWithPopup(auth, googleProvider);
       setIsOpen(false);
     } catch (err: any) {
-      setError(err.message || 'Erro ao entrar com Google.');
+      setError('使用 Google 登入時發生錯誤，請稍後再試。');
     } finally {
       setLoading(false);
     }
@@ -162,7 +162,7 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
   const handleLogout = async () => {
     await signOut(auth);
     setUser(null);
-    setMsg('Sessão encerrada.');
+    setMsg('已登出。');
     setTimeout(() => setMsg(null), 3000);
   };
 
@@ -174,14 +174,14 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
       const currentState = getCurrentState();
       const ok = await savePlayerStateToCloud(user.uid, currentState, true);
       if (ok) {
-        setMsg('☁️ Jogo salvo com sucesso no Firebase!');
+        setMsg('☁️ 遊戲已成功儲存到 Firebase！');
         setTimeout(() => setMsg(null), 4000);
       } else {
-        setError('Falha ao salvar na nuvem. Verifique a conexão e as regras do Firebase.');
+        setError('雲端儲存失敗，請檢查網路連線與 Firebase 規則。');
         setTimeout(() => setError(null), 5000);
       }
     } catch (err: any) {
-      setError(err?.message || 'Erro ao salvar na nuvem.');
+      setError('雲端儲存時發生錯誤，請稍後再試。');
       setTimeout(() => setError(null), 5000);
     } finally {
       setSyncing(false);
@@ -196,14 +196,14 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
       const cloudState = await loadPlayerStateFromCloud(user.uid);
       if (cloudState && cloudState.level !== undefined) {
         onCloudDataLoaded(cloudState);
-        setMsg(`💾 Progresso de Nível ${cloudState.level} carregado da nuvem!`);
+        setMsg(`💾 已從雲端載入等級 ${cloudState.level} 的進度！`);
         setTimeout(() => setMsg(null), 4000);
       } else {
-        setError('Nenhum save encontrado na nuvem para esta conta.');
+        setError('這個帳號在雲端找不到存檔。');
         setTimeout(() => setError(null), 5000);
       }
     } catch (err: any) {
-      setError(err?.message || 'Erro ao carregar da nuvem.');
+      setError('從雲端載入時發生錯誤，請稍後再試。');
       setTimeout(() => setError(null), 5000);
     } finally {
       setSyncing(false);
@@ -218,14 +218,14 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
       <button
         onClick={() => setShowPopover(!showPopover)}
         className="flex items-center gap-1.5 bg-gradient-to-b from-[#252f40] to-[#121824] hover:from-[#35435c] hover:to-[#1a2233] border border-amber-500/50 hover:border-amber-400 rounded px-2 h-[26px] text-xs font-serif font-bold text-amber-300 shadow-md shadow-black/70 transition cursor-pointer select-none"
-        title="Menu de Salvamento na Nuvem (Clique para expandir)"
+        title="雲端存檔選單（點擊展開）"
       >
         <span className="text-sm leading-none">💾</span>
-        <span className="text-[10.5px] tracking-wide text-amber-200 uppercase leading-none">Nuvem</span>
+        <span className="text-[10.5px] tracking-wide text-amber-200 uppercase leading-none">雲端</span>
         {user ? (
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse ml-0.5" title="Conta Conectada"></span>
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse ml-0.5" title="帳號已連線"></span>
         ) : (
-          <span className="w-2 h-2 rounded-full bg-amber-500/50 ml-0.5" title="Não conectado"></span>
+          <span className="w-2 h-2 rounded-full bg-amber-500/50 ml-0.5" title="尚未連線"></span>
         )}
       </button>
 
@@ -236,7 +236,7 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
             <>
               <div className="flex items-center justify-between pb-2 border-b border-amber-500/20">
                 <span className="font-bold text-amber-300 truncate max-w-[170px]">{user.email?.split('@')[0]}</span>
-                <span className="w-2 h-2 rounded-full bg-emerald-400" title="Conectado"></span>
+                <span className="w-2 h-2 rounded-full bg-emerald-400" title="已連線"></span>
               </div>
               <button
                 onClick={() => { setShowPopover(false); handleManualSync(); }}
@@ -244,7 +244,7 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
                 className="w-full flex items-center justify-center gap-2 py-1.5 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 rounded-xl border border-amber-500/40 font-semibold transition cursor-pointer"
               >
                 <span>☁️</span>
-                <span>{syncing ? 'Salvando...' : 'Salvar Progresso'}</span>
+                <span>{syncing ? '儲存中...' : '儲存進度'}</span>
               </button>
               <button
                 onClick={() => { setShowPopover(false); handleManualLoad(); }}
@@ -252,27 +252,27 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
                 className="w-full flex items-center justify-center gap-2 py-1.5 bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 rounded-xl border border-blue-500/40 font-semibold transition cursor-pointer"
               >
                 <span>📥</span>
-                <span>{syncing ? 'Carregando...' : 'Carregar Save'}</span>
+                <span>{syncing ? '載入中...' : '載入存檔'}</span>
               </button>
               <button
                 onClick={() => { setShowPopover(false); handleLogout(); }}
                 className="w-full flex items-center justify-center gap-2 py-1.5 bg-red-500/20 hover:bg-red-500/30 text-red-300 rounded-xl border border-red-500/30 font-semibold transition cursor-pointer"
               >
                 <span>🚪</span>
-                <span>Sair da Conta</span>
+                <span>登出帳號</span>
               </button>
             </>
           ) : (
             <>
               <div className="text-amber-200 font-semibold text-center py-1">
-                Salvamento na Nuvem
+                雲端存檔
               </div>
               <button
                 onClick={() => { setShowPopover(false); setIsOpen(true); }}
                 className="w-full flex items-center justify-center gap-2 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold rounded-xl shadow transition cursor-pointer"
               >
                 <span>🔑</span>
-                <span>Entrar / Criar Conta</span>
+                <span>登入／建立帳號</span>
               </button>
             </>
           )}
@@ -306,8 +306,8 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
 
             <div className="text-center mb-6">
               <span className="text-4xl">🏰</span>
-              <h2 className="font-display text-2xl font-black text-amber-300 mt-1">Conta Aden Arena</h2>
-              <p className="text-xs text-white/50">Salve seu progresso na nuvem Firebase para não perder nada!</p>
+              <h2 className="font-display text-2xl font-black text-amber-300 mt-1">亞丁競技場帳號</h2>
+              <p className="text-xs text-white/50">將進度儲存到 Firebase 雲端，避免資料遺失！</p>
             </div>
 
             {/* Auth Tabs */}
@@ -316,13 +316,13 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
                 className={`flex-1 py-2 text-sm font-bold border-b-2 transition ${tab === 'login' ? 'border-amber-400 text-amber-300' : 'border-transparent text-white/40 hover:text-white'}`}
                 onClick={() => { setTab('login'); setError(null); }}
               >
-                Entrar
+                登入
               </button>
               <button
                 className={`flex-1 py-2 text-sm font-bold border-b-2 transition ${tab === 'register' ? 'border-amber-400 text-amber-300' : 'border-transparent text-white/40 hover:text-white'}`}
                 onClick={() => { setTab('register'); setError(null); }}
               >
-                Criar Conta
+                建立帳號
               </button>
             </div>
 
@@ -344,31 +344,31 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
                 <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.17 0 10.03 0 12s.46 3.83 1.26 5.42l4.02-3.15z"/>
                 <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.37 0 3.26 2.7 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
               </svg>
-              <span>Continuar com Google</span>
+              <span>使用 Google 繼續</span>
             </button>
 
             <div className="flex items-center my-3">
               <div className="flex-1 border-t border-white/10"></div>
-              <span className="px-2 text-[10px] text-white/30 font-bold uppercase">ou e-mail</span>
+              <span className="px-2 text-[10px] text-white/30 font-bold uppercase">或電子郵件</span>
               <div className="flex-1 border-t border-white/10"></div>
             </div>
 
             {/* Login / Register Forms */}
             <form onSubmit={tab === 'login' ? handleLogin : handleRegister} className="space-y-3">
               <div>
-                <label className="block text-[11px] font-semibold text-white/60 mb-1">E-mail</label>
+                <label className="block text-[11px] font-semibold text-white/60 mb-1">電子郵件</label>
                 <input 
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="seu@email.com"
+                  placeholder="請輸入電子郵件"
                   className="w-full bg-slate-900/80 border border-white/15 rounded-xl px-3 py-2 text-xs text-white placeholder-white/20 focus:outline-none focus:border-amber-400"
                 />
               </div>
 
               <div>
-                <label className="block text-[11px] font-semibold text-white/60 mb-1">Senha</label>
+                <label className="block text-[11px] font-semibold text-white/60 mb-1">密碼</label>
                 <input 
                   type="password"
                   required
@@ -381,7 +381,7 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
 
               {tab === 'register' && (
                 <div>
-                  <label className="block text-[11px] font-semibold text-white/60 mb-1">Confirmar Senha</label>
+                  <label className="block text-[11px] font-semibold text-white/60 mb-1">確認密碼</label>
                   <input 
                     type="password"
                     required
@@ -398,7 +398,7 @@ export function AuthModal({ onCloudDataLoaded, getCurrentState }: AuthModalProps
                 disabled={loading}
                 className="w-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-bold rounded-xl py-2.5 text-xs shadow-lg shadow-amber-500/20 transition mt-2"
               >
-                {loading ? 'Aguarde...' : (tab === 'login' ? 'Entrar no Jogo' : 'Criar Conta e Salvar')}
+                {loading ? '請稍候...' : (tab === 'login' ? '登入遊戲' : '建立帳號並儲存')}
               </button>
             </form>
           </div>

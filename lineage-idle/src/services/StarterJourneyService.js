@@ -10,30 +10,30 @@ export const STARTER_JOURNEY_STEPS = [
   {
     id: 'step_1_first_blood',
     stepNumber: 1,
-    title: 'Primeiro Sangue em Aden',
-    desc: 'Derrote pelo menos 10 monstros nas zonas de caça.',
+    title: '亞丁初戰',
+    desc: '在狩獵區至少擊敗 10 隻怪物。',
     icon: '⚔️',
     targetCount: 10,
     checkProgress: (state) => Math.min(10, state.stats?.monstersKilled || state.monstersKilled || 0),
-    rewardText: '25.000 Adena + 500x Soulshots No-Grade',
+    rewardText: '25,000 金幣 + 500 發無等級魂彈',
     reward: { adena: 25000, itemId: 'soulshot_ng', qty: 500 }
   },
   {
     id: 'step_2_reach_lvl20',
     stepNumber: 2,
-    title: 'O Despertar do Guerreiro',
-    desc: 'Alcance o Nível 20 e conquiste sua 1ª Mudança de Classe.',
+    title: '戰士覺醒',
+    desc: '達到等級 20 並完成第一次轉職。',
     icon: '⭐',
     targetCount: 20,
     checkProgress: (state) => Math.min(20, state.level || 1),
-    rewardText: '50.000 Adena + 5x Pergaminhos de Encantamento de Arma',
+    rewardText: '50,000 金幣 + 5 張武器強化卷軸',
     reward: { adena: 50000, itemId: 'scroll_of_enchant_weapon', qty: 5 }
   },
   {
     id: 'step_3_first_forge',
     stepNumber: 3,
-    title: 'Fogo na Forja Imperial',
-    desc: 'Realize seu 1º Encantamento ou Fusão de Equipamento na Forja.',
+    title: '帝國鍛造之火',
+    desc: '在鍛造系統完成第一次裝備強化或合成。',
     icon: '🔨',
     targetCount: 1,
     checkProgress: (state) => {
@@ -42,14 +42,14 @@ export const STARTER_JOURNEY_STEPS = [
       const hasEnchantedWeapon = Boolean(state.equipment?.weapon && (state.inventory?.find(i => i.uid === state.equipment.weapon)?.enchantLevel > 0));
       return (enchants > 0 || fusions > 0 || hasEnchantedWeapon) ? 1 : 0;
     },
-    rewardText: '1x Pedra de Vida (Grau Médio) + 50.000 Adena',
+    rewardText: '1 顆中級生命石 + 50,000 金幣',
     reward: { adena: 50000, itemId: 'life_stone_mid', qty: 1 }
   },
   {
     id: 'step_4_skill_mastery',
     stepNumber: 4,
-    title: 'Mestria Arcana & Lâmina',
-    desc: 'Evolua pelo menos uma habilidade ao nível 2 ou superior.',
+    title: '魔法與劍刃精通',
+    desc: '至少將一個技能提升到等級 2 以上。',
     icon: '⚡',
     targetCount: 1,
     checkProgress: (state) => {
@@ -57,14 +57,14 @@ export const STARTER_JOURNEY_STEPS = [
       const hasLvl2 = Object.values(skills).some(s => (typeof s === 'number' ? s : s?.level || 0) >= 2);
       return hasLvl2 ? 1 : 0;
     },
-    rewardText: '2.500 Pontos de SP + 100x Poções de Mana XL',
+    rewardText: '2,500 技能點 + 100 瓶特大型魔力藥水',
     reward: { sp: 2500, itemId: 'mp_potion_xl', qty: 100 }
   },
   {
     id: 'step_5_raid_boss',
     stepNumber: 5,
-    title: 'Audácia Contra os Titãs',
-    desc: 'Enfrente qualquer Chefe de Raid nos portais de caça de Aden.',
+    title: '挑戰巨獸',
+    desc: '在亞丁狩獵傳送門挑戰任意團隊首領。',
     icon: '👹',
     targetCount: 1,
     checkProgress: (state) => {
@@ -72,31 +72,31 @@ export const STARTER_JOURNEY_STEPS = [
       const raids = state.stats?.raidsAttempted || 0;
       return (clears > 0 || raids > 0) ? 1 : 0;
     },
-    rewardText: '100.000 Adena + 2x Ingressos de Raid Extras',
+    rewardText: '100,000 金幣 + 2 張額外團隊副本入場券',
     reward: { adena: 100000, raidTickets: 2 }
   },
   {
     id: 'step_6_clan_brotherhood',
     stepNumber: 6,
-    title: 'Irmandade de Armas',
-    desc: 'Participe do Clã, realize uma doação ou visite o Clan Hall.',
+    title: '戰友之盟',
+    desc: '加入血盟、進行一次捐獻，或造訪血盟會館。',
     icon: '🛡️',
     targetCount: 1,
     checkProgress: (state) => {
       const clan = state.clan;
       const hasDonation = (clan?.donationsAdena || 0) > 0 || (clan?.donationsSp || 0) > 0;
-      const hasCustomName = Boolean(clan?.name && clan.name !== 'Os Guardiões de Aden');
+      const hasCustomName = Boolean(clan?.name && clan.name !== '亞丁守護者');
       const hasReputation = (clan?.reputation || 0) > 100;
       return (hasDonation || hasCustomName || hasReputation) ? 1 : 0;
     },
-    rewardText: '100 Reputação de Clã + 100.000 Adena',
+    rewardText: '100 血盟聲望 + 100,000 金幣',
     reward: { adena: 100000, clanRep: 100 }
   },
   {
     id: 'step_7_arena_glory',
     stepNumber: 7,
-    title: 'A Glória da 2ª Classe & Arena',
-    desc: 'Alcance o Nível 40 ou dispute uma partida no Coliseu / Olimpíadas.',
+    title: '第二職業與競技榮耀',
+    desc: '達到等級 40，或參加一次競技場／奧林匹亞戰鬥。',
     icon: '👑',
     targetCount: 1,
     checkProgress: (state) => {
@@ -105,8 +105,8 @@ export const STARTER_JOURNEY_STEPS = [
       const lvl40 = (state.level || 1) >= 40 ? 1 : 0;
       return (oly > 0 || col > 0 || lvl40 > 0) ? 1 : 0;
     },
-    rewardText: '100 Aden Coins (AC) + 10x Pergaminhos de Encantamento de Arma + Título: Pioneiro de Aden',
-    reward: { adenCoins: 100, itemId: 'scroll_of_enchant_weapon', qty: 10, cosmeticTitle: 'Pioneiro de Aden' }
+    rewardText: '100 亞丁幣 + 10 張武器強化卷軸 + 稱號：亞丁先驅者',
+    reward: { adenCoins: 100, itemId: 'scroll_of_enchant_weapon', qty: 10, cosmeticTitle: '亞丁先驅者' }
   }
 ];
 
@@ -154,13 +154,13 @@ export const StarterJourneyService = {
     if (!step) return { success: false, reason: 'invalid_step' };
 
     if ((state.starterJourney.claimedSteps || []).includes(stepId)) {
-      log('Este marco da Jornada dos Pioneiros já foi resgatado.', 'warning');
+      log('這個先驅者旅程里程碑已經領取。', 'warning');
       return { success: false, reason: 'already_claimed' };
     }
 
     const current = step.checkProgress(state);
     if (current < step.targetCount) {
-      log(`Marco ainda incompleto: ${step.title} (${current}/${step.targetCount}).`, 'error');
+      log(`里程碑尚未完成：${step.title}（${current}/${step.targetCount}）。`, 'error');
       return { success: false, reason: 'incomplete' };
     }
 
@@ -177,7 +177,7 @@ export const StarterJourneyService = {
     if (rew.clanRep && state.clan) state.clan.reputation = (state.clan.reputation || 100) + rew.clanRep;
     if (rew.cosmeticTitle) {
       state.cosmetics = state.cosmetics || {};
-      state.cosmetics.unlockedTitles = state.cosmetics.unlockedTitles || ['Novato de Aden'];
+      state.cosmetics.unlockedTitles = state.cosmetics.unlockedTitles || ['亞丁新手'];
       if (!state.cosmetics.unlockedTitles.includes(rew.cosmeticTitle)) {
         state.cosmetics.unlockedTitles.push(rew.cosmeticTitle);
       }
@@ -201,8 +201,8 @@ export const StarterJourneyService = {
       }
     }
 
-    log(`🎉 **[Jornada dos Pioneiros - Passo ${step.stepNumber}]** Você concluiu '${step.title}'! Recompensa: ${step.rewardText}!`, 'rarity-legendary');
-    floatText('✨ MARCO CONCLUÍDO!', 'float-jackpot');
+    log(`🎉 **[先驅者旅程－第 ${step.stepNumber} 步]** 你完成了「${step.title}」！獎勵：${step.rewardText}！`, 'rarity-legendary');
+    floatText('✨ 里程碑完成！', 'float-jackpot');
 
     onUpdate();
     return { success: true, step };

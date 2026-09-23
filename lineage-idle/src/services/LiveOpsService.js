@@ -12,9 +12,9 @@ export const LIVE_OPS_EVENTS = {
   weekend_gold: {
     id: 'weekend_gold',
     days: [0, 5, 6], // Sexta, Sábado, Domingo
-    title: '🌟 Fim de Semana Dourado de Aden',
-    desc: '+25% de Drop de Adena e +20% de EXP em todas as zonas de caça!',
-    badge: 'FIM DE SEMANA DOURADO',
+    title: '🌟 亞丁黃金週末',
+    desc: '所有狩獵區金幣掉落 +25%、經驗值 +20%！',
+    badge: '黃金週末',
     icon: '🌟',
     color: '#eab308',
     modifiers: {
@@ -29,9 +29,9 @@ export const LIVE_OPS_EVENTS = {
   arcane_wednesday: {
     id: 'arcane_wednesday',
     days: [3], // Quarta-feira
-    title: '🔮 Noite Arcana de Shilen',
-    desc: '+30% Ganho de Pontos de SP e +15% Regeneração de Mana (MP)!',
-    badge: 'QUARTA ARCANA',
+    title: '🔮 席琳奧術之夜',
+    desc: '技能點獲得量 +30%、魔力恢復 +15%！',
+    badge: '奧術星期三',
     icon: '🔮',
     color: '#a855f7',
     modifiers: {
@@ -46,9 +46,9 @@ export const LIVE_OPS_EVENTS = {
   blacksmith_monday: {
     id: 'blacksmith_monday',
     days: [1], // Segunda-feira
-    title: '🔨 Febre dos Mestres Ferreiros',
-    desc: '+5% de Taxa de Sucesso em Encantamento e Síntese na Forja Imperial!',
-    badge: 'SEGUNDA DA FORJA',
+    title: '🔨 鐵匠大師熱潮',
+    desc: '帝國鍛造的強化與合成成功率 +5%！',
+    badge: '鍛造星期一',
     icon: '🔨',
     color: '#f97316',
     modifiers: {
@@ -63,9 +63,9 @@ export const LIVE_OPS_EVENTS = {
   imperial_blessing: {
     id: 'imperial_blessing',
     days: [2, 4], // Terça e Quinta
-    title: '🕊️ Bênção Imperial da Deusa Eva',
-    desc: 'O reino desfruta de paz e prosperidade celestial (+10% EXP).',
-    badge: 'BÊNÇÃO IMPERIAL',
+    title: '🕊️ 伊娃女神的帝國祝福',
+    desc: '王國正享受天界的和平與繁榮（+10% 經驗值）。',
+    badge: '帝國祝福',
     icon: '🕊️',
     color: '#38bdf8',
     modifiers: {

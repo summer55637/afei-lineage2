@@ -19,7 +19,7 @@ export const ManorService = {
 
     const totalCost = (prov.seed.cost || 100) * amount;
     if ((state.gold || 0) < totalCost) {
-      if (callbacks.log) callbacks.log(`Adena insuficiente! Custo para ${amount}x sementes: ${totalCost.toLocaleString()} Adena.`, 'warning');
+      if (callbacks.log) callbacks.log(`金幣不足！購買 ${amount}× 種子需要 ${totalCost.toLocaleString()} 金幣。`, 'warning');
       return { success: false, reason: 'insufficient_gold' };
     }
 
@@ -28,7 +28,7 @@ export const ManorService = {
     mState.seeds[prov.seed.id] = (mState.seeds[prov.seed.id] || 0) + amount;
     mState.activeProvince = provinceId;
 
-    if (callbacks.log) callbacks.log(`🌾 Compradas **${amount}x ${prov.seed.name}** por ${totalCost.toLocaleString()} Adena.`, 'gain');
+    if (callbacks.log) callbacks.log(`🌾 已購買 **${amount}× ${prov.seed.name}**，花費 ${totalCost.toLocaleString()} 金幣。`, 'gain');
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
     return { success: true };
@@ -48,7 +48,7 @@ export const ManorService = {
     mState.crops[prov.seed.cropId] = (mState.crops[prov.seed.cropId] || 0) + 1;
 
     if (Math.random() < 0.20 && callbacks.log) {
-      callbacks.log(`🌾 Colheita Manor com Sucesso: **1x ${prov.seed.cropName}** (Restam ${mState.seeds[prov.seed.id]} sementes).`, 'system');
+      callbacks.log(`🌾 莊園收成成功：**1× ${prov.seed.cropName}**（剩餘 ${mState.seeds[prov.seed.id]} 顆種子）。`, 'system');
     }
   },
 
@@ -61,7 +61,7 @@ export const ManorService = {
     const rate = prov.seed.exchangeRate || 5;
 
     if (currentCrops < rate) {
-      if (callbacks.log) callbacks.log(`Você precisa de no mínimo ${rate}x ${prov.seed.cropName} para realizar a troca!`, 'warning');
+      if (callbacks.log) callbacks.log(`至少需要 ${rate}× ${prov.seed.cropName} 才能進行兌換！`, 'warning');
       return { success: false, reason: 'insufficient_crops' };
     }
 
@@ -84,10 +84,10 @@ export const ManorService = {
     }
 
     if (callbacks.log) {
-      callbacks.log(`📦 Entregues ${usedCrops}x ${prov.seed.cropName} no Castelo! Recebido: **${packages}x ${prov.seed.rewardItemName}**!`, 'rarity-epic');
+      callbacks.log(`📦 已向城堡交付 ${usedCrops}× ${prov.seed.cropName}！獲得：**${packages}× ${prov.seed.rewardItemName}**！`, 'rarity-epic');
     }
     if (callbacks.floatText) {
-      callbacks.floatText(`🌾 +${packages}x ${prov.seed.rewardItemName}!`, 'float-epic');
+      callbacks.floatText(`🌾 +${packages}× ${prov.seed.rewardItemName}！`, 'float-epic');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();

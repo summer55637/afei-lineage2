@@ -8,7 +8,7 @@
 export const CANONICAL_RACES = Object.freeze({
   "human": Object.freeze({
     "id": "human",
-    "name": "Humano (Human)",
+    "name": "人類",
     "branchesCount": 14,
     "baseClassIds": [
         "fighter",
@@ -36,7 +36,7 @@ export const CANONICAL_RACES = Object.freeze({
 }),
   "elf": Object.freeze({
     "id": "elf",
-    "name": "Elfo (Elf)",
+    "name": "精靈",
     "branchesCount": 8,
     "baseClassIds": [
         "elven_fighter",
@@ -56,7 +56,7 @@ export const CANONICAL_RACES = Object.freeze({
 }),
   "darkelf": Object.freeze({
     "id": "darkelf",
-    "name": "Elfo Negro (Dark Elf)",
+    "name": "黑暗精靈",
     "branchesCount": 10,
     "baseClassIds": [
         "dark_fighter",
@@ -80,7 +80,7 @@ export const CANONICAL_RACES = Object.freeze({
 }),
   "orc": Object.freeze({
     "id": "orc",
-    "name": "Orc (Orc)",
+    "name": "半獸人",
     "branchesCount": 5,
     "baseClassIds": [
         "orc_fighter",
@@ -97,7 +97,7 @@ export const CANONICAL_RACES = Object.freeze({
 }),
   "dwarf": Object.freeze({
     "id": "dwarf",
-    "name": "Anão (Dwarf)",
+    "name": "矮人",
     "branchesCount": 3,
     "baseClassIds": [
         "dwarven_fighter",
@@ -111,7 +111,7 @@ export const CANONICAL_RACES = Object.freeze({
 }),
   "kamael": Object.freeze({
     "id": "kamael",
-    "name": "Kamael (Kamael)",
+    "name": "闇天使",
     "branchesCount": 4,
     "baseClassIds": [
         "jin_kamael_soldier",
@@ -126,7 +126,7 @@ export const CANONICAL_RACES = Object.freeze({
 }),
   "sylph": Object.freeze({
     "id": "sylph",
-    "name": "Sylph (Sylph)",
+    "name": "風精靈",
     "branchesCount": 1,
     "baseClassIds": [
         "sylphid"
@@ -137,7 +137,7 @@ export const CANONICAL_RACES = Object.freeze({
 }),
   "highelf": Object.freeze({
     "id": "highelf",
-    "name": "Alto Elfo (High Elf)",
+    "name": "高等精靈",
     "branchesCount": 2,
     "baseClassIds": [
         "sacred_templar_0",
@@ -150,7 +150,7 @@ export const CANONICAL_RACES = Object.freeze({
 }),
   "ertheia": Object.freeze({
     "id": "ertheia",
-    "name": "Ertheia (Ertheia)",
+    "name": "艾爾提亞",
     "branchesCount": 2,
     "baseClassIds": [
         "marauderBase",

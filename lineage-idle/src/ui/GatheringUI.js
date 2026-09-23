@@ -12,6 +12,7 @@ import {
   GATHERING_TACTICS,
   getGatheringZonesList
 } from '../data/gathering.js';
+import { RESOURCE_DICTIONARY } from '../services/lifeActivities/ResourceDictionary.js';
 import { GatheringService } from '../services/lifeActivities/GatheringService.js';
 import { LIFE_ACTIVITY_LEVEL_TABLE } from '../services/lifeActivities/LifeActivityCore.js';
 
@@ -78,15 +79,15 @@ export function renderGatheringUI(state) {
             ${z.icon} ${z.name}
           </strong>
           <span style="font-size:10px; color:${isUnlocked ? '#ffd877' : '#ef4444'}; font-weight:bold;">
-            ${isUnlocked ? '★'.repeat(z.difficulty) : `🔒 Lv. ${z.minLevel}`}
+            ${isUnlocked ? '★'.repeat(z.difficulty) : `🔒 等級 ${z.minLevel}`}
           </span>
         </div>
         <p style="font-size:11px; color:#94a3b8; margin:0 0 6px 0; line-height:1.3;">
           ${z.description}
         </p>
         <div style="display:flex; justify-content:space-between; font-size:10px; color:#aaa;">
-          <span>Cesto: <strong style="color:#cbd5e1;">${reqPouchDef ? reqPouchDef.name : 'Qualquer'}</strong></span>
-          <span style="color:#34d399; font-weight:bold;">${isSelected ? '● ATUAL' : ''}</span>
+          <span>採集籃： <strong style="color:#cbd5e1;">${reqPouchDef ? reqPouchDef.name : '任意'}</strong></span>
+          <span style="color:#34d399; font-weight:bold;">${isSelected ? '● 目前使用' : ''}</span>
         </div>
       </div>
     `;
@@ -102,14 +103,14 @@ export function renderGatheringUI(state) {
 
     let actionBtn = '';
     if (isEquipped) {
-      actionBtn = `<span style="font-size:10px; color:#34d399; font-weight:bold; padding:4px 8px; border:1px solid #34d399; border-radius:4px; background:rgba(52,211,153,0.15);">EM USO</span>`;
+      actionBtn = `<span style="font-size:10px; color:#34d399; font-weight:bold; padding:4px 8px; border:1px solid #34d399; border-radius:4px; background:rgba(52,211,153,0.15);">使用中</span>`;
     } else if (isOwned) {
       actionBtn = `
         <button 
           onclick="window.equipGatheringSickle('${sId}')"
           style="padding:4px 10px; font-size:10px; font-weight:bold; background:rgba(212,167,68,0.2); border:1px solid #d4a744; color:#ffd877; border-radius:4px; cursor:pointer;"
         >
-          EMPUNHAR
+          裝備
         </button>
       `;
     } else {
@@ -119,7 +120,7 @@ export function renderGatheringUI(state) {
           ${(!canUnlock || !canAfford) ? 'disabled' : ''}
           style="padding:4px 10px; font-size:10px; font-weight:bold; background:${canUnlock && canAfford ? 'linear-gradient(180deg,#d4a744,#8a641c)' : 'rgba(50,50,50,0.4)'}; border:1px solid ${canUnlock && canAfford ? '#ffe699' : '#555'}; color:${canUnlock && canAfford ? '#000' : '#777'}; border-radius:4px; cursor:${canUnlock && canAfford ? 'pointer' : 'not-allowed'};"
         >
-          ${canUnlock ? `COMPRAR (${(sDef.buyPrice / 1000).toFixed(0)}k)` : `🔒 Nv. ${sDef.minGatheringLevel}`}
+          ${canUnlock ? `購買（${sDef.buyPrice.toLocaleString()} 金幣）` : `🔒 採集等級 ${sDef.minGatheringLevel}`}
         </button>
       `;
     }
@@ -129,10 +130,10 @@ export function renderGatheringUI(state) {
         <div>
           <div style="display:flex; align-items:center; gap:6px;">
             <strong style="font-size:12px; color:${isEquipped ? '#6ee7b7' : '#f4d58a'};">${sDef.icon} ${sDef.name}</strong>
-            <span style="font-size:9px; background:rgba(0,0,0,0.5); padding:1px 5px; border-radius:3px; color:#aaa; font-weight:bold;">[${sDef.grade.toUpperCase()}]</span>
+            <span style="font-size:9px; background:rgba(0,0,0,0.5); padding:1px 5px; border-radius:3px; color:#aaa; font-weight:bold;">[${sDef.grade === 'none' ? '無級' : sDef.grade.toUpperCase()}]</span>
           </div>
           <div style="font-size:10px; color:#94a3b8; margin-top:2px;">
-            Durabilidade: ${sDef.durabilityMax} | Bônus Pureza: <strong style="color:#ffd877;">+${Math.round(sDef.qualityBonus * 100)}%</strong>
+            耐久度： ${sDef.durabilityMax} | 純度加成： <strong style="color:#ffd877;">+${Math.round(sDef.qualityBonus * 100)}%</strong>
           </div>
         </div>
         <div>
@@ -154,10 +155,10 @@ export function renderGatheringUI(state) {
         <div style="flex:1;">
           <div style="display:flex; align-items:center; gap:6px;">
             <strong style="font-size:12px; color:${isSelected ? '#6ee7b7' : '#f4d58a'};">${pDef.icon} ${pDef.name}</strong>
-            <span style="font-size:10px; color:#ffd877; font-weight:bold;">x${count}</span>
+            <span style="font-size:10px; color:#ffd877; font-weight:bold;">×${count}</span>
           </div>
           <div style="font-size:10px; color:#94a3b8; margin-top:2px;">
-            ${pDef.desc} (${pDef.buyPrice}g cada)
+            ${pDef.desc}（每個 ${pDef.buyPrice} 金幣）
           </div>
         </div>
         <div style="display:flex; gap:4px; align-items:center;">
@@ -173,7 +174,7 @@ export function renderGatheringUI(state) {
             ${count <= 0 ? 'disabled' : ''}
             style="padding:4px 8px; font-size:10px; font-weight:bold; background:${isSelected ? 'rgba(52,211,153,0.3)' : 'rgba(70,70,70,0.3)'}; border:1px solid ${isSelected ? '#34d399' : '#666'}; color:${isSelected ? '#6ee7b7' : count > 0 ? '#cbd5e1' : '#666'}; border-radius:4px; cursor:${count > 0 ? 'pointer' : 'not-allowed'};"
           >
-            ${isSelected ? 'USANDO' : 'EQUIPAR'}
+            ${isSelected ? '使用中' : '裝備'}
           </button>
         </div>
       </div>
@@ -197,21 +198,21 @@ export function renderGatheringUI(state) {
           ${node?.icon || '🌿'}
         </div>
         <h3 style="margin:0 0 4px 0; font-family:'Cinzel',serif; color:#6ee7b7; font-size:18px;">
-          ${node?.name || 'Flora Identificada'}
+          ${node?.name || '已辨識植物'}
           <span style="font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(52,211,153,0.2); border:1px solid #34d399; color:#a7f3d0; margin-left:6px;">
             ${activeTacticDef.icon} ${activeTacticDef.name}
           </span>
         </h3>
         <p style="margin:0 0 6px 0; font-size:11px; color:#aaa; font-style:italic;">
-          "${gState.targetedNodeSignal || 'Gotas cristalinas de orvalho ornam as pétalas perfeitas'}"
+          "${gState.targetedNodeSignal || '晶瑩露珠點綴著完美花瓣'}"
         </p>
         <div style="margin-bottom:12px; font-size:12px; font-family:'Cinzel',serif;">
           ${gState.inspected 
-            ? `<span style="color:#f4d58a;">[Pureza: ${gState.targetedNodePurity}% - Perigo: ${gState.targetedNodeHazard.toUpperCase()}]</span>` 
-            : `<span style="color:#94a3b8;">[Pureza: Oculta (Examinar Broto)]</span>`}
+            ? `<span style="color:#f4d58a;">[純度：${gState.targetedNodePurity}%－危險：${({ none: '無', thorn: '荊棘', toxin: '毒素', resin: '樹脂' })[gState.targetedNodeHazard] || '未知危險'}]</span>` 
+            : `<span style="color:#94a3b8;">[純度：未知（檢查嫩芽）]</span>`}
         </div>
         <p style="margin:0 0 12px 0; font-size:11px; color:#aaa;">
-          Insumos: <strong style="color:#cbd5e1;">${node?.yields?.primary?.toUpperCase()}</strong> ${node?.yields?.secondary ? `+ <strong style="color:#94a3b8;">${node?.yields?.secondary?.toUpperCase()}</strong>` : ''}
+          產出： <strong style="color:#cbd5e1;">${RESOURCE_DICTIONARY[node?.yields?.primary]?.name || '未知材料'}</strong> ${node?.yields?.secondary ? `+ <strong style="color:#94a3b8;">${RESOURCE_DICTIONARY[node?.yields?.secondary]?.name || '未知材料'}</strong>` : ''}
         </p>
 
         <!-- Barra de Progresso de Poda -->
@@ -237,12 +238,12 @@ export function renderGatheringUI(state) {
               letter-spacing: 0.05em;
             "
           >
-            ✂️ EXTRAIR BOTÂNICA
+            ✂️ 採集植物
           </button>
         </div>
         ` : `
         <div style="display:flex; justify-content:center; gap:8px;">
-          <button style="padding:10px 24px; font-family:'Cinzel',serif; font-size:14px; font-weight:bold; background:rgba(50,60,50,0.5); border:1px solid #444; color:#777; border-radius:8px; cursor:not-allowed;">🌿 PODANDO BROTOS...</button>
+          <button style="padding:10px 24px; font-family:'Cinzel',serif; font-size:14px; font-weight:bold; background:rgba(50,60,50,0.5); border:1px solid #444; color:#777; border-radius:8px; cursor:not-allowed;">🌿 修剪嫩芽中...</button>
         </div>
         `}
       </div>
@@ -258,8 +259,8 @@ export function renderGatheringUI(state) {
           <p style="margin:0 0 6px 0; font-size:11px; color:#aaa; font-style:italic;">"${gState.targetedNodeSignal}"</p>
           <div style="font-size:11px; font-weight:bold;">
             ${gState.inspected 
-              ? `<span style="color:${gState.targetedNodeHazard === 'none' ? '#6ee7b7' : gState.targetedNodeHazard === 'thorn' ? '#f87171' : gState.targetedNodeHazard === 'toxin' ? '#a78bfa' : '#fbbf24'};">[Pureza: ${gState.targetedNodePurity}% - Perigo: ${gState.targetedNodeHazard.toUpperCase()}]</span>` 
-              : `<span style="color:#94a3b8;">[Pureza: Oculta (Examinar Broto)]</span>`}
+              ? `<span style="color:${gState.targetedNodeHazard === 'none' ? '#6ee7b7' : gState.targetedNodeHazard === 'thorn' ? '#f87171' : gState.targetedNodeHazard === 'toxin' ? '#a78bfa' : '#fbbf24'};">[純度：${gState.targetedNodePurity}%－危險：${({ none: '無', thorn: '荊棘', toxin: '毒素', resin: '樹脂' })[gState.targetedNodeHazard] || '未知危險'}]</span>` 
+              : `<span style="color:#94a3b8;">[純度：未知（檢查嫩芽）]</span>`}
           </div>
         </div>
       `;
@@ -271,16 +272,16 @@ export function renderGatheringUI(state) {
           🧺
         </div>
         <h3 style="margin:0 0 12px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:16px;">
-          Clareira Botânica em ${activeZone.name}
+          ${activeZone.name} 植物採集地
         </h3>
         
-        ${targetCardHtml || `<p style="color:#888; font-size:12px; margin-bottom:16px;">Nenhum broto na mira. Clique em Buscar Outro.</p>`}
+        ${targetCardHtml || `<p style="color:#888; font-size:12px; margin-bottom:16px;">目前沒有選定植物。點擊「尋找其他」重新搜尋。</p>`}
 
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
-          <button onclick="window.inspectGatheringNode()" style="padding:10px; background:rgba(30,40,50,0.8); border:1px solid #60a5fa; color:#93c5fd; border-radius:6px; cursor:pointer; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">🔍 Examinar Broto</button>
-          <button onclick="window.skipGatheringNode()" style="padding:10px; background:rgba(40,40,40,0.8); border:1px solid #aaa; color:#ddd; border-radius:6px; cursor:pointer; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">⏭️ Buscar Outro</button>
-          <button onclick="window.selectGatheringTactic('delicate'); window.startGatheringHarvest()" ${isSickleDull ? 'disabled' : ''} style="padding:10px; background:rgba(20,50,30,0.8); border:1px solid #34d399; color:#6ee7b7; border-radius:6px; cursor:${isSickleDull ? 'not-allowed' : 'pointer'}; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">🌿 Poda Cirúrgica</button>
-          <button onclick="window.selectGatheringTactic('cleave'); window.startGatheringHarvest()" ${isSickleDull ? 'disabled' : ''} style="padding:10px; background:rgba(50,20,20,0.8); border:1px solid #f87171; color:#fca5a5; border-radius:6px; cursor:${isSickleDull ? 'not-allowed' : 'pointer'}; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">⚡ Ceifa Rápida</button>
+          <button onclick="window.inspectGatheringNode()" style="padding:10px; background:rgba(30,40,50,0.8); border:1px solid #60a5fa; color:#93c5fd; border-radius:6px; cursor:pointer; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">🔍 檢查嫩芽</button>
+          <button onclick="window.skipGatheringNode()" style="padding:10px; background:rgba(40,40,40,0.8); border:1px solid #aaa; color:#ddd; border-radius:6px; cursor:pointer; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">⏭️ 尋找其他採集點</button>
+          <button onclick="window.selectGatheringTactic('delicate'); window.startGatheringHarvest()" ${isSickleDull ? 'disabled' : ''} style="padding:10px; background:rgba(20,50,30,0.8); border:1px solid #34d399; color:#6ee7b7; border-radius:6px; cursor:${isSickleDull ? 'not-allowed' : 'pointer'}; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">🌿 精準修剪</button>
+          <button onclick="window.selectGatheringTactic('cleave'); window.startGatheringHarvest()" ${isSickleDull ? 'disabled' : ''} style="padding:10px; background:rgba(50,20,20,0.8); border:1px solid #f87171; color:#fca5a5; border-radius:6px; cursor:${isSickleDull ? 'not-allowed' : 'pointer'}; font-weight:bold; font-size:12px; font-family:'Cinzel',serif;">⚡ 快速收割</button>
         </div>
       </div>
     `;
@@ -296,19 +297,19 @@ export function renderGatheringUI(state) {
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
           <div>
             <h3 style="margin:0; font-family:'Cinzel',serif; color:#6ee7b7; font-size:20px; display:flex; align-items:center; gap:8px;">
-              🌿 Associação de Botânica & Herboristas de Aden
+              🌿 亞丁植物學與草藥師協會
             </h3>
             <p style="margin:4px 0 0 0; font-size:12px; color:#aaa;">
-              Colha plantas medicinais, galhos ancestrais, musgos e resinas botânicas para suprir os ferreiros e tecelões!
+              採集藥草、古老樹枝、苔蘚與植物樹脂，供應鐵匠與織工！
             </p>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(52,211,153,0.3); border-radius:8px; padding:6px 14px; text-align:center;">
-              <div style="font-size:10px; color:#aaa; text-transform:uppercase;">Nível de Coletor</div>
-              <div style="font-size:16px; font-weight:bold; color:#6ee7b7; font-family:'Cinzel',serif;">Nv. ${skillLvl} / 40</div>
+              <div style="font-size:10px; color:#aaa; text-transform:uppercase;">採集等級</div>
+              <div style="font-size:16px; font-weight:bold; color:#6ee7b7; font-family:'Cinzel',serif;">等級 ${skillLvl} / 40</div>
             </div>
             <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(212,167,68,0.3); border-radius:8px; padding:6px 14px; text-align:center;">
-              <div style="font-size:10px; color:#aaa; text-transform:uppercase;">Herbário Descoberto</div>
+              <div style="font-size:10px; color:#aaa; text-transform:uppercase;">已發現植物圖鑑</div>
               <div style="font-size:16px; font-weight:bold; color:#f4d58a; font-family:'Cinzel',serif;">${speciesDiscovered} / ${totalSpecies}</div>
             </div>
           </div>
@@ -317,7 +318,7 @@ export function renderGatheringUI(state) {
         <!-- Barra de Maestria -->
         <div>
           <div style="display:flex; justify-content:space-between; font-size:10px; color:#94a3b8; margin-bottom:4px;">
-            <span>Progresso da Maestria: <strong style="color:#6ee7b7;">${skillXp.toLocaleString()} / ${nextLvlXp.toLocaleString()} XP</strong></span>
+            <span>熟練度進度： <strong style="color:#6ee7b7;">${skillXp.toLocaleString()} / ${nextLvlXp.toLocaleString()} 經驗值</strong></span>
             <span>${xpPct}%</span>
           </div>
           <div style="width:100%; height:6px; background:rgba(0,0,0,0.6); border-radius:3px; overflow:hidden; border:1px solid rgba(52,211,153,0.2);">
@@ -329,19 +330,19 @@ export function renderGatheringUI(state) {
       <!-- Zonas de Coleta -->
       <div style="margin-bottom:20px;">
         <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px; display:flex; align-items:center; gap:6px;">
-          🧭 Bosques & Clareiras de Aden
+          🧭 亞丁森林與林間空地
         </h4>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           ${zonesHtml}
         </div>
       </div>
 
-      <!-- Layout 2 Colunas: Ação & Ferramental -->
+      <!-- Layout 2 Colunas: Ação & 工具l -->
       <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:20px;">
         <!-- Coluna Esquerda: Palco de Ação -->
         <div>
           <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#6ee7b7; font-size:15px;">
-            🌾 Clareira de Poda & Extração
+            🌾 修剪與採集區
           </h4>
           ${stageHtml}
 
@@ -349,13 +350,13 @@ export function renderGatheringUI(state) {
           <div style="margin-top:12px; background:rgba(18,22,32,0.85); border:1px solid rgba(52,211,153,0.25); border-radius:8px; padding:12px; display:flex; justify-content:space-between; align-items:center;">
             <div>
               <div style="display:flex; align-items:center; gap:6px;">
-                <strong style="font-size:13px; color:#f4d58a;">🌿 Coleta Automática (AFK)</strong>
+                <strong style="font-size:13px; color:#f4d58a;">🌿 自動採集（掛機）</strong>
                 <span style="font-size:10px; background:${isAfkUnlocked ? 'rgba(52,211,153,0.2)' : 'rgba(239,68,68,0.2)'}; color:${isAfkUnlocked ? '#34d399' : '#fca5a5'}; padding:1px 6px; border-radius:4px; font-weight:bold;">
-                  ${isAfkUnlocked ? 'DESBLOQUEADO' : 'NV. 5 COLETA REQUERIDO'}
+                  ${isAfkUnlocked ? '已解鎖' : '需要採集等級 5'}
                 </span>
               </div>
               <p style="margin:2px 0 0 0; font-size:10px; color:#aaa;">
-                Colhe e preserva brotos automaticamente enquanto o jogo roda ou em segundo plano.
+                遊戲開啟或在背景執行時，自動採集並保存嫩芽。
               </p>
             </div>
             <button 
@@ -373,7 +374,7 @@ export function renderGatheringUI(state) {
                 cursor: ${isAfkUnlocked ? 'pointer' : 'not-allowed'};
               "
             >
-              ${isAfkActive ? '⏸️ PAUSAR AFK' : '▶️ ATIVAR AFK'}
+              ${isAfkActive ? '⏸️ 暫停自動採集' : '▶️ 開啟自動採集'}
             </button>
           </div>
         </div>
@@ -381,7 +382,7 @@ export function renderGatheringUI(state) {
         <!-- Coluna Direita: Foice Atual & Manutenção -->
         <div>
           <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px;">
-            🌾 Foice de Poda & Manutenção
+            🌾 採集鐮刀與維護
           </h4>
           <div style="background:rgba(18,22,32,0.85); border:1px solid rgba(212,167,68,0.3); border-radius:10px; padding:12px; margin-bottom:12px;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
@@ -394,14 +395,14 @@ export function renderGatheringUI(state) {
                 ${!isSickleDull && durPct >= 100 ? 'disabled' : ''}
                 style="padding:6px 12px; font-size:11px; font-weight:bold; background:linear-gradient(180deg,#fbbf24,#b45309); border:1px solid #fde047; color:#000; border-radius:6px; cursor:pointer;"
               >
-                🪨 AMOLAR FOICE
+                🪨 磨利鐮刀
               </button>
             </div>
 
             <!-- Barra de Durabilidade -->
             <div style="margin-top:8px;">
               <div style="display:flex; justify-content:space-between; font-size:10px; color:#94a3b8; margin-bottom:4px;">
-                <span>Fio da Lâmina: <strong style="color:${durPct > 20 ? '#34d399' : '#ef4444'};">${sickleDurability} / ${maxSickleDurability}</strong></span>
+                <span>刀刃鋒利度： <strong style="color:${durPct > 20 ? '#34d399' : '#ef4444'};">${sickleDurability} / ${maxSickleDurability}</strong></span>
                 <span>${durPct}%</span>
               </div>
               <div style="width:100%; height:6px; background:rgba(0,0,0,0.6); border-radius:3px; overflow:hidden; border:1px solid rgba(212,167,68,0.2);">
@@ -412,7 +413,7 @@ export function renderGatheringUI(state) {
 
           <!-- Arsenal de Foices -->
           <h5 style="margin:12px 0 6px 0; font-family:'Cinzel',serif; color:#ffd877; font-size:13px;">
-            Oficina de Foices Botânicas
+            植物採集鐮刀工坊
           </h5>
           <div style="max-height:180px; overflow-y:auto; padding-right:4px;">
             ${sicklesHtml}
@@ -423,7 +424,7 @@ export function renderGatheringUI(state) {
       <!-- Seção Inferior: Cestos & Bolsas de Conservação -->
       <div style="background:rgba(18,22,32,0.85); border:1px solid rgba(212,167,68,0.25); border-radius:10px; padding:12px;">
         <h4 style="margin:0 0 8px 0; font-family:'Cinzel',serif; color:#f4d58a; font-size:15px;">
-          🧺 Cestos & Bolsas de Conservação de Ervas
+          🧺 草藥保存籃與收納袋
         </h4>
         <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:10px;">
           ${pouchesHtml}

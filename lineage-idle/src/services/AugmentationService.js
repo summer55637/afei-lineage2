@@ -18,18 +18,18 @@ export class AugmentationService {
     }
 
     if (!weapon) {
-      log('Selecione uma arma válida para realizar a Augmentação.', 'error');
+      log('請選擇有效武器進行增幅。', 'error');
       return { success: false, reason: 'no_weapon' };
     }
 
     const isWeapon = weapon.slot === 'weapon' || weapon.type === 'weapon' || String(weapon.id || '').startsWith('weapon_') || String(weapon.itemId || '').startsWith('weapon_');
     if (!isWeapon) {
-      log('Apenas armas podem receber o poder das Pedras da Vida (Life Stones).', 'error');
+      log('只有武器可以接受生命石的力量。', 'error');
       return { success: false, reason: 'not_a_weapon' };
     }
 
     if (weapon.augmentation) {
-      log('Esta arma já possui uma Augmentação ativa. Remova a anterior com o Ferreiro antes de aplicar uma nova.', 'warning');
+      log('此武器已有附魔改造效果。請先找鐵匠移除原有效果，再套用新的附魔改造。', 'warning');
       return { success: false, reason: 'already_augmented' };
     }
 
@@ -40,7 +40,7 @@ export class AugmentationService {
     });
 
     if (stoneIdx === -1) {
-      log(`⚠️ Você precisa de 1x ${stone.name} em seu inventário para que o Ferreiro realize a Augmentação.`, 'error');
+      log(`⚠️ 你的背包需要 1× ${stone.name}，鐵匠才能進行附魔改造。`, 'error');
       return { success: false, reason: 'missing_life_stone' };
     }
 
@@ -55,7 +55,7 @@ export class AugmentationService {
     const crystalCount = crystalItem ? (crystalItem.count || 1) : 0;
 
     if (crystalCount < reqCrystals) {
-      log(`⚠️ Gemstones insuficientes! O Ferreiro exige ${reqCrystals}x Cristais/Gemstones Grau ${stone.gemstoneGrade || 'D'} para canalizar a pedra.`, 'error');
+      log(`⚠️ 寶石不足！鐵匠需要 ${reqCrystals}× ${stone.gemstoneGrade || 'D'} 級水晶／寶石才能灌注生命石。`, 'error');
       return { success: false, reason: 'insufficient_gemstones' };
     }
 
@@ -63,7 +63,7 @@ export class AugmentationService {
     const feeAdena = stone.priceAdena || 25000;
     const currentGold = (state.gold !== undefined ? state.gold : (state.adena || 0));
     if (currentGold < feeAdena) {
-      log(`⚠️ Adena insuficiente para a mão de obra do Ferreiro (${feeAdena.toLocaleString()} Adena necessária).`, 'error');
+      log(`⚠️ 金幣不足，無法支付鐵匠加工費（需要 ${feeAdena.toLocaleString()} 金幣）。`, 'error');
       return { success: false, reason: 'insufficient_funds' };
     }
 
@@ -126,14 +126,29 @@ export class AugmentationService {
       itemSkill: acquiredSkill
     };
 
+    const statLabels = {
+      atk: '物理攻擊',
+      matk: '魔法攻擊',
+      def: '物理防禦',
+      mdef: '魔法防禦',
+      hp: '最大生命值',
+      cp: '最大戰鬥力',
+      crit: '暴擊率',
+      eva: '迴避'
+    };
     const statSummary = Object.entries(rolledStats)
-      .map(([k, v]) => `+${v} ${k.toUpperCase()}`)
-      .join(', ');
+      .map(([k, v]) => `+${v} ${statLabels[k] || k}`)
+      .join('、');
 
-    const skillText = acquiredSkill ? ` e adquiriu a Habilidade Rara [${acquiredSkill.name}]` : '';
-    const glowText = hasGlow ? ` ✨ Concedeu Brilho (${glowColor})!` : '';
+    const skillText = acquiredSkill ? ` 並獲得稀有技能 [${acquiredSkill.name}]` : '';
+    const glowLabel = ({
+      'golden-amber': '金色琥珀',
+      'radiant-purple': '璀璨紫光',
+      'arcane-blue': '奧術藍光'
+    })[glowColor] || glowColor;
+    const glowText = hasGlow ? ` ✨ 獲得光效（${glowLabel}）！` : '';
 
-    const triumphMsg = `💎 AUGMENTAÇÃO CONCLUÍDA COM SUCESSO! ${weapon.name || 'Sua Arma'} recebeu: [${statSummary}]${skillText}${glowText}`;
+    const triumphMsg = `💎 增幅成功！${weapon.name || '你的武器'} 獲得：[${statSummary}]${skillText}${glowText}`;
     log(triumphMsg, 'success');
 
     onUpdate();
@@ -152,19 +167,19 @@ export class AugmentationService {
     const removalFee = 100000;
 
     if (!weaponItem || !weaponItem.augmentation) {
-      log('Esta arma não possui nenhuma Augmentação para ser removida.', 'warning');
+      log('此武器沒有可移除的增幅效果。', 'warning');
       return { success: false, reason: 'not_augmented' };
     }
 
     if ((state.gold || 0) < removalFee) {
-      log(`Adena insuficiente para a taxa do Ferreiro (${removalFee.toLocaleString()} Adena).`, 'error');
+      log(`金幣不足，無法支付鐵匠費用（${removalFee.toLocaleString()} 金幣）。`, 'error');
       return { success: false, reason: 'gold_low' };
     }
 
     state.gold -= removalFee;
     delete weaponItem.augmentation;
 
-    log(`🔨 A Augmentação de ${weaponItem.name || 'sua arma'} foi purificada e removida pelo Ferreiro.`, 'info');
+    log(`🔨 ${weaponItem.name || '你的武器'} 的增幅效果已由鐵匠淨化並移除。`, 'info');
     onUpdate();
     return { success: true };
   }

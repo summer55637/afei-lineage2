@@ -85,7 +85,7 @@ export function validateElementalSkillMatrix() {
 
   // ─── 1. Classes Validation ──────────────────────────────────────────────────
   if (ACTIVE_CLASSES.length !== EXPECTED_ACTIVE_CLASSES) {
-    errors.push(`Active classes count mismatch: expected ${EXPECTED_ACTIVE_CLASSES}, found ${ACTIVE_CLASSES.length}`);
+    errors.push(`啟用職業數量不符：預期 ${EXPECTED_ACTIVE_CLASSES}，實際找到 ${ACTIVE_CLASSES.length}`);
   }
   const activeClassIds = new Set(ACTIVE_CLASSES.map(c => c.id));
   if (activeClassIds.size !== ACTIVE_CLASSES.length) {
@@ -93,7 +93,7 @@ export function validateElementalSkillMatrix() {
   }
 
   if (HISTORICAL_CLASSES.length !== EXPECTED_HISTORICAL_CLASSES) {
-    errors.push(`Historical classes count mismatch: expected ${EXPECTED_HISTORICAL_CLASSES}, found ${HISTORICAL_CLASSES.length}`);
+    errors.push(`歷史職業數量不符：預期 ${EXPECTED_HISTORICAL_CLASSES}，實際找到 ${HISTORICAL_CLASSES.length}`);
   }
   const historicalClassIds = new Set(HISTORICAL_CLASSES.map(c => c.id));
   if (historicalClassIds.size !== HISTORICAL_CLASSES.length) {
@@ -103,7 +103,7 @@ export function validateElementalSkillMatrix() {
   // Canonical entities distinction: 159 != 98 != 73 != 25
   const totalCanonical = ACTIVE_CLASSES.length + HISTORICAL_CLASSES.length;
   if (totalCanonical !== EXPECTED_CANONICAL_CLASSES) {
-    errors.push(`Total canonical classes mismatch: expected ${EXPECTED_CANONICAL_CLASSES}, found ${totalCanonical}`);
+    errors.push(`正式職業總數不符：預期 ${EXPECTED_CANONICAL_CLASSES}，實際找到 ${totalCanonical}`);
   }
 
   // Check orc_mage canonical entity integrity
@@ -122,14 +122,14 @@ export function validateElementalSkillMatrix() {
 
   // ─── 2. Skills Validation ───────────────────────────────────────────────────
   if (ALL_NATIVE_SKILLS.length !== EXPECTED_ACTIVE_SKILL_SLOTS) {
-    errors.push(`Active skill slots count mismatch: expected ${EXPECTED_ACTIVE_SKILL_SLOTS}, found ${ALL_NATIVE_SKILLS.length}`);
+    errors.push(`啟用技能欄位數量不符：預期 ${EXPECTED_ACTIVE_SKILL_SLOTS}，實際找到 ${ALL_NATIVE_SKILLS.length}`);
   }
 
   // Validate exactly 4 skills per active class
   for (const cls of ACTIVE_CLASSES) {
     const classSkills = getNativeSkillsByClass(cls.id);
     if (!classSkills || classSkills.length !== 4) {
-      errors.push(`Class ${cls.id} has ${classSkills ? classSkills.length : 0} native skills, expected exactly 4`);
+      errors.push(`職業 ${cls.id} 擁有 ${classSkills ? classSkills.length : 0} 個原生技能，預期應正好為 4 個`);
     }
   }
 
@@ -141,27 +141,27 @@ export function validateElementalSkillMatrix() {
       continue;
     }
     if (!skill.classId || !activeClassIds.has(skill.classId)) {
-      errors.push(`Skill ${skill.id} references invalid active classId: ${skill.classId}`);
+      errors.push(`技能 ${skill.id} 參照了無效的啟用職業 classId：${skill.classId}`);
     }
     if (!skill.tier || typeof skill.tier !== 'number' || skill.tier < 1 || skill.tier > 4) {
-      errors.push(`Skill ${skill.id} has invalid tier: ${skill.tier}`);
+      errors.push(`技能 ${skill.id} 的階級無效：${skill.tier}`);
     }
     if (!skill.role || !allowedRoles.includes(skill.role)) {
-      errors.push(`Skill ${skill.id} has invalid role: ${skill.role}`);
+      errors.push(`技能 ${skill.id} 的定位無效：${skill.role}`);
     }
     if (!Array.isArray(skill.elements) || skill.elements.length === 0) {
-      errors.push(`Skill ${skill.id} has missing or empty elements array`);
+      errors.push(`技能 ${skill.id} 缺少 elements 陣列或該陣列為空`);
     } else {
       // Validate tags against allowed elements in ElementHierarchy
       for (const elem of skill.elements) {
         if (!ALL_ELEMENTS.includes(elem)) {
-          errors.push(`Skill ${skill.id} contains unknown element tag: ${elem}`);
+          errors.push(`技能 ${skill.id} 含有未知元素標籤：${elem}`);
         }
       }
       // Validate against class allowedElements using strict ALL TAGS (.every())
       const classDef = getActiveClass(skill.classId);
       if (classDef && !validateElementalTags(skill.elements, classDef.allowedElements)) {
-        errors.push(`Skill ${skill.id} elemental tags [${skill.elements.join(', ')}] violate class ${skill.classId} allowed [${classDef.allowedElements.join(', ')}]`);
+        errors.push(`技能 ${skill.id} 的元素標籤 [${skill.elements.join(', ')}] 不符合職業 ${skill.classId} 允許元素 [${classDef.allowedElements.join(', ')}]`);
       }
     }
   }
@@ -169,34 +169,34 @@ export function validateElementalSkillMatrix() {
   // ─── 3. Element Taxonomy & Wildcard Validation ──────────────────────────────
   const magicExpansion = expandElement(MAGIC_WILDCARD);
   if (magicExpansion.includes(PHYSICAL_ELEMENT)) {
-    errors.push(`CRITICAL: Wildcard ${MAGIC_WILDCARD} must NEVER include ${PHYSICAL_ELEMENT}`);
+    errors.push(`嚴重錯誤：萬用元素 ${MAGIC_WILDCARD} 絕不可包含 ${PHYSICAL_ELEMENT}`);
   }
   for (const base of BASE_ELEMENTS) {
     if (!magicExpansion.includes(base)) {
-      errors.push(`Wildcard ${MAGIC_WILDCARD} missing base element: ${base}`);
+      errors.push(`萬用元素 ${MAGIC_WILDCARD} 缺少基礎元素：${base}`);
     }
   }
 
   // Test ALL TAGS rule: ['Fire', 'Dark'] on class allowing only ['Physical', 'Fire']
   const testAllTags = validateElementalTags(['Fire', 'Dark'], ['Physical', 'Fire']);
   if (testAllTags !== false) {
-    errors.push(`ALL TAGS rule violation: ['Fire', 'Dark'] unexpectedly validated against ['Physical', 'Fire']`);
+    errors.push(`ALL TAGS 規則違規：['Fire', 'Dark'] 不應通過 ['Physical', 'Fire'] 的驗證`);
   }
 
   // ─── 4. Lineage Progression & DAG Validation ────────────────────────────────
   const lineageCount = getLineageRelationsCount();
   if (lineageCount !== EXPECTED_LINEAGE_RELATIONS) {
-    errors.push(`Lineage relations count mismatch: expected ${EXPECTED_LINEAGE_RELATIONS}, found ${lineageCount}`);
+    errors.push(`職業血統關係數量不符：預期 ${EXPECTED_LINEAGE_RELATIONS}，實際找到 ${lineageCount}`);
   }
 
   // Validate orc_mage -> orc_shaman progression link
   const shamanPred = getPredecessor('orc_shaman');
   if (shamanPred !== 'orc_mage') {
-    errors.push(`orc_shaman predecessor must be 'orc_mage', found '${shamanPred}'`);
+    errors.push(`orc_shaman 的前置職業必須是 'orc_mage'，實際為 '${shamanPred}'`);
   }
   const mageSuccs = getSuccessors('orc_mage');
   if (!mageSuccs.includes('orc_shaman')) {
-    errors.push(`orc_mage successors must contain 'orc_shaman'`);
+    errors.push(`orc_mage 的後繼職業必須包含 'orc_shaman'`);
   }
 
   // DAG acyclicity check
@@ -207,14 +207,14 @@ export function validateElementalSkillMatrix() {
   for (const cls of HISTORICAL_CLASSES) {
     if (cls.predecessor) {
       if (!allNodes.has(cls.predecessor)) {
-        errors.push(`Historical class ${cls.id} has dangling predecessor: ${cls.predecessor}`);
+        errors.push(`歷史職業 ${cls.id} 存在無效的前置職業參照：${cls.predecessor}`);
       } else {
         inDegree.set(cls.id, (inDegree.get(cls.id) || 0) + 1);
       }
     }
     for (const succ of cls.successors) {
       if (!allNodes.has(succ)) {
-        errors.push(`Historical class ${cls.id} has dangling successor: ${succ}`);
+        errors.push(`歷史職業 ${cls.id} 存在無效的後繼職業參照：${succ}`);
       }
     }
   }
@@ -241,7 +241,7 @@ export function validateElementalSkillMatrix() {
 
   const isDAG = visitedCount === allNodes.size;
   if (!isDAG) {
-    errors.push(`Lineage graph cycle detected: visited ${visitedCount}/${allNodes.size} nodes`);
+    errors.push(`偵測到職業血統圖循環：已走訪 ${visitedCount}/${allNodes.size} 個節點`);
   }
 
   // ─── 5. Dynamic Derived Stats Validation ────────────────────────────────────

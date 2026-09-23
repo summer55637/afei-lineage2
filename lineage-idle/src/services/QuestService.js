@@ -90,8 +90,8 @@ export function claimQuestReward(state, questId, callbacks = {}) {
     state.battlePass.xp += rew.passXp;
   }
 
-  if (callbacks.log) callbacks.log(`🎁 Recompensa Reclamada: **${qDef.name}**!`, 'rarity-legendary');
-  if (callbacks.floatText) callbacks.floatText(`🎁 MISSÃO CONCLUÍDA!`, 'float-jackpot');
+  if (callbacks.log) callbacks.log(`🎁 已領取獎勵：**${qDef.name}**！`, 'rarity-legendary');
+  if (callbacks.floatText) callbacks.floatText(`🎁 任務完成！`, 'float-jackpot');
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save(true, true);
@@ -124,8 +124,8 @@ export function claimDailyBonusChest(state, callbacks = {}) {
     state.battlePass.xp += rew.passXp;
   }
 
-  if (callbacks.log) callbacks.log(`👑 TESOURO MÁXIMO! Reclamou o **${DAILY_COMPLETION_BONUS.name}** (+${rew.sp} SP, +${rew.gold.toLocaleString()}g, +${rew.magicLamps}x Lâmpadas)!`, 'rarity-legendary');
-  if (callbacks.floatText) callbacks.floatText(`👑 BAÚ DIÁRIO RESGATADO!`, 'float-jackpot');
+  if (callbacks.log) callbacks.log(`👑 最高獎勵！已領取 **${DAILY_COMPLETION_BONUS.name}**（+${rew.sp} 技能點、+${rew.gold.toLocaleString()} 金幣、+${rew.magicLamps} 個神燈）！`, 'rarity-legendary');
+  if (callbacks.floatText) callbacks.floatText(`👑 每日寶箱已領取！`, 'float-jackpot');
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save(true, true);
@@ -143,8 +143,8 @@ export function unlockPremiumPass(state, callbacks = {}) {
 
   state.battlePass.unlockedPremium = true;
 
-  if (callbacks.log) callbacks.log('👑 PASSE DE BATALHA PREMIUM ATIVADO COM SUCESSO!', 'rarity-legendary');
-  if (callbacks.floatText) callbacks.floatText('👑 PASSE PREMIUM ATIVO!', 'float-jackpot');
+  if (callbacks.log) callbacks.log('👑 高級戰鬥通行證已成功啟用！', 'rarity-legendary');
+  if (callbacks.floatText) callbacks.floatText('👑 高級通行證已啟用！', 'float-jackpot');
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save(true, true);
@@ -176,7 +176,7 @@ export function claimPassReward(state, tierLevel, passType = 'free', callbacks =
     if (rew.sp) state.sp = (state.sp || 0) + rew.sp;
     if (rew.magicLamps) state.magicLamps = (state.magicLamps || 0) + rew.magicLamps;
     if (rew.item) addToInventory(state, rew.item, rew.count || 1, null, false, callbacks);
-    if (callbacks.log) callbacks.log(`🎫 Recompensa Grátis do Passe Nv.${tierLevel} Reclamada!`, 'loot');
+    if (callbacks.log) callbacks.log(`🎫 已領取通行證等級 ${tierLevel} 免費獎勵！`, 'loot');
   } else if (passType === 'premium') {
     if (!state.battlePass.unlockedPremium) return;
     if (state.battlePass.claimedPremium.includes(tierLevel)) return;
@@ -188,7 +188,7 @@ export function claimPassReward(state, tierLevel, passType = 'free', callbacks =
       if (!state.titles.includes(rew.title)) state.titles.push(rew.title);
     }
     if (rew.item) addToInventory(state, rew.item, rew.count || 1, 'legendary', false, callbacks);
-    if (callbacks.log) callbacks.log(`👑 Recompensa PREMIUM do Passe Nv.${tierLevel} Reclamada!`, 'rarity-legendary');
+    if (callbacks.log) callbacks.log(`👑 已領取通行證等級 ${tierLevel} 高級獎勵！`, 'rarity-legendary');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();

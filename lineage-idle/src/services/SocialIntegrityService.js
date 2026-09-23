@@ -8,7 +8,7 @@ export class SocialIntegrityService {
     if (typeof window !== 'undefined' && window.FirebaseBridge?.addFriend) {
       return await window.FirebaseBridge.addFriend(myCharId, targetName);
     }
-    throw new Error('Serviço social offline.');
+    throw new Error('社交服務目前離線。');
   }
 
   static async removeFriend(myCharId, targetCharId) {
@@ -29,14 +29,14 @@ export class SocialIntegrityService {
     if (typeof window !== 'undefined' && window.FirebaseBridge?.bindMentorship) {
       return await window.FirebaseBridge.bindMentorship(apprenticeCharId, apprenticeLevel, mentorName);
     }
-    throw new Error('Serviço de mentoria offline.');
+    throw new Error('導師服務目前離線。');
   }
 
   static async blockPlayer(myCharId, myOwnerUid, targetName) {
     if (typeof window !== 'undefined' && window.FirebaseBridge?.blockPlayer) {
       return await window.FirebaseBridge.blockPlayer(myCharId, myOwnerUid, targetName);
     }
-    throw new Error('Serviço de bloqueio offline.');
+    throw new Error('封鎖服務目前離線。');
   }
 
   static async unblockPlayer(myCharId, blockedName) {

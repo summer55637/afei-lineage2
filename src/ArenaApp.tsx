@@ -70,11 +70,11 @@ function HighScoreTable({
   return (
     <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
       <h3 className="mb-3 font-display text-lg font-bold tracking-wide text-amber-200">
-        ⚜ Hall of Legends
+        ⚜ 傳奇殿堂
       </h3>
       {scores.length === 0 ? (
         <p className="py-6 text-center text-sm text-white/40">
-          No champions yet. Be the first.
+          目前還沒有冠軍，成為第一位吧。
         </p>
       ) : (
         <ol className="space-y-1.5">
@@ -204,7 +204,7 @@ function MenuScreen({
       <div className="relative mx-auto max-w-6xl px-4 pt-14 pb-8 sm:px-6 sm:pt-16">
         <header className="mb-6 text-center animate-float">
           <p className="text-xs font-semibold uppercase tracking-[0.4em] text-amber-300/80">
-            Lineage-inspired Browser RPG
+            天堂風格瀏覽器 RPG
           </p>
           <h1
             className="font-display text-5xl font-black tracking-tight text-transparent sm:text-6xl"
@@ -215,10 +215,10 @@ function MenuScreen({
               backgroundClip: "text",
             }}
           >
-            ADEN ARENA
+            亞丁競技場
           </h1>
           <p className="mx-auto mt-2 max-w-xl text-sm text-white/50">
-            Escolha seu campeão ou jogue com seu personagem ativo do Idle Game no ambiente 3D!
+            選擇你的鬥士，或使用放置模式中的現役角色進入 3D 戰場！
           </p>
         </header>
 
@@ -227,15 +227,15 @@ function MenuScreen({
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
                 <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-400/20 px-3 py-0.5 text-[11px] font-black uppercase text-amber-300 border border-amber-400/30">
-                  <span>★</span> Personagem Idle Conectado
+                  <span>★</span> 已連接放置角色
                 </div>
                 <h2 className="mt-2 font-display text-2xl font-black text-white">
-                  {idleState.charName || idleState.heroName || "Seu Herói"} · Nível {idleState.level || 1}
+                  {idleState.charName || idleState.heroName || "你的角色"} · 等級 {idleState.level || 1}
                 </h2>
                 <p className="mt-1 text-xs text-amber-200/80">
-                  HP: {Math.ceil(idleState.hp || idleState.maxHp || 100)} / {idleState.maxHp || 100} · 
-                  P.Atk: {idleState.patk || 20} · M.Atk: {idleState.matk || 20} · 
-                  Speed: {idleState.speed || 220}
+                  生命值：{Math.ceil(idleState.hp || idleState.maxHp || 100)} / {idleState.maxHp || 100} · 
+                  物理攻擊：{idleState.patk || 20} · 魔法攻擊：{idleState.matk || 20} · 
+                  速度：{idleState.speed || 220}
                 </p>
               </div>
               <button
@@ -245,7 +245,7 @@ function MenuScreen({
                 }}
                 className="rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 px-6 py-3.5 font-display text-base font-black tracking-wide text-[#1a1100] shadow-lg shadow-amber-500/30 hover:brightness-110 active:scale-95 transition"
               >
-                ⚔️ JOGAR COM {String(idleState.charName || idleState.heroName || "SEU HERÓI").toUpperCase()} ▶
+                ⚔️ 使用 {String(idleState.charName || idleState.heroName || "你的角色").toUpperCase()} 遊玩 ▶
               </button>
             </div>
           </div>
@@ -256,7 +256,7 @@ function MenuScreen({
           <div className="space-y-6 lg:col-span-2">
             <section>
               <h2 className="mb-2 font-display text-xl font-bold text-white/90">
-                1 · Choose your Race
+                1 · 選擇種族
               </h2>
               <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
                 {RACES.map((r) => {
@@ -293,7 +293,7 @@ function MenuScreen({
 
             <section>
               <h2 className="mb-2 font-display text-xl font-bold text-white/90">
-                2 · Choose your Class &amp; Weapon
+                2 · 選擇職業與武器
               </h2>
               <div className="grid gap-2.5 sm:grid-cols-2">
                 {race.classes.map((c) => {
@@ -352,10 +352,10 @@ function MenuScreen({
                         {c.desc}
                       </p>
                       <div className="mt-3 grid grid-cols-2 gap-1.5 text-[11px]">
-                        <Stat label="HP" value={String(c.hp)} />
-                        <Stat label="SPD" value={(c.speed / 10).toFixed(1)} />
-                        <Stat label="DMG" value={String(c.weapon.damage)} />
-                        <Stat label="RATE" value={`${aps}/s`} />
+                        <Stat label="生命值" value={String(c.hp)} />
+                        <Stat label="速度" value={(c.speed / 10).toFixed(1)} />
+                        <Stat label="傷害" value={String(c.weapon.damage)} />
+                        <Stat label="攻速" value={`${aps}/s`} />
                       </div>
                       <div className="mt-2 flex flex-wrap gap-1">
                         {SKILLS[c.id]?.map((s) => (
@@ -402,7 +402,7 @@ function MenuScreen({
               }}
             >
               <p className="text-[11px] font-semibold uppercase tracking-widest text-white/50">
-                Your Champion
+                你的鬥士
               </p>
               <div className="mt-2 flex items-center gap-3">
                 <img
@@ -427,30 +427,26 @@ function MenuScreen({
                 onClick={() => onPlay(race, cls)}
                 className="mt-4 w-full rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 px-4 py-3 text-center font-display text-lg font-black tracking-wide text-[#2a1c00] shadow-lg shadow-amber-500/30 transition hover:brightness-110 active:scale-[0.98]"
               >
-                ENTER THE ARENA ▶
+                進入競技場 ▶
               </button>
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-xs text-white/50">
               <h4 className="mb-2 font-display text-sm font-bold text-white/80">
-                Controls
+                操作方式
               </h4>
               <ul className="space-y-1">
                 <li>
-                  <span className="text-white/80">Move</span> — WASD / Arrows or
-                  left thumbstick
+                  <span className="text-white/80">移動</span> — WASD／方向鍵，或左側虛擬搖桿
                 </li>
                 <li>
-                  <span className="text-white/80">Aim</span> — Mouse, or right
-                  thumbstick
+                  <span className="text-white/80">瞄準</span> — 滑鼠，或右側虛擬搖桿
                 </li>
                 <li>
-                  <span className="text-white/80">Attack</span> — Click / Space,
-                  or hold right side
+                  <span className="text-white/80">攻擊</span> — 滑鼠點擊／空白鍵，或按住畫面右側
                 </li>
                 <li>
-                  <span className="text-white/80">Pause</span> — Esc or the
-                  pause button
+                  <span className="text-white/80">暫停</span> — Esc 或暫停按鈕
                 </li>
               </ul>
             </div>
@@ -460,8 +456,7 @@ function MenuScreen({
         </div>
 
         <footer className="mt-8 text-center text-[11px] text-white/30">
-          Built with React · Canvas · Tailwind — runs at 60fps on desktop &amp;
-          mobile.
+          使用 React · Canvas · Tailwind 製作 — 桌面與手機版目標皆為 60fps。
         </footer>
       </div>
     </div>
@@ -491,27 +486,27 @@ function PauseOverlay({
     <div className="fixed inset-0 z-30 flex items-center justify-center bg-black/70 backdrop-blur-sm">
       <div className="w-[min(92vw,420px)] rounded-3xl border border-white/15 bg-[#0b0f1c]/95 p-8 text-center shadow-2xl">
         <h2 className="font-display text-4xl font-black tracking-widest text-amber-200">
-          PAUSED
+          已暫停
         </h2>
-        <p className="mt-1 text-sm text-white/40">The battle awaits your return.</p>
+        <p className="mt-1 text-sm text-white/40">戰鬥正等待你回來。</p>
         <div className="mt-6 space-y-3">
           <button
             onClick={onResume}
             className="w-full rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 px-4 py-3 font-display text-lg font-black text-[#2a1c00] transition hover:brightness-110 active:scale-[0.98]"
           >
-            RESUME
+            繼續戰鬥
           </button>
           <button
             onClick={onRestart}
             className="w-full rounded-xl border border-white/20 bg-white/5 px-4 py-3 font-semibold text-white transition hover:bg-white/10"
           >
-            RESTART
+            重新開始
           </button>
           <button
             onClick={onQuit}
             className="w-full rounded-xl border border-white/10 px-4 py-3 font-semibold text-white/60 transition hover:bg-white/5"
           >
-            QUIT TO MENU
+            返回選單
           </button>
         </div>
       </div>
@@ -539,22 +534,22 @@ function GameOverOverlay({
     <div className="fixed inset-0 z-30 flex items-center justify-center overflow-y-auto bg-black/75 px-4 py-8 backdrop-blur-sm">
       <div className="w-[min(94vw,460px)] rounded-3xl border border-red-500/30 bg-[#0b0f1c]/95 p-7 text-center shadow-2xl">
         <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-400/80">
-          You have fallen
+          你倒下了
         </p>
         <h2 className="mt-1 font-display text-5xl font-black tracking-tight text-white">
-          GAME OVER
+          戰鬥結束
         </h2>
 
         {isNew && (
           <div className="mx-auto mt-3 inline-block rounded-full bg-amber-400/20 px-4 py-1 text-xs font-bold uppercase tracking-wider text-amber-300 ring-1 ring-amber-300/50">
-            ★ New High Score · Rank #{rank}
+            ★ 新紀錄 · 排名 #{rank}
           </div>
         )}
 
         <div className="mt-5 grid grid-cols-2 gap-3 text-left">
           <div className="rounded-xl bg-white/[0.04] p-3">
             <p className="text-[11px] uppercase tracking-wider text-white/40">
-              Score
+              分數
             </p>
             <p className="font-display text-3xl font-black text-amber-200">
               {result.score.toLocaleString()}
@@ -562,7 +557,7 @@ function GameOverOverlay({
           </div>
           <div className="rounded-xl bg-white/[0.04] p-3">
             <p className="text-[11px] uppercase tracking-wider text-white/40">
-              Class
+              職業
             </p>
             <p className="truncate font-bold text-white">
               {result.cls}
@@ -571,13 +566,13 @@ function GameOverOverlay({
           </div>
           <div className="rounded-xl bg-white/[0.04] p-3">
             <p className="text-[11px] uppercase tracking-wider text-white/40">
-              Survived
+              存活時間
             </p>
             <p className="font-bold text-white">{fmtTime(result.time)}</p>
           </div>
           <div className="rounded-xl bg-white/[0.04] p-3">
             <p className="text-[11px] uppercase tracking-wider text-white/40">
-              Kills · Combo
+              擊殺 · 連擊
             </p>
             <p className="font-bold text-white">
               {result.kills} · x{result.bestCombo}
@@ -594,13 +589,13 @@ function GameOverOverlay({
             onClick={onAgain}
             className="rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 px-4 py-3 font-display text-base font-black text-[#2a1c00] transition hover:brightness-110 active:scale-[0.98]"
           >
-            PLAY AGAIN
+            再玩一次
           </button>
           <button
             onClick={onMenu}
             className="rounded-xl border border-white/20 bg-white/5 px-4 py-3 font-semibold text-white transition hover:bg-white/10"
           >
-            CHANGE CHARACTER
+            更換角色
           </button>
         </div>
       </div>

@@ -11,7 +11,7 @@ export const ELEMENT_MATRIX = {
   // ─── Human (5) ─────────────────────────────────────────────────────────────
   human_fighter: {
     id: 'human_fighter',
-    name: 'Human Fighter',
+    name: '人類戰士',
     race: 'Human',
     lineage: 'Warrior',
     tier: 1,
@@ -20,7 +20,7 @@ export const ELEMENT_MATRIX = {
   },
   human_sorcerer: {
     id: 'human_sorcerer',
-    name: 'Human Sorcerer',
+    name: '人類術士',
     race: 'Human',
     lineage: 'Mystic',
     tier: 1,
@@ -29,7 +29,7 @@ export const ELEMENT_MATRIX = {
   },
   human_death_knight: {
     id: 'human_death_knight',
-    name: 'Human Death Knight',
+    name: '人類死亡騎士',
     race: 'Human',
     lineage: 'Death Knight',
     tier: 1,
@@ -38,7 +38,7 @@ export const ELEMENT_MATRIX = {
   },
   human_warg: {
     id: 'human_warg',
-    name: 'Human Warg',
+    name: '人類座狼戰士',
     race: 'Human',
     lineage: 'Beast Warrior',
     tier: 1,
@@ -47,7 +47,7 @@ export const ELEMENT_MATRIX = {
   },
   human_assassin: {
     id: 'human_assassin',
-    name: 'Human Assassin',
+    name: '人類刺客',
     race: 'Human',
     lineage: 'Rogue',
     tier: 1,
@@ -58,7 +58,7 @@ export const ELEMENT_MATRIX = {
   // ─── Elf (3) ───────────────────────────────────────────────────────────────
   elf_fighter: {
     id: 'elf_fighter',
-    name: 'Elven Fighter',
+    name: '精靈戰士',
     race: 'Elf',
     lineage: 'Warrior',
     tier: 1,
@@ -67,7 +67,7 @@ export const ELEMENT_MATRIX = {
   },
   elf_mage: {
     id: 'elf_mage',
-    name: 'Elven Mage',
+    name: '精靈法師',
     race: 'Elf',
     lineage: 'Mystic',
     tier: 1,
@@ -76,7 +76,7 @@ export const ELEMENT_MATRIX = {
   },
   elf_death_knight: {
     id: 'elf_death_knight',
-    name: 'Elven Death Knight',
+    name: '精靈死亡騎士',
     race: 'Elf',
     lineage: 'Death Knight',
     tier: 1,
@@ -87,7 +87,7 @@ export const ELEMENT_MATRIX = {
   // ─── Dark Elf (5) ──────────────────────────────────────────────────────────
   dark_elf_fighter: {
     id: 'dark_elf_fighter',
-    name: 'Dark Elven Fighter',
+    name: '黑暗精靈戰士',
     race: 'Dark Elf',
     lineage: 'Warrior',
     tier: 1,
@@ -96,7 +96,7 @@ export const ELEMENT_MATRIX = {
   },
   dark_elf_mage: {
     id: 'dark_elf_mage',
-    name: 'Dark Elven Mage',
+    name: '黑暗精靈法師',
     race: 'Dark Elf',
     lineage: 'Mystic',
     tier: 1,
@@ -105,7 +105,7 @@ export const ELEMENT_MATRIX = {
   },
   dark_elf_death_knight: {
     id: 'dark_elf_death_knight',
-    name: 'Dark Elven Death Knight',
+    name: '黑暗精靈死亡騎士',
     race: 'Dark Elf',
     lineage: 'Death Knight',
     tier: 1,
@@ -114,7 +114,7 @@ export const ELEMENT_MATRIX = {
   },
   dark_elf_assassin: {
     id: 'dark_elf_assassin',
-    name: 'Dark Elven Assassin',
+    name: '黑暗精靈刺客',
     race: 'Dark Elf',
     lineage: 'Rogue',
     tier: 1,
@@ -123,7 +123,7 @@ export const ELEMENT_MATRIX = {
   },
   dark_elf_blood_rose: {
     id: 'dark_elf_blood_rose',
-    name: 'Dark Elven Blood Rose',
+    name: '黑暗精靈血玫瑰',
     race: 'Dark Elf',
     lineage: 'Mystic Rogue',
     tier: 1,
@@ -134,7 +134,7 @@ export const ELEMENT_MATRIX = {
   // ─── Orc (3) ───────────────────────────────────────────────────────────────
   orc_fighter: {
     id: 'orc_fighter',
-    name: 'Orc Fighter',
+    name: '獸人戰士',
     race: 'Orc',
     lineage: 'Warrior',
     tier: 1,
@@ -143,7 +143,7 @@ export const ELEMENT_MATRIX = {
   },
   orc_shaman: {
     id: 'orc_shaman',
-    name: 'Orc Shaman',
+    name: '獸人薩滿',
     race: 'Orc',
     lineage: 'Mystic',
     tier: 1,
@@ -152,7 +152,7 @@ export const ELEMENT_MATRIX = {
   },
   orc_vanguard_rider: {
     id: 'orc_vanguard_rider',
-    name: 'Orc Vanguard Rider',
+    name: '獸人先鋒騎士',
     race: 'Orc',
     lineage: 'Mounted Warrior',
     tier: 1,
@@ -163,7 +163,7 @@ export const ELEMENT_MATRIX = {
   // ─── Dwarf (3) ─────────────────────────────────────────────────────────────
   dwarf_artisan: {
     id: 'dwarf_artisan',
-    name: 'Dwarven Artisan',
+    name: '矮人工匠',
     race: 'Dwarf',
     lineage: 'Crafter',
     tier: 1,
@@ -172,7 +172,7 @@ export const ELEMENT_MATRIX = {
   },
   dwarf_mage: {
     id: 'dwarf_mage',
-    name: 'Dwarven Mage',
+    name: '矮人法師',
     race: 'Dwarf',
     lineage: 'Earth Mystic',
     tier: 1,
@@ -181,7 +181,7 @@ export const ELEMENT_MATRIX = {
   },
   dwarf_shinemaker: {
     id: 'dwarf_shinemaker',
-    name: 'Dwarven ShineMaker',
+    name: '矮人光耀創造者',
     race: 'Dwarf',
     lineage: 'Divine Craftsman',
     tier: 1,
@@ -192,7 +192,7 @@ export const ELEMENT_MATRIX = {
   // ─── Kamael (2) ────────────────────────────────────────────────────────────
   kamael_soulbreaker: {
     id: 'kamael_soulbreaker',
-    name: 'Kamael Soulbreaker',
+    name: '闇天使靈魂破壞者',
     race: 'Kamael',
     lineage: 'Soul Warrior',
     tier: 1,
@@ -201,7 +201,7 @@ export const ELEMENT_MATRIX = {
   },
   kamael_samurai: {
     id: 'kamael_samurai',
-    name: 'Kamael Samurai',
+    name: '闇天使武士',
     race: 'Kamael',
     lineage: 'Blade Master',
     tier: 1,
@@ -212,7 +212,7 @@ export const ELEMENT_MATRIX = {
   // ─── Ertheia / Sylph (2) ───────────────────────────────────────────────────
   ertheia_storm_blaster: {
     id: 'ertheia_storm_blaster',
-    name: 'Sylph Storm Blaster',
+    name: '賽爾芙暴風砲手',
     race: 'Sylph',
     lineage: 'Gunner / Blaster',
     tier: 1,
@@ -221,7 +221,7 @@ export const ELEMENT_MATRIX = {
   },
   ertheia_marauder: {
     id: 'ertheia_marauder',
-    name: 'Ertheia Marauder',
+    name: '艾爾提亞掠襲者',
     race: 'Ertheia',
     lineage: 'Fighter / Seeker',
     tier: 1,
@@ -232,7 +232,7 @@ export const ELEMENT_MATRIX = {
   // ─── High Elf (2) ──────────────────────────────────────────────────────────
   high_elf_divine_templar: {
     id: 'high_elf_divine_templar',
-    name: 'High Elf Divine Templar',
+    name: '高等精靈神聖聖騎士',
     race: 'High Elf',
     lineage: 'Holy Knight',
     tier: 1,
@@ -241,7 +241,7 @@ export const ELEMENT_MATRIX = {
   },
   high_elf_element_weaver: {
     id: 'high_elf_element_weaver',
-    name: 'High Elf Element Weaver',
+    name: '高等精靈元素編織者',
     race: 'High Elf',
     lineage: 'Prismatic Mystic',
     tier: 1,

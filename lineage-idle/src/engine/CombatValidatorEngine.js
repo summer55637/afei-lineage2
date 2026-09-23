@@ -9,6 +9,16 @@
  * 4. Hard DPS Check: Milestone Bosses com temporizador de enrage inadiável e checagem de DPS e barreira elemental.
  */
 
+const WEAPON_TYPE_LABELS = {
+  bare_hands: '空手', bow: '弓', dagger: '匕首', katana: '武士刀',
+  two_hand_sword: '雙手劍', twohand: '雙手劍', dual_swords: '雙劍', dual: '雙劍',
+  blunt: '鈍器', fists: '拳套', fist: '拳套', staff: '法杖', sword: '劍', any: '任意武器'
+};
+
+function weaponTypeLabel(type) {
+  return WEAPON_TYPE_LABELS[String(type || '').toLowerCase()] || '指定武器';
+}
+
 export const WEAPON_SKILL_MAP = {
   bow: ['archery', 'bow', 'ranged', 'shot', 'arrow', 'snipe', 'double_shot'],
   dagger: ['dagger', 'stab', 'backstab', 'shadow', 'bleed', 'deadly_blow', 'assassin'],
@@ -48,7 +58,7 @@ export class CombatValidatorEngine {
    * @returns {{ valid: boolean, error?: string }}
    */
   static validateWeaponMoveset(weaponItemOrState, skillDef) {
-    if (!skillDef) return { valid: false, error: 'Definição de habilidade inválida.' };
+    if (!skillDef) return { valid: false, error: '技能定義無效。' };
     
     // Skills genéricas ou buffs corporais que aceitam qualquer arma
     if (skillDef.requiredWeaponType === 'any' || skillDef.requiredWeapon === 'any' || skillDef.type === 'Self-Buff' || skillDef.type === 'buff' || skillDef.type === 'Passivo' || skillDef.type === 'passive') {
@@ -70,7 +80,7 @@ export class CombatValidatorEngine {
 
     if (weaponList.length === 0) {
       const req = skillDef.requiredWeaponType || skillDef.requiredWeapon;
-      return { valid: false, error: `Requer ${req ? req.toUpperCase() : 'Arma'} equipada.` };
+      return { valid: false, error: `需要裝備 ${req ? weaponTypeLabel(req) : '武器'}。` };
     }
 
     const currentTypes = weaponList.map(w => this.getWeaponType(w));
@@ -89,7 +99,7 @@ export class CombatValidatorEngine {
       if (match) return { valid: true };
       return {
         valid: false,
-        error: `Arma incompatível: [${skillDef.name}] exige [${req.toUpperCase()}], mas você está com [${currentTypes.join(', ').toUpperCase()}].`
+        error: `武器不相容：[${skillDef.name}] 需要【${weaponTypeLabel(req)}】，目前裝備為【${currentTypes.map(weaponTypeLabel).join('、')}】。`
       };
     }
 
@@ -99,13 +109,13 @@ export class CombatValidatorEngine {
 
     if (skillNameLower.includes('shot') || skillNameLower.includes('arrow') || skillEffectLower.includes('arco')) {
       if (!currentTypes.includes('bow')) {
-        return { valid: false, error: `[${skillDef.name}] só pode ser disparada com um Arco equipado.` };
+        return { valid: false, error: `[${skillDef.name}] 只能在裝備弓時使用。` };
       }
     }
 
     if (skillNameLower.includes('dagger') || skillNameLower.includes('stab') || skillNameLower.includes('backstab') || skillNameLower.includes('blow')) {
       if (!currentTypes.includes('dagger')) {
-        return { valid: false, error: `[${skillDef.name}] exige uma Adaga ágil para desferir golpes furtivos.` };
+        return { valid: false, error: `[${skillDef.name}] 需要裝備匕首才能施展。` };
       }
     }
 
@@ -120,20 +130,20 @@ export class CombatValidatorEngine {
    * @returns {{ canLearn: boolean, requiredSpellbook?: string, error?: string }}
    */
   static checkSkillLearnRequirements(characterState, skillDef) {
-    if (!skillDef) return { canLearn: false, error: 'Habilidade inválida.' };
+    if (!skillDef) return { canLearn: false, error: '技能無效。' };
 
     const skillId = skillDef.id || skillDef.name;
     const learnedSkills = characterState.skills || {};
 
     // Já aprendida
     if (learnedSkills[skillId]?.learned) {
-      return { canLearn: false, error: 'Habilidade já foi aprendida.' };
+      return { canLearn: false, error: '此技能已經學會。' };
     }
 
     // Checagem de Nível e SP
     const reqLevel = skillDef.reqLevel || skillDef.level || 1;
     if ((characterState.level || 1) < reqLevel) {
-      return { canLearn: false, error: `Nível ${reqLevel} necessário para desbloquear ${skillDef.name}.` };
+      return { canLearn: false, error: `需要等級 ${reqLevel} 才能解鎖 ${skillDef.name}。` };
     }
 
     // Validação de Barreira de Ultimate 4★
@@ -147,7 +157,7 @@ export class CombatValidatorEngine {
         return {
           canLearn: false,
           requiredSpellbook: spellbookId,
-          error: `Barreira de Conjurador: É obrigatório possuir o Tomo Arcano [Spellbook 4★] para gravar permanentemente esta Ultimate na sua alma!`
+          error: `施法者限制：必須持有【4★ 奧術魔法書】才能永久學會這個終極技能！`
         };
       }
     }
@@ -165,7 +175,7 @@ export class CombatValidatorEngine {
   static learnSkill(characterState, skillDef, hooks = {}) {
     const check = this.checkSkillLearnRequirements(characterState, skillDef);
     if (!check.canLearn) {
-      return { success: false, message: check.error || 'Requisitos não atingidos.' };
+      return { success: false, message: check.error || '尚未滿足需求。' };
     }
 
     const skillId = skillDef.id || skillDef.name;
@@ -187,7 +197,7 @@ export class CombatValidatorEngine {
         } else {
           inv.splice(bookIndex, 1);
         }
-        hooks.log?.(`📖 **${item.name || 'Spellbook 4★'}** foi consumido pela alma do herói!`, 'gain');
+        hooks.log?.(`📖 **${item.name || '4★ 魔法書'}** 已被消耗！`, 'gain');
       }
     }
 
@@ -200,10 +210,10 @@ export class CombatValidatorEngine {
       learnedAt: Date.now()
     };
 
-    hooks.log?.(`✨ Você aprendeu permanentemente a habilidade suprema: **${skillDef.name}**!`, 'victory');
+    hooks.log?.(`✨ 你已永久學會終極技能：**${skillDef.name}**！`, 'victory');
     hooks.onUpdate?.();
 
-    return { success: true, message: `Habilidade ${skillDef.name} aprendida com sucesso!` };
+    return { success: true, message: `技能 ${skillDef.name} 已成功學會！` };
   }
 
   /**
@@ -215,7 +225,7 @@ export class CombatValidatorEngine {
    * @returns {{ canCast: boolean, error?: string }}
    */
   static validateSkillCast(characterState, equippedWeapon, skillDef) {
-    if (!skillDef) return { canCast: false, error: 'Habilidade não encontrada.' };
+    if (!skillDef) return { canCast: false, error: '找不到此技能。' };
 
     const skillId = skillDef.id || skillDef.name;
     const is4Star = skillDef.rarity === '4★' || skillDef.isUltimate || (skillDef.tier && skillDef.tier >= 4);
@@ -226,7 +236,7 @@ export class CombatValidatorEngine {
       if (!learned) {
         return {
           canCast: false,
-          error: `Habilidade Suprema [${skillDef.name}] ainda não foi aprendida. Consuma o Tomo Arcano 4★ para desbloqueá-la!`
+          error: `終極技能【${skillDef.name}】尚未學會。請消耗 4★ 奧術魔法書解鎖！`
         };
       }
     }
@@ -241,7 +251,7 @@ export class CombatValidatorEngine {
     const currentMp = characterState.mp || characterState.stats?.mp || 100;
     const costMp = skillDef.mpCost || skillDef.manaCost || 10;
     if (currentMp < costMp) {
-      return { canCast: false, error: 'MP insuficiente para canalizar a técnica.' };
+      return { canCast: false, error: '魔力不足，無法施放此技能。' };
     }
 
     return { canCast: true };
@@ -278,6 +288,7 @@ export class MilestoneBossValidator {
     const maxFightTime = bossState.enrageTimerSeconds || 120; // 2 minutos padrão
     const minDpsRequired = bossState.requiredDpsThreshold || 500;
     const reqElement = bossState.requiredElement; // 'fire', 'holy', 'dark', etc.
+    const reqElementLabel = ({ fire: '火', water: '水', wind: '風', earth: '地', holy: '神聖', dark: '黑暗' })[reqElement] || reqElement;
     const reqElementDmg = bossState.requiredElementDmgThreshold || 0;
 
     // 1. Hard Enrage por Tempo (Insta-Wipe)
@@ -285,7 +296,7 @@ export class MilestoneBossValidator {
       return {
         isWiped: true,
         isEnraged: true,
-        reason: `💥 TEMPO ESGOTADO (Hard Enrage): ${bossState.name} canalizou a Fúria Cataclísmica após ${maxFightTime}s. O grupo foi aniquilado!`
+        reason: `💥 時間到（強制狂暴）：${bossState.name} 在 ${maxFightTime} 秒後施放毀滅狂怒，小隊全滅！`
       };
     }
 
@@ -297,7 +308,7 @@ export class MilestoneBossValidator {
         return {
           isWiped: true,
           isEnraged: true,
-          reason: `🛡️ BARREIRA ELEMENTAL INTOCADA: Dano insuficiente de [${reqElement.toUpperCase()}]. A carapaça invulnerável de ${bossState.name} repeliu o grupo!`
+          reason: `🛡️ 元素屏障未破：${reqElementLabel}屬性傷害不足。${bossState.name} 的無敵外殼擊退了整個小隊！`
         };
       }
     }
@@ -308,7 +319,7 @@ export class MilestoneBossValidator {
     return {
       isWiped: false,
       isEnraged,
-      reason: isEnraged ? `⚠️ ALERTA DE ENRAGE: ${bossState.name} está prestes a entrar em fúria mortal!` : undefined
+      reason: isEnraged ? `⚠️ 狂暴警告：${bossState.name} 即將進入致命狂暴狀態！` : undefined
     };
   }
 }

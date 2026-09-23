@@ -3,37 +3,37 @@
  */
 
 export const DAILY_REWARDS_TABLE = [
-  { day: 1, name: 'Bolsa de Adena', icon: '💰', desc: '50.000 Adena', rewardType: 'adena', count: 50000, rarity: 'common' },
-  { day: 2, name: 'Soulshots de Batalha', icon: '⚡', desc: '1.000x Soulshot No-Grade', rewardType: 'item', itemId: 'soulshot_ng', count: 1000, rarity: 'common' },
-  { day: 3, name: 'Poções de Cura XL', icon: '🧪', desc: '100x Poções de Vida XL', rewardType: 'item', itemId: 'hp_potion_xl', count: 100, rarity: 'uncommon' },
-  { day: 4, name: 'Pergaminho de Arma', icon: '📜', desc: '3x Scroll: Enchant Weapon (Universal)', rewardType: 'item', itemId: 'scroll_of_enchant_weapon', count: 3, rarity: 'rare' },
-  { day: 5, name: 'Pergaminho de Armadura', icon: '🛡️', desc: '5x Scroll: Enchant Armor (Universal)', rewardType: 'item', itemId: 'scroll_of_enchant_armor', count: 5, rarity: 'rare' },
-  { day: 6, name: 'Lâmpada Mágica de XP', icon: '🪔', desc: '1x Magic Lamp da Sorte', rewardType: 'special', count: 1, rarity: 'rare' },
-  { day: 7, name: '⭐ Bênção da 1ª Semana', icon: '🎁', desc: '5x Scroll Weapon + 100.000 Adena', isMilestone: true, rewardType: 'combo', itemId: 'scroll_of_enchant_weapon', count: 5, adena: 100000, rarity: 'epic' },
+  { day: 1, name: '金幣袋', icon: '💰', desc: '50,000 金幣', rewardType: 'adena', count: 50000, rarity: 'common' },
+  { day: 2, name: '戰鬥魂彈', icon: '⚡', desc: '1,000 個無級別魂彈', rewardType: 'item', itemId: 'soulshot_ng', count: 1000, rarity: 'common' },
+  { day: 3, name: '生命藥水（特大）', icon: '🧪', desc: '100 瓶生命藥水（特大）', rewardType: 'item', itemId: 'hp_potion_xl', count: 100, rarity: 'uncommon' },
+  { day: 4, name: '武器強化卷軸', icon: '📜', desc: '3 張通用武器強化卷軸', rewardType: 'item', itemId: 'scroll_of_enchant_weapon', count: 3, rarity: 'rare' },
+  { day: 5, name: '防具強化卷軸', icon: '🛡️', desc: '5 張通用防具強化卷軸', rewardType: 'item', itemId: 'scroll_of_enchant_armor', count: 5, rarity: 'rare' },
+  { day: 6, name: '經驗值魔法神燈', icon: '🪔', desc: '1 個幸運魔法燈', rewardType: 'special', count: 1, rarity: 'rare' },
+  { day: 7, name: '⭐ 第一週祝福', icon: '🎁', desc: '5 張武器強化卷軸 + 100,000 金幣', isMilestone: true, rewardType: 'combo', itemId: 'scroll_of_enchant_weapon', count: 5, adena: 100000, rarity: 'epic' },
 
-  { day: 8, name: 'Tesouro de Adena', icon: '💰', desc: '150.000 Adena', rewardType: 'adena', count: 150000, rarity: 'common' },
-  { day: 9, name: 'Spiritshots Mágicos', icon: '✨', desc: '1.000x Spiritshot No-Grade', rewardType: 'item', itemId: 'spiritshot_ng', count: 1000, rarity: 'common' },
-  { day: 10, name: 'Frasco de SP Místico', icon: '🔮', desc: '500 Pontos de SP', rewardType: 'sp', count: 500, rarity: 'uncommon' },
-  { day: 11, name: 'Pergaminho de Arma', icon: '📜', desc: '3x Scroll: Enchant Weapon (Universal)', rewardType: 'item', itemId: 'scroll_of_enchant_weapon', count: 3, rarity: 'rare' },
-  { day: 12, name: 'Pergaminho de Armadura', icon: '🛡️', desc: '5x Scroll: Enchant Armor (Universal)', rewardType: 'item', itemId: 'scroll_of_enchant_armor', count: 5, rarity: 'rare' },
-  { day: 13, name: 'Cristais de Alma Místicos', icon: '💎', desc: '2x Soul Crystal Stage 1', rewardType: 'item', itemId: 'soul_crystal_stage_1', count: 2, rarity: 'rare' },
-  { day: 14, name: '⭐⭐ Tesouro da 2ª Semana', icon: '🏆', desc: '1x Boss Doll Box + 300.000 Adena', isMilestone: true, rewardType: 'combo', doll: true, adena: 300000, rarity: 'epic' },
+  { day: 8, name: '金幣寶藏', icon: '💰', desc: '150,000 金幣', rewardType: 'adena', count: 150000, rarity: 'common' },
+  { day: 9, name: '魔靈彈', icon: '✨', desc: '1,000 個無級別魔靈彈', rewardType: 'item', itemId: 'spiritshot_ng', count: 1000, rarity: 'common' },
+  { day: 10, name: '神秘技能點藥瓶', icon: '🔮', desc: '500 技能點', rewardType: 'sp', count: 500, rarity: 'uncommon' },
+  { day: 11, name: '武器強化卷軸', icon: '📜', desc: '3 張通用武器強化卷軸', rewardType: 'item', itemId: 'scroll_of_enchant_weapon', count: 3, rarity: 'rare' },
+  { day: 12, name: '防具強化卷軸', icon: '🛡️', desc: '5 張通用防具強化卷軸', rewardType: 'item', itemId: 'scroll_of_enchant_armor', count: 5, rarity: 'rare' },
+  { day: 13, name: '神秘靈魂水晶', icon: '💎', desc: '2 個第 1 階段靈魂水晶', rewardType: 'item', itemId: 'soul_crystal_stage_1', count: 2, rarity: 'rare' },
+  { day: 14, name: '⭐⭐ 第二週寶藏', icon: '🏆', desc: '1 個首領娃娃箱 + 300,000 金幣', isMilestone: true, rewardType: 'combo', doll: true, adena: 300000, rarity: 'epic' },
 
-  { day: 15, name: 'Fortuna de Aden', icon: '💰', desc: '300.000 Adena', rewardType: 'adena', count: 300000, rarity: 'common' },
-  { day: 16, name: 'Mega Pacote de Poções', icon: '🧪', desc: '250x Poções de Vida XL', rewardType: 'item', itemId: 'hp_potion_xl', count: 250, rarity: 'uncommon' },
-  { day: 17, name: 'Páginas de Spellbook Ancestrais', icon: '📖', desc: '5x Ancient Spellbook Page', rewardType: 'item', itemId: 'ancient_spellbook_page', count: 5, rarity: 'rare' },
-  { day: 18, name: 'Pergaminho de Arma', icon: '📜', desc: '3x Scroll: Enchant Weapon (Universal)', rewardType: 'item', itemId: 'scroll_of_enchant_weapon', count: 3, rarity: 'rare' },
-  { day: 19, name: 'Pergaminho de Armadura', icon: '🛡️', desc: '5x Scroll: Enchant Armor (Universal)', rewardType: 'item', itemId: 'scroll_of_enchant_armor', count: 5, rarity: 'rare' },
-  { day: 20, name: 'Grande Reserva de SP', icon: '🔮', desc: '1.500 Pontos de SP', rewardType: 'sp', count: 1500, rarity: 'epic' },
-  { day: 21, name: '⭐⭐⭐ Glória da 3ª Semana', icon: '👑', desc: '10x Páginas de Spellbook 4★ + 500.000 Adena', isMilestone: true, rewardType: 'combo', itemId: 'ancient_spellbook_page', count: 10, adena: 500000, rarity: 'epic' },
+  { day: 15, name: '亞丁財富', icon: '💰', desc: '300,000 金幣', rewardType: 'adena', count: 300000, rarity: 'common' },
+  { day: 16, name: '超大型藥水包', icon: '🧪', desc: '250 瓶特大生命藥水', rewardType: 'item', itemId: 'hp_potion_xl', count: 250, rarity: 'uncommon' },
+  { day: 17, name: '古代魔法書頁', icon: '📖', desc: '5 張古代魔法書頁', rewardType: 'item', itemId: 'ancient_spellbook_page', count: 5, rarity: 'rare' },
+  { day: 18, name: '武器強化卷軸', icon: '📜', desc: '3 張通用武器強化卷軸', rewardType: 'item', itemId: 'scroll_of_enchant_weapon', count: 3, rarity: 'rare' },
+  { day: 19, name: '防具強化卷軸', icon: '🛡️', desc: '5 張通用防具強化卷軸', rewardType: 'item', itemId: 'scroll_of_enchant_armor', count: 5, rarity: 'rare' },
+  { day: 20, name: '大量技能點儲備', icon: '🔮', desc: '1,500 技能點', rewardType: 'sp', count: 1500, rarity: 'epic' },
+  { day: 21, name: '⭐⭐⭐ 第三週榮耀', icon: '👑', desc: '10 張 4★ 魔法書頁 + 500,000 金幣', isMilestone: true, rewardType: 'combo', itemId: 'ancient_spellbook_page', count: 10, adena: 500000, rarity: 'epic' },
 
-  { day: 22, name: 'Cofre Real de Adena', icon: '💰', desc: '750.000 Adena', rewardType: 'adena', count: 750000, rarity: 'common' },
-  { day: 23, name: 'Suprimento Imperial', icon: '⚡', desc: '5.000x Soulshot No-Grade', rewardType: 'item', itemId: 'soulshot_ng', count: 5000, rarity: 'uncommon' },
-  { day: 24, name: 'Pergaminho de Arma', icon: '📜', desc: '3x Scroll: Enchant Weapon (Universal)', rewardType: 'item', itemId: 'scroll_of_enchant_weapon', count: 3, rarity: 'rare' },
-  { day: 25, name: 'Pergaminho de Armadura', icon: '🛡️', desc: '5x Scroll: Enchant Armor (Universal)', rewardType: 'item', itemId: 'scroll_of_enchant_armor', count: 5, rarity: 'rare' },
-  { day: 26, name: 'Pergaminho Abençoado de Arma', icon: '📜', desc: '2x Scroll: Blessed Weapon (Universal)', rewardType: 'item', itemId: 'scroll_blessed_weapon', count: 2, rarity: 'epic' },
-  { day: 27, name: 'Pergaminho Abençoado de Armadura', icon: '🛡️', desc: '4x Scroll: Blessed Armor (Universal)', rewardType: 'item', itemId: 'scroll_blessed_armor', count: 4, rarity: 'epic' },
-  { day: 28, name: '👑 COROA SUPREMA DE ADEN', icon: '💎', desc: '1.500.000 Adena + 3x Magic Lamps + 2.000 SP', isMilestone: true, rewardType: 'combo', adena: 1500000, lamps: 3, sp: 2000, rarity: 'legendary' }
+  { day: 22, name: '皇家金幣寶庫', icon: '💰', desc: '750,000 金幣', rewardType: 'adena', count: 750000, rarity: 'common' },
+  { day: 23, name: '帝國補給', icon: '⚡', desc: '5,000 個無級別魂彈', rewardType: 'item', itemId: 'soulshot_ng', count: 5000, rarity: 'uncommon' },
+  { day: 24, name: '武器強化卷軸', icon: '📜', desc: '3 張通用武器強化卷軸', rewardType: 'item', itemId: 'scroll_of_enchant_weapon', count: 3, rarity: 'rare' },
+  { day: 25, name: '防具強化卷軸', icon: '🛡️', desc: '5 張通用防具強化卷軸', rewardType: 'item', itemId: 'scroll_of_enchant_armor', count: 5, rarity: 'rare' },
+  { day: 26, name: '祝福武器卷軸', icon: '📜', desc: '2 張通用祝福武器卷軸', rewardType: 'item', itemId: 'scroll_blessed_weapon', count: 2, rarity: 'epic' },
+  { day: 27, name: '祝福防具卷軸', icon: '🛡️', desc: '4 張通用祝福防具卷軸', rewardType: 'item', itemId: 'scroll_blessed_armor', count: 4, rarity: 'epic' },
+  { day: 28, name: '👑 亞丁至尊王冠', icon: '💎', desc: '1,500,000 金幣 + 3 個魔法燈 + 2,000 技能點', isMilestone: true, rewardType: 'combo', adena: 1500000, lamps: 3, sp: 2000, rarity: 'legendary' }
 ];
 
 /**
@@ -95,13 +95,13 @@ export function claimDailyReward(state, helpers = {}) {
   const today = getTodayDateString();
 
   if (dr.lastClaimDate === today) {
-    return { success: false, message: 'Você já resgatou a recompensa diária de hoje. Volte amanhã!' };
+    return { success: false, message: '你今天已經領取每日獎勵，明天再回來！' };
   }
 
   const currentDay = Math.max(1, Math.min(28, dr.currentDay || 1));
   const reward = DAILY_REWARDS_TABLE[currentDay - 1];
   if (!reward) {
-    return { success: false, message: 'Recompensa diária não encontrada.' };
+    return { success: false, message: '找不到每日獎勵。' };
   }
 
   // Entrega as recompensas
@@ -115,14 +115,14 @@ export function claimDailyReward(state, helpers = {}) {
     state.sp = (state.sp || 0) + spGain;
   }
 
-  if (reward.lamps || (reward.rewardType === 'special' && reward.name.includes('Lâmpada'))) {
+  if (reward.lamps || (reward.rewardType === 'special' && reward.name.includes('神燈'))) {
     const lamps = reward.lamps || reward.count || 1;
     state.magicLamps = (state.magicLamps || 0) + lamps;
   }
 
   if (reward.doll) {
     state.dolls = state.dolls || [];
-    state.dolls.push({ id: 'doll_queen_ant_1', name: 'Queen Ant Doll (Tier 1)', tier: 1, stars: 1 });
+    state.dolls.push({ id: 'doll_queen_ant_1', name: '蟻后娃娃（第 1 階）', tier: 1, stars: 1 });
   }
 
   if (reward.itemId && helpers.addToInventory) {
@@ -147,12 +147,12 @@ export function claimDailyReward(state, helpers = {}) {
   }
 
   if (helpers.log) {
-    helpers.log(`🎁 [Check-in Diário] Dia ${currentDay} resgatado: ${reward.name} (${reward.desc})! Sequência atual: 🔥 ${dr.streak} dias!`, 'rarity-legendary');
+    helpers.log(`🎁 [每日簽到] 已領取第 ${currentDay} 天：${reward.name}（${reward.desc}）！目前連續簽到：🔥 ${dr.streak} 天！`, 'rarity-legendary');
   }
 
   if (helpers.floatText) {
-    helpers.floatText(`🎁 Check-in Dia ${currentDay}!`, 'gilt');
+    helpers.floatText(`🎁 第 ${currentDay} 天簽到！`, 'gilt');
   }
 
-  return { success: true, message: `Recompensa do Dia ${currentDay} resgatada com sucesso!`, reward };
+  return { success: true, message: `第 ${currentDay} 天獎勵領取成功！`, reward };
 }

@@ -238,7 +238,7 @@ export class PlayerRegistry {
   static async requireExistingPlayer(characterId: string): Promise<CharacterEntity> {
     const player = await this.getPlayer(characterId);
     if (!player) {
-      const err = new Error(`Jogador com ID "${characterId}" não encontrado.`);
+      const err = new Error(`找不到 ID 為「${characterId}」的玩家。`);
       (err as any).code = 'PLAYER_NOT_FOUND';
       throw err;
     }
@@ -251,7 +251,7 @@ export class PlayerRegistry {
   static async requireRealPlayer(characterId: string): Promise<CharacterEntity> {
     const player = await this.requireExistingPlayer(characterId);
     if (player.playerType !== 'real') {
-      const err = new Error(`Entidade "${characterId}" é um bot ou entidade sintética não permitida.`);
+      const err = new Error(`「${characterId}」是機器人或不允許的合成實體。`);
       (err as any).code = 'REAL_PLAYER_REQUIRED';
       throw err;
     }

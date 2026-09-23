@@ -28,7 +28,7 @@ export const DEFAULT_STATE = () => ({
   friends: [], // Gate 10: Cache local de UI; a fonte canônica é a coleção 'friends' do Firestore
   blocked: [],
   race: null, class: null, gender: 'M',
-  charName: 'Tristan', heroName: 'Tristan', playerName: 'Tristan', name: 'Tristan',
+  charName: '冒險者', heroName: '冒險者', playerName: '冒險者', name: '冒險者',
   level: 1, xp: 0, sp: 10,
   maxHp: 100, hp: 100, maxMp: 50, mp: 50,
   base: { atk: 0, def: 0, eva: 0, matk: 0, mdef: 0 },

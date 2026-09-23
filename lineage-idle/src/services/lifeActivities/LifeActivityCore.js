@@ -13,6 +13,17 @@
 import { addToInventory, removeFromInventory, getInventoryCount } from '../InventoryService.js';
 import { RewardEngine } from './RewardEngine.js';
 
+const LIFE_ACTIVITY_LABELS = {
+  fishing: '釣魚',
+  hunting: '狩獵',
+  gathering: '採集',
+  mining: '採礦'
+};
+
+function getLifeActivityLabel(activityType) {
+  return LIFE_ACTIVITY_LABELS[activityType] || activityType;
+}
+
 export const LIFE_ACTIVITY_LEVEL_TABLE = {
   1: 0,
   2: 120,
@@ -102,7 +113,7 @@ export const LifeActivityCore = {
     const log = callbacks.log || (() => {});
 
     if ((actState.toolDurability || 0) <= 0) {
-      log(`⚠️ Sua ferramenta está quebrada! Repare-a na cidade antes de continuar.`, 'warning');
+      log(`⚠️ 你的工具已損壞！請先在城鎮修理後再繼續。`, 'warning');
       actState.isWorking = false;
       actState.autoMode = false;
       return { success: false, reason: 'tool_broken' };
@@ -142,8 +153,9 @@ export const LifeActivityCore = {
     if (actState.toolDurability <= 0) {
       actState.isWorking = false;
       actState.autoMode = false;
-      log(`💥 **FERRAMENTA QUEBRADA!** Sua ferramenta de ${activityType} atingiu 0 de durabilidade e a atividade foi interrompida. Repare-a na cidade.`, 'error');
-      if (callbacks.floatText) callbacks.floatText('💥 FERRAMENTA QUEBROU!', 'float-damage');
+      const activityLabel = getLifeActivityLabel(activityType);
+      log(`💥 **工具損壞！** 你的${activityLabel}工具耐久度已降至 0，活動已中斷。請回城市修理。`, 'error');
+      if (callbacks.floatText) callbacks.floatText('💥 工具損壞！', 'float-damage');
       if (callbacks.updateUI) callbacks.updateUI();
       if (callbacks.save) callbacks.save();
       return { broken: true };
@@ -173,8 +185,9 @@ export const LifeActivityCore = {
       if (actState.xp >= nextLvlXp) {
         actState.level++;
         didLevelUp = true;
-        log(`⭐ **EVOLUÇÃO DE MAESTRIA!** Sua habilidade de ${activityType.toUpperCase()} subiu para o **Nível ${actState.level}**!`, 'gain');
-        if (callbacks.floatText) callbacks.floatText(`⭐ ${activityType.toUpperCase()} LV ${actState.level}!`, 'float-gain');
+        const activityLabel = getLifeActivityLabel(activityType);
+        log(`⭐ **熟練度提升！**你的${activityLabel}技能提升至 **等級 ${actState.level}**！`, 'gain');
+        if (callbacks.floatText) callbacks.floatText(`⭐ ${activityLabel} 等級 ${actState.level}！`, 'float-gain');
       } else {
         break;
       }
@@ -194,19 +207,20 @@ export const LifeActivityCore = {
     const missing = maxDur - (actState.toolDurability || 0);
 
     if (missing <= 0) {
-      log('Sua ferramenta já está com 100% de durabilidade.', 'system');
+      log('你的工具耐久度已經是 100%。', 'system');
       return { success: false, reason: 'already_max' };
     }
 
     const totalCost = missing * costPerPoint;
     if ((state.gold || 0) < totalCost) {
-      log(`Adena insuficiente para reparo. Necessário: ${totalCost.toLocaleString()} Adena.`, 'warning');
+      log(`修理所需金幣不足。需要：${totalCost.toLocaleString()} 金幣。`, 'warning');
       return { success: false, reason: 'insufficient_gold' };
     }
 
     state.gold -= totalCost;
     actState.toolDurability = maxDur;
-    log(`🛠️ Ferramenta de ${activityType} reparada com sucesso (+${missing} durabilidade) por ${totalCost.toLocaleString()} Adena.`, 'gain');
+    const activityLabel = getLifeActivityLabel(activityType);
+    log(`🛠️ ${activityLabel}工具已成功修理（耐久度 +${missing}），花費 ${totalCost.toLocaleString()} 金幣。`, 'gain');
 
     if (callbacks.updateUI) callbacks.updateUI();
     if (callbacks.save) callbacks.save();

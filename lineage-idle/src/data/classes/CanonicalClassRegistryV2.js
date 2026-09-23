@@ -9,7 +9,7 @@
 export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     "fighter": {
         "id": "fighter",
-        "name": "Human Fighter",
+        "name": "人類戰士",
         "lineageId": "duelist",
         "lineageName": "Duelist",
         "stage": 0,
@@ -17,7 +17,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Classe base de combate humana.",
+        "desc": "人類基礎戰鬥職業。",
         "skillIds": [
             "power_strike",
             "mortal_blow",
@@ -28,7 +28,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "warrior": {
         "id": "warrior",
-        "name": "Warrior",
+        "name": "戰士",
         "lineageId": "duelist",
         "lineageName": "Duelist",
         "stage": 1,
@@ -36,7 +36,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "fighter",
-        "desc": "Guerreiro corpo-a-corpo especializado em espadas e polearms. Skills anteriores permanecem.",
+        "desc": "專精劍與長柄武器的近戰戰士，保留先前技能。",
         "skillIds": [
             "wild_sweep",
             "detect_weakness",
@@ -47,7 +47,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "gladiator": {
         "id": "gladiator",
-        "name": "Gladiator",
+        "name": "角鬥士",
         "lineageId": "duelist",
         "lineageName": "Duelist",
         "stage": 2,
@@ -55,7 +55,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "warrior",
-        "desc": "Mestre em dual wield e combos devastadores. Skills anteriores permanecem.",
+        "desc": "精通雙持與致命連段，保留先前技能。",
         "skillIds": [
             "blade_strike",
             "slashing_blade",
@@ -66,7 +66,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "duelist": {
         "id": "duelist",
-        "name": "Duelist",
+        "name": "決鬥者",
         "lineageId": "duelist",
         "lineageName": "Duelist",
         "stage": 3,
@@ -74,7 +74,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "gladiator",
-        "desc": "Duelista supremo, mestre do dual wield. Skills anteriores permanecem.",
+        "desc": "頂尖決鬥者，雙持武器大師，保留先前技能。",
         "skillIds": [
             "indestructible_blade",
             "blade_punishment",
@@ -85,7 +85,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "warlord": {
         "id": "warlord",
-        "name": "Warlord",
+        "name": "戰爭領主",
         "lineageId": "dreadnought",
         "lineageName": "Dreadnought",
         "stage": 2,
@@ -93,7 +93,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "warrior",
-        "desc": "Senhor da guerra com polearms e AoE devastador. Skills anteriores permanecem.",
+        "desc": "使用長柄武器與強力範圍攻擊的戰爭領主，保留先前技能。",
         "skillIds": [
             "vortex",
             "thunder_storm",
@@ -104,7 +104,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "dreadnought": {
         "id": "dreadnought",
-        "name": "Dreadnought",
+        "name": "恐懼戰艦",
         "lineageId": "dreadnought",
         "lineageName": "Dreadnought",
         "stage": 3,
@@ -112,7 +112,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "warlord",
-        "desc": "Encouraçado vivo, AoE massivo com polearm. Skills anteriores permanecem.",
+        "desc": "如活體戰艦般堅韌，以長柄武器施展大範圍攻擊，保留先前技能。",
         "skillIds": [
             "unleashed_power",
             "shocking_burst",
@@ -123,7 +123,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "knight": {
         "id": "knight",
-        "name": "Knight",
+        "name": "騎士",
         "lineageId": "phoenixKnight",
         "lineageName": "Phoenix Knight",
         "stage": 1,
@@ -131,7 +131,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "fighter",
-        "desc": "Cavaleiro tanque com escudo. Skills anteriores permanecem.",
+        "desc": "使用盾牌的坦克型騎士，保留先前技能。",
         "skillIds": [
             "shield_strike",
             "shield_stun",
@@ -142,7 +142,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "paladin": {
         "id": "paladin",
-        "name": "Paladin",
+        "name": "聖騎士",
         "lineageId": "phoenixKnight",
         "lineageName": "Phoenix Knight",
         "stage": 2,
@@ -150,7 +150,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "knight",
-        "desc": "Cavaleiro sagrado, tank com cura e proteção. Skills anteriores permanecem.",
+        "desc": "兼具治療與防護能力的神聖坦克騎士，保留先前技能。",
         "skillIds": [
             "holy_strike",
             "knight_s_protection",
@@ -161,7 +161,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "phoenixKnight": {
         "id": "phoenixKnight",
-        "name": "Phoenix Knight",
+        "name": "鳳凰騎士",
         "lineageId": "phoenixKnight",
         "lineageName": "Phoenix Knight",
         "stage": 3,
@@ -169,7 +169,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "paladin",
-        "desc": "Cavaleiro da Fênix, tank supremo com ressurreição. Skills anteriores permanecem.",
+        "desc": "擁有復活能力的最高階鳳凰坦克騎士，保留先前技能。",
         "skillIds": [
             "holy_circle",
             "phoenix_strike",
@@ -180,7 +180,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "darkAvenger": {
         "id": "darkAvenger",
-        "name": "Dark Avenger",
+        "name": "黑暗復仇者",
         "lineageId": "hellKnight",
         "lineageName": "Hell Knight",
         "stage": 2,
@@ -188,7 +188,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "knight",
-        "desc": "Cavaleiro sombrio com pantera e drain. Skills anteriores permanecem.",
+        "desc": "操控黑豹並擅長吸取生命的黑暗騎士，保留先前技能。",
         "skillIds": [
             "dark_strike",
             "dark_panther_s_help",
@@ -199,7 +199,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "hellKnight": {
         "id": "hellKnight",
-        "name": "Hell Knight",
+        "name": "地獄騎士",
         "lineageId": "hellKnight",
         "lineageName": "Hell Knight",
         "stage": 3,
@@ -207,7 +207,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "darkAvenger",
-        "desc": "Cavaleiro infernal com aura de trevas. Skills anteriores permanecem.",
+        "desc": "擁有黑暗光環的地獄騎士，保留先前技能。",
         "skillIds": [
             "condemnation",
             "hell",
@@ -218,7 +218,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "rogue": {
         "id": "rogue",
-        "name": "Rogue",
+        "name": "盜賊",
         "lineageId": "adventurer",
         "lineageName": "Adventurer",
         "stage": 1,
@@ -226,7 +226,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "fighter",
-        "desc": "Ladino ágil, especialista em dagger e bow. Skills anteriores permanecem.",
+        "desc": "敏捷盜賊，專精匕首與弓，保留先前技能。",
         "skillIds": [
             "ultimate_evasion",
             "open",
@@ -237,7 +237,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "treasureHunter": {
         "id": "treasureHunter",
-        "name": "Treasure Hunter",
+        "name": "寶藏獵人",
         "lineageId": "adventurer",
         "lineageName": "Adventurer",
         "stage": 2,
@@ -245,7 +245,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "rogue",
-        "desc": "Caçador de tesouros, mestre em adagas. Skills anteriores permanecem.",
+        "desc": "精通匕首的寶藏獵人，保留先前技能。",
         "skillIds": [
             "deadly_blow",
             "backstab",
@@ -256,7 +256,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "adventurer": {
         "id": "adventurer",
-        "name": "Adventurer",
+        "name": "冒險家",
         "lineageId": "adventurer",
         "lineageName": "Adventurer",
         "stage": 3,
@@ -264,7 +264,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "treasureHunter",
-        "desc": "Aventureiro supremo, mestre da evasão e dano furtivo. Skills anteriores permanecem.",
+        "desc": "精通迴避與偷襲傷害的頂尖冒險家，保留先前技能。",
         "skillIds": [
             "shadow_step",
             "lethal_blow",
@@ -275,7 +275,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "hawkeye": {
         "id": "hawkeye",
-        "name": "Hawkeye",
+        "name": "鷹眼",
         "lineageId": "sagittarius",
         "lineageName": "Sagittarius",
         "stage": 2,
@@ -283,7 +283,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "rogue",
-        "desc": "Arqueiro de elite com dano à distância. Skills anteriores permanecem.",
+        "desc": "擅長遠程輸出的菁英弓手，保留先前技能。",
         "skillIds": [
             "double_shot",
             "vortex_shot",
@@ -294,7 +294,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "sagittarius": {
         "id": "sagittarius",
-        "name": "Sagittarius",
+        "name": "射手座",
         "lineageId": "sagittarius",
         "lineageName": "Sagittarius",
         "stage": 3,
@@ -302,7 +302,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "hawkeye",
-        "desc": "Atirador lendário, mestre do arco. Skills anteriores permanecem.",
+        "desc": "傳說級射手與弓術大師，保留先前技能。",
         "skillIds": [
             "legendary_archer",
             "flame_arrow_rain",
@@ -313,7 +313,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "mage": {
         "id": "mage",
-        "name": "Human Mage",
+        "name": "人類法師",
         "lineageId": "archmage",
         "lineageName": "Archmage",
         "stage": 0,
@@ -321,7 +321,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Classe base mágica humana.",
+        "desc": "人類基礎魔法職業。",
         "skillIds": [
             "fireball",
             "wind_strike",
@@ -332,7 +332,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "wizard": {
         "id": "wizard",
-        "name": "Wizard",
+        "name": "巫師",
         "lineageId": "archmage",
         "lineageName": "Archmage",
         "stage": 1,
@@ -340,7 +340,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "mage",
-        "desc": "Mago elemental versátil. Skills anteriores permanecem.",
+        "desc": "多功能元素法師，保留先前技能。",
         "skillIds": [
             "ice_bolt",
             "concentration",
@@ -351,7 +351,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "sorcerer": {
         "id": "sorcerer",
-        "name": "Sorcerer",
+        "name": "術士",
         "lineageId": "archmage",
         "lineageName": "Archmage",
         "stage": 2,
@@ -359,7 +359,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "wizard",
-        "desc": "Mestre da magia elemental ofensiva. Skills anteriores permanecem.",
+        "desc": "專精攻擊型元素魔法，保留先前技能。",
         "skillIds": [
             "prominence",
             "rain_of_fire",
@@ -370,7 +370,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "archmage": {
         "id": "archmage",
-        "name": "Archmage",
+        "name": "大法師",
         "lineageId": "archmage",
         "lineageName": "Archmage",
         "stage": 3,
@@ -378,7 +378,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "sorcerer",
-        "desc": "Arquimago do fogo, dano massivo. Skills anteriores permanecem. Foco: FOGO.",
+        "desc": "火焰系大法師，擁有高爆發傷害，保留先前技能。專精：火。",
         "skillIds": [
             "meteor",
             "fire_vortex",
@@ -389,7 +389,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "necromancer": {
         "id": "necromancer",
-        "name": "Necromancer",
+        "name": "死靈法師",
         "lineageId": "soultaker",
         "lineageName": "Soultaker",
         "stage": 2,
@@ -397,7 +397,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "wizard",
-        "desc": "Mago das trevas e mortos-vivos. Skills anteriores permanecem. Foco: DARK/UNDEAD.",
+        "desc": "操控黑暗與不死生物的法師，保留先前技能。專精：黑暗／不死。",
         "skillIds": [
             "death_spike",
             "dark_burst",
@@ -408,7 +408,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "soultaker": {
         "id": "soultaker",
-        "name": "Soultaker",
+        "name": "奪魂者",
         "lineageId": "soultaker",
         "lineageName": "Soultaker",
         "stage": 3,
@@ -416,7 +416,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "necromancer",
-        "desc": "Ceifador de almas, dano dark massivo. Skills anteriores permanecem. Foco: DARK.",
+        "desc": "收割靈魂並造成大量黑暗傷害，保留先前技能。專精：黑暗。",
         "skillIds": [
             "dark_vortex",
             "void_explosion",
@@ -427,7 +427,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "warlock": {
         "id": "warlock",
-        "name": "Warlock",
+        "name": "召喚術士",
         "lineageId": "arcanaLord",
         "lineageName": "Arcana Lord",
         "stage": 2,
@@ -435,7 +435,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "wizard",
-        "desc": "Invocador de criaturas das trevas. Skills anteriores permanecem. Foco: SUMMON.",
+        "desc": "召喚黑暗生物作戰，保留先前技能。專精：召喚。",
         "skillIds": [
             "blaze",
             "summon_kat_the_cat",
@@ -446,7 +446,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "arcanaLord": {
         "id": "arcanaLord",
-        "name": "Arcana Lord",
+        "name": "奧術領主",
         "lineageId": "arcanaLord",
         "lineageName": "Arcana Lord",
         "stage": 3,
@@ -454,7 +454,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "warlock",
-        "desc": "Senhor arcano dos invocadores. Skills anteriores permanecem. Foco: SUMMON.",
+        "desc": "召喚系最高階奧術領主，保留先前技能。專精：召喚。",
         "skillIds": [
             "ethereal_strike",
             "ray_of_light",
@@ -465,7 +465,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "cleric": {
         "id": "cleric",
-        "name": "Cleric",
+        "name": "牧師",
         "lineageId": "cardinal",
         "lineageName": "Cardinal",
         "stage": 1,
@@ -473,7 +473,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "mage",
-        "desc": "Clérigo curador e suporte. Skills anteriores permanecem.",
+        "desc": "治療與支援型牧師，保留先前技能。",
         "skillIds": [
             "battle_heal",
             "divine_strike",
@@ -484,7 +484,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "bishop": {
         "id": "bishop",
-        "name": "Bishop",
+        "name": "主教",
         "lineageId": "cardinal",
         "lineageName": "Cardinal",
         "stage": 2,
@@ -492,7 +492,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "cleric",
-        "desc": "Bispo curador poderoso. Skills anteriores permanecem.",
+        "desc": "擁有強大治療能力的主教，保留先前技能。",
         "skillIds": [
             "greater_heal",
             "purify",
@@ -503,7 +503,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "cardinal": {
         "id": "cardinal",
-        "name": "Cardinal",
+        "name": "樞機主教",
         "lineageId": "cardinal",
         "lineageName": "Cardinal",
         "stage": 3,
@@ -511,7 +511,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "bishop",
-        "desc": "Cardeal supremo, mestre da cura E do dano sagrado (Dark Side). Skills anteriores permanecem.",
+        "desc": "最高階樞機主教，精通治療與神聖傷害，保留先前技能。",
         "skillIds": [
             "shelter",
             "cleanse",
@@ -522,7 +522,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "prophet": {
         "id": "prophet",
-        "name": "Prophet",
+        "name": "先知",
         "lineageId": "hierophant",
         "lineageName": "Hierophant",
         "stage": 2,
@@ -530,7 +530,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "cleric",
-        "desc": "Profeta, mestre dos buffs. Skills anteriores permanecem.",
+        "desc": "增益技能大師，保留先前技能。",
         "skillIds": [
             "fatal_strike",
             "might_of_heaven",
@@ -541,7 +541,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "hierophant": {
         "id": "hierophant",
-        "name": "Hierophant",
+        "name": "聖言者",
         "lineageId": "hierophant",
         "lineageName": "Hierophant",
         "stage": 3,
@@ -549,7 +549,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "prophet",
-        "desc": "Hierofante, profeta supremo com profecias e dano. Skills anteriores permanecem.",
+        "desc": "最高階先知，兼具預言增益與傷害能力，保留先前技能。",
         "skillIds": [
             "sephiroth",
             "exclusion",
@@ -560,7 +560,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "deathPilgrim": {
         "id": "deathPilgrim",
-        "name": "Death Pilgrim",
+        "name": "死亡朝聖者",
         "lineageId": "deathKnight",
         "lineageName": "Death Knight",
         "stage": 0,
@@ -568,7 +568,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Peregrino da morte — começo da jornada dark.",
+        "desc": "死亡朝聖者——黑暗之路的起點。",
         "skillIds": [
             "change_armor",
             "sword_blunt_mastery",
@@ -578,7 +578,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "deathBlade": {
         "id": "deathBlade",
-        "name": "Death Blade",
+        "name": "死亡之刃",
         "lineageId": "deathKnight",
         "lineageName": "Death Knight",
         "stage": 1,
@@ -586,7 +586,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "deathPilgrim",
-        "desc": "Lâmina da morte — combate dark agressivo.",
+        "desc": "死亡之刃——以侵略性的黑暗力量作戰。",
         "skillIds": [
             "punishment",
             "roar_of_death",
@@ -597,7 +597,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "deathMessenger": {
         "id": "deathMessenger",
-        "name": "Death Messenger",
+        "name": "死亡使者",
         "lineageId": "deathKnight",
         "lineageName": "Death Knight",
         "stage": 2,
@@ -605,7 +605,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "deathBlade",
-        "desc": "Mensageiro da morte — ataques dark devastadores.",
+        "desc": "死亡使者——施展毀滅性的黑暗攻擊。",
         "skillIds": [
             "wipeout",
             "deadly_pull",
@@ -616,7 +616,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "deathKnight": {
         "id": "deathKnight",
-        "name": "Death Knight",
+        "name": "死亡騎士",
         "lineageId": "deathKnight",
         "lineageName": "Death Knight",
         "stage": 3,
@@ -624,7 +624,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "deathMessenger",
-        "desc": "Cavaleiro da Morte — devastação dark absoluta com Death Points.",
+        "desc": "死亡騎士——運用死亡點數發動絕對的黑暗毀滅。",
         "skillIds": [
             "ultimate_death_knight",
             "hellfire",
@@ -636,7 +636,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "warg": {
         "id": "warg",
-        "name": "Warg",
+        "name": "戰狼",
         "lineageId": "warg",
         "lineageName": "Warg",
         "stage": 3,
@@ -644,7 +644,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": null,
-        "desc": "Warg — guerreiro feral com transformação em lobo ancestral e vampirismo feral.",
+        "desc": "戰狼——可化身遠古狼形，並以野性吸血能力作戰的狂野戰士。",
         "skillIds": [
             "enormous_wolf",
             "upward_strike",
@@ -655,7 +655,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "assassinS0": {
         "id": "assassinS0",
-        "name": "Assassin",
+        "name": "刺客",
         "lineageId": "assassinS3",
         "lineageName": "Assassin",
         "stage": 0,
@@ -663,7 +663,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Caçador das sombras com adagas.",
+        "desc": "使用匕首的暗影獵人。",
         "skillIds": [
             "blow",
             "bandage",
@@ -674,7 +674,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "assassinS1": {
         "id": "assassinS1",
-        "name": "Assassin",
+        "name": "刺客",
         "lineageId": "assassinS3",
         "lineageName": "Assassin",
         "stage": 1,
@@ -693,7 +693,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "assassinS2": {
         "id": "assassinS2",
-        "name": "Assassin",
+        "name": "刺客",
         "lineageId": "assassinS3",
         "lineageName": "Assassin",
         "stage": 2,
@@ -701,7 +701,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "assassinS1",
-        "desc": "Assassino com sistema de sombras desbloqueado.",
+        "desc": "解鎖暗影系統的刺客。",
         "skillIds": [
             "forward_move",
             "sharp_blade",
@@ -712,7 +712,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "assassinS3": {
         "id": "assassinS3",
-        "name": "Assassin",
+        "name": "刺客",
         "lineageId": "assassinS3",
         "lineageName": "Assassin",
         "stage": 3,
@@ -720,7 +720,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "assassinS2",
-        "desc": "Assassino supremo — sombras letais e execuções instantâneas.",
+        "desc": "至高刺客——以致命暗影進行瞬間處決。",
         "skillIds": [
             "erosion",
             "murder_attempt",
@@ -731,7 +731,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elfFighter": {
         "id": "elfFighter",
-        "name": "Elf Fighter",
+        "name": "精靈戰士",
         "lineageId": "evaTemplar",
         "lineageName": "Eva's Templar",
         "stage": 0,
@@ -739,7 +739,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Guerreiro élfico ágil.",
+        "desc": "敏捷的精靈戰士。",
         "skillIds": [
             "power_strike",
             "mortal_blow",
@@ -750,7 +750,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elvenKnight": {
         "id": "elvenKnight",
-        "name": "Elven Knight",
+        "name": "精靈騎士",
         "lineageId": "evaTemplar",
         "lineageName": "Eva's Templar",
         "stage": 1,
@@ -758,7 +758,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "elfFighter",
-        "desc": "Cavaleiro élfico com escudo. Skills anteriores permanecem.",
+        "desc": "使用盾牌的精靈騎士，保留先前技能。",
         "skillIds": [
             "shield_strike",
             "shield_stun",
@@ -769,7 +769,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "templeKnight": {
         "id": "templeKnight",
-        "name": "Temple Knight",
+        "name": "聖殿騎士",
         "lineageId": "evaTemplar",
         "lineageName": "Eva's Templar",
         "stage": 2,
@@ -777,7 +777,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "elvenKnight",
-        "desc": "Cavaleiro do templo de Eva. Skills anteriores permanecem.",
+        "desc": "侍奉伊娃神殿的騎士，保留先前技能。",
         "skillIds": [
             "aqua_strike",
             "shield_bash",
@@ -788,7 +788,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "evaTemplar": {
         "id": "evaTemplar",
-        "name": "Eva's Templar",
+        "name": "伊娃聖殿騎士",
         "lineageId": "evaTemplar",
         "lineageName": "Eva's Templar",
         "stage": 3,
@@ -796,7 +796,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "templeKnight",
-        "desc": "Templário de Eva, tank divino aquático. Skills anteriores permanecem.",
+        "desc": "伊娃系水屬性神聖坦克，保留先前技能。",
         "skillIds": [
             "supernova",
             "templar_s_rush",
@@ -807,7 +807,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "swordSinger": {
         "id": "swordSinger",
-        "name": "Sword Singer",
+        "name": "劍歌者",
         "lineageId": "swordMuse",
         "lineageName": "Sword Muse",
         "stage": 2,
@@ -815,7 +815,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "elvenKnight",
-        "desc": "Bardo élfico com canções de buff. Skills anteriores permanecem.",
+        "desc": "以歌曲提供增益的精靈吟遊戰士，保留先前技能。",
         "skillIds": [
             "guard_crush",
             "song_of_hunter",
@@ -826,7 +826,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "swordMuse": {
         "id": "swordMuse",
-        "name": "Sword Muse",
+        "name": "劍之繆思",
         "lineageId": "swordMuse",
         "lineageName": "Sword Muse",
         "stage": 3,
@@ -834,7 +834,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "swordSinger",
-        "desc": "Musa da espada, bardo supremo com DPS. Skills anteriores permanecem.",
+        "desc": "最高階劍歌吟遊者，兼具優秀輸出，保留先前技能。",
         "skillIds": [
             "symphony",
             "sword_symphony",
@@ -845,7 +845,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elfScout": {
         "id": "elfScout",
-        "name": "Scout",
+        "name": "斥候",
         "lineageId": "windRider",
         "lineageName": "Wind Rider",
         "stage": 1,
@@ -853,7 +853,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "elfFighter",
-        "desc": "Batedor élfico, dagger e bow. Skills anteriores permanecem.",
+        "desc": "使用匕首與弓的精靈斥候，保留先前技能。",
         "skillIds": [
             "power_shot",
             "ultimate_evasion",
@@ -864,7 +864,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "plainsWalker": {
         "id": "plainsWalker",
-        "name": "Plains Walker",
+        "name": "平原行者",
         "lineageId": "windRider",
         "lineageName": "Wind Rider",
         "stage": 2,
@@ -872,7 +872,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "elfScout",
-        "desc": "Caminhante das planícies, dagger stealth. Skills anteriores permanecem.",
+        "desc": "擅長匕首與潛行的平原行者，保留先前技能。",
         "skillIds": [
             "deadly_blow",
             "backstab",
@@ -883,7 +883,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "windRider": {
         "id": "windRider",
-        "name": "Wind Rider",
+        "name": "風騎士",
         "lineageId": "windRider",
         "lineageName": "Wind Rider",
         "stage": 3,
@@ -891,7 +891,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "plainsWalker",
-        "desc": "Cavaleiro do vento, dagger supremo. Skills anteriores permanecem.",
+        "desc": "最高階匕首型風騎士，保留先前技能。",
         "skillIds": [
             "fury_blade",
             "wind_riding",
@@ -902,7 +902,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "silverRanger": {
         "id": "silverRanger",
-        "name": "Silver Ranger",
+        "name": "銀月遊俠",
         "lineageId": "moonlightSentinel",
         "lineageName": "Moonlight Sentinel",
         "stage": 2,
@@ -910,7 +910,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "elfScout",
-        "desc": "Arqueiro prateado élfico. Skills anteriores permanecem.",
+        "desc": "精靈銀色弓手，保留先前技能。",
         "skillIds": [
             "double_shot",
             "vortex_shot",
@@ -921,7 +921,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "moonlightSentinel": {
         "id": "moonlightSentinel",
-        "name": "Moonlight Sentinel",
+        "name": "月光守衛",
         "lineageId": "moonlightSentinel",
         "lineageName": "Moonlight Sentinel",
         "stage": 3,
@@ -929,7 +929,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "silverRanger",
-        "desc": "Sentinela do luar, arqueiro supremo élfico. Skills anteriores permanecem.",
+        "desc": "最高階精靈弓手月光守衛，保留先前技能。",
         "skillIds": [
             "legendary_archer",
             "water_arrow_rain",
@@ -940,7 +940,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elfMage": {
         "id": "elfMage",
-        "name": "Elf Mage",
+        "name": "精靈法師",
         "lineageId": "mysticMuse",
         "lineageName": "Mystic Muse",
         "stage": 0,
@@ -948,7 +948,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Mago élfico da natureza.",
+        "desc": "精靈巫師",
         "skillIds": [
             "ice_bolt",
             "wind_strike",
@@ -959,7 +959,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elvenWizard": {
         "id": "elvenWizard",
-        "name": "Elven Wizard",
+        "name": "精靈巫師",
         "lineageId": "mysticMuse",
         "lineageName": "Mystic Muse",
         "stage": 1,
@@ -967,7 +967,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "elfMage",
-        "desc": "Mago élfico elemental. Skills anteriores permanecem.",
+        "desc": "精通元素魔法的精靈巫師。保留先前學會的技能。",
         "skillIds": [
             "aqua_swirl",
             "concentration",
@@ -978,7 +978,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "spellsinger": {
         "id": "spellsinger",
-        "name": "Spellsinger",
+        "name": "咒術詩人",
         "lineageId": "mysticMuse",
         "lineageName": "Mystic Muse",
         "stage": 2,
@@ -986,7 +986,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "elvenWizard",
-        "desc": "Cantor de magias, foco em água e vento. Skills anteriores permanecem.",
+        "desc": "以水與風魔法為主的咒術詩人。保留先前學會的技能。",
         "skillIds": [
             "hydro_blast",
             "freezing_skin",
@@ -997,7 +997,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "mysticMuse": {
         "id": "mysticMuse",
-        "name": "Mystic Muse",
+        "name": "神秘繆思",
         "lineageId": "mysticMuse",
         "lineageName": "Mystic Muse",
         "stage": 3,
@@ -1005,7 +1005,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "spellsinger",
-        "desc": "Musa mística, mestre da magia aquática. Skills anteriores permanecem. Foco: WATER.",
+        "desc": "精通水系魔法的神秘繆思。保留先前學會的技能。定位：水。",
         "skillIds": [
             "aqua_splash",
             "blizzard",
@@ -1016,7 +1016,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elementalSummoner": {
         "id": "elementalSummoner",
-        "name": "Elemental Summoner",
+        "name": "元素召喚師",
         "lineageId": "elementalMaster",
         "lineageName": "Elemental Master",
         "stage": 2,
@@ -1024,7 +1024,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "elvenWizard",
-        "desc": "Invocador elemental élfico. Skills anteriores permanecem. Foco: SUMMON.",
+        "desc": "精靈族的元素召喚師。保留先前學會的技能。定位：召喚。",
         "skillIds": [
             "elemental_discharge",
             "summon_elemental_unicorn",
@@ -1035,7 +1035,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elementalMaster": {
         "id": "elementalMaster",
-        "name": "Elemental Master",
+        "name": "元素大師",
         "lineageId": "elementalMaster",
         "lineageName": "Elemental Master",
         "stage": 3,
@@ -1043,7 +1043,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "elementalSummoner",
-        "desc": "Mestre elemental, invocador supremo élfico. Skills anteriores permanecem.",
+        "desc": "精靈族的至高元素召喚大師。保留先前學會的技能。",
         "skillIds": [
             "elemental_strike",
             "elemental_vortex",
@@ -1054,7 +1054,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elfOracle": {
         "id": "elfOracle",
-        "name": "Oracle",
+        "name": "神使",
         "lineageId": "evaSaint",
         "lineageName": "Eva's Saint",
         "stage": 1,
@@ -1062,7 +1062,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "elfMage",
-        "desc": "Oráculo élfico curador. Skills anteriores permanecem.",
+        "desc": "精靈族的治癒神使。保留先前學會的技能。",
         "skillIds": [
             "divine_strike",
             "heal",
@@ -1073,7 +1073,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elfElder": {
         "id": "elfElder",
-        "name": "Elder",
+        "name": "長老",
         "lineageId": "evaSaint",
         "lineageName": "Eva's Saint",
         "stage": 2,
@@ -1081,7 +1081,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "elfOracle",
-        "desc": "Ancião élfico, curador e buffer. Skills anteriores permanecem.",
+        "desc": "精靈族的治療與增益職業長老。保留先前學會的技能。",
         "skillIds": [
             "greater_heal",
             "purify",
@@ -1092,7 +1092,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "evaSaint": {
         "id": "evaSaint",
-        "name": "Eva's Saint",
+        "name": "伊娃聖者",
         "lineageId": "evaSaint",
         "lineageName": "Eva's Saint",
         "stage": 3,
@@ -1100,7 +1100,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "elfElder",
-        "desc": "Santa de Eva, curadora suprema élfica. Skills anteriores permanecem.",
+        "desc": "伊娃的至高聖者，精靈族最高階治癒職業。保留先前學會的技能。",
         "skillIds": [
             "shelter_master",
             "divine_beam",
@@ -1111,7 +1111,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "darkElfFighter": {
         "id": "darkElfFighter",
-        "name": "Dark Elf Fighter",
+        "name": "黑暗精靈戰士",
         "lineageId": "shillienTemplar",
         "lineageName": "Shillien Templar",
         "stage": 0,
@@ -1119,7 +1119,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Lutador sombrio com afinidade natural para dano crítico.",
+        "desc": "天生擅長暴擊傷害的黑暗精靈戰士。",
         "skillIds": [
             "power_strike",
             "mortal_blow",
@@ -1130,7 +1130,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "palusKnight": {
         "id": "palusKnight",
-        "name": "Palus Knight",
+        "name": "帕魯斯騎士",
         "lineageId": "shillienTemplar",
         "lineageName": "Shillien Templar",
         "stage": 1,
@@ -1138,7 +1138,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "darkElfFighter",
-        "desc": "Cavaleiro sombrio com escudo e poder dark.",
+        "desc": "使用盾牌並操控黑暗力量的騎士。",
         "skillIds": [
             "drain_hp",
             "shield_strike",
@@ -1149,7 +1149,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "shillienKnight": {
         "id": "shillienKnight",
-        "name": "Shillien Knight",
+        "name": "席琳騎士",
         "lineageId": "shillienTemplar",
         "lineageName": "Shillien Templar",
         "stage": 2,
@@ -1157,7 +1157,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "palusKnight",
-        "desc": "Cavaleiro de Shillien com dreno e terror.",
+        "desc": "擅長吸取生命與恐懼能力的席琳騎士。",
         "skillIds": [
             "abyss_strike",
             "lightning_strike",
@@ -1168,7 +1168,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "shillienTemplar": {
         "id": "shillienTemplar",
-        "name": "Shillien Templar",
+        "name": "席琳聖殿騎士",
         "lineageId": "shillienTemplar",
         "lineageName": "Shillien Templar",
         "stage": 3,
@@ -1176,7 +1176,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "shillienKnight",
-        "desc": "Templário de Shillien — tanque sombrio com AoE devastador.",
+        "desc": "席琳系高階黑暗坦克，擁有強力範圍攻擊。",
         "skillIds": [
             "condemnation",
             "shillien_s_curse",
@@ -1187,7 +1187,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "bladeDancer": {
         "id": "bladeDancer",
-        "name": "Blade Dancer",
+        "name": "劍舞者",
         "lineageId": "spectralDancer",
         "lineageName": "Spectral Dancer",
         "stage": 2,
@@ -1195,7 +1195,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "palusKnight",
-        "desc": "Dançarino de lâminas — danças que fortalecem aliados.",
+        "desc": "以劍舞強化隊友的戰鬥舞者。",
         "skillIds": [
             "dance_of_fire",
             "dance_of_warrior",
@@ -1206,7 +1206,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "spectralDancer": {
         "id": "spectralDancer",
-        "name": "Spectral Dancer",
+        "name": "幽靈舞者",
         "lineageId": "spectralDancer",
         "lineageName": "Spectral Dancer",
         "stage": 3,
@@ -1214,7 +1214,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "bladeDancer",
-        "desc": "Dançarina espectral — danças supremas e ataques devastadores.",
+        "desc": "以高階戰舞與強力攻擊作戰的幽靈舞者。",
         "skillIds": [
             "deadly_rhythm",
             "crazy_waltz",
@@ -1225,7 +1225,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "assassinDE": {
         "id": "assassinDE",
-        "name": "Assassin",
+        "name": "刺客",
         "lineageId": "ghostHunter",
         "lineageName": "Ghost Hunter",
         "stage": 1,
@@ -1233,7 +1233,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "darkElfFighter",
-        "desc": "Assassino das sombras — mestre em emboscadas e venenos.",
+        "desc": "精通伏擊與毒素的暗影刺客。",
         "skillIds": [
             "blow",
             "ultimate_evasion",
@@ -1244,7 +1244,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "abyssWalker": {
         "id": "abyssWalker",
-        "name": "Abyss Walker",
+        "name": "深淵行者",
         "lineageId": "ghostHunter",
         "lineageName": "Ghost Hunter",
         "stage": 2,
@@ -1252,7 +1252,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "assassinDE",
-        "desc": "Caminhante do Abismo — golpes fatais nas sombras.",
+        "desc": "在暗影中施展致命打擊的深淵行者。",
         "skillIds": [
             "deadly_blow",
             "backstab",
@@ -1263,7 +1263,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "ghostHunter": {
         "id": "ghostHunter",
-        "name": "Ghost Hunter",
+        "name": "幽靈獵人",
         "lineageId": "ghostHunter",
         "lineageName": "Ghost Hunter",
         "stage": 3,
@@ -1271,7 +1271,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "abyssWalker",
-        "desc": "Caçador fantasma — o assassino definitivo das sombras.",
+        "desc": "黑暗精靈最高階暗殺者。",
         "skillIds": [
             "dark_blow",
             "shadow_step",
@@ -1282,7 +1282,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "phantomRanger": {
         "id": "phantomRanger",
-        "name": "Phantom Ranger",
+        "name": "幽靈遊俠",
         "lineageId": "ghostSentinel",
         "lineageName": "Ghost Sentinel",
         "stage": 2,
@@ -1290,7 +1290,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "assassinDE",
-        "desc": "Atirador fantasma — flechas envenenadas e precisas.",
+        "desc": "使用精準毒箭作戰的幽靈射手。",
         "skillIds": [
             "double_shot",
             "vortex_shot",
@@ -1301,7 +1301,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "ghostSentinel": {
         "id": "ghostSentinel",
-        "name": "Ghost Sentinel",
+        "name": "幽靈守衛",
         "lineageId": "ghostSentinel",
         "lineageName": "Ghost Sentinel",
         "stage": 3,
@@ -1309,7 +1309,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "phantomRanger",
-        "desc": "Sentinela fantasma — atirador de elite com flechas elementais.",
+        "desc": "擅長元素箭矢的菁英幽靈射手。",
         "skillIds": [
             "legendary_archer",
             "storm_arrow_rain",
@@ -1320,7 +1320,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "darkElfMage": {
         "id": "darkElfMage",
-        "name": "Dark Elf Mage",
+        "name": "黑暗精靈法師",
         "lineageId": "stormScreamer",
         "lineageName": "Storm Screamer",
         "stage": 0,
@@ -1328,7 +1328,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Mago sombrio com magia negra poderosa.",
+        "desc": "擁有強大黑暗魔法的黑暗精靈法師。",
         "skillIds": [
             "twister",
             "fireball",
@@ -1339,7 +1339,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "darkWizard": {
         "id": "darkWizard",
-        "name": "Dark Wizard",
+        "name": "黑暗巫師",
         "lineageId": "stormScreamer",
         "lineageName": "Storm Screamer",
         "stage": 1,
@@ -1347,7 +1347,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "darkElfMage",
-        "desc": "Mago sombrio com magia elemental e dreno de vida.",
+        "desc": "兼具元素魔法與生命吸取能力的黑暗巫師。",
         "skillIds": [
             "wind_shackles",
             "concentration",
@@ -1358,7 +1358,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "spellhowler": {
         "id": "spellhowler",
-        "name": "Spellhowler",
+        "name": "狂咒術士",
         "lineageId": "stormScreamer",
         "lineageName": "Storm Screamer",
         "stage": 2,
@@ -1366,7 +1366,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "darkWizard",
-        "desc": "Mago do vento sombrio — devastação elemental com foco em Wind.",
+        "desc": "以風屬性為核心的黑暗元素法師。",
         "skillIds": [
             "hurricane",
             "demon_wind",
@@ -1377,7 +1377,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "stormScreamer": {
         "id": "stormScreamer",
-        "name": "Storm Screamer",
+        "name": "暴風狂嘯者",
         "lineageId": "stormScreamer",
         "lineageName": "Storm Screamer",
         "stage": 3,
@@ -1385,7 +1385,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "spellhowler",
-        "desc": "Arauto da tempestade — mago devastador com foco em vento e trovão.",
+        "desc": "專精風與雷電的高階毀滅法師。",
         "skillIds": [
             "wind_spiral",
             "tempest",
@@ -1396,7 +1396,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "phantomSummoner": {
         "id": "phantomSummoner",
-        "name": "Phantom Summoner",
+        "name": "幽靈召喚師",
         "lineageId": "spectralMaster",
         "lineageName": "Spectral Master",
         "stage": 2,
@@ -1404,7 +1404,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "darkWizard",
-        "desc": "Invocador sombrio — invoca criaturas das trevas para lutar.",
+        "desc": "召喚黑暗生物協助作戰的召喚師。",
         "skillIds": [
             "summon_shadow",
             "summon_silhouette",
@@ -1415,7 +1415,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "spectralMaster": {
         "id": "spectralMaster",
-        "name": "Spectral Master",
+        "name": "幽靈大師",
         "lineageId": "spectralMaster",
         "lineageName": "Spectral Master",
         "stage": 3,
@@ -1423,7 +1423,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "phantomSummoner",
-        "desc": "Mestre espectral — summons supremos das trevas.",
+        "desc": "操控最高階黑暗召喚獸的幽靈大師。",
         "skillIds": [
             "summon_spectral_lord",
             "chains_of_pain",
@@ -1434,7 +1434,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "shillienOracle": {
         "id": "shillienOracle",
-        "name": "Shillien Oracle",
+        "name": "席琳神使",
         "lineageId": "shillienSaint",
         "lineageName": "Shillien Saint",
         "stage": 1,
@@ -1442,7 +1442,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "darkElfMage",
-        "desc": "Oráculo de Shillien — cura e proteção sombria.",
+        "desc": "提供治療與黑暗防護的席琳神使。",
         "skillIds": [
             "vampiric_rage",
             "divine_strike",
@@ -1453,7 +1453,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "shillienElder": {
         "id": "shillienElder",
-        "name": "Shillien Elder",
+        "name": "席琳長老",
         "lineageId": "shillienSaint",
         "lineageName": "Shillien Saint",
         "stage": 2,
@@ -1461,7 +1461,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "shillienOracle",
-        "desc": "Anciã de Shillien — cura, buffs e magia dark ofensiva.",
+        "desc": "兼具治療、增益與攻擊型黑暗魔法。",
         "skillIds": [
             "greater_heal",
             "purify",
@@ -1472,7 +1472,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "shillienSaint": {
         "id": "shillienSaint",
-        "name": "Shillien Saint",
+        "name": "席琳聖者",
         "lineageId": "shillienSaint",
         "lineageName": "Shillien Saint",
         "stage": 3,
@@ -1480,7 +1480,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "shillienElder",
-        "desc": "Santa de Shillien — cura suprema + modo ofensivo Dark Side.",
+        "desc": "最高階席琳治療者，並可切換黑暗攻擊模式。",
         "skillIds": [
             "dark_disruption",
             "divine_beam",
@@ -1491,7 +1491,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "bloodRoseBase": {
         "id": "bloodRoseBase",
-        "name": "Blood Rose",
+        "name": "血玫瑰",
         "lineageId": "bloodRose",
         "lineageName": "Blood Rose",
         "stage": 0,
@@ -1499,7 +1499,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Rosa de Sangue — mística dos Elfos Negros devota de Shillien, mestra de espinhos sombrios e roubo de vida.",
+        "desc": "侍奉席琳的黑暗精靈秘術師，精通暗影荊棘與生命竊取。",
         "skillIds": [
             "rose_attack",
             "bandage",
@@ -1510,7 +1510,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "bloodRoseS1": {
         "id": "bloodRoseS1",
-        "name": "Blood Rose",
+        "name": "血玫瑰",
         "lineageId": "bloodRose",
         "lineageName": "Blood Rose",
         "stage": 1,
@@ -1518,7 +1518,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "bloodRoseBase",
-        "desc": "Rosa de Sangue — sacerdotisa das trevas com controle de espinhos sangrentos.",
+        "desc": "操控血色荊棘的黑暗祭司。",
         "skillIds": [
             "briar_vortex",
             "vine_embrace",
@@ -1529,7 +1529,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "bloodRoseS2": {
         "id": "bloodRoseS2",
-        "name": "Blood Rose",
+        "name": "血玫瑰",
         "lineageId": "bloodRose",
         "lineageName": "Blood Rose",
         "stage": 2,
@@ -1537,7 +1537,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "bloodRoseS1",
-        "desc": "Rosa de Sangue — dominadora do jardim profano de Shillien.",
+        "desc": "支配席琳褻瀆花園的血玫瑰。",
         "skillIds": [
             "enchanted_rose_s_assault",
             "aroma_of_death",
@@ -1548,7 +1548,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "bloodRose": {
         "id": "bloodRose",
-        "name": "Blood Rose",
+        "name": "血玫瑰",
         "lineageId": "bloodRose",
         "lineageName": "Blood Rose",
         "stage": 3,
@@ -1556,7 +1556,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "bloodRoseS2",
-        "desc": "Rosa de Sangue — Rainha Suprema dos Espinhos de Shillien.",
+        "desc": "席琳荊棘的最高女王。",
         "skillIds": [
             "bleeding_rose",
             "kingdom_of_plants",
@@ -1567,7 +1567,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "orcFighter": {
         "id": "orcFighter",
-        "name": "Orc Fighter",
+        "name": "半獸人戰士",
         "lineageId": "titan",
         "lineageName": "Titan",
         "stage": 0,
@@ -1575,7 +1575,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Lutador orc — força bruta e HP elevado.",
+        "desc": "擁有強大力量與高生命值的半獸人戰士。",
         "skillIds": [
             "power_strike",
             "iron_punch",
@@ -1586,7 +1586,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "raider": {
         "id": "raider",
-        "name": "Raider",
+        "name": "掠奪者",
         "lineageId": "titan",
         "lineageName": "Titan",
         "stage": 1,
@@ -1594,7 +1594,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "orcFighter",
-        "desc": "Saqueador orc — ataques devastadores com armas pesadas.",
+        "desc": "使用重型武器發動強力攻擊的半獸人掠奪者。",
         "skillIds": [
             "wild_sweep",
             "rage",
@@ -1605,7 +1605,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "destroyer": {
         "id": "destroyer",
-        "name": "Destroyer",
+        "name": "破壞者",
         "lineageId": "titan",
         "lineageName": "Titan",
         "stage": 2,
@@ -1613,7 +1613,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "raider",
-        "desc": "Destruidor — fúria descontrolada com dano massivo.",
+        "desc": "以失控狂怒造成巨大傷害的破壞者。",
         "skillIds": [
             "vortex",
             "fatal_strike",
@@ -1624,7 +1624,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "titan": {
         "id": "titan",
-        "name": "Titan",
+        "name": "泰坦",
         "lineageId": "titan",
         "lineageName": "Titan",
         "stage": 3,
@@ -1632,7 +1632,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "destroyer",
-        "desc": "Titã — devastação absoluta com fúria imparável.",
+        "desc": "以無可阻擋的狂怒帶來絕對破壞。",
         "skillIds": [
             "titan_champion",
             "overwhelming_power",
@@ -1643,7 +1643,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "monk": {
         "id": "monk",
-        "name": "Monk",
+        "name": "武僧",
         "lineageId": "grandKhavatari",
         "lineageName": "Grand Khavatari",
         "stage": 1,
@@ -1651,7 +1651,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "orcFighter",
-        "desc": "Monge orc — mestre em combate desarmado.",
+        "desc": "精通徒手格鬥的半獸人武僧。",
         "skillIds": [
             "force_blaster",
             "cripple",
@@ -1662,7 +1662,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "tyrant": {
         "id": "tyrant",
-        "name": "Tyrant",
+        "name": "暴君",
         "lineageId": "grandKhavatari",
         "lineageName": "Grand Khavatari",
         "stage": 2,
@@ -1670,7 +1670,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "monk",
-        "desc": "Tirano — combate desarmado com fúria elemental.",
+        "desc": "結合元素狂怒的徒手格鬥高手。",
         "skillIds": [
             "burning_fist",
             "iron_fist",
@@ -1681,7 +1681,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "grandKhavatari": {
         "id": "grandKhavatari",
-        "name": "Grand Khavatari",
+        "name": "大卡巴塔里",
         "lineageId": "grandKhavatari",
         "lineageName": "Grand Khavatari",
         "stage": 3,
@@ -1689,7 +1689,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "tyrant",
-        "desc": "Grande Khavatari — mestre supremo do combate desarmado.",
+        "desc": "最高階徒手格鬥大師。",
         "skillIds": [
             "raging_force",
             "burning_assault",
@@ -1700,7 +1700,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "rider": {
         "id": "rider",
-        "name": "Rider",
+        "name": "騎乘戰士",
         "lineageId": "grandVanguard",
         "lineageName": "Grand Vanguard",
         "stage": 0,
@@ -1708,7 +1708,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Cavaleiro orc inicial — combate montado com lança.",
+        "desc": "使用長槍進行騎乘戰鬥的初階半獸人騎士。",
         "skillIds": [
             "blazing_fury",
             "wild_rush",
@@ -1719,7 +1719,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "dragoon": {
         "id": "dragoon",
-        "name": "Dragoon",
+        "name": "龍騎兵",
         "lineageId": "grandVanguard",
         "lineageName": "Grand Vanguard",
         "stage": 1,
@@ -1727,7 +1727,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "rider",
-        "desc": "Dragão montado — ataques montados devastadores.",
+        "desc": "擅長強力騎乘攻擊的龍騎兵。",
         "skillIds": [
             "piercing",
             "bandage",
@@ -1738,7 +1738,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "vanguardRider": {
         "id": "vanguardRider",
-        "name": "Vanguard Rider",
+        "name": "先鋒騎士",
         "lineageId": "grandVanguard",
         "lineageName": "Grand Vanguard",
         "stage": 2,
@@ -1746,7 +1746,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "dragoon",
-        "desc": "Cavaleiro de vanguarda — devastação montada com poder de dragão.",
+        "desc": "融合龍之力量的高階騎乘戰士。",
         "skillIds": [
             "wild_assault",
             "threatening_swing",
@@ -1757,7 +1757,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "grandVanguard": {
         "id": "grandVanguard",
-        "name": "Grand Vanguard",
+        "name": "大先鋒",
         "lineageId": "grandVanguard",
         "lineageName": "Grand Vanguard",
         "stage": 3,
@@ -1765,7 +1765,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "vanguardRider",
-        "desc": "Grande Vanguarda — lorde dragão montado supremo.",
+        "desc": "最高階龍之騎乘領主。",
         "skillIds": [
             "wild_charge",
             "amazing_piercing",
@@ -1776,7 +1776,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "orcMage": {
         "id": "orcMage",
-        "name": "Orc Mage",
+        "name": "半獸人法師",
         "lineageId": "dominator",
         "lineageName": "Dominator",
         "stage": 0,
@@ -1784,7 +1784,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Mago orc — magia tribal e suporte.",
+        "desc": "使用部族魔法並擅長支援的半獸人法師。",
         "skillIds": [
             "inferno_strike",
             "vortex_of_fire",
@@ -1795,7 +1795,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "shaman": {
         "id": "shaman",
-        "name": "Shaman",
+        "name": "薩滿",
         "lineageId": "dominator",
         "lineageName": "Dominator",
         "stage": 1,
@@ -1803,7 +1803,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "orcMage",
-        "desc": "Xamã orc — cura e buffs tribais.",
+        "desc": "使用部族治療與增益的半獸人薩滿。",
         "skillIds": [
             "frost_flame",
             "shining_prison",
@@ -1814,7 +1814,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "overlord": {
         "id": "overlord",
-        "name": "Overlord",
+        "name": "霸主",
         "lineageId": "dominator",
         "lineageName": "Dominator",
         "stage": 2,
@@ -1822,7 +1822,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "shaman",
-        "desc": "Senhor da guerra — buffs de clã e debuffs massivos.",
+        "desc": "擅長血盟增益與大範圍弱化效果的霸主。",
         "skillIds": [
             "swap_attack",
             "swap_defense",
@@ -1833,7 +1833,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "dominator": {
         "id": "dominator",
-        "name": "Dominator",
+        "name": "支配者",
         "lineageId": "dominator",
         "lineageName": "Dominator",
         "stage": 3,
@@ -1841,7 +1841,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "overlord",
-        "desc": "Dominador — líder absoluto com buffs supremos e dano ofensivo.",
+        "desc": "兼具頂級增益與攻擊能力的絕對領袖。",
         "skillIds": [
             "pa_agrio_s_touch",
             "pa_agrio_s_cure",
@@ -1852,7 +1852,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "warcryer": {
         "id": "warcryer",
-        "name": "Warcryer",
+        "name": "戰狂",
         "lineageId": "doomcryer",
         "lineageName": "Doomcryer",
         "stage": 2,
@@ -1860,7 +1860,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "shaman",
-        "desc": "Cantor de guerra — cânticos que empoderam aliados.",
+        "desc": "以戰歌強化盟友的吟唱者。",
         "skillIds": [
             "chant_of_vampire",
             "chant_of_glory",
@@ -1871,7 +1871,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "doomcryer": {
         "id": "doomcryer",
-        "name": "Doomcryer",
+        "name": "末日戰狂",
         "lineageId": "doomcryer",
         "lineageName": "Doomcryer",
         "stage": 3,
@@ -1879,7 +1879,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "warcryer",
-        "desc": "Arauto da perdição — cânticos supremos e dano de guerra.",
+        "desc": "擁有最高階戰歌與戰鬥傷害的末日使者。",
         "skillIds": [
             "cacophony_of_war",
             "blood_bond",
@@ -1890,7 +1890,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "dwarfFighter": {
         "id": "dwarfFighter",
-        "name": "Dwarf Fighter",
+        "name": "矮人戰士",
         "lineageId": "fortuneSeeker",
         "lineageName": "Fortune Seeker",
         "stage": 0,
@@ -1898,7 +1898,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Lutador anão — forte, resistente e com bônus de loot.",
+        "desc": "強壯耐打並擁有額外掉落優勢的矮人戰士。",
         "skillIds": [
             "power_strike",
             "iron_punch",
@@ -1909,7 +1909,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "scavenger": {
         "id": "scavenger",
-        "name": "Scavenger",
+        "name": "收集者",
         "lineageId": "fortuneSeeker",
         "lineageName": "Fortune Seeker",
         "stage": 1,
@@ -1917,7 +1917,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "dwarfFighter",
-        "desc": "Sucateiro — mestre em obter loot extra dos inimigos.",
+        "desc": "精通從敵人身上取得額外戰利品。",
         "skillIds": [
             "spoil",
             "spoil_festival",
@@ -1928,7 +1928,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "bountyHunter": {
         "id": "bountyHunter",
-        "name": "Bounty Hunter",
+        "name": "賞金獵人",
         "lineageId": "fortuneSeeker",
         "lineageName": "Fortune Seeker",
         "stage": 2,
@@ -1936,7 +1936,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "scavenger",
-        "desc": "Caçador de recompensas — combate e loot supremo.",
+        "desc": "兼具戰鬥能力與高階戰利品獲取能力。",
         "skillIds": [
             "body_crush",
             "fake_death",
@@ -1947,7 +1947,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "fortuneSeeker": {
         "id": "fortuneSeeker",
-        "name": "Fortune Seeker",
+        "name": "財富獵人",
         "lineageId": "fortuneSeeker",
         "lineageName": "Fortune Seeker",
         "stage": 3,
@@ -1955,7 +1955,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "bountyHunter",
-        "desc": "Buscador de fortuna — loot máximo e combate eficiente.",
+        "desc": "擁有最高戰利品效率與優秀戰鬥能力。",
         "skillIds": [
             "golden_stone",
             "trophy_thief",
@@ -1966,7 +1966,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "artisanDwarf": {
         "id": "artisanDwarf",
-        "name": "Artisan",
+        "name": "工匠",
         "lineageId": "maestro",
         "lineageName": "Maestro",
         "stage": 1,
@@ -1974,7 +1974,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "dwarfFighter",
-        "desc": "Artesão anão — mestre em criar itens e golems.",
+        "desc": "精通物品製作與魔像的矮人工匠。",
         "skillIds": [
             "wild_sweep",
             "summon_mechanic_golem",
@@ -1985,7 +1985,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "warsmith": {
         "id": "warsmith",
-        "name": "Warsmith",
+        "name": "戰爭工匠",
         "lineageId": "maestro",
         "lineageName": "Maestro",
         "stage": 2,
@@ -1993,7 +1993,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "artisanDwarf",
-        "desc": "Ferreiro de guerra — golems poderosos e craft avançado.",
+        "desc": "能製作高階物品並操控強力魔像的戰爭工匠。",
         "skillIds": [
             "vortex",
             "fatal_strike",
@@ -2004,7 +2004,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "maestro": {
         "id": "maestro",
-        "name": "Maestro",
+        "name": "巨匠",
         "lineageId": "maestro",
         "lineageName": "Maestro",
         "stage": 3,
@@ -2012,7 +2012,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "warsmith",
-        "desc": "Maestro — mestre supremo da forja e dos golems.",
+        "desc": "鍛造與魔像技術的最高階大師。",
         "skillIds": [
             "leopold",
             "earthquake",
@@ -2023,7 +2023,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "highElfBase": {
         "id": "highElfBase",
-        "name": "High Elf",
+        "name": "高等精靈",
         "lineageId": "shinemaker",
         "lineageName": "ShineMaker",
         "stage": 0,
@@ -2031,7 +2031,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Alto Elfo — poder sagrado e elemental inicial.",
+        "desc": "掌握神聖與元素力量的高等精靈。",
         "skillIds": [
             "destiny",
             "lord_knight",
@@ -2042,7 +2042,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "shineMakerS1": {
         "id": "shineMakerS1",
-        "name": "ShineMaker",
+        "name": "光耀創造者",
         "lineageId": "shinemaker",
         "lineageName": "ShineMaker",
         "stage": 1,
@@ -2061,7 +2061,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "shineMakerS2": {
         "id": "shineMakerS2",
-        "name": "ShineMaker",
+        "name": "光耀創造者",
         "lineageId": "shinemaker",
         "lineageName": "ShineMaker",
         "stage": 2,
@@ -2080,7 +2080,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "shinemaker": {
         "id": "shinemaker",
-        "name": "ShineMaker",
+        "name": "光耀創造者",
         "lineageId": "shinemaker",
         "lineageName": "ShineMaker",
         "stage": 3,
@@ -2088,7 +2088,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "shineMakerS2",
-        "desc": "Criadora de luz — suporte sagrado anão com poder celestial e dano luminoso.",
+        "desc": "操控天界力量與光明傷害的神聖支援者。",
         "skillIds": [
             "earthquake",
             "earth_tremor",
@@ -2099,7 +2099,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "kamaelSoldier": {
         "id": "kamaelSoldier",
-        "name": "Kamael Soldier",
+        "name": "闇天使士兵",
         "lineageId": "doombringer",
         "lineageName": "Doombringer",
         "stage": 0,
@@ -2107,7 +2107,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Soldado Kamael — guerreiro com poder da alma.",
+        "desc": "運用靈魂力量戰鬥的闇天使士兵。",
         "skillIds": [
             "pride_of_kamael",
             "kamael_s_dignity",
@@ -2118,7 +2118,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "trooper": {
         "id": "trooper",
-        "name": "Trooper",
+        "name": "闇天使戰士",
         "lineageId": "doombringer",
         "lineageName": "Doombringer",
         "stage": 1,
@@ -2126,7 +2126,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "kamaelSoldier",
-        "desc": "Combatente de linha — espada antiga e poder soul.",
+        "desc": "使用古代劍與靈魂力量作戰的前線戰士。",
         "skillIds": [
             "soul_smash",
             "soul_roar",
@@ -2137,7 +2137,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "berserker": {
         "id": "berserker",
-        "name": "Berserker",
+        "name": "狂戰士",
         "lineageId": "doombringer",
         "lineageName": "Doombringer",
         "stage": 2,
@@ -2145,7 +2145,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "trooper",
-        "desc": "Berserker Kamael — fúria soul com dano devastador.",
+        "desc": "以靈魂狂怒造成毀滅傷害的闇天使狂戰士。",
         "skillIds": [
             "soul_impulse",
             "enuma_elish",
@@ -2156,7 +2156,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "doombringer": {
         "id": "doombringer",
-        "name": "Doombringer",
+        "name": "末日使者",
         "lineageId": "doombringer",
         "lineageName": "Doombringer",
         "stage": 3,
@@ -2164,7 +2164,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "berserker",
-        "desc": "Portador da ruína — devastação soul absoluta.",
+        "desc": "將靈魂力量轉化為絕對毀滅的末日使者。",
         "skillIds": [
             "overwhelming_power",
             "powerful_rush",
@@ -2175,7 +2175,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "soulFinder": {
         "id": "soulFinder",
-        "name": "Soul Finder",
+        "name": "靈魂探尋者",
         "lineageId": "soulHound",
         "lineageName": "Soul Hound",
         "stage": 1,
@@ -2183,7 +2183,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "kamaelSoldier",
-        "desc": "Buscador de almas — combate misto físico/mágico.",
+        "desc": "結合物理與魔法的混合型靈魂戰士。",
         "skillIds": [
             "through_strike",
             "soul_haste",
@@ -2194,7 +2194,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "soulBreakerKamael": {
         "id": "soulBreakerKamael",
-        "name": "Soul Breaker",
+        "name": "靈魂破壞者",
         "lineageId": "soulHound",
         "lineageName": "Soul Hound",
         "stage": 2,
@@ -2202,7 +2202,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "soulFinder",
-        "desc": "Quebrador de almas — misto combate/magia soul.",
+        "desc": "融合近戰與靈魂魔法的混合型戰士。",
         "skillIds": [
             "flash_dash",
             "soul_reinforcement",
@@ -2213,7 +2213,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "soulHound": {
         "id": "soulHound",
-        "name": "Soul Hound",
+        "name": "靈魂獵犬",
         "lineageId": "soulHound",
         "lineageName": "Soul Hound",
         "stage": 3,
@@ -2221,7 +2221,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "soulBreakerKamael",
-        "desc": "Cão da alma — mestre do combate híbrido.",
+        "desc": "精通物魔混合戰鬥的靈魂獵犬。",
         "skillIds": [
             "time_distortion_master",
             "chain_lightning",
@@ -2232,7 +2232,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "warder": {
         "id": "warder",
-        "name": "Warder",
+        "name": "闇天使守衛",
         "lineageId": "trickster",
         "lineageName": "Trickster",
         "stage": 1,
@@ -2240,7 +2240,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "kamaelSoldier",
-        "desc": "Guardiã Kamael — especialista em crossbow.",
+        "desc": "專精弩武器的闇天使守衛。",
         "skillIds": [
             "cunning_shot",
             "cunning_throw",
@@ -2251,7 +2251,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "soulRanger": {
         "id": "soulRanger",
-        "name": "Soul Ranger",
+        "name": "靈魂遊俠",
         "lineageId": "trickster",
         "lineageName": "Trickster",
         "stage": 2,
@@ -2259,7 +2259,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "warder",
-        "desc": "Ranger soul — crossbow com poder da alma.",
+        "desc": "將靈魂力量注入弩箭的遊俠。",
         "skillIds": [
             "cunning_arrow",
             "soul_wound",
@@ -2270,7 +2270,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "trickster": {
         "id": "trickster",
-        "name": "Trickster",
+        "name": "詭術師",
         "lineageId": "trickster",
         "lineageName": "Trickster",
         "stage": 3,
@@ -2278,7 +2278,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "soulRanger",
-        "desc": "Trapaceiro — crossbow com armadilhas e truques.",
+        "desc": "以弩、陷阱與詭計作戰的高階射手。",
         "skillIds": [
             "legendary_archer",
             "cunning_arrest",
@@ -2289,7 +2289,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "samuraiBase": {
         "id": "samuraiBase",
-        "name": "Bushi (Samurai)",
+        "name": "武士學徒",
         "lineageId": "samurai",
         "lineageName": "Samurai",
         "stage": 0,
@@ -2297,7 +2297,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Bushi — aprendiz do caminho da lâmina e técnicas de Katana.",
+        "desc": "學習刀之道與太刀技法的武士學徒。",
         "skillIds": [
             "single_flash",
             "power_strike",
@@ -2308,7 +2308,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "hatamoto": {
         "id": "hatamoto",
-        "name": "Hatamoto",
+        "name": "旗本",
         "lineageId": "samurai",
         "lineageName": "Samurai",
         "stage": 1,
@@ -2316,7 +2316,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "samuraiBase",
-        "desc": "Hatamoto — guerreiro de elite da lâmina com disciplina marcial.",
+        "desc": "擁有嚴格武道紀律的菁英劍士。",
         "skillIds": [
             "pursuit",
             "wind",
@@ -2327,7 +2327,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "ronin": {
         "id": "ronin",
-        "name": "Ronin",
+        "name": "浪人",
         "lineageId": "samurai",
         "lineageName": "Samurai",
         "stage": 2,
@@ -2335,7 +2335,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "hatamoto",
-        "desc": "Ronin — espadachim solitário com técnicas devastadoras de corte.",
+        "desc": "獨自行走的劍士，精通強力斬擊技巧。",
         "skillIds": [
             "strike",
             "fire",
@@ -2346,7 +2346,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "samurai": {
         "id": "samurai",
-        "name": "Samurai",
+        "name": "武士",
         "lineageId": "samurai",
         "lineageName": "Samurai",
         "stage": 3,
@@ -2354,7 +2354,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "ronin",
-        "desc": "Samurai — mestre supremo da lâmina com técnicas lendárias de Kenjutsu.",
+        "desc": "精通傳說劍術的最高階武士。",
         "skillIds": [
             "battojutsu",
             "thousand_wounds",
@@ -2365,7 +2365,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "sylphGunner": {
         "id": "sylphGunner",
-        "name": "Sylph Gunner",
+        "name": "風精靈槍手",
         "lineageId": "stormBlaster",
         "lineageName": "Storm Blaster",
         "stage": 0,
@@ -2373,7 +2373,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Atirador elemental Sylph.",
+        "desc": "操控元素力量的風精靈射手。",
         "skillIds": [
             "dual_blow",
             "elemental_care",
@@ -2384,7 +2384,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "sharpshooter": {
         "id": "sharpshooter",
-        "name": "Sharpshooter",
+        "name": "神射手",
         "lineageId": "stormBlaster",
         "lineageName": "Storm Blaster",
         "stage": 1,
@@ -2403,7 +2403,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "windSniper": {
         "id": "windSniper",
-        "name": "Wind Sniper",
+        "name": "風之狙擊手",
         "lineageId": "stormBlaster",
         "lineageName": "Storm Blaster",
         "stage": 2,
@@ -2422,7 +2422,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "stormBlaster": {
         "id": "stormBlaster",
-        "name": "Storm Blaster",
+        "name": "暴風砲手",
         "lineageId": "stormBlaster",
         "lineageName": "Storm Blaster",
         "stage": 3,
@@ -2430,7 +2430,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "windSniper",
-        "desc": "Atirador da tempestade — devastação à distância com armas de fogo.",
+        "desc": "使用火器進行遠距離毀滅攻擊的暴風射手。",
         "skillIds": [
             "greater_wind_shot",
             "frosty_sting",
@@ -2441,7 +2441,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "lightTemplar": {
         "id": "lightTemplar",
-        "name": "Light Templar",
+        "name": "光之聖殿騎士",
         "lineageId": "divineTemplar",
         "lineageName": "Divine Templar",
         "stage": 1,
@@ -2460,7 +2460,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "holyTemplar": {
         "id": "holyTemplar",
-        "name": "Holy Templar",
+        "name": "神聖聖殿騎士",
         "lineageId": "divineTemplar",
         "lineageName": "Divine Templar",
         "stage": 2,
@@ -2479,7 +2479,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "divineTemplar": {
         "id": "divineTemplar",
-        "name": "Divine Templar",
+        "name": "神聖聖騎士",
         "lineageId": "divineTemplar",
         "lineageName": "Divine Templar",
         "stage": 3,
@@ -2487,7 +2487,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "holyTemplar",
-        "desc": "Templário Divino — tanque sagrado com poder ofensivo e defesa suprema.",
+        "desc": "兼具神聖攻擊力與頂級防禦能力的坦克。",
         "skillIds": [
             "holy_circle",
             "judgment",
@@ -2498,7 +2498,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elementWeaverS1": {
         "id": "elementWeaverS1",
-        "name": "Element Weaver",
+        "name": "元素編織者",
         "lineageId": "elementWeaver",
         "lineageName": "Element Weaver",
         "stage": 1,
@@ -2517,7 +2517,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elementWeaverS2": {
         "id": "elementWeaverS2",
-        "name": "Element Weaver",
+        "name": "元素編織者",
         "lineageId": "elementWeaver",
         "lineageName": "Element Weaver",
         "stage": 2,
@@ -2536,7 +2536,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elementWeaver": {
         "id": "elementWeaver",
-        "name": "Element Weaver",
+        "name": "元素編織者",
         "lineageId": "elementWeaver",
         "lineageName": "Element Weaver",
         "stage": 3,
@@ -2544,7 +2544,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "elementWeaverS2",
-        "desc": "Tecelão elemental — mestre supremo dos elementos.",
+        "desc": "掌控各種元素力量的最高階施法者。",
         "skillIds": [
             "sephiroth",
             "blazing_tempest",
@@ -2555,7 +2555,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "marauderBase": {
         "id": "marauderBase",
-        "name": "Ertheia Fighter",
+        "name": "艾爾提亞戰士",
         "lineageId": "eviscerator",
         "lineageName": "Eviscerator",
         "stage": 0,
@@ -2563,7 +2563,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Lutadora Ertheia — mestre veloz de combate corporal com ventos de Sayha.",
+        "desc": "運用賽哈之風進行高速近身戰鬥的艾爾提亞戰士。",
         "skillIds": [
             "iron_punch",
             "kamael_s_dignity",
@@ -2574,7 +2574,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "marauder": {
         "id": "marauder",
-        "name": "Marauder",
+        "name": "掠襲者",
         "lineageId": "eviscerator",
         "lineageName": "Eviscerator",
         "stage": 1,
@@ -2582,7 +2582,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "marauderBase",
-        "desc": "Saqueadora — especialista em combos rápidos de vento e golpes aéreos.",
+        "desc": "擅長高速風系連段與空中攻擊。",
         "skillIds": [
             "soul_smash",
             "increase_power",
@@ -2593,7 +2593,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "ertheiaWarrior": {
         "id": "ertheiaWarrior",
-        "name": "Eviscerator",
+        "name": "裂空者",
         "lineageId": "eviscerator",
         "lineageName": "Eviscerator",
         "stage": 2,
@@ -2601,7 +2601,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "marauder",
-        "desc": "Evisceradora — guerreira marcial letal que corta o ar e destrói defesas.",
+        "desc": "以武術切裂空氣並破壞敵方防禦的致命戰士。",
         "skillIds": [
             "soul_impulse",
             "enuma_elish",
@@ -2612,7 +2612,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "eviscerator": {
         "id": "eviscerator",
-        "name": "Eviscerator",
+        "name": "裂空者",
         "lineageId": "eviscerator",
         "lineageName": "Eviscerator",
         "stage": 3,
@@ -2620,7 +2620,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "ertheiaWarrior",
-        "desc": "Evisceradora Imperial — mestre suprema de combate corporal com poder dimensional de Sayha.",
+        "desc": "運用賽哈次元力量的最高階近戰大師。",
         "skillIds": [
             "overwhelming_power",
             "powerful_rush",
@@ -2631,7 +2631,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "sayhaMageBase": {
         "id": "sayhaMageBase",
-        "name": "Sayha Mage",
+        "name": "賽哈法師",
         "lineageId": "sayhaSeeker",
         "lineageName": "Sayha Seeker",
         "stage": 0,
@@ -2639,7 +2639,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 1,
         "maxLevel": 19,
         "parentClass": null,
-        "desc": "Mística Ertheia — invocadora elemental dos vendavais de Sayha.",
+        "desc": "召喚賽哈風暴元素力量的艾爾提亞秘術師。",
         "skillIds": [
             "fireball",
             "wind_strike",
@@ -2650,7 +2650,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "sayhaSeer": {
         "id": "sayhaSeer",
-        "name": "Sayha Seeker",
+        "name": "賽哈追尋者",
         "lineageId": "sayhaSeeker",
         "lineageName": "Sayha Seeker",
         "stage": 1,
@@ -2658,7 +2658,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "sayhaMageBase",
-        "desc": "Buscadora de Sayha — canalizadora de correntes de ar e tempestades.",
+        "desc": "引導氣流與暴風的賽哈追尋者。",
         "skillIds": [
             "aqua_swirl",
             "concentration",
@@ -2669,7 +2669,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "windRiderErth": {
         "id": "windRiderErth",
-        "name": "Sayha Seeker",
+        "name": "賽哈追尋者",
         "lineageId": "sayhaSeeker",
         "lineageName": "Sayha Seeker",
         "stage": 2,
@@ -2677,7 +2677,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "sayhaSeer",
-        "desc": "Condutora dos Ventos — maga que comanda tufões devastadores.",
+        "desc": "操控毀滅性颱風的風之法師。",
         "skillIds": [
             "hydro_blast",
             "aqua_splash",
@@ -2688,7 +2688,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "sayhaSeeker": {
         "id": "sayhaSeeker",
-        "name": "Sayha Seeker",
+        "name": "賽哈追尋者",
         "lineageId": "sayhaSeeker",
         "lineageName": "Sayha Seeker",
         "stage": 3,
@@ -2696,7 +2696,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 76,
         "maxLevel": 120,
         "parentClass": "windRiderErth",
-        "desc": "Mestra Suprema de Sayha — soberana dos vendavais e tempestades de Aden.",
+        "desc": "統御亞丁暴風與風暴的最高階賽哈法師。",
         "skillIds": [
             "ice_vortex",
             "mystic_explosion",

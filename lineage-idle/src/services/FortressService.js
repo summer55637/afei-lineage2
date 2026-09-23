@@ -3,7 +3,7 @@ import { BRACELETS, TALISMANS } from '../data/talismans.js';
 
 export class FortressService {
   /**
-   * Garante a inicialização do estado de Fortalezas
+   * Garante a inicialização do estado de 要塞s
    */
   static ensureState(state) {
     if (!state.fortresses || typeof state.fortresses !== 'object') {
@@ -23,15 +23,15 @@ export class FortressService {
   }
 
   /**
-   * Inicia o cerco à Fortaleza
+   * Inicia o cerco à 要塞
    */
   static startFortressSiege(state, fortId, hooks = {}) {
     const fState = this.ensureState(state);
     const fort = FORTRESSES[fortId];
-    if (!fort) return { success: false, message: 'Fortaleza não encontrada.' };
+    if (!fort) return { success: false, message: '找不到要塞。' };
 
     if (state.level < fort.level) {
-      return { success: false, message: `Nível ${fort.level}+ necessário para atacar ${fort.name}.` };
+      return { success: false, message: `攻擊 ${fort.name} 需要等級 ${fort.level} 以上。` };
     }
 
     fState.activeSiege = {
@@ -46,19 +46,19 @@ export class FortressService {
       isCompleted: false
     };
 
-    hooks.log?.(`⚔️ Ataque iniciado contra **${fort.name}**! Destrua os ${fort.generators} Geradores de Energia da guarnição!`, 'warning');
+    hooks.log?.(`⚔️ 已開始攻擊 **${fort.name}**！摧毀守軍的 ${fort.generators} 座能源產生器！`, 'warning');
     hooks.onUpdate?.();
     return { success: true, siege: fState.activeSiege };
   }
 
   /**
-   * Executa um turno no cerco à Fortaleza
+   * Executa um turno no cerco à 要塞
    */
   static executeSiegeTurn(state, hooks = {}) {
     const fState = this.ensureState(state);
     const siege = fState.activeSiege;
     if (!siege || siege.isCompleted) {
-      return { success: false, message: 'Nenhum cerco de fortaleza ativo.' };
+      return { success: false, message: '目前沒有進行中的要塞攻城戰。' };
     }
 
     const playerStats = state.stats || { atk: 3000, matk: 3000 };
@@ -67,9 +67,9 @@ export class FortressService {
     // Destruição dos Geradores de Energia
     if (siege.generatorsRemaining > 0) {
       siege.generatorsRemaining--;
-      hooks.log?.(`💥 Gerador de Energia destruído! (${siege.generatorsRemaining} restantes)`, 'combat');
+      hooks.log?.(`💥 能源產生器已摧毀！（剩餘 ${siege.generatorsRemaining} 座）`, 'combat');
       if (siege.generatorsRemaining === 0) {
-        hooks.log?.(`🚩 Todos os geradores foram destruídos! O Capitão da Fortaleza veio para o confronto final!`, 'warning');
+        hooks.log?.(`🚩 所有能源產生器都已摧毀！要塞隊長現身進行最終決戰！`, 'warning');
       }
       hooks.onUpdate?.();
       return { success: true, stage: 'generators', remaining: siege.generatorsRemaining };
@@ -78,7 +78,7 @@ export class FortressService {
     // Confronto com os Defensores
     const dmg = Math.max(200, Math.floor((playerStats.atk || 2000) * 2.0 - siege.pDef * 0.5));
     siege.defenderHp = Math.max(0, siege.defenderHp - dmg);
-    hooks.log?.(`⚔️ Golpe na Guarda da Fortaleza causando **${dmg.toLocaleString()}** de dano! (HP Restante: ${siege.defenderHp.toLocaleString()})`, 'combat');
+    hooks.log?.(`⚔️ 對要塞守軍造成 **${dmg.toLocaleString()}** 傷害！（剩餘生命值：${siege.defenderHp.toLocaleString()}）`, 'combat');
 
     if (siege.defenderHp <= 0) {
       siege.isCompleted = true;
@@ -87,7 +87,7 @@ export class FortressService {
       }
       const epaulettesReward = fort.level * 10;
       fState.epaulettes += epaulettesReward;
-      hooks.log?.(`🏆 BANDEIRA HASTEADA! Você conquistou **${fort.name}**! Recompensa: +${epaulettesReward} Knight's Epaulettes e bônus territorial ativado!`, 'victory');
+      hooks.log?.(`🏆 旗幟升起！你已攻下 **${fort.name}**！獎勵：+${epaulettesReward} 騎士肩章，並啟用領地加成！`, 'victory');
       fState.activeSiege = null;
       hooks.onUpdate?.();
       return { success: true, isVictory: true, fortId: fort.id };
@@ -122,15 +122,15 @@ export class FortressService {
   }
 
   /**
-   * Comprar/Equipar Bracelete
+   * Comprar/Equipar 手鐲
    */
   static buyBracelet(state, braceletId, hooks = {}) {
     const fState = this.ensureState(state);
     const def = BRACELETS[braceletId];
-    if (!def) return { success: false, message: 'Bracelete não encontrado.' };
+    if (!def) return { success: false, message: '找不到手鐲。' };
 
     if (fState.epaulettes < def.costEpaulettes) {
-      return { success: false, message: `Knight's Epaulettes insuficientes. Requer ${def.costEpaulettes}.` };
+      return { success: false, message: `騎士肩章不足，需要 ${def.costEpaulettes}。` };
     }
 
     fState.epaulettes -= def.costEpaulettes;
@@ -140,58 +140,58 @@ export class FortressService {
       fState.equippedTalismans = fState.equippedTalismans.slice(0, def.slots);
     }
 
-    hooks.log?.(`📿 Você forjou e equipou **${def.name}** (${def.slots} Slots de Talismã)!`, 'gain');
+    hooks.log?.(`📿 你已鍛造並裝備 **${def.name}**（${def.slots} 個護符欄位）！`, 'gain');
     hooks.onUpdate?.();
     return { success: true, bracelet: def };
   }
 
   /**
-   * Comprar e equipar um Talismã
+   * Comprar e equipar um 護符
    */
   static equipTalisman(state, talismanId, hooks = {}) {
     const fState = this.ensureState(state);
     const def = TALISMANS[talismanId];
-    if (!def) return { success: false, message: 'Talismã não encontrado.' };
+    if (!def) return { success: false, message: '找不到護符。' };
 
     const bracelet = BRACELETS[fState.equippedBracelet] || BRACELETS['bracelet_steel'];
     const maxSlots = bracelet.slots;
 
     if (fState.equippedTalismans.includes(talismanId)) {
-      return { success: false, message: 'Este talismã já está equipado.' };
+      return { success: false, message: '此護符已經裝備。' };
     }
 
     if (fState.equippedTalismans.length >= maxSlots) {
-      return { success: false, message: `Seu bracelete só suporta ${maxSlots} talismã(s). Remova um antes de equipar.` };
+      return { success: false, message: `你的手環最多只能裝備 ${maxSlots} 個護符。請先卸下一個再裝備。` };
     }
 
     if (fState.epaulettes < def.costEpaulettes) {
-      return { success: false, message: `Knight's Epaulettes insuficientes. Requer ${def.costEpaulettes}.` };
+      return { success: false, message: `騎士肩章不足，需要 ${def.costEpaulettes}。` };
     }
 
     fState.epaulettes -= def.costEpaulettes;
     fState.equippedTalismans.push(talismanId);
 
-    hooks.log?.(`✨ Talismã **${def.name}** equipado com sucesso no bracelete! (${fState.equippedTalismans.length}/${maxSlots})`, 'gain');
+    hooks.log?.(`✨ 護符 **${def.name}** 已成功裝備到手環！（${fState.equippedTalismans.length}/${maxSlots}）`, 'gain');
     hooks.onUpdate?.();
     return { success: true, talisman: def };
   }
 
   /**
-   * Remover um Talismã equipado
+   * Remover um 護符 equipado
    */
   static unequipTalisman(state, talismanId, hooks = {}) {
     const fState = this.ensureState(state);
     const idx = fState.equippedTalismans.indexOf(talismanId);
-    if (idx === -1) return { success: false, message: 'Talismã não está equipado.' };
+    if (idx === -1) return { success: false, message: '護符尚未裝備。' };
 
     fState.equippedTalismans.splice(idx, 1);
-    hooks.log?.(`Talismã removido do bracelete.`, 'system');
+    hooks.log?.('護符已從手環卸下。', 'system');
     hooks.onUpdate?.();
     return { success: true };
   }
 
   /**
-   * Calcula todos os bônus ativos de Fortalezas e Talismãs
+   * Calcula todos os bônus ativos de 要塞s e 護符s
    */
   static getBonuses(state) {
     const fState = this.ensureState(state);
@@ -209,7 +209,7 @@ export class FortressService {
       pvpDmg: 0
     };
 
-    // Bônus territoriais das Fortalezas possuídas
+    // Bônus territoriais das 要塞s possuídas
     for (const fId of fState.owned) {
       const fort = FORTRESSES[fId];
       if (fort && fort.buff) {
@@ -221,7 +221,7 @@ export class FortressService {
       }
     }
 
-    // Bônus dos Talismãs equipados
+    // Bônus dos 護符s equipados
     const isDynasty = fState.equippedBracelet === 'bracelet_dynasty';
     const mult = isDynasty ? 1.10 : 1.0;
 

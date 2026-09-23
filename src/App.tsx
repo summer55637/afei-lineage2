@@ -53,9 +53,9 @@ function ModeSwitch({
 
   const getModeBadge = () => {
     switch (mode) {
-      case "idle": return "📜 Idle Chronicle";
-      case "arena": return "⚔ 3D Arena";
-      case "pixel2d": return "👾 Aden Pixel 2D";
+      case "idle": return "📜 放置編年史";
+      case "arena": return "⚔ 3D 競技場";
+      case "pixel2d": return "👾 亞丁像素 2D";
     }
   };
 
@@ -63,7 +63,7 @@ function ModeSwitch({
     <div className="mode-menu-container" ref={menuRef}>
       <button
         type="button"
-        aria-label="Toggle game mode menu"
+        aria-label="切換遊戲模式選單"
         className={cn("hamburger-btn", isOpen && "is-active")}
         onClick={() => setIsOpen((prev) => !prev)}
       >
@@ -79,7 +79,7 @@ function ModeSwitch({
 
       {isOpen && (
         <div className="mode-dropdown">
-          <div className="mode-dropdown__header">Modo de Jogo (Temporada 1)</div>
+          <div className="mode-dropdown__header">遊戲模式（第 1 賽季）</div>
           <button
             type="button"
             className={cn("mode-dropdown__item", mode === "idle" && "is-active")}
@@ -87,8 +87,8 @@ function ModeSwitch({
           >
             <span className="mode-dropdown__icon">📜</span>
             <div className="mode-dropdown__info">
-              <div className="mode-dropdown__title">Idle Chronicle</div>
-              <div className="mode-dropdown__desc">RPG de progressão e conquistas de Aden</div>
+              <div className="mode-dropdown__title">放置編年史</div>
+              <div className="mode-dropdown__desc">亞丁成長與冒險角色扮演遊戲</div>
             </div>
             {mode === "idle" && <span className="mode-dropdown__check">✓</span>}
           </button>
@@ -102,8 +102,8 @@ function ModeSwitch({
           >
             <span className="mode-dropdown__icon">👾</span>
             <div className="mode-dropdown__info">
-              <div className="mode-dropdown__title">Aden Pixel 2D</div>
-              <div className="mode-dropdown__desc">Combate retrô 2D com pixel art & animações</div>
+              <div className="mode-dropdown__title">亞丁像素 2D</div>
+              <div className="mode-dropdown__desc">復古像素風 2D 戰鬥與動畫</div>
             </div>
             {mode === "pixel2d" && <span className="mode-dropdown__check">✓</span>}
           </button>
@@ -114,8 +114,8 @@ function ModeSwitch({
           >
             <span className="mode-dropdown__icon">⚔</span>
             <div className="mode-dropdown__info">
-              <div className="mode-dropdown__title">3D Arena</div>
-              <div className="mode-dropdown__desc">Combate de ação 3D em tempo real</div>
+              <div className="mode-dropdown__title">3D 競技場</div>
+              <div className="mode-dropdown__desc">即時 3D 動作戰鬥</div>
             </div>
             {mode === "arena" && <span className="mode-dropdown__check">✓</span>}
           </button>
@@ -137,13 +137,13 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boole
     if (this.state.hasError) {
       return (
         <div className="fixed inset-0 flex flex-col items-center justify-center bg-[#06080f] text-white p-6 text-center z-50">
-          <h2 className="text-2xl font-bold text-amber-300 mb-2">Ops! Ocorreu um erro inesperado.</h2>
-          <p className="text-sm text-white/60 mb-4">{this.state.error?.message || "Erro de execução."}</p>
+          <h2 className="text-2xl font-bold text-amber-300 mb-2">糟糕！發生未預期的錯誤。</h2>
+          <p className="text-sm text-white/60 mb-4">遊戲執行時發生錯誤，請重新載入後再試。</p>
           <button
             onClick={() => window.location.reload()}
             className="px-4 py-2 bg-amber-500 text-black font-bold rounded-xl hover:bg-amber-400 transition"
           >
-            Recarregar Jogo
+            重新載入遊戲
           </button>
         </div>
       );
@@ -198,11 +198,11 @@ export default function Shell() {
       ) : (
         <>
           {mode === "arena" ? (
-            <Suspense fallback={<div className="loading-spinner">Carregando arena...</div>}>
+            <Suspense fallback={<div className="loading-spinner">正在載入競技場...</div>}>
               <ArenaApp />
             </Suspense>
           ) : mode === "pixel2d" ? (
-            <Suspense fallback={<div className="loading-spinner">Carregando arena...</div>}>
+            <Suspense fallback={<div className="loading-spinner">正在載入競技場...</div>}>
               <Aden2DGame />
             </Suspense>
           ) : (

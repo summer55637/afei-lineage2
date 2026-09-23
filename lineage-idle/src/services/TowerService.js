@@ -21,19 +21,19 @@ export function getTowerFloorDef(floorNum) {
   const isBoss = f % 10 === 0;
 
   const names = {
-    10: 'Hallate, o Guardião da Torre (Boss)',
-    20: 'Kernea, a Imperatriz de Sangue (Boss)',
-    30: 'Varan, o Arquiduque Sombrio (Boss)',
-    40: 'Kavatan, o Guardião de Elmore (Boss)',
-    50: 'Baium, o Imperador Imortal (Boss)',
-    60: 'Galaxia, a Primordial (Boss)',
-    70: 'Shielhead, o Titã de Aço (Boss)',
-    80: 'Golkonda, o Destruidor de Reinos (Boss)',
-    90: 'Verdelet, o Demônio Guardião (Boss)',
-    100: 'Arcanjo da Insolência (Final Boss)'
+    10: '哈拉特，高塔守護者（首領）',
+    20: '克妮亞，鮮血女皇（首領）',
+    30: '瓦蘭，黑暗大公（首領）',
+    40: '卡瓦坦，艾爾摩守護者（首領）',
+    50: '巴溫，不死皇帝（首領）',
+    60: '銀河，太古存在（首領）',
+    70: '希爾海德，鋼鐵泰坦（首領）',
+    80: '戈爾貢達，王國毀滅者（首領）',
+    90: '維德雷特，惡魔守護者（首領）',
+    100: '傲慢大天使（最終首領）'
   };
 
-  const name = names[f] || (isBoss ? `Guardião do Andar ${f} (Boss)` : `Guerreiro de Insolência Nv.${f}`);
+  const name = names[f] || (isBoss ? `第 ${f} 層守護者（首領）` : `傲慢戰士（等級 ${f}）`);
   const reqLvl = Math.min(100, Math.floor(f * 0.95) + 1);
 
   const baseHp = Math.floor(120 * Math.pow(1.12, f - 1) * (isBoss ? 2.5 : 1));
@@ -92,19 +92,19 @@ export function challengeTowerFloor(state, callbacks = {}) {
   state.tower = state.tower || { highestFloor: 0, currentFloor: 1, lastSweepTime: 0 };
   const targetFloor = (state.tower.highestFloor || 0) + 1;
   if (targetFloor > 100) {
-    if (callbacks.log) callbacks.log('🏆 Você já conquistou todos os 100 Andares da Torre da Insolência!', 'rarity-legendary');
+    if (callbacks.log) callbacks.log('🏆 你已攻略傲慢之塔全部 100 層！', 'rarity-legendary');
     return;
   }
 
   const fDef = getTowerFloorDef(targetFloor);
 
   if (state.level < fDef.reqLvl) {
-    if (callbacks.log) callbacks.log(`⚠️ Nível insuficiente! O Andar ${targetFloor} requer Nível ${fDef.reqLvl}.`, 'system');
+    if (callbacks.log) callbacks.log(`⚠️ 等級不足！第 ${targetFloor} 層需要等級 ${fDef.reqLvl}。`, 'system');
     return;
   }
 
-  if (callbacks.log) callbacks.log(`🏰 Desafiando Andar ${targetFloor}: **${fDef.name}**!`, 'rarity-legendary');
-  if (callbacks.floatText) callbacks.floatText(`ANDAR ${targetFloor}!`, 'float-jackpot');
+  if (callbacks.log) callbacks.log(`🏰 挑戰第 ${targetFloor} 層：**${fDef.name}**！`, 'rarity-legendary');
+  if (callbacks.floatText) callbacks.floatText(`第 ${targetFloor} 層！`, 'float-jackpot');
 
   const towerMonsterId = `tower_floor_${targetFloor}`;
   const monsterObj = {
@@ -142,9 +142,9 @@ export function challengeTowerFloor(state, callbacks = {}) {
 
   if (callbacks.el) {
     const sz = callbacks.el('stage-zone');
-    if (sz) sz.textContent = `🏰 INSTÂNCIA TORRE · Andar ${targetFloor} (60s)`;
+    if (sz) sz.textContent = `🏰 高塔副本 · 第 ${targetFloor} 層（60 秒）`;
     const zn = callbacks.el('zone-name');
-    if (zn) zn.textContent = `Torre Andar ${targetFloor}`;
+    if (zn) zn.textContent = `高塔第 ${targetFloor} 層`;
   }
 
   stopCombat(state);
@@ -166,18 +166,18 @@ export function completeTowerFloor(state, floorNum, callbacks = {}) {
     state.tower.currentFloor = Math.min(100, floorNum + 1);
 
     const fDef = getTowerFloorDef(floorNum);
-    if (callbacks.log) callbacks.log(`🏆 VITÓRIA! Andar ${floorNum} Conquistado! Bônus Permanente ATK/DEF +${floorNum}%!`, 'rarity-legendary');
-    if (callbacks.floatText) callbacks.floatText(`ANDAR ${floorNum} CONQUISTADO!`, 'float-jackpot');
+    if (callbacks.log) callbacks.log(`🏆 勝利！已攻略第 ${floorNum} 層！永久攻擊／防禦 +${floorNum}%！`, 'rarity-legendary');
+    if (callbacks.floatText) callbacks.floatText(`第 ${floorNum} 層攻略完成！`, 'float-jackpot');
 
     if (fDef.rewardLamps > 0) {
       state.magicLamps = (state.magicLamps || 0) + fDef.rewardLamps;
-      if (callbacks.log) callbacks.log(`🪔 Recompensa de Primeiro Abate: +${fDef.rewardLamps} Lâmpadas Mágicas!`, 'rarity-epic');
+      if (callbacks.log) callbacks.log(`🪔 首次擊破獎勵：+${fDef.rewardLamps} 個魔法神燈！`, 'rarity-epic');
     }
     if (fDef.rewardCrystals) {
       addToInventory(state, fDef.rewardCrystals, 3, null, false, callbacks);
       const gData = D();
       const cName = gData?.ALL_ITEMS?.[fDef.rewardCrystals]?.name || fDef.rewardCrystals;
-      if (callbacks.log) callbacks.log(`✨ Recompensa de Primeiro Abate: +3x ${cName}!`, 'rarity-legendary');
+      if (callbacks.log) callbacks.log(`✨ 首次擊破獎勵：+3× ${cName}！`, 'rarity-legendary');
     }
 
     triggerQuestEvent(state, 'boss', 1);
@@ -196,14 +196,14 @@ export function sweepTowerDaily(state, callbacks = {}) {
   state.tower = state.tower || { highestFloor: 0, currentFloor: 1, lastSweepTime: 0 };
   const highest = state.tower.highestFloor || 0;
   if (highest < 1) {
-    if (callbacks.log) callbacks.log('Conquiste ao menos 1 Andar da Torre para realizar a Varredura Diária!', 'system');
+    if (callbacks.log) callbacks.log('至少攻略高塔 1 層才能進行每日掃蕩！', 'system');
     return;
   }
 
   const now = Date.now();
   const ONE_DAY = 24 * 60 * 60 * 1000;
   if (state.tower.lastSweepTime && (now - state.tower.lastSweepTime) < ONE_DAY) {
-    if (callbacks.log) callbacks.log('A Varredura Diária já foi realizada hoje! Tente novamente amanhã.', 'system');
+    if (callbacks.log) callbacks.log('今天已完成每日掃蕩！請明天再來。', 'system');
     return;
   }
 
@@ -220,8 +220,8 @@ export function sweepTowerDaily(state, callbacks = {}) {
   state.gold = (state.gold || 0) + totalGold;
   state.sp = (state.sp || 0) + totalSp;
 
-  if (callbacks.log) callbacks.log(`🧹 VARREDURA DA TORRE! Reclamou recompensas de ${highest} andares: +${totalGold.toLocaleString()} Gold, +${totalSp.toLocaleString()} SP!`, 'rarity-legendary');
-  if (callbacks.floatText) callbacks.floatText(`+${totalGold.toLocaleString()}g VARREDURA!`, 'float-jackpot');
+  if (callbacks.log) callbacks.log(`🧹 高塔掃蕩完成！領取 ${highest} 層獎勵：+${totalGold.toLocaleString()} 金幣、+${totalSp.toLocaleString()} 技能點！`, 'rarity-legendary');
+  if (callbacks.floatText) callbacks.floatText(`+${totalGold.toLocaleString()} 金幣掃蕩獎勵！`, 'float-jackpot');
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save(true, true);

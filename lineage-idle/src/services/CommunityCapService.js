@@ -14,7 +14,7 @@ export const DEFAULT_COMMUNITY_GOAL = {
   baseCap: 40,
   targetCap: 45,
   bossId: 'flamingDemonLord',
-  bossName: 'Flaming Demon Lord (Black Citadel)',
+  bossName: '黑色城堡的烈焰魔王',
   targetKills: 100,
   currentKills: 0,
   unlocked: false,
@@ -105,7 +105,7 @@ export class CommunityCapService {
 
     if (!prevUnlocked && currentGoal.unlocked) {
       if (callbacks.log) {
-        callbacks.log('🌟 **COMUNIDADE DE ADEN VENCEU!** O Raidboss da Black Citadel foi derrotado 100 vezes! O Level CAP 45 foi liberado para todo o servidor!', 'rarity-legendary');
+        callbacks.log('🌟 **亞丁社群勝利！** 黑色城堡團隊首領已被擊敗 100 次！全伺服器等級上限 45 已解鎖！', 'rarity-legendary');
       }
       if (callbacks.updateAllUI) callbacks.updateAllUI();
     }
@@ -133,7 +133,7 @@ export class CommunityCapService {
     this.updateLocalState(goal, callbacks);
 
     if (callbacks.log) {
-      callbacks.log(`🌍 **[Meta Global]** Derrota de ${monster.name} registrada! Progresso do Servidor: **${goal.currentKills}/${goal.targetKills}** abates para o CAP 45!`, 'rarity-epic');
+      callbacks.log(`🌍 **[全服目標]** 已記錄擊敗 ${monster.name}！伺服器進度：**${goal.currentKills}/${goal.targetKills}**，解鎖等級上限 45！`, 'rarity-epic');
     }
 
     // Tenta persistir no Firestore para compartilhar com todos os jogadores
@@ -147,7 +147,7 @@ export class CommunityCapService {
             [DEFAULT_COMMUNITY_GOAL.id]: {
               ...goal,
               currentKills: increment ? increment(1) : goal.currentKills,
-              lastKillBy: state?.name || 'Herói de Aden',
+              lastKillBy: state?.name || '亞丁英雄',
               updatedAt: Date.now()
             }
           }, { merge: true });
@@ -172,25 +172,25 @@ export class CommunityCapService {
           <div style="display:flex; align-items:center; gap:8px;">
             <span style="font-size:16px;">${goal.unlocked ? '🏆' : '🌍'}</span>
             <span style="font-family:'Cinzel',serif; font-weight:bold; font-size:12px; color:${goal.unlocked ? '#4ade80' : 'var(--gilt-bright)'};">
-              ${goal.unlocked ? 'Meta Comunitária Concluída: CAP 45 Liberado!' : 'Meta Global do Servidor: Liberar Level CAP 45'}
+              ${goal.unlocked ? '社群目標完成：等級上限 45 已解鎖！' : '全服目標：解鎖等級上限 45'}
             </span>
           </div>
           <span style="font-size:11px; padding:2px 8px; border-radius:12px; font-weight:bold; ${goal.unlocked ? 'background:rgba(34,197,94,0.2); color:#4ade80; border:1px solid rgba(34,197,94,0.4);' : 'background:rgba(212,175,55,0.15); color:#fde047; border:1px solid rgba(212,175,55,0.3);'}">
-            ${goal.unlocked ? 'CAP 45 ATIVO' : `CAP ATUAL: ${goal.baseCap}`}
+            ${goal.unlocked ? '等級上限 45 已啟用' : `目前上限：${goal.baseCap}`}
           </span>
         </div>
 
         <p style="font-size:11px; color:#94a3b8; margin:0 0 8px 0; line-height:1.3;">
           ${goal.unlocked 
-            ? `O Raidboss <strong>${goal.bossName}</strong> foi derrotado 100 vezes pela comunidade! Todos os guerreiros agora podem evoluir até o <strong>Nível 45</strong>.`
-            : `Derrote o Raidboss <strong>${goal.bossName}</strong> 100 vezes coletivamente para desbloquear a expansão de Nível 45 e novas zonas de caça.`}
+            ? `社群已擊敗團隊首領 <strong>${goal.bossName}</strong> 100 次！所有玩家現在都可提升至 <strong>等級 45</strong>。`
+            : `全服共同擊敗團隊首領 <strong>${goal.bossName}</strong> 100 次，即可解鎖等級 45 與新的狩獵區。`}
         </p>
 
         <!-- Barra de Progresso Global -->
         <div style="background:rgba(0,0,0,0.6); border:1px solid rgba(255,255,255,0.1); border-radius:8px; height:18px; position:relative; overflow:hidden;">
           <div style="width:${pct}%; height:100%; background:${goal.unlocked ? 'linear-gradient(90deg,#10b981,#34d399)' : 'linear-gradient(90deg,#eab308,#f59e0b)'}; transition:width 0.4s ease; box-shadow:0 0 10px rgba(234,179,8,0.5);"></div>
           <div style="position:absolute; inset:0; display:flex; justify-content:space-between; align-items:center; padding:0 8px; font-size:10px; font-weight:bold; color:#fff; text-shadow:0 1px 2px #000;">
-            <span>${goal.currentKills} / ${goal.targetKills} Abates Globais</span>
+            <span>${goal.currentKills} / ${goal.targetKills} 全服擊殺</span>
             <span>${pct}%</span>
           </div>
         </div>

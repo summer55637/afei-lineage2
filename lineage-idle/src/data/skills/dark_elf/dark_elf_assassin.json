@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "toxic_flurry",
-        "name": "Rajada Tóxica",
+        "name": "毒素亂舞",
         "classId": "dark_elf_assassin",
         "race": "dark_elf",
         "tier": "core_1",
@@ -15,7 +15,7 @@
           "Poison",
           "Dark"
         ],
-        "description": "Rajada Tóxica — Habilidade Especialista de dark_elf_assassin."
+        "description": "毒素亂舞——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -167,7 +167,7 @@
     {
       "identity": {
         "id": "venom_fang",
-        "name": "Presa Venenosa",
+        "name": "毒牙",
         "classId": "dark_elf_assassin",
         "race": "dark_elf",
         "tier": "core_2",
@@ -177,7 +177,7 @@
         "tags": [
           "Poison"
         ],
-        "description": "Presa Venenosa — Habilidade Especialista de dark_elf_assassin."
+        "description": "毒牙——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -329,7 +329,7 @@
     {
       "identity": {
         "id": "shadow_toxin",
-        "name": "Toxina Sombria",
+        "name": "暗影毒素",
         "classId": "dark_elf_assassin",
         "race": "dark_elf",
         "tier": "specialization",
@@ -340,7 +340,7 @@
           "Dark",
           "Poison"
         ],
-        "description": "Toxina Sombria — Habilidade Especialista de dark_elf_assassin."
+        "description": "暗影毒素——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -492,7 +492,7 @@
     {
       "identity": {
         "id": "lethal_dose",
-        "name": "Dose Letal",
+        "name": "致命劑量",
         "classId": "dark_elf_assassin",
         "race": "dark_elf",
         "tier": "elemental_specialization",
@@ -503,7 +503,7 @@
           "Poison",
           "Dark"
         ],
-        "description": "Dose Letal — Habilidade Especialista de dark_elf_assassin."
+        "description": "致命劑量——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -673,7 +673,7 @@
     {
       "identity": {
         "id": "venomous_eclipse",
-        "name": "Venomous Eclipse",
+        "name": "毒蝕日蝕",
         "classId": "dark_elf_assassin",
         "race": "dark_elf",
         "tier": "ultimate",
@@ -683,7 +683,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Venomous Eclipse — Habilidade Ultimate (★★★★) de dark_elf_assassin."
+        "description": "毒蝕日蝕——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -868,7 +868,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "VENOMOUS ECLIPSE!",
+          "text": "毒蝕日蝕！",
           "style": "gold_banner",
           "banner": true
         }
@@ -889,7 +889,7 @@
     {
       "identity": {
         "id": "master_venomous_eclipse",
-        "name": "Master: Venomous Eclipse",
+        "name": "大師：毒蝕日蝕",
         "classId": "dark_elf_assassin",
         "race": "dark_elf",
         "tier": "master_ultimate",
@@ -899,7 +899,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Master: Venomous Eclipse — Habilidade Master Ultimate (★★★★★) de dark_elf_assassin."
+        "description": "大師：毒蝕日蝕——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1085,7 +1085,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: VENOMOUS ECLIPSE!",
+          "text": "大師：毒蝕日蝕！",
           "style": "mythic_banner",
           "banner": true
         }

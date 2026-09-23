@@ -8,11 +8,11 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
   if (!container || !state) return;
 
   const categories = [
-    { id: 'all', name: 'Todos os Refinos', icon: '⚗️' },
-    { id: 'wood', name: 'Madeira & Fibras', icon: '🪵' },
-    { id: 'leather', name: 'Curtume & Peles', icon: '🛡️' },
-    { id: 'metal', name: 'Metalurgia Imperial', icon: '⛏️' },
-    { id: 'alchemy', name: 'Alquimia & Reagentes', icon: '🧪' }
+    { id: 'all', name: '所有精煉', icon: '⚗️' },
+    { id: 'wood', name: '木材與纖維', icon: '🪵' },
+    { id: 'leather', name: '鞣製與皮革', icon: '🛡️' },
+    { id: 'metal', name: '帝國冶金', icon: '⛏️' },
+    { id: 'alchemy', name: '煉金與試劑', icon: '🧪' }
   ];
 
   const recipes = RefineryService.getRecipes(_activeRefineryCategory);
@@ -46,7 +46,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
   if (recipes.length === 0) {
     recipesCardsHtml = `
       <div style="grid-column: 1 / -1; padding: 24px; text-align: center; color: #94a3b8; font-style: italic;">
-        Nenhuma receita nesta categoria.
+        此分類目前沒有配方。
       </div>
     `;
   } else {
@@ -57,7 +57,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
 
       let inputsHtml = '';
       for (const inp of rec.inputs) {
-        const matDef = RESOURCE_DICTIONARY[inp.matId] || { name: inp.matId, icon: 'materials/stem.png' };
+        const matDef = RESOURCE_DICTIONARY[inp.matId] || { name: '未知材料', icon: 'materials/stem.png' };
         const have = RefineryService.getMaterialCount(state, inp.matId);
         const hasEnough = have >= inp.qty;
 
@@ -95,17 +95,17 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
           transition: border-color 0.2s;
         ">
           <div>
-            <!-- Cabeçalho da Receita -->
+            <!-- Cabeçalho da 配方 -->
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
               <div style="display: flex; align-items: center; gap: 8px;">
                 <img src="/img/icons/${outDef.icon}" style="width:28px; height:28px; object-fit:contain; border:1px solid rgba(212,167,68,0.4); border-radius:4px; background:rgba(0,0,0,0.5); padding:2px;" onerror="this.src='/img/icons/materials/steel.png'" />
                 <div>
                   <h4 style="margin: 0; font-family: 'Cinzel', serif; font-size: 13px; color: #f4d58a;">${rec.name}</h4>
-                  <div style="font-size: 9px; color: #94a3b8;">Estoque: <strong style="color:#ffd877;">${currentOutputCount}</strong> | +${rec.forgeExp} EXP Forja</div>
+                  <div style="font-size: 9px; color: #94a3b8;">庫存：<strong style="color:#ffd877;">${currentOutputCount}</strong> ｜+${rec.forgeExp} 鍛造經驗值</div>
                 </div>
               </div>
               <span style="font-size: 10px; color: #ffd877; background: rgba(212,167,68,0.15); border: 1px solid rgba(212,167,68,0.3); border-radius: 4px; padding: 2px 6px; font-weight: bold;">
-                🪙 ${rec.adenaCost.toLocaleString()} Adena
+                🪙 ${rec.adenaCost.toLocaleString()} 金幣
               </span>
             </div>
 
@@ -113,7 +113,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
               ${rec.desc}
             </p>
 
-            <!-- Materiais Requeridos ➔ Saída -->
+            <!-- 所需材料 ➔ 產出 -->
             <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 12px;">
               ${inputsHtml}
               <span style="color: #6ee7b7; font-size: 14px; font-weight: bold;">➔</span>
@@ -149,7 +149,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
                 cursor: ${maxPossible >= 1 ? 'pointer' : 'not-allowed'};
               "
             >
-              Refinar x1
+              精煉 x1
             </button>
             <button
               onclick="window.refineMaterial('${rec.id}', 10)"
@@ -166,7 +166,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
                 cursor: ${maxPossible >= 10 ? 'pointer' : 'not-allowed'};
               "
             >
-              Refinar x10
+              精煉 x10
             </button>
             <button
               onclick="window.refineMaterialMax('${rec.id}')"
@@ -184,7 +184,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
                 cursor: ${maxPossible > 0 ? 'pointer' : 'not-allowed'};
               "
             >
-              Refinar Máx (${maxPossible})
+              最大量精煉 (${maxPossible})
             </button>
           </div>
         </div>
@@ -208,14 +208,14 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
       ">
         <div>
           <h3 style="margin: 0; font-family: 'Cinzel', serif; color: #6ee7b7; font-size: 16px;">
-            ⚗️ Bancada de Refino de Materiais (Life Activities 2.0)
+            ⚗️ 材料精煉工作台（生活系統 2.0）
           </h3>
           <p style="margin: 4px 0 0 0; font-size: 11px; color: #cbd5e1;">
-            Transforme madeira, peles, ossos, minérios e ervas colhidos nas atividades de vida em materiais nobres para a Forja Imperial.
+            將生活活動取得的木材、皮革、骨頭、礦石與草藥精煉成帝國鍛造所需的高級材料。
           </p>
         </div>
         <div style="font-size: 11px; color: #ffd877; background: rgba(0,0,0,0.5); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(212,167,68,0.3);">
-          🪙 Ouro: <strong style="color:#fde047;">${(state.gold || 0).toLocaleString()} Adena</strong>
+          🪙 金幣： <strong style="color:#fde047;">${(state.gold || 0).toLocaleString()} 金幣</strong>
         </div>
       </div>
 
@@ -224,7 +224,7 @@ export function renderForgeRefinery(container, state, callbacks = {}) {
         ${filterButtonsHtml}
       </div>
 
-      <!-- Grid de Receitas de Refino -->
+      <!-- Grid de 配方s de Refino -->
       <div style="
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));

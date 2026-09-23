@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "savage_bite",
-        "name": "Mordida Selvagem",
+        "name": "野性撕咬",
         "classId": "human_warg",
         "race": "human",
         "tier": "core_1",
@@ -14,7 +14,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Mordida Selvagem — Habilidade Especialista de human_warg."
+        "description": "野性撕咬——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -167,7 +167,7 @@
     {
       "identity": {
         "id": "pack_howl",
-        "name": "Uivo de Matilha",
+        "name": "狼群嚎叫",
         "classId": "human_warg",
         "race": "human",
         "tier": "core_2",
@@ -177,7 +177,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Uivo de Matilha — Habilidade Especialista de human_warg."
+        "description": "狼群嚎叫——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -330,7 +330,7 @@
     {
       "identity": {
         "id": "feral_pounce",
-        "name": "Salto Feral",
+        "name": "野性撲擊",
         "classId": "human_warg",
         "race": "human",
         "tier": "specialization",
@@ -340,7 +340,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Salto Feral — Habilidade Especialista de human_warg."
+        "description": "野性撲擊——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -493,7 +493,7 @@
     {
       "identity": {
         "id": "beast_form",
-        "name": "Forma Bestial",
+        "name": "野獸形態",
         "classId": "human_warg",
         "race": "human",
         "tier": "elemental_specialization",
@@ -503,7 +503,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Forma Bestial — Habilidade Especialista de human_warg."
+        "description": "野獸形態——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -674,7 +674,7 @@
     {
       "identity": {
         "id": "primal_overrun",
-        "name": "Primal Overrun",
+        "name": "原始踐踏",
         "classId": "human_warg",
         "race": "human",
         "tier": "ultimate",
@@ -684,7 +684,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Primal Overrun — Habilidade Ultimate (★★★★) de human_warg."
+        "description": "原始踐踏——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -870,7 +870,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "PRIMAL OVERRUN!",
+          "text": "原始踐踏！",
           "style": "gold_banner",
           "banner": true
         }
@@ -891,7 +891,7 @@
     {
       "identity": {
         "id": "master_primal_overrun",
-        "name": "Master: Primal Overrun",
+        "name": "大師：原始踐踏",
         "classId": "human_warg",
         "race": "human",
         "tier": "master_ultimate",
@@ -901,7 +901,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Master: Primal Overrun — Habilidade Master Ultimate (★★★★★) de human_warg."
+        "description": "大師：原始踐踏——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1088,7 +1088,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: PRIMAL OVERRUN!",
+          "text": "大師：原始踐踏！",
           "style": "mythic_banner",
           "banner": true
         }

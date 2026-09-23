@@ -6,98 +6,98 @@
 export const BRACELETS = {
   bracelet_steel: {
     id: 'bracelet_steel',
-    name: 'Steel Bracelet (D-Grade)',
+    name: '鋼鐵手鐲（D 級）',
     grade: 'D',
     slots: 1,
     costEpaulettes: 150,
     icon: '📿',
-    desc: 'Bracelete básico de aço com 1 slot para talismã.'
+    desc: '基礎鋼製手鐲，提供 1 個護符欄位。'
   },
   bracelet_bronze: {
     id: 'bracelet_bronze',
-    name: 'Bronze Bracelet (C-Grade)',
+    name: '青銅手鐲（C 級）',
     grade: 'C',
     slots: 2,
     costEpaulettes: 400,
     icon: '📿',
-    desc: 'Bracelete de bronze refinado com 2 slots para talismãs.'
+    desc: '精製青銅手鐲，提供 2 個護符欄位。'
   },
   bracelet_silver: {
     id: 'bracelet_silver',
-    name: 'Mithril Bracelet (B-Grade)',
+    name: '米索莉手鐲（B 級）',
     grade: 'B',
     slots: 3,
     costEpaulettes: 900,
     icon: '📿',
-    desc: 'Bracelete de Mithril com 3 slots para talismãs.'
+    desc: '米索莉手鐲，提供 3 個護符欄位。'
   },
   bracelet_gold: {
     id: 'bracelet_gold',
-    name: 'Gold Bracelet (A-Grade)',
+    name: '黃金手鐲（A 級）',
     grade: 'A',
     slots: 4,
     costEpaulettes: 2000,
     icon: '📿',
-    desc: 'Bracelete dourado nobre com 4 slots para talismãs.'
+    desc: '高級黃金手鐲，提供 4 個護符欄位。'
   },
   bracelet_dynasty: {
     id: 'bracelet_dynasty',
-    name: 'Dynasty Bracelet (S-Grade 👑)',
+    name: '王朝手鐲（S 級 👑）',
     grade: 'S',
     slots: 4,
     costEpaulettes: 5000,
     icon: '👑',
-    desc: 'Bracelete imperial soberano com 4 slots e amplificação de 10% na eficácia de todos os talismãs.'
+    desc: '帝國君王手鐲，提供 4 個護符欄位，所有護符效果提高 10%。'
   }
 };
 
 export const TALISMANS = {
   talisman_power: {
     id: 'talisman_power',
-    name: 'Talisman of Power ⚔️',
+    name: '力量護符 ⚔️',
     icon: '⚔️',
     costEpaulettes: 100,
-    desc: '+6% P.Atk e +6% M.Atk',
+    desc: '物理攻擊 +6%、魔法攻擊 +6%',
     stats: { pAtkMult: 0.06, mAtkMult: 0.06 }
   },
   talisman_defense: {
     id: 'talisman_defense',
-    name: 'Talisman of Defense 🛡️',
+    name: '防禦護符 🛡️',
     icon: '🛡️',
     costEpaulettes: 100,
-    desc: '+8% P.Def e +8% M.Def',
+    desc: '物理防禦 +8%、魔法防禦 +8%',
     stats: { pDefMult: 0.08, mDefMult: 0.08 }
   },
   talisman_haste: {
     id: 'talisman_haste',
-    name: 'Talisman of Speed & Haste ⚡',
+    name: '速度與急速護符 ⚡',
     icon: '⚡',
     costEpaulettes: 120,
-    desc: '+15 Velocidade de Ataque e +10 Evasão',
+    desc: '攻擊速度 +15、迴避 +10',
     stats: { speed: 15, eva: 10 }
   },
   talisman_crit: {
     id: 'talisman_crit',
-    name: 'Talisman of Critical Destruction 💥',
+    name: '暴擊毀滅護符 💥',
     icon: '💥',
     costEpaulettes: 150,
-    desc: '+25 Chance Crítica e +8% Dano Crítico',
+    desc: '暴擊率 +25、暴擊傷害 +8%',
     stats: { crit: 25, critDmg: 0.08 }
   },
   talisman_life_force: {
     id: 'talisman_life_force',
-    name: 'Talisman of Life Force 🌿',
+    name: '生命力護符 🌿',
     icon: '🌿',
     costEpaulettes: 200,
-    desc: '+15% HP Máximo e +25% Regeneração de MP',
+    desc: '最大 生命值 +15%、魔力 恢復 +25%',
     stats: { hpMult: 0.15, mpRegen: 0.25 }
   },
   talisman_cancel: {
     id: 'talisman_cancel',
-    name: 'Talisman of Buff Cancel 🌀',
+    name: '增益解除護符 🌀',
     icon: '🌀',
     costEpaulettes: 250,
-    desc: '+10% Dano PvP e chance de anular bônus defensivos do alvo',
+    desc: '玩家對戰傷害 +10%，並有機率解除目標的防禦增益',
     stats: { pvpDmg: 0.10, pAtkMult: 0.04 }
   }
 };

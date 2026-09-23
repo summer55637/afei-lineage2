@@ -122,9 +122,9 @@ const MONSTER_NAMES = [
   'Demon', 'Golem', 'Lich', 'Drake', 'Wyrm', 'Shade', 'Banshee',
   'Gargoyle', 'Chimera', 'Basilisk', 'Cerberus', 'Hydra', 'Phoenix',
   'Titan', 'Behemoth', 'Dragon', 'Nightmare', 'Abomination', 'Archon',
-  'Revenant', 'Specter', 'Dread Knight', 'Naga', 'Succubus', 'Wyvern',
-  'Shadow Fiend', 'Doom Guard', 'Elder Lich', 'Ancient Dragon',
-  'Corrupted Angel', 'Void Walker', 'Dark Overlord', 'World Boss'
+  'Revenant', 'Specter', '恐懼騎士', 'Naga', 'Succubus', 'Wyvern',
+  '暗影惡魔', '末日守衛', '遠古巫妖', '遠古巨龍',
+  '墮落天使', '虛空行者', '黑暗霸主', '世界首領'
 ];
 
 function generateMonster(playerLevel: number): MonsterData {
@@ -285,7 +285,7 @@ export default function Aden2DGame() {
     const w = window as any;
     const getState = () => w.getGameState ? w.getGameState() : {
       hp: 100, maxHp: 100, mp: 50, maxMp: 50, xp: 0, gold: 0, level: 1,
-      name: 'Hero', class: 'fighter', zone: 0
+      name: '冒險者', class: 'fighter', zone: 0
     };
 
     const playerState = getState();
@@ -400,7 +400,7 @@ export default function Aden2DGame() {
       if (!resourcesLoaded) {
         ctx.fillStyle = '#0a0c14';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        drawTextOutlined('⚔ Carregando...', canvas.width / 2, canvas.height / 2, '#ffd700', 32);
+        drawTextOutlined('⚔ 載入中……', canvas.width / 2, canvas.height / 2, '#ffd700', 32);
         animFrameId = requestAnimationFrame(loop);
         return;
       }
@@ -512,8 +512,8 @@ export default function Aden2DGame() {
             try { if (w.checkLevelUp) w.checkLevelUp(); } catch (_) {}
             try { if (w.saveGameState) w.saveGameState(); } catch (_) {}
           }
-          addFloat(`+${currentMonster.xpReward} XP`, canvas.width / 2, canvas.height * 0.4, '#ffff00');
-          addFloat(`+${currentMonster.goldReward} Adena`, canvas.width / 2, canvas.height * 0.45, '#ffd700');
+          addFloat(`+${currentMonster.xpReward} 經驗值`, canvas.width / 2, canvas.height * 0.4, '#ffff00');
+          addFloat(`+${currentMonster.goldReward} 金幣`, canvas.width / 2, canvas.height * 0.45, '#ffd700');
 
           gameStateRef.current = CombatState.VICTORY_LOOT;
           combatState = CombatState.VICTORY_LOOT;
@@ -633,12 +633,12 @@ export default function Aden2DGame() {
       ctx.textAlign = 'left';
       ctx.fillStyle = '#ffd700';
       ctx.font = isMobileScreen ? 'bold 14px monospace' : 'bold 18px monospace';
-      ctx.fillText(`⚔ ${liveState.name || 'Hero'}  Lv.${liveState.level || 1}`, 18, 30);
+      ctx.fillText(`⚔ ${liveState.name || '英雄'}  等級 ${liveState.level || 1}`, 18, 30);
 
       // HP bar
       ctx.fillStyle = '#aaa';
       ctx.font = '11px monospace';
-      ctx.fillText('HP', 18, 52);
+      ctx.fillText('生命值', 18, 52);
       drawBar(40, 41, panelW - 55, 14, (liveState.hp || 0) / (liveState.maxHp || 1), '#e44', '#333');
       ctx.fillStyle = '#fff';
       ctx.font = '10px monospace';
@@ -649,7 +649,7 @@ export default function Aden2DGame() {
       ctx.textAlign = 'left';
       ctx.fillStyle = '#aaa';
       ctx.font = '11px monospace';
-      ctx.fillText('MP', 18, 72);
+      ctx.fillText('魔力', 18, 72);
       drawBar(40, 61, panelW - 55, 14, (liveState.mp || 0) / (liveState.maxMp || 1), '#44f', '#333');
       ctx.fillStyle = '#fff';
       ctx.font = '10px monospace';
@@ -660,7 +660,7 @@ export default function Aden2DGame() {
       ctx.textAlign = 'left';
       ctx.fillStyle = '#aaa';
       ctx.font = '11px monospace';
-      ctx.fillText('XP', 18, 92);
+      ctx.fillText('經驗值', 18, 92);
       const nextXp = (liveState.level || 1) * 150;
       drawBar(40, 81, panelW - 55, 10, (liveState.xp || 0) / nextXp, '#ff4', '#333');
       ctx.fillStyle = '#fff';
@@ -670,7 +670,7 @@ export default function Aden2DGame() {
 
       // Top-right: Gold
       ctx.textAlign = 'right';
-      const goldText = `💰 ${(liveState.gold || 0).toLocaleString()} Adena`;
+      const goldText = `💰 ${(liveState.gold || 0).toLocaleString()} 金幣`;
       ctx.font = isMobileScreen ? 'bold 13px monospace' : 'bold 17px monospace';
       const goldW = Math.min(260, ctx.measureText(goldText).width + 24);
       ctx.fillStyle = 'rgba(0,0,0,0.72)';
@@ -704,8 +704,8 @@ export default function Aden2DGame() {
       if (combatState === CombatState.DEAD) {
         ctx.fillStyle = 'rgba(0,0,0,0.75)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        drawTextOutlined('☠ YOU DIED ☠', canvas.width / 2, canvas.height / 2 - 30, '#ff4444', 52);
-        drawTextOutlined('Clique em Respawn para continuar', canvas.width / 2, canvas.height / 2 + 20, '#aaa', 18);
+        drawTextOutlined('☠ 你已死亡 ☠', canvas.width / 2, canvas.height / 2 - 30, '#ff4444', 52);
+        drawTextOutlined('點擊復活按鈕繼續', canvas.width / 2, canvas.height / 2 + 20, '#aaa', 18);
       }
 
       animFrameId = requestAnimationFrame(loop);
@@ -753,7 +753,7 @@ export default function Aden2DGame() {
         onMouseEnter={e => { e.currentTarget.style.borderColor = '#ffd700'; e.currentTarget.style.color = '#ffd700'; }}
         onMouseLeave={e => { e.currentTarget.style.borderColor = '#555'; e.currentTarget.style.color = '#ccc'; }}
       >
-        ← Voltar ao Idle
+        ← 返回放置模式
       </button>
 
       {/* Respawn Button (visible when dead) */}
@@ -780,7 +780,7 @@ export default function Aden2DGame() {
             boxShadow: '0 0 20px rgba(255,0,0,0.4)',
           }}
         >
-          ⚡ Respawn
+          ⚡ 復活
         </button>
       )}
     </div>

@@ -11,82 +11,82 @@
 export const SEASONS_DATA = {
   1: {
     id: 1,
-    title: "Temporada 1: O Despertar de Aden",
-    subtitle: "Crônica I — Os Primeiros Passos dos Escolhidos",
+    title: "第 1 季：亞丁覺醒",
+    subtitle: "編年史 I — 天選者的最初旅程",
     maxLevel: 40,
     maxGrade: "B",
     active: true,
-    releaseDate: "Ativa Agora",
-    description: "Os heróis iniciam sua jornada pelo Reino de Aden. Domine as artes fundamentais da sua classe, forje seus primeiros equipamentos e dispute as riquezas iniciais.",
+    releaseDate: "現正開放",
+    description: "英雄們在亞丁王國展開旅程。掌握職業的基礎技巧、打造第一批裝備，並爭奪冒險初期的財富。",
     unlockedTabs: [
       "zones", "character", "inventory", "warehouse", "skills",
       "shop", "market", "craft", "alchemy", "astral", "quests", "rankings", "enchant", "dolls", "fishing",
       "hunting", "expeditions", "gathering", "mining", "cosmetics"
     ],
     features: [
-      "⚔️ Zonas de Caça Iniciais (Gludio, Dion, Giran)",
-      "👤 1ª e 2ª Evoluções de Classe (Níveis 20 e 40)",
-      "🎒 Equipamentos NoGrade, D-Grade, C-Grade e B-Grade inicial",
-      "✦ Árvore de Habilidades Básica da Classe",
-      "🧸 Monster & Boss Dolls Colecionáveis",
-      "⚒️ Forja e Alquimia de Elixires Básica",
-      "✨ Encantamento até +7 Seguro",
-      "🎯 Missões Diárias & Passe de Batalha Temporada 1",
-      "🏆 Rankings Globais de Nível e Riqueza"
+      "⚔️ 初期狩獵區（古魯丁、狄恩、奇岩）",
+      "👤 第 1、2 次轉職（等級 20、40）",
+      "🎒 無級別、D 級、C 級與初階 B 級裝備",
+      "✦ 職業基礎技能樹",
+      "🧸 可收藏的怪物與首領娃娃",
+      "⚒️ 基礎鍛造與藥劑煉金",
+      "✨ 安全強化至 +7",
+      "🎯 每日任務與第 1 季戰鬥通行證",
+      "🏆 全服等級與財富排行榜"
     ]
   },
   2: {
     id: 2,
-    title: "Temporada 2: A Era dos Clãs & Castelos",
-    subtitle: "Crônica II — A Marcha dos Senhores de Guerra",
+    title: "第 2 季：血盟與城堡時代",
+    subtitle: "編年史二 — 戰爭領主進軍",
     maxLevel: 75,
     maxGrade: "A",
     active: false,
-    releaseDate: "Em Breve",
-    description: "Alianças se formam e as primeiras trombetas de guerra ecoam pelos vales. A disputa pelo domínio dos grandes castelos e pela Torre da Insolência começou!",
+    releaseDate: "即將開放",
+    description: "同盟逐漸成形，第一聲戰爭號角響徹山谷。大型城堡與傲慢之塔的支配權爭奪正式開始！",
     unlockedTabs: [
       "clan", "tower", "magiclamp", "expeditions", "raids"
     ],
     features: [
-      "🛡️ Fundação e Evolução de Clãs (Níveis 1 a 10)",
-      "🏰 Cerco aos Castelos (Gludio, Dion, Giran)",
-      "🏰 Torre da Insolência (Andares 1 a 50)",
-      "🧸 Boss Dolls & Monster Codex Avançado",
-      "🪔 Lâmpada Mágica & Roleta de Random Craft",
-      "🐉 Início das Raids Mundiais (Queen Ant, Core, Orfen)"
+      "🛡️ 建立與發展血盟（等級 1～10）",
+      "🏰 城堡攻城戰（古魯丁、狄恩、奇岩）",
+      "🏰 傲慢之塔（1～50 層）",
+      "🧸 首領娃娃與進階怪物圖鑑",
+      "🪔 魔法神燈與隨機製作輪盤",
+      "🐉 世界團隊首領初登場（蟻后、核心、歐爾芬）"
     ]
   },
   3: {
     id: 3,
-    title: "Temporada 3: Os Sete Selos & Olimpíadas",
-    subtitle: "Crônica III — O Despertar dos Selos e o Trono dos Heróis",
+    title: "第 3 季：七封印與奧林匹亞",
+    subtitle: "編年史三 — 封印覺醒與英雄王座",
     maxLevel: 85,
     maxGrade: "S",
     active: false,
-    releaseDate: "Temporada Futura",
-    description: "As forças da Luz e da Escuridão colidem nas Catacumbas e Necrópoles. O Grande Coliseu coroa os primeiros Heróis Supremos de Aden com Armas da Infinidade.",
+    releaseDate: "未來季節",
+    description: "光明與黑暗勢力在地下墓穴與死靈墓穴正面交鋒。大競技場將為亞丁最初的至高英雄加冕，並授予無限武器。",
     unlockedTabs: [
       "sevensigns", "olympiad", "fortress", "colosseum", "codex", "subclasses"
     ],
     features: [
-      "🏛️ Disputa dos Sete Selos (Dawn vs Dusk & Mercadores de Mammon)",
-      "🏆 Grande Olimpíada Semanal & Coroação de Heróis",
-      "👤 Sistema de Subclasses & Certificações",
-      "✨ Augmentation com Pedras de Vida (Life Stones)",
-      "✦ Encantamento de Habilidades (+1 a +30)",
-      "⚔️ Fortalezas Territoriais & Talismãs",
-      "🐉 Grand Bosses Intermediários (Zaken & Baium)"
+      "🏛️ 七封印爭奪戰（黎明對抗黃昏與馬門商人）",
+      "🏆 每週大奧林匹亞與英雄加冕",
+      "👤 副職業與認證系統",
+      "✨ 使用生命石進行精煉",
+      "✦ 技能強化（+1～+30）",
+      "⚔️ 領地要塞與護身符",
+      "🐉 中階大型首領（札肯、巴溫）"
     ]
   },
   4: {
     id: 4,
-    title: "Temporada 4: A Fúria dos Dragões & Multiverso",
-    subtitle: "Crônica IV — O Clamor dos Antigos e a Batalha Dimensional",
+    title: "第 4 季：巨龍之怒與多重世界",
+    subtitle: "編年史四 — 遠古怒吼與次元之戰",
     maxLevel: 120,
     maxGrade: "S84",
     active: false,
-    releaseDate: "Temporada Futura",
-    description: "Os Dragões Lendários despertam de seu sono milenar. As barreiras dimensionais se rompem, revelando os campos de batalha 2D Pixel e 3D Arena!",
+    releaseDate: "未來季節",
+    description: "傳說巨龍從千年沉睡中甦醒，次元屏障也隨之崩裂，開啟 2D 像素戰場與 3D 競技場！",
     unlockedTabs: [
       "zones", "character", "inventory", "warehouse", "skills",
       "shop", "market", "craft", "alchemy", "astral", "quests", "rankings", "enchant", "dolls", "fishing",
@@ -95,11 +95,11 @@ export const SEASONS_DATA = {
       "sevensigns", "olympiad", "fortress", "colosseum", "codex", "subclasses"
     ],
     features: [
-      "🐉 World Bosses Supremos: Antharas e Valakas",
-      "👾 Liberação Oficial do Modo 👾 Aden Pixel 2D",
-      "⚔ Liberação Oficial do Modo ⚔ 3D Arena",
-      "🏰 Cerco aos Castelos Supremos de Aden e Goddard",
-      "👤 3ª e 4ª Classes Completas & Transformações Divinas"
+      "🐉 頂級世界首領：安塔瑞斯與巴拉卡斯",
+      "👾 正式開放「亞丁像素 2D」模式",
+      "⚔ 正式開放「3D 競技場」模式",
+      "🏰 亞丁與高達德頂級城堡攻城戰",
+      "👤 完整第 3、4 次轉職與神聖變身"
     ]
   }
 };

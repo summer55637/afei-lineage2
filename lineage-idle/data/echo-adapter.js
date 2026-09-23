@@ -140,6 +140,66 @@ function getSkillBuffAtLevel(lvl) {
   return 0.20 + (Math.max(1, lvl) * 0.05);
 }
 
+function localizeSkillDisplayText(raw) {
+  let text = String(raw || '').trim();
+  if (!text) return '';
+
+  const replacements = [
+    [/\bP\.\s*Skill\s+Critical\s+Damage\b/gi, '物理技能暴擊傷害'],
+    [/\bP\.\s*Skill\s+Critical\s+Rate\b/gi, '物理技能暴擊率'],
+    [/\bP\.\s*Skill\s+Evasion\b/gi, '物理技能迴避'],
+    [/\bP\.\s*Skill\s+Power\b/gi, '物理技能威力'],
+    [/\bM\.\s*Skill\s+Critical\s+Damage\b/gi, '魔法技能暴擊傷害'],
+    [/\bM\.\s*Skill\s+Critical\s+Rate\b/gi, '魔法技能暴擊率'],
+    [/\bM\.\s*Skill\s+Evasion\b/gi, '魔法技能迴避'],
+    [/\bM\.\s*Skill\s+Power\b/gi, '魔法技能威力'],
+    [/\bAtk\.\s*Spd\.?\b/gi, '攻擊速度'],
+    [/\bCasting\s+Spd\.?\b/gi, '施法速度'],
+    [/\bP\.\s*Accuracy\b/gi, '物理命中'],
+    [/\bP\.\s*Evasion\b/gi, '物理迴避'],
+    [/\bM\.\s*Evasion\b/gi, '魔法迴避'],
+    [/\bP\.\s*Atk\.?\b/gi, '物理攻擊'],
+    [/\bM\.\s*Atk\.?\b/gi, '魔法攻擊'],
+    [/\bP\.\s*Def\.?\b/gi, '物理防禦'],
+    [/\bM\.\s*Def\.?\b/gi, '魔法防禦'],
+    [/\bMax\s+HP\b/gi, '最大生命值'],
+    [/\bMax\s+MP\b/gi, '最大魔力'],
+    [/\bMax\s+CP\b/gi, '最大戰鬥力'],
+    [/\bHP\b/g, '生命值'],
+    [/\bMP\b/g, '魔力'],
+    [/\bCP\b/g, '戰鬥力'],
+    [/\bSP\b/g, '技能點'],
+    [/\bCON\b/g, '體質'],
+    [/\bMEN\b/g, '精神'],
+    [/\bDEX\b/g, '敏捷'],
+    [/\bSTR\b/g, '力量'],
+    [/\bINT\b/g, '智力'],
+    [/\bWIT\b/g, '智慧'],
+    [/\bLv\.?\s*(\d+)/gi, '等級 $1'],
+    [/(\d+)\s*s\s*max\b/gi, '最長 $1 秒'],
+    [/(\d+)\s*min\b/gi, '$1 分鐘'],
+    [/(\d+)\s*s\b/gi, '$1 秒'],
+    [/(\d+)\s*x\b/gi, '$1×'],
+    [/\bCD\b/g, '冷卻時間'],
+    [/\bS2\b/g, '第二階段'],
+    [/免疫\s+a\s+傷害/g, '免疫傷害'],
+    [/\bChain Strike\b/gi, '鎖鏈打擊'],
+    [/\bPowerful Charge\b/gi, '強力衝鋒'],
+    [/\bUltimate Evasion\b/gi, '終極迴避'],
+    [/\bWind Walk\b/gi, '風之疾走'],
+    [/\bDouble Shot\b/gi, '雙重射擊'],
+    [/\bLethal Shot\b/gi, '致命射擊'],
+    [/\bArrow Break\b/gi, '破箭'],
+    [/\bIgnite\b/gi, '點燃'],
+    [/\bShadow Figure\b/gi, '暗影分身'],
+    [/\bShadow Step\b/gi, '暗影步伐'],
+    [/\bSeclusion\b/gi, '隱匿'],
+    [/\bHide\b/gi, '隱身']
+  ];
+  for (const [pattern, value] of replacements) text = text.replace(pattern, value);
+  return text.replace(/\s{2,}/g, ' ').trim();
+}
+
 /**
  * Gera texto dinâmico do efeito da skill baseado no nível atual.
  * Mostra valor atual e prévia do próximo nível quando aplicável.
@@ -149,7 +209,12 @@ function buildSkillEffectText(def, lvl) {
   const type = def.type;
   const currentLvl = Math.max(1, lvl || 0);
   const max = def.max || 5;
-  const effectBase = def.effectText || def.info || def.name;
+  const rawEffectText = String(def.effectText || '').trim();
+  const localizedInfo = localizeSkillDisplayText(def.info || def.desc || '');
+  const localizedEffect = localizeSkillDisplayText(rawEffectText);
+  const effectBase = /[\u3400-\u9fff]/.test(rawEffectText)
+    ? (localizedEffect || localizedInfo || def.name)
+    : (localizedInfo || localizedEffect || def.name);
 
   // Passivas: mostrar texto estático original
   if (type === 'passive' || type === 'stat') {
@@ -159,29 +224,29 @@ function buildSkillEffectText(def, lvl) {
   // Buffs/Warcry
   if (def.effect === 'warcry' || type === 'buff') {
     const current = getSkillBuffAtLevel(currentLvl);
-    let text = `Buff: +${Math.round(current * 100)}% por 60s`;
+    let text = `增益：+${Math.round(current * 100)}%，持續 60 秒`;
     if (currentLvl < max) {
       const next = getSkillBuffAtLevel(currentLvl + 1);
-      text += ` (Lv.${currentLvl + 1} → +${Math.round(next * 100)}%)`;
+      text += `（等級 ${currentLvl + 1} → +${Math.round(next * 100)}%）`;
     }
     return text;
   }
 
   // Heals
   if (def.effect === 'heal' || type === 'heal') {
-    let text = `Cura: 25% + ${currentLvl * 5}% do HP máximo`;
+    let text = `治療：25% + ${currentLvl * 5}% 最大生命值`;
     if (currentLvl < max) {
-      text += ` (Lv.${currentLvl + 1} → ${25 + (currentLvl + 1) * 5}%)`;
+      text += `（等級 ${currentLvl + 1} → ${25 + (currentLvl + 1) * 5}%）`;
     }
     return text;
   }
 
   // Skills de dano (active)
   const currentPwr = getSkillPwrAtLevel(def, currentLvl);
-  let text = `${effectBase} — Poder: ${currentPwr}`;
+  let text = `${effectBase} — 威力：${currentPwr}`;
   if (currentLvl < max) {
     const nextPwr = getSkillPwrAtLevel(def, currentLvl + 1);
-    text += ` (Lv.${currentLvl + 1} → ${nextPwr})`;
+    text += `（等級 ${currentLvl + 1} → ${nextPwr}）`;
   }
   return text;
 }
@@ -461,8 +526,8 @@ export function transformV2SkillToEcho(sId, s, existingDef = null) {
       baseCd,
       mpCost,
       effect: isBuff ? 'warcry' : (isPassive ? 'stat' : (isToggle ? 'toggle' : (isHeal ? 'heal' : (isVampiric ? 'vampiric' : 'dmg')))),
-      info: s.desc || s.canonicalEffect || s.name,
-      desc: s.desc || '',
+      info: localizeSkillDisplayText(s.desc || s.canonicalEffect || s.name),
+      desc: localizeSkillDisplayText(s.desc || ''),
       effectText: s.canonicalEffect || '',
       icon: s.icon,
       iconGap: s.iconGap,
@@ -645,9 +710,9 @@ function buildEchoAdapter() {
         baseCd:               cd,
         mpCost:               mpCost,
         effect:               type === 'buff' ? 'warcry' : (type === 'passive' ? 'stat' : (sNameLower.includes('heal') || sNameLower.includes('bandage') ? 'heal' : 'dmg')),
-        info:                 sk.desc || sk.effect || rawName,
-        desc:                 sk.desc || '',
-        effectText:           sk.effect || '',
+        info:                 localizeSkillDisplayText(sk.desc || sk.effect || rawName),
+        desc:                 localizeSkillDisplayText(sk.desc || ''),
+        effectText:           localizeSkillDisplayText(sk.effect || ''),
         icon:                 skillIcon,
         classReq:             classId,
         reqLvl:               reqLvl,
@@ -851,7 +916,7 @@ function buildEchoAdapter() {
         effect: isBuff ? 'warcry' : (isHeal ? 'heal' : (isVampiric ? 'vampiric' : 'dmg')),
         info: s.identity?.description || rawName,
         desc: s.identity?.description || '',
-        effectText: `Multiplicador: ${dmgMult.toFixed(1)}x | Stagger: ${staggerDmg}`,
+        effectText: `倍率：${dmgMult.toFixed(1)}x｜失衡：${staggerDmg}`,
         icon,
         classReq: classId,
         reqLvl: unlockLvl,

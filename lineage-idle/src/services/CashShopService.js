@@ -1,5 +1,5 @@
 /**
- * CashShopService.js — Serviço de Gestão e Processamento da Loja Comercial de Aden.
+ * CashShopService.js — Serviço de Gestão e Processamento da 商城 Comercial de Aden.
  *
  * Gerencia a moeda oficial de doação Aden Coins (AC), a compra e desempacotamento
  * inteligente dos 3 Starter Packs (adaptados por arquétipo Heavy / Light / Robe),
@@ -57,7 +57,7 @@ export class CashShopService {
     const qty = Math.max(0, parseInt(amount, 10) || 0);
     state.adenCoins = (Number(state.adenCoins) || 0) + qty;
     if (callbacks.log) {
-      callbacks.log(`🪙 **+${qty.toLocaleString()} Aden Coins (AC)** creditados com sucesso em sua conta!`, 'system');
+      callbacks.log(`🪙 **+${qty.toLocaleString()} 亞丁幣** 已成功加入帳號！`, 'system');
     }
     if (callbacks.onUpdate) callbacks.onUpdate();
     return state.adenCoins;
@@ -73,14 +73,14 @@ export class CashShopService {
   static buyStarterPack(state, packId, callbacks = {}) {
     const pack = CASH_SHOP_CATALOG.starter_packs.find(p => p.id === packId);
     if (!pack) {
-      if (callbacks.log) callbacks.log('❌ Pacote não encontrado no catálogo da Loja.', 'system');
+      if (callbacks.log) callbacks.log('❌ 商城中找不到此禮包。', 'system');
       return false;
     }
 
     const currentBalance = this.getBalance(state);
     if (currentBalance < pack.priceAC) {
       if (callbacks.log) {
-        callbacks.log(`❌ Saldo insuficiente! Você possui **${currentBalance} AC**, mas o pacote custa **${pack.priceAC} AC**.`, 'system');
+        callbacks.log(`❌ 餘額不足！你有 **${currentBalance} 亞丁幣**，此禮包需要 **${pack.priceAC} 亞丁幣**。`, 'system');
       }
       return false;
     }
@@ -121,7 +121,7 @@ export class CashShopService {
       addItem('scroll_teleport', 5);
 
       if (callbacks.log) {
-        callbacks.log(`🎉 **${pack.name}** resgatado! Você recebeu o Conjunto de Herança ${archetype.toUpperCase()} (Lv. 1 ao 40), Arma de Herança da Classe e 2.000x Shots!`, 'system');
+        callbacks.log(`🎉 已領取 **${pack.name}**！你獲得 ${archetype === 'heavy' ? '重甲' : archetype === 'light' ? '輕甲' : archetype === 'robe' ? '法袍' : '未知類型'} 傳承套裝（等級 1～40）、職業傳承武器與 2,000 發彈藥！`, 'system');
       }
     }
 
@@ -149,11 +149,11 @@ export class CashShopService {
       
       // Concede Título [Pioneiro]
       state.unlockedTitles = state.unlockedTitles || [];
-      if (!state.unlockedTitles.includes('Pioneiro')) state.unlockedTitles.push('Pioneiro');
-      state.title = 'Pioneiro';
+      if (!state.unlockedTitles.includes('先驅者')) state.unlockedTitles.push('先驅者');
+      state.title = '先驅者';
 
       if (callbacks.log) {
-        callbacks.log(`👑 **${pack.name}** ativado! Conjunto de Herança ${archetype.toUpperCase()}, Arma de Herança, 5x Joias de Herança, 5.000x Shots e Título **[Pioneiro]** concedidos!`, 'system');
+        callbacks.log(`👑 **${pack.name}** 已啟用！獲得 ${archetype === 'heavy' ? '重甲' : archetype === 'light' ? '輕甲' : archetype === 'robe' ? '法袍' : '未知類型'} 傳承套裝、傳承武器、5 件傳承珠寶、5,000 發彈藥與稱號 **[先驅者]**！`, 'system');
       }
     }
 
@@ -195,14 +195,14 @@ export class CashShopService {
 
       // Título Dourado [Lorde Soberano]
       state.unlockedTitles = state.unlockedTitles || [];
-      if (!state.unlockedTitles.includes('Lorde Soberano')) state.unlockedTitles.push('Lorde Soberano');
-      state.title = 'Lorde Soberano';
+      if (!state.unlockedTitles.includes('君主至尊')) state.unlockedTitles.push('君主至尊');
+      state.title = '君主至尊';
 
       // Agathion Bebê Dragão Dourado
       state.activeAgathion = 'agathion_golden_dragon';
 
       if (callbacks.log) {
-        callbacks.log(`✨ **PACOTE LORDE SOBERANO ATIVADO!** Você recebeu todo o Conjunto de Herança ${archetype.toUpperCase()} Dinâmico (Lv. 1 ao 40), Arma de Herança da Classe, Joias, Capa, Cinto, Coroa, 15.000x Shots, Passe VIP 30D, Agathion Dragão Dourado e o Título **[Lorde Soberano]**!`, 'system');
+        callbacks.log(`✨ **君主至尊套組已啟用！**你獲得完整的 ${archetype === 'heavy' ? '重甲' : archetype === 'light' ? '輕甲' : archetype === 'robe' ? '法袍' : '未知類型'} 動態傳承套裝（等級 1～40）、職業傳承武器、飾品、披風、腰帶、王冠、15,000 發彈藥、30 天貴賓通行證、黃金巨龍亞加西翁，以及稱號 **【君主至尊】**！`, 'system');
       }
     }
 
@@ -328,7 +328,7 @@ export class CashShopService {
 
     const currentBalance = this.getBalance(state);
     if (currentBalance < item.priceAC) {
-      if (callbacks.log) callbacks.log(`❌ Saldo insuficiente para adquirir ${item.name}!`, 'system');
+      if (callbacks.log) callbacks.log(`❌ 餘額不足，無法購買 ${item.name}！`, 'system');
       return false;
     }
 
@@ -353,7 +353,7 @@ export class CashShopService {
     }
 
     if (callbacks.log) {
-      callbacks.log(`🎨 **${item.name}** adquirida, entregue na sua mochila e equipada com sucesso!`, 'system');
+      callbacks.log(`🎨 **${item.name}** 已購買、放入背包並成功裝備！`, 'system');
     }
     if (callbacks.onUpdate) callbacks.onUpdate();
     return true;
@@ -371,7 +371,7 @@ export class CashShopService {
 
     const currentBalance = this.getBalance(state);
     if (currentBalance < item.priceAC) {
-      if (callbacks.log) callbacks.log(`❌ Saldo insuficiente para ${item.name}!`, 'system');
+      if (callbacks.log) callbacks.log(`❌ 購買 ${item.name} 的餘額不足！`, 'system');
       return false;
     }
 
@@ -379,7 +379,7 @@ export class CashShopService {
     state.unlockedTitles = state.unlockedTitles || [];
 
     if (item.category === 'title') {
-      const titleClean = item.name.replace('Título: ', '').replace(/[\[\]]/g, '');
+      const titleClean = item.name.replace('稱號： ', '').replace(/[\[\]]/g, '');
       if (!state.unlockedTitles.includes(titleClean)) state.unlockedTitles.push(titleClean);
       state.title = titleClean;
       state.titleColor = item.color;
@@ -403,7 +403,7 @@ export class CashShopService {
     }
 
     if (callbacks.log) {
-      callbacks.log(`🏷️ **${item.name}** ativado e adicionado à sua mochila!`, 'system');
+      callbacks.log(`🏷️ **${item.name}** 已啟用並加入背包！`, 'system');
     }
     if (callbacks.onUpdate) callbacks.onUpdate();
     return true;
@@ -421,7 +421,7 @@ export class CashShopService {
 
     const currentBalance = this.getBalance(state);
     if (currentBalance < item.priceAC) {
-      if (callbacks.log) callbacks.log(`❌ Saldo insuficiente para ${item.name}!`, 'system');
+      if (callbacks.log) callbacks.log(`❌ 購買 ${item.name} 的餘額不足！`, 'system');
       return false;
     }
 
@@ -440,7 +440,7 @@ export class CashShopService {
           count: 1
         });
       }
-      if (callbacks.log) callbacks.log('🌟 **Passe VIP de Teleporte (30 Dias)** entregue na mochila e ativado! Teleportes gratuitos habilitados.', 'system');
+      if (callbacks.log) callbacks.log('🌟 **貴賓傳送通行證（30 天）** 已放入背包並啟用！已開啟免費傳送。', 'system');
     } else if (utilityId === 'elixir_vigor_bundle_5') {
       const existing = state.inventory.find(i => i.itemId === 'elixir_vigor_1h');
       if (existing) {
@@ -452,7 +452,7 @@ export class CashShopService {
           count: 5
         });
       }
-      if (callbacks.log) callbacks.log('🧪 **5x Elixires de Vigor** entregues na sua mochila!', 'system');
+      if (callbacks.log) callbacks.log('🧪 **5× 活力靈藥** 已送入背包！', 'system');
     } else {
       const targetId = utilityId;
       const isStackable = targetId.startsWith('scroll_') || targetId.startsWith('elixir_') || targetId.startsWith('pack_');
@@ -466,7 +466,7 @@ export class CashShopService {
           count: 1
         });
       }
-      if (callbacks.log) callbacks.log(`📦 **${item.name}** adicionado com sucesso à sua mochila!`, 'system');
+      if (callbacks.log) callbacks.log(`📦 **${item.name}** 已成功加入背包！`, 'system');
     }
 
     if (callbacks.onUpdate) callbacks.onUpdate();

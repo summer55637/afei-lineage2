@@ -3,7 +3,7 @@
  * ELEMENTAL SERVICE — NÍVEL 17: SOUL CRYSTALS & ATRIBUTOS ELEMENTAIS
  * ═══════════════════════════════════════════════════════════════════════════
  * Gerencia o sistema canônico de Encrustação de Lineage 2:
- * 1. Atributos Elementais (Fogo, Água, Vento, Terra, Sagrado, Trevas)
+ * 1. Atributos Elementais (Fogo, 水, Vento, Terra, Sagrado, Trevas)
  * 2. Gating e Tetos por Grau de Equipamento (C/B: 60, A: 150, S: 300 Arma / 120 Armadura)
  * 3. Soul Crystals com suporte a Armas Primárias e Secundárias (Dual Arsenal)
  * 4. Sinergia em Combate (Vantagem Oposta, Dano Sagrado vs Undead, Defesa Elemental)
@@ -15,93 +15,93 @@ import { D } from '../core/GameConfig.js';
 export const ELEMENT_DEFINITIONS = {
   fire: {
     key: 'fire',
-    name: 'Fogo',
+    name: '火',
     icon: '🔥',
     color: '#ef4444',
     opposed: 'water',
     stoneId: 'fire_stone',
-    desc: 'Amplifica dano contra seres de Água (+20%). Reduz dano contra fogo (-20%).',
-    dropZone: 'Forge of the Gods (Lv.70+)'
+    desc: '對水屬性敵人傷害 +20%，對火屬性敵人傷害 -20%。',
+    dropZone: '諸神熔爐（等級 70+）'
   },
   water: {
     key: 'water',
-    name: 'Água',
+    name: '水',
     icon: '💧',
     color: '#3b82f6',
     opposed: 'fire',
     stoneId: 'water_stone',
-    desc: 'Amplifica dano contra seres de Fogo (+20%). Reduz dano contra água (-20%).',
-    dropZone: 'Garden of Eva (Lv.45+)'
+    desc: '對火屬性敵人傷害 +20%，對水屬性敵人傷害 -20%。',
+    dropZone: '伊娃花園（等級 45+）'
   },
   wind: {
     key: 'wind',
-    name: 'Vento',
+    name: '風',
     icon: '🌪️',
     color: '#22c55e',
     opposed: 'earth',
     stoneId: 'wind_stone',
-    desc: 'Amplifica dano contra seres de Terra (+20%). Reduz dano contra vento (-20%).',
-    dropZone: 'Dragon Valley (Lv.55+)'
+    desc: '對地屬性敵人傷害 +20%，對風屬性敵人傷害 -20%。',
+    dropZone: '龍之谷（等級 55+）'
   },
   earth: {
     key: 'earth',
-    name: 'Terra',
+    name: '地',
     icon: '🌍',
     color: '#d97706',
     opposed: 'wind',
     stoneId: 'earth_stone',
-    desc: 'Amplifica dano contra seres de Vento (+20%). Reduz dano contra terra (-20%).',
-    dropZone: 'Mithril Mines (Lv.35+)'
+    desc: '對風屬性敵人傷害 +20%，對地屬性敵人傷害 -20%。',
+    dropZone: '密銀礦坑（等級 35+）'
   },
   holy: {
     key: 'holy',
-    name: 'Sagrado',
+    name: '神聖',
     icon: '✨',
     color: '#eab308',
     opposed: 'dark',
     stoneId: 'holy_stone',
-    desc: 'Amplifica dano contra Mortos-Vivos, Necrópoles e Demônios (+30%).',
-    dropZone: 'Monastery of Silence (Lv.75+)'
+    desc: '對不死族、墓穴與惡魔的傷害提高 30%。',
+    dropZone: '寂靜修道院（等級 75+）'
   },
   dark: {
     key: 'dark',
-    name: 'Trevas',
+    name: '黑暗',
     icon: '🌑',
     color: '#a855f7',
     opposed: 'holy',
     stoneId: 'dark_stone',
-    desc: 'Amplifica dano contra seres Sagrados e Celestes (+20%).',
-    dropZone: 'Imperial Tomb / Crypts (Lv.70+)'
+    desc: '對神聖與天界生物的傷害提高 20%。',
+    dropZone: '帝國陵墓／地穴（等級 70+）'
   }
 };
 
 export const ELEMENTAL_GRADE_GATING = {
-  s: { minLevel: 76, maxCapWeapon: 300, maxCapArmor: 120, stoneCost: 250000, label: 'Grau S' },
-  a: { minLevel: 61, maxCapWeapon: 150, maxCapArmor: 60, stoneCost: 100000, label: 'Grau A' },
-  b: { minLevel: 52, maxCapWeapon: 60, maxCapArmor: 30, stoneCost: 50000, label: 'Grau B' },
-  c: { minLevel: 40, maxCapWeapon: 60, maxCapArmor: 30, stoneCost: 30000, label: 'Grau C' }
+  s: { minLevel: 76, maxCapWeapon: 300, maxCapArmor: 120, stoneCost: 250000, label: 'S 級' },
+  a: { minLevel: 61, maxCapWeapon: 150, maxCapArmor: 60, stoneCost: 100000, label: 'A 級' },
+  b: { minLevel: 52, maxCapWeapon: 60, maxCapArmor: 30, stoneCost: 50000, label: 'B 級' },
+  c: { minLevel: 40, maxCapWeapon: 60, maxCapArmor: 30, stoneCost: 30000, label: 'C 級' }
 };
 
 export const SOUL_CRYSTAL_GRADE_GATING = {
-  s: { minLevel: 76, adenaCost: 500000, label: 'Grau S' },
-  a: { minLevel: 61, adenaCost: 250000, label: 'Grau A' },
-  b: { minLevel: 52, adenaCost: 100000, label: 'Grau B' },
-  c: { minLevel: 40, adenaCost: 50000, label: 'Grau C' },
-  d: { minLevel: 20, adenaCost: 20000, label: 'Grau D' }
+  s: { minLevel: 76, adenaCost: 500000, label: 'S 級' },
+  a: { minLevel: 61, adenaCost: 250000, label: 'A 級' },
+  b: { minLevel: 52, adenaCost: 100000, label: 'B 級' },
+  c: { minLevel: 40, adenaCost: 50000, label: 'C 級' },
+  d: { minLevel: 20, adenaCost: 20000, label: 'D 級' }
 };
 
 export const SA_RUNES = {
   red: {
-    focus: { key: 'focus', name: 'Focus', stat: 'crit', baseVal: 35, desc: 'Aumenta a Taxa de Crítico Físico' },
-    might: { key: 'might', name: 'Might', stat: 'patk', baseVal: 0.12, desc: 'Aumenta o Poder de Ataque Físico' }
+    focus: { key: 'focus', name: '專注', stat: 'crit', baseVal: 35, desc: '提高物理暴擊率' },
+    might: { key: 'might', name: '力量', stat: 'patk', baseVal: 0.12, desc: '提高物理攻擊力' }
   },
   green: {
-    acumen: { key: 'acumen', name: 'Acumen', stat: 'castSpd', baseVal: 0.15, desc: 'Aumenta a Velocidade de Conjuração Mágica' },
-    health: { key: 'health', name: 'Health', stat: 'hp', baseVal: 0.20, desc: 'Aumenta a Vida Máxima (HP)' }
+    acumen: { key: 'acumen', name: '靈敏', stat: 'castSpd', baseVal: 0.15, desc: '提高魔法施法速度' },
+    health: { key: 'health', name: '生命', stat: 'hp', baseVal: 0.20, desc: '提高最大生命值' }
   },
   blue: {
-    empower: { key: 'empower', name: 'Empower', stat: 'matk', baseVal: 0.15, desc: 'Aumenta o Poder de Ataque Mágico' },
-    guidance: { key: 'guidance', name: 'Guidance', stat: 'accuracy', baseVal: 4, desc: 'Aumenta a Precisão e Reduz Falhas' }
+    empower: { key: 'empower', name: '魔力增幅', stat: 'matk', baseVal: 0.15, desc: '提高魔法攻擊力' },
+    guidance: { key: 'guidance', name: '引導', stat: 'accuracy', baseVal: 4, desc: '提高命中並降低失誤' }
   }
 };
 
@@ -139,7 +139,7 @@ export function getElementalGating(item) {
       maxCapWeapon: 0,
       maxCapArmor: 0,
       stoneCost: 0,
-      label: grade === 'd' ? 'Grau D (Incapaz de Conter Elementos)' : 'Sem Grau (Incapaz de Conter Elementos)'
+      label: grade === 'd' ? 'D 級（無法附加元素）' : '無品級（無法附加元素）'
     };
   }
 
@@ -170,7 +170,7 @@ export function applyElementalInfusion(state, equipUid, elementKey = 'fire', cal
   const inv = state.inventory || [];
   const item = inv.find(i => i.uid === equipUid || i.id === equipUid);
   if (!item) {
-    if (callbacks.log) callbacks.log('Item não encontrado para infusão elemental.', 'system');
+    if (callbacks.log) callbacks.log('找不到可進行元素灌注的物品。', 'system');
     return false;
   }
 
@@ -179,19 +179,19 @@ export function applyElementalInfusion(state, equipUid, elementKey = 'fire', cal
   const slot = def?.slot || item.slot;
   const validSlots = ['weapon', 'weapon2', 'armor', 'chest', 'legs', 'head', 'helmet', 'gloves', 'boots', 'shield'];
   if (!validSlots.includes(slot)) {
-    if (callbacks.log) callbacks.log('Apenas armas, armaduras e escudos podem ser imbuídos com elementos!', 'system');
+    if (callbacks.log) callbacks.log('只有武器、防具與盾牌可以進行元素灌注！', 'system');
     return false;
   }
 
   const gating = getElementalGating(item);
   if (!gating.eligible) {
-    if (callbacks.log) callbacks.log(`Equipamentos de ${gating.label} não suportam infusão elemental. Requer Grau C ou superior.`, 'system');
+    if (callbacks.log) callbacks.log(`${gating.label} 裝備不支援元素灌注，需要 C 級以上裝備。`, 'system');
     return false;
   }
 
   const playerLvl = Number(state.level || 1);
   if (playerLvl < gating.minLevel) {
-    if (callbacks.log) callbacks.log(`Nível insuficiente! Itens de ${gating.label} requerem Nível ${gating.minLevel}+ para infusão elemental.`, 'system');
+    if (callbacks.log) callbacks.log(`等級不足！${gating.label} 裝備需要等級 ${gating.minLevel} 以上才能進行元素灌注。`, 'system');
     return false;
   }
 
@@ -200,20 +200,20 @@ export function applyElementalInfusion(state, equipUid, elementKey = 'fire', cal
 
   // Regra de Migração 17.4: Se já tem valor igual ou superior ao teto, não reduz mas trava novos ganhos
   if (currentVal >= gating.maxCap) {
-    if (callbacks.log) callbacks.log(`Este equipamento já atingiu o limite de +${gating.maxCap} para o ${gating.label}!`, 'system');
+    if (callbacks.log) callbacks.log(`此裝備的 ${gating.label} 已達 +${gating.maxCap} 上限！`, 'system');
     return false;
   }
 
   // Se o item já tem outro elemento diferente, canonicamente no L2 precisa ser limpo ou sobreposto
   if (currentElem !== 'none' && currentElem !== elementKey && currentVal > 0) {
-    if (callbacks.log) callbacks.log(`Este item já possui o elemento [${currentElem.toUpperCase()}]. Limpe o atributo anterior antes de imbuir ${elementKey.toUpperCase()}.`, 'system');
+    if (callbacks.log) callbacks.log(`此物品已具有【${ELEMENT_DEFINITIONS[currentElem]?.name || '未知'}】元素。請先清除原屬性，再灌注【${ELEMENT_DEFINITIONS[elementKey]?.name || '未知'}】。`, 'system');
     return false;
   }
 
   // Custo em Adena
   const cost = gating.stoneCost;
   if ((state.gold || 0) < cost) {
-    if (callbacks.log) callbacks.log(`Adena insuficiente! Requer ${cost.toLocaleString()} Adena para a infusão elemental.`, 'system');
+    if (callbacks.log) callbacks.log(`金幣不足！元素灌注需要 ${cost.toLocaleString()} 金幣。`, 'system');
     return false;
   }
 
@@ -240,7 +240,7 @@ export function applyElementalInfusion(state, equipUid, elementKey = 'fire', cal
   };
 
   if (callbacks.log) {
-    callbacks.log(`✨ ALQUIMIA ELEMENTAL: ${item.name || def.name} imbuído com +${step} de ${elemDef.name} ${elemDef.icon}! (${newVal}/${gating.maxCap})`, 'rarity-epic');
+    callbacks.log(`✨ 元素鍊金：${item.name || def.name} 已灌注 +${step} ${elemDef.name} ${elemDef.icon}！（${newVal}/${gating.maxCap}）`, 'rarity-epic');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -258,7 +258,7 @@ export function removeElementalInfusion(state, equipUid, callbacks = {}) {
 
   const resetCost = 25000;
   if ((state.gold || 0) < resetCost) {
-    if (callbacks.log) callbacks.log(`Adena insuficiente para purificação elemental. Requer ${resetCost.toLocaleString()} Adena.`, 'system');
+    if (callbacks.log) callbacks.log(`金幣不足，無法進行元素淨化。需要 ${resetCost.toLocaleString()} 金幣。`, 'system');
     return false;
   }
 
@@ -267,7 +267,7 @@ export function removeElementalInfusion(state, equipUid, callbacks = {}) {
   item.elementalAttribute = { element: 'none', val: 0 };
 
   if (callbacks.log) {
-    callbacks.log(`🌊 PURIFICAÇÃO: O atributo [${oldElem.toUpperCase()}] foi removido com sucesso de ${item.name || item.itemId}.`, 'system');
+    callbacks.log(`🌊 淨化完成：已成功移除 ${item.name || '未知物品'} 的【${ELEMENT_DEFINITIONS[oldElem]?.name || '其他屬性'}】屬性。`, 'system');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -282,7 +282,7 @@ export function applySoulCrystalToWeapon(state, weaponUid, color = 'red', saKey 
   const inv = state.inventory || [];
   const item = inv.find(i => i.uid === weaponUid || i.id === weaponUid);
   if (!item) {
-    if (callbacks.log) callbacks.log('Arma não encontrada para engaste de Soul Crystal.', 'system');
+    if (callbacks.log) callbacks.log('找不到可鑲嵌靈魂水晶的武器。', 'system');
     return false;
   }
 
@@ -290,7 +290,7 @@ export function applySoulCrystalToWeapon(state, weaponUid, color = 'red', saKey 
   const def = gData?.ALL_ITEMS?.[item.itemId || item.id] || item;
   const slot = def?.slot || item.slot;
   if (slot !== 'weapon' && slot !== 'weapon2') {
-    if (callbacks.log) callbacks.log('Soul Crystals só podem ser engastados em armas (Primária ou Secundária)!', 'system');
+    if (callbacks.log) callbacks.log('靈魂水晶只能鑲嵌在主武器或副武器上！', 'system');
     return false;
   }
 
@@ -299,13 +299,13 @@ export function applySoulCrystalToWeapon(state, weaponUid, color = 'red', saKey 
   const playerLvl = Number(state.level || 1);
 
   if (playerLvl < gating.minLevel) {
-    if (callbacks.log) callbacks.log(`Nível insuficiente! Armas de ${gating.label} requerem Nível ${gating.minLevel}+ para engastar Soul Crystals.`, 'system');
+    if (callbacks.log) callbacks.log(`等級不足！${gating.label} 武器需要等級 ${gating.minLevel}+ 才能鑲嵌靈魂水晶。`, 'system');
     return false;
   }
 
   const adenaCost = gating.adenaCost;
   if ((state.gold || 0) < adenaCost) {
-    if (callbacks.log) callbacks.log(`Adena insuficiente! Requer ${adenaCost.toLocaleString()} Adena para engastar o Soul Crystal nesta arma.`, 'system');
+    if (callbacks.log) callbacks.log(`金幣不足！在這把武器鑲嵌靈魂水晶需要 ${adenaCost.toLocaleString()} 金幣。`, 'system');
     return false;
   }
 
@@ -334,13 +334,13 @@ export function applySoulCrystalToWeapon(state, weaponUid, color = 'red', saKey 
     key: saKey,
     name: saBonus.name,
     level: crystalLevel,
-    desc: `${saBonus.desc} (+${typeof finalVal === 'number' && finalVal < 1 ? (finalVal * 100).toFixed(0) + '%' : finalVal})`,
+    desc: `${saBonus.desc}（+${typeof finalVal === 'number' && finalVal < 1 ? (finalVal * 100).toFixed(0) + '%' : finalVal}）`,
     stat: saBonus.stat,
     val: finalVal
   };
 
   if (callbacks.log) {
-    callbacks.log(`🔮 SPECIAL ABILITY CONCEDIDA (Lv.${crystalLevel}): ${item.name || def.name} recebeu [SA: ${saBonus.name}]! (${item.soulCrystal.desc})`, 'rarity-legendary');
+    callbacks.log(`🔮 已賦予特殊能力（等級 ${crystalLevel}）：${item.name || def.name} 獲得【特殊能力：${saBonus.name}】！（${item.soulCrystal.desc}）`, 'rarity-legendary');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -358,7 +358,7 @@ export function removeSoulCrystalFromWeapon(state, weaponUid, callbacks = {}) {
 
   const cost = 20000;
   if ((state.gold || 0) < cost) {
-    if (callbacks.log) callbacks.log(`Adena insuficiente! Requer ${cost.toLocaleString()} Adena para extrair o Soul Crystal.`, 'system');
+    if (callbacks.log) callbacks.log(`金幣不足！取出靈魂水晶需要 ${cost.toLocaleString()} 金幣。`, 'system');
     return false;
   }
 
@@ -367,7 +367,7 @@ export function removeSoulCrystalFromWeapon(state, weaponUid, callbacks = {}) {
   item.soulCrystal = null;
 
   if (callbacks.log) {
-    callbacks.log(`🧹 Soul Crystal [${oldSa}] extraído de ${item.name || item.itemId}.`, 'system');
+    callbacks.log(`🧹 已從 ${item.name || '未知武器'} 取出靈魂水晶【${oldSa || '未知效果'}】。`, 'system');
   }
 
   if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -429,17 +429,17 @@ export function calculatePlayerElementalDamage(state, monster, rawDamage = 100) 
     // Vantagem de Oposição canônica L2 (+20%)
     if (defElem.opposed === monElem) {
       elemMult += 0.20;
-      bonusText = `💥 OPOSIÇÃO ELEMENTAL (+20% ${activeElement.toUpperCase()} vs ${monElem.toUpperCase()})!`;
+      bonusText = `💥 元素克制（+20% ${defElem.name} 對 ${ELEMENT_DEFINITIONS[monElem]?.name || '未知屬性'}）！`;
     }
     // Especial Sagrado vs Dark / Undead / Demônios (+30%)
     else if (activeElement === 'holy' && (monElem === 'dark' || monster?.category === 'undead' || monster?.category === 'demon')) {
       elemMult += 0.30;
-      bonusText = `✨ EXPURGO SAGRADO (+30% vs MORTOS-VIVOS)!`;
+      bonusText = `✨ 神聖淨化（對不死族 +30%）！`;
     }
     // Penalidade se atacar mesmo elemento (-20%)
     else if (activeElement === monElem) {
       elemMult = Math.max(0.60, elemMult - 0.20);
-      bonusText = `🛡️ RESISTÊNCIA ELEMENTAL (-20% Mesmo Elemento)`;
+      bonusText = `🛡️ 元素抗性（同屬性傷害 -20%）`;
     }
   }
 

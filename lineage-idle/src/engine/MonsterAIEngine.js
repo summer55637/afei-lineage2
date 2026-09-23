@@ -19,44 +19,44 @@ export const MONSTER_ARCHETYPES = {
 
 export const ARCHETYPE_INFO = {
   [MONSTER_ARCHETYPES.BERSERKER]: {
-    label: 'Berserker',
+    label: '狂戰士',
     icon: '⚔️',
     color: '#ef4444',
     bg: 'rgba(239, 68, 68, 0.15)',
     border: 'rgba(239, 68, 68, 0.4)',
-    desc: 'Agressivo. Entra em Enrage (<35% HP) aumentando o ataque em +30%.'
+    desc: '侵略性極高。生命值低於 35% 時進入狂暴，攻擊力 +30%。'
   },
   [MONSTER_ARCHETYPES.CASTER]: {
-    label: 'Conjurador Mágico',
+    label: '魔法施術者',
     icon: '🔮',
     color: '#a855f7',
     bg: 'rgba(168, 85, 247, 0.15)',
     border: 'rgba(168, 85, 247, 0.4)',
-    desc: 'Conjurador arcano. Desfere feitiços elementais. Vulnerável a dano físico e quebra de Stagger.'
+    desc: '奧術施法型怪物，會使用元素魔法；較怕物理傷害與失衡破防。'
   },
   [MONSTER_ARCHETYPES.TANK]: {
-    label: 'Guardião / Tank',
+    label: '守護者／坦克',
     icon: '🛡️',
     color: '#3b82f6',
     bg: 'rgba(59, 130, 246, 0.15)',
     border: 'rgba(59, 130, 246, 0.4)',
-    desc: 'Alta P.Def. Chance de Bloqueio de Escudo (-50% dano) e Postura da Fortaleza (<50% HP).'
+    desc: '物理防禦高；有機率以盾牌格擋 50% 傷害，生命值低於 50% 時可進入堡壘姿態。'
   },
   [MONSTER_ARCHETYPES.ASSASSIN]: {
-    label: 'Assassino Sombrio',
+    label: '暗影刺客',
     icon: '🗡️',
     color: '#eab308',
     bg: 'rgba(234, 179, 8, 0.15)',
     border: 'rgba(234, 179, 8, 0.4)',
-    desc: 'Ágil e letal. Chance de Esquiva Sombria (Shadow Dodge) e críticos devastadores.'
+    desc: '敏捷且致命；有機率觸發暗影閃避，並造成高額暴擊。'
   },
   [MONSTER_ARCHETYPES.SUPPORT]: {
-    label: 'Suporte / Xamã',
+    label: '輔助／薩滿',
     icon: '✨',
     color: '#10b981',
     bg: 'rgba(16, 185, 129, 0.15)',
     border: 'rgba(16, 185, 129, 0.4)',
-    desc: 'Cura a si mesmo (<40% HP) e enfraquece o herói com maldições Hex/Gloom.'
+    desc: '生命值低於 40% 時會自我治療，並以詛咒削弱玩家。'
   }
 };
 
@@ -66,7 +66,7 @@ export const ARCHETYPE_INFO = {
 export const HUNTING_DIFFICULTIES = {
   normal: {
     id: 'normal',
-    name: 'Normal',
+    name: '一般',
     icon: '🟢',
     minLvl: 1,
     hpMult: 1.0,
@@ -77,12 +77,12 @@ export const HUNTING_DIFFICULTIES = {
     dropMult: 1.0,
     champBonus: 0,
     color: '#10b981',
-    badge: 'Normal',
-    desc: 'Dificuldade padrão equilibrada para progressão inicial.'
+    badge: '一般',
+    desc: '適合初期成長的標準平衡難度。'
   },
   hard: {
     id: 'hard',
-    name: 'Difícil',
+    name: '困難',
     icon: '🟡',
     minLvl: 40,
     hpMult: 1.6,
@@ -93,12 +93,12 @@ export const HUNTING_DIFFICULTIES = {
     dropMult: 1.35,
     champBonus: 4,
     color: '#f59e0b',
-    badge: 'Difícil (Lv.40+)',
-    desc: '+50% XP/Adena, +35% Drop Rate, monstros mais resistentes.'
+    badge: '困難（等級 40+）',
+    desc: '經驗值／金幣 +50%、掉落率 +35%，怪物更加耐打。'
   },
   nightmare: {
     id: 'nightmare',
-    name: 'Pesadelo',
+    name: '夢魘',
     icon: '🔴',
     minLvl: 60,
     hpMult: 2.8,
@@ -110,12 +110,12 @@ export const HUNTING_DIFFICULTIES = {
     champBonus: 8,
     crystalBonus: true,
     color: '#ef4444',
-    badge: 'Pesadelo (Lv.60+)',
-    desc: '+150% XP/Adena, +80% Drop Rate, Soul Crystals e Tomos aumentados.'
+    badge: '夢魘（等級 60+）',
+    desc: '經驗值／金幣 +150%、掉落率 +80%，靈魂水晶與魔法書掉落提升。'
   },
   hell: {
     id: 'hell',
-    name: 'Infernal',
+    name: '煉獄',
     icon: '🟣',
     minLvl: 76,
     hpMult: 4.5,
@@ -127,8 +127,8 @@ export const HUNTING_DIFFICULTIES = {
     champBonus: 15,
     rareDropBonus: true,
     color: '#a855f7',
-    badge: 'Infernal (Lv.76+)',
-    desc: '+300% XP/Adena, +150% Drop Rate, Campeões frequentes e drops de elite.'
+    badge: '煉獄（等級 76+）',
+    desc: '經驗值／金幣 +300%、掉落率 +150%，冠軍怪更常出現並提高菁英掉落。'
   }
 };
 
@@ -251,9 +251,9 @@ export const MonsterAIEngine = {
         result.finalDamage = 0;
         result.events.push({
           type: 'dodge',
-          floatText: '💨 SHADOW DODGE',
+          floatText: '💨 暗影閃避',
           floatStyle: 'sf-miss',
-          log: `💨 **${monster.name}** desvaneceu nas sombras e esquivou do golpe!`
+          log: `💨 **${monster.name}** 融入暗影並閃避了攻擊！`
         });
         return result;
       }
@@ -267,9 +267,9 @@ export const MonsterAIEngine = {
         result.finalDamage = Math.max(1, Math.floor(result.finalDamage * 0.50));
         result.events.push({
           type: 'block',
-          floatText: '🛡️ SHIELD BLOCK (-50%)',
+          floatText: '🛡️ 盾牌格擋（-50%）',
           floatStyle: 'sf-block',
-          log: `🛡️ **${monster.name}** ergueu seu escudo e bloqueou metade do dano!`
+          log: `🛡️ **${monster.name}** 舉起盾牌，格擋了一半傷害！`
         });
       }
     }
@@ -282,9 +282,9 @@ export const MonsterAIEngine = {
       ai.fortressUntil = realNow + 10000;
       result.events.push({
         type: 'fortress',
-        floatText: '🛡️ POSTURA DA FORTALEZA!',
+        floatText: '🛡️ 堡壘姿態！',
         floatStyle: 'float-epic',
-        log: `🛡️ **${monster.name}** assumiu Postura da Fortaleza (Defesa impenetrável e espinhos reflexivos por 10s)!`
+        log: `🛡️ **${monster.name}** 進入堡壘姿態（10 秒內強化防禦並反射傷害）！`
       });
     }
 
@@ -307,9 +307,9 @@ export const MonsterAIEngine = {
         ai.barrierHp -= result.finalDamage;
         result.events.push({
           type: 'barrier',
-          floatText: '🔮 BARREIRA ABSORVEU',
+          floatText: '🔮 屏障吸收',
           floatStyle: 'sf-block',
-          log: `🔮 O escudo de energia de **${monster.name}** absorveu ${result.finalDamage} de dano!`
+          log: `🔮 **${monster.name}** 的能量護盾吸收了 ${result.finalDamage} 點傷害！`
         });
         result.finalDamage = 0;
         return result;
@@ -319,9 +319,9 @@ export const MonsterAIEngine = {
         ai.barrierHp = 0;
         result.events.push({
           type: 'barrier_break',
-          floatText: '💥 BARREIRA DESTRUÍDA',
+          floatText: '💥 屏障破壞',
           floatStyle: 'float-jackpot',
-          log: `💥 A barreira arcana de **${monster.name}** foi destruída!`
+          log: `💥 **${monster.name}** 的奧術屏障已被破壞！`
         });
       }
     }
@@ -334,9 +334,9 @@ export const MonsterAIEngine = {
       result.reflectedDamage += reflectAmt;
       result.events.push({
         type: 'reflect',
-        floatText: `⚡ REFLECT -${reflectAmt}`,
+        floatText: `⚡ 反射 -${reflectAmt}`,
         floatStyle: 'sf-hurt',
-        log: `⚡ A couraça espinhada de **${monster.name}** refletiu ${reflectAmt} de dano contra você!`
+        log: `⚡ **${monster.name}** 的尖刺護甲反射了 ${reflectAmt} 點傷害！`
       });
     }
 
@@ -348,9 +348,9 @@ export const MonsterAIEngine = {
       monster.atk = Math.floor(monster.atk * 1.30);
       result.events.push({
         type: 'enrage',
-        floatText: '🔥 ENRAGE! (+30% ATK)',
+        floatText: '🔥 狂暴！（攻擊 +30%）',
         floatStyle: 'float-jackpot',
-        log: `🔥 **${monster.name}** entrou em Fúria Enlouquecida (Enrage)! Seu ataque aumentou em +30%!`
+        log: `🔥 **${monster.name}** 進入狂暴狀態！攻擊力 +30%！`
       });
     }
 
@@ -362,9 +362,9 @@ export const MonsterAIEngine = {
       monster.hp = Math.min(monster._maxHp, monster.hp + healAmt);
       result.events.push({
         type: 'heal',
-        floatText: `✨ +${healAmt} HP (Cura)`,
+        floatText: `✨ +${healAmt} 生命值（治療）`,
         floatStyle: 'sf-heal',
-        log: `✨ **${monster.name}** canalizou ritos xamânicos e recuperou ${healAmt} de HP!`
+        log: `✨ **${monster.name}** 施展薩滿儀式，恢復 ${healAmt} 生命值！`
       });
     }
 
@@ -410,12 +410,12 @@ export const MonsterAIEngine = {
     if (archetype === MONSTER_ARCHETYPES.CASTER) {
       const elem = monster.element || 'fire';
       const SPELL_MAP = {
-        fire: { name: 'Prominence Elemental', vfx: 'fireball', bonus: 1.25 },
-        water: { name: 'Hydro Blast Arcano', vfx: 'water_blast', bonus: 1.20 },
-        wind: { name: 'Furacão Cortante', vfx: 'hurricane', bonus: 1.25 },
-        earth: { name: 'Espinhaço de Terra', vfx: 'earth_spike', bonus: 1.20 },
-        holy: { name: 'Raio Divino Solar', vfx: 'holy_ray', bonus: 1.30 },
-        dark: { name: 'Centelha das Sombras', vfx: 'dark_missile', bonus: 1.30 }
+        fire: { name: '元素烈焰', vfx: 'fireball', bonus: 1.25 },
+        water: { name: '奧術水爆', vfx: 'water_blast', bonus: 1.20 },
+        wind: { name: '切裂颶風', vfx: 'hurricane', bonus: 1.25 },
+        earth: { name: '大地尖刺', vfx: 'earth_spike', bonus: 1.20 },
+        holy: { name: '神聖日光', vfx: 'holy_ray', bonus: 1.30 },
+        dark: { name: '暗影火花', vfx: 'dark_missile', bonus: 1.30 }
       };
       const sp = SPELL_MAP[elem] || SPELL_MAP.fire;
       spellName = sp.name;
@@ -431,10 +431,10 @@ export const MonsterAIEngine = {
       const now = Date.now();
       if (debuffType === 'hex') {
         state.buffs['monster_hex'] = { amount: 20, until: now + 10000 };
-        appliedDebuff = { name: 'Hex Maldito (-20% P.Def)', type: 'hex' };
+        appliedDebuff = { name: '詛咒術（物理防禦 -20%）', type: 'hex' };
       } else {
         state.buffs['monster_gloom'] = { amount: 20, until: now + 10000 };
-        appliedDebuff = { name: 'Gloom Abissal (-20% M.Def)', type: 'gloom' };
+        appliedDebuff = { name: '深淵陰霾（魔法防禦 -20%）', type: 'gloom' };
       }
     }
 
@@ -480,15 +480,15 @@ export const MonsterAIEngine = {
    * Altera a dificuldade de caça verificando os requisitos de nível.
    */
   setDifficulty(state, diffId) {
-    if (!state) return { success: false, reason: 'Estado inválido' };
+    if (!state) return { success: false, reason: '狀態無效' };
     const targetDiff = HUNTING_DIFFICULTIES[diffId];
-    if (!targetDiff) return { success: false, reason: 'Dificuldade inexistente' };
+    if (!targetDiff) return { success: false, reason: '找不到此難度' };
 
     const playerLvl = state.level || 1;
     if (playerLvl < targetDiff.minLvl) {
       return {
         success: false,
-        reason: `Exige Nível ${targetDiff.minLvl} para desbloquear a dificuldade ${targetDiff.name}!`
+        reason: `需要等級 ${targetDiff.minLvl} 才能解鎖難度「${targetDiff.name}」！`
       };
     }
 

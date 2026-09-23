@@ -107,7 +107,7 @@ export const MercenaryService = {
 
     if (force) {
       if ((state.gold || 0) < TAVERN_FORCE_REFRESH_COST) {
-        if (callbacks.log) callbacks.log(`⚠️ Ouro insuficiente para renovar os contratos da Taverna! Requer ${TAVERN_FORCE_REFRESH_COST.toLocaleString()} Adena.`, 'warning');
+        if (callbacks.log) callbacks.log(`⚠️ 金幣不足，無法刷新酒館契約！需要 ${TAVERN_FORCE_REFRESH_COST.toLocaleString()} 金幣。`, 'warning');
         return false;
       }
       state.gold -= TAVERN_FORCE_REFRESH_COST;
@@ -120,7 +120,7 @@ export const MercenaryService = {
     mState.lastTavernRefresh = now;
 
     if (callbacks.log) {
-      callbacks.log(`🍺 **Novos mercenários chegaram à Taverna de Aden!** Confira os novos contratos disponíveis.`, 'system');
+      callbacks.log(`🍺 **新的傭兵來到亞丁酒館！** 查看目前可用的新契約。`, 'system');
     }
     if (callbacks.updateAllUI) callbacks.updateAllUI();
     if (callbacks.save) callbacks.save();
@@ -131,18 +131,18 @@ export const MercenaryService = {
     const mState = this.getMercenariesState(state);
     const candidateIdx = mState.tavernPool.findIndex(c => c.uid === candidateUid);
     if (candidateIdx < 0) {
-      if (callbacks.log) callbacks.log('⚠️ Contrato de mercenário expirado ou indisponível.', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 傭兵契約已失效或目前不可用。', 'warning');
       return false;
     }
 
     if (mState.owned.length >= MAX_OWNED_MERCENARIES) {
-      if (callbacks.log) callbacks.log(`⚠️ Seu quartel está cheio (${mState.owned.length}/${MAX_OWNED_MERCENARIES})! Dispense um mercenário antes de contratar outro.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 你的傭兵營已滿（${mState.owned.length}/${MAX_OWNED_MERCENARIES}）！請先解雇一名傭兵再招募新的傭兵。`, 'warning');
       return false;
     }
 
     const candidate = mState.tavernPool[candidateIdx];
     if ((state.gold || 0) < candidate.hireCost) {
-      if (callbacks.log) callbacks.log(`⚠️ Ouro insuficiente para contratar ${candidate.name}! Requer ${candidate.hireCost.toLocaleString()} Adena.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足，無法招募 ${candidate.name}！需要 ${candidate.hireCost.toLocaleString()} 金幣。`, 'warning');
       return false;
     }
 
@@ -161,10 +161,10 @@ export const MercenaryService = {
     const specDef = MERCENARY_SPECIALIZATIONS[hiredMerc.spec] || { name: hiredMerc.spec };
 
     if (callbacks.log) {
-      callbacks.log(`⚔️ **${hiredMerc.name}** (${specDef.name}, [${rarityDef.name}]) aceitou seu contrato e juntou-se ao seu Quartel!`, 'rarity-legendary');
+      callbacks.log(`⚔️ **${hiredMerc.name}**（${specDef.name}，[${rarityDef.name}]）接受了契約並加入你的傭兵營！`, 'rarity-legendary');
     }
     if (callbacks.floatText) {
-      callbacks.floatText(`+Mercenário: ${hiredMerc.name}`, 'float-gold');
+      callbacks.floatText(`+傭兵：${hiredMerc.name}`, 'float-gold');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -178,7 +178,7 @@ export const MercenaryService = {
     if (mercIdx < 0) return false;
 
     if (this.isMercenaryBusy(state, mercUid)) {
-      if (callbacks.log) callbacks.log('⚠️ Este mercenário está atualmente em uma expedição e não pode ser dispensado!', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 此傭兵目前正在遠征，無法解雇！', 'warning');
       return false;
     }
 
@@ -189,7 +189,7 @@ export const MercenaryService = {
     mState.owned.splice(mercIdx, 1);
 
     if (callbacks.log) {
-      callbacks.log(`🛡️ ${merc.name} foi dispensado com honras. Reembolso: +${refund.toLocaleString()} Adena.`, 'system');
+      callbacks.log(`🛡️ ${merc.name} 已榮譽退役。返還：+${refund.toLocaleString()} 金幣。`, 'system');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -217,7 +217,7 @@ export const MercenaryService = {
     }
 
     if (leveledUp && callbacks.log) {
-      callbacks.log(`⭐ **${merc.name} subiu para o Nível ${merc.level}!** Poder em expedições ampliado para ${calculateMercenaryPower(merc)}!`, 'rarity-legendary');
+      callbacks.log(`⭐ **${merc.name} 升到等級 ${merc.level}！** 遠征戰力提升至 ${calculateMercenaryPower(merc)}！`, 'rarity-legendary');
     }
 
     // Concede +2 de lealdade por expedição concluída com sucesso
@@ -232,7 +232,7 @@ export const MercenaryService = {
     const oldLoyalty = merc.loyalty ?? 50;
     merc.loyalty = Math.max(0, Math.min(100, oldLoyalty + amount));
     if (merc.loyalty >= 80 && oldLoyalty < 80 && callbacks.log) {
-      callbacks.log(`🤝 **${merc.name} atingiu Lealdade Fanática (Nv. ${merc.loyalty})!** Eficiência máxima e menor custo!`, 'rarity-legendary');
+      callbacks.log(`🤝 **${merc.name} 達到狂熱忠誠（等級 ${merc.loyalty}）！** 效率最高且成本降低！`, 'rarity-legendary');
     }
     return merc.loyalty;
   }

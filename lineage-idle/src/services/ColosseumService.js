@@ -2,7 +2,7 @@ import { DUEL_BET_TIERS, DUEL_OPPONENT_ARCHETYPES, SURVIVAL_WAVES, COLOSSEUM_SHO
 
 export class ColosseumService {
   /**
-   * Garante a inicialização do estado do Coliseu
+   * Garante a inicialização do estado do 競技場
    */
   static ensureState(state) {
     if (!state.colosseum || typeof state.colosseum !== 'object') {
@@ -20,14 +20,14 @@ export class ColosseumService {
   }
 
   /**
-   * Inicia um Duelo 1v1 com Aposta
+   * Inicia um 決鬥 1v1 com 賭注
    */
   static startDuel(state, tierId, hooks = {}, customOpponent = null) {
     const colState = this.ensureState(state);
     const tier = DUEL_BET_TIERS.find(t => t.id === tierId) || DUEL_BET_TIERS[0];
 
     if ((state.gold || 0) < tier.bet) {
-      return { success: false, message: `Ouro insuficiente para cobrir a aposta de ${tier.bet.toLocaleString()}g.` };
+      return { success: false, message: `金幣不足，無法支付 ${tier.bet.toLocaleString()} 金幣 的賭注。` };
     }
 
     // Deduz a aposta
@@ -37,8 +37,8 @@ export class ColosseumService {
     let oppName, oppTitle, oppIcon, oppHp, oppPAtk, oppPDef;
 
     if (customOpponent) {
-      oppName = customOpponent.charName || customOpponent.name || 'Desafiante Lendário';
-      oppTitle = customOpponent.className ? `Lv. ${customOpponent.level || 80} ${customOpponent.className}` : 'Gladiador do Reino';
+      oppName = customOpponent.charName || customOpponent.name || '傳說挑戰者';
+      oppTitle = customOpponent.className ? `等級 ${customOpponent.level || 80} ${customOpponent.className}` : '王國角鬥士';
       oppIcon = customOpponent.isHero ? '👑' : '⚔️';
       
       const snap = customOpponent.statsSnapshot || {};
@@ -72,33 +72,33 @@ export class ColosseumService {
       turn: 1
     };
 
-    hooks.log?.(`⚔️ Duelo iniciado na Arena de Giran contra **${oppName}**! Aposta: ${tier.bet.toLocaleString()}g`, 'warning');
+    hooks.log?.(`⚔️ 已在奇岩競技場與 **${oppName}** 開始決鬥！賭注：${tier.bet.toLocaleString()} 金幣`, 'warning');
     hooks.onUpdate?.();
     return { success: true, duel: colState.activeDuel };
   }
 
   /**
-   * Executa um turno no Duelo 1v1
+   * Executa um turno no 決鬥 1v1
    */
   static executeDuelTurn(state, hooks = {}) {
     const colState = this.ensureState(state);
     const duel = colState.activeDuel;
-    if (!duel) return { success: false, message: 'Nenhum duelo ativo.' };
+    if (!duel) return { success: false, message: '目前沒有進行中的決鬥。' };
 
     const pStats = state.stats || { atk: 2500, def: 2000 };
     const pDmg = Math.max(150, Math.floor((pStats.atk || 2000) * 1.6 - duel.pDef * 0.4));
     duel.hp = Math.max(0, duel.hp - pDmg);
 
-    hooks.log?.(`⚔️ Seu golpe atingiu **${duel.opponentName}** causando **${pDmg.toLocaleString()}** de dano! (${duel.hp.toLocaleString()} HP restante)`, 'combat');
+    hooks.log?.(`⚔️ 你的攻擊命中 **${duel.opponentName}**，造成 **${pDmg.toLocaleString()}** 傷害！（剩餘生命值：${duel.hp.toLocaleString()}）`, 'combat');
 
     if (duel.hp <= 0) {
-      // Vitória!
+      // 勝利!
       const winGold = duel.bet * 2;
       state.gold = (state.gold || 0) + winGold;
       colState.badges += 10;
       colState.duelWins++;
 
-      hooks.log?.(`🏆 VITÓRIA NO DUELO! Você derrotou **${duel.opponentName}**! Prêmio: +${winGold.toLocaleString()}g e +10 Colosseum Badges!`, 'victory');
+      hooks.log?.(`🏆 決鬥勝利！你擊敗 **${duel.opponentName}**！獎勵：+${winGold.toLocaleString()} 金幣 與 +10 競技場徽章！`, 'victory');
       colState.activeDuel = null;
       hooks.onUpdate?.();
       return { success: true, isVictory: true, goldWon: winGold };
@@ -107,7 +107,7 @@ export class ColosseumService {
     // Contra-ataque do oponente
     const oppDmg = Math.max(100, Math.floor(duel.pAtk * 1.4 - (pStats.def || 1800) * 0.3));
     state.hp = Math.max(1, (state.hp || 5000) - oppDmg);
-    hooks.log?.(`💥 **${duel.opponentName}** desferiu uma combinação de golpes causando **${oppDmg.toLocaleString()}** de dano no seu herói!`, 'danger');
+    hooks.log?.(`💥 **${duel.opponentName}** 發動連擊，對你的角色造成 **${oppDmg.toLocaleString()}** 傷害！`, 'danger');
 
     duel.turn++;
     hooks.onUpdate?.();
@@ -132,7 +132,7 @@ export class ColosseumService {
       isCompleted: false
     };
 
-    hooks.log?.(`🔥 Desafio de Sobrevivência do Coliseu iniciado! Onda 1/10: **${wave1.name}**!`, 'warning');
+    hooks.log?.(`🔥 競技場生存挑戰開始！第 1/10 波：**${wave1.name}**！`, 'warning');
     hooks.onUpdate?.();
     return { success: true, survival: colState.activeSurvival };
   }
@@ -143,13 +143,13 @@ export class ColosseumService {
   static executeSurvivalTurn(state, hooks = {}) {
     const colState = this.ensureState(state);
     const s = colState.activeSurvival;
-    if (!s || s.isCompleted) return { success: false, message: 'Nenhum desafio de sobrevivência ativo.' };
+    if (!s || s.isCompleted) return { success: false, message: '目前沒有進行中的生存挑戰。' };
 
     const pStats = state.stats || { atk: 3000, def: 2500 };
     const pDmg = Math.max(200, Math.floor((pStats.atk || 2500) * 1.8 - s.pDef * 0.4));
     s.currentHp = Math.max(0, s.currentHp - pDmg);
 
-    hooks.log?.(`⚔️ Golpe na Onda ${s.waveIndex + 1} causando **${pDmg.toLocaleString()}** de dano! (${s.currentHp.toLocaleString()} HP restante)`, 'combat');
+    hooks.log?.(`⚔️ 對第 ${s.waveIndex + 1} 波敵人造成 **${pDmg.toLocaleString()}** 傷害！（剩餘生命值：${s.currentHp.toLocaleString()}）`, 'combat');
 
     if (s.currentHp <= 0) {
       // Onda superada
@@ -161,13 +161,13 @@ export class ColosseumService {
         colState.highestWave = s.waveIndex + 1;
       }
 
-      hooks.log?.(`✨ Onda ${s.waveIndex + 1} superada! (+${waveEarnedBadges} Badges do Coliseu)`, 'gain');
+      hooks.log?.(`✨ 已突破第 ${s.waveIndex + 1} 波！（+${waveEarnedBadges} 枚競技場徽章）`, 'gain');
 
       if (s.waveIndex + 1 >= SURVIVAL_WAVES.length) {
         // Concluiu as 10 ondas
         s.isCompleted = true;
         colState.activeSurvival = null;
-        hooks.log?.(`👑 CAMPEÃO SUPREMO DO COLISEU! Você superou todas as 10 Ondas de Sobrevivência!`, 'victory');
+        hooks.log?.(`👑 競技場至尊冠軍！你成功突破全部 10 波生存挑戰！`, 'victory');
         hooks.onUpdate?.();
         return { success: true, isCompleted: true, totalBadges: s.totalBadgesAccumulated };
       }
@@ -180,7 +180,7 @@ export class ColosseumService {
       s.pAtk = s.waveData.pAtk;
       s.pDef = s.waveData.pDef;
 
-      hooks.log?.(`⚠️ Atenção! Onda ${s.waveIndex + 1}/10 adentrou a arena: **${s.waveData.name}**!`, 'warning');
+      hooks.log?.(`⚠️ 注意！第 ${s.waveIndex + 1}/10 波進入競技場：**${s.waveData.name}**！`, 'warning');
       hooks.onUpdate?.();
       return { success: true, nextWave: s.waveIndex + 1 };
     }
@@ -190,15 +190,15 @@ export class ColosseumService {
   }
 
   /**
-   * Compra itens na Loja do Coliseu com Badges
+   * Compra itens na Loja do 競技場 com Badges
    */
   static buyShopItem(state, itemId, hooks = {}) {
     const colState = this.ensureState(state);
     const item = COLOSSEUM_SHOP_CATALOG.find(i => i.id === itemId);
-    if (!item) return { success: false, message: 'Item não encontrado na Loja do Coliseu.' };
+    if (!item) return { success: false, message: '競技場商店中找不到此物品。' };
 
     if (colState.badges < item.costBadges) {
-      return { success: false, message: `Badges insuficientes. Requer ${item.costBadges} Colosseum Badges.` };
+      return { success: false, message: `競技場徽章不足，需要 ${item.costBadges} 枚。` };
     }
 
     colState.badges -= item.costBadges;
@@ -211,7 +211,7 @@ export class ColosseumService {
       count: 1
     });
 
-    hooks.log?.(`🛒 Você adquiriu **${item.name}** por **${item.costBadges} Badges**!`, 'gain');
+    hooks.log?.(`🛒 你以 **${item.costBadges} 枚徽章** 購買了 **${item.name}**！`, 'gain');
     hooks.onUpdate?.();
     return { success: true, item };
   }

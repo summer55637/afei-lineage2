@@ -81,12 +81,12 @@ export class CollectionService {
     const { log = console.log, floatText = () => {}, onUpdate = () => {} } = callbacks;
     const setDef = CODEX_SETS[setId];
     if (!setDef) {
-      log('⚠️ Coleção inexistente.', 'warning');
+      log('⚠️ 收藏不存在。', 'warning');
       return { success: false, reason: 'invalid_collection' };
     }
 
     if (!setDef.items.includes(itemId)) {
-      log('⚠️ Este item não pertence a esta coleção.', 'warning');
+      log('⚠️ 此物品不屬於這個收藏。', 'warning');
       return { success: false, reason: 'not_in_collection' };
     }
 
@@ -95,7 +95,7 @@ export class CollectionService {
     state.gearCodex = state.codex;
 
     if (state.codex[setId].includes(itemId)) {
-      log('⚠️ Este item já foi registrado nesta coleção.', 'warning');
+      log('⚠️ 此物品已經登錄在這個收藏中。', 'warning');
       return { success: false, reason: 'already_registered' };
     }
 
@@ -121,7 +121,7 @@ export class CollectionService {
           state.warehouse.splice(whIdx, 1);
         }
       } else {
-        log('⚠️ Você não possui este item para registrar na coleção.', 'warning');
+        log('⚠️ 你沒有可用來登錄收藏的此物品。', 'warning');
         return { success: false, reason: 'item_not_found' };
       }
     }
@@ -131,14 +131,14 @@ export class CollectionService {
 
     const allItems = D()?.ALL_ITEMS || {};
     const itemDef = allItems[itemId] || { name: itemId };
-    log(`📜 Item **${itemDef.name}** sacrificado e registrado com sucesso na Coleção!${fromWarehouse ? ' (Retirado do Baú)' : ''}`, 'rarity-rare');
-    floatText('📜 ITEM REGISTRADO!', 'float-jackpot');
+    log(`📜 物品 **${itemDef.name}** 已消耗並成功登錄收藏！${fromWarehouse ? '（從倉庫取出）' : ''}`, 'rarity-rare');
+    floatText('📜 物品已登錄！', 'float-jackpot');
 
     // Verificar se completou a coleção
     const isCompleted = this.isSetCompleted(state, setId);
     if (isCompleted) {
-      log(`🏆 PARABÉNS! Coleção **${setDef.name}** Concluída! Bônus Perpétuo Ativado: ${setDef.label}`, 'rarity-legendary');
-      floatText('🏆 COLEÇÃO COMPLETA!', 'float-jackpot');
+      log(`🏆 恭喜！收藏 **${setDef.name}** 已完成！永久加成已啟用：${setDef.label}`, 'rarity-legendary');
+      floatText('🏆 收藏完成！', 'float-jackpot');
     }
 
     // Atualizar stats

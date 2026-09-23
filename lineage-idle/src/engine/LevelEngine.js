@@ -151,14 +151,14 @@ export function checkLevelUp(state, callbacks = {}) {
     if (typeof callbacks.log === 'function') {
       const levelGained = state.level - initialLevel;
       if (levelGained > 1) {
-        callbacks.log(`🎉 MULTI LEVEL UP! Nível ${state.level} Alcançado (+${levelGained} Níveis, +${totalSpReward} SP)!`, 'rarity-legendary');
+        callbacks.log(`🎉 連續升級！已達等級 ${state.level}（提升 ${levelGained} 級，+${totalSpReward} 技能點）！`, 'rarity-legendary');
       } else {
-        callbacks.log(`🎉 LEVEL UP! Nível ${state.level} Alcançado! (+${totalSpReward} SP)`, 'rarity-legendary');
+        callbacks.log(`🎉 升級！已達等級 ${state.level}！（+${totalSpReward} 技能點）`, 'rarity-legendary');
       }
     }
     
     if (typeof callbacks.floatText === 'function') {
-      callbacks.floatText(`🎉 LEVEL UP! Nível ${state.level}`, 'float-jackpot');
+      callbacks.floatText(`🎉 升級！等級 ${state.level}`, 'float-jackpot');
     }
     
     if (typeof callbacks.updateSagaProgress === 'function') callbacks.updateSagaProgress(false);

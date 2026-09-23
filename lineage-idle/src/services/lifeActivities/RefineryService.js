@@ -6,8 +6,8 @@ export const REFINERY_RECIPES = [
   // ─── 1. Madeira & Fibras (Wood & Fibers) ───
   {
     id: 'refine_compressed_wood',
-    name: 'Madeira Comprimida',
-    desc: 'Madeira densa tratada com carvão vegetal. Usada em arcos e cabos reforçados.',
+    name: '壓縮木材',
+    desc: '以木炭處理的高密度木材，用於弓與強化握柄。',
     category: 'wood',
     icon: 'materials/compressed_wood.png',
     inputs: [
@@ -20,8 +20,8 @@ export const REFINERY_RECIPES = [
   },
   {
     id: 'refine_varnish',
-    name: 'Verniz Natural',
-    desc: 'Seiva destilada de hastes de plantas. Impermeabiliza madeira e ligas metálicas.',
+    name: '天然清漆',
+    desc: '由植物莖液蒸餾而成，可為木材與金屬合金提供防水效果。',
     category: 'wood',
     icon: 'materials/varnish.png',
     inputs: [
@@ -33,8 +33,8 @@ export const REFINERY_RECIPES = [
   },
   {
     id: 'refine_cord',
-    name: 'Cordão Trançado',
-    desc: 'Fibras de algodão entrelaçadas sob pressão. Componente de arcos e armaduras leves.',
+    name: '編織繩',
+    desc: '將棉纖維加壓編織而成，是弓與輕甲的材料。',
     category: 'wood',
     icon: 'materials/cord.png',
     inputs: [
@@ -46,8 +46,8 @@ export const REFINERY_RECIPES = [
   },
   {
     id: 'refine_braided_hemp',
-    name: 'Cânhamo Trançado Imperial',
-    desc: 'Corda nobre de alta resistência mecânica para equipamentos de Grau D e C.',
+    name: '帝國編織麻繩',
+    desc: '高強度的高級繩索，用於 D 級與 C 級裝備。',
     category: 'wood',
     icon: 'materials/braided_hemp.png',
     inputs: [
@@ -62,8 +62,8 @@ export const REFINERY_RECIPES = [
   // ─── 2. Curtume & Peles (Leather & Bones) ───
   {
     id: 'refine_leather',
-    name: 'Couro Curtido Nobre',
-    desc: 'Peles de feras silvestres tratadas e amaciadas por salgamento e raspagem.',
+    name: '高級鞣製皮革',
+    desc: '經鹽漬與刮製處理後柔化的野獸皮革。',
     category: 'leather',
     icon: 'materials/leather.png',
     inputs: [
@@ -75,8 +75,8 @@ export const REFINERY_RECIPES = [
   },
   {
     id: 'refine_crafted_leather',
-    name: 'Couro Trabalhado (Crafted Leather)',
-    desc: 'Couro curtido reforçado com costura de cordão. Base de armaduras leves e cintos.',
+    name: '加工皮革',
+    desc: '以繩線縫製強化的鞣製皮革，是輕甲與腰帶的基礎材料。',
     category: 'leather',
     icon: 'materials/crafted_leather.png',
     inputs: [
@@ -89,8 +89,8 @@ export const REFINERY_RECIPES = [
   },
   {
     id: 'refine_coarse_bone_powder',
-    name: 'Pó de Osso Grosso',
-    desc: 'Ossos de monstros triturados e refinados para ligas cerâmicas e alquimia.',
+    name: '粗骨粉',
+    desc: '將怪物骨骼粉碎精煉，用於陶瓷合金與煉金。',
     category: 'leather',
     icon: 'materials/coarse_bone_powder.png',
     inputs: [
@@ -104,8 +104,8 @@ export const REFINERY_RECIPES = [
   // ─── 3. Metalurgia Imperial (Metals & Alloys) ───
   {
     id: 'refine_steel',
-    name: 'Aço Imperial Refinado',
-    desc: 'Liga pura forjada na combustão de minério de ferro com carvão mineral.',
+    name: '精煉帝國鋼',
+    desc: '以鐵礦與煤炭高溫鍛造而成的純合金。',
     category: 'metal',
     icon: 'materials/steel.png',
     inputs: [
@@ -118,8 +118,8 @@ export const REFINERY_RECIPES = [
   },
   {
     id: 'refine_mithril_alloy',
-    name: 'Liga de Mithril',
-    desc: 'Minério de mithril fundido com verniz purificado. Extremamente leve e resistente à magia.',
+    name: '米索莉合金',
+    desc: '米索莉礦與純化清漆熔合而成，極為輕盈並具有魔法抗性。',
     category: 'metal',
     icon: 'materials/mithril_alloy.png',
     inputs: [
@@ -132,8 +132,8 @@ export const REFINERY_RECIPES = [
   },
   {
     id: 'refine_synthetic_cokes',
-    name: 'Coque Sintético',
-    desc: 'Combustível de alta caloria gerado pela fusão de carvão mineral e vegetal.',
+    name: '合成焦炭',
+    desc: '由煤炭與木炭融合製成的高熱值燃料。',
     category: 'metal',
     icon: 'materials/synthetic_cokes.png',
     inputs: [
@@ -146,8 +146,8 @@ export const REFINERY_RECIPES = [
   },
   {
     id: 'refine_metallic_fiber',
-    name: 'Fibra Metálica',
-    desc: 'Filamentos de ferro trançados em matriz têxtil para cotas de malha e escudos.',
+    name: '金屬纖維',
+    desc: '將鐵絲編入纖維基底，用於鎖子甲與盾牌。',
     category: 'metal',
     icon: 'materials/metallic_fiber.png',
     inputs: [
@@ -162,8 +162,8 @@ export const REFINERY_RECIPES = [
   // ─── 4. Alquimia & Reagentes (Alchemy & Reagents) ───
   {
     id: 'refine_varnish_of_purity',
-    name: 'Verniz da Pureza',
-    desc: 'Composto alquímico raro sintetizado com verniz vegetal e pó de osso grosso.',
+    name: '純淨清漆',
+    desc: '由植物清漆與粗骨粉合成的稀有煉金化合物。',
     category: 'alchemy',
     icon: 'materials/varnish_of_purity.png',
     inputs: [
@@ -176,8 +176,8 @@ export const REFINERY_RECIPES = [
   },
   {
     id: 'refine_enria',
-    name: 'Enria (Reagente Arcano)',
-    desc: 'Massa fluida de altíssima condutividade mágica para armamentos C e B.',
+    name: '恩里亞試劑',
+    desc: '具有極高魔力傳導性的流體材料，用於 C 級與 B 級武器。',
     category: 'alchemy',
     icon: 'materials/enria.png',
     inputs: [
@@ -190,8 +190,8 @@ export const REFINERY_RECIPES = [
   },
   {
     id: 'refine_durable_metal_plate',
-    name: 'Placa de Metal Durável',
-    desc: 'Blindagem pesada laminada em aço imperial e pó de mithril.',
+    name: '耐用金屬板',
+    desc: '以帝國鋼與米索莉粉層壓製成的重型裝甲板。',
     category: 'metal',
     icon: 'materials/durable_metal_plate.png',
     inputs: [
@@ -206,8 +206,8 @@ export const REFINERY_RECIPES = [
   // ─── 5. Pescado & Óleos Nobres (Fishing & Biological Oils) ───
   {
     id: 'refine_fish_oil',
-    name: 'Óleo de Peixe Refinado',
-    desc: 'Óleo orgânico extraído da prensagem a frio de peixes frescos de Aden. Base para lubrificantes e guisados.',
+    name: '精煉魚油',
+    desc: '以亞丁新鮮魚類冷壓萃取的天然油脂，是潤滑劑與燉菜的基礎材料。',
     category: 'alchemy',
     icon: 'materials/varnish.png',
     inputs: [
@@ -219,8 +219,8 @@ export const REFINERY_RECIPES = [
   },
   {
     id: 'refine_pure_fish_oil',
-    name: 'Óleo de Peixe Puro',
-    desc: 'Óleo destilado com verniz vegetal de alta densidade. Usado em forja de armaduras leves e arcos nobres.',
+    name: '純淨魚油',
+    desc: '以高密度植物清漆蒸餾而成，用於鍛造輕甲與高級弓。',
     category: 'alchemy',
     icon: 'materials/varnish_of_purity.png',
     inputs: [
@@ -282,7 +282,7 @@ export const RefineryService = {
   refine(state, recipeId, times = 1, callbacks = {}) {
     const recipe = this.getRecipeById(recipeId);
     if (!recipe) {
-      if (callbacks.log) callbacks.log('⚠️ Receita de refino desconhecida.', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 未知的精煉配方。', 'warning');
       return { success: false, reason: 'invalid_recipe' };
     }
 
@@ -290,7 +290,7 @@ export const RefineryService = {
     const totalAdena = (recipe.adenaCost || 0) * count;
 
     if ((state.gold || 0) < totalAdena) {
-      if (callbacks.log) callbacks.log(`⚠️ Adena insuficiente para refino! Requer ${totalAdena.toLocaleString()} Adena.`, 'warning');
+      if (callbacks.log) callbacks.log(`⚠️ 金幣不足！精煉需要 ${totalAdena.toLocaleString()} 金幣。`, 'warning');
       return { success: false, reason: 'insufficient_gold' };
     }
 
@@ -301,7 +301,7 @@ export const RefineryService = {
       if (currentHave < requiredTotal) {
         const matDef = RESOURCE_DICTIONARY[inp.matId] || { name: inp.matId };
         if (callbacks.log) {
-          callbacks.log(`⚠️ Materiais insuficientes! Requer ${requiredTotal}x ${matDef.name} (você possui ${currentHave}).`, 'warning');
+          callbacks.log(`⚠️ 材料不足！需要 ${requiredTotal}× ${matDef.name}（目前擁有 ${currentHave}）。`, 'warning');
         }
         return { success: false, reason: 'insufficient_materials', missing: inp.matId };
       }
@@ -352,11 +352,11 @@ export const RefineryService = {
 
     if (callbacks.log) {
       callbacks.log(
-        `⚗️ **Refino Concluído:** +${outputQty}x **${outDef.name}** processado(s) com sucesso! (-${totalAdena.toLocaleString()} Adena, +${earnedForgeExp} EXP Forja)`,
+        `⚗️ **精煉完成：**成功製作 +${outputQty}× **${outDef.name}**！（-${totalAdena.toLocaleString()} 金幣，+${earnedForgeExp} 鍛造經驗值）`,
         'loot'
       );
       if (forgeLeveledUp) {
-        callbacks.log(`🔨 **Sua Forja Imperial subiu para o Nível ${state.accountForgeLevel}!**`, 'rarity-legendary');
+        callbacks.log(`🔨 **你的帝國鍛造等級提升至 ${state.accountForgeLevel}！**`, 'rarity-legendary');
       }
     }
 
@@ -380,7 +380,7 @@ export const RefineryService = {
   refineAll(state, recipeId, callbacks = {}) {
     const maxCount = this.calculateMaxRefinements(state, recipeId);
     if (maxCount <= 0) {
-      if (callbacks.log) callbacks.log('⚠️ Recursos ou Adena insuficientes para refinar este material.', 'warning');
+      if (callbacks.log) callbacks.log('⚠️ 精煉此材料所需資源或金幣不足。', 'warning');
       return { success: false, reason: 'cannot_refine' };
     }
     return this.refine(state, recipeId, maxCount, callbacks);

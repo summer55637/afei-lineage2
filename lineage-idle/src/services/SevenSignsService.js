@@ -29,30 +29,30 @@ export class SevenSignsService {
   static joinFaction(state, factionId, hooks = {}) {
     const ss = this.ensureState(state);
     if (!FACTIONS[factionId]) {
-      return { success: false, message: 'Facção inválida.' };
+      return { success: false, message: '陣營無效。' };
     }
     ss.faction = factionId;
-    hooks.log?.(`🏛️ Você jurou fidelidade à facção **${FACTIONS[factionId].name}** na competição dos Sete Selos!`, 'system');
+    hooks.log?.(`🏛️ 你已在七封印競賽中向 **${FACTIONS[factionId].name}** 陣營宣誓效忠！`, 'system');
     hooks.onUpdate?.();
     return { success: true, faction: factionId };
   }
 
   /**
-   * Deposita pedras de selo para pontuar e converter em Ancient Adena
+   * Deposita pedras de selo para pontuar e converter em 古代金幣
    */
   static depositStones(state, stoneId, count = 1, hooks = {}) {
     const ss = this.ensureState(state);
     if (!ss.faction) {
-      return { success: false, message: 'Você precisa escolher uma facção primeiro.' };
+      return { success: false, message: '你必須先選擇陣營。' };
     }
     const def = SEAL_STONES[stoneId];
-    if (!def) return { success: false, message: 'Pedra de selo inválida.' };
+    if (!def) return { success: false, message: '封印石無效。' };
 
     const inv = state.inventory || [];
     const invItem = inv.find(i => (i.id === stoneId || i.itemId === stoneId));
     const available = invItem ? (invItem.count || 1) : 0;
     if (available < count) {
-      return { success: false, message: `Você não tem ${count}x ${def.name}.` };
+      return { success: false, message: `你沒有 ${count}× ${def.name}。` };
     }
 
     // Deduz do inventário
@@ -74,7 +74,7 @@ export class SevenSignsService {
       ss.duskScore += aaGained;
     }
 
-    hooks.log?.(`🏛️ Você entregou **${count}x ${def.name}** e recebeu **+${aaGained.toLocaleString()} Ancient Adena**!`, 'gain');
+    hooks.log?.(`🏛️ 你交付了 **${count}× ${def.name}**，獲得 **+${aaGained.toLocaleString()} 古代金幣**！`, 'gain');
     hooks.onUpdate?.();
     return { success: true, aaGained, totalAA: ss.ancientAdena };
   }
@@ -85,14 +85,14 @@ export class SevenSignsService {
   static startBossFight(state, bossId, hooks = {}) {
     const ss = this.ensureState(state);
     const boss = SEVEN_SIGNS_BOSSES[bossId];
-    if (!boss) return { success: false, message: 'Chefe de selo não encontrado.' };
+    if (!boss) return { success: false, message: '找不到封印首領。' };
 
     if (state.level < boss.level) {
-      return { success: false, message: `Nível ${boss.level}+ necessário para desafiar ${boss.name}.` };
+      return { success: false, message: `挑戰 ${boss.name} 需要等級 ${boss.level} 以上。` };
     }
 
     if (ss.ancientAdena < boss.reqAA) {
-      return { success: false, message: `Requer ${boss.reqAA.toLocaleString()} Ancient Adena para abrir o portal do santuário.` };
+      return { success: false, message: `開啟聖域傳送門需要 ${boss.reqAA.toLocaleString()} 古代金幣。` };
     }
 
     ss.ancientAdena -= boss.reqAA;
@@ -106,7 +106,7 @@ export class SevenSignsService {
       turn: 1
     };
 
-    hooks.log?.(`⚡ O portal selado se abriu! Você adentrou o santuário sagrado de **${boss.name}**!`, 'warning');
+    hooks.log?.(`⚡ 封印傳送門已開啟！你進入了 **${boss.name}** 的神聖聖域！`, 'warning');
     hooks.onUpdate?.();
     return { success: true, fight: ss.activeBossFight };
   }
@@ -117,14 +117,14 @@ export class SevenSignsService {
   static executeBossTurn(state, hooks = {}) {
     const ss = this.ensureState(state);
     const fight = ss.activeBossFight;
-    if (!fight) return { success: false, message: 'Nenhum confronto de selo ativo.' };
+    if (!fight) return { success: false, message: '目前沒有進行中的封印爭奪戰。' };
 
     const boss = SEVEN_SIGNS_BOSSES[fight.bossId];
     const playerStats = state.stats || { atk: 2500, matk: 2500, def: 2000, mdef: 2000 };
     const playerDmg = Math.max(100, Math.floor((playerStats.atk || 1500) * 1.5 - fight.pDef * 0.4));
     fight.bossHp = Math.max(0, fight.bossHp - playerDmg);
 
-    hooks.log?.(`⚔️ Você desferiu **${playerDmg.toLocaleString()}** de dano em **${boss.name}** (HP: ${fight.bossHp.toLocaleString()} / ${fight.maxHp.toLocaleString()})`, 'combat');
+    hooks.log?.(`⚔️ 你對 **${boss.name}** 造成 **${playerDmg.toLocaleString()}** 傷害（生命值：${fight.bossHp.toLocaleString()} / ${fight.maxHp.toLocaleString()}）`, 'combat');
 
     if (fight.bossHp <= 0) {
       // Vitória!
@@ -144,7 +144,7 @@ export class SevenSignsService {
       }
 
       ss.activeBossFight = null;
-      hooks.log?.(`🏆 VITÓRIA GLORIOSA! Você derrotou **${boss.name}**! Recompensas: +${boss.rewards.aa.toLocaleString()} AA, +${boss.rewards.xp.toLocaleString()} XP e Itens Supremos!`, 'victory');
+      hooks.log?.(`🏆 榮耀勝利！你擊敗了 **${boss.name}**！獎勵：+${boss.rewards.aa.toLocaleString()} 古代金幣、+${boss.rewards.xp.toLocaleString()} 經驗值 與頂級物品！`, 'victory');
       hooks.onUpdate?.();
       return { success: true, isVictory: true, rewards: boss.rewards };
     }
@@ -152,7 +152,7 @@ export class SevenSignsService {
     // Contra-ataque do Chefe
     const bossDmg = Math.max(50, Math.floor(fight.pAtk * 1.2 - (playerStats.def || 1000) * 0.2));
     state.hp = Math.max(1, (state.hp || 5000) - bossDmg);
-    hooks.log?.(`⚠️ **${boss.name}** conjurou um golpe devastador causando **${bossDmg.toLocaleString()}** de dano no jogador!`, 'danger');
+    hooks.log?.(`⚠️ **${boss.name}** 施放毀滅性攻擊，對玩家造成 **${bossDmg.toLocaleString()}** 傷害！`, 'danger');
 
     fight.turn++;
     hooks.onUpdate?.();
@@ -165,10 +165,10 @@ export class SevenSignsService {
   static buyMammonItem(state, itemId, hooks = {}) {
     const ss = this.ensureState(state);
     const item = MAMMON_MERCHANT_CATALOG.find(i => i.id === itemId);
-    if (!item) return { success: false, message: 'Item de Mammon não encontrado.' };
+    if (!item) return { success: false, message: '找不到瑪門物品。' };
 
     if (ss.ancientAdena < item.costAA) {
-      return { success: false, message: `Ancient Adena insuficiente. Requer ${item.costAA.toLocaleString()} AA.` };
+      return { success: false, message: `古代金幣不足，需要 ${item.costAA.toLocaleString()} 古代金幣。` };
     }
 
     ss.ancientAdena -= item.costAA;
@@ -181,7 +181,7 @@ export class SevenSignsService {
       count: 1
     });
 
-    hooks.log?.(`🛒 Você adquiriu **${item.name}** do Merchant of Mammon por **${item.costAA.toLocaleString()} AA**!`, 'gain');
+    hooks.log?.(`🛒 你以 **${item.costAA.toLocaleString()} 古代金幣** 從瑪門商人購買了 **${item.name}**！`, 'gain');
     hooks.onUpdate?.();
     return { success: true, item };
   }
@@ -198,15 +198,15 @@ export class SevenSignsService {
     const ss = this.ensureState(state);
     const cost = 50000;
     if (ss.ancientAdena < cost) {
-      return { success: false, message: `Ancient Adena insuficiente. Requer ${cost.toLocaleString()} AA para deselar armadura.` };
+      return { success: false, message: `古代金幣不足，解除防具封印需要 ${cost.toLocaleString()} 古代金幣。` };
     }
-    if (!armorItem) return { success: false, message: 'Selecione uma armadura selada.' };
+    if (!armorItem) return { success: false, message: '請選擇一件封印防具。' };
 
     ss.ancientAdena -= cost;
     armorItem.isUnsealed = true;
-    armorItem.name = armorItem.name ? armorItem.name.replace('(Sealed)', '').trim() + ' (Unsealed ✨)' : 'Armadura Deselada ✨';
+    armorItem.name = armorItem.name ? armorItem.name.replace('(Sealed)', '').trim() + '（已解除封印 ✨）' : '已解除封印的防具 ✨';
     
-    hooks.log?.(`⚒️ O Blacksmith of Mammon removeu o selo ancestral de **${armorItem.name}**! O conjunto liberou seu potencial total!`, 'gain');
+    hooks.log?.(`⚒️ 馬門鐵匠已解除 **${armorItem.name}** 的古代封印！裝備已釋放完整潛能！`, 'gain');
     hooks.onUpdate?.();
     return { success: true, armor: armorItem };
   }
@@ -225,27 +225,27 @@ export class SevenSignsService {
     if (phase === 'competition') {
       return {
         allowed: false,
-        message: 'O Ferreiro dos Selos está em transe sagrado durante o período de competição das Seven Signs.'
+        message: '七封印競賽期間，封印鐵匠正處於神聖冥想狀態。'
       };
     }
 
     if (!ss.faction) {
       return {
         allowed: false,
-        message: 'Acesso Negado: Você não jurou fidelidade a nenhuma facção das Seven Signs.'
+        message: '拒絕進入：你尚未向任何七封印陣營宣誓效忠。'
       };
     }
 
     if (ss.faction !== winner) {
       return {
         allowed: false,
-        message: `Acesso Restrito: Apenas membros da facção vitoriosa [${winner.toUpperCase()}] têm a bênção do Ferreiro Oculto de Mammon nesta semana.`
+        message: `限制進入：本週只有勝利陣營【${FACTIONS[winner]?.name || '未知陣營'}】的成員能獲得瑪門隱藏鐵匠的祝福。`
       };
     }
 
     return {
       allowed: true,
-      message: `Acesso Concedido: Bem-vindo à Forja Oculta de Mammon, nobre campeão de [${winner.toUpperCase()}].`
+      message: `允許進入：歡迎來到瑪門隱藏鍛造所，【${FACTIONS[winner]?.name || '未知陣營'}】陣營的尊貴勇士。`
     };
   }
 
@@ -316,7 +316,7 @@ export class SevenSignsService {
     }
 
     hooks.log?.(
-      `💀 **PENALIDADE DE MORTE:** Você perdeu -${expLost.toLocaleString()} EXP! ${droppedItem ? `💥 Um item [${droppedItem.name || droppedItem.id}] caiu no chão!` : ''}`,
+      `💀 **死亡懲罰：**你損失了 ${expLost.toLocaleString()} 經驗值！${droppedItem ? `💥 物品【${droppedItem.name || '未知物品'}】掉落在地上！` : ''}`,
       'danger'
     );
     hooks.onUpdate?.();

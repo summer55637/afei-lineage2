@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "divine_bulwark",
-        "name": "Baluarte Divino",
+        "name": "神聖堡壘",
         "classId": "high_elf_divine_templar",
         "race": "high_elf",
         "tier": "core_1",
@@ -14,7 +14,7 @@
         "tags": [
           "Holy"
         ],
-        "description": "Baluarte Divino — Habilidade Especialista de high_elf_divine_templar."
+        "description": "神聖堡壘——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -167,7 +167,7 @@
     {
       "identity": {
         "id": "retribution_flare",
-        "name": "Labareda da Retribuição",
+        "name": "懲戒烈焰",
         "classId": "high_elf_divine_templar",
         "race": "high_elf",
         "tier": "core_2",
@@ -177,7 +177,7 @@
         "tags": [
           "Holy"
         ],
-        "description": "Labareda da Retribuição — Habilidade Especialista de high_elf_divine_templar."
+        "description": "懲戒烈焰——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -330,7 +330,7 @@
     {
       "identity": {
         "id": "sacred_ward",
-        "name": "Proteção Sagrada",
+        "name": "神聖守護",
         "classId": "high_elf_divine_templar",
         "race": "high_elf",
         "tier": "specialization",
@@ -340,7 +340,7 @@
         "tags": [
           "Holy"
         ],
-        "description": "Proteção Sagrada — Habilidade Especialista de high_elf_divine_templar."
+        "description": "神聖守護——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -493,7 +493,7 @@
     {
       "identity": {
         "id": "light_point_judgment",
-        "name": "Julgamento de Light Point",
+        "name": "光點審判",
         "classId": "high_elf_divine_templar",
         "race": "high_elf",
         "tier": "elemental_specialization",
@@ -503,7 +503,7 @@
         "tags": [
           "Holy"
         ],
-        "description": "Julgamento de Light Point — Habilidade Especialista de high_elf_divine_templar."
+        "description": "光點審判——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -674,7 +674,7 @@
     {
       "identity": {
         "id": "heavens_aegis",
-        "name": "Heaven's Aegis",
+        "name": "天界庇護",
         "classId": "high_elf_divine_templar",
         "race": "high_elf",
         "tier": "ultimate",
@@ -684,7 +684,7 @@
         "tags": [
           "Holy"
         ],
-        "description": "Heaven's Aegis — Habilidade Ultimate (★★★★) de high_elf_divine_templar."
+        "description": "天界庇護——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -870,7 +870,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "HEAVEN'S AEGIS!",
+          "text": "天界庇護！",
           "style": "gold_banner",
           "banner": true
         }
@@ -891,7 +891,7 @@
     {
       "identity": {
         "id": "master_heavens_aegis",
-        "name": "Master: Heaven's Aegis",
+        "name": "大師：天界庇護",
         "classId": "high_elf_divine_templar",
         "race": "high_elf",
         "tier": "master_ultimate",
@@ -901,7 +901,7 @@
         "tags": [
           "Holy"
         ],
-        "description": "Master: Heaven's Aegis — Habilidade Master Ultimate (★★★★★) de high_elf_divine_templar."
+        "description": "大師：天界庇護——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1088,7 +1088,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: HEAVEN'S AEGIS!",
+          "text": "大師：天界庇護！",
           "style": "mythic_banner",
           "banner": true
         }

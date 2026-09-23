@@ -5,9 +5,9 @@ export const DyeService = {
   getDyeSlots(state) {
     const lvl = state.level || 1;
     return [
-      { index: 0, requiredLvl: 20, name: '1º Símbolo (1ª Classe)', unlocked: lvl >= 20, tattoo: state.tattoos?.[0] || null },
-      { index: 1, requiredLvl: 40, name: '2º Símbolo (2ª Classe)', unlocked: lvl >= 40, tattoo: state.tattoos?.[1] || null },
-      { index: 2, requiredLvl: 76, name: '3º Símbolo (3ª Classe)', unlocked: lvl >= 76, tattoo: state.tattoos?.[2] || null }
+      { index: 0, requiredLvl: 20, name: '第 1 符號（第一次轉職）', unlocked: lvl >= 20, tattoo: state.tattoos?.[0] || null },
+      { index: 1, requiredLvl: 40, name: '第 2 符號（第二次轉職）', unlocked: lvl >= 40, tattoo: state.tattoos?.[1] || null },
+      { index: 2, requiredLvl: 76, name: '第 3 符號（第三次轉職）', unlocked: lvl >= 76, tattoo: state.tattoos?.[2] || null }
     ];
   },
 
@@ -31,20 +31,20 @@ export const DyeService = {
   drawDye(state, slotIndex, dyeId, callbacks = {}) {
     const dyeDef = DYES_CATALOG[dyeId];
     if (!dyeDef) {
-      if (callbacks.log) callbacks.log('Tinta de Henna inválida.', 'warning');
+      if (callbacks.log) callbacks.log('無效的染料。', 'warning');
       return { success: false, reason: 'invalid_dye' };
     }
 
     const slots = this.getDyeSlots(state);
     const slot = slots[slotIndex];
     if (!slot || !slot.unlocked) {
-      if (callbacks.log) callbacks.log(`Este slot de tatuagem exige Nível ${slot?.requiredLvl || 20}+!`, 'warning');
+      if (callbacks.log) callbacks.log(`此紋身欄位需要等級 ${slot?.requiredLvl || 20} 以上！`, 'warning');
       return { success: false, reason: 'slot_locked' };
     }
 
     const costAdena = dyeDef.fee || 50000;
     if ((state.gold || 0) < costAdena) {
-      if (callbacks.log) callbacks.log(`Adena insuficiente! O Gravador de Símbolos cobra ${costAdena.toLocaleString()} Adena.`, 'warning');
+      if (callbacks.log) callbacks.log(`金幣不足！符號雕刻需要 ${costAdena.toLocaleString()} 金幣。`, 'warning');
       return { success: false, reason: 'insufficient_gold' };
     }
 
@@ -53,7 +53,7 @@ export const DyeService = {
     const hasItems = invIdx >= 0 && (state.inventory[invIdx].count || 1) >= requiredItems;
 
     if (!hasItems) {
-      if (callbacks.log) callbacks.log(`Você precisa de ${requiredItems}x ${dyeDef.name} para gravar este símbolo!`, 'warning');
+      if (callbacks.log) callbacks.log(`你需要 ${requiredItems}× ${dyeDef.name} 才能刻印此符號！`, 'warning');
       return { success: false, reason: 'insufficient_items' };
     }
 
@@ -79,10 +79,10 @@ export const DyeService = {
     };
 
     if (callbacks.log) {
-      callbacks.log(`🎭 Símbolo Sagrado Gravado! **${dyeDef.shortName}** no slot ${slotIndex + 1}.`, 'rarity-epic');
+      callbacks.log(`🎭 神聖符號刻印完成！**${dyeDef.shortName}** 已刻入第 ${slotIndex + 1} 欄。`, 'rarity-epic');
     }
     if (callbacks.floatText) {
-      callbacks.floatText(`🎭 TATUAGEM GRAVADA! (${dyeDef.shortName})`, 'float-jackpot');
+      callbacks.floatText(`🎭 紋身刻印完成！（${dyeDef.shortName}）`, 'float-jackpot');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();
@@ -94,13 +94,13 @@ export const DyeService = {
     state.tattoos = state.tattoos || [null, null, null];
     const existing = state.tattoos[slotIndex];
     if (!existing) {
-      if (callbacks.log) callbacks.log('Nenhum símbolo gravado neste slot.', 'warning');
+      if (callbacks.log) callbacks.log('此欄位目前沒有刻印符號。', 'warning');
       return { success: false, reason: 'empty_slot' };
     }
 
     const removalFee = 10000;
     if ((state.gold || 0) < removalFee) {
-      if (callbacks.log) callbacks.log(`Taxa de remoção insuficiente! Custo: ${removalFee.toLocaleString()} Adena.`, 'warning');
+      if (callbacks.log) callbacks.log(`金幣不足，無法移除！費用：${removalFee.toLocaleString()} 金幣。`, 'warning');
       return { success: false, reason: 'insufficient_gold' };
     }
 
@@ -125,7 +125,7 @@ export const DyeService = {
     state.tattoos[slotIndex] = null;
 
     if (callbacks.log) {
-      callbacks.log(`🧹 Símbolo **${existing.shortName}** removido! Recuperadas ${refundedCount}x tintas de Henna.`, 'system');
+      callbacks.log(`🧹 已移除符號 **${existing.shortName}**！返還 ${refundedCount}× 染料。`, 'system');
     }
 
     if (callbacks.updateAllUI) callbacks.updateAllUI();

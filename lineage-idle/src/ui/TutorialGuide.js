@@ -1,36 +1,36 @@
 /**
- * TutorialGuide.js — Guia e Tutorial para Jogadores Iniciantes
+ * TutorialGuide.js — 指南 e Tutorial para Jogadores Iniciantes
  *
  * Exibe automaticamente uma tela explicativa interativa na PRIMEIRA VEZ que o jogador abre qualquer aba.
- * Mantém um botão permanente ("❓ Guia da Aba") no canto de cada painel para tirar dúvidas a qualquer momento.
+ * Mantém um botão permanente ("❓ 指南 da Aba") no canto de cada painel para tirar dúvidas a qualquer momento.
  */
 
 import { RESONANCE_DEFINITIONS } from '../services/WeaponResonanceService.js';
 
 function formatPassiveLabel(statKey, val) {
   const map = {
-    pDefPct: `+${val}% P.Def`,
-    pAtkPct: `+${val}% P.Atk`,
-    mAtkPct: `+${val}% M.Atk`,
-    mDefPct: `+${val}% M.Def`,
-    critChance: `+${val}% Crit`,
-    critDmgPct: `+${val}% Crit Dmg`,
-    atkSpd: `+${val}% Atk.Spd`,
-    castSpd: `+${val}% Cast.Spd`,
-    eva: `+${val} Evasão`,
-    staggerDmgPct: `+${val}% Stagger`,
-    bossDmgPct: `+${val}% Boss Dmg`,
-    lifeDrain: `+${val}% Life Drain`,
-    healBoostPct: `+${val}% Cura`,
-    damageReductionPct: `-${val}% Dano Recebido`,
-    mCrit: `+${val}% M.Crit`
+    pDefPct: `+${val}% 物理防禦`,
+    pAtkPct: `+${val}% 物理攻擊`,
+    mAtkPct: `+${val}% 魔法攻擊`,
+    mDefPct: `+${val}% 魔法防禦`,
+    critChance: `+${val}% 暴擊率`,
+    critDmgPct: `+${val}% 暴擊傷害`,
+    atkSpd: `+${val}% 攻擊速度`,
+    castSpd: `+${val}% 施法速度`,
+    eva: `+${val} 迴避`,
+    staggerDmgPct: `+${val}% 失衡傷害`,
+    bossDmgPct: `+${val}% 首領傷害`,
+    lifeDrain: `+${val}% 生命汲取`,
+    healBoostPct: `+${val}% 治癒`,
+    damageReductionPct: `-${val}% 受到傷害`,
+    mCrit: `+${val}% 魔法暴擊率`
   };
-  return map[statKey] || `+${val} ${statKey}`;
+  return map[statKey] || `+${val} 其他屬性`;
 }
 
 function renderResonancesCatalogHtml() {
   const entries = Object.values(RESONANCE_DEFINITIONS || {});
-  if (!entries.length) return '<p style="color:#aaa;">Nenhuma ressonância cadastrada.</p>';
+  if (!entries.length) return '<p style="color:#aaa;">尚未登錄任何共鳴。</p>';
 
   const cards = entries.map((res, idx) => {
     const passives = res.passives || {};
@@ -58,7 +58,7 @@ function renderResonancesCatalogHtml() {
 
         ${passivePills ? `
           <div style="display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 6px; align-items: center;">
-            <span style="font-size: 10px; color: #94a3b8; font-weight: 600; margin-right: 2px;">Passivas:</span>
+            <span style="font-size: 10px; color: #94a3b8; font-weight: 600; margin-right: 2px;">被動：</span>
             ${passivePills}
           </div>
         ` : ''}
@@ -74,13 +74,13 @@ function renderResonancesCatalogHtml() {
     <div style="margin-top: 4px;">
       <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; padding: 6px 10px; background: rgba(212,167,68,0.1); border: 1px solid rgba(212,167,68,0.25); border-radius: 6px; flex-wrap: wrap; gap: 6px;">
         <span style="font-size: 11px; color: #f5df93; font-weight: 600;">
-          Total: <strong>27 Combinações de Armas</strong> balanceadas para combate 1v1
+          總計： <strong>27 武器組合</strong> 針對 1 對 1 戰鬥平衡
         </span>
         <span style="font-size: 10px; color: #38bdf8; background: rgba(56,189,248,0.1); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(56,189,248,0.25);">
-          +1.240 CP Canônico por par ativo
+          +1,240 每組啟用組合的標準戰鬥力
         </span>
       </div>
-      <input type="text" placeholder="🔍 Filtrar por nome da ressonância ou arma (ex: Arco, Cajado, Lança, Adaga)..." oninput="const q = this.value.toLowerCase(); this.parentElement.querySelectorAll('.res-guide-card').forEach(c => { c.style.display = c.textContent.toLowerCase().includes(q) ? 'block' : 'none'; });" style="width: 100%; box-sizing: border-box; padding: 7px 10px; font-size: 11px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212,167,68,0.3); border-radius: 6px; color: #fff; margin-bottom: 8px; font-family: sans-serif; outline: none;" />
+      <input type="text" placeholder="🔍 依共鳴或武器名稱篩選（例如：弓、法杖、長槍、匕首）..." oninput="const q = this.value.toLowerCase(); this.parentElement.querySelectorAll('.res-guide-card').forEach(c => { c.style.display = c.textContent.toLowerCase().includes(q) ? 'block' : 'none'; });" style="width: 100%; box-sizing: border-box; padding: 7px 10px; font-size: 11px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212,167,68,0.3); border-radius: 6px; color: #fff; margin-bottom: 8px; font-family: sans-serif; outline: none;" />
       <div style="max-height: 480px; overflow-y: auto; padding-right: 4px; scrollbar-width: thin;">
         ${cards}
       </div>
@@ -91,435 +91,435 @@ function renderResonancesCatalogHtml() {
 export const GUIDES_DATA = {
   zones: {
     id: 'zones',
-    title: '⚔️ Zonas de Caça & Combate Automático',
-    subtitle: 'Aprenda como evoluir seu personagem e gerenciar suas caçadas em Aden Arena: Idle Chronicles.',
+    title: '⚔️ 狩獵區與自動戰鬥',
+    subtitle: '了解如何培養角色並管理亞丁競技場：放置編年史中的狩獵。',
     icon: '⚔️',
     color: '#e8c39a',
     sections: [
       {
-        heading: '🎯 Escolha da Zona de Caça',
-        text: 'Navegue pelo mapa ou lista de zonas. Cada área possui um requisito de Nível Recomendado. Enfrentar monstros de nível muito alto reduz sua precisão e aumenta o dano recebido.',
-        tip: 'Dica: Zonas marcadas em verde garantem taxa máxima de XP sem risco de morte!'
+        heading: '🎯 選擇狩獵區',
+        text: '從地圖或區域列表選擇狩獵地點。每個區域都有建議等級；挑戰等級過高的怪物會降低命中並提高受到的傷害。',
+        tip: '提示：綠色標示的區域能提供最高 經驗值 效率，風險也較低！'
       },
       {
-        heading: '⚡ Combat Power (CP) Canônico & Gates',
-        text: 'Cada zona de caça possui uma meta de Poder de Combate (CP). Se o seu CP estiver abaixo do recomendado, o combate será muito perigoso. Suba seu CP aprimorando armas, conjuntos de armadura, Soul Crystals e elixires.',
-        tip: 'O CP considera 15 pilares do seu personagem para refletir seu verdadeiro poder de batalha.'
+        heading: '⚡ 標準戰鬥力與門檻',
+        text: '每個狩獵區都有建議戰鬥力。若低於建議值，戰鬥風險會大幅提高。可透過提升武器、防具套裝、靈魂水晶與靈藥來增加戰鬥力。',
+        tip: '戰鬥力會綜合角色 15 個戰力面向，反映實際戰鬥能力。'
       },
       {
-        heading: '🧪 Auto-Poções & Soulshots',
-        text: 'No topo da tela de combate, ative Poções Automáticas de HP/MP e Soulshots/Spiritshots. Soulshots dobram seu P.Atk e Spiritshots dobram seu M.Atk em cada golpe.',
-        tip: 'Mantenha seus shots ativos durante lutas contra Chefes e Raids para máximo dano!'
+        heading: '🧪 自動藥水與魂彈',
+        text: '可在戰鬥畫面上方啟用 生命值／魔力 自動藥水與魂彈／魔靈彈。魂彈可強化 物理攻擊，魔靈彈可強化 魔法攻擊。',
+        tip: '挑戰首領與團隊副本時保持彈藥啟用，可發揮更高傷害！'
       },
       {
-        heading: '🎁 Drops de Caça & Streak',
-        text: 'Ao derrotar monstros, você ganha XP, SP, Adena e pode dropar consumíveis, materiais e equipamentos raros. Matar vários monstros em sequência ativa o Bônus de Streak!',
-        tip: 'Equipamentos têm taxa de drop rara (0.3% a 0.6%). Monstros Elites e Chefes têm taxas multiplicadas!'
+        heading: '🎁 狩獵掉落與連殺',
+        text: '擊敗怪物可獲得 經驗值、技能點、金幣，並有機會掉落消耗品、材料與稀有裝備。連續擊殺怪物可啟動連殺加成！',
+        tip: '裝備掉落率較低（0.3%～0.6%）；菁英怪與首領的掉落率會提高！'
       }
     ]
   },
 
   character: {
     id: 'character',
-    title: '👤 Personagem, Atributos & Subclasses',
-    subtitle: 'Entenda como funcionam os atributos primários, avanço de classes e certificações de subclasse.',
+    title: '👤 角色、屬性與副職業',
+    subtitle: '了解主要屬性、職業晉升與副職業認證的運作方式。',
     icon: '👤',
     color: '#ffd877',
     sections: [
       {
-        heading: '📊 Atributos Primários (Dyes & Stats L2)',
-        text: '• **STR**: Aumenta o Ataque Físico (P.Atk).\n• **DEX**: Aumenta Chance Crítica, Velocidade de Ataque e Esquiva.\n• **CON**: Aumenta HP Máximo e Defesa Física.\n• **INT**: Aumenta o Ataque Mágico (M.Atk).\n• **WIT**: Aumenta Velocidade de Cast e Chance Crítica Mágica.\n• **MEN**: Aumenta MP Máximo e Defesa Mágica.',
-        tip: 'Você pode usar Tatuagens (Dyes) na Forja para transferir até +5 pontos em um atributo!'
+        heading: '📊 主要屬性（染料與 L2 屬性）',
+        text: '• **力量**：提升物理攻擊。\n• **敏捷**：提升暴擊率、攻擊速度與迴避。\n• **體質**：提升最大生命值與物理防禦。\n• **智力**：提升魔法攻擊。\n• **智慧**：提升施法速度與魔法暴擊率。\n• **精神**：提升最大魔力與魔法防禦。',
+        tip: '你可以在鍛造介面使用染料紋身，最多將單一屬性提高 +5！'
       },
       {
-        heading: '⚡ Avanço de Classes Canônico',
-        text: '• **1ª Mudança de Classe**: Nível 20 (Libera novas perícias e equipamentos D-Grade)\n• **2ª Mudança de Classe**: Nível 40 (Especialização avançada e equipamentos C-Grade)\n• **3ª Classe & Awakening**: Nível 76+ (Poder total de mestre e armas S-Grade)\n• **Subclasses (Lv. 75+)**: Desbloqueie até 3 subclasses adicionais!',
-        tip: 'Ao evoluir subclasses até os níveis 65, 75 e 80, você conquista Certificados de Subclasse que transferem atributos permanentes para sua classe principal!'
+        heading: '⚡ 標準職業晉升',
+        text: '• **第一次轉職**：等級 20（解鎖新技能與 D 級裝備）\n• **第二次轉職**：等級 40（進階專精與 C 級裝備）\n• **第三職業與覺醒**：等級 76+（完整大師能力與 S 級武器）\n• **副職業（等級 75+）**：最多解鎖 3 個額外副職業！',
+        tip: '將副職業提升至 65、75、80 級可取得副職業認證，並把永久屬性加成套用到主職業！'
       },
       {
-        heading: '💎 Poder de Combate Canônico (CP)',
-        text: 'O CP do herói reflete fielmente a soma de:\n1. Atributos Base por Raça/Classe\n2. Nível do Herói\n3. Poder de Ataque & Magia das Armas\n4. Defesa Física & Mágica do Set\n5. Níveis de Encantamento (+1 a +16)\n6. Soul Crystals (SA - Focus, Health, Acumen)\n7. Joias Épicas de Boss (Queen Ant, Baium, Valakas)\n8. Atributos Elementais de Arma e Armadura\n9. Habilidades Passivas e Mestrias de Arma\n10. Maestria Astral (Dragão & Fênix)\n11. Elixires Permanentes de Alquimia\n12. Habilidades de Clã (Imperium, Might, Shield)\n13. Coleções Completas no Codex\n14. Boss Dolls Equipadas & Sintetizadas\n15. Certificações de Subclasse',
-        tip: 'Foque em equilibrar todos os 15 pilares para alcançar os tiers Prata, Ouro, Platina e Diamante!'
+        heading: '💎 標準戰鬥力',
+        text: '英雄戰鬥力會忠實反映以下總和：\n1. 種族／職業基礎屬性\n2. 英雄等級\n3. 武器物理與魔法攻擊力\n4. 套裝物理與魔法防禦\n5. 強化等級（+1～+16）\n6. 靈魂水晶（特殊能力－專注、生命、靈敏）\n7. 史詩首領飾品（蟻后、巴溫、瓦拉卡斯）\n8. 武器與防具元素屬性\n9. 被動技能與武器精通\n10. 星界精通（龍與鳳凰）\n11. 煉金永久靈藥\n12. 血盟技能（帝國、力量、護盾）\n13. 圖鑑完整收藏\n14. 已裝備與合成的首領娃娃\n15. 副職業認證',
+        tip: '均衡提升 15 個戰力面向，即可逐步達到白銀、黃金、白金與鑽石階級！'
       }
     ]
   },
 
   inventory: {
     id: 'inventory',
-    title: '🎒 Inventário, Filtros & Sistema de Compound',
-    subtitle: 'Gerencie seus equipamentos, poções e fusões de itens.',
+    title: '🎒 背包、篩選與合成系統',
+    subtitle: '管理裝備、藥水與物品合成。',
     icon: '🎒',
     color: '#a855f7',
     sections: [
       {
-        heading: '🗡️ Equipamentos & Graus (Grades)',
-        text: 'Os itens são divididos em Graus pelo seu Nível:\n• **No-Grade**: Nível 1 ao 19\n• **D-Grade**: Nível 20 ao 39\n• **C-Grade**: Nível 40 ao 51\n• **B-Grade**: Nível 52 ao 61\n• **A-Grade**: Nível 62 ao 75\n• **S-Grade / Frost Lord**: Nível 76 ao 85+',
-        tip: 'Equipe sempre o melhor Grau compatível com seu nível atual para ter bônus de Set!'
+        heading: '🗡️ 裝備 & 品級 (品級)',
+        text: '物品會依角色等級分為不同階級：\n• **無級別**：等級 1～19\n• **D 級**：等級 20～39\n• **C 級**：等級 40～51\n• **B 級**：等級 52～61\n• **A 級**：等級 62～75\n• **S 級／霜之領主**：等級 76～85+',
+        tip: '盡量裝備目前等級可使用的最高品級，以取得更好的套裝加成！'
       },
       {
-        heading: '🧪 Sistema de Compound (Fusão)',
-        text: 'Clique no botão **🧪 COMPOUND** no topo do inventário para fundir 2 equipamentos idênticos do mesmo nível. Em caso de sucesso, o item evolui de nível (Lv.1 ➔ Lv.2) e ganha **+15% de bônus de atributos por nível**.',
-        tip: 'Em caso de falha no Compound, o item principal permanece seguro e apenas o ingrediente é consumido!'
+        heading: '🧪 裝備合成系統',
+        text: '點擊背包上方的 **🧪 合成**，可將 2 件相同且同等級的裝備融合。成功後物品會升級（等級 1 ➔ 等級 2），每級獲得 **+15% 屬性加成**。',
+        tip: '合成失敗時主物品不會損壞，只會消耗素材物品！'
       },
       {
-        heading: '🧹 Auto-Venda & Desmontar',
-        text: 'Utilize os botões de seleção no rodapé para marcar itens Comuns e Incomuns em lote para Vender ou Desmontar em materiais de criação.',
-        tip: 'Ative a Auto-Venda no topo para vender automaticamente equipamentos comuns obtidos na caça.'
+        heading: '🧹 自動出售與分解',
+        text: '使用底部批次選取按鈕，可一次勾選普通與優良物品進行出售或分解成製作材料。',
+        tip: '啟用上方的自動出售，可自動賣掉狩獵取得的普通裝備。'
       },
       {
-        heading: '⚡ Dual Arsenal & Ressonância de Armas',
-        text: 'Equipar duas armas sinérgicas ativa a **Ressonância de Armas**, concedendo **+1.240 CP**, bônus passivos e procs de combate.\n\nConsulte a aba **⚡ Ressonâncias** no topo deste modal para ver o catálogo completo com todas as 27 combinações!',
-        tip: 'O banner dourado no topo do inventário mostra qual ressonância está ativa no momento.'
+        heading: '⚡ 雙武器庫與武器共鳴',
+        text: '裝備兩把具有協同效果的武器可啟動 **武器共鳴**，獲得 **+1,240 戰鬥力**、被動加成與戰鬥觸發效果。\n\n可在此視窗上方的 **⚡ 共鳴** 分頁查看全部 27 種組合！',
+        tip: '背包頂部的金色橫幅會顯示目前啟用的武器共鳴。'
       }
     ]
   },
 
   resonance: {
     id: 'resonance',
-    title: '⚡ Ressonâncias do Dual Arsenal (27 Combinações)',
-    subtitle: 'Equipe armas sinérgicas no Slot 1 e Slot 2 para desbloquear passivas únicas e procs de combate.',
+    title: '⚡ 雙武器庫共鳴（27 種組合）',
+    subtitle: '在欄位 1 與欄位 2 裝備具有協同效果的武器，可解鎖獨特被動與戰鬥觸發效果。',
     icon: '⚡',
     color: '#eab308',
     sections: [
       {
-        heading: '⚔️ Como Funciona a Ressonância de Armas?',
-        text: 'O sistema de **Dual Arsenal** permite que o herói equipe uma arma primária no **Slot 1 (Arma)** e uma arma secundária ou escudo no **Slot 2 (Secundária / Escudo)**.\n\nQuando as armas equipadas formam uma combinação compatível, a Ressonância é ativada instantaneamente:\n• **+1.240 Pontos de Combat Power (CP)** no cálculo canônico do personagem.\n• **Bônus de Atributos Passivos** (+20% P.Def, +15% Atk.Spd, +12% Cast.Spd, Evasão, Chance Crítica, etc.).\n• **Procs Táticos de Combate** aplicados no monstro em tempo real (Fratura Tática, Estocada Perfurante, Lentidão, Detonação de Toxinas, Redução de Armadura e Dano Elemental Híbrido).\n• **Balanceamento Focado 1v1**: Todas as 27 ressonâncias foram calibradas para combate individual focado, sem habilidades de área (AoE) quebradas.',
-        tip: 'Verifique sua ressonância ativa no banner dourado no topo da Mochila (Inventário)!'
+        heading: '⚔️ 武器共鳴如何運作？',
+        text: '**雙武裝系統**允許英雄在 **欄位 1（主武器）** 裝備主要武器，並在 **欄位 2（副武器／盾牌）** 裝備副武器或盾牌。\n\n當兩把裝備形成相容組合時，會立即啟動共鳴：\n• 正式角色計算中增加 **+1,240 戰鬥力**。\n• 提供 **被動屬性加成**（+20% 物理防禦、+15% 攻擊速度、+12% 施法速度、迴避、暴擊率等）。\n• 對怪物即時套用 **戰術戰鬥效果**（戰術破甲、穿刺、緩速、毒素引爆、降防與混合元素傷害）。\n• **一對一平衡設計**：全部 27 種共鳴皆針對單體戰鬥校準，不使用過強的範圍技能（範圍攻擊）。',
+        tip: '可在背包頂部的金色橫幅查看目前啟用的共鳴！'
       },
       {
-        heading: '📜 Catálogo das 27 Ressonâncias de Armas',
+        heading: '📜 27 種武器共鳴圖鑑',
         customHtml: renderResonancesCatalogHtml(),
-        tip: 'Experimente trocar sua arma secundária: use Escudo para defesa ou Adaga/Dual para críticos rápidos!'
+        tip: '可以嘗試更換副武器：使用盾牌提升防禦，或使用匕首／雙刀追求高速暴擊！'
       },
       {
-        heading: '🛡️ Regras de Compatibilidade & Dicas Táticas',
-        text: '• **Armas de 2 Mãos e Arco**: Arcos, Espadas de 2 Mãos e Lanças têm regras especiais de compatibilidade com secundárias leves para liberar ressonâncias únicas.\n• **Grau das Armas**: A ressonância independe do grau (No-Grade ao S-Grade). Qualquer nível de arma ativa a sinergia.\n• **Troca Instantânea**: Ao desequipar ou trocar de arma, os bônus e o CP são recalculados imediatamente no StatsEngine.',
-        tip: 'Armas com Soul Crystals (SA), Atributos Elementais e Augmentations somam seus bônus integralmente à ressonância ativa!'
+        heading: '🛡️ 相容規則與戰術提示',
+        text: '• **雙手武器與弓**：弓、雙手劍與長槍對輕型副手有特殊相容規則，可解鎖獨特共鳴。\n• **武器階級**：共鳴不受階級限制（無等級～S 級），任何階級武器都能啟動協同效果。\n• **即時切換**：卸下或更換武器時，加成與戰鬥力會由屬性計算系統立即重新計算。',
+        tip: '帶有靈魂水晶特殊能力、元素屬性與附魔改造的武器，其加成都會完整計入目前共鳴！'
       }
     ]
   },
 
   warehouse: {
     id: 'warehouse',
-    title: '📦 Baú do Banco & Armazenamento',
-    subtitle: 'Guarde seus tesouros e transfira itens entre suas subclasses.',
+    title: '📦 個人倉庫與儲存',
+    subtitle: '保存重要物品，並在副職業之間共享使用。',
     icon: '📦',
     color: '#caa06a',
     sections: [
       {
-        heading: '🔒 Armazenamento Seguro',
-        text: 'Deposite Adena e itens valiosos no seu Baú Pessoal. O baú é compartilhado entre todas as suas subclasses do personagem.',
-        tip: 'Use o botão "Depositar Materiais" para enviar rapidamente todos os insumos de criação ao banco.'
+        heading: '🔒 安全儲存',
+        text: '將金幣與貴重物品存入個人倉庫。此倉庫會在同一角色的所有副職業之間共用。',
+        tip: '使用「存入材料」按鈕，可快速將所有製作素材送進倉庫。'
       }
     ]
   },
 
   skills: {
     id: 'skills',
-    title: '⚡ Habilidades, Cargas & Almas Kamael',
-    subtitle: 'Domine suas habilidades ativas, passivas, cargas e almas de combate.',
+    title: '⚡ 技能、充能與闇天使靈魂',
+    subtitle: '掌握主動、被動技能、技能充能與戰鬥靈魂。',
     icon: '⚡',
     color: '#38bdf8',
     sections: [
       {
-        heading: '📖 Árvore de Habilidades',
-        text: 'Gaste seus Pontos de Habilidade (SP) para aprender e evoluir habilidades ativas e passivas da sua classe. Habilidades passivas concedem bônus permanentes.',
-        tip: 'Habilidades de dano utilizam a autêntica fórmula de dano físico de RPG clássico (Multiplicador de constante 77/70).'
+        heading: '📖 技能樹',
+        text: '消耗技能點數（技能點）學習並升級職業的主動與被動技能。被動技能會提供永久加成。',
+        tip: '傷害技能使用經典 角色扮演遊戲 的正式物理傷害公式（固定倍率 77/70）。'
       },
       {
-        heading: '⚡ Cargas de Habilidade (Charge Lv. 1-8)',
-        text: 'Classes de combate acumulam Cargas de Habilidade durante o ataque. Cada nível de Carga aumenta o dano da sua próxima habilidade em **+20%** (até o limite de Carga Nível 8).',
-        tip: 'Acumule 8 cargas antes de soltar sua habilidade mais forte para causar um dano devastador!'
+        heading: '⚡ 技能充能（充能等級 1～8）',
+        text: '戰鬥職業在攻擊時會累積技能充能。每層充能使下一次技能傷害提高 **+20%**，最多累積至充能等級 8。',
+        tip: '先累積到 8 層充能，再使用最強技能，可以打出更高爆發傷害！'
       },
       {
-        heading: '👻 Almas Kamael (1-5 Almas)',
-        text: 'Personagens Kamael absorvem almas dos monstros derrotados. Cada alma acumulada concede **+5% de Dano de Skill** adicional.',
-        tip: 'Almas Kamael podem ser consumidas para ativar habilidades especiais e transformações!'
+        heading: '👻 闇天使靈魂（1～5）',
+        text: '闇天使角色會吸收被擊敗怪物的靈魂。每累積 1 個靈魂，額外獲得 **+5% 技能傷害**。',
+        tip: '卡麥爾靈魂可消耗來啟動特殊技能與變身！'
       }
     ]
   },
 
   shop: {
     id: 'shop',
-    title: '🛍️ Mercador & Mercado da Cidade',
-    subtitle: 'Compre poções, soulshots, insumos de criação e joias.',
+    title: '🛍️ 商人與城市市場',
+    subtitle: '購買藥水、靈魂彈、製作素材與飾品。',
     icon: '🛍️',
     color: '#facc15',
     sections: [
       {
-        heading: '🧪 Consumíveis de Sobrevivência',
-        text: 'Abasteça seu estoque de Poções de HP (P, M, G, XL), Poções de MP e Soulshots/Spiritshots. O abastecimento garante que seu auto-combate não seja interrompido.',
-        tip: 'Poções de tamanho XL restauram uma grande quantidade de HP de forma instantânea durante Raids!'
+        heading: '🧪 生存消耗品',
+        text: '補充生命值藥水（小、中、大、特大）、魔力藥水與靈魂彈／魔靈彈，避免自動戰鬥因補給不足而中斷。',
+        tip: '特大生命值藥水可在團隊首領戰鬥中瞬間恢復大量生命值！'
       },
       {
-        heading: '🔮 Mercado Místico Rotativo',
-        text: 'O Mercado Místico atualiza ofertas especiais contendo Joias de Boss e materiais raros em intervalos de tempo.',
-        tip: 'Fique atento aos estoques limitados do Mercado Místico para adquirir fragmentos de joias épicas!'
+        heading: '🔮 輪替神秘市場',
+        text: '神秘市場會定時刷新特殊商品，包括首領飾品與稀有材料。',
+        tip: '留意神秘市場的限量庫存，可取得史詩飾品碎片！'
       }
     ]
   },
 
   craft: {
     id: 'craft',
-    title: '⚒️ Forja Imperial & Criação Universal',
-    subtitle: 'Explore todas as subabas da Forja: Crafting, Soul Crystals, Pushkin MW, Dyes, Elementos, Cintos e Life Stones.',
+    title: '⚒️ 亞丁帝國鍛造與通用製作',
+    subtitle: '探索鍛造系統的所有分頁：製作、靈魂水晶、普希金名匠、染料、元素、腰帶與生命石。',
     icon: '⚒️',
     color: '#f59e0b',
     sections: [
       {
-        heading: '⚒️ Crafting de Equipamentos',
-        text: 'Crie armas, armaduras, capas, cintos e joias utilizando matérias-primas como Iron Ore, Oriharukon, Adamantite e Leather.',
-        tip: 'Subir seu Nível de Forja desbloqueia receitas de Graus mais elevados (Grade A e S).'
+        heading: '⚒️ 裝備製作',
+        text: '使用鐵礦石、奧里哈魯根、精金與皮革等素材製作武器、防具、斗篷、腰帶與飾品。',
+        tip: '提升鍛造等級可以解鎖更高等級的配方（A 級與 S 級）。'
       },
       {
-        heading: '🔮 Soul Crystals (SA)',
-        text: 'Forje e engaste Soul Crystals (Red, Green, Blue) em armas para liberar Special Abilities (SA) como Health (+25% HP), Focus (+80 Crit) ou Acumen (+15% Cast).',
-        tip: 'Você pode fundir 2 Soul Crystals do mesmo nível para subir seu grau.'
+        heading: '🔮 靈魂水晶特殊能力',
+        text: '鍛造並在武器上鑲嵌紅、綠、藍靈魂水晶，可解鎖特殊能力，例如 生命（+25% 生命值）、專注（+80 暴擊）或 靈敏（+15% 施法）。',
+        tip: '你可以融合 2 顆相同等級的靈魂水晶來提升階級。'
       },
       {
-        heading: '✨ Mestre Pushkin MW (Masterwork)',
-        text: 'Leve equipamentos comuns ao Mestre Pushkin para forjar a versão **Masterwork (MW)**, garantindo bônus adicionais de status e aura cintilante.',
-        tip: 'Itens Masterwork possuem multiplicadores superiores aos itens base!'
+        heading: '✨ 普希金大師（名匠）',
+        text: '將一般裝備交給 普希金 大師，可鍛造成 **名匠**版本，獲得額外屬性加成與閃耀特效。',
+        tip: '名匠 裝備的倍率會高於一般基礎裝備！'
       },
       {
-        heading: '🔥 Atributos Elementais (+300 Element)',
-        text: 'Incuta Pedras Elementais (*Fogo, Água, Terra, Vento, Escuridão, Sagrado*) em Armas e Peitorais. Garante até +70% de dano extra PvE contra monstros vulneráveis.',
-        tip: 'O primeiro engaste concede +20 de Atributo e engastes seguintes concedem +5.'
+        heading: '🔥 元素屬性（最高 +300）',
+        text: '將元素石（火、水、地、風、黑暗、神聖）注入武器與胸甲，對弱點怪物對怪物最多可增加 +70% 傷害。',
+        tip: '第一次鑲嵌提供 +20 屬性，之後每次鑲嵌提供 +5。'
       },
       {
-        heading: '🎗️ Síntese de Cintos [S]',
-        text: 'Sintetize o lendário **Blessed Top-Grade Magic Ornament Belt [S]** com 70% de chance de sucesso por 500k Adena. Concede **+7.2% Defesa PvE** e **+6% Dano**.',
-        tip: 'O cinto abençoado é uma das melhores peças defensivas do jogo!'
+        heading: '🎗️ 腰帶合成 [S]',
+        text: '可花費 500,000 金幣，以 70% 成功率合成傳說級 **祝福最高級魔法飾品腰帶 [S]**，提供 **+7.2% 對怪物防禦** 與 **+6% 傷害**。',
+        tip: '祝福腰帶是遊戲中非常優秀的防禦裝備！'
       },
       {
-        heading: '💎 Augmentation / Life Stones',
-        text: 'Utilize Superior Life Stones em Armas e Joias Épicas (*Queen Ant, Baium, Valakas, Zaken, Antharas*) para liberar Item Skills passivas (Might, Empower, Shield, Focus, Celestial).',
-        tip: 'A habilidade Celestial Shield concede 7 segundos de invencibilidade completa!'
+        heading: '💎 附魔改造／生命石',
+        text: '在武器與史詩飾品（蟻后、巴溫、瓦拉卡斯、札肯、安塔瑞斯）上使用高級生命石，可解鎖被動物品技能（力量、魔力強化、護盾、專注、天界護盾）。',
+        tip: '天界護盾技能可提供 7 秒完全無敵！'
       }
     ]
   },
 
   alchemy: {
     id: 'alchemy',
-    title: '🧪 Laboratório de Alquimia',
-    subtitle: 'Destile Elixires de Atributos e reagentes mágicos.',
+    title: '🧪 煉金實驗室',
+    subtitle: '蒸餾屬性靈藥與魔法試劑。',
     icon: '🧪',
     color: '#10b981',
     sections: [
       {
-        heading: '🍷 Elixires de Status Permanentes',
-        text: 'Combine essências e cristais para criar Elixires de STR, DEX, CON, INT, WIT e MEN. Cada elixir consumido aumenta permanentemente o atributo base do seu personagem.',
-        tip: 'Há um limite de elixires por nível. Elabore primeiro os atributos focados na sua classe principal!'
+        heading: '🍷 永久屬性靈藥',
+        text: '組合精華與水晶可製作力量、敏捷、體質、智力、智慧、精神靈藥。每使用一瓶，都會永久提升角色的基礎屬性。',
+        tip: '每個等級可使用的靈藥數量有限，請優先強化主職業最重要的屬性！'
       }
     ]
   },
 
   astral: {
     id: 'astral',
-    title: '✨ Maestria Astral & Constelações',
-    subtitle: 'Canalize o poder das estrelas nas Constelações do Dragão e da Fênix.',
+    title: '✨ 星界精通與星座',
+    subtitle: '將星辰力量導入龍與鳳凰星座。',
     icon: '✨',
     color: '#ec4899',
     sections: [
       {
-        heading: '🐉 Constelação do Dragão (Ofensiva)',
-        text: 'Gaste Fragmentos Astrais para evoluir nós de Fúria Titânica (+P.Atk), Chama Arcana (+M.Atk), Golpe Mortal (+Crit Chance) e Lâmina Suprema (+Crit Dmg).',
-        tip: 'Foque na Constelação do Dragão se quiser acelerar o tempo de caça dos monstros!'
+        heading: '🐉 龍之星座（攻擊）',
+        text: '消耗星界碎片可強化泰坦之怒（+物理攻擊）、奧術火焰（+魔法攻擊）、致命一擊（+暴擊率）與至尊之刃（+暴擊傷害）節點。',
+        tip: '如果想加快狩獵速度，可以優先投資龍之星座！'
       },
       {
-        heading: '🦅 Constelação da Fênix (Defensiva)',
-        text: 'Evolua Sangue da Fênix (+HP%), Mente Iluminada (+MP%), Éter Sagrado (+Regen MP) e Escudo Divino (+P.Def/M.Def).',
-        tip: 'Essencial para resistir aos golpes dos Raid Bosses mais poderosos.'
+        heading: '🦅 鳳凰星座（防禦）',
+        text: '強化鳳凰之血（+生命值%）、啟明心智（+魔力%）、神聖乙太（+魔力 恢復）與神聖護盾（+物理防禦／魔法防禦）。',
+        tip: '面對高強度團隊首領時，鳳凰星座是重要的生存來源。'
       }
     ]
   },
 
   expeditions: {
     id: 'expeditions',
-    title: '🏰 Expedições, Manor & Castelos de Aden',
-    subtitle: 'Plante sementes no Manor, conquiste Castelos e envie Expedições de Mercenários.',
+    title: '🏰 遠征、莊園與亞丁城堡',
+    subtitle: '在莊園播種、征服城堡，並派遣傭兵進行遠征。',
     icon: '🏰',
     color: '#8b5cf6',
     sections: [
       {
-        heading: '🌱 Sistema de Manor (Sementes & Colheita)',
-        text: 'Compre Sementes do Manor, plante em zonas de caça e colha frutos ao derrotar monstros. Troque sua colheita na cidade por materiais raros de criação.',
-        tip: 'O Manor é uma das formas mais baratas de conseguir minérios e tecidos raros!'
+        heading: '🌱 莊園系統（種子與收成）',
+        text: '購買莊園種子，在狩獵區播種並於擊敗怪物後收成，再到城鎮兌換稀有製作材料。',
+        tip: '莊園是取得稀有礦石與布料最省成本的方式之一！'
       },
       {
-        heading: '👑 Castelos (Gludio, Giran, Aden)',
-        text: 'Desafie os guardiões dos Castelos de Gludio, Giran e Aden. Conquistar um castelo garante **Impostos Diários em Adena** coletados de todo o servidor!',
-        tip: 'Colete seus impostos diariamente no painel do Castelo!'
+        heading: '👑 城堡（古魯丁、奇岩、亞丁）',
+        text: '挑戰古魯丁、奇岩與亞丁城堡的守衛。成功佔領城堡後，可從全伺服器獲得 **每日金幣稅收**！',
+        tip: '記得每天到城堡面板領取稅收！'
       },
       {
-        heading: '⛵ Expedições de Mercenários',
-        text: 'Envie esquadrões de mercenários em missões temporizadas (1h, 4h, 8h). Eles retornarão com caixas de suprimentos, receitas e Adena.',
-        tip: 'Mantenha suas expedições sempre rodando em segundo plano!'
+        heading: '⛵ 傭兵遠征',
+        text: '派遣傭兵小隊執行定時任務（1 小時、4 小時、8 小時），他們會帶回補給箱、配方與金幣。',
+        tip: '盡量讓遠征持續在背景運作，累積更多收益！'
       }
     ]
   },
 
   codex: {
     id: 'codex',
-    title: '📜 Codex & Coleção de Itens',
-    subtitle: 'Complete coleções de equipamentos e Boss Dolls para desbloquear bônus na conta.',
+    title: '📜 圖鑑與物品收藏',
+    subtitle: '完成裝備與首領娃娃收藏，可解鎖帳號加成。',
     icon: '📜',
     color: '#34d399',
     sections: [
       {
-        heading: '📚 Coleções de Equipamentos',
-        text: 'Ao obter equipamentos e joias repetidas, registre-os no Codex. Completar um conjunto de coleção concede bônus permanentes como +P.Atk, +M.Atk, +HP ou +Def.',
-        tip: 'Mesmo itens de No-Grade concedem bônus valiosos quando a coleção é completada!'
+        heading: '📚 裝備收藏',
+        text: '取得重複的裝備與飾品後，可登錄至圖鑑。完成一組收藏會獲得永久加成，例如 +物理攻擊、+魔法攻擊、+生命值或+防禦。',
+        tip: '即使是 無等級 物品，完成收藏後也能提供有價值的加成！'
       }
     ]
   },
 
   dolls: {
     id: 'dolls',
-    title: '🎎 Boss Dolls & Sintetizador',
-    subtitle: 'Equipe colecionáveis de chefes lendários e faça fusões.',
+    title: '🎎 首領娃娃與合成器',
+    subtitle: '裝備傳說首領收藏品，並進行娃娃融合。',
     icon: '🎎',
     color: '#f43f5e',
     sections: [
       {
-        heading: '👑 Boss Dolls (Queen Ant, Baium, Zaken, Antharas)',
-        text: 'Dolls de Chefes concedem bônus massivos de atributos atipicamente altos. Você pode equipar Dolls no seu inventário.',
-        tip: 'Dolls de grau elevado concedem redução de dano e vampirismo de vida!'
+        heading: '👑 首領娃娃（蟻后、巴溫、札肯、安塔瑞斯）',
+        text: '首領娃娃能提供非常高的屬性加成，並可直接從背包中裝備。',
+        tip: '高階娃娃還能提供減傷與吸血效果！'
       },
       {
-        heading: '🔮 Sintetizador de Dolls',
-        text: 'Combine 3 Dolls idênticas do mesmo grau no Sintetizador para tentar evoluir para o próximo nível de raridade.',
-        tip: 'Em caso de sucesso, a Doll ganha efeitos visuais brilhantes e atributos duplicados.'
+        heading: '🔮 娃娃合成器',
+        text: '將 3 個相同且同階級的娃娃放入合成器，可嘗試進化到下一個稀有度。',
+        tip: '合成成功後，娃娃會獲得更亮眼的特效與更高屬性。'
       }
     ]
   },
 
   quests: {
     id: 'quests',
-    title: '📜 Missões, Bounties & Passe de Batalha',
-    subtitle: 'Cumpra objetivos diários para ganhar Adena, SP e itens exclusivos.',
+    title: '📜 任務、懸賞與戰鬥通行證',
+    subtitle: '完成每日目標，取得金幣、技能點 與專屬物品。',
     icon: '📜',
     color: '#fbbf24',
     sections: [
       {
-        heading: '🎯 Missões Diárias & Caçadas',
-        text: 'Derrote uma quantidade estipulada de monstros ou chefes diariamente para resgatar baús de suprimentos e cupons de teleporte.',
-        tip: 'Reivindique todas as recompensas diárias antes do reset da meia-noite!'
+        heading: '🎯 每日任務與狩獵',
+        text: '每天擊敗指定數量的怪物或首領，可領取補給箱與傳送券。',
+        tip: '每日重置前記得領完所有每日獎勵！'
       },
       {
-        heading: '🎫 Passe de Batalha (Adena Pass)',
-        text: 'Acumule pontos de passe ao jogar para subir de nível no Passe. Desbloqueie recompensas gratuitas e aprimore para o Passe Premium para prêmios lendários.',
-        tip: 'O Passe Premium concede pergaminhos de enchant abençoados!'
+        heading: '🎫 戰鬥通行證（亞丁通行證）',
+        text: '遊玩時累積通行證點數即可提升等級，解鎖免費獎勵；升級為高級通行證後可獲得更稀有的獎勵。',
+        tip: '高級通行證可獲得祝福強化卷軸！'
       }
     ]
   },
 
   tower: {
     id: 'tower',
-    title: '🏰 Torre da Insolência (Tower of Insolence)',
-    subtitle: 'Desafie os 100 andares da torre e varra recompensas diárias.',
+    title: '🏰 傲慢之塔',
+    subtitle: '挑戰傲慢之塔 100 層，並每天掃蕩已通關樓層的獎勵。',
     icon: '🏰',
     color: '#c084fc',
     sections: [
       {
-        heading: '🧗 Escalada dos 100 Andares',
-        text: 'Enfrente guardiões e chefes em andares progressivamente mais difíceis. Cada andar superado concede recompensas únicas e desbloqueia o Sweep Diário.',
-        tip: 'Se falhar em um andar, fortaleça seus equipamentos na Forja antes de tentar novamente!'
+        heading: '🧗 攀登 100 層',
+        text: '隨樓層上升，守衛與首領會越來越強。每通過一層都能獲得獨特獎勵，並逐步解鎖每日掃蕩。',
+        tip: '如果挑戰失敗，可以先到鍛造系統強化裝備再重新挑戰！'
       },
       {
-        heading: '🧹 Varredura Diária (Sweep)',
-        text: 'Uma vez por dia, utilize o botão "Varredura Diária" para coletar instantaneamente as recompensas de todos os andares já superados!',
-        tip: 'Quanto mais alto você subir na torre, maior será a quantidade diária de Adena e SP coletada!'
+        heading: '🧹 每日掃蕩',
+        text: '每天可使用一次「每日掃蕩」，立即領取所有已通關樓層的獎勵！',
+        tip: '爬得越高，每天可獲得的金幣與 技能點 就越多！'
       }
     ]
   },
 
   raids: {
     id: 'raids',
-    title: '🏰 Masmorras Diárias & Epic Raid Bosses',
-    subtitle: 'Enfrente os maiores terrores de Aden em batalhas com mecânicas de Break e drops lendários.',
+    title: '🏰 每日地城與史詩團隊首領',
+    subtitle: '挑戰亞丁最強大的敵人，利用失衡機制取得傳說掉落。',
     icon: '🏰',
     color: '#ef4444',
     sections: [
       {
-        heading: '👹 Chefes Épicos Clássicos (Queen Ant, Baium, Valakas...)',
-        text: 'Desafie chefes lendários como Queen Ant, Core, Orfen, Zaken, Baium, Antharas e Valakas. Cada chefe possui atributos elementais e resistências próprias.',
-        tip: 'Bosses concedem Joias Épicas, Pergaminhos Abençoados, Life Stones e SP massivo!'
+        heading: '👹 經典史詩首領（蟻后、巴溫、瓦拉卡斯……）',
+        text: '挑戰蟻后、核心、奧爾芬、札肯、巴溫、安塔瑞斯與瓦拉卡斯等傳說首領。每位首領都有自己的元素屬性與抗性。',
+        tip: '首領會掉落史詩飾品、祝福卷軸、生命石與大量 技能點！'
       },
       {
-        heading: '⚡ Mecânica de Postura & Janela de BREAK',
-        text: 'Ataques contínuos e habilidades com atributos elementais reduzem a postura do Boss. Ao esvaziar a barra de postura, o Boss entra em **BREAK**: fica atordoado por 4 segundos e recebe **+50% de dano amplificado**!',
-        tip: 'Guarde suas habilidades mais destrutivas e Soulshots para descarregar durante o BREAK!'
+        heading: '⚡ 姿態機制與失衡時機',
+        text: '持續攻擊與元素技能會削減首領姿態值。姿態條歸零時，首領進入 **失衡**：暈眩 4 秒，並承受 **+50% 額外傷害**！',
+        tip: '把最強技能與靈魂彈留到失衡期間一次爆發！'
       },
       {
-        heading: '🎫 Ingressos Diários de Raid',
-        text: 'Você recebe 3 Ingressos Diários de Raid a cada reset diário. Ingressos extras podem ser obtidos na Jornada dos Pioneiros, Missões Diárias ou no Passe de Batalha.',
-        tip: 'Mantenha os ingressos sempre em uso para maximizar seus fragmentos de Joias de Boss!'
+        heading: '🎫 每日 團隊首領 入場券',
+        text: '每日重置會獲得 3 張團隊首領入場券；額外入場券可從先鋒之旅、每日任務或戰鬥通行證取得。',
+        tip: '盡量持續使用入場券，以最大化首領飾品碎片收益！'
       }
     ]
   },
 
   colosseum: {
     id: 'colosseum',
-    title: '👑 Coliseu, Duelos & Grande Olimpíada',
-    subtitle: 'Prove seu valor contra outros aventureiros e busque o título de Herói Nobre de Aden.',
+    title: '👑 競技場、決鬥與奧林匹亞',
+    subtitle: '與其他冒險者較量，爭取亞丁貴族英雄稱號。',
     icon: '👑',
     color: '#f59e0b',
     sections: [
       {
-        heading: '⚔️ Duelos 1v1 do Coliseu',
-        text: 'Enfrente cópias em tempo real de outros jogadores baseadas em Combat Power (CP) e Ranking. Vencer duelos concede Pontos de Honra e melhora seu posicionamento.',
-        tip: 'Ajuste seus equipamentos e ative auto-shots antes de iniciar qualquer combate na arena!'
+        heading: '⚔️ 競技場一對一決鬥',
+        text: '挑戰依戰鬥力與排名生成的其他玩家即時鏡像。贏得決鬥可獲得榮譽點數並提升排名。',
+        tip: '進入競技場前記得調整裝備並開啟自動魂彈！'
       },
       {
-        heading: '🏛️ A Grande Olimpíada (Ciclos Mensais)',
-        text: 'Disputas ranqueadas exclusivas para Noblesses e Guerreiros de elite. Cada vitória soma pontos ao seu Rank de Classe.',
-        tip: 'No final de cada ciclo, o 1º colocado de cada classe torna-se o HERÓI DE ADEN, recebendo Aura Dourada, Título Luminoso e Armas Heroicas!'
+        heading: '🏛️ 大奧林匹亞（月度週期）',
+        text: '只有貴族與菁英戰士才能參加排名對戰，每場勝利都會增加職業排名積分。',
+        tip: '每個週期結束時，各職業第 1 名會成為亞丁英雄，獲得黃金光環、發光稱號與英雄武器！'
       }
     ]
   },
 
   clan: {
     id: 'clan',
-    title: '🛡️ Clãs, Alianças & Habilidades de Clã',
-    subtitle: 'Junte-se a uma irmandade para dominar Aden e desbloquear bônus passivos de equipe.',
+    title: '🛡️ 血盟、聯盟與血盟技能',
+    subtitle: '加入血盟共同稱霸亞丁，並解鎖團隊被動加成。',
     icon: '🛡️',
     color: '#3b82f6',
     sections: [
       {
-        heading: '🏰 Níveis de Clã & Habilidades Passivas',
-        text: 'Conforme os membros doam Adena e SP, o nível do Clã sobe (Nv. 1 ao Nv. 5), desbloqueando habilidades para TODOS os membros:\n• **Nv. 1 Clan Imperium**: +10% Max HP\n• **Nv. 2 Clan Might**: +8% P.Atk\n• **Nv. 3 Clan Shield**: +10% P.Def\n• **Nv. 4 Clan Empower**: +10% M.Atk e +12% M.Def\n• **Nv. 5 Clan Vitality**: +20% Regen MP e +5 Velocidade',
-        tip: 'Participar de um Clã ativo é um dos maiores saltos de poder para o seu Combat Power (CP)!'
+        heading: '🏰 血盟等級與被動技能',
+        text: '隨著成員捐獻金幣與 技能點，血盟會從 等級 1 提升至 等級 5，為所有成員解鎖技能：\n• **等級 1 血盟帝國**：+10% 最大 生命值\n• **等級 2 血盟力量**：+8% 物理攻擊\n• **等級 3 血盟之盾**：+10% 物理防禦\n• **等級 4 血盟增幅**：+10% 魔法攻擊、+12% 魔法防禦\n• **等級 5 血盟活力**：+20% 魔力 恢復、+5 速度',
+        tip: '加入活躍血盟，是大幅提升戰鬥力的重要方式之一！'
       },
       {
-        heading: '💎 Doações Diárias & Reputação',
-        text: 'Faça doações de Adena ou SP para o cofre do clã todos os dias para acumular Pontos de Reputação. A reputação é necessária para manter bônus e evoluir o clã.',
-        tip: 'Doar também completa passos da Jornada dos Pioneiros e do Passe de Batalha!'
+        heading: '💎 每日捐獻與聲望',
+        text: '每天向血盟倉庫捐獻金幣或 技能點 可累積聲望點數；聲望是維持加成與提升血盟的重要資源。',
+        tip: '捐獻也能完成先鋒之旅與戰鬥通行證的相關目標！'
       }
     ]
   },
 
   referral: {
     id: 'referral',
-    title: '👥 Contatos, Amigos, Mentoria & Indicação',
-    subtitle: 'Gerencie sua rede de contatos, vincule mentores, envie sussurros e receba recompensas épicas!',
+    title: '👥 聯絡人、好友、導師與推薦',
+    subtitle: '管理好友網路、綁定導師、傳送密語，並領取推薦獎勵！',
     icon: '👥',
     color: '#34d399',
     sections: [
       {
-        heading: '👥 Gerenciador de Contatos & Lista de Amigos',
-        text: 'O menu de Contatos permite gerenciar sua rede social completa dentro do Aden Arena:\n• **Adicionar Amigos (+ Adicionar):** Registre até 128 amigos pelo nome de personagem para acompanhar seu nível, classe e status (Online/Offline).\n• **Comunicação Direta:** Envie **Sussurros instantâneos (💬 Msg)** ou envie cartas via **Correio Expresso (✉️ Mail)**.\n• **Ações Rápidas de Grupo e Clã:** Convide facilmente seus companheiros para seu **Grupo (Party)** de caça ou para o seu **Clã**.\n• **Lista de Bloqueados:** Bloqueie até 64 jogadores indesejados para manter seu foco e tranquilidade nas batalhas.',
-        tip: 'Acesse o menu a qualquer momento clicando no botão "👥 Contatos" na barra superior ou na aba "Glória & Sociedade"!'
+        heading: '👥 聯絡人與好友清單',
+        text: '聯絡人選單可管理完整社交網路：\n• **新增好友（+ 新增）：** 最多登錄 128 位好友，可查看等級、職業與在線／離線狀態。\n• **直接通訊：** 傳送即時密語（💬 訊息）或使用郵件（✉️ 郵件）寄信。\n• **隊伍與血盟快捷操作：** 快速邀請好友加入狩獵隊伍或血盟。\n• **封鎖名單：** 最多封鎖 64 位玩家。',
+        tip: '你可以隨時點擊上方的「👥 聯絡人」按鈕，或從「榮耀與社交」分頁開啟此功能。'
       },
       {
-        heading: '🎓 Sistema de Mentoria (Iniciantes até o Nível 20)',
-        text: 'A mentoria fortalece os laços entre guerreiros veteranos e novatos:\n• **Sou Novato (Até Nv. 20):** Vincule um mentor experiente para receber imediatamente **+10% EXP permanente**, **1.000 Soulshots/Spiritshots No-Grade** e **10 Poções de Vida**!\n• **Marco de Evolução (Nível 40):** Ao atingir a 2ª Troca de Classe (Nv. 40), o Pupilo e o Mentor são recompensados com **50 Aden Coins (AC)** + **5x Pergaminhos Abençoados de Arma (Blessed Scrolls)**!\n• **Vínculo Rápido:** Selecione qualquer amigo na sua lista e clique em **"🎓 Tornar Mentor"** para vinculá-lo instantaneamente.',
-        tip: 'O vínculo de mentor deve ser realizado antes do Nível 20. Aproveite esse impulso inicial para acelerar sua jornada!'
+        heading: '🎓 導師系統（等級 20 以下新手）',
+        text: '導師系統能連結資深玩家與新手：\n• **我是新手（等級 20 以下）：** 綁定資深導師後立即獲得 **永久 +10% 經驗值**、**1,000 發無級別魂彈／魔靈彈** 與 **10 瓶生命藥水**。\n• **成長里程碑（等級 40）：** 完成二轉後，學員與導師都會獲得 **50 亞丁幣** 與 **5 張祝福武器卷軸**。\n• **快速綁定：** 從好友清單選人並點擊 **「🎓 設為導師」** 即可。',
+        tip: '導師綁定必須在等級 20 前完成，善用這項加成可以更快度過前期。'
       },
       {
-        heading: '🎁 Link Exclusivo, WhatsApp & Comunidade Discord',
-        text: 'Traga amigos para jogar no navegador e ganhem recompensas juntos:\n• **Link Exclusivo:** Copie seu link pessoal (`?ref=SeuNome`) ou use o botão de **Compartilhar no WhatsApp** com 1 clique.\n• **Resgate de Recompensas:** Use o botão **"Verificar & Resgatar Recompensas"** para coletar os prêmios conforme seus pupilos alcançam o Nível 40.\n• **Discord Oficial:** Junte-se à comunidade oficial para negociar itens, participar de eventos e tirar dúvidas!\n\n🔗 Link Oficial: **https://discord.gg/R7rwB5uCc**',
-        tip: 'Fique atento aos canais de avisos no Discord para resgatar Cupons de Presente com bônus exclusivos!'
+        heading: '🎁 專屬連結、WhatsApp 與 Discord 社群',
+        text: '邀請好友直接用瀏覽器加入遊戲，一起取得獎勵：\n• **專屬連結：** 複製個人推薦連結（`?ref=你的名稱`），或一鍵分享到 WhatsApp。\n• **領取獎勵：** 當學員達到 等級 40 時，使用 **「檢查並領取獎勵」** 取得獎品。\n• **官方 Discord：** 加入社群交易物品、參加活動與交流問題。\n\n🔗 官方連結：**https://discord.gg/R7rwB5uCc**',
+        tip: '記得留意 Discord 公告頻道，可能會有可兌換專屬加成的禮物序號！'
       }
     ]
   }
@@ -573,7 +573,7 @@ export function checkTabGuide(tabKey, state, saveStateFn) {
 }
 
 /**
- * Abre a janela Modal com o Guia da Aba informada
+ * Abre a janela Modal com o 指南 da Aba informada
  */
 export function openTabGuideModal(guideKey) {
   const data = GUIDES_DATA[guideKey] || GUIDES_DATA.zones;
@@ -607,7 +607,7 @@ export function openTabGuideModal(guideKey) {
       `}
       ${s.tip ? `
         <div style="margin-top: 8px; font-size: 11px; color: #34d399; background: rgba(52, 211, 153, 0.1); border-left: 3px solid #34d399; padding: 6px 10px; border-radius: 0 6px 6px 0;">
-          💡 <strong>Dica Estratégica:</strong> ${s.tip}
+          💡 <strong>策略提示：</strong> ${s.tip}
         </div>
       ` : ''}
     </div>
@@ -642,7 +642,7 @@ export function openTabGuideModal(guideKey) {
           const g = GUIDES_DATA[k];
           if (!g) return '';
           const isSel = (k === (data.id || guideKey));
-          const shortTitle = (k === 'resonance') ? 'Ressonâncias' : g.title.split('&')[0].split('(')[0].replace(/[^\w\sÀ-ú]/g, '').trim();
+          const shortTitle = (k === 'resonance') ? '共鳴' : g.title.split('&')[0].split('(')[0].replace(/[^\w\sÀ-ú]/g, '').trim();
           return `
             <button onclick="window.openTabGuideModal('${k}')" style="padding: 4px 10px; font-size: 11px; font-family: 'Cinzel', serif; font-weight: bold; border-radius: 12px; white-space: nowrap; cursor: pointer; transition: all 0.2s; border: 1px solid ${isSel ? (g.color || '#d4a744') : 'rgba(255,255,255,0.15)'}; background: ${isSel ? 'rgba(212, 167, 68, 0.25)' : 'rgba(20,24,36,0.6)'}; color: ${isSel ? (g.color || '#f4d58a') : '#aaa'};">
               ${g.icon} ${shortTitle}
@@ -659,7 +659,7 @@ export function openTabGuideModal(guideKey) {
       <!-- Footer -->
       <div style="padding: 12px 20px; border-top: 1px solid rgba(212, 167, 68, 0.2); background: rgba(0, 0, 0, 0.4); border-radius: 0 0 14px 14px; display: flex; justify-content: space-between; align-items: center;">
         <span style="font-size: 11px; color: #888;">
-          ❓ Você pode reabrir este guia a qualquer momento no botão <strong>Guia da Aba</strong> ou no topo da tela.
+          ❓ 你可以隨時點擊分頁中的 <strong>指南</strong> 按鈕，或從畫面頂部重新開啟這份教學。
         </span>
         <button onclick="window.closeTabGuideModal()" style="padding: 8px 20px; font-family: 'Cinzel', serif; font-weight: bold; font-size: 12px; background: linear-gradient(180deg, #d4a744, #8a641c); border: 1px solid #ffe699; color: #000; border-radius: 6px; cursor: pointer; box-shadow: 0 2px 10px rgba(212, 167, 68, 0.3);">
           ENTENDI, CONTINUAR JOGO!
@@ -686,7 +686,7 @@ export function closeTabGuideModal() {
 }
 
 /**
- * Renderiza/atualiza o botão flutuante "❓ Guia da Aba" no canto do painel ativo.
+ * Renderiza/atualiza o botão flutuante "❓ 指南 da Aba" no canto do painel ativo.
  * @param {string} tabKey - chave da aba (ex: 'craft')
  * @param {string} [resolvedGuideKey] - chave resolvida do guia (ex: 'craft'); usa tabKey se omitido
  */
@@ -708,7 +708,7 @@ export function renderPersistentHelpButton(tabKey, resolvedGuideKey) {
   if (topGuideBtn) {
     const guideData = GUIDES_DATA[guideKey];
     topGuideBtn.style.display = 'inline-flex';
-    topGuideBtn.title = `Guia: ${guideData?.title || tabKey}`;
+    topGuideBtn.title = `指南：${guideData?.title || '遊戲指南'}`;
     topGuideBtn.onclick = (e) => {
       e.preventDefault();
       e.stopPropagation();

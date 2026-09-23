@@ -1192,11 +1192,18 @@ export class Game {
           const col = RARITY_COLOR[it.rarity];
           const res = this.equipItem(it);
           this.spawnText(this.px * S, 1.75, this.py * S, it.icon + " " + it.name, col);
+          const rarityLabel = ({
+            common: "一般",
+            uncommon: "非凡",
+            rare: "稀有",
+            epic: "史詩",
+            legendary: "傳說",
+          } as const)[it.rarity] || it.rarity;
           this.spawnText(
             this.px * S,
             1.5,
             this.py * S,
-            "[" + it.rarity.toUpperCase() + "] " + res,
+            "[" + rarityLabel + "] " + res,
             col
           );
           this.spawnParticles(this.px, this.py, col, 18, 4);
@@ -1330,9 +1337,9 @@ export class Game {
     if (upgrade) {
       this.equipped[item.slot] = item;
       this.recalcEquip();
-      return cur ? "upgraded" : "equipped";
+      return cur ? "已升級" : "已裝備";
     }
-    return "kept " + (cur?.name ?? item.name);
+    return "保留 " + (cur?.name ?? item.name);
   }
 
   makeItemOrb(color: string): THREE.Mesh {
@@ -1364,7 +1371,7 @@ export class Game {
       e.x * S,
       1.3,
       e.y * S,
-      (crit ? "CRIT " : "") + String(Math.round(d)),
+      (crit ? "暴擊 " : "") + String(Math.round(d)),
       crit ? "#ffd24a" : "#ffffff"
     );
     if (crit) {
@@ -1443,7 +1450,7 @@ export class Game {
     if (!sk) return;
     if (this.skillCd[i] > 0) return;
     if (this.mana < sk.mana) {
-      this.spawnText(this.px * S, 1.8, this.py * S, "NO MANA", "#ff9090");
+      this.spawnText(this.px * S, 1.8, this.py * S, "魔力不足", "#ff9090");
       return;
     }
     this.mana -= sk.mana;
@@ -1534,7 +1541,7 @@ export class Game {
         }
         if (sk.buff === "shield") {
           this.shieldT = sk.duration ?? 3;
-          this.spawnText(this.px * S, 1.8, this.py * S, "SHIELD!", "#7fd0ff");
+          this.spawnText(this.px * S, 1.8, this.py * S, "護盾！", "#7fd0ff");
         }
         break;
       }
@@ -1542,18 +1549,18 @@ export class Game {
         if (sk.buff === "damage") {
           this.buffDmgT = sk.duration ?? 8;
           this.buffDmgM = sk.amount ?? 1.4;
-          this.spawnText(this.px * S, 1.8, this.py * S, "POWER!", w.color);
+          this.spawnText(this.px * S, 1.8, this.py * S, "力量強化！", w.color);
         } else if (sk.buff === "speed") {
           this.buffSpdT = sk.duration ?? 8;
           this.buffSpdM = sk.amount ?? 1.4;
-          this.spawnText(this.px * S, 1.8, this.py * S, "SPEED!", w.color);
+          this.spawnText(this.px * S, 1.8, this.py * S, "速度強化！", w.color);
         } else if (sk.buff === "atkspeed") {
           this.buffAtkT = sk.duration ?? 5;
           this.buffAtkM = sk.amount ?? 2;
-          this.spawnText(this.px * S, 1.8, this.py * S, "FLURRY!", w.color);
+          this.spawnText(this.px * S, 1.8, this.py * S, "連擊加速！", w.color);
         } else if (sk.buff === "shield") {
           this.shieldT = sk.duration ?? 3;
-          this.spawnText(this.px * S, 1.8, this.py * S, "SHIELD!", "#7fd0ff");
+          this.spawnText(this.px * S, 1.8, this.py * S, "護盾！", "#7fd0ff");
         }
         this.spawnParticles(this.px, this.py, w.color, 14, 4);
         break;
@@ -1685,7 +1692,7 @@ export class Game {
       if (this.spawnQueue === 0 && this.enemies.length === 0) {
         this.score += 60 + this.wave * 12;
         this.waveBanner = 2.4;
-        this.waveBannerText = `WAVE ${this.wave} CLEARED`;
+        this.waveBannerText = `第 ${this.wave} 波完成`;
         this.hp = Math.min(this.maxHp, this.hp + this.maxHp * 0.12);
         this.spawnParticles(this.px, this.py, "#ffd76a", 24, 5);
         this.waveState = "intermission";
@@ -1702,8 +1709,8 @@ export class Game {
     this.waveState = "fighting";
     this.waveBanner = 2.0;
     this.waveBannerText = this.bossPending
-      ? `WAVE ${this.wave} — BOSS`
-      : `WAVE ${this.wave}`;
+      ? `第 ${this.wave} 波 — 首領`
+      : `第 ${this.wave} 波`;
   }
 
   spawnFromWave() {
@@ -2141,7 +2148,7 @@ export class Game {
     const currentZoneId = (typeof window !== "undefined" && (window as any).getGameState?.()?.zone) || "talkingIsland";
     const zoneDef = typeof window !== "undefined" && (window as any).GameData?.ZONES?.[currentZoneId];
     const displayZoneName = zoneDef?.name || currentZoneId.replace(/([A-Z])/g, ' $1').replace(/^./, (s: string) => s.toUpperCase());
-    const isTownZone = zoneDef?.town ? "Town · " : "Zone · ";
+    const isTownZone = zoneDef?.town ? "城鎮 · " : "區域 · ";
     ctx.fillText(`📍 ${isTownZone}${displayZoneName}`, bannerX + bannerW / 2, bannerY + 22);
 
     // --- Top-Left Ornate Circular Compass Dial & HP/MP Bars ---
@@ -2183,7 +2190,7 @@ export class Game {
     ctx.font = "800 13px Cinzel, serif";
     ctx.fillStyle = "#ffd877";
     const heroTitle = this.idleState
-      ? `${this.idleState.charName || this.idleState.heroName || "Herói"} · Lv.${this.level} (${this.cfg.cls.name})`
+      ? `${this.idleState.charName || this.idleState.heroName || "角色"} · 等級 ${this.level}（${this.cfg.cls.name}）`
       : `${this.cfg.cls.name} (${this.cfg.race.name})`;
     ctx.fillText(heroTitle, barX, 32);
 
@@ -2208,7 +2215,7 @@ export class Game {
 
     ctx.font = "bold 9px Inter, sans-serif";
     ctx.fillStyle = "#ffffff";
-    ctx.fillText(`HP ${Math.ceil(this.hp)} / ${this.maxHp}`, barX + 6, hpY + 9);
+    ctx.fillText(`生命 ${Math.ceil(this.hp)} / ${this.maxHp}`, barX + 6, hpY + 9);
 
     // MP Bar
     const mpRatio = clamp(this.mana / this.manaMax, 0, 1);
@@ -2231,15 +2238,15 @@ export class Game {
 
     ctx.font = "bold 8px Inter, sans-serif";
     ctx.fillStyle = "#ffffff";
-    ctx.fillText(`MP ${Math.ceil(this.mana)} / ${this.manaMax}`, barX + 6, mpY + 8);
+    ctx.fillText(`魔力 ${Math.ceil(this.mana)} / ${this.manaMax}`, barX + 6, mpY + 8);
 
     // --- Bottom Centered Graveyard Keeper Action Hotbar ---
     const slots = [
-      { key: "1", icon: "⚔️", label: "Ataque", cd: 0, maxCd: 1 },
-      { key: "2", icon: this.skills[0]?.emoji || "🔮", label: this.skills[0]?.name || "Skill 1", cd: this.skillCd[0] || 0, maxCd: this.skills[0]?.cooldown || 1 },
-      { key: "3", icon: this.skills[1]?.emoji || "⚡", label: this.skills[1]?.name || "Skill 2", cd: this.skillCd[1] || 0, maxCd: this.skills[1]?.cooldown || 1 },
-      { key: "4", icon: "🧪", label: "Poção HP", count: 12 },
-      { key: "5", icon: "🍖", label: "Comida", count: 5 },
+      { key: "1", icon: "⚔️", label: "攻擊", cd: 0, maxCd: 1 },
+      { key: "2", icon: this.skills[0]?.emoji || "🔮", label: this.skills[0]?.name || "技能 1", cd: this.skillCd[0] || 0, maxCd: this.skills[0]?.cooldown || 1 },
+      { key: "3", icon: this.skills[1]?.emoji || "⚡", label: this.skills[1]?.name || "技能 2", cd: this.skillCd[1] || 0, maxCd: this.skills[1]?.cooldown || 1 },
+      { key: "4", icon: "🧪", label: "生命藥水", count: 12 },
+      { key: "5", icon: "🍖", label: "食物", count: 5 },
     ];
 
     const slotW = 54;
@@ -2309,7 +2316,7 @@ export class Game {
     ctx.textAlign = "center";
     ctx.fillStyle = "#f4d58a";
     ctx.font = "800 13px Cinzel, serif";
-    ctx.fillText(`FASE ${phase}  ·  ONDA ${this.wave}`, this.w / 2, 28);
+    ctx.fillText(`階段 ${phase}  ·  波次 ${this.wave}`, this.w / 2, 28);
 
     if (this.waveBanner > 0) {
       const a = clamp(this.waveBanner / 0.6, 0, 1);

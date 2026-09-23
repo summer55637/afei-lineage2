@@ -44,23 +44,23 @@ export class SocialIntegrityService {
    */
   static async addFriend(myCharId: string, targetName: string): Promise<FriendDisplay> {
     if (!myCharId) {
-      throw new Error('Identificador do jogador não informado.');
+      throw new Error('未提供玩家識別資料。');
     }
     if (!targetName || !targetName.trim()) {
-      throw new Error('Digite o nome de um herói válido.');
+      throw new Error('請輸入有效的角色名稱。');
     }
 
     // 1. Resolve o alvo canonicamente pelo nome
     const target = await PlayerRegistry.getPlayerByName(targetName);
     if (!target) {
-      const err = new Error(`Herói "${targetName}" não existe no reino de Aden.`);
+      const err = new Error(`亞丁世界中不存在角色「${targetName}」。`);
       (err as any).code = 'PLAYER_NOT_FOUND';
       throw err;
     }
 
     // 2. Garante que é um jogador real (Gate 4)
     if (target.playerType !== 'real') {
-      const err = new Error(`"${targetName}" não é um aventureiro real.`);
+      const err = new Error(`「${targetName}」不是真實玩家。`);
       (err as any).code = 'REAL_PLAYER_REQUIRED';
       throw err;
     }
@@ -68,7 +68,7 @@ export class SocialIntegrityService {
     // 3. Valida relacionamento (impede auto-amizade)
     const relCheck = EntityValidator.validateRelationship(myCharId, target.characterId);
     if (!relCheck.valid) {
-      const err = new Error(relCheck.reason || 'Relacionamento inválido.');
+      const err = new Error(relCheck.reason || '無效的社交關係。');
       (err as any).code = 'INVALID_RELATIONSHIP';
       throw err;
     }
@@ -79,7 +79,7 @@ export class SocialIntegrityService {
     const friendSnap = await getDoc(friendRef);
 
     if (friendSnap.exists() && friendSnap.data()?.status === 'accepted') {
-      const err = new Error(`Você já possui uma amizade com "${target.name}".`);
+      const err = new Error(`你已經與「${target.name}」是好友。`);
       (err as any).code = 'ALREADY_FRIENDS';
       throw err;
     }
@@ -109,7 +109,7 @@ export class SocialIntegrityService {
       classTitle: target.classId,
       raceId: target.raceId,
       online: isOnline,
-      clanName: target.clanName || 'Sem Clã'
+      clanName: target.clanName || '無血盟'
     };
   }
 
@@ -187,7 +187,7 @@ export class SocialIntegrityService {
         classTitle: c.classId,
         raceId: c.raceId,
         online: presenceMap.get(c.characterId) || false,
-        clanName: c.clanName || 'Sem Clã'
+        clanName: c.clanName || '無血盟'
       }));
     } catch (err) {
       console.warn('[SocialIntegrityService] Falha ao listar amigos:', err);
@@ -204,10 +204,10 @@ export class SocialIntegrityService {
     mentorName: string
   ): Promise<{ mentorName: string; mentorCharId: string }> {
     if (!apprenticeCharId || !mentorName) {
-      throw new Error('Dados de mentoria incompletos.');
+      throw new Error('導師資料不完整。');
     }
     if (apprenticeLevel > 20) {
-      const err = new Error('Mentoria só pode ser vinculada até o Nível 20.');
+      const err = new Error('只有等級 20 以下才能建立導師關係。');
       (err as any).code = 'LEVEL_TOO_HIGH';
       throw err;
     }
@@ -215,25 +215,25 @@ export class SocialIntegrityService {
     // 1. Resolve o mentor
     const mentor = await PlayerRegistry.getPlayerByName(mentorName);
     if (!mentor) {
-      const err = new Error(`Mentor "${mentorName}" não encontrado no mundo de Aden.`);
+      const err = new Error(`亞丁世界中找不到導師「${mentorName}」。`);
       (err as any).code = 'PLAYER_NOT_FOUND';
       throw err;
     }
 
     if (mentor.playerType !== 'real') {
-      const err = new Error(`"${mentorName}" não é um jogador real.`);
+      const err = new Error(`「${mentorName}」不是真實玩家。`);
       (err as any).code = 'REAL_PLAYER_REQUIRED';
       throw err;
     }
 
     if (mentor.characterId === apprenticeCharId) {
-      const err = new Error('Você não pode ser o seu próprio mentor.');
+      const err = new Error('你不能成為自己的導師。');
       (err as any).code = 'SELF_MENTOR_PROHIBITED';
       throw err;
     }
 
     if (mentor.level < 40) {
-      const err = new Error(`O mentor deve ter pelo menos Nível 40 (Nível atual: ${mentor.level}).`);
+      const err = new Error(`導師至少需要等級 40（目前等級：${mentor.level}）。`);
       (err as any).code = 'MENTOR_LEVEL_LOW';
       throw err;
     }
@@ -267,12 +267,12 @@ export class SocialIntegrityService {
   static async blockPlayer(myCharId: string, myOwnerUid: string, targetName: string): Promise<string> {
     const target = await PlayerRegistry.getPlayerByName(targetName);
     if (!target) {
-      const err = new Error(`Jogador "${targetName}" não encontrado.`);
+      const err = new Error(`找不到玩家「${targetName}」。`);
       (err as any).code = 'PLAYER_NOT_FOUND';
       throw err;
     }
     if (target.characterId === myCharId) {
-      throw new Error('Você não pode bloquear a si mesmo.');
+      throw new Error('你不能封鎖自己。');
     }
 
     const blockId = `block_${myCharId}_${target.characterId}`;

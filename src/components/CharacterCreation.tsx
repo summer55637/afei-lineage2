@@ -31,16 +31,16 @@ const RACES_INFO: Record<string, {
 }> = {
   human: {
     id: 'human',
-    name: 'Humano',
+    name: '人類',
     icon: '🧑‍🌾',
-    desc: 'Versáteis e equilibrados em todas as disciplinas de combate e magia.',
-    perks: ['⚔️ Status Físicos Equilibrados', '🛡️ Excelente Adaptabilidade', '🏰 Inicia na Ilha de Falar'],
+    desc: '在各種戰鬥與魔法領域都相當均衡且靈活。',
+    perks: ['⚔️ 物理能力均衡', '🛡️ 優秀的適應能力', '🏰 從說話之島開始'],
     allowedClasses: [
-      { id: 'fighter', name: 'Guerreiro (Fighter)', desc: 'Combate corpo a corpo com espada, escudo e alta vitalidade.', icon: '⚔️' },
-      { id: 'mage', name: 'Mago (Mage)', desc: 'Dominador de magia elemental e grande reserva de mana.', icon: '🔮' },
-      { id: 'human_deathknight_0', name: 'Death Knight 💀', desc: 'Cavaleiro da Morte alimentado por Dark Points e golpes gélidos.', icon: '💀' },
-      { id: 'werewolf_0', name: 'Warg 🐺', desc: 'Lutador primitivo e feroz com instintos lupinos e regeneração.', icon: '🐺' },
-      { id: 'secret_assassin_male_0', name: 'Assassin 🗡️', desc: 'Caçador das sombras mortal com adagas velozes e clones sombrios.', icon: '🗡️' }
+      { id: 'fighter', name: '戰士', desc: '使用劍與盾進行近戰，並擁有較高的生存能力。', icon: '⚔️' },
+      { id: 'mage', name: '法師', desc: '擅長元素魔法，並擁有充足的魔力。', icon: '🔮' },
+      { id: 'human_deathknight_0', name: '死亡騎士 💀', desc: '以黑暗能量與冰冷斬擊作戰的死亡騎士。', icon: '💀' },
+      { id: 'werewolf_0', name: '狼人 🐺', desc: '憑藉野性本能與恢復能力戰鬥的兇猛近戰者。', icon: '🐺' },
+      { id: 'secret_assassin_male_0', name: '刺客 🗡️', desc: '使用高速匕首與暗影分身的致命刺客。', icon: '🗡️' }
     ],
     image: {
       fighter: { M: '/img/m_humanfighter.jpg', F: '/img/f_humanfighter.jpg' },
@@ -58,18 +58,18 @@ const RACES_INFO: Record<string, {
       assassinS0: { M: '/img/m_treasurehunter.jpg', F: '/img/f_treasurehunter.jpg' },
       assassinBase: { M: '/img/m_treasurehunter.jpg', F: '/img/f_treasurehunter.jpg' }
     },
-    startZoneName: 'Ilha de Falar (Talking Island)'
+    startZoneName: '說話之島'
   },
   elf: {
     id: 'elf',
-    name: 'Elfo',
+    name: '精靈',
     icon: '🧝‍♂️',
-    desc: 'Graciosos e extremamente ágeis, abençoados pela deusa Eva.',
-    perks: ['🍃 +8 Esquiva Nativa', '⚡ Alta Velocidade de Movimento', '🏝️ Inicia na Ilha de Falar (Lv. 1)'],
+    desc: '受到伊娃女神祝福，優雅而且極為敏捷。',
+    perks: ['🍃 +8 基礎迴避', '⚡ 高移動速度', '🏝️ 從說話之島開始（等級 1）'],
     allowedClasses: [
-      { id: 'elven_fighter', name: 'Guerreiro Elfo (Fighter)', desc: 'Defensor gracioso e arqueiro veloz com precisão letal.', icon: '🏹' },
-      { id: 'elven_mage', name: 'Mago Elfo (Mage)', desc: 'Dominador de magia de água, luz sagrada e suporte rápido.', icon: '🌊' },
-      { id: 'elf_deathknight_0', name: 'Death Knight 💀', desc: 'Cavaleiro da Morte Élfico focado em esquiva e lâminas de gelo.', icon: '💀' }
+      { id: 'elven_fighter', name: '精靈戰士', desc: '兼具優雅防守與高速弓術，擁有致命的精準度。', icon: '🏹' },
+      { id: 'elven_mage', name: '精靈法師', desc: '擅長水系魔法、神聖之光與快速支援。', icon: '🌊' },
+      { id: 'elf_deathknight_0', name: '死亡騎士 💀', desc: '擅長迴避與冰刃攻擊的精靈死亡騎士。', icon: '💀' }
     ],
     image: {
       elven_fighter: { M: '/img/elfwswM.png', F: '/img/elfswsF.png' },
@@ -80,20 +80,20 @@ const RACES_INFO: Record<string, {
       fighter: { M: '/img/elfwswM.png', F: '/img/elfswsF.png' },
       mage: { M: '/img/elfmageM.png', F: '/img/elfmageF.png' }
     },
-    startZoneName: 'Ilha de Falar (Talking Island)'
+    startZoneName: '說話之島'
   },
   darkelf: {
     id: 'darkelf',
-    name: 'Elfo Negro',
+    name: '黑暗精靈',
     icon: '🧝‍♀️',
-    desc: 'Mestres de magia negra e ataques críticos devastadores de Shillien.',
-    perks: ['🔥 +15 Poder de Ataque & Magia', '🗡️ Alto Poder Crítico', '🏝️ Inicia na Ilha de Falar (Lv. 1)'],
+    desc: '席琳的黑暗魔法大師，擅長強力暴擊。',
+    perks: ['🔥 +15 攻擊與魔法威力', '🗡️ 高暴擊威力', '🏝️ 從說話之島開始（等級 1）'],
     allowedClasses: [
-      { id: 'dark_fighter', name: 'Guerreiro Negro (Fighter)', desc: 'Assassino mortal e cavaleiro sombrio focado em dano crítico.', icon: '🗡️' },
-      { id: 'dark_mage', name: 'Mago Negro (Mage)', desc: 'Invocador de maldições e magia de fogo/trevas de alto impacto.', icon: '🔮' },
-      { id: 'delf_deathknight_0', name: 'Death Knight 💀', desc: 'Cavaleiro da Morte Dark Elf com maestria em magias sombrias.', icon: '💀' },
-      { id: 'secret_assassin_female_0', name: 'Assassin 🗡️', desc: 'Assassina mortal das sombras com venenos e golpes críticos.', icon: '🗡️' },
-      { id: 'rose_vain_0', name: 'Blood Rose 🌹', desc: 'Mística devota de Shillien com magia de espinhos negros e drenagem de sangue.', icon: '🌹' }
+      { id: 'dark_fighter', name: '黑暗精靈戰士', desc: '專精暴擊傷害的致命刺客與黑暗騎士。', icon: '🗡️' },
+      { id: 'dark_mage', name: '黑暗精靈法師', desc: '擅長詛咒、火焰與黑暗魔法的高爆發施法者。', icon: '🔮' },
+      { id: 'delf_deathknight_0', name: '死亡騎士 💀', desc: '精通黑暗魔法的黑暗精靈死亡騎士。', icon: '💀' },
+      { id: 'secret_assassin_female_0', name: '刺客 🗡️', desc: '使用毒素與暴擊的致命暗影刺客。', icon: '🗡️' },
+      { id: 'rose_vain_0', name: '血玫瑰 🌹', desc: '侍奉席琳的神秘施法者，使用黑荊棘魔法與吸血能力。', icon: '🌹' }
     ],
     image: {
       dark_fighter: { M: '/img/darkelfskM.png', F: '/img/darkelfskF.png' },
@@ -112,18 +112,18 @@ const RACES_INFO: Record<string, {
       fighter: { M: '/img/darkelfskM.png', F: '/img/darkelfskF.png' },
       mage: { M: '/img/darkelfmageM.png', F: '/img/darkelfmageF.png' }
     },
-    startZoneName: 'Ilha de Falar (Talking Island)'
+    startZoneName: '說話之島'
   },
   orc: {
     id: 'orc',
-    name: 'Orc',
+    name: '半獸人',
     icon: '👹',
-    desc: 'Guerreiros de força bruta descomunal e constituição vital superior.',
-    perks: ['💪 +100 Vida Máxima (HP)', '🛡️ Resiliência em Batalha Prolongada', '🏝️ Inicia na Ilha de Falar (Lv. 1)'],
+    desc: '擁有驚人力量與強韌體魄的戰士種族。',
+    perks: ['💪 +100 最大生命值', '🛡️ 長時間戰鬥耐久', '🏝️ 從說話之島開始（等級 1）'],
     allowedClasses: [
-      { id: 'orc_fighter', name: 'Guerreiro Orc (Fighter)', desc: 'Destruidor com machados de duas mãos e fúria guerreira.', icon: '🪓' },
-      { id: 'orc_mage', name: 'Xamã Orc (Shaman)', desc: 'Mago de combate e buffs tribais de sangue e resistência.', icon: '🔥' },
-      { id: 'orc_rider_0', name: 'Vanguard Rider 🐉', desc: 'Cavaleiro Orc montado especialista em investidas e estocadas de lança.', icon: '🐉' }
+      { id: 'orc_fighter', name: '半獸人戰士', desc: '使用雙手斧與狂暴之力作戰的破壞者。', icon: '🪓' },
+      { id: 'orc_mage', name: '半獸人薩滿', desc: '使用戰鬥魔法與部族增益強化血量及耐力。', icon: '🔥' },
+      { id: 'orc_rider_0', name: '先鋒騎士 🐉', desc: '擅長騎乘衝鋒與長槍突刺的半獸人騎士。', icon: '🐉' }
     ],
     image: {
       orc_fighter: { M: '/img/orcfighterM.png', F: '/img/orcfighterF.png' },
@@ -136,17 +136,17 @@ const RACES_INFO: Record<string, {
       fighter: { M: '/img/orcfighterM.png', F: '/img/orcfighterF.png' },
       mage: { M: '/img/orc_mage.png', F: '/img/orc_mage.png' }
     },
-    startZoneName: 'Ilha de Falar (Talking Island)'
+    startZoneName: '說話之島'
   },
   dwarf: {
     id: 'dwarf',
-    name: 'Anão',
+    name: '矮人',
     icon: '⚒️',
-    desc: 'Mestres da forja, especialistas em mineração e criação de itens.',
-    perks: ['🎒 +100 Espaços de Inventário', '⚒️ Bônus de Craft & Drop de Materiais', '🏝️ Inicia na Ilha de Falar (Lv. 1)'],
+    desc: '鍛造大師，擅長採礦與製作物品。',
+    perks: ['🎒 +100 背包欄位', '⚒️ 製作與素材掉落加成', '🏝️ 從說話之島開始（等級 1）'],
     allowedClasses: [
-      { id: 'dwarven_fighter', name: 'Artesão (Artisan)', desc: 'Especialista em forja de armas, armaduras pesadas e martelos.', icon: '⚒️' },
-      { id: 'shineMakerBase', name: 'ShineMaker ✨', desc: 'Mestre da luz cristalina, suporte celestial e martelo luminoso.', icon: '✨' }
+      { id: 'dwarven_fighter', name: '工匠', desc: '擅長打造武器、重型防具與戰鎚。', icon: '⚒️' },
+      { id: 'shineMakerBase', name: '光輝工匠 ✨', desc: '掌握水晶之光、神聖支援與光輝戰鎚的工匠。', icon: '✨' }
     ],
     image: {
       dwarven_fighter: { M: '/img/dwarfmaestroM.png', F: '/img/dwarfmaestroF.png' },
@@ -156,17 +156,17 @@ const RACES_INFO: Record<string, {
       shinemakerS1: { M: '/img/dwarfmaestroM.png', F: '/img/dwarfmaestroF.png' },
       shineMakerBase: { M: '/img/dwarfmaestroM.png', F: '/img/dwarfmaestroF.png' }
     },
-    startZoneName: 'Ilha de Falar (Talking Island)'
+    startZoneName: '說話之島'
   },
   kamael: {
     id: 'kamael',
-    name: 'Kamael',
+    name: '闇天使',
     icon: '🪶',
-    desc: 'Raça de uma asa só com maestria lendária em lâminas rápidas e rapieiras.',
-    perks: ['⚡ Usam Armaduras LEVES por Lore', '🗡️ Ataques Físicos Ultrarrápidos', '🏝️ Inicia na Ilha de Falar (Lv. 1)'],
+    desc: '單翼種族，精通高速刀刃與細劍。',
+    perks: ['⚡ 使用輕型防具', '🗡️ 超高速物理攻擊', '🏝️ 從說話之島開始（等級 1）'],
     allowedClasses: [
-      { id: 'jin_kamael_soldier', name: 'Soldier / Soulbreaker', desc: 'Espadachim das sombras especializado em rapieiras e absorção de almas.', icon: '🗡️' },
-      { id: 'crow_0', name: 'Samurai ⛩️', desc: 'Mestre da katana ancestral e técnica de corte veloz Iaijutsu.', icon: '⛩️' }
+      { id: 'jin_kamael_soldier', name: '闇天使戰士', desc: '擅長細劍與靈魂吸收的暗影劍士。', icon: '🗡️' },
+      { id: 'crow_0', name: '武士 ⛩️', desc: '精通古老武士刀與高速居合斬。', icon: '⛩️' }
     ],
     image: {
       jin_kamael_soldier: { M: '/img/kamaelshM.png', F: '/img/kamaelshF.png' },
@@ -177,33 +177,33 @@ const RACES_INFO: Record<string, {
       samuraiBase: { M: '/img/kamaelDM.png', F: '/img/kamaelDF.png' },
       hatamoto: { M: '/img/kamaelDM.png', F: '/img/kamaelDF.png' }
     },
-    startZoneName: 'Ilha de Falar (Talking Island)'
+    startZoneName: '說話之島'
   },
   sylph: {
     id: 'sylph',
-    name: 'Sylph',
+    name: '希爾芙',
     icon: '🔫',
-    desc: 'Atiradores elementais dos ventos com armas de fogo.',
-    perks: ['💨 +12 Esquiva & Velocidade', '🔫 Atiradores Elementais Ranged', '🏝️ Inicia na Ilha de Falar (Lv. 1)'],
+    desc: '使用槍械操控風元素的遠程射手。',
+    perks: ['💨 +12 迴避與速度', '🔫 元素遠程射手', '🏝️ 從說話之島開始（等級 1）'],
     allowedClasses: [
-      { id: 'sylphid', name: 'Storm Blaster 🔫', desc: 'Atirador elemental com armas de fogo rápidas e tiros de vento.', icon: '🔫' }
+      { id: 'sylphid', name: '風暴槍手 🔫', desc: '使用高速槍械與風之射擊的元素射手。', icon: '🔫' }
     ],
     image: {
       sylphid: { M: '/img/sylphM.png', F: '/img/sylphF.png' },
       sylphGunner: { M: '/img/sylphM.png', F: '/img/sylphF.png' },
       fighter: { M: '/img/sylphM.png', F: '/img/sylphF.png' }
     },
-    startZoneName: 'Ilha de Falar (Talking Island)'
+    startZoneName: '說話之島'
   },
   highelf: {
     id: 'highelf',
-    name: 'High Elf',
+    name: '高等精靈',
     icon: '✨',
-    desc: 'Elfos supremos detentores da luz divina e maestria elemental.',
-    perks: ['🌟 +8 Magia & Defesa Divina', '🛡️ Guardiões Sagrados de Aden', '🏝️ Inicia na Ilha de Falar (Lv. 1)'],
+    desc: '掌握神聖之光與元素奧義的高等精靈。',
+    perks: ['🌟 +8 魔法與神聖防禦', '🛡️ 亞丁神聖守護者', '🏝️ 從說話之島開始（等級 1）'],
     allowedClasses: [
-      { id: 'sacred_templar_0', name: 'Divine Templar 🛡️', desc: 'Guardião sagrado supremo e tanque inabalável com Sacred Aegis.', icon: '🛡️' },
-      { id: 'spirit_0', name: 'Element Weaver 🌀', desc: 'Mago supremo combinando os três pilares de Fogo, Água e Vento.', icon: '🌀' }
+      { id: 'sacred_templar_0', name: '神聖聖殿騎士 🛡️', desc: '使用神聖護盾、堅不可摧的頂級守護坦克。', icon: '🛡️' },
+      { id: 'spirit_0', name: '元素編織者 🌀', desc: '融合火、水、風三大元素的高階法師。', icon: '🌀' }
     ],
     image: {
       sacred_templar_0: { M: '/img/elfwswM.png', F: '/img/elfswsF.png' },
@@ -215,17 +215,17 @@ const RACES_INFO: Record<string, {
       fighter: { M: '/img/elfwswM.png', F: '/img/elfswsF.png' },
       mage: { M: '/img/elfmageM.png', F: '/img/elfmageF.png' }
     },
-    startZoneName: 'Ilha de Falar (Talking Island)'
+    startZoneName: '說話之島'
   },
   ertheia: {
     id: 'ertheia',
-    name: 'Ertheia',
+    name: '阿爾特亞',
     icon: '🌪️',
-    desc: 'Guerreiras e místicas ágeis tocadas pelos ventos e espíritos de Sayha.',
-    perks: ['🌪️ +10 Esquiva Nativa', '🥊 Combate Marcial e Artes Corporais', '🏰 Inicia na Ilha de Falar'],
+    desc: '受到賽哈之風與精靈眷顧的敏捷戰士與神秘施法者。',
+    perks: ['🌪️ +10 基礎迴避', '🥊 武術與體術戰鬥', '🏰 從說話之島開始'],
     allowedClasses: [
-      { id: 'marauderBase', name: 'Marauder / Eviscerator 🌪️', desc: 'Lutadora com garras, punhos velozes e combos de furacão.', icon: '🥊' },
-      { id: 'sayhaMageBase', name: 'Sayha Seeker 🌀', desc: 'Invocadora de vendavais e espíritos protetores de Sayha.', icon: '🌀' }
+      { id: 'marauderBase', name: '掠奪者／破壞者 🌪️', desc: '使用利爪、高速拳擊與旋風連段的近戰鬥士。', icon: '🥊' },
+      { id: 'sayhaMageBase', name: '賽哈追尋者 🌀', desc: '召喚強風與賽哈守護精靈的召喚師。', icon: '🌀' }
     ],
     image: {
       marauderBase: { M: '/img/elfwswM.png', F: '/img/elfswsF.png' },
@@ -235,22 +235,22 @@ const RACES_INFO: Record<string, {
       fighter: { M: '/img/elfwswM.png', F: '/img/elfswsF.png' },
       mage: { M: '/img/elfmageM.png', F: '/img/elfmageF.png' }
     },
-    startZoneName: 'Ilha de Falar (Talking Island)'
+    startZoneName: '說話之島'
   }
 };
 
 const RANDOM_NAMES = [
-  'Astaroth', 'Valerius', 'Kaelen', 'Sylas', 'Lyrion',
-  'Ignis', 'Morgana', 'Vaelin', 'Darian', 'Balthazar',
-  'Thorne', 'Elysia', 'Gideon', 'Zephyr', 'Orion',
-  'Aethelgard', 'Aerion', 'Caelum', 'Elowen', 'Fenris',
-  'Galadriel', 'Isolden', 'Malakor', 'Naelis', 'Thalor',
-  'Azrael', 'Belial', 'Kaelen', 'Malakor', 'Moros',
-  'Nocturna', 'Oberon', 'Ravena', 'Soren', 'Vesper',
-  'Aethelstan', 'Boran', 'Cassian', 'Draven', 'Eldrin',
-  'Garrick', 'Kaelith', 'Ragnar', 'Valen', 'Varian',
-  'Astraea', 'Celestia', 'Eridanus', 'Hesperos', 'Lyra',
-  'Nebula', 'Solon', 'Tenebris', 'Vael', 'Zorion'
+  '阿斯塔洛', '瓦雷里斯', '凱伊倫', '賽拉斯', '利里昂',
+  '伊格尼斯', '摩甘娜', '維艾林', '達里安', '巴爾薩澤',
+  '索爾恩', '伊莉西亞', '吉迪恩', '澤菲爾', '奧里昂',
+  '艾瑟加德', '艾里昂', '凱魯姆', '艾洛溫', '芬里斯',
+  '凱蘭崔爾', '伊索爾德', '瑪拉科爾', '奈艾莉絲', '薩洛爾',
+  '阿茲拉爾', '貝利亞爾', '凱倫德', '瑪拉科斯', '莫羅斯',
+  '諾克圖娜', '奧伯隆', '拉維娜', '索雷恩', '維斯佩爾',
+  '艾瑟斯坦', '博蘭恩', '卡西安', '德雷文', '艾爾德林',
+  '加里克', '凱利斯', '拉格納', '瓦倫德', '瓦里安',
+  '阿斯特蕾雅', '賽蕾絲緹亞', '艾利達努斯', '赫斯佩羅斯', '萊莉亞',
+  '涅布拉', '索洛恩', '泰涅布里斯', '維艾爾', '佐里昂'
 ];
 
 export const CharacterCreation: React.FC<CharacterCreationProps> = ({
@@ -293,7 +293,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
     setNameError(null);
     const finalName = charName.trim();
     if (!finalName || finalName.length < 3) {
-      setNameError('O nome deve conter pelo menos 3 caracteres.');
+      setNameError('角色名稱至少需要 3 個字元。');
       return;
     }
 
@@ -302,7 +302,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
       try {
         const check = await checkNicknameAvailability(finalName);
         if (!check.available) {
-          setNameError(check.reason || 'Este nome já está em uso por outro jogador em Aden.');
+          setNameError(check.reason || '這個名稱已被其他玩家使用。');
           setIsChecking(false);
           return;
         }
@@ -332,15 +332,15 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
         {/* Banner Header */}
         <div className="mb-6 text-center border-b border-amber-500/20 pb-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase tracking-widest mb-1">
-            {isChangeScroll ? '📜 Scroll of Race & Class Change' : '✨ Lineage II · Aden Arena'}
+            {isChangeScroll ? '📜 種族與職業變更卷軸' : '✨ 天堂 II · 亞丁競技場'}
           </div>
           <h2 className="font-display text-2xl font-bold tracking-wide text-amber-100">
-            {isChangeScroll ? 'Troca de Raça & Classe' : 'Criação & Customização de Personagem'}
+            {isChangeScroll ? '變更種族與職業' : '建立與自訂角色'}
           </h2>
           <p className="text-xs text-slate-400 mt-1">
             {isChangeScroll
-              ? 'Selecione a nova raça e classe. O nome do personagem permanece inalterado.'
-              : 'Escolha seu nome, gênero, raça e classe inicial para iniciar sua jornada.'}
+              ? '選擇新的種族與職業；角色名稱不會改變。'
+              : '選擇角色名稱、性別、種族與初始職業，開始你的冒險。'}
           </p>
         </div>
 
@@ -348,9 +348,9 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
           <div className="mb-6 rounded-xl border border-amber-500/40 bg-amber-500/10 p-3.5 text-xs text-amber-200 flex items-start gap-3">
             <span className="text-xl">⚠️</span>
             <div>
-              <p className="font-bold text-amber-300">AVISO DE REESPECIALIZAÇÃO:</p>
+              <p className="font-bold text-amber-300">重新專精提醒：</p>
               <p className="mt-0.5 text-amber-200/90 leading-relaxed">
-                Ao confirmar a troca de Raça &amp; Classe, <strong>todas as suas habilidades serão resetadas</strong>, todo o <strong>SP gasto será totalmente devolvido</strong> e seus <strong>equipamentos atuais serão desequipados</strong> com segurança para o seu inventário.
+                確認變更種族與職業後，<strong>所有技能都會重置</strong>，<strong>已花費的技能點會全數返還</strong>，<strong>目前裝備會安全卸下</strong>並放回背包。
               </p>
             </div>
           </div>
@@ -361,10 +361,10 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
           {/* Left Column: Character Details & Selection (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
 
-            {/* 1. Nome do Personagem */}
+            {/* 1. 角色名稱 */}
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-amber-300 mb-2">
-                1. Nome do Personagem {isChangeScroll && '(🔒 Fixo)'}
+                1. 角色名稱 {isChangeScroll && '（🔒 固定）'}
               </label>
               <div className="flex gap-2">
                 <input
@@ -376,7 +376,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
                     if (!isChangeScroll) setCharName(e.target.value);
                   }}
                   disabled={isChangeScroll || isChecking}
-                  placeholder="Digite o nome do seu herói..."
+                  placeholder="輸入你的角色名稱..."
                   className={`flex-1 rounded-xl border px-4 py-2.5 text-sm font-semibold ${
                     nameError
                       ? 'bg-red-950/30 border-red-500/60 text-red-200 focus:border-red-400 focus:outline-none'
@@ -392,9 +392,9 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
                     onClick={handleGenerateRandomName}
                     disabled={isChecking}
                     className="rounded-xl border border-amber-500/40 bg-amber-500/20 px-3 py-2.5 text-xs font-bold text-amber-300 hover:bg-amber-500/30 transition flex items-center gap-1.5 disabled:opacity-50"
-                    title="Gerar nome aleatório"
+                    title="隨機產生名稱"
                   >
-                    🎲 Aleatório
+                    🎲 隨機
                   </button>
                 )}
               </div>
@@ -409,7 +409,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
             {/* 2. Escolha do Gênero */}
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-amber-300 mb-2">
-                2. Gênero
+                2. 性別
               </label>
               <div className="flex gap-3">
                 <button
@@ -421,7 +421,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
                       : 'border-white/10 bg-white/5 text-slate-400 hover:border-blue-500/40 hover:bg-blue-500/10'
                   }`}
                 >
-                  ♂️ Masculino
+                  ♂️ 男性
                 </button>
                 <button
                   type="button"
@@ -432,7 +432,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
                       : 'border-white/10 bg-white/5 text-slate-400 hover:border-pink-500/40 hover:bg-pink-500/10'
                   }`}
                 >
-                  ♀️ Feminino
+                  ♀️ 女性
                 </button>
               </div>
             </div>
@@ -440,7 +440,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
             {/* 3. Escolha da Raça */}
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-amber-300 mb-2">
-                3. Escolha a Raça ({currentRaceObj.name})
+                3. 選擇種族 ({currentRaceObj.name})
               </label>
               <div className="grid grid-cols-3 gap-2">
                 {Object.values(RACES_INFO).map((r) => {
@@ -467,7 +467,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
             {/* 4. Escolha da Classe Inicial */}
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-amber-300 mb-2">
-                4. Classe Inicial
+                4. 初始職業
               </label>
               <div className="grid grid-cols-2 gap-3">
                 {currentRaceObj.allowedClasses.map((cls) => {
@@ -509,7 +509,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
 
             {/* Race Perks Summary */}
             <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-3 text-xs space-y-1">
-              <span className="font-bold text-amber-300 block mb-1">✨ Bônus Raciais de {currentRaceObj.name}:</span>
+              <span className="font-bold text-amber-300 block mb-1">✨ 種族加成（{currentRaceObj.name}）：</span>
               {currentRaceObj.perks.map((perk, idx) => (
                 <div key={idx} className="text-slate-300 text-[11px]">
                   • {perk}
@@ -524,7 +524,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
             
             <div>
               <div className="text-xs font-bold text-amber-400 uppercase tracking-widest mb-3">
-                Preview do Herói
+                角色預覽
               </div>
 
               {/* Character Card / Artwork */}
@@ -544,7 +544,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-2 inset-x-2 text-center">
                   <span className="text-xs font-black text-amber-300 uppercase tracking-wide drop-shadow">
-                    {charName || 'Herói'}
+                    {charName || '角色'}
                   </span>
                 </div>
               </div>
@@ -552,27 +552,27 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
               {/* Summary Stats */}
               <div className="mt-4 text-xs space-y-1.5 border-t border-white/10 pt-3 text-left">
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Gênero:</span>
-                  <span className="font-bold text-amber-200">{gender === 'M' ? 'Masculino ♂️' : 'Feminino ♀️'}</span>
+                  <span className="text-slate-400">性別：</span>
+                  <span className="font-bold text-amber-200">{gender === 'M' ? '男性 ♂️' : '女性 ♀️'}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Raça:</span>
+                  <span className="text-slate-400">種族：</span>
                   <span className="font-bold text-amber-200">{currentRaceObj.name}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-slate-400">Classe:</span>
+                  <span className="text-slate-400">職業：</span>
                   <span className="font-bold text-amber-200 flex items-center gap-1.5">
                     <img
                       src={getClassIcon(selectedClass)}
-                      alt={selectedClass}
+                      alt={currentRaceObj.allowedClasses.find(c => c.id === selectedClass)?.name || '職業圖示'}
                       className="w-5 h-5 object-contain rounded bg-black/60 border border-amber-500/40 p-0.5"
                       onError={(e) => { e.currentTarget.style.display = 'none'; }}
                     />
-                    <span>{currentRaceObj.allowedClasses.find(c => c.id === selectedClass)?.name || selectedClass}</span>
+                    <span>{currentRaceObj.allowedClasses.find(c => c.id === selectedClass)?.name || '未知職業'}</span>
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Zona Inicial:</span>
+                  <span className="text-slate-400">初始區域：</span>
                   <span className="font-bold text-slate-200">{currentRaceObj.startZoneName}</span>
                 </div>
               </div>
@@ -585,7 +585,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
                 disabled={isChecking}
                 className="w-full rounded-xl bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 py-3 text-sm font-bold uppercase tracking-wider text-black shadow-lg hover:from-amber-500 hover:to-yellow-400 transition transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isChecking ? '⏳ Verificando Disponibilidade do Nome...' : '✨ Criar Personagem & Entrar em Aden'}
+                {isChecking ? '⏳ 正在檢查名稱是否可用...' : '✨ 建立角色並進入亞丁'}
               </button>
               {onCancel && (
                 <button
@@ -593,7 +593,7 @@ export const CharacterCreation: React.FC<CharacterCreationProps> = ({
                   onClick={onCancel}
                   className="w-full rounded-xl border border-white/10 bg-white/5 py-2 text-xs font-semibold text-slate-400 hover:bg-white/10 hover:text-white transition"
                 >
-                  Cancelar
+                  取消
                 </button>
               )}
             </div>
@@ -614,7 +614,7 @@ export default function App() {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0b0e17] p-4 text-white text-center">
         <div className="max-w-md w-full rounded-2xl border border-amber-500/30 bg-black/50 p-6 shadow-2xl">
-          <h2 className="text-2xl font-bold text-amber-400 mb-4">Personagem Criado!</h2>
+          <h2 className="text-2xl font-bold text-amber-400 mb-4">角色建立完成！</h2>
           <pre className="text-left text-amber-100 bg-black/80 p-4 rounded-xl border border-white/10 text-sm overflow-x-auto">
             {JSON.stringify(created, null, 2)}
           </pre>
@@ -622,7 +622,7 @@ export default function App() {
             onClick={() => setCreated(null)}
             className="mt-6 w-full px-6 py-3 bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-black font-bold uppercase tracking-wider rounded-xl transition shadow-lg"
           >
-            Voltar
+            返回
           </button>
         </div>
       </div>

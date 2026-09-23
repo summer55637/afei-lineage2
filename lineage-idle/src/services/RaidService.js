@@ -73,22 +73,22 @@ export function getRaidStatus(state) {
 export function canEnterRaid(state, raidId) {
   checkAndResetDailyRaidTickets(state);
   const boss = RAID_BOSSES[raidId];
-  if (!boss) return { canEnter: false, reason: 'Chefe de Raid inexistente.' };
+  if (!boss) return { canEnter: false, reason: '團隊首領不存在。' };
 
   if ((state.level || 1) < boss.reqLvl) {
-    return { canEnter: false, reason: `Nível ${boss.reqLvl} necessário para este Raid!` };
+    return { canEnter: false, reason: `此團隊副本需要等級 ${boss.reqLvl}！` };
   }
 
   const playerCP = state.stats?.combatPower || state.combatPower || 0;
   if (boss.minimumCP && playerCP < boss.minimumCP) {
     return {
       canEnter: false,
-      reason: `Poder de Combate insuficiente! Mínimo necessário: ${boss.minimumCP.toLocaleString('pt-BR')} CP (Seu CP: ${playerCP.toLocaleString('pt-BR')}).`
+      reason: `戰鬥力不足！最低需求：${boss.minimumCP.toLocaleString('zh-TW')}（你的戰鬥力：${playerCP.toLocaleString('zh-TW')}）。`
     };
   }
 
   if ((state.dailyRaidTickets || 0) <= 0) {
-    return { canEnter: false, reason: 'Você não possui Ingressos Diários de Raid restantes hoje (3/3 utilizados).' };
+    return { canEnter: false, reason: '你今天沒有剩餘的每日團隊副本入場券（3/3 已使用）。' };
   }
 
   return { canEnter: true };
@@ -136,7 +136,7 @@ export function startRaidBoss(state, raidId, callbacks = {}) {
 
   if (callbacks.el) {
     const sz = callbacks.el('stage-zone');
-    if (sz) sz.textContent = `🐉 RAID ÉPICO · ${bossTemplate.name}`;
+    if (sz) sz.textContent = `🐉 史詩團隊副本 · ${bossTemplate.name}`;
     const zn = callbacks.el('zone-name');
     if (zn) zn.textContent = bossTemplate.name;
   }
@@ -150,8 +150,8 @@ export function startRaidBoss(state, raidId, callbacks = {}) {
   }
 
   if (callbacks.log) {
-    callbacks.log(`⚔️ **DESAFIO DE RAID INICIADO!** Você adentrou o domínio de **${bossTemplate.name}** (${bossTemplate.title})!`, 'rarity-legendary');
-    callbacks.log(`🎟️ Ingressos restantes hoje: **${state.dailyRaidTickets}/${DAILY_FREE_TICKETS}**`, 'system');
+    callbacks.log(`⚔️ **團隊副本挑戰開始！** 你已進入 **${bossTemplate.name}**（${bossTemplate.title}）的領域！`, 'rarity-legendary');
+    callbacks.log(`🎟️ 今日剩餘入場券：**${state.dailyRaidTickets}/${DAILY_FREE_TICKETS}**`, 'system');
   }
   if (callbacks.renderStageMonster) callbacks.renderStageMonster();
   if (callbacks.onUpdate) callbacks.onUpdate();
@@ -194,15 +194,15 @@ export function processRaidBossMechanics(state, callbacks = {}) {
             radius: 120,
             duration: fatalDuration,
             color: '#ef4444',
-            label: m.fatalSkill.name || 'CANALIZAÇÃO FATAL'
+            label: m.fatalSkill.name || '致命蓄力'
           });
         }
 
         if (callbacks.log) {
-          callbacks.log(`⚠️ **[CANALIZAÇÃO FATAL]** ${m.name} prepara **${m.fatalSkill.name}**! Quebre sua postura em ${Math.round(fatalDuration / 1000)}s com Stagger Break!`, 'rarity-legendary');
+          callbacks.log(`⚠️ **[致命蓄力]** ${m.name} 正在準備 **${m.fatalSkill.name}**！請在 ${Math.round(fatalDuration / 1000)} 秒內使用破勢攻擊中斷！`, 'rarity-legendary');
         }
         if (callbacks.floatText) {
-          callbacks.floatText(`⚠️ CANALIZAÇÃO FATAL! (${Math.round(fatalDuration / 1000)}s)`, 'sf-crit');
+          callbacks.floatText(`⚠️ 致命蓄力！（${Math.round(fatalDuration / 1000)} 秒）`, 'sf-crit');
         }
         break;
       }
@@ -217,10 +217,10 @@ export function processRaidBossMechanics(state, callbacks = {}) {
         state.hp = Math.max(0, state.hp - fatalDmg);
 
         if (callbacks.log) {
-          callbacks.log(`💀 **[FATAL NÃO INTERROMPIDO]** ${m.name} desferiu **${m.fatalSkill.name}** causando **${fatalDmg.toLocaleString()} de dano catastrófico** (60% Max HP)!`, 'rarity-legendary');
+          callbacks.log(`💀 **[致命技能未打斷]** ${m.name} 施放 **${m.fatalSkill.name}**，造成 **${fatalDmg.toLocaleString()} 致命傷害**（最大生命值的 60%）！`, 'rarity-legendary');
         }
         if (callbacks.floatText) {
-          callbacks.floatText(`💀 ${fatalDmg} FATAL!`, 'sf-crit');
+          callbacks.floatText(`💀 ${fatalDmg} 致命傷害！`, 'sf-crit');
         }
         if (callbacks.onFatalImpact) {
           callbacks.onFatalImpact(fatalDmg);
@@ -243,10 +243,10 @@ export function processRaidBossMechanics(state, callbacks = {}) {
     }
 
     if (callbacks.log) {
-      callbacks.log(`🔥 **[FÚRIA EXTREMA / ENRAGE]** ${m.name} entrou em estado de ENRAGE! Poder destrutivo aumentado (+30% ATK, +25% VEL)!`, 'rarity-legendary');
+      callbacks.log(`🔥 **[極限狂暴]** ${m.name} 進入狂暴狀態！破壞力提升（攻擊力 +30%、速度 +25%）！`, 'rarity-legendary');
     }
     if (callbacks.floatText) {
-      callbacks.floatText('🔥 ENRAGE ATIVADO!', 'sf-crit');
+      callbacks.floatText('🔥 狂暴已啟動！', 'sf-crit');
     }
   }
 
@@ -262,7 +262,7 @@ export function processRaidBossMechanics(state, callbacks = {}) {
           const dmg = Math.floor((state.maxHp || 100) * mech.damagePercent);
           state.hp = Math.max(1, state.hp - dmg);
           if (callbacks.log) {
-            callbacks.log(`${mech.text} (Você sofreu ${dmg.toLocaleString()} de dano!)`, 'rarity-epic');
+            callbacks.log(`${mech.text}（你受到 ${dmg.toLocaleString()} 傷害！）`, 'rarity-epic');
           }
         }
 
@@ -271,7 +271,7 @@ export function processRaidBossMechanics(state, callbacks = {}) {
           const heal = Math.floor(m._maxHp * mech.healPercent);
           m.hp = Math.min(m._maxHp, m.hp + heal);
           if (callbacks.log && !mech.damagePercent) {
-            callbacks.log(`${mech.text} (+${heal.toLocaleString()} HP)`, 'rarity-epic');
+            callbacks.log(`${mech.text}（+${heal.toLocaleString()} 生命值）`, 'rarity-epic');
           }
         }
       }
@@ -322,8 +322,8 @@ export function handleRaidVictory(state, raidId, callbacks = {}) {
   state.sp = (state.sp || 0) + earnedSp;
 
   if (callbacks.log) {
-    callbacks.log(`🏆 **VITÓRIA ÉPICA!** Você derrotou **${boss.name}**!`, 'rarity-legendary');
-    callbacks.log(`💰 Recompensa de Conclusão: **+${earnedGold.toLocaleString()} Adena**, **+${earnedXp.toLocaleString()} XP**, **+${earnedSp.toLocaleString()} SP**!`, 'rarity-rare');
+    callbacks.log(`🏆 **史詩勝利！** 你擊敗了 **${boss.name}**！`, 'rarity-legendary');
+    callbacks.log(`💰 完成獎勵：**+${earnedGold.toLocaleString()} 金幣**、**+${earnedXp.toLocaleString()} 經驗值**、**+${earnedSp.toLocaleString()} 技能點**！`, 'rarity-rare');
   }
 
   // 3. Sorteio de Drops Épicos (Joias de Chefe, Scrolls, AC)
@@ -334,9 +334,9 @@ export function handleRaidVictory(state, raidId, callbacks = {}) {
         if (drop.itemId === 'adena_coins') {
           const acAmount = drop.count || 10;
           state.adenCoins = (state.adenCoins || 0) + acAmount;
-          droppedItems.push({ itemId: 'adena_coins', name: `${acAmount}x Aden Coins (AC)`, isAC: true });
+          droppedItems.push({ itemId: 'adena_coins', name: `${acAmount} 枚亞丁幣`, isAC: true });
           if (callbacks.log) {
-            callbacks.log(`🪙 **DROP RARO:** Você recebeu **+${acAmount} Aden Coins (AC)**!`, 'rarity-legendary');
+            callbacks.log(`🪙 **稀有掉落：** 你獲得 **+${acAmount} 亞丁幣**！`, 'rarity-legendary');
           }
         } else {
           state.inventory = state.inventory || [];
@@ -351,10 +351,10 @@ export function handleRaidVictory(state, raidId, callbacks = {}) {
 
           if (drop.isEpicJewel) {
             if (callbacks.log) {
-              callbacks.log(`👑 **DROP LENDÁRIO DE CHEFE!** Você obteve **[${drop.name}]**!`, 'rarity-legendary');
+              callbacks.log(`👑 **首領傳說掉落！** 你獲得 **[${drop.name}]**！`, 'rarity-legendary');
             }
           } else if (callbacks.log) {
-            callbacks.log(`🎁 Drop de Raid: **${drop.name}** adicionado ao inventário!`, 'rarity-epic');
+            callbacks.log(`🎁 團隊副本掉落：**${drop.name}** 已加入背包！`, 'rarity-epic');
           }
         }
       }

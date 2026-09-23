@@ -322,7 +322,7 @@ export function auditCharacterSkills(character, options = {}) {
         diagnostics: [{
           skillId: null,
           code: 'CONTRACT_INVALID',
-          message: 'Underlying Game Data Contract 3.2.1 matrix or VFX validation failed. Auditor execution blocked.'
+          message: '底層遊戲資料合約 3.2.1 的矩陣或 VFX 驗證失敗，已阻止稽核程序執行。'
         }],
         actions: { keep: [], remove: [], add: [] },
         diff: { before: [], after: [] },
@@ -341,7 +341,7 @@ export function auditCharacterSkills(character, options = {}) {
       status: 'BLOCKED',
       allowedElements: [],
       summary: { total: 0, valid: 0, invalid: 0, needsReview: 0 },
-      diagnostics: [{ skillId: null, code: 'INVALID_INPUT', message: 'Character input must be a valid object' }],
+      diagnostics: [{ skillId: null, code: 'INVALID_INPUT', message: '角色輸入資料必須是有效物件' }],
       actions: { keep: [], remove: [], add: [] },
       diff: { before: [], after: [] },
       safety: { fixable: false, blocked: true, blockedReason: 'INVALID_INPUT' },
@@ -361,7 +361,7 @@ export function auditCharacterSkills(character, options = {}) {
       status: 'BLOCKED',
       allowedElements: [],
       summary: { total: 0, valid: 0, invalid: 0, needsReview: 0 },
-      diagnostics: [{ skillId: null, code: 'INVALID_INPUT', message: 'character.equippedSkills must be an array' }],
+      diagnostics: [{ skillId: null, code: 'INVALID_INPUT', message: 'character.equippedSkills 必須是陣列' }],
       actions: { keep: [], remove: [], add: [] },
       diff: { before: [], after: [] },
       safety: { fixable: false, blocked: true, blockedReason: 'INVALID_INPUT' },
@@ -389,7 +389,7 @@ export function auditCharacterSkills(character, options = {}) {
       diagnostics: [{
         skillId: null,
         code: 'UNKNOWN_CLASS',
-        message: `Class identifier '${rawClassId}' cannot be resolved to any active canonical class entity.`
+        message: `職業識別碼 '${rawClassId}' 無法解析為任何啟用中的正式職業資料。`
       }],
       actions: { keep: [], remove: [...equippedSkillIds], add: [] },
       diff: { before: [...equippedSkillIds], after: [] },
@@ -425,7 +425,7 @@ export function auditCharacterSkills(character, options = {}) {
       skillDiags.push({
         skillId,
         code: 'DUPLICATE_SKILL',
-        message: `Skill '${skillId}' is equipped multiple times.`
+        message: `技能 '${skillId}' 被重複裝備。`
       });
     }
     seenSkillIds.add(skillId);
@@ -436,7 +436,7 @@ export function auditCharacterSkills(character, options = {}) {
       skillDiags.push({
         skillId,
         code: 'UNKNOWN_SKILL',
-        message: `Skill '${skillId}' does not exist in any canonical skill registry.`
+        message: `技能 '${skillId}' 不存在於任何正式技能資料庫中。`
       });
       invalidSkills.push({ skillId, skillDef: null, diags: skillDiags });
       diagnostics.push(...skillDiags);
@@ -448,7 +448,7 @@ export function auditCharacterSkills(character, options = {}) {
       skillDiags.push({
         skillId,
         code: 'STAGE_REQUIREMENT',
-        message: `Skill '${skillId}' requires level ${skillDef.requiredLevel} (${skillDef.progressionStage || 'STAGE'}). Character is Lv${charLevel} (${progressionStage}).`
+        message: `技能 '${skillId}' 需要等級 ${skillDef.requiredLevel}（${skillDef.progressionStage || '階段'}）。角色目前為等級 ${charLevel}（${progressionStage}）。`
       });
     }
 
@@ -458,13 +458,13 @@ export function auditCharacterSkills(character, options = {}) {
       skillDiags.push({
         skillId,
         code: 'OWNERSHIP_MISMATCH',
-        message: `Skill '${skillId}' is not native or authorized for class '${canonicalClassId}'.`
+        message: `技能 '${skillId}' 並非職業 '${canonicalClassId}' 的原生或授權技能。`
       });
     } else if (hasExplicitLevel && skillDef.availableTo && Array.isArray(skillDef.availableTo) && !skillDef.availableTo.includes(canonicalClassId)) {
       skillDiags.push({
         skillId,
         code: 'AVAILABILITY_MISMATCH',
-        message: `Skill '${skillId}' is not available to class '${canonicalClassId}'.`
+        message: `技能 '${skillId}' 無法由職業 '${canonicalClassId}' 使用。`
       });
     }
 
@@ -477,13 +477,13 @@ export function auditCharacterSkills(character, options = {}) {
         skillDiags.push({
           skillId,
           code: 'STAGE_REQUIREMENT',
-          message: `Skill '${skillId}' required elements [${skillElements.join(', ')}] require higher progression stage/level. Unlocked at Lv76+. Character is Lv${charLevel} (${progressionStage}).`
+          message: `技能 '${skillId}' 所需元素 [${skillElements.join(', ')}] 需要更高的進階階段／等級，將於等級 76+ 解鎖。角色目前為等級 ${charLevel}（${progressionStage}）。`
         });
       } else {
         skillDiags.push({
           skillId,
           code: 'ELEMENT_MISMATCH',
-          message: `Skill '${skillId}' required elements [${skillElements.join(', ')}] violate class '${canonicalClassId}' allowed elements [${allowedAtLevel.join(', ')}].`
+          message: `技能 '${skillId}' 所需元素 [${skillElements.join(', ')}] 不符合職業 '${canonicalClassId}' 允許元素 [${allowedAtLevel.join(', ')}]。`
         });
       }
     }
@@ -496,7 +496,7 @@ export function auditCharacterSkills(character, options = {}) {
         skillDiags.push({
           skillId,
           code: 'ROLE_MISMATCH',
-          message: `Skill '${skillId}' declares unknown role '${skillDef.role}'.`
+          message: `技能 '${skillId}' 宣告了未知定位 '${skillDef.role}'。`
         });
       }
     }
@@ -509,7 +509,7 @@ export function auditCharacterSkills(character, options = {}) {
         skillDiags.push({
           skillId,
           code: 'REQUIREMENT_UNMET',
-          message: `Skill '${skillId}' requires item '${skillDef.bookRequirement}' (Tomo Sagrado ★★★★) to unlock.`
+          message: `技能 '${skillId}' 需要道具 '${skillDef.bookRequirement}'（神聖魔法書 ★★★★）才能解鎖。`
         });
       }
     }
@@ -519,7 +519,7 @@ export function auditCharacterSkills(character, options = {}) {
       skillDiags.push({
         skillId,
         code: 'MISSING_VFX',
-        message: `Skill '${skillId}' has no registered VFX identity in SKILL_VFX_REGISTRY.`
+        message: `技能 '${skillId}' 尚未在 SKILL_VFX_REGISTRY 登錄 VFX 識別資料。`
       });
     }
 
@@ -528,7 +528,7 @@ export function auditCharacterSkills(character, options = {}) {
       skillDiags.push({
         skillId,
         code: 'EXCEPTION_CLASS',
-        message: `Class '${canonicalClassId}' is flagged as isException. Requires manual designer review.`
+        message: `職業 '${canonicalClassId}' 已標記為 isException，需要設計者人工檢查。`
       });
     }
 

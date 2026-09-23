@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "flaming_charge",
-        "name": "Investida Flamejante",
+        "name": "烈焰衝鋒",
         "classId": "orc_vanguard_rider",
         "race": "orc",
         "tier": "core_1",
@@ -15,7 +15,7 @@
           "Physical",
           "Fire"
         ],
-        "description": "Investida Flamejante — Habilidade Especialista de orc_vanguard_rider."
+        "description": "烈焰衝鋒——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -168,7 +168,7 @@
     {
       "identity": {
         "id": "spear_of_embers",
-        "name": "Lança de Brasas",
+        "name": "餘燼長矛",
         "classId": "orc_vanguard_rider",
         "race": "orc",
         "tier": "core_2",
@@ -179,7 +179,7 @@
           "Physical",
           "Fire"
         ],
-        "description": "Lança de Brasas — Habilidade Especialista de orc_vanguard_rider."
+        "description": "餘燼長矛——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -332,7 +332,7 @@
     {
       "identity": {
         "id": "trample",
-        "name": "Atropelamento",
+        "name": "踐踏",
         "classId": "orc_vanguard_rider",
         "race": "orc",
         "tier": "specialization",
@@ -342,7 +342,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Atropelamento — Habilidade Especialista de orc_vanguard_rider."
+        "description": "踐踏——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -495,7 +495,7 @@
     {
       "identity": {
         "id": "wildfire_lance",
-        "name": "Lança de Fogo Selvagem",
+        "name": "野火長槍",
         "classId": "orc_vanguard_rider",
         "race": "orc",
         "tier": "elemental_specialization",
@@ -506,7 +506,7 @@
           "Fire",
           "Physical"
         ],
-        "description": "Lança de Fogo Selvagem — Habilidade Especialista de orc_vanguard_rider."
+        "description": "野火長槍——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -677,7 +677,7 @@
     {
       "identity": {
         "id": "inferno_charge",
-        "name": "Inferno Charge",
+        "name": "煉獄衝鋒",
         "classId": "orc_vanguard_rider",
         "race": "orc",
         "tier": "ultimate",
@@ -687,7 +687,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Inferno Charge — Habilidade Ultimate (★★★★) de orc_vanguard_rider."
+        "description": "煉獄衝鋒——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -873,7 +873,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "INFERNO CHARGE!",
+          "text": "煉獄衝鋒！",
           "style": "gold_banner",
           "banner": true
         }
@@ -894,7 +894,7 @@
     {
       "identity": {
         "id": "master_inferno_charge",
-        "name": "Master: Inferno Charge",
+        "name": "大師：煉獄衝鋒",
         "classId": "orc_vanguard_rider",
         "race": "orc",
         "tier": "master_ultimate",
@@ -904,7 +904,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Master: Inferno Charge — Habilidade Master Ultimate (★★★★★) de orc_vanguard_rider."
+        "description": "大師：煉獄衝鋒——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1091,7 +1091,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: INFERNO CHARGE!",
+          "text": "大師：煉獄衝鋒！",
           "style": "mythic_banner",
           "banner": true
         }

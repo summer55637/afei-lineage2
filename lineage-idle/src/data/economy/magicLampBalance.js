@@ -23,11 +23,11 @@ export const MAGIC_LAMP_REWARD_TABLE = [
   {
     minLevel: 20,
     maxLevel: 39,
-    bracket: '20-39 (D-Grade)',
+    bracket: '20-39（D 級）',
     rewards: {
-      blue:   { exp: 6000,   sp: 600,  name: '🟦 Carta Azul (Normal)' },
-      purple: { exp: 18000,  sp: 1800, name: '🟪 Carta Roxa (Bônus Alto)' },
-      red:    { exp: 50000,  sp: 5000, name: '🟥 Carta Vermelha (SUPER JACKPOT!)' }
+      blue:   { exp: 6000,   sp: 600,  name: '🟦 藍色卡片（一般）' },
+      purple: { exp: 18000,  sp: 1800, name: '🟪 紫色卡片（高額獎勵）' },
+      red:    { exp: 50000,  sp: 5000, name: '🟥 紅色卡片（超級大獎！）' }
     },
     expectedExp: 10600,
     expectedSp: 1060
@@ -35,11 +35,11 @@ export const MAGIC_LAMP_REWARD_TABLE = [
   {
     minLevel: 40,
     maxLevel: 51,
-    bracket: '40-51 (C-Grade)',
+    bracket: '40-51（C 級）',
     rewards: {
-      blue:   { exp: 25000,  sp: 2500,  name: '🟦 Carta Azul (Normal)' },
-      purple: { exp: 75000,  sp: 7500,  name: '🟪 Carta Roxa (Bônus Alto)' },
-      red:    { exp: 200000, sp: 20000, name: '🟥 Carta Vermelha (SUPER JACKPOT!)' }
+      blue:   { exp: 25000,  sp: 2500,  name: '🟦 藍色卡片（一般）' },
+      purple: { exp: 75000,  sp: 7500,  name: '🟪 紫色卡片（高額獎勵）' },
+      red:    { exp: 200000, sp: 20000, name: '🟥 紅色卡片（超級大獎！）' }
     },
     expectedExp: 43750,
     expectedSp: 4375
@@ -47,11 +47,11 @@ export const MAGIC_LAMP_REWARD_TABLE = [
   {
     minLevel: 52,
     maxLevel: 61,
-    bracket: '52-61 (B-Grade)',
+    bracket: '52-61（B 級）',
     rewards: {
-      blue:   { exp: 60000,  sp: 6000,  name: '🟦 Carta Azul (Normal)' },
-      purple: { exp: 180000, sp: 18000, name: '🟪 Carta Roxa (Bônus Alto)' },
-      red:    { exp: 450000, sp: 45000, name: '🟥 Carta Vermelha (SUPER JACKPOT!)' }
+      blue:   { exp: 60000,  sp: 6000,  name: '🟦 藍色卡片（一般）' },
+      purple: { exp: 180000, sp: 18000, name: '🟪 紫色卡片（高額獎勵）' },
+      red:    { exp: 450000, sp: 45000, name: '🟥 紅色卡片（超級大獎！）' }
     },
     expectedExp: 103500,
     expectedSp: 10350
@@ -59,11 +59,11 @@ export const MAGIC_LAMP_REWARD_TABLE = [
   {
     minLevel: 62,
     maxLevel: 75,
-    bracket: '62-75 (A-Grade)',
+    bracket: '62-75（A 級）',
     rewards: {
-      blue:   { exp: 150000,  sp: 15000,  name: '🟦 Carta Azul (Normal)' },
-      purple: { exp: 450000,  sp: 45000,  name: '🟪 Carta Roxa (Bônus Alto)' },
-      red:    { exp: 1200000, sp: 120000, name: '🟥 Carta Vermelha (SUPER JACKPOT!)' }
+      blue:   { exp: 150000,  sp: 15000,  name: '🟦 藍色卡片（一般）' },
+      purple: { exp: 450000,  sp: 45000,  name: '🟪 紫色卡片（高額獎勵）' },
+      red:    { exp: 1200000, sp: 120000, name: '🟥 紅色卡片（超級大獎！）' }
     },
     expectedExp: 262500,
     expectedSp: 26250
@@ -71,11 +71,11 @@ export const MAGIC_LAMP_REWARD_TABLE = [
   {
     minLevel: 76,
     maxLevel: 84,
-    bracket: '76-84 (S-Grade)',
+    bracket: '76-84（S 級）',
     rewards: {
-      blue:   { exp: 350000,  sp: 35000,  name: '🟦 Carta Azul (Normal)' },
-      purple: { exp: 1000000, sp: 100000, name: '🟪 Carta Roxa (Bônus Alto)' },
-      red:    { exp: 3000000, sp: 300000, name: '🟥 Carta Vermelha (SUPER JACKPOT!)' }
+      blue:   { exp: 350000,  sp: 35000,  name: '🟦 藍色卡片（一般）' },
+      purple: { exp: 1000000, sp: 100000, name: '🟪 紫色卡片（高額獎勵）' },
+      red:    { exp: 3000000, sp: 300000, name: '🟥 紅色卡片（超級大獎！）' }
     },
     expectedExp: 612500,
     expectedSp: 61250
@@ -83,11 +83,11 @@ export const MAGIC_LAMP_REWARD_TABLE = [
   {
     minLevel: 85,
     maxLevel: 999,
-    bracket: '85+ (S84)',
+    bracket: '85+（S84）',
     rewards: {
-      blue:   { exp: 800000,  sp: 80000,  name: '🟦 Carta Azul (Normal)' },
-      purple: { exp: 2500000, sp: 250000, name: '🟪 Carta Roxa (Bônus Alto)' },
-      red:    { exp: 7000000, sp: 700000, name: '🟥 Carta Vermelha (SUPER JACKPOT!)' }
+      blue:   { exp: 800000,  sp: 80000,  name: '🟦 藍色卡片（一般）' },
+      purple: { exp: 2500000, sp: 250000, name: '🟪 紫色卡片（高額獎勵）' },
+      red:    { exp: 7000000, sp: 700000, name: '🟥 紅色卡片（超級大獎！）' }
     },
     expectedExp: 1450000,
     expectedSp: 145000

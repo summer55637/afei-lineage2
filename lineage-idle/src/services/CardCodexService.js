@@ -12,7 +12,7 @@ export const MONSTER_CARDS = {};
 const EPIC_RAID_CARDS = {
   card_queen_ant: {
     id: 'card_queen_ant',
-    name: 'Carta Rainha Formiga (Queen Ant)',
+    name: '蟻后卡片',
     monster: 'Queen Ant',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon30.png',
     image: '/img/Monsters/SemLocal/mon_queenant.png',
@@ -23,7 +23,7 @@ const EPIC_RAID_CARDS = {
   },
   card_core: {
     id: 'card_core',
-    name: 'Carta Core da Torre Cruma',
+    name: '克魯瑪高塔核心卡片',
     monster: 'Core',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon31.png',
     image: '/img/Monsters/SemLocal/mon_core.png',
@@ -34,7 +34,7 @@ const EPIC_RAID_CARDS = {
   },
   card_orfen: {
     id: 'card_orfen',
-    name: 'Carta Orfen do Mar de Esporos',
+    name: '孢子之海奧爾芬卡片',
     monster: 'Orfen',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon32.png',
     image: '/img/Monsters/SemLocal/mon_orfen.png',
@@ -45,7 +45,7 @@ const EPIC_RAID_CARDS = {
   },
   card_zaken: {
     id: 'card_zaken',
-    name: 'Carta Capitão Pirata Zaken',
+    name: '海賊船長札肯卡片',
     monster: 'Zaken',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon33.png',
     image: '/img/Monsters/SemLocal/mon_zaken.png',
@@ -56,7 +56,7 @@ const EPIC_RAID_CARDS = {
   },
   card_baium: {
     id: 'card_baium',
-    name: 'Carta Imperador Baium',
+    name: '皇帝巴溫卡片',
     monster: 'Baium',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon34.png',
     image: '/img/Monsters/SemLocal/mon_baium.png',
@@ -67,7 +67,7 @@ const EPIC_RAID_CARDS = {
   },
   card_barakiel: {
     id: 'card_barakiel',
-    name: 'Carta Flame of Splendor Barakiel',
+    name: '光輝之炎巴拉基爾卡片',
     monster: 'Flame of Splendor Barakiel',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon35.png',
     image: '/img/Monsters/SemLocal/mon_barakiel.png',
@@ -78,7 +78,7 @@ const EPIC_RAID_CARDS = {
   },
   card_frintezza: {
     id: 'card_frintezza',
-    name: 'Carta Príncipe Frintezza & Halisha',
+    name: '王子弗林特沙與哈利夏卡片',
     monster: 'Frintezza',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon36.png',
     image: '/img/Monsters/SemLocal/mon_frintezza.png',
@@ -89,7 +89,7 @@ const EPIC_RAID_CARDS = {
   },
   card_antharas: {
     id: 'card_antharas',
-    name: 'Carta Dragão da Terra Antharas',
+    name: '地龍安塔瑞斯卡片',
     monster: 'Antharas',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon37.png',
     image: '/img/Monsters/SemLocal/mon_antharas.png',
@@ -100,7 +100,7 @@ const EPIC_RAID_CARDS = {
   },
   card_valakas: {
     id: 'card_valakas',
-    name: 'Carta Dragão do Fogo Valakas',
+    name: '火龍巴拉卡斯卡片',
     monster: 'Valakas',
     icon: '/assets/2d/monsters/chaos-32x/PNG/Transperent/Icon38.png',
     image: '/img/Monsters/SemLocal/mon_valakas.png',
@@ -180,7 +180,7 @@ for (const [monId, m] of Object.entries(MONSTERS || {})) {
 
   MONSTER_CARDS[cardId] = {
     id: cardId,
-    name: `Carta de ${m.name}`,
+    name: `${m.name} 卡片`,
     monster: m.name,
     monsterId: monId,
     icon,
@@ -253,7 +253,7 @@ export class CardCodexService {
     }
     const numToAbsorb = typeof count === 'number' && count > 0 ? count : 1;
     const cardDef = MONSTER_CARDS[cardId];
-    if (!cardDef) return { success: false, message: 'Carta de monstro desconhecida.' };
+    if (!cardDef) return { success: false, message: '未知怪物卡片。' };
 
     if (Array.isArray(accountState.inventory)) {
       const invItemIdx = accountState.inventory.findIndex(i => (i.id === cardId || i.itemId === cardId));
@@ -277,7 +277,7 @@ export class CardCodexService {
       accountState.codex[cardId] = current;
     }
 
-    hooks.log?.(`🃏 Carta **${cardDef.name}** absorvida no Codex! (${current.count} cópias · Rank ${current.rank}/5)`, 'gain');
+    hooks.log?.(`🃏 卡片 **${cardDef.name}** 已收錄至圖鑑！（${current.count} 張 · 階級 ${current.rank}/5）`, 'gain');
     hooks.onUpdate?.();
 
     return { success: true, rank: current.rank, totalCards: current.count };
@@ -354,13 +354,13 @@ export class CardCodexService {
    */
   static socketCardToItem(itemInstance, cardId) {
     const cardDef = MONSTER_CARDS[cardId];
-    if (!cardDef) return { success: false, message: 'Carta inválida.' };
+    if (!cardDef) return { success: false, message: '無效卡片。' };
 
     const maxSockets = itemInstance.socketsMax || 2;
     if (!itemInstance.slottedCards) itemInstance.slottedCards = [];
 
     if (itemInstance.slottedCards.length >= maxSockets) {
-      return { success: false, message: `Equipamento já atingiu o limite de ${maxSockets} slots de cartas.` };
+      return { success: false, message: `裝備已達 ${maxSockets} 個卡片插槽上限。` };
     }
 
     itemInstance.slottedCards.push(cardId);

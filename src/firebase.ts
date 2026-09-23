@@ -121,13 +121,13 @@ function validateStateIntegrity(state: any): { valid: boolean; reason?: string }
   const xp     = Number(state?.xp)     || 0;
 
   if (level < 1 || level > 120) {
-    return { valid: false, reason: `level inválido: ${level}` };
+    return { valid: false, reason: `等級無效：${level}` };
   }
   if (gold > 999_999_999_999) {
-    return { valid: false, reason: `gold impossível: ${gold}` };
+    return { valid: false, reason: `金幣數值異常：${gold}` };
   }
   if (xp < 0) {
-    return { valid: false, reason: `xp negativo: ${xp}` };
+    return { valid: false, reason: `經驗值不能為負數：${xp}` };
   }
 
   // Verifica stats básicas (nível 1 não pode ter ATK > 50.000 × level)
@@ -135,7 +135,7 @@ function validateStateIntegrity(state: any): { valid: boolean; reason?: string }
   const atk    = Number(stats.atk || stats.pAtk) || 0;
   const maxAtk = Math.max(50_000, level * 50_000);
   if (atk > maxAtk) {
-    return { valid: false, reason: `atk impossível para level ${level}: ${atk}` };
+    return { valid: false, reason: `等級 ${level} 的攻擊力數值異常：${atk}` };
   }
 
   return { valid: true };
@@ -258,19 +258,19 @@ export async function savePlayerStateToCloud(userId: string, stateData: any, imm
       const { canonicalCP, rankingCP, authoritativeCP } = computeAuthoritativeRankingCP(cleanState);
       const cp      = authoritativeCP;
 
-      let topWeaponName = 'Sem Arma';
+      let topWeaponName = '未裝備武器';
       let topWeaponGlow = null;
       if (cleanState.equipment?.weapon) {
         const wUid  = cleanState.equipment.weapon;
         const wItem = cleanState.inventory?.find((i: any) => i.uid === wUid || i.id === wUid);
         if (wItem) {
           const enc     = Number(wItem.enchant || wItem.enchantLevel) || 0;
-          topWeaponName = enc > 0 ? `+${enc} ${sanitizeString(wItem.name || 'Arma', 40)}` : sanitizeString(wItem.name || 'Arma', 40);
+          topWeaponName = enc > 0 ? `+${enc} ${sanitizeString(wItem.name || '武器', 40)}` : sanitizeString(wItem.name || '武器', 40);
           topWeaponGlow = wItem.augmentation?.glow || (enc >= 16 ? 'crimson-fire' : enc >= 10 ? 'golden-amber' : enc >= 4 ? 'blue-ice' : null);
         }
       }
 
-      const charName = sanitizeString(cleanState.name || cleanState.charName || cleanState.playerName || 'Hero', 16);
+      const charName = sanitizeString(cleanState.name || cleanState.charName || cleanState.playerName || '英雄', 16);
       const isMyChar = !cleanState.ownerUid || cleanState.ownerUid === userId;
       const charId = (isMyChar && cleanState.characterId) ? cleanState.characterId : `char_${userId.slice(0, 16)}`;
       const accId = (isMyChar && cleanState.accountId) ? cleanState.accountId : `acc_${userId.slice(0, 16)}`;
@@ -304,7 +304,7 @@ export async function savePlayerStateToCloud(userId: string, stateData: any, imm
         olympiadLosses:  Number(cleanState.olympiad?.losses  || cleanState.olympiadLosses)  || 0,
         duelWins:        Number(cleanState.colosseum?.duelWins  || cleanState.duelWins)     || 0,
         duelLosses:      Number(cleanState.colosseum?.duelLosses || cleanState.duelLosses)  || 0,
-        clanName:        sanitizeString(cleanState.clan?.name || 'Sem Clã', 24),
+        clanName:        sanitizeString(cleanState.clan?.name || '無血盟', 24),
         castleLord:      cleanState.clan?.castle || null,
         isHero:          Boolean(cleanState.olympiad?.isHero || cleanState.isHero),
         topWeaponName,
@@ -335,7 +335,7 @@ export async function savePlayerStateToCloud(userId: string, stateData: any, imm
           playerType: 'real',
           status: 'active',
           isDiscoverable: true,
-          clanName: sanitizeString(cleanState.clan?.name || 'Sem Clã', 24),
+          clanName: sanitizeString(cleanState.clan?.name || '無血盟', 24),
           topWeaponName,
           topWeaponGlow,
           statsSnapshot: { hp: maxHp, pAtk, mAtk, pDef, mDef, crit: Number(stats.crit) || 10 },
@@ -435,7 +435,7 @@ export async function reserveCharacterNameAndCreate(
   try {
     const rawName = String(characterData.charName || '').trim();
     if (rawName.length < 3 || rawName.length > 16) {
-      return { success: false, reason: 'O nome deve ter entre 3 e 16 caracteres.' };
+      return { success: false, reason: '角色名稱必須介於 3 到 16 個字元之間。' };
     }
 
     const normNick = rawName.toLowerCase();
@@ -491,8 +491,8 @@ export async function reserveCharacterNameAndCreate(
         playerType: 'real',
         status: 'active',
         isDiscoverable: true,
-        clanName: 'Sem Clã',
-        topWeaponName: 'Sem Arma',
+        clanName: '無血盟',
+        topWeaponName: '未裝備武器',
         topWeaponGlow: null,
         statsSnapshot: { hp: 1000, pAtk: 100, mAtk: 50, pDef: 80, mDef: 60, crit: 10 },
         createdAt: now,
@@ -512,10 +512,10 @@ export async function reserveCharacterNameAndCreate(
     return { success: true, characterId: charId, accountId: accId };
   } catch (err: any) {
     if (err?.message === 'NICKNAME_TAKEN') {
-      return { success: false, reason: `O nome "${characterData.charName}" já está em uso por outro herói.` };
+      return { success: false, reason: `名稱「${characterData.charName}」已被其他角色使用。` };
     }
     console.warn('[reserveCharacterNameAndCreate] Transação falhou:', err);
-    return { success: false, reason: err?.message || 'Erro ao registrar nome do personagem.' };
+    return { success: false, reason: '登錄角色名稱時發生錯誤，請稍後再試。' };
   }
 }
 
@@ -523,10 +523,10 @@ export async function checkNicknameAvailability(nickname: string, currentUserId?
   try {
     const cleanNick = String(nickname || '').trim();
     if (!cleanNick || cleanNick.length < 3) {
-      return { available: false, reason: 'O nome do personagem deve ter pelo menos 3 caracteres.' };
+      return { available: false, reason: '角色名稱至少需要 3 個字元。' };
     }
     if (cleanNick.length > 16) {
-      return { available: false, reason: 'O nome do personagem não pode ter mais de 16 caracteres.' };
+      return { available: false, reason: '角色名稱不能超過 16 個字元。' };
     }
 
     const normNick = cleanNick.toLowerCase();
@@ -538,7 +538,7 @@ export async function checkNicknameAvailability(nickname: string, currentUserId?
       if (nameSnap.exists()) {
         const data = nameSnap.data();
         if (!currentUserId || (data?.ownerUid !== currentUserId)) {
-          return { available: false, reason: `O nome "${cleanNick}" já está reservado por outro herói em Aden!` };
+          return { available: false, reason: `名稱「${cleanNick}」已被亞丁中的其他角色保留！` };
         }
       }
     } catch (e) {}
@@ -562,7 +562,7 @@ export async function checkNicknameAvailability(nickname: string, currentUserId?
     if (isTaken) {
       return { 
         available: false, 
-        reason: `O nome "${cleanNick}" já está em uso por outro herói em Aden. Escolha outro nome!` 
+        reason: `名稱「${cleanNick}」已被亞丁中的其他角色使用，請選擇其他名稱！` 
       };
     }
 
@@ -672,10 +672,10 @@ export async function fetchLeaderboardRankings(category: 'cp' | 'olympiad' | 'du
           olympiadLosses: Number(uData.olympiadLosses || state.olympiad?.losses || state.olympiadLosses) || 0,
           duelWins: Number(uData.duelWins || state.colosseum?.duelWins || state.duelWins) || 0,
           duelLosses: Number(uData.duelLosses || state.colosseum?.duelLosses || state.duelLosses) || 0,
-          clanName: uData.clanName || state.clan?.name || 'Sem Clã',
+          clanName: uData.clanName || state.clan?.name || '無血盟',
           castleLord: uData.castleLord || state.clan?.castle || null,
           isHero: Boolean(uData.isHero || state.olympiad?.isHero || state.isHero),
-          topWeaponName: uData.topWeaponName || 'Sem Arma',
+          topWeaponName: uData.topWeaponName || '未裝備武器',
           topWeaponGlow: uData.topWeaponGlow || null,
           statsSnapshot: {
             hp: maxHp,
@@ -867,7 +867,7 @@ export async function executeMarketPurchaseInCloud(
   buyerUid?: string
 ): Promise<{ success: boolean; msg?: string; listing?: any }> {
   try {
-    if (!listingId) return { success: false, msg: 'ID do anúncio inválido.' };
+    if (!listingId) return { success: false, msg: '市場刊登 ID 無效。' };
     const listingRef = doc(db, 'market_listings', listingId);
 
     const result = await runTransaction(db, async (transaction) => {
@@ -881,7 +881,7 @@ export async function executeMarketPurchaseInCloud(
         throw new Error('LISTING_ALREADY_SOLD');
       }
 
-      const sellerName = listingData.sellerName || 'Vendedor Imperial';
+      const sellerName = listingData.sellerName || '帝國商人';
       const normKey = normalizeSellerKey(sellerName);
       const saleRef = doc(db, 'market_sales', normKey);
       const saleDoc = await transaction.get(saleRef);
@@ -904,13 +904,13 @@ export async function executeMarketPurchaseInCloud(
       existingSales.history = Array.isArray(existingSales.history) ? existingSales.history : [];
       existingSales.history.unshift({
         listingId,
-        itemName: listingData.item?.name || 'Item de Aden',
+        itemName: listingData.item?.name || '亞丁物品',
         quantity: Number(listingData.quantity) || 1,
         totalCost,
         netProfit,
         taxPaid: taxAmount,
         currency: listingData.currency || 'adena',
-        buyer: buyerName || 'Herói de Aden',
+        buyer: buyerName || '亞丁英雄',
         soldAt: Date.now()
       });
 
@@ -924,7 +924,7 @@ export async function executeMarketPurchaseInCloud(
         isSold: true,
         status: 'SOLD',
         isPlayerListing: false,
-        buyerName: buyerName || 'Herói de Aden',
+        buyerName: buyerName || '亞丁英雄',
         buyerUid: buyerUid || '',
         soldAt: Date.now()
       });
@@ -938,10 +938,10 @@ export async function executeMarketPurchaseInCloud(
     return result;
   } catch (err: any) {
     if (err?.message === 'LISTING_ALREADY_SOLD' || err?.message === 'LISTING_NOT_FOUND') {
-      return { success: false, msg: 'Este item já foi adquirido por outro aventureiro ou foi cancelado pelo vendedor!' };
+      return { success: false, msg: '此物品已被其他冒險者購買，或已由賣家取消刊登！' };
     }
     console.warn('[Firebase] Erro na transação atômica do mercado:', err);
-    return { success: false, msg: 'A compra no mercado não foi confirmada pelo servidor.' };
+    return { success: false, msg: '伺服器未能確認這筆市場購買交易。' };
   }
 }
 
@@ -967,11 +967,11 @@ export async function recordMarketSaleInCloud(sellerName: string, saleData: any)
 
     existing.history = existing.history || [];
     existing.history.unshift({
-      itemName: saleData.itemName || 'Item de Aden',
+      itemName: saleData.itemName || '亞丁物品',
       quantity: Number(saleData.quantity) || 1,
       totalCost: amount,
       currency: saleData.currency || 'adena',
-      buyer: saleData.buyer || 'Outro Jogador',
+      buyer: saleData.buyer || '其他玩家',
       soldAt: Date.now()
     });
 
@@ -1245,7 +1245,7 @@ export async function wipeEntireFirestoreDatabase(): Promise<{
       console.log(`🧹 [WIPE] Coleção "${colName}": ${totalDeleted} documentos removidos.`);
     } catch (err: any) {
       result.success = false;
-      result.errors.push(`Erro na coleção ${colName}: ${err?.message || err}`);
+      result.errors.push(`清除集合 ${colName} 時發生錯誤：${err?.message || err}`);
       console.error(`❌ [WIPE] Falha ao limpar ${colName}:`, err);
     }
   }

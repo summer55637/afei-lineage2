@@ -233,37 +233,37 @@ const V2_STARTER_MAP = {
 export const V2_CONTENT_GAP_CLASSES = {
   'werewolf_0': {
     gapType: 'V2_NODE_ABSENT',
-    reason: 'Nó V2 ausente: dataset L2Wiki contém apenas 1 habilidade de Estágio 0 (88401 Direct Strike); árvore de 5 habilidades ausente no catálogo V2',
+    reason: '缺少第二版節點：技能資料集只有 1 個階段 0 技能（88401 直接打擊）；第二版目錄缺少 5 套技能樹。',
     authorizedSkillIds: ['direct_strike']
   },
   'werewolf_1': {
     gapType: 'V2_NODE_ABSENT',
-    reason: 'Nó V2 ausente: Warg de Estágio 1 ausente no catálogo V2',
+    reason: '缺少 V2 節點：V2 目錄中缺少階段 1 的座狼戰士。',
     authorizedSkillIds: ['direct_strike']
   },
   'werewolf_2': {
     gapType: 'V2_NODE_ABSENT',
-    reason: 'Nó V2 ausente: Warg de Estágio 2 ausente no catálogo V2',
+    reason: '缺少 V2 節點：V2 目錄中缺少階段 2 的座狼戰士。',
     authorizedSkillIds: ['direct_strike']
   },
   'shineMakerBase': {
     gapType: 'V2_NODE_ABSENT',
-    reason: 'Nó V2 ausente: ShineMaker Anão de Estágio 0 não presente no dataset L2Wiki nem no catálogo V2',
+    reason: '缺少第二版節點：階段 0 的矮人光輝工匠在技能資料集與第二版目錄中都不存在。',
     authorizedSkillIds: []
   },
   'spirit_0': {
     gapType: 'V2_NODE_ABSENT',
-    reason: 'Nó V2 ausente: dataset L2Wiki contém apenas 2 habilidades de Estágio 0 (87701 Fire Sphere, 87702 Ice Sphere); árvore de 5 habilidades ausente no catálogo V2',
+    reason: '缺少第二版節點：技能資料集只有 2 個階段 0 技能（87701 火焰球、87702 冰霜球）；第二版目錄缺少 5 套技能樹。',
     authorizedSkillIds: ['fire_sphere', 'ice_sphere']
   },
   'marauderBase': {
     gapType: 'UNPROVEN_PROVENANCE',
-    reason: 'Nó V2 existente com habilidades sem proveniência comprovada: nó presente em CanonicalClassRegistryV2, porém habilidades canônicas de Ertheia ausentes no dataset raspado e habilidades Kamael quarentenadas',
+    reason: '第二版節點存在，但技能來源尚未獲得驗證：職業登錄表中有此節點，但擷取資料集中缺少阿爾特亞的正式技能，闇天使技能目前仍處於隔離狀態。',
     authorizedSkillIds: []
   },
   'sayhaMageBase': {
     gapType: 'UNPROVEN_PROVENANCE',
-    reason: 'Nó V2 existente com habilidades sem proveniência comprovada: nó presente em CanonicalClassRegistryV2, porém habilidades canônicas de Ertheia ausentes no dataset raspado e placeholder de mago humano quarentenado',
+    reason: '第二版節點存在，但技能來源尚未獲得驗證：職業登錄表中有此節點，但擷取資料集中缺少阿爾特亞的正式技能，人類法師暫用技能目前仍處於隔離狀態。',
     authorizedSkillIds: []
   }
 };
@@ -368,7 +368,7 @@ export function resolveV2ClassContext(classId, race = null) {
     v2ClassId: null,
     v2ClassDef: null,
     authorizedSkillIds: [],
-    contentGapReason: 'Class not mapped to canonical V2 registry'
+    contentGapReason: '此職業尚未對應至正式 V2 職業資料庫'
   };
 }
 
@@ -673,10 +673,10 @@ export function resolveSkillDef(skillOrId) {
   if (nativeDef) return nativeDef;
 
   if (SHARED_MAGE_SKILL_IDS.includes(sId)) {
-    return { id: sId, name: sId, type: 'magic', reqLvl: 1, availableTo: ['mage', 'wizard', 'cleric', 'oracle', 'shaman'] };
+    return { id: sId, name: ({ wind_strike: '風之打擊', flame_strike: '火焰打擊', hydro_strike: '水之打擊', heal_light: '光之治癒', ice_bolt: '冰箭術' })[sId] || '共通魔法技能', type: 'magic', reqLvl: 1, availableTo: ['mage', 'wizard', 'cleric', 'oracle', 'shaman'] };
   }
   if (SHARED_FIGHTER_SKILL_IDS.includes(sId)) {
-    return { id: sId, name: sId, type: 'physical', reqLvl: 1, availableTo: ['fighter', 'warrior', 'knight', 'rogue'] };
+    return { id: sId, name: ({ power_strike: '力量打擊', mortal_blow: '致命一擊', iron_punch: '鐵拳', energy_burst: '能量爆發', power_shot: '強力射擊' })[sId] || '共通戰鬥技能', type: 'physical', reqLvl: 1, availableTo: ['fighter', 'warrior', 'knight', 'rogue'] };
   }
 
   return null;
@@ -1330,7 +1330,7 @@ export function normalizeAndValidateSkills(state, callbacks = {}) {
         spRefunded += Math.floor(baseCost * Math.pow(1.4, l));
       }
       if (callbacks.log) {
-        callbacks.log(`🛡️ Habilidade [${def.name || sId}] foi corrigida e removida por incompatibilidade com o nível/classe atual (+${spRefunded} SP reembolsados).`, 'system');
+        callbacks.log(`🛡️ 技能 [${def.name || '未知技能'}] 因與目前等級／職業不相容而被修正並移除（返還 +${spRefunded} 技能點）。`, 'system');
       }
     }
   }

@@ -38,23 +38,23 @@ export function validateSkillVfx() {
   // 1. Check VFX Registration Uniqueness and Completeness
   for (const vfx of allVfx) {
     if (!vfx.vfxId) {
-      errors.push(`VFX entry missing vfxId: ${JSON.stringify(vfx)}`);
+      errors.push(`VFX 資料缺少 vfxId：${JSON.stringify(vfx)}`);
       continue;
     }
     if (vfxIds.has(vfx.vfxId)) {
       duplicateVfxIds.push(vfx.vfxId);
-      errors.push(`Duplicate VFX ID detected: ${vfx.vfxId}`);
+      errors.push(`偵測到重複的 VFX ID：${vfx.vfxId}`);
     }
     vfxIds.add(vfx.vfxId);
 
     // Profile parameters validation
     if (!vfx.color || !vfx.particle || !vfx.anim || typeof vfx.duration !== 'number') {
-      errors.push(`VFX entry ${vfx.vfxId} has incomplete profile parameters`);
+      errors.push(`VFX 資料 ${vfx.vfxId} 的設定參數不完整`);
     }
 
     // Render family validation
     if (!vfx.type || typeof vfx.type !== 'string') {
-      errors.push(`VFX entry ${vfx.vfxId} missing render family type`);
+      errors.push(`VFX 資料 ${vfx.vfxId} 缺少渲染家族類型`);
     }
   }
 
@@ -65,17 +65,17 @@ export function validateSkillVfx() {
   for (const skill of ALL_NATIVE_SKILLS) {
     if (!skill.vfxId) {
       missingBindings.push(skill.id);
-      errors.push(`Active skill ${skill.id} does not declare a vfxId`);
+      errors.push(`啟用技能 ${skill.id} 未宣告 vfxId`);
       continue;
     }
 
     const vfxDef = getSkillVfx(skill.id);
     if (!vfxDef) {
       missingBindings.push(skill.id);
-      errors.push(`Skill ${skill.id} (vfxId: ${skill.vfxId}) has no entry in SKILL_VFX_REGISTRY`);
+      errors.push(`技能 ${skill.id}（vfxId：${skill.vfxId}）在 SKILL_VFX_REGISTRY 中沒有對應資料`);
     } else if (vfxDef.vfxId !== skill.vfxId) {
       mismatchedIds.push({ skillId: skill.id, declared: skill.vfxId, registered: vfxDef.vfxId });
-      errors.push(`Skill ${skill.id} declared vfxId ${skill.vfxId} but registered ${vfxDef.vfxId}`);
+      errors.push(`技能 ${skill.id} 宣告的 vfxId 為 ${skill.vfxId}，但登錄值為 ${vfxDef.vfxId}`);
     }
   }
 
@@ -85,7 +85,7 @@ export function validateSkillVfx() {
   for (const [skillIdKey, vfx] of Object.entries(SKILL_VFX_REGISTRY)) {
     if (!activeSkillIds.has(skillIdKey)) {
       orphanVfx.push(skillIdKey);
-      warnings.push(`Orphan VFX entry registered for non-active skill ID: ${skillIdKey}`);
+      warnings.push(`偵測到孤立 VFX 資料，其技能 ID 並非啟用技能：${skillIdKey}`);
     }
   }
 

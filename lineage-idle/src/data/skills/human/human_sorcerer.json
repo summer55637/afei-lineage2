@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "fireball",
-        "name": "Bola de Fogo",
+        "name": "火球術",
         "classId": "human_sorcerer",
         "race": "human",
         "tier": "core_1",
@@ -14,7 +14,7 @@
         "tags": [
           "Fire"
         ],
-        "description": "Bola de Fogo — Habilidade Especialista de human_sorcerer."
+        "description": "火球術——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -166,7 +166,7 @@
     {
       "identity": {
         "id": "magma_spike",
-        "name": "Espinho de Magma",
+        "name": "岩漿尖刺",
         "classId": "human_sorcerer",
         "race": "human",
         "tier": "core_2",
@@ -176,7 +176,7 @@
         "tags": [
           "Magma"
         ],
-        "description": "Espinho de Magma — Habilidade Especialista de human_sorcerer."
+        "description": "岩漿尖刺——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -328,7 +328,7 @@
     {
       "identity": {
         "id": "holy_bolt",
-        "name": "Raio Sagrado",
+        "name": "神聖箭",
         "classId": "human_sorcerer",
         "race": "human",
         "tier": "specialization",
@@ -338,7 +338,7 @@
         "tags": [
           "Holy"
         ],
-        "description": "Raio Sagrado — Habilidade Especialista de human_sorcerer."
+        "description": "神聖箭——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -490,7 +490,7 @@
     {
       "identity": {
         "id": "flame_nova",
-        "name": "Nova Flamejante",
+        "name": "火焰新星",
         "classId": "human_sorcerer",
         "race": "human",
         "tier": "elemental_specialization",
@@ -500,7 +500,7 @@
         "tags": [
           "Fire"
         ],
-        "description": "Nova Flamejante — Habilidade Especialista de human_sorcerer."
+        "description": "火焰新星——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -670,7 +670,7 @@
     {
       "identity": {
         "id": "meteor",
-        "name": "Meteor",
+        "name": "隕石術",
         "classId": "human_sorcerer",
         "race": "human",
         "tier": "ultimate",
@@ -680,7 +680,7 @@
         "tags": [
           "Fire"
         ],
-        "description": "Meteor — Habilidade Ultimate (★★★★) de human_sorcerer."
+        "description": "隕石術——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -865,7 +865,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "METEOR!",
+          "text": "隕石術！",
           "style": "gold_banner",
           "banner": true
         }
@@ -886,7 +886,7 @@
     {
       "identity": {
         "id": "master_meteor",
-        "name": "Master: Meteor",
+        "name": "大師：隕石術",
         "classId": "human_sorcerer",
         "race": "human",
         "tier": "master_ultimate",
@@ -896,7 +896,7 @@
         "tags": [
           "Fire"
         ],
-        "description": "Master: Meteor — Habilidade Master Ultimate (★★★★★) de human_sorcerer."
+        "description": "大師：隕石術——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1082,7 +1082,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: METEOR!",
+          "text": "大師：隕石術！",
           "style": "mythic_banner",
           "banner": true
         }

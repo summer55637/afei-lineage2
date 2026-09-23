@@ -42,7 +42,7 @@ if (typeof CANONICAL_RESOURCES === 'object' && CANONICAL_RESOURCES) {
       stack: 99999,
       price: r.price || 50,
       icon: r.icon,
-      desc: r.desc || ('Recurso canônico: ' + r.name)
+      desc: r.desc || ('標準資源：' + r.name)
     };
   }
 }
@@ -62,7 +62,7 @@ if (typeof FISH_CATALOG === 'object' && FISH_CATALOG) {
       stack: 99999,
       price: f.sellPrice || 30,
       icon: f.icon || '🐟',
-      desc: `Peixe fresco de águas de Aden. Pode ser trocado na Feira dos Pescadores por insumos de forja ou vendido.`
+      desc: `亞丁水域的新鮮魚獲。可在漁夫市集兌換鍛造材料，或直接出售。`
     };
   }
 }
@@ -82,7 +82,7 @@ if (typeof PREY_CATALOG === 'object' && PREY_CATALOG) {
       stack: 99999,
       price: p.sellPrice || 35,
       icon: p.icon || '🥩',
-      desc: `Carcaça de caça silvestre (${p.weightRange || 'peso variado'}). Pode ser desfeita por esfoladores ou vendida.`
+      desc: `野外獵物屍體（${p.weightRange || '重量不定'}）。可交由剝皮者處理，或直接出售。`
     };
   }
 }

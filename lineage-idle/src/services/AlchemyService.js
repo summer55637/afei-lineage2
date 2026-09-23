@@ -1,5 +1,5 @@
 /**
- * AlchemyService.js — Módulo de Alquimia, Cadinho de Almas & Invocação do Chefe do Caos.
+ * AlchemyService.js — Módulo de 鍊金術, Cadinho de Almas & Invocação do Chefe do Caos.
  */
 
 import { D } from '../core/GameConfig.js';
@@ -48,54 +48,54 @@ export const ESSENCE_FEE_PER_GRADE = {
 export const ALCHEMY_RECIPES = {
   elixir_berserker: {
     id: 'elixir_berserker',
-    name: 'Elixir do Berserker',
+    name: '狂戰士靈藥',
     icon: '⚔️',
-    desc: '+15% P.Atk e +10% Vel. de Ataque por 1 hora',
+    desc: '+15% 物理攻擊、+10% 攻擊速度，持續 1 小時',
     cost: { fire: 15, wind: 10 },
     gold: 2500,
     duration: 3600000
   },
   elixir_arcanist: {
     id: 'elixir_arcanist',
-    name: 'Elixir do Arcanista',
+    name: '奧術師靈藥',
     icon: '🔮',
-    desc: '+20% M.Atk e +50% Regeneração de Mana por 1 hora',
+    desc: '+20% 魔法攻擊、+50% 魔力恢復，持續 1 小時',
     cost: { water: 15, fire: 10 },
     gold: 2500,
     duration: 3600000
   },
   elixir_fortune: {
     id: 'elixir_fortune',
-    name: 'Elixir da Fortuna',
+    name: '幸運靈藥',
     icon: '💰',
-    desc: '+25% Taxa de Drop e +30% Ouro Ganho por 1 hora',
+    desc: '+25% 掉落率、+30% 金幣獲得量，持續 1 小時',
     cost: { earth: 20, water: 15 },
     gold: 5000,
     duration: 3600000
   },
   elixir_titan: {
     id: 'elixir_titan',
-    name: 'Elixir de Titã',
+    name: '泰坦靈藥',
     icon: '🛡️',
-    desc: '+25% HP Máximo e +20% P.Def por 1 hora',
+    desc: '+25% 最大生命值、+20% 物理防禦，持續 1 小時',
     cost: { earth: 25, fire: 15 },
     gold: 5000,
     duration: 3600000
   },
   elixir_transcendence: {
     id: 'elixir_transcendence',
-    name: 'Elixir da Transcendência',
+    name: '超越靈藥',
     icon: '✨',
-    desc: '+20% EXP e +20% SP Ganho por 1 hora',
+    desc: '+20% 經驗值、+20% 技能點獲得量，持續 1 小時',
     cost: { water: 25, wind: 20 },
     gold: 10000,
     duration: 3600000
   },
   boss_summon_stone: {
     id: 'boss_summon_stone',
-    name: 'Pedra de Convocação Abissal',
+    name: '深淵召喚石',
     icon: '🌀',
-    desc: 'Rasga o tecido do espaço no modo idle e invoca um Boss do Caos [CHAOS] com drops supremos!',
+    desc: '在放置模式撕裂空間，召喚擁有頂級掉落的【混沌】首領！',
     cost: { fire: 50, water: 50 },
     gold: 25000,
     duration: 0,
@@ -132,7 +132,7 @@ export function getEssenceTypeForItem(def) {
 }
 
 /**
- * Retorna o grau do item normalizado para Alquimia.
+ * Retorna o grau do item normalizado para 鍊金術.
  */
 export function getGradeForItem(def, inv) {
   if (inv && inv.rarity) {
@@ -206,12 +206,12 @@ export function dissolveItem(state, uid, callbacks = {}) {
 
   const equippedUids = Object.values(state.equipment || {}).filter(Boolean);
   if (equippedUids.includes(uid) || inv.equipped) {
-    log('⚠️ Não é possível dissolver um equipamento em uso!', 'warning');
+    log('⚠️ 無法分解正在使用中的裝備！', 'warning');
     return false;
   }
 
   if (state.lockedItems && state.lockedItems.includes(uid)) {
-    log('🔒 Este item está bloqueado contra venda/dissolução!', 'warning');
+    log('🔒 此物品已鎖定，無法出售／分解！', 'warning');
     return false;
   }
 
@@ -219,13 +219,13 @@ export function dissolveItem(state, uid, callbacks = {}) {
   const slot = (def?.slot || '').toLowerCase();
   const EQUIP_SLOTS = ['weapon', 'armor', 'shield', 'helmet', 'gloves', 'boots', 'legs', 'ring', 'necklace', 'earring', 'belt', 'cloak', 'sigil'];
   if (!def || !EQUIP_SLOTS.includes(slot) || def.stack || def.isQuestItem || def.type === 'material' || def.type === 'quest' || def.type === 'consumable') {
-    log('⚠️ Apenas equipamentos podem ser desintegrados no Cadinho de Almas!', 'warning');
+    log('⚠️ 只有裝備可以在靈魂熔爐中分解！', 'warning');
     return false;
   }
 
   const yieldData = getDissolveYield(inv, def);
   if ((state.gold || 0) < yieldData.fee) {
-    log(`⚠️ Adena insuficiente para o processo alquímico! Requer ${yieldData.fee.toLocaleString()}g.`, 'warning');
+    log(`⚠️ 金幣不足，無法進行煉金！需要 ${yieldData.fee.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -239,8 +239,8 @@ export function dissolveItem(state, uid, callbacks = {}) {
   }
   state.essences[yieldData.essenceType] = (state.essences[yieldData.essenceType] || 0) + yieldData.count;
 
-  const typeLabels = { fire: 'Fogo 🔥', earth: 'Terra 🛡️', wind: 'Vento 🍃', water: 'Água 💧' };
-  log(`🔥 Cadinho de Almas: Desintegrou [${def.name}] (+${yieldData.count} Essência de ${typeLabels[yieldData.essenceType] || yieldData.essenceType})!`, 'loot');
+  const typeLabels = { fire: '火 🔥', earth: '地 🛡️', wind: '風 🍃', water: '水 💧' };
+  log(`🔥 靈魂熔爐：已分解 [${def.name}]（+${yieldData.count} ${typeLabels[yieldData.essenceType] || '未知'} 精華）！`, 'loot');
 
   updateAllUI();
   save();
@@ -283,7 +283,7 @@ export function dissolveItemsByGrade(state, targetGrade = 'all', callbacks = {})
   }
 
   if (toDissolve.length === 0) {
-    log(`⚠️ Nenhum equipamento [Grau: ${targetGrade.toUpperCase()}] desequipado para dissolver!`, 'warning');
+    log(`⚠️ 沒有可分解的未裝備 ${targetGrade.toUpperCase()} 級裝備！`, 'warning');
     return 0;
   }
 
@@ -306,7 +306,7 @@ export function dissolveItemsByGrade(state, targetGrade = 'all', callbacks = {})
   }
 
   if (count === 0) {
-    log('⚠️ Ouro insuficiente para processar a dissolução em lote!', 'warning');
+    log('⚠️ 金幣不足，無法進行批次分解！', 'warning');
     return 0;
   }
 
@@ -320,7 +320,7 @@ export function dissolveItemsByGrade(state, targetGrade = 'all', callbacks = {})
     if (amt > 0) state.essences[type] = (state.essences[type] || 0) + amt;
   }
 
-  log(`🔥 Cadinho de Almas: Dissolveu ${count} equipamentos (+${totalEssences.fire} 🔥, +${totalEssences.earth} 🛡️, +${totalEssences.wind} 🍃, +${totalEssences.water} 💧)!`, 'rarity-legendary');
+  log(`🔥 靈魂熔爐：已分解 ${count} 件裝備（+${totalEssences.fire} 🔥、+${totalEssences.earth} 🛡️、+${totalEssences.wind} 🍃、+${totalEssences.water} 💧）！`, 'rarity-legendary');
   updateAllUI();
   save();
   return count;
@@ -352,7 +352,7 @@ export function craftElixir(state, recipeId, qty = 1, callbacks = {}) {
   const totalGold = recipe.gold * count;
 
   if ((state.gold || 0) < totalGold) {
-    log(`⚠️ Adena insuficiente! Requer ${totalGold.toLocaleString()}g.`, 'warning');
+    log(`⚠️ 金幣不足！需要 ${totalGold.toLocaleString()} 金幣。`, 'warning');
     return false;
   }
 
@@ -364,7 +364,8 @@ export function craftElixir(state, recipeId, qty = 1, callbacks = {}) {
   for (const [type, amt] of Object.entries(recipe.cost)) {
     const required = amt * count;
     if ((state.essences[type] || 0) < required) {
-      log(`⚠️ Essências insuficientes! Requer ${required} Essências de ${type.toUpperCase()}.`, 'warning');
+      const essenceLabel = { fire: '火', earth: '地', wind: '風', water: '水' }[type] || type;
+      log(`⚠️ 精華不足！需要 ${required} 個${essenceLabel}精華。`, 'warning');
       return false;
     }
   }
@@ -376,7 +377,7 @@ export function craftElixir(state, recipeId, qty = 1, callbacks = {}) {
 
   if (recipe.isItem) {
     addToInventory(state, recipe.itemId || recipeId, count, 'rare', false, { log, updateAllUI, save }, true);
-    log(`🧪 Alquimia: Fabricou ${count}x [${recipe.name}] e guardou na mochila!`, 'loot');
+    log(`🧪 鍊金：製作了 ${count}×【${recipe.name}】並放入背包！`, 'loot');
   } else {
     if (!state.activeElixirs) state.activeElixirs = {};
     if (!state.buffs) state.buffs = {};
@@ -394,7 +395,7 @@ export function craftElixir(state, recipeId, qty = 1, callbacks = {}) {
       until: finalExpiry,
       isElixir: true
     };
-    log(`🧪 Ativou ${recipe.name} por ${count} hora(s)! Bônus ativo em Active Buffs e Atributos!`, 'rarity-legendary');
+    log(`🧪 已啟用 ${recipe.name} ${count} 小時！加成已套用至狀態效果與屬性！`, 'rarity-legendary');
   }
 
   updateAllUI();
@@ -413,7 +414,7 @@ export function useChaosBossSummonStone(state, callbacks = {}) {
 
   const stoneCount = getInventoryCount(state, 'boss_summon_stone');
   if (stoneCount <= 0) {
-    log('⚠️ Você não possui nenhuma [Pedra de Convocação Abissal] na mochila! Fabrique-a na Alquimia.', 'warning');
+    log('⚠️ 你的背包中沒有【深淵召喚石】！請先在煉金系統製作。', 'warning');
     return false;
   }
 
@@ -429,15 +430,15 @@ export function useChaosBossSummonStone(state, callbacks = {}) {
 
   const gData = D();
   const bosses = [
-    { id: 'queen_ant', name: 'Rainha Formiga (Queen Ant)', level: 40, hp: 120000, atk: 450, def: 220, exp: 35000, sp: 8000, gold: 50000, icon: 'monsters/queen_ant.png' },
-    { id: 'core', name: 'Core da Torre Cruma', level: 50, hp: 200000, atk: 650, def: 350, exp: 60000, sp: 15000, gold: 80000, icon: 'monsters/core.png' },
-    { id: 'orfen', name: 'Orfen do Mar de Esporos', level: 60, hp: 350000, atk: 900, def: 480, exp: 110000, sp: 28000, gold: 120000, icon: 'monsters/orfen.png' },
-    { id: 'zaken', name: 'Capitão Pirata Zaken', level: 70, hp: 600000, atk: 1300, def: 650, exp: 220000, sp: 55000, gold: 200000, icon: 'monsters/zaken.png' },
-    { id: 'baium', name: 'Imperador Baium', level: 75, hp: 1200000, atk: 2200, def: 900, exp: 450000, sp: 120000, gold: 400000, icon: 'monsters/baium.png' },
-    { id: 'barakiel', name: 'Flame of Splendor Barakiel', level: 80, hp: 1800000, atk: 2800, def: 1200, exp: 700000, sp: 200000, gold: 600000, icon: 'monsters/barakiel.png' },
-    { id: 'frintezza', name: 'Príncipe Frintezza & Halisha', level: 85, hp: 2500000, atk: 3600, def: 1500, exp: 1100000, sp: 320000, gold: 900000, icon: 'monsters/frintezza.png' },
-    { id: 'antharas', name: 'Dragão da Terra Antharas', level: 90, hp: 4000000, atk: 5000, def: 2000, exp: 2000000, sp: 600000, gold: 1500000, icon: 'monsters/antharas.png' },
-    { id: 'valakas', name: 'Dragão do Fogo Valakas', level: 95, hp: 6000000, atk: 6800, def: 2600, exp: 3500000, sp: 1000000, gold: 2500000, icon: 'monsters/valakas.png' }
+    { id: 'queen_ant', name: '蟻后', level: 40, hp: 120000, atk: 450, def: 220, exp: 35000, sp: 8000, gold: 50000, icon: 'monsters/queen_ant.png' },
+    { id: 'core', name: '克魯瑪高塔核心', level: 50, hp: 200000, atk: 650, def: 350, exp: 60000, sp: 15000, gold: 80000, icon: 'monsters/core.png' },
+    { id: 'orfen', name: '孢子之海歐爾芬', level: 60, hp: 350000, atk: 900, def: 480, exp: 110000, sp: 28000, gold: 120000, icon: 'monsters/orfen.png' },
+    { id: 'zaken', name: '海賊王札肯', level: 70, hp: 600000, atk: 1300, def: 650, exp: 220000, sp: 55000, gold: 200000, icon: 'monsters/zaken.png' },
+    { id: 'baium', name: '皇帝巴溫', level: 75, hp: 1200000, atk: 2200, def: 900, exp: 450000, sp: 120000, gold: 400000, icon: 'monsters/baium.png' },
+    { id: 'barakiel', name: '光輝之炎巴拉基爾', level: 80, hp: 1800000, atk: 2800, def: 1200, exp: 700000, sp: 200000, gold: 600000, icon: 'monsters/barakiel.png' },
+    { id: 'frintezza', name: '王子弗林泰沙與哈里沙', level: 85, hp: 2500000, atk: 3600, def: 1500, exp: 1100000, sp: 320000, gold: 900000, icon: 'monsters/frintezza.png' },
+    { id: 'antharas', name: '地龍安塔瑞斯', level: 90, hp: 4000000, atk: 5000, def: 2000, exp: 2000000, sp: 600000, gold: 1500000, icon: 'monsters/antharas.png' },
+    { id: 'valakas', name: '火龍巴拉卡斯', level: 95, hp: 6000000, atk: 6800, def: 2600, exp: 3500000, sp: 1000000, gold: 2500000, icon: 'monsters/valakas.png' }
   ];
 
   // Escala com o nível atual do jogador
@@ -452,8 +453,8 @@ export function useChaosBossSummonStone(state, callbacks = {}) {
     ...baseBoss,
     id: `chaos_${baseBoss.id}`,
     baseId: baseBoss.id,
-    name: `[CHAOS] ${baseBoss.name}`,
-    title: '👑 CHEFE DO CAOS',
+    name: `[混沌] ${baseBoss.name}`,
+    title: '👑 混沌首領',
     isChaosBoss: true,
     isBoss: true,
     isRaid: true,
@@ -477,8 +478,8 @@ export function useChaosBossSummonStone(state, callbacks = {}) {
   state.target = chaosBoss.id;
   state.isRaidActive = false; // Permite combate idle normal
 
-  log(`🌀 UMA FENDA DO CAOS SE ABRIU! Você invocou ${chaosBoss.name} no modo combate!`, 'rarity-legendary');
-  floatText('🌀 CHAOS BOSS INVOCADO!', 'float-meteor');
+  log(`🌀 混沌裂隙已開啟！你在戰鬥模式召喚了 ${chaosBoss.name}！`, 'rarity-legendary');
+  floatText('🌀 混沌首領已召喚！', 'float-meteor');
 
   if (callbacks.renderStageMonster) {
     try { callbacks.renderStageMonster(); } catch (e) {}
@@ -498,7 +499,7 @@ export function processChaosBossLoot(state, monster, callbacks = {}) {
   const updateAllUI = callbacks.updateAllUI || (() => {});
   const save = callbacks.save || (() => {});
 
-  log(`👑 VITÓRIA HISTÓRICA! O Chefe do Caos ${monster.name} sucumbiu ao seu poder!`, 'rarity-legendary');
+  log(`👑 歷史性勝利！混沌首領 ${monster.name} 已敗於你的力量！`, 'rarity-legendary');
 
   const season = getSeasonForLevel(state.level || 1);
   const droplist = CHAOS_BOSS_DROPLIST_BY_SEASON[season] || CHAOS_BOSS_DROPLIST_BY_SEASON[1];
@@ -508,14 +509,14 @@ export function processChaosBossLoot(state, monster, callbacks = {}) {
     for (const drop of droplist.guaranteed) {
       addToInventory(state, drop.itemId, drop.count || 1, drop.rarity || 'rare', false, callbacks, true);
       const def = getItemDef(drop.itemId) || { name: drop.itemId };
-      log(`🎁 Drop do Caos Garantido: Obteve ${drop.count || 1}x [${def.name}]!`, 'loot');
+      log(`🎁 混沌保證掉落：獲得 ${drop.count || 1}×【${def.name}】！`, 'loot');
     }
   }
 
   // 2. Adena da Temporada
   const goldReward = Math.floor(droplist.goldMin + Math.random() * (droplist.goldMax - droplist.goldMin + 1));
   state.gold = (state.gold || 0) + goldReward;
-  log(`🪙 Ouro do Caos: +${goldReward.toLocaleString()} Adena recolhida do chefe derrotado!`, 'loot');
+  log(`🪙 混沌金幣：從擊敗的首領取得 +${goldReward.toLocaleString()} 金幣！`, 'loot');
 
   // 3. Drops com Probabilidade da Temporada
   if (Array.isArray(droplist.chanceDrops)) {
@@ -523,7 +524,7 @@ export function processChaosBossLoot(state, monster, callbacks = {}) {
       if (Math.random() < cd.chance) {
         addToInventory(state, cd.itemId, cd.count || 1, cd.rarity || 'epic', false, callbacks, true);
         const def = getItemDef(cd.itemId) || { name: cd.itemId };
-        log(`💎 Drop Raro do Caos (${Math.round(cd.chance * 100)}%): Resgatou [${def.name}]!`, 'rarity-legendary');
+        log(`💎 混沌稀有掉落（${Math.round(cd.chance * 100)}%）：獲得 [${def.name}]！`, 'rarity-legendary');
       }
     }
   }

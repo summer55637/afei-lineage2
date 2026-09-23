@@ -1,5 +1,5 @@
 /**
- * InventoryService.js — Gestão de Inventário, Mochila, Baú e Seleção de Itens.
+ * InventoryService.js — Gestão de 背包, Mochila, Baú e Seleção de Itens.
  *
  * Responsável por adições/remoções no inventário, limites de mochila/baú,
  * depósito/saque de warehouse, uso de consumíveis/buffs, venda e desmanche (salvage).
@@ -65,7 +65,7 @@ export function isEligibleForAutoRecycle(item, def, state) {
   if (def.stack || def.isQuestItem || item.isProtected) return false;
 
   // 2. Proteção estrita de Itens de Herança & Starter Packs
-  if (def.isHeirloom || item.isHeirloom || id.includes('heirloom') || name.includes('herança')) return false;
+  if (def.isHeirloom || item.isHeirloom || id.includes('heirloom') || name.includes('傳承')) return false;
 
   // 3. Proteção de Equipamentos Modificados / Encantados / Especiais
   if (item.enchant && item.enchant > 0) return false;
@@ -125,7 +125,7 @@ export function processAutoRecycleItem(item, def, state, callbacks = {}) {
     const goldGain = getSellValue(item);
     state.gold = (state.gold || 0) + goldGain;
     if (callbacks.log) {
-      callbacks.log(`🪙 [Auto-Venda AFK] ${def.name} vendido automaticamente por +${goldGain.toLocaleString()} Adena`, 'loot');
+      callbacks.log(`🪙 [離線自動出售] ${def.name} 已自動出售，獲得 +${goldGain.toLocaleString()} 金幣`, 'loot');
     }
     return true;
   } else {
@@ -166,9 +166,9 @@ export function processAutoRecycleItem(item, def, state, callbacks = {}) {
       }
     }
 
-    const matName = gData?.ALL_ITEMS?.[matId]?.name || matId;
+    const matName = gData?.ALL_ITEMS?.[matId]?.name || '未知材料';
     if (callbacks.log) {
-      callbacks.log(`🔨 [Auto-Recycle AFK] ${def.name} desmanchado em +${matAmount}x ${matName}`, 'loot');
+      callbacks.log(`🔨 [掛機自動回收] ${def.name} 已分解為 +${matAmount}× ${matName}`, 'loot');
     }
     return true;
   }
@@ -312,7 +312,7 @@ export function addToInventory(state, itemId, amount = 1, rarity = null, foundat
     stage: 1,
     tier: 3,
     rarity: 'rare',
-    desc: 'Item místico de Aden.'
+    desc: '亞丁的神秘物品。'
   };
 
   const maxSlots = getMaxInventorySlots(state);
@@ -331,7 +331,7 @@ export function addToInventory(state, itemId, amount = 1, rarity = null, foundat
         remaining -= add;
       } else {
         if (state.inventory.length >= maxSlots) {
-          if (callbacks.log) callbacks.log('Mochila cheia!', 'system');
+          if (callbacks.log) callbacks.log('背包已滿！', 'system');
           return false;
         }
         const add = Math.min(maxStack, remaining);
@@ -368,7 +368,11 @@ export function addToInventory(state, itemId, amount = 1, rarity = null, foundat
         const price = Math.max(1, Math.floor((def.price || 10) * 0.4 * mult)) * amount;
         state.gold = (state.gold || 0) + price;
         if (callbacks.log) {
-          callbacks.log(`🪙 [Auto-Sell] ${amount}x ${def.name} [${itemRarity.toUpperCase()}] vendido por +${price.toLocaleString()}g`, 'loot');
+          const rarityLabel = {
+            common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩',
+            legendary: '傳說', mythic: '神話', s: 'S 級'
+          }[itemRarity] || itemRarity;
+          callbacks.log(`🪙 [自動出售] ${amount}× ${def.name}【${rarityLabel}】售出，獲得 +${price.toLocaleString()} 金幣`, 'loot');
         }
         return true;
       }
@@ -377,7 +381,7 @@ export function addToInventory(state, itemId, amount = 1, rarity = null, foundat
 
   for (let i = 0; i < amount; i++) {
     if (state.inventory.length >= maxSlots) {
-      if (callbacks.log) callbacks.log('Inventory full!', 'system');
+      if (callbacks.log) callbacks.log('背包已滿！', 'system');
       return false;
     }
     const isEquip = def.slot && def.slot !== 'consumable' && def.slot !== 'material' && def.slot !== 'scroll' && def.slot !== 'powerup';
@@ -461,7 +465,7 @@ export function depositToWarehouse(state, uid, amount = 1, callbacks = {}) {
   if (invIdx < 0) return false;
   const item = state.inventory[invIdx];
   if (item.equipped) {
-    if (callbacks.log) callbacks.log('Desequipe o item antes de guardá-lo no baú.', 'system');
+    if (callbacks.log) callbacks.log('請先卸下物品，再放入倉庫。', 'system');
     return false;
   }
 
@@ -483,7 +487,7 @@ export function depositToWarehouse(state, uid, amount = 1, callbacks = {}) {
         remaining -= add;
       } else {
         if (state.warehouse.length >= maxSlots) {
-          if (callbacks.log) callbacks.log('Baú cheio!', 'system');
+          if (callbacks.log) callbacks.log('倉庫已滿！', 'system');
           return false;
         }
         const add = Math.min(def.stack, remaining);
@@ -495,14 +499,14 @@ export function depositToWarehouse(state, uid, amount = 1, callbacks = {}) {
     else state.inventory.splice(invIdx, 1);
   } else {
     if (state.warehouse.length >= maxSlots) {
-      if (callbacks.log) callbacks.log('Baú cheio!', 'system');
+      if (callbacks.log) callbacks.log('倉庫已滿！', 'system');
       return false;
     }
     state.inventory.splice(invIdx, 1);
     state.warehouse.push({ ...item, equipped: false });
   }
 
-  if (callbacks.log) callbacks.log(`📦 Guardou ${def.name} no Baú.`, 'loot');
+  if (callbacks.log) callbacks.log(`📦 已將 ${def.name} 放入倉庫。`, 'loot');
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save();
   return true;
@@ -538,7 +542,7 @@ export function withdrawFromWarehouse(state, uid, amount = 1, callbacks = {}) {
         remaining -= add;
       } else {
         if (state.inventory.length >= maxInvSlots) {
-          if (callbacks.log) callbacks.log('Mochila cheia!', 'system');
+          if (callbacks.log) callbacks.log('背包已滿！', 'system');
           return false;
         }
         const add = Math.min(def.stack, remaining);
@@ -550,14 +554,14 @@ export function withdrawFromWarehouse(state, uid, amount = 1, callbacks = {}) {
     else state.warehouse.splice(whIdx, 1);
   } else {
     if (state.inventory.length >= maxInvSlots) {
-      if (callbacks.log) callbacks.log('Mochila cheia!', 'system');
+      if (callbacks.log) callbacks.log('背包已滿！', 'system');
       return false;
     }
     state.warehouse.splice(whIdx, 1);
     state.inventory.push({ ...item, equipped: false });
   }
 
-  if (callbacks.log) callbacks.log(`🎒 Retirou ${def.name} do Baú.`, 'loot');
+  if (callbacks.log) callbacks.log(`🎒 已從倉庫取出 ${def.name}。`, 'loot');
   if (callbacks.updateAllUI) callbacks.updateAllUI();
   if (callbacks.save) callbacks.save();
   return true;
@@ -615,20 +619,20 @@ export function calculateInventoryPressure(state) {
   const pct = max > 0 ? Math.round((count / max) * 100) : 0;
 
   let status = 'normal';
-  let label = 'Normal';
+  let label = '正常';
   let color = '#c8aa6e';
 
   if (pct >= 100) {
     status = 'full';
-    label = 'Mochila Cheia';
+    label = '背包已滿';
     color = '#ff2a2a';
   } else if (pct >= 90) {
     status = 'critical';
-    label = 'Crítico';
+    label = '危急';
     color = '#ef4444';
   } else if (pct >= 75) {
     status = 'warning';
-    label = 'Alerta';
+    label = '警告';
     color = '#f59e0b';
   }
 
@@ -645,7 +649,7 @@ export function calculateInventoryPressure(state) {
 
 /**
  * Avalia se um item está protegido contra qualquer ação destrutiva (Venda, Desmanche, Cristalização).
- * Blindagem obrigatória: Itens equipados, favoritos, trancados, protegidos, itens de missão e herança.
+ * Blindagem obrigatória: Itens equipados, favoritos, trancados, protegidos, itens de missão e 傳承.
  * @param {Object} item
  * @param {Object} [def]
  * @returns {boolean}
@@ -674,7 +678,7 @@ export function isItemProtected(item, def) {
   }
 
   // 4. Itens de Herança (Heirloom / Starter)
-  if (def?.isHeirloom || item.isHeirloom || id.includes('heirloom') || name.includes('herança')) {
+  if (def?.isHeirloom || item.isHeirloom || id.includes('heirloom') || name.includes('傳承')) {
     return true;
   }
 
@@ -881,7 +885,7 @@ export function getBatchSellPreview(state, uids) {
     items.push({
       uid: item.uid,
       itemId: item.itemId,
-      name: def.name || item.itemId,
+      name: def.name || '未知物品',
       count: itemQty,
       enchant,
       rarity: item.rarity || 'common',
@@ -955,7 +959,7 @@ export function getBatchSalvagePreview(state, uids) {
     items.push({
       uid: item.uid,
       itemId: item.itemId,
-      name: def.name || item.itemId,
+      name: def.name || '未知物品',
       rarity: item.rarity || 'common',
       enchant: Number(item.enchant) || 0,
       matId,
@@ -1047,7 +1051,7 @@ export function getCrystallizationPreview(state, uids) {
     items.push({
       uid: item.uid,
       itemId: item.itemId,
-      name: def.name || item.itemId,
+      name: def.name || '未知物品',
       rarity: item.rarity || 'common',
       enchant,
       crystalId: cId,

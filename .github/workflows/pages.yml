@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [ main ]
   push:
-    branches: [ main ]
+    branches: [ main, zh-tw-restart ]
   workflow_dispatch:
 
 permissions:
@@ -31,6 +31,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci --prefer-offline --no-audit
+
+      - name: Security regression checks
+        run: node --test test/production-security.test.js test/cakto-webhook-security.test.js
 
       - name: Build for GitHub Pages
         run: npm run build -- --base=/afei-lineage2/
@@ -84,7 +87,7 @@ jobs:
             const end=rest.indexOf('</div>');
             const inner=end>=0 ? rest.slice(0,end).trim() : '';
             if(!inner || !inner.includes('<')) throw new Error('React root stayed empty: white screen detected');
-            if(dom.includes('Ops! Ocorreu um erro inesperado.')) throw new Error('React ErrorBoundary rendered during smoke test');
+            if(['Ops! Ocorreu um erro inesperado.', '糟糕！發生未預期的錯誤。'].some(message => dom.includes(message))) throw new Error('React ErrorBoundary rendered during smoke test');
             console.log('PASS: React rendered non-empty UI at /afei-lineage2/');
           "
 
@@ -96,14 +99,14 @@ jobs:
           fi
 
       - name: Upload GitHub Pages artifact
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v4
         with:
           path: dist
 
   deploy:
     name: Deploy to GitHub Pages
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     needs: build-and-smoke-test
     runs-on: ubuntu-latest
     permissions:

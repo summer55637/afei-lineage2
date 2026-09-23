@@ -110,7 +110,7 @@ export function checkGradePenalty(playerLevel, itemOrGrade) {
     return {
       hasPenalty: true,
       minLvl,
-      reason: `Exige Nível ${minLvl} para utilizar sem penalidades (-25% Atk.Spd, -35% Acc, +50% MP)`
+      reason: `需要等級 ${minLvl} 才能無懲罰使用（攻擊速度 -25%、命中 -35%、魔力消耗 +50%）`
     };
   }
   return { hasPenalty: false };
@@ -183,7 +183,7 @@ export function rollChampionMonster() {
     // Campeão Vermelho (2%)
     return {
       type: 'red',
-      namePrefix: '🔴 Campeão Vermelho',
+      namePrefix: '🔴 紅色冠軍',
       hpMult: 8.0,
       atkMult: 2.2,
       xpMult: 10.0,
@@ -194,7 +194,7 @@ export function rollChampionMonster() {
     // Campeão Azul (5%)
     return {
       type: 'blue',
-      namePrefix: '🔵 Campeão Azul',
+      namePrefix: '🔵 藍色冠軍',
       hpMult: 4.0,
       atkMult: 1.5,
       xpMult: 5.0,
@@ -225,7 +225,7 @@ export function getLevelGapModifiers(playerLevel = 1, monsterLevel = 1) {
       dropMultiplier: 1.0,
       isTough: false,
       isGrey: false,
-      reason: 'Equilibrado'
+      reason: '等級相近'
     };
   }
 
@@ -238,16 +238,16 @@ export function getLevelGapModifiers(playerLevel = 1, monsterLevel = 1) {
       dropMultiplier: 1.10,
       isTough: true,
       isGrey: false,
-      reason: `Desafio de Alto Risco (+${Math.round(bonusXp * 100)}% XP)`
+      reason: `高風險挑戰（經驗值 +${Math.round(bonusXp * 100)}%）`
     };
   }
 
   // 3. Monstro Mais Fraco (-4 a -8 níveis): Decaimento canônico progressivo
-  if (diff === -4) return { xpMultiplier: 0.85, adenaMultiplier: 0.85, dropMultiplier: 0.85, isTough: false, isGrey: false, reason: 'Monstro Fraco (-15% Recompensas)' };
-  if (diff === -5) return { xpMultiplier: 0.70, adenaMultiplier: 0.70, dropMultiplier: 0.70, isTough: false, isGrey: false, reason: 'Monstro Fraco (-30% Recompensas)' };
-  if (diff === -6) return { xpMultiplier: 0.50, adenaMultiplier: 0.50, dropMultiplier: 0.50, isTough: false, isGrey: false, reason: 'Monstro Fraco (-50% Recompensas)' };
-  if (diff === -7) return { xpMultiplier: 0.30, adenaMultiplier: 0.30, dropMultiplier: 0.30, isTough: false, isGrey: false, reason: 'Monstro Fraco (-70% Recompensas)' };
-  if (diff === -8) return { xpMultiplier: 0.15, adenaMultiplier: 0.15, dropMultiplier: 0.15, isTough: false, isGrey: false, reason: 'Monstro Fraco (-85% Recompensas)' };
+  if (diff === -4) return { xpMultiplier: 0.85, adenaMultiplier: 0.85, dropMultiplier: 0.85, isTough: false, isGrey: false, reason: '弱小怪物（獎勵 -15%）' };
+  if (diff === -5) return { xpMultiplier: 0.70, adenaMultiplier: 0.70, dropMultiplier: 0.70, isTough: false, isGrey: false, reason: '弱小怪物（獎勵 -30%）' };
+  if (diff === -6) return { xpMultiplier: 0.50, adenaMultiplier: 0.50, dropMultiplier: 0.50, isTough: false, isGrey: false, reason: '弱小怪物（獎勵 -50%）' };
+  if (diff === -7) return { xpMultiplier: 0.30, adenaMultiplier: 0.30, dropMultiplier: 0.30, isTough: false, isGrey: false, reason: '弱小怪物（獎勵 -70%）' };
+  if (diff === -8) return { xpMultiplier: 0.15, adenaMultiplier: 0.15, dropMultiplier: 0.15, isTough: false, isGrey: false, reason: '弱小怪物（獎勵 -85%）' };
 
   // 4. Monstro Cinza (-9 níveis ou inferior): Regra clássica L2 (Zero Adena para evitar farm em low-level)
   return {
@@ -256,7 +256,7 @@ export function getLevelGapModifiers(playerLevel = 1, monsterLevel = 1) {
     dropMultiplier: 0.05,
     isTough: false,
     isGrey: true,
-    reason: 'Monstro Insignificante (Cinza: 0 Adena)'
+    reason: '過弱怪物（灰色：0 金幣）'
   };
 }
 

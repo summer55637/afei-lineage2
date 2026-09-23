@@ -1,8 +1,8 @@
 /**
- * CharacterService.js — Gestão de Promoções de Classe, Herança e Subclasses do Lineage Idle.
+ * CharacterService.js — Gestão de Promoções de 職業, Herança e Subclasses do Lineage Idle.
  *
  * Responsável pela resolução de herança de classes (classSatisfies), verificação de elegibilidade
- * de promoção (1ª, 2ª e 3ª Troca de Classe - 3rd Job) e cerimônia de promoção com reembolso de SP.
+ * de promoção (1ª, 2ª e 3ª Troca de 職業 - 3rd Job) e cerimônia de promoção com reembolso de SP.
  */
 
 import { D } from '../core/GameConfig.js';
@@ -114,7 +114,7 @@ export function validateAndFixCharacterClass(state) {
         state.race = normalizedKnownRace;
       }
     }
-    return state; // Classe validada com sucesso, NENHUM fallback executado
+    return state; // 職業 validada com sucesso, NENHUM fallback executado
   }
 
   // Fallback seguro de último recurso apenas para IDs completamente desconhecidos/corrompidos
@@ -259,16 +259,16 @@ export function checkClassAdvancement(state, callbacks = {}) {
 
   if (state.level >= 20 && currentStage === 0) {
     canAdvance = true;
-    advTitle = '⚡ 1ª Troca de Classe Disponível!';
-    advSub = `Atingiu o Nível ${state.level}! Escolha o caminho de evolução para a Ordem de ${currentClassDef?.name || state.class}.`;
+    advTitle = '⚡ 第一次轉職已開放！';
+    advSub = `達到等級 ${state.level}！請為 ${currentClassDef?.name || '目前職業'} 選擇進階路線。`;
   } else if (state.level >= 40 && currentStage === 1) {
     canAdvance = true;
-    advTitle = '⚔️ 2ª Troca de Classe Disponível!';
-    advSub = `Atingiu o Nível ${state.level}! Escolha a sua Classe Épica de Especialista.`;
+    advTitle = '⚔️ 第二次轉職已開放！';
+    advSub = `達到等級 ${state.level}！請選擇你的史詩專精職業。`;
   } else if (state.level >= 76 && currentStage === 2) {
     canAdvance = true;
-    advTitle = '👑 3ª Troca de Classe Disponível (3rd Job)!';
-    advSub = `Atingiu o Nível ${state.level}! Torne-se um Mestre Sagrado da 3ª Transferência e alcance o poder dos Noblesses!`;
+    advTitle = '👑 第三次轉職已開放！';
+    advSub = `達到等級 ${state.level}！完成第三次轉職，成為神聖大師並取得貴族之力！`;
   }
 
   const el = callbacks.el || ((id) => (typeof document !== 'undefined' ? document.getElementById(id) : null));
@@ -287,7 +287,7 @@ export function checkClassAdvancement(state, callbacks = {}) {
   if (statsBtn) {
     if (canAdvance) {
       statsBtn.style.display = 'block';
-      statsBtn.textContent = currentStage === 0 ? '⚡ 1ª Troca de Classe' : currentStage === 1 ? '⚔️ 2ª Troca de Classe' : '👑 3ª Troca de Classe';
+      statsBtn.textContent = currentStage === 0 ? '⚡ 第一次轉職' : currentStage === 1 ? '⚔️ 第二次轉職' : '👑 第三次轉職';
       statsBtn.onclick = openModal;
     } else {
       statsBtn.style.display = 'none';
@@ -343,7 +343,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
 
   const newClassDef = getClass(newClassId) || getClass(resolveCanonicalClassId(newClassId));
   if (!newClassDef) {
-    if (callbacks.log) callbacks.log(`❌ Classe de destino inválida: ${newClassId}`, 'warning');
+    if (callbacks.log) callbacks.log(`❌ 目標職業無效。`, 'warning');
     return false;
   }
 
@@ -366,14 +366,14 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
     callbacks.allowAdminOverride;
 
   if (!isAuthorizedSuccessor) {
-    if (callbacks.log) callbacks.log(`❌ Transferência inválida: ${newClassId} não é uma evolução autorizada de ${currentClass} no grafo de linhagem.`, 'warning');
+    if (callbacks.log) callbacks.log(`❌ 無效轉職：所選職業不屬於目前血統路線可晉升的職業。`, 'warning');
     return false;
   }
 
-  // 2. Validação de Nível de Requisito de Avanço
+  // 2. Validação de 等級 de Requisito de Avanço
   const reqLevel = Number(newClassDef.minLevel || (newClassDef.stage === 1 ? 20 : newClassDef.stage === 2 ? 40 : newClassDef.stage === 3 ? 76 : 1)) || 1;
   if (!callbacks.allowAdminOverride && state.level < reqLevel) {
-    if (callbacks.log) callbacks.log(`🔒 Nível insuficiente (${state.level}) para avançar para ${newClassDef.name || newClassId}. Requer nível ${reqLevel}.`, 'warning');
+    if (callbacks.log) callbacks.log(`🔒 等級不足（${state.level}），無法晉升為 ${newClassDef.name || '目標職業'}。需要等級 ${reqLevel}。`, 'warning');
     return false;
   }
 
@@ -388,7 +388,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
       resolveCanonicalDagClassId(e.sourceClassId, currentRace) === canonNew
     );
     if (!isLevelEligible && !isCanonicalChild) {
-      if (callbacks.log) callbacks.log(`🔒 Nível insuficiente (${state.level}) para avançar para ${newClassDef.name || newClassId}.`, 'warning');
+      if (callbacks.log) callbacks.log(`🔒 等級不足（${state.level}），無法晉升為 ${newClassDef.name || '目標職業'}。`, 'warning');
       return false;
     }
   }
@@ -443,7 +443,7 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
     const def = skillDefs[sId] || { name: sId };
 
     let statKey = 'patk';
-    let statLabel = 'P.ATK';
+    let statLabel = '物理攻擊';
     let baseVal = 0.06 + (lvl * 0.02);
 
     const sName = (def.name || '').toLowerCase();
@@ -452,39 +452,39 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
 
     if (sName.includes('hp') || sName.includes('life') || sName.includes('vital') || sName.includes('body') || sDesc.includes('hp') || sDesc.includes('vida')) {
       statKey = 'maxHp';
-      statLabel = 'Max HP';
+      statLabel = '最大生命值';
       baseVal = 0.06 + (lvl * 0.02);
     } else if (sName.includes('mdef') || sName.includes('magic def') || sName.includes('resist') || sName.includes('barrier') || sName.includes('ward')) {
       statKey = 'mdef';
-      statLabel = 'M.DEF';
+      statLabel = '魔法防禦';
       baseVal = 0.06 + (lvl * 0.02);
     } else if (sName.includes('def') || sName.includes('shield') || sName.includes('aegis') || sName.includes('iron') || sName.includes('will') || sName.includes('armor') || sName.includes('guard')) {
       statKey = 'pdef';
-      statLabel = 'P.DEF';
+      statLabel = '物理防禦';
       baseVal = 0.06 + (lvl * 0.02);
     } else if (sName.includes('mana') || sName.includes('mp') || sName.includes('clarity') || sName.includes('recovery') || sName.includes('mind')) {
       statKey = 'mpRegen';
-      statLabel = 'Regen. MP';
+      statLabel = '魔力恢復';
       baseVal = 0.08 + (lvl * 0.025);
     } else if (sName.includes('magic') || sName.includes('mage') || sName.includes('mystic') || sName.includes('elem') || sName.includes('fire') || sName.includes('water') || sName.includes('wind') || sName.includes('spell') || sName.includes('empower') || sType === 'magic') {
       statKey = 'matk';
-      statLabel = 'M.ATK';
+      statLabel = '魔法攻擊';
       baseVal = 0.06 + (lvl * 0.02);
     } else if (sName.includes('crit') || sName.includes('fury') || sName.includes('stance') || sName.includes('focus') || sName.includes('precision') || sName.includes('deadly')) {
       statKey = 'crit';
-      statLabel = 'Taxa Crítica';
+      statLabel = '暴擊率';
       baseVal = 0.04 + (lvl * 0.015);
     } else if (sName.includes('eva') || sName.includes('dodge') || sName.includes('shadow') || sName.includes('acrobat')) {
       statKey = 'eva';
-      statLabel = 'Evasão';
+      statLabel = '迴避';
       baseVal = 0.04 + (lvl * 0.015);
     } else if (sName.includes('speed') || sName.includes('dash') || sName.includes('step') || sName.includes('haste') || sName.includes('agility') || sName.includes('sprint')) {
       statKey = 'speed';
-      statLabel = 'Velocidade de Ataque';
+      statLabel = '攻擊速度';
       baseVal = 0.05 + (lvl * 0.015);
     } else {
       statKey = 'patk';
-      statLabel = 'P.ATK';
+      statLabel = '物理攻擊';
       baseVal = 0.06 + (lvl * 0.02);
     }
 
@@ -492,13 +492,13 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
 
     state.legacyPassives[sId] = {
       id: sId,
-      name: `Linhagem: ${def.name}`,
+      name: `血統：${def.name}`,
       originalSkill: def.name,
       icon: def.icon || '✦',
       lvl: lvl,
       stat: statKey,
       val: passiveVal,
-      desc: `Herança de Linhagem (${def.name} Lv.${lvl}): +${(passiveVal * 100).toFixed(1)}% ${statLabel}`
+      desc: `血統傳承（${def.name} 等級 ${lvl}）：+${(passiveVal * 100).toFixed(1)}% ${statLabel}`
     };
     convertedBuffsCount++;
   }
@@ -515,25 +515,25 @@ export function promoteClass(state, newClassId, selectedBuffIds = null, callback
     state.selectedSkill = starterSkills[0] || Object.keys(state.skills)[0] || null;
   }
 
-  // Bônus Nobre de SP por conclusão da Cerimônia de Avanço de Classe
+  // Bônus Nobre de SP por conclusão da Cerimônia de Avanço de 職業
   const stage = Number(newClassDef.stage) || 1;
   const transferSpBonus = stage === 1 ? 35 : stage === 2 ? 80 : 200;
   state.sp = (state.sp || 0) + totalRefunded + transferSpBonus;
 
   if (convertedBuffsCount > 0) {
-    if (callbacks.log) callbacks.log(`🧬 ${convertedBuffsCount} Habilidade(s) foram consagradas como **Passivas de Linhagem Permanentes (20% Eficácia)**!`, 'rarity-epic');
+    if (callbacks.log) callbacks.log(`🧬 ${convertedBuffsCount} 個技能已轉化為**永久血統被動技能（20% 效果）**！`, 'rarity-epic');
   }
 
   if (callbacks.log) {
-    callbacks.log(`🎉 PARABÉNS! Você concluiu a Cerimônia e agora é um **${newClassDef.name}**!`, 'rarity-legendary');
+    callbacks.log(`🎉 恭喜！你已完成轉職儀式，現在成為 **${newClassDef.name}**！`, 'rarity-legendary');
     if (totalRefunded > 0) {
-      callbacks.log(`🔄 ${totalRefunded.toLocaleString()} SP investidos foram 100% reembolsados + ${transferSpBonus} SP de presente cerimonial!`, 'rarity-legendary');
+      callbacks.log(`🔄 已投入的 ${totalRefunded.toLocaleString()} 技能點全數返還，另獲得 ${transferSpBonus} 技能點轉職贈禮！`, 'rarity-legendary');
     } else {
-      callbacks.log(`✨ +${transferSpBonus} SP de presente cerimonial concedidos para suas novas habilidades!`, 'rarity-legendary');
+      callbacks.log(`✨ 獲得 +${transferSpBonus} 技能點轉職贈禮，可用於新的技能！`, 'rarity-legendary');
     }
   }
   if (callbacks.floatText) {
-    callbacks.floatText(`🎉 ${newClassDef.name.toUpperCase()}! (+${totalRefunded + transferSpBonus} SP)`, 'float-jackpot');
+    callbacks.floatText(`🎉 ${newClassDef.name.toUpperCase()}！(+${totalRefunded + transferSpBonus} 技能點)`, 'float-jackpot');
   }
 
   if (callbacks.el) {

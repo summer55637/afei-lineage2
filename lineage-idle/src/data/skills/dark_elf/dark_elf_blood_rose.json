@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "thorned_hex",
-        "name": "Maldição Espinhosa",
+        "name": "荊棘詛咒",
         "classId": "dark_elf_blood_rose",
         "race": "dark_elf",
         "tier": "core_1",
@@ -15,7 +15,7 @@
           "Dark",
           "Blood"
         ],
-        "description": "Maldição Espinhosa — Habilidade Especialista de dark_elf_blood_rose."
+        "description": "荊棘詛咒——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -168,7 +168,7 @@
     {
       "identity": {
         "id": "crimson_drain",
-        "name": "Dreno Carmesim",
+        "name": "緋紅汲取",
         "classId": "dark_elf_blood_rose",
         "race": "dark_elf",
         "tier": "core_2",
@@ -178,7 +178,7 @@
         "tags": [
           "Blood"
         ],
-        "description": "Dreno Carmesim — Habilidade Especialista de dark_elf_blood_rose."
+        "description": "緋紅汲取——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -331,7 +331,7 @@
     {
       "identity": {
         "id": "wilting_touch",
-        "name": "Toque Murchante",
+        "name": "凋零之觸",
         "classId": "dark_elf_blood_rose",
         "race": "dark_elf",
         "tier": "specialization",
@@ -342,7 +342,7 @@
           "Dark",
           "Blood"
         ],
-        "description": "Toque Murchante — Habilidade Especialista de dark_elf_blood_rose."
+        "description": "凋零之觸——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -495,7 +495,7 @@
     {
       "identity": {
         "id": "rose_requiem",
-        "name": "Réquiem da Rosa",
+        "name": "玫瑰安魂曲",
         "classId": "dark_elf_blood_rose",
         "race": "dark_elf",
         "tier": "elemental_specialization",
@@ -506,7 +506,7 @@
           "Dark",
           "Blood"
         ],
-        "description": "Réquiem da Rosa — Habilidade Especialista de dark_elf_blood_rose."
+        "description": "玫瑰安魂曲——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -677,7 +677,7 @@
     {
       "identity": {
         "id": "crimson_requiem",
-        "name": "Crimson Requiem",
+        "name": "緋紅安魂曲",
         "classId": "dark_elf_blood_rose",
         "race": "dark_elf",
         "tier": "ultimate",
@@ -687,7 +687,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Crimson Requiem — Habilidade Ultimate (★★★★) de dark_elf_blood_rose."
+        "description": "緋紅安魂曲——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -873,7 +873,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "CRIMSON REQUIEM!",
+          "text": "緋紅安魂曲！",
           "style": "gold_banner",
           "banner": true
         }
@@ -894,7 +894,7 @@
     {
       "identity": {
         "id": "master_crimson_requiem",
-        "name": "Master: Crimson Requiem",
+        "name": "大師：緋紅安魂曲",
         "classId": "dark_elf_blood_rose",
         "race": "dark_elf",
         "tier": "master_ultimate",
@@ -904,7 +904,7 @@
         "tags": [
           "Dark"
         ],
-        "description": "Master: Crimson Requiem — Habilidade Master Ultimate (★★★★★) de dark_elf_blood_rose."
+        "description": "大師：緋紅安魂曲——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1091,7 +1091,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: CRIMSON REQUIEM!",
+          "text": "大師：緋紅安魂曲！",
           "style": "mythic_banner",
           "banner": true
         }

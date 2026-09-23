@@ -4,7 +4,7 @@
     {
       "identity": {
         "id": "totem_rage",
-        "name": "Fúria do Totem",
+        "name": "圖騰狂怒",
         "classId": "orc_fighter",
         "race": "orc",
         "tier": "core_1",
@@ -15,7 +15,7 @@
           "Fire",
           "Physical"
         ],
-        "description": "Fúria do Totem — Habilidade Especialista de orc_fighter."
+        "description": "圖騰狂怒——專精技能。"
       },
       "gameplay": {
         "castTime": 200,
@@ -168,7 +168,7 @@
     {
       "identity": {
         "id": "brutal_cleave",
-        "name": "Talho Brutal",
+        "name": "殘暴劈砍",
         "classId": "orc_fighter",
         "race": "orc",
         "tier": "core_2",
@@ -178,7 +178,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Talho Brutal — Habilidade Especialista de orc_fighter."
+        "description": "殘暴劈砍——專精技能。"
       },
       "gameplay": {
         "castTime": 240,
@@ -331,7 +331,7 @@
     {
       "identity": {
         "id": "war_stomp",
-        "name": "Pisão de Guerra",
+        "name": "戰爭踐踏",
         "classId": "orc_fighter",
         "race": "orc",
         "tier": "specialization",
@@ -342,7 +342,7 @@
           "Physical",
           "Fire"
         ],
-        "description": "Pisão de Guerra — Habilidade Especialista de orc_fighter."
+        "description": "戰爭踐踏——專精技能。"
       },
       "gameplay": {
         "castTime": 280,
@@ -495,7 +495,7 @@
     {
       "identity": {
         "id": "blood_frenzy",
-        "name": "Frenesi Sanguinário",
+        "name": "血之狂亂",
         "classId": "orc_fighter",
         "race": "orc",
         "tier": "elemental_specialization",
@@ -505,7 +505,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Frenesi Sanguinário — Habilidade Especialista de orc_fighter."
+        "description": "血之狂亂——專精技能。"
       },
       "gameplay": {
         "castTime": 320,
@@ -676,7 +676,7 @@
     {
       "identity": {
         "id": "worldbreaker_roar",
-        "name": "Worldbreaker Roar",
+        "name": "撼世咆哮",
         "classId": "orc_fighter",
         "race": "orc",
         "tier": "ultimate",
@@ -686,7 +686,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Worldbreaker Roar — Habilidade Ultimate (★★★★) de orc_fighter."
+        "description": "撼世咆哮——★★★★ 終極技能。"
       },
       "gameplay": {
         "castTime": 450,
@@ -872,7 +872,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "WORLDBREAKER ROAR!",
+          "text": "撼世咆哮！",
           "style": "gold_banner",
           "banner": true
         }
@@ -893,7 +893,7 @@
     {
       "identity": {
         "id": "master_worldbreaker_roar",
-        "name": "Master: Worldbreaker Roar",
+        "name": "大師：撼世咆哮",
         "classId": "orc_fighter",
         "race": "orc",
         "tier": "master_ultimate",
@@ -903,7 +903,7 @@
         "tags": [
           "Physical"
         ],
-        "description": "Master: Worldbreaker Roar — Habilidade Master Ultimate (★★★★★) de orc_fighter."
+        "description": "大師：撼世咆哮——★★★★★ 大師終極技能。"
       },
       "gameplay": {
         "castTime": 600,
@@ -1090,7 +1090,7 @@
         },
         "statusIcons": [],
         "announcement": {
-          "text": "MASTER: WORLDBREAKER ROAR!",
+          "text": "大師：撼世咆哮！",
           "style": "mythic_banner",
           "banner": true
         }

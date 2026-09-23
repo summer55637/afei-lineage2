@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Aden Arena — Homologação de Gameplay Interativa Real</title>
+  <title>亞丁競技場－真實互動玩法驗證</title>
   <style>
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #06080f; color: #d0d7de; padding: 20px; }
     h1 { color: #f0883e; font-size: 22px; border-bottom: 1px solid #21262d; padding-bottom: 8px; }
@@ -24,33 +24,33 @@
   </style>
 </head>
 <body>
-  <h1>Aden Arena: Homologação de Gameplay no Navegador Real (Edge Headless)</h1>
-  <div id="status-line">Inicializando motores de produção...</div>
+  <h1>亞丁競技場：真實瀏覽器玩法驗證（Edge 無頭模式）</h1>
+  <div id="status-line">正在初始化正式遊戲引擎……</div>
 
   <!-- Real Character Creation UI Form (exercised by Scenario 1) -->
   <div id="creation-ui-container">
-    <h3 style="color:#ffd877; margin-top:0;">Interface Real de Criação de Personagem (UI)</h3>
+    <h3 style="color:#ffd877; margin-top:0;">真實角色建立介面</h3>
     <form id="character-creation-form">
       <div>
-        <label>Nome: </label>
+        <label>名稱：</label>
         <input type="text" id="char-name-input" value="Tristan" maxlength="16" style="background:#161b22; color:#fff; border:1px solid #30363d; padding:4px 8px; border-radius:4px;" />
       </div>
       <div style="margin-top:8px;">
-        <label>Gênero: </label>
-        <button type="button" class="ui-btn active" id="gender-btn-M">♂️ Masculino</button>
-        <button type="button" class="ui-btn" id="gender-btn-F">♀️ Feminino</button>
+        <label>性別：</label>
+        <button type="button" class="ui-btn active" id="gender-btn-M">♂️ 男性</button>
+        <button type="button" class="ui-btn" id="gender-btn-F">♀️ 女性</button>
       </div>
       <div style="margin-top:8px;">
-        <label>Raça: </label>
+        <label>種族：</label>
         <div id="race-buttons-bar"></div>
       </div>
       <div style="margin-top:8px;">
-        <label>Classe: </label>
+        <label>職業：</label>
         <div id="class-buttons-bar"></div>
       </div>
       <div style="margin-top:12px;">
         <button type="submit" id="submit-create-hero" class="ui-btn" style="background:linear-gradient(180deg,#d4a744,#8a641c); color:#000; font-weight:bold; padding:8px 16px;">
-          ✨ Criar Personagem & Entrar em Aden
+          ✨ 建立角色並進入亞丁
         </button>
       </div>
     </form>
@@ -62,8 +62,8 @@
   <div id="scenarios-container"></div>
 
   <div id="summary-panel">
-    <h2>Relatório de Execução de Homologação Real</h2>
-    <pre id="gameplay-report-json">Executando...</pre>
+    <h2>真實驗證執行報告</h2>
+    <pre id="gameplay-report-json">執行中……</pre>
   </div>
 
   <script>
@@ -232,7 +232,7 @@
     // PASS 1: CENÁRIOS 1 A 7 + PREPARAÇÃO DO SAVE REAL (CENÁRIO 8) + RELOAD
     // ─────────────────────────────────────────────────────────────────────────────
     async function runPass1() {
-      document.getElementById('status-line').textContent = 'Executando Fase 1: Cenários 1 a 7 e Preparação de Save...';
+      document.getElementById('status-line').textContent = '正在執行第 1 階段：情境 1～7 與存檔準備……';
       const scenarioResults = [];
 
       // ─────────────────────────────────────────────────────────────
@@ -247,12 +247,12 @@
         { race: 'elf', classId: 'elven_fighter', canonicalId: 'elven_fighter', name: 'Faelar', desc: 'Elven Fighter (Original)' },
         { race: 'elf', classId: 'elven_mage', canonicalId: 'elven_mage', name: 'Aria', desc: 'Elven Mage (Original)' },
         { race: 'sylph', classId: 'sylphid', canonicalId: 'sylphid', name: 'Zephyr', desc: 'Sylphid (Sylph Gunner)' },
-        { race: 'human', classId: 'fighter', canonicalId: 'human_fighter', name: 'Tristan', desc: 'Human Fighter (Referência)' },
+        { race: 'human', classId: 'fighter', canonicalId: 'human_fighter', name: 'Tristan', desc: '人類戰士（參考）' },
         { race: 'human', classId: 'werewolf_0', canonicalId: 'werewolf_0', name: 'Fenrir', desc: 'Warg (CONTENT_GAP: V2_NODE_ABSENT)' },
-        { race: 'dwarf', classId: 'shineMakerBase', canonicalId: 'shineMakerBase', name: 'Gilded', desc: 'Shine Maker (CONTENT_GAP: V2_NODE_ABSENT, 0 skills)' },
+        { race: 'dwarf', classId: 'shineMakerBase', canonicalId: 'shineMakerBase', name: 'Gilded', desc: '光耀創造者學徒（內容缺口：第二版節點不存在，0 個技能）' },
         { race: 'highelf', classId: 'spirit_0', canonicalId: 'spirit_0', name: 'Solas', desc: 'High Elf Spirit (CONTENT_GAP: V2_NODE_ABSENT)' },
-        { race: 'ertheia', classId: 'marauderBase', canonicalId: 'marauderBase', name: 'Kael', desc: 'Marauder (CONTENT_GAP: UNPROVEN_PROVENANCE, 0 skills)' },
-        { race: 'ertheia', classId: 'sayhaMageBase', canonicalId: 'sayhaMageBase', name: 'Sylphie', desc: 'Sayha Mage (CONTENT_GAP: UNPROVEN_PROVENANCE, 0 skills)' }
+        { race: 'ertheia', classId: 'marauderBase', canonicalId: 'marauderBase', name: 'Kael', desc: '艾爾提亞戰士（內容缺口：來源未驗證，0 個技能）' },
+        { race: 'ertheia', classId: 'sayhaMageBase', canonicalId: 'sayhaMageBase', name: 'Sylphie', desc: '賽哈法師（內容缺口：來源未驗證，0 個技能）' }
       ];
 
       const creationSubResults = [];
@@ -301,13 +301,13 @@
       const allCreationPassed = creationSubResults.every(r => r.passed);
       scenarioResults.push({
         scenarioId: 'SCENARIO_1_INTERACTIVE_CREATION',
-        title: 'Criação de Personagem via Controles Reais da UI & Validação de Identidade Independente',
+        title: '透過真實介面控制建立角色與獨立身份驗證',
         type: 'UI_INTERACTION',
         status: allCreationPassed ? 'PASS' : 'FAIL',
-        initialState: 'Formulário de criação no DOM com inputs de texto, seletores de gênero, raça e classe',
-        actions: 'Simulação interativa de seleção de 12 classes (5 originais, sylphid, human_fighter e 5 CONTENT_GAP) e submit form',
-        expected: 'window.onCharacterCreated dispara applyStarterKit; raça e classe conferem com CANONICAL_CLASS_REGISTRY; 4 itens No-Grade e arma equipada',
-        observed: `12/12 classes criadas via UI (${creationSubResults.map(r => `${r.caseId} [Raça:${r.actualRace}]`).join(', ')})`,
+        initialState: 'DOM 角色建立表單，包含文字輸入以及性別、種族與職業選擇',
+        actions: '互動模擬選擇 12 個職業（5 個原始職業、sylphid、human_fighter 與 5 個 CONTENT_GAP），並提交表單',
+        expected: 'window.onCharacterCreated 觸發 applyStarterKit；種族與職業符合 CANONICAL_CLASS_REGISTRY；取得 4 件無等級物品並裝備武器',
+        observed: `已透過介面建立 12/12 個職業 (${creationSubResults.map(r => `${r.caseId} [種族：${r.actualRace}]`).join(', ')})`,
         details: creationSubResults,
         consoleErrorsCount: consoleErrors.length
       });
@@ -342,13 +342,13 @@
       const learningPassed = learnRes && skillLearned && spDeducted && (!learnFailRes) && spUnaffected;
       scenarioResults.push({
         scenarioId: 'SCENARIO_2_PRODUCTION_SKILL_LEARNING',
-        title: 'Aprendizado com Débito de SP via Motor de Produção (spendSP)',
+        title: '透過正式遊戲引擎學習技能並扣除技能點（spendSP）',
         type: 'DIRECT_SERVICE_CALL',
         status: learningPassed ? 'PASS' : 'FAIL',
-        initialState: `Human Fighter Lv 5 com ${spBefore} SP, power_strike nv 0`,
-        actions: 'Chamada a window.spendSP("power_strike") com 500 SP, seguido de tentativa com 0 SP',
-        expected: 'SP debitado pelo custo exato da habilidade, nível incrementado em state.skills, rejeição segura sem SP',
-        observed: `SP inicial: ${spBefore} -> SP final: ${spAfter} (debitado: ${spBefore - spAfter}). Rejeição com 0 SP: OK. Habilidade nível: ${st2.skills['power_strike']}`,
+        initialState: `人類戰士等級 5，擁有 ${spBefore} 技能點，power_strike 等級 0`,
+        actions: '以 500 技能點呼叫 window.spendSP("power_strike")，接著以 0 技能點再次嘗試',
+        expected: '依技能實際費用正確扣除技能點，state.skills 等級增加，技能點不足時安全拒絕',
+        observed: `初始技能點：${spBefore} → 最終技能點：${spAfter}（扣除：${spBefore - spAfter}）。0 技能點時拒絕：正常。技能等級：${st2.skills['power_strike']}`,
         consoleErrorsCount: consoleErrors.length
       });
 
@@ -382,13 +382,13 @@
       const loadoutPassed = activeEquipped && passiveRejectedByRule && foreignRejectedByRule;
       scenarioResults.push({
         scenarioId: 'SCENARIO_3_PRODUCTION_LOADOUT_EQUIP',
-        title: 'Equipamento de Habilidades no Loadout com Validação de Slot Desbloqueado e Bloqueio Específico de Passiva e Estrangeira',
+        title: '技能配置驗證：已解鎖欄位、被動技能與外來技能限制',
         type: 'DIRECT_SERVICE_CALL',
         status: loadoutPassed ? 'PASS' : 'FAIL',
-        initialState: 'Human Fighter Lv 40 (slots core1 e core2 desbloqueados), power_strike (ativa), weapon_mastery (passiva) e hydro_blast (estrangeira) aprendidas',
+        initialState: '人類戰士等級 40（core1、core2 已解鎖），已學會 power_strike（主動）、weapon_mastery（被動）與 hydro_blast（外來技能）',
         actions: 'equipSkill("core1", "power_strike"), equipSkill("core2", "weapon_mastery"), equipSkill("core2", "hydro_blast")',
-        expected: 'power_strike equipada; weapon_mastery rejeitada especificamente por ser passiva; hydro_blast rejeitada por não pertencer à progressão da classe',
-        observed: `Ativa equipada: ${activeEquipped}. Passiva bloqueada por regra: ${passiveRejectedByRule} (msg: "${equipPassiveRes.error}"). Estrangeira bloqueada por regra: ${foreignRejectedByRule} (msg: "${equipForeignRes.error}")`,
+        expected: '成功裝備 power_strike；weapon_mastery 因為是被動技能而被拒絕；hydro_blast 因不屬於職業進程而被拒絕',
+        observed: `主動技能已裝備：${activeEquipped}。被動技能依規則封鎖：${passiveRejectedByRule}（訊息：「${equipPassiveRes.error}」）。外來技能依規則封鎖：${foreignRejectedByRule}（訊息：「${equipForeignRes.error}」）`,
         consoleErrorsCount: consoleErrors.length
       });
 
@@ -397,11 +397,11 @@
       // Executa o ciclo de produção attackMonster() para todas as 5 classes CONTENT_GAP com monstro completo (xp, elite, gold)
       // ─────────────────────────────────────────────────────────────
       const combatGapClasses = [
-        { classId: 'shineMakerBase', race: 'dwarf', weapon: 'weapon_dwarven_mace', name: 'Shine Maker (0 skills)', hasSkills: false },
-        { classId: 'marauderBase', race: 'ertheia', weapon: 'weapon_knuckle_duster', name: 'Marauder (0 skills)', hasSkills: false },
-        { classId: 'sayhaMageBase', race: 'ertheia', weapon: 'weapon_apprentice_staff', name: 'Sayha Mage (0 skills)', hasSkills: false },
-        { classId: 'werewolf_0', race: 'human', weapon: 'weapon_broad_sword', name: 'Warg (1 skill: direct_strike)', hasSkills: true, skillId: 'direct_strike' },
-        { classId: 'spirit_0', race: 'highelf', weapon: 'weapon_apprentice_staff', name: 'High Elf Spirit (2 skills: fire_sphere)', hasSkills: true, skillId: 'fire_sphere' }
+        { classId: 'shineMakerBase', race: 'dwarf', weapon: 'weapon_dwarven_mace', name: '光耀創造者學徒（0 個技能）', hasSkills: false },
+        { classId: 'marauderBase', race: 'ertheia', weapon: 'weapon_knuckle_duster', name: '艾爾提亞戰士（0 個技能）', hasSkills: false },
+        { classId: 'sayhaMageBase', race: 'ertheia', weapon: 'weapon_apprentice_staff', name: '賽哈法師（0 個技能）', hasSkills: false },
+        { classId: 'werewolf_0', race: 'human', weapon: 'weapon_broad_sword', name: '狼人戰士（1 個技能：direct_strike）', hasSkills: true, skillId: 'direct_strike' },
+        { classId: 'spirit_0', race: 'highelf', weapon: 'weapon_apprentice_staff', name: '元素編織者學徒（2 個技能：fire_sphere）', hasSkills: true, skillId: 'fire_sphere' }
       ];
 
       const combatResults = [];
@@ -533,19 +533,19 @@
       const allCombatPassed = combatResults.every(r => r.passed);
       scenarioResults.push({
         scenarioId: 'SCENARIO_4_PRODUCTION_COMBAT_CONTENT_GAP',
-        title: 'Ciclo de Combate de Produção (attackMonster) & Confrontação de Eventos KILL com Crédito Efetivo no Estado',
+        title: '正式戰鬥循環（attackMonster）與擊殺事件實際狀態入帳驗證',
         type: 'DIRECT_SERVICE_CALL',
         status: allCombatPassed ? 'PASS' : 'FAIL',
-        initialState: '5 classes CONTENT_GAP enfrentando monstro Elite (XP 50, Elite=true, Gold=[15, 30])',
-        actions: 'attackMonster() até derrota, confronto com evento KILL, validação de delta XP/SP e teste de ausência de recompensa duplicada',
-        expected: 'Evento KILL disparado; crédito efetivo comprovado no estado (deltaXP >= 50, deltaSP > 0, kills +1); ausência de duplicação em tick subsequente',
-        observed: combatResults.map(r => `${r.classId}: dano=${r.damageDealt}, derrotou=${r.monsterDefeated}, eventKILL=${r.killEventFired}, deltaXP=${r.deltaXP}, deltaSP=${r.deltaSP}, creditState=${r.effectiveCreditProven}`).join(' | '),
+        initialState: '5 個 CONTENT_GAP 職業對戰菁英怪物（經驗值 50、Elite=true、金幣=[15, 30]）',
+        actions: '持續執行 attackMonster() 直到擊敗怪物，核對擊殺事件、經驗值／技能點差額，並測試是否沒有重複獎勵',
+        expected: '擊殺事件已觸發；狀態中確認實際入帳（deltaXP >= 50、deltaSP > 0、擊殺數 +1）；下一次更新不會重複發放獎勵',
+        observed: combatResults.map(r => `${r.classId}：傷害=${r.damageDealt}、擊敗=${r.monsterDefeated}、擊殺事件=${r.killEventFired}、經驗差額=${r.deltaXP}、技能點差額=${r.deltaSP}、狀態入帳=${r.effectiveCreditProven}`).join(' | '),
         details: combatResults,
         consoleErrorsCount: consoleErrors.length
       });
 
       // ─────────────────────────────────────────────────────────────
-      // CENÁRIO 5: Promoção de Classe Real pelo Fluxo de Produção (promoteClass & canAdvance)
+      // CENÁRIO 5: 透過正式流程進行職業晉升（promoteClass 與 canAdvance）
       // ─────────────────────────────────────────────────────────────
       charNameInput.value = 'PromoHero';
       currentSelectedRace = 'human';
@@ -569,13 +569,13 @@
       const promoPassed = canAdvanceWarrior && (!canAdvanceWizard) && promoResult && classAfterPromo === 'warrior' && (!invalidPromoResult);
       scenarioResults.push({
         scenarioId: 'SCENARIO_5_PRODUCTION_CLASS_PROMOTION',
-        title: 'Promoção de Classe Real pelo Fluxo de Produção (promoteClass & canAdvance)',
+        title: '透過正式流程進行職業晉升（promoteClass 與 canAdvance）',
         type: 'DIRECT_SERVICE_CALL',
         status: promoPassed ? 'PASS' : 'FAIL',
-        initialState: 'Human Fighter Lv 20 com 300 SP',
-        actions: 'Verificação canAdvance("warrior"), promoteClass("warrior"), tentativa inválida promoteClass("paladin")',
-        expected: 'Avanço permitido para warrior no DAG, classe atualizada, atributos base recalculados, promoção direta a paladin rejeitada',
-        observed: `canAdvance(warrior)=${canAdvanceWarrior}, canAdvance(wizard)=${canAdvanceWizard}, classe após promoção=${classAfterPromo}, rejeição paladin=${!invalidPromoResult}`,
+        initialState: '人類戰士等級 20，擁有 300 技能點',
+        actions: '驗證 canAdvance("warrior")、promoteClass("warrior")，以及無效的 promoteClass("paladin") 嘗試',
+        expected: 'DAG 允許晉升為 warrior，職業已更新、基礎屬性重新計算，直接晉升 paladin 被拒絕',
+        observed: `canAdvance(warrior)=${canAdvanceWarrior}、canAdvance(wizard)=${canAdvanceWizard}、晉升後職業=${classAfterPromo}、paladin 拒絕=${!invalidPromoResult}`,
         consoleErrorsCount: consoleErrors.length
       });
 
@@ -670,13 +670,13 @@
 
       scenarioResults.push({
         scenarioId: 'SCENARIO_6_SUBCLASS_12_DIMENSIONS_LIFECYCLE',
-        title: 'Ciclo de Subclasses nas Dimensões de Estado com Asserção Explícita de Certificações',
+        title: '副職業狀態維度循環與認證明確驗證',
         type: 'DIRECT_SERVICE_CALL',
         status: allDimsPassed ? 'PASS' : 'FAIL',
-        initialState: `Main: ${snapBefore.class} Lv ${snapBefore.level}, 2 subclasses e certificações configuradas`,
+        initialState: `主職業：${snapBefore.class} 等級 ${snapBefore.level}，已設定 2 個副職業與認證`,
         actions: 'switchSubclass(0) [Hawkeye] -> switchSubclass(1) [Sorcerer] -> switchSubclass(null) [Main]',
-        expected: 'Preservação de classe, nível, xp, sp, skills, loadout, equip, inv, hp, mp, buffs, cds e certificações na Main e subclasses',
-        observed: `Dimensões: class=${dim1_class}, lvl=${dim2_level}, xp=${dim3_xp}, sp=${dim4_sp}, skills=${dim5_skills}, loadout=${dim6_loadout}, equip=${dim7_equipment}, inv=${dim8_inventory}, hp=${dim9_hp}, mp=${dim10_mp}, buffs=${dim11_buffs}, cds=${dim12_cds}, certs=${dim13_certifications} (subA=${certsInSubA}, subB=${certsInSubB}, main=${certsOnMain})`,
+        expected: '主職業與副職業皆保留職業、等級、經驗值、技能點、技能、配置、裝備、背包、生命值、魔力、增益、冷卻與認證資料',
+        observed: `狀態維度：職業=${dim1_class}、等級=${dim2_level}、經驗值=${dim3_xp}、技能點=${dim4_sp}、技能=${dim5_skills}、配置=${dim6_loadout}、裝備=${dim7_equipment}、背包=${dim8_inventory}、生命值=${dim9_hp}、魔力=${dim10_mp}、增益=${dim11_buffs}、冷卻=${dim12_cds}、認證=${dim13_certifications}（副職業A=${certsInSubA}、副職業B=${certsInSubB}、主職業=${certsOnMain}）`,
         details: {
           dim1_class, dim2_level, dim3_xp, dim4_sp, dim5_skills, dim6_loadout,
           dim7_equipment, dim8_inventory, dim9_hp, dim10_mp, dim11_buffs, dim12_cds,
@@ -738,13 +738,13 @@
       const scenario7Passed = itemEquippedOnMain && foreignSkillBlocked && itemSoldFromInventory && goldReceived && slotResetToNull && noItemResurrection && noItemDuplication;
       scenarioResults.push({
         scenarioId: 'SCENARIO_7_FOREIGN_SKILL_AND_SOLD_ITEM_INTEGRITY',
-        title: 'Proteção contra Execução de Habilidade Estrangeira e Venda de Equipamento no Fluxo de Produção',
+        title: '外來技能執行防護與正式流程裝備出售驗證',
         type: 'DIRECT_SERVICE_CALL',
         status: scenario7Passed ? 'PASS' : 'FAIL',
-        initialState: 'Item equipado por UID na Main; troca para Subclasse A',
-        actions: 'Injeção de skill de Warrior no Hawkeye; registro de skills executadas; venda do item da Main por window.sellItem; retorno à Main',
-        expected: 'Habilidade estrangeira power_strike não executada; item vendido removido e slot redefinido para null sem duplicação',
-        observed: `Equipou por UID: ${itemEquippedOnMain}. Skills executadas: [${executedSkills.join(', ')}]. power_strike bloqueada: ${foreignSkillBlocked}. Venda por sellItem: ${itemSoldFromInventory} (ouro +${goldAfterSell - goldBeforeSell}). Slot na Main virou null: ${slotResetToNull}. Sem duplicação: ${noItemDuplication}`,
+        initialState: '主職業以 UID 裝備物品；切換至副職業 A',
+        actions: '將 Warrior 技能注入 Hawkeye；記錄實際執行技能；透過 window.sellItem 出售主職業物品；返回主職業',
+        expected: '外來技能 power_strike 未被執行；出售物品已移除，欄位重設為 null 且沒有重複物品',
+        observed: `以 UID 裝備：${itemEquippedOnMain}。已執行技能：[${executedSkills.join(', ')}]。power_strike 已封鎖：${foreignSkillBlocked}。透過 sellItem 出售：${itemSoldFromInventory}（金幣 +${goldAfterSell - goldBeforeSell}）。主職業欄位已變為 null：${slotResetToNull}。無重複：${noItemDuplication}`,
         details: { executedSkills, foreignSkillBlocked, itemSoldFromInventory, slotResetToNull, noItemDuplication },
         consoleErrorsCount: consoleErrors.length
       });
@@ -763,7 +763,7 @@
       sessionStorage.setItem('gameplay_homologation_pass1', JSON.stringify(scenarioResults));
       sessionStorage.setItem('gameplay_homologation_phase', 'pass2');
 
-      document.getElementById('status-line').textContent = 'Fase 1 concluída. Recarregando página efetivamente no navegador...';
+      document.getElementById('status-line').textContent = '第 1 階段完成。正在於瀏覽器中重新載入頁面……';
       window.location.search = '?pass=2';
     }
 
@@ -771,7 +771,7 @@
     // PASS 2: APÓS RECARGA EFETIVA DA PÁGINA (CENÁRIOS 8 E 9)
     // ─────────────────────────────────────────────────────────────────────────────
     async function runPass2() {
-      document.getElementById('status-line').textContent = 'Executando Fase 2: Pós-Recarga Efetiva (Cenários 8 e 9)...';
+      document.getElementById('status-line').textContent = '正在執行第 2 階段：重新載入後驗證（情境 8、9）……';
       sessionStorage.removeItem('gameplay_homologation_phase');
 
       let scenarioResults = [];
@@ -798,18 +798,18 @@
       const saveReloadPassed = hasStoredData && reloadParity;
       scenarioResults.push({
         scenarioId: 'SCENARIO_8_PRODUCTION_SAVE_AND_RELOAD',
-        title: 'Salvamento pelo Jogo, Recarga Efetiva da Página e Reconstrução pelo Carregador',
+        title: '遊戲存檔、實際重新載入頁面與載入器重建驗證',
         type: 'REAL_PAGE_RELOAD',
         status: saveReloadPassed ? 'PASS' : 'FAIL',
-        initialState: 'Personagem SavedHero Lv 45 salvo no localStorage antes da recarga real do navegador',
-        actions: 'Recarga efetiva da página pelo Edge Headless (pass=2); inicialização normal de bootstrap() e init()',
-        expected: 'Estado reconstruído fielmente a partir do localStorage na inicialização pós-recarga',
-        observed: `LocalStorage: ${hasStoredData} (${rawStored?.length || 0} bytes). Paridade pós-recarga: ${reloadParity} (Nome: ${reloadedState?.charName}, Nv: ${reloadedState?.level}, Ouro: ${reloadedState?.gold}, Skill: ${reloadedState?.skills?.['power_strike']})`,
+        initialState: '角色 SavedHero 等級 45 已在瀏覽器實際重新載入前儲存至 localStorage',
+        actions: '由 Edge 無頭模式實際重新載入頁面（pass=2）；正常執行 bootstrap() 與 init() 初始化',
+        expected: '重新載入後初始化時，從 localStorage 正確重建狀態',
+        observed: `localStorage：${hasStoredData}（${rawStored?.length || 0} 位元組）。重新載入後一致性：${reloadParity}（名稱：${reloadedState?.charName}、等級：${reloadedState?.level}、金幣：${reloadedState?.gold}、技能：${reloadedState?.skills?.['power_strike']}）`,
         consoleErrorsCount: consoleErrors.length
       });
 
       // ─────────────────────────────────────────────────────────────
-      // CENÁRIO 9: Gating Efetivo de Subclasses por Temporada (Configuração como Autoridade Única)
+      // CENÁRIO 9: 依賽季設定實際限制副職業（以設定為唯一依據）
       // ─────────────────────────────────────────────────────────────
       const st9 = getLiveState();
       st9.level = 75; // Nível 75 (suficiente para subclasses Lv 52+)
@@ -837,7 +837,7 @@
       renderSubclassesUI();
       const isSeason1SubUnlocked = isFeatureUnlocked('subclasses');
       const isSeason1MaxLvl = getSeasonMaxLevel();
-      const uiLockedInS1 = addSubBtn ? (addSubBtn.disabled === true && addSubBtn.textContent.includes('🔒 Bloqueado: Temporada 3')) : false;
+      const uiLockedInS1 = addSubBtn ? (addSubBtn.disabled === true && addSubBtn.textContent.includes('🔒 未開放：第 3 賽季')) : false;
       const opAttemptSeason1 = window.switchSubclass(0); // Deve retornar false
 
       // 2. Temporada 3 com funcionalidade EXPLICITAMENTE DESATIVADA na configuração (sem bypass por número de temporada)
@@ -851,7 +851,7 @@
 
       renderSubclassesUI();
       const isSeason3DisabledSubUnlocked = isFeatureUnlocked('subclasses');
-      const uiDisabledInS3 = addSubBtn ? (addSubBtn.disabled === true && addSubBtn.textContent.includes('🔒 Bloqueado: Temporada 3')) : false;
+      const uiDisabledInS3 = addSubBtn ? (addSubBtn.disabled === true && addSubBtn.textContent.includes('🔒 未開放：第 3 賽季')) : false;
       const opAttemptSeason3Disabled = window.switchSubclass(0); // Deve retornar false pois a configuração é autoridade única!
 
       // 3. Temporada 3 com funcionalidade ATIVADA na configuração
@@ -879,13 +879,13 @@
 
       scenarioResults.push({
         scenarioId: 'SCENARIO_9_SEASON_GATING_SERVICE_AND_UI',
-        title: 'Gating Efetivo de Subclasses por Temporada (Configuração como Autoridade Única)',
+        title: '依賽季設定實際限制副職業（以設定為唯一依據）',
         type: 'UI_AND_SERVICE',
         status: seasonGatingPassed ? 'PASS' : 'FAIL',
-        initialState: 'Personagem Lv 75 com quest Fate\'s Whisper concluída (nível suficiente para subclasses)',
-        actions: 'Avaliação de UI e operação na Temporada 1 vs Temporada 3 desativada na config vs Temporada 3 ativada na config',
-        expected: 'Configuração como autoridade única: desativada na Temporada 3 bloqueia UI e operação (retorna false); ativada libera ambos; Temporada 1 bloqueia',
-        observed: `T1: locked=${!isSeason1SubUnlocked}, op=${opAttemptSeason1}, uiLocked=${uiLockedInS1}. T3_Desativada: unlocked=${isSeason3DisabledSubUnlocked}, op=${opAttemptSeason3Disabled}, uiDisabled=${uiDisabledInS3}. T3_Ativada: unlocked=${isSeason3EnabledSubUnlocked}, op=${opAttemptSeason3Enabled}, uiEnabled=${uiEnabledInS3}.`,
+        initialState: '角色等級 75，已完成任務 Fate\'s Whisper（等級足以開啟副職業）',
+        actions: '比較第 1 賽季、第 3 賽季設定停用與第 3 賽季設定啟用時的介面與操作',
+        expected: '以設定為唯一依據：第 3 賽季停用時封鎖介面與操作（回傳 false）；啟用時兩者皆開放；第 1 賽季維持封鎖',
+        observed: `第1賽季：鎖定=${!isSeason1SubUnlocked}、操作=${opAttemptSeason1}、介面鎖定=${uiLockedInS1}。第3賽季停用：解鎖=${isSeason3DisabledSubUnlocked}、操作=${opAttemptSeason3Disabled}、介面停用=${uiDisabledInS3}。第3賽季啟用：解鎖=${isSeason3EnabledSubUnlocked}、操作=${opAttemptSeason3Enabled}、介面啟用=${uiEnabledInS3}。`,
         details: {
           season1: { isSeason1SubUnlocked, opAttemptSeason1, uiLockedInS1, isSeason1MaxLvl },
           season3Disabled: { isSeason3DisabledSubUnlocked, opAttemptSeason3Disabled, uiDisabledInS3 },
@@ -909,11 +909,11 @@
             <span class="scenario-title">[${res.type}] ${res.title}</span>
             <span class="scenario-badge ${badgeClass}">${res.status}</span>
           </div>
-          <div class="field-row"><span class="field-label">Estado Inicial:</span><span class="field-val">${res.initialState}</span></div>
-          <div class="field-row"><span class="field-label">Ações Reais:</span><span class="field-val">${res.actions}</span></div>
-          <div class="field-row"><span class="field-label">Resultado Esperado:</span><span class="field-val">${res.expected}</span></div>
-          <div class="field-row"><span class="field-label">Resultado Observado:</span><span class="field-val">${res.observed}</span></div>
-          <div class="field-row"><span class="field-label">Erros de Console:</span><span class="field-val">${res.consoleErrorsCount}</span></div>
+          <div class="field-row"><span class="field-label">初始狀態：</span><span class="field-val">${res.initialState}</span></div>
+          <div class="field-row"><span class="field-label">實際操作：</span><span class="field-val">${res.actions}</span></div>
+          <div class="field-row"><span class="field-label">預期結果：</span><span class="field-val">${res.expected}</span></div>
+          <div class="field-row"><span class="field-label">觀察結果：</span><span class="field-val">${res.observed}</span></div>
+          <div class="field-row"><span class="field-label">主控台錯誤：</span><span class="field-val">${res.consoleErrorsCount}</span></div>
         `;
         container.appendChild(card);
       }
@@ -930,14 +930,14 @@
       };
 
       document.getElementById('gameplay-report-json').textContent = JSON.stringify(report, null, 2);
-      document.getElementById('status-line').textContent = `HOMOLOGAÇÃO CONCLUÍDA: ${report.passedScenarios}/${report.totalScenarios} APROVADOS (${report.totalConsoleErrors} erros de console)`;
+      document.getElementById('status-line').textContent = `驗證完成：${report.passedScenarios}/${report.totalScenarios} 個情境通過（${report.totalConsoleErrors} 個主控台錯誤）`;
       document.title = 'HOMOLOGATION_COMPLETE_' + report.passedScenarios + '_OF_' + report.totalScenarios;
     }
 
     try {
       await runHomologationSuite();
     } catch (err) {
-      document.getElementById('status-line').textContent = 'FATAL ERROR IN SUITE: ' + err.message;
+      document.getElementById('status-line').textContent = '驗證套件發生致命錯誤：' + err.message;
       document.getElementById('gameplay-report-json').textContent = JSON.stringify({
         error: err.message,
         stack: err.stack,
