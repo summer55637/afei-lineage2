@@ -6946,9 +6946,9 @@ function syncAdminSeasonAndCapUI() {
     } else {
       const titles = {
         1: '編年史 I：覺醒（等級 40）',
-        2: '編年史 II：血盟與城堡（等級 75）',
-        3: '編年史 III：七封印（等級 85）',
-        4: '編年史 IV：High Five（等級 120）'
+        2: '編年史二：血盟與城堡（等級 75）',
+        3: '編年史三：七封印（等級 85）',
+        4: '編年史四：巔峰篇（等級 120）'
       };
       seasonBadge.textContent = `目前編年史：${titles[curSeason] || '階段 ' + curSeason}`;
       seasonBadge.style.color = '#38bdf8';
@@ -7026,9 +7026,9 @@ function setServerSeason(seasonId) {
 
   const seasonNames = {
     1: '編年史 I：亞丁覺醒',
-    2: '編年史 II：血盟與城堡時代',
-    3: '編年史 III：七封印與奧林匹亞',
-    4: '編年史 IV：巨龍之怒與多重世界'
+    2: '編年史二：血盟與城堡時代',
+    3: '編年史三：七封印與奧林匹亞',
+    4: '編年史四：巨龍之怒與多重世界'
   };
 
   log(`📜 [皇家編年史] ${seasonNames[sid] || '階段 ' + sid} 已啟用！所有分頁與系統已永久同步。`, 'rarity-legendary');
