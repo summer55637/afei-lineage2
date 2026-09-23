@@ -1890,7 +1890,7 @@ skills: [
     desc: '使用古代劍與靈魂力量的前線闇天使戰士。',
     base: { atk: 26, def: 14, hp: 170, mp: 52, eva: 10, crit: 10, mdef: 8 },
     skills: [
-      { name: "靈魂充能",         type: "Ativo",   rarity: "1★", effect: "累積靈魂點數 (+1 SP)", cooldown: "10s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "靈魂充能",         type: "Ativo",   rarity: "1★", effect: "累積靈魂點數 （+1 技能點）", cooldown: "10s", duration: null, note: "轉職後技能仍會保留" },
       { name: "雷電震擊",     type: "Ativo",   rarity: "1★", effect: "傷害 雷電 190% + 暈眩 1 秒", cooldown: "12s", duration: "1s", note: "轉職後技能仍會保留" },
       { name: "突進",                type: "Ativo",   rarity: "1★", effect: "突進 給目標 + 傷害 150%", cooldown: "12s", duration: null, note: "轉職後技能仍會保留" },
       { name: "三重突刺",       type: "Ativo",   rarity: "1★", effect: "傷害 180% (3 次命中)", cooldown: "12s", duration: null, note: "轉職後技能仍會保留" },
@@ -2002,7 +2002,7 @@ skills: [
       { name: "暈眩射擊",        type: "Ativo",   rarity: "2★", effect: "傷害 200% + 暈眩 2 秒", cooldown: "18s", duration: "2s", note: "轉職後技能仍會保留" },
       { name: "箭雨",       type: "Ativo",   rarity: "3★", effect: "範圍傷害 300%", cooldown: "22s", duration: null, note: "轉職後技能仍會保留" },
       { name: "快速射擊",       type: "Ativo",   rarity: "2★", effect: "+50% 攻擊速度 持續 15 秒", cooldown: "45s", duration: "15s", note: "轉職後技能仍會保留" },
-      { name: "靈魂充能",      type: "Ativo",   rarity: "1★", effect: "累積靈魂點數 (+1 SP)", cooldown: "10s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "靈魂充能",      type: "Ativo",   rarity: "1★", effect: "累積靈魂點數 （+1 技能點）", cooldown: "10s", duration: null, note: "轉職後技能仍會保留" },
       { name: "遠距射擊",        type: "Passivo", rarity: "2★", effect: "+30% 射程", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "專注",            type: "Passivo", rarity: "1★", effect: "+10% 暴擊率", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "暴擊威力",   type: "Passivo", rarity: "2★", effect: "+20% 暴擊威力", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
@@ -2278,7 +2278,7 @@ skills: [
       { name: "狙擊",              type: "Ativo",   rarity: "3★", effect: "傷害 380% 遠距 + 暴擊 加成", cooldown: "22s", duration: null, note: "轉職後技能仍會保留" },
       { name: "快速射擊",         type: "Ativo",   rarity: "2★", effect: "+50% 攻擊速度 持續 15 秒", cooldown: "45s", duration: "15s", note: "轉職後技能仍會保留" },
       { name: "爆裂射擊",     type: "Ativo",   rarity: "2★", effect: "範圍傷害 280%", cooldown: "18s", duration: null, note: "轉職後技能仍會保留" },
-      { name: "連鎖射擊",         type: "Ativo",   rarity: "2★", effect: "傷害 260% + 重置 快速射擊 CD", cooldown: "16s", duration: null, note: "轉職後技能仍會保留" },
+      { name: "連鎖射擊",         type: "Ativo",   rarity: "2★", effect: "傷害 260% + 重置 快速射擊冷卻時間", cooldown: "16s", duration: null, note: "轉職後技能仍會保留" },
       { name: "瞄準射擊",         type: "Ativo",   rarity: "3★", effect: "傷害 340% + 無視 防禦力", cooldown: "20s", duration: null, note: "轉職後技能仍會保留" },
       { name: "風精靈恩典",      type: "Passivo", rarity: "2★", effect: "+15% 迴避, +10% 移動速度", cooldown: null, duration: null, note: "轉職後技能仍會保留" },
       { name: "風之狙擊手和諧", type: "Self-Buff", rarity: "3★", effect: "+35% 攻擊力, +25% 暴擊, +20% 射程 持續 25 分鐘", cooldown: "60 min", duration: "25 min", note: "轉職後技能仍會保留" }
