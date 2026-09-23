@@ -515,7 +515,7 @@ export async function reserveCharacterNameAndCreate(
       return { success: false, reason: `名稱「${characterData.charName}」已被其他角色使用。` };
     }
     console.warn('[reserveCharacterNameAndCreate] Transação falhou:', err);
-    return { success: false, reason: err?.message || '登錄角色名稱時發生錯誤。' };
+    return { success: false, reason: '登錄角色名稱時發生錯誤，請稍後再試。' };
   }
 }
 
