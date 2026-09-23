@@ -180,7 +180,7 @@ describe('🏛️ Canonical Cloud Firestore Database & Player Identity Architect
   it('Gate 8: Relationship Invariants — Disallows self-friending and self-mentoring', () => {
     const selfCheck = EntityValidator.validateRelationship('char_same_01', 'char_same_01');
     assert.strictEqual(selfCheck.valid, false);
-    assert.ok(selfCheck.reason.includes('Auto-relacionamento'));
+    assert.ok(selfCheck.reason.includes('禁止自我關聯'));
 
     const diffCheck = EntityValidator.validateRelationship('char_a', 'char_b');
     assert.strictEqual(diffCheck.valid, true);
