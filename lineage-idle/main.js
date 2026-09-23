@@ -427,11 +427,72 @@ const TIER_NAMES = ['基礎', '修練', '精通', '昇華', '傳奇'];
 // --------------------------- STATE ---------------------------
 let state = getState();
 // GM access is intentionally local-only on the public single-player build.
-// A private browser-side test helper may set currentUserIsAdmin for local testing.
+// The private chat unlock phrase is never stored as plaintext; only its SHA-256 digest is public.
+const LOCAL_GM_SESSION_KEY = 'afei_local_gm_session_v1';
+const LOCAL_GM_COMMAND_SHA256 = '03211a9223d6282b59c4724dc94fbfae67ef4695540d8aeb790146b2cbe3882e';
+
+function isLocalGMSessionUnlocked() {
+  if (typeof window === 'undefined' || typeof sessionStorage === 'undefined') return false;
+  try {
+    return sessionStorage.getItem(LOCAL_GM_SESSION_KEY) === '1';
+  } catch (_) {
+    return false;
+  }
+}
+
+async function hashLocalGMCommand(value) {
+  if (typeof globalThis.crypto === 'undefined' || !globalThis.crypto.subtle || typeof TextEncoder === 'undefined') {
+    return '';
+  }
+  const bytes = new TextEncoder().encode(String(value || '').trim().toLowerCase());
+  const digest = await globalThis.crypto.subtle.digest('SHA-256', bytes);
+  return Array.from(new Uint8Array(digest), b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function setLocalGMSession(unlocked) {
+  try {
+    if (typeof sessionStorage !== 'undefined') {
+      if (unlocked) sessionStorage.setItem(LOCAL_GM_SESSION_KEY, '1');
+      else sessionStorage.removeItem(LOCAL_GM_SESSION_KEY);
+    }
+  } catch (_) {}
+
+  if (typeof window !== 'undefined') {
+    window.currentUserIsAdmin = !!unlocked;
+    window.currentUserPrivilege = unlocked ? 1 : 0;
+  }
+
+  state.privilegeLevel = unlocked ? 1 : 0;
+
+  const adminBtn = el('admin-top-btn');
+  if (adminBtn) adminBtn.style.display = unlocked ? 'inline-flex' : 'none';
+
+  if (!unlocked) {
+    const modal = el('admin-modal');
+    if (modal) modal.classList.remove('active');
+  }
+}
+
+async function tryToggleLocalGMByChat(raw) {
+  const digest = await hashLocalGMCommand(raw);
+  if (!digest || digest !== LOCAL_GM_COMMAND_SHA256) return false;
+
+  const nextUnlocked = !isLocalGMSessionUnlocked();
+  setLocalGMSession(nextUnlocked);
+
+  if (nextUnlocked) {
+    openAdminModal();
+    log('🧪 GM 測試模式已開啟。', 'rarity-legendary');
+  } else {
+    log('🔒 GM 測試模式已關閉。', 'system');
+  }
+  return true;
+}
+
 function isAuthorizedAdmin() {
   if (typeof window === 'undefined') return false;
 
-  if (window.currentUserIsAdmin === true) return true;
+  if (window.currentUserIsAdmin === true || isLocalGMSessionUnlocked()) return true;
 
   // Explicit opt-in remains available only for local developer builds.
   if (typeof import.meta !== 'undefined' && import.meta.env?.DEV && import.meta.env?.VITE_ENABLE_DEV_ADMIN === 'true') {
@@ -6477,10 +6538,13 @@ function applyAdminLevelChange(targetLevel) {
   save(true, true);
 }
 
-function handleChatSubmit(inputStr) {
+async function handleChatSubmit(inputStr) {
   if (!inputStr || !inputStr.trim()) return;
   const raw = inputStr.trim();
   const lower = raw.toLowerCase();
+
+  // Private local GM toggle. The phrase is intercepted here and never reaches world chat.
+  if (await tryToggleLocalGMByChat(raw)) return;
 
   const isAdminCmd = lower.startsWith('//') || lower === '/admin' || lower === 'admin' || lower === 'gm' || lower === '//gm';
   if (isAdminCmd) {
