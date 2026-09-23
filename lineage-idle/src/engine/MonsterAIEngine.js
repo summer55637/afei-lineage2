@@ -362,7 +362,7 @@ export const MonsterAIEngine = {
       monster.hp = Math.min(monster._maxHp, monster.hp + healAmt);
       result.events.push({
         type: 'heal',
-        floatText: `✨ +${healAmt} HP（治療）`,
+        floatText: `✨ +${healAmt} 生命值（治療）`,
         floatStyle: 'sf-heal',
         log: `✨ **${monster.name}** 施展薩滿儀式，恢復 ${healAmt} 生命值！`
       });
