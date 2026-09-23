@@ -1548,11 +1548,11 @@ function useItem(uid) {
       state.currentZone = town;
       state.lastHuntingZone = town;
       const zn = el('zone-name');
-      if (zn) zn.textContent = ZONES[state.zone]?.name || town;
+      if (zn) zn.textContent = ZONES[state.zone]?.name || '未知城鎮';
       stopCombat();
       setTimeout(startCombat, 300);
     }
-    log(`使用 ${def.name}：已返回 ${ZONES[town]?.name || town}，生命值與魔力完全恢復。`, 'heal');
+    log(`使用 ${def.name}：已返回 ${ZONES[town]?.name || '未知城鎮'}，生命值與魔力完全恢復。`, 'heal');
     updateAllUI();
   } else if (def.type === 'elixir_vigor' || item.itemId === 'elixir_vigor_1h') {
     applyBuff('xpBoost', 0.30, 3600);
@@ -5298,7 +5298,7 @@ function processMonsterDefeat(monster, killingSkill = null) {
   state.stats.monstersKilled = (state.stats.monstersKilled || 0) + 1;
 
   if (overhitBonusPct > 0) {
-    log(`💥 **過量傷害！** 使用 **${killingSkill.def?.name || killingSkill.name}** 完成致命一擊！獲得 **+${overhitBonusPct}% 經驗值／技能點** 額外獎勵！`, 'rarity-legendary', 'gold_xp');
+    log(`💥 **過量傷害！** 使用 **${killingSkill.def?.name || '未知技能'}** 完成致命一擊！獲得 **+${overhitBonusPct}% 經驗值／技能點** 額外獎勵！`, 'rarity-legendary', 'gold_xp');
     if (typeof floatText === 'function') {
       floatText(`💥 過量傷害！（+${overhitBonusPct}% 經驗值）`, 'float-jackpot');
     }
