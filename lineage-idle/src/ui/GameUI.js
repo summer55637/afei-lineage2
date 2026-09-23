@@ -5088,9 +5088,7 @@ function renderStoreBuyTab(state, callbacks) {
 
   const gData = D();
   const allItems = gData?.ALL_ITEMS || {};
-  const charLvl = state.level || 1;
-  const maxTier = getMaxVisibleGradeTier(charLvl);
-
+  // 商店限制已取消：商品顯示不再依角色等級／品級分層。
   let itemsToDisplay = [];
   const isMystic = (_activeStoreCategory === 'others' && _activeStoreSubcategory === 'mystic');
 
@@ -5106,7 +5104,6 @@ function renderStoreBuyTab(state, callbacks) {
     itemsToDisplay = Object.values(allItems).filter(def => {
       if (!def || !def.id) return false;
       if (!matchesShopCategory(def, _activeStoreCategory, _activeStoreSubcategory)) return false;
-      if (getItemTierNum(def) > maxTier) return false;
       return true;
     }).map(def => ({ def, rarity: 'common' }));
   }
@@ -5149,17 +5146,14 @@ function renderStoreBuyTab(state, callbacks) {
   } else {
     itemsContainer.innerHTML = itemsToDisplay.map(({ def, rarity }) => {
       const gradeInfo = getItemGrade(def);
-      const reqLvl = def.req?.level || def.reqLvl || 1;
-      const isLvlOk = charLvl >= reqLvl;
       const price = isMystic ? Math.floor((def.price || 500) * (gData?.RARITY?.[rarity]?.mult || 1) * 2) : (def.price || 100);
       const stats = buildShopStatsSummary(def);
-      const tooltip = `${def.name} [${gradeInfo.label}]\n${stats ? stats + '\n' : ''}價格：${price.toLocaleString()} 金幣${!isLvlOk ? `\n🔒 需要等級 ${reqLvl}` : ''}`;
+      const tooltip = `${def.name} [${gradeInfo.label}]\n${stats ? stats + '\n' : ''}價格：${price.toLocaleString()} 金幣`;
 
       return `
-        <div class="l2store-slot ${!isLvlOk ? 'locked' : ''}" data-add-cart="${def.id}" data-rarity="${rarity}" title="${tooltip}">
+        <div class="l2store-slot" data-add-cart="${def.id}" data-rarity="${rarity}" title="${tooltip}">
           <span class="l2store-slot-grade grade-${gradeInfo.code}">${gradeInfo.code.toUpperCase() === 'NG' ? '無級' : gradeInfo.code.toUpperCase()}</span>
           ${getItemIcon(def)}
-          ${!isLvlOk ? `<div style="position:absolute; inset:0; background:rgba(0,0,0,0.65); display:flex; align-items:center; justify-content:center; font-size:9px; color:#f87171; font-weight:bold; font-family:'IBM Plex Mono',monospace;">等級 ${reqLvl}</div>` : ''}
         </div>
       `;
     }).join('');
@@ -5168,7 +5162,7 @@ function renderStoreBuyTab(state, callbacks) {
   // Ação de clique no slot para adicionar ao carrinho
   itemsContainer.onclick = (e) => {
     const slotEl = e.target.closest('[data-add-cart]');
-    if (!slotEl || slotEl.classList.contains('locked')) return;
+    if (!slotEl) return;
     const itemId = slotEl.dataset.addCart;
     const rarity = slotEl.dataset.rarity || 'common';
     const def = allItems[itemId];
