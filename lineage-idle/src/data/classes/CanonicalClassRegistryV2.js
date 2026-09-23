@@ -693,7 +693,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "assassinS2": {
         "id": "assassinS2",
-        "name": "解鎖暗影系統的刺客。",
+        "name": "刺客",
         "lineageId": "assassinS3",
         "lineageName": "Assassin",
         "stage": 2,
@@ -712,7 +712,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "assassinS3": {
         "id": "assassinS3",
-        "name": "至高刺客——以致命暗影進行瞬間處決。",
+        "name": "刺客",
         "lineageId": "assassinS3",
         "lineageName": "Assassin",
         "stage": 3,
@@ -959,7 +959,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elvenWizard": {
         "id": "elvenWizard",
-        "name": "精通元素魔法的精靈巫師。保留先前學會的技能。",
+        "name": "精靈巫師",
         "lineageId": "mysticMuse",
         "lineageName": "Mystic Muse",
         "stage": 1,
@@ -967,7 +967,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "elfMage",
-        "desc": "咒術詩人",
+        "desc": "精通元素魔法的精靈巫師。保留先前學會的技能。",
         "skillIds": [
             "aqua_swirl",
             "concentration",
@@ -978,7 +978,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "spellsinger": {
         "id": "spellsinger",
-        "name": "以水與風魔法為主的咒術詩人。保留先前學會的技能。",
+        "name": "咒術詩人",
         "lineageId": "mysticMuse",
         "lineageName": "Mystic Muse",
         "stage": 2,
@@ -986,7 +986,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "elvenWizard",
-        "desc": "神秘繆思",
+        "desc": "以水與風魔法為主的咒術詩人。保留先前學會的技能。",
         "skillIds": [
             "hydro_blast",
             "freezing_skin",
@@ -1054,7 +1054,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elfOracle": {
         "id": "elfOracle",
-        "name": "精靈族的治癒神使。保留先前學會的技能。",
+        "name": "神使",
         "lineageId": "evaSaint",
         "lineageName": "Eva's Saint",
         "stage": 1,
@@ -1062,7 +1062,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 20,
         "maxLevel": 39,
         "parentClass": "elfMage",
-        "desc": "長老",
+        "desc": "精靈族的治癒神使。保留先前學會的技能。",
         "skillIds": [
             "divine_strike",
             "heal",
@@ -1073,7 +1073,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "elfElder": {
         "id": "elfElder",
-        "name": "精靈族的治療與增益職業長老。保留先前學會的技能。",
+        "name": "長老",
         "lineageId": "evaSaint",
         "lineageName": "Eva's Saint",
         "stage": 2,
@@ -1081,7 +1081,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
         "minLevel": 40,
         "maxLevel": 75,
         "parentClass": "elfOracle",
-        "desc": "伊娃聖者",
+        "desc": "精靈族的治療與增益職業長老。保留先前學會的技能。",
         "skillIds": [
             "greater_heal",
             "purify",
@@ -1092,7 +1092,7 @@ export const CANONICAL_CLASS_REGISTRY_V2 = Object.freeze({
     },
     "evaSaint": {
         "id": "evaSaint",
-        "name": "伊娃的至高聖者，精靈族最高階治癒職業。保留先前學會的技能。",
+        "name": "伊娃聖者",
         "lineageId": "evaSaint",
         "lineageName": "Eva's Saint",
         "stage": 3,
