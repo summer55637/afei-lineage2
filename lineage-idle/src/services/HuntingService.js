@@ -560,8 +560,8 @@ export const HuntingService = {
     if (callbacks.log) {
       callbacks.log(
         hState.autoHunting
-          ? '🐾 **自動狩獵（AFK）已啟用！**獵人將持續追蹤獵物並取得獸皮。'
-          : '⏸️ **自動狩獵（AFK）已暫停。**',
+          ? '🐾 **自動狩獵已啟用！**獵人將持續追蹤獵物並取得獸皮。'
+          : '⏸️ **自動狩獵已暫停。**',
         'system'
       );
     }
