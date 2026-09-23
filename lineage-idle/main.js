@@ -2406,7 +2406,7 @@ function showSkillTooltip(skillId, e) {
   const lvl = state.skills[skillId] || 0;
   const max = def.max || def.maxLevel || 5;
   const reqs = SKILL_REQS[skillId];
-  const reqText = reqs ? Object.entries(reqs).map(([s, v]) => `${SKILL_DEFS[s]?.name || s} ${v}`).join(', ') : '無';
+  const reqText = reqs ? Object.entries(reqs).map(([s, v]) => `${SKILL_DEFS[s]?.name || '未知前置技能'} ${v}`).join(', ') : '無';
   const tier = TIER_NAMES[def.tier] || '';
 
   const iconData = getSkillIcon(skillId, def);
