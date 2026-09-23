@@ -402,7 +402,7 @@ export function renderFishingUI(state) {
           <span style="font-size:24px;">${fDef.icon}</span>
           <div>
             <div style="font-family:'Cinzel',serif; font-size:12px; font-weight:bold; color:#f8fafc;">
-              ${fDef.name} <span style="font-size:10px; color:${rarityBadgeColor}; text-transform:uppercase;">[${({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話' })[String(fDef.rarity || 'common').toLowerCase()] || fDef.rarity || '一般'}]</span>
+              ${fDef.name} <span style="font-size:10px; color:${rarityBadgeColor}; text-transform:uppercase;">[${({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話' })[String(fDef.rarity || 'common').toLowerCase()] || '一般'}]</span>
             </div>
             <div style="font-size:10px; color:#cbd5e1;">
               持有：<strong style="color:#38bdf8;">${count}×</strong> | 兌換：<strong>${rate}×</strong> ➔ <span style="color:#ffd700; font-weight:bold;">1× ${fDef.materialName}</span>
