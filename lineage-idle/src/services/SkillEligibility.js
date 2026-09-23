@@ -673,10 +673,10 @@ export function resolveSkillDef(skillOrId) {
   if (nativeDef) return nativeDef;
 
   if (SHARED_MAGE_SKILL_IDS.includes(sId)) {
-    return { id: sId, name: sId, type: 'magic', reqLvl: 1, availableTo: ['mage', 'wizard', 'cleric', 'oracle', 'shaman'] };
+    return { id: sId, name: ({ wind_strike: '風之打擊', flame_strike: '火焰打擊', hydro_strike: '水之打擊', heal_light: '光之治癒', ice_bolt: '冰箭術' })[sId] || '共通魔法技能', type: 'magic', reqLvl: 1, availableTo: ['mage', 'wizard', 'cleric', 'oracle', 'shaman'] };
   }
   if (SHARED_FIGHTER_SKILL_IDS.includes(sId)) {
-    return { id: sId, name: sId, type: 'physical', reqLvl: 1, availableTo: ['fighter', 'warrior', 'knight', 'rogue'] };
+    return { id: sId, name: ({ power_strike: '力量打擊', mortal_blow: '致命一擊', iron_punch: '鐵拳', energy_burst: '能量爆發', power_shot: '強力射擊' })[sId] || '共通戰鬥技能', type: 'physical', reqLvl: 1, availableTo: ['fighter', 'warrior', 'knight', 'rogue'] };
   }
 
   return null;
