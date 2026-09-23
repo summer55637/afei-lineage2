@@ -2539,16 +2539,13 @@ function updateCraftUI() {
 function shopRow(def, id, price, extra = '') {
   const canAfford = state.gold >= price; 
   const statsLine = buildStatLine(def);
-  const lockLvl = def.req && def.req.level > state.level; 
-  const lockCls = def.classReq && def.classReq !== state.class;
-  const lockReason = lockLvl ? `等級 ${def.req.level}` : lockCls ? `需要 ${getClass(def.classReq)?.name}` : '';
   const row = mkEl('div'); 
-  row.className = 'shop-item' + (lockLvl || lockCls ? ' locked' : '');
+  row.className = 'shop-item';
 
   const isStackable = def.slot === 'consumable' || def.slot === 'scroll' || def.slot === 'powerup' || def.stack;
 
   let buyActionHtml = '';
-  if (isStackable && !lockLvl && !lockCls) {
+  if (isStackable) {
     buyActionHtml = `
       <div class="shop-bulk-actions">
         <button class="item-action" data-buy="${id}" data-qty="1" ${state.gold < price ? 'disabled' : ''}>1×（${price} 金幣）</button>
@@ -2558,10 +2555,10 @@ function shopRow(def, id, price, extra = '') {
       </div>
     `;
   } else {
-    buyActionHtml = `<button class="item-action" data-buy="${id}" data-qty="1" ${(!canAfford || lockLvl || lockCls) ? 'disabled' : ''}>${price.toLocaleString()} 金幣</button>`;
+    buyActionHtml = `<button class="item-action" data-buy="${id}" data-qty="1" ${!canAfford ? 'disabled' : ''}>${price.toLocaleString()} 金幣</button>`;
   }
 
-  row.innerHTML = `<div class="item-info"><div class="item-name">${def.name}${def.tier ? ' <span class="tier-tag">第 '+def.tier+' 階</span>' : ''}</div><div class="item-desc">${def.desc || ''}</div>${statsLine ? `<div class="item-stats">${statsLine}</div>` : ''}${lockReason ? `<div class="lock-reason">🔒 ${lockReason}</div>` : ''}</div>${buyActionHtml}${extra}`;
+  row.innerHTML = `<div class="item-info"><div class="item-name">${def.name}${def.tier ? ' <span class="tier-tag">第 '+def.tier+' 階</span>' : ''}</div><div class="item-desc">${def.desc || ''}</div>${statsLine ? `<div class="item-stats">${statsLine}</div>` : ''}</div>${buyActionHtml}${extra}`;
   return row;
 }
 
@@ -2577,7 +2574,7 @@ function renderShopGear(list) {
   let count = 0;
   for (const shopItem of items) { 
     const def = D().ALL_ITEMS[shopItem.id]; 
-    if (!def || def.slot === 'consumable' || def.slot === 'scroll' || def.slot === 'powerup' || def.classReq) continue; 
+    if (!def || def.slot === 'consumable' || def.slot === 'scroll' || def.slot === 'powerup') continue; 
     list.appendChild(shopRow(def, shopItem.id, def.price)); 
     count++; 
   }
@@ -2587,7 +2584,7 @@ function renderShopPotions(list) {
   const zone = ZONES[state.zone], shopId = zone?.shop, items = shopId ? D().SHOP_INVENTORY[shopId] : null;
   const base = ['soulshot_ng','spiritshot_ng','hp_potion_s','hp_potion_m','hp_potion_l','hp_potion_xl','mp_potion_s','mp_potion_m','mp_potion_l','mp_potion_xl','antidote','scroll_of_resurrection','scroll_of_rebirth','spellbook_1star','spellbook_2star','spellbook_3star','spellbook_4star'];
   const shown = new Set(), list2 = [...base, ...(items || []).map(i => i.id)]; let count = 0;
-  for (const id of list2) { if (shown.has(id)) continue; const def = D().ALL_ITEMS[id]; if (!def || (def.slot !== 'consumable' && def.slot !== 'scroll') || (def.req && def.req.level > state.level)) continue; shown.add(id); list.appendChild(shopRow(def, id, def.price)); count++; }
+  for (const id of list2) { if (shown.has(id)) continue; const def = D().ALL_ITEMS[id]; if (!def || (def.slot !== 'consumable' && def.slot !== 'scroll')) continue; shown.add(id); list.appendChild(shopRow(def, id, def.price)); count++; }
   if (!count) list.innerHTML = '<p class="shop-empty">目前沒有藥水庫存。</p>';
 }
 function renderShopPowerups(list) {
@@ -2636,13 +2633,11 @@ function renderShopMystic(list) {
     const price = Math.floor((def.price || 500) * rMult * 2);
     const cloned = D().rollItemWithRarity(pick.id, pick.rarity);
     const canAfford = state.gold >= price;
-    const lockLvl = def.req && def.req.level > state.level;
-    const lockCls = def.classReq && def.classReq !== state.class;
     const row = mkEl('div');
-    row.className = `shop-item rarity-${pick.rarity}` + (lockLvl || lockCls ? ' locked' : '');
+    row.className = `shop-item rarity-${pick.rarity}`;
     const statsLine = buildStatLine(cloned);
     const rLabel = D().RARITY?.[pick.rarity]?.name || ({ common: '一般', uncommon: '非凡', rare: '稀有', epic: '史詩', legendary: '傳說', mythic: '神話', primordial: '太古', sovereign: '君王' })[String(pick.rarity || 'common').toLowerCase()] || '一般';
-    row.innerHTML = `<div class="item-info"><div class="item-name rarity-${pick.rarity}">${def.name} <span class="rarity-tag">${rLabel}</span></div><div class="item-desc">${def.desc || ''}</div>${statsLine ? `<div class="item-stats">${statsLine}</div>` : ''}</div><button class="item-action mystic-buy" data-buy-rarity="${pick.id}" data-rarity="${pick.rarity}" ${(!canAfford || lockLvl || lockCls) ? 'disabled' : ''}>${price.toLocaleString()} 金幣</button>`;
+    row.innerHTML = `<div class="item-info"><div class="item-name rarity-${pick.rarity}">${def.name} <span class="rarity-tag">${rLabel}</span></div><div class="item-desc">${def.desc || ''}</div>${statsLine ? `<div class="item-stats">${statsLine}</div>` : ''}</div><button class="item-action mystic-buy" data-buy-rarity="${pick.id}" data-rarity="${pick.rarity}" ${!canAfford ? 'disabled' : ''}>${price.toLocaleString()} 金幣</button>`;
     list.appendChild(row);
   }
 
